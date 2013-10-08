@@ -1,0 +1,4 @@
+name: Your New Jekyll Site
+excerpt_separator: ""
+markdown: redcarpet
+pygments: true
