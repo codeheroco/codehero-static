@@ -1,0 +1,16 @@
+---
+layout: nav_menu_item
+status: publish
+published: true
+author: Oscar González
+author_login: oscar
+author_email: gonzalezgreco@gmail.com
+author_url: http://www.oscarvgg.com
+wordpress_id: 1581
+wordpress_url: http://codehero.co/?p=1581
+date: 2013-07-21 19:23:11.000000000 -04:30
+categories: []
+tags: []
+comments: []
+---
+Django es un framework web de alto nivel hecho en python que fomenta el desarrollo rápido de aplicaciones. En esta serie usted aprenderás todo lo básico, incluyendo el trabajo con vistas, plantillas, ORM, e incluso algunas de las características más potentes del framework. Al terminar este curso, tendrás todo lo que necesitas para desarrollar tus propios sitios web y aplicaciones!

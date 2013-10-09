@@ -1,0 +1,24 @@
+---
+layout: page
+status: publish
+published: true
+title: Series
+author: Oscar González
+author_login: oscar
+author_email: gonzalezgreco@gmail.com
+author_url: http://www.oscarvgg.com
+wordpress_id: 1540
+wordpress_url: http://codehero.co/?page_id=1540
+date: 2013-07-21 13:09:00.000000000 -04:30
+categories: []
+tags: []
+comments:
+- id: 208
+  author: ActiveRecord Validaciones | CODEHERO
+  author_email: ''
+  author_url: http://codehero.co/activerecord-validaciones/
+  date: '2013-09-20 00:01:26 -0430'
+  date_gmt: '2013-09-20 04:31:26 -0430'
+  content: '[&#8230;] Series [&#8230;]'
+---
+

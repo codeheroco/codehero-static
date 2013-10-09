@@ -1,4 +1,8 @@
-name: Your New Jekyll Site
-excerpt_separator: ""
+timezone: America/Caracas
+name: Codehero blog.
 markdown: redcarpet
+future: false
 pygments: true
+host: 0.0.0.0
+port: 3000
+

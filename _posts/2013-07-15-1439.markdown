@@ -1,0 +1,16 @@
+---
+layout: nav_menu_item
+status: publish
+published: true
+author: Oscar González
+author_login: oscar
+author_email: gonzalezgreco@gmail.com
+author_url: http://www.oscarvgg.com
+wordpress_id: 1439
+wordpress_url: http://codehero.co/?p=1439
+date: 2013-07-15 22:12:02.000000000 -04:30
+categories: []
+tags: []
+comments: []
+---
+ 

@@ -1,0 +1,16 @@
+---
+layout: nav_menu_item
+status: publish
+published: true
+author: Oscar González
+author_login: oscar
+author_email: gonzalezgreco@gmail.com
+author_url: http://www.oscarvgg.com
+wordpress_id: 1579
+wordpress_url: http://codehero.co/?p=1579
+date: 2013-07-21 19:23:11.000000000 -04:30
+categories: []
+tags: []
+comments: []
+---
+iOS es el sistema operativo que corren los iPhone, iPad y iPod Touch. En esta serie aprenderás a desarrollar aplicaciones para esta plataforma utilizando el SDK nativo. A medida que vayamos avanzando elaboraremos varias aplicaciones para ilustrar los procesos básicos y técnicas de programación fundamentales para tu formación como desarrollador iOS.

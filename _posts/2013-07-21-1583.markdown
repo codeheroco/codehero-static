@@ -1,0 +1,16 @@
+---
+layout: nav_menu_item
+status: publish
+published: true
+author: Oscar González
+author_login: oscar
+author_email: gonzalezgreco@gmail.com
+author_url: http://www.oscarvgg.com
+wordpress_id: 1583
+wordpress_url: http://codehero.co/?p=1583
+date: 2013-07-21 19:23:11.000000000 -04:30
+categories: []
+tags: []
+comments: []
+---
+PHP es el lenguaje más utilizado de la web. Así que es hora de mejorar tus conocimientos de construcción de páginas web en html y css, incluyendo dinamísmo. En esta serie, te vamos a enseñar, a partir de cero, como usar PHP. ¡Todos abordo con PHP desde Cero!

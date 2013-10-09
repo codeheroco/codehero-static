@@ -1,0 +1,16 @@
+---
+layout: nav_menu_item
+status: publish
+published: true
+author: Oscar González
+author_login: oscar
+author_email: gonzalezgreco@gmail.com
+author_url: http://www.oscarvgg.com
+wordpress_id: 1577
+wordpress_url: http://codehero.co/?p=1577
+date: 2013-07-21 19:23:11.000000000 -04:30
+categories: []
+tags: []
+comments: []
+---
+Git en pocas palabras es un controlador de versiones distribuido. En esta serie te explicaremos y alejaremos de los miedos que sentimos al utilizar un controlador de versiones por primera vez y supersticiones que los acompañan.
