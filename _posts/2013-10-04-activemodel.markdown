@@ -22,7 +22,8 @@ tags:
 - Validaciones
 - Serialización
 - ActiveModel
-comments: []
+meta:
+  description: Serie de Ruby on Rails and shit
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En capítulos anteriores hemos aprendido muchas de las ventajas del framework, desde la instalación y la puesta en marcha de nuestras aplicaciones, hasta el capítulo anterior: ActiveRecord, herramienta que nos proporciona Rails para la administración y funcionamiento de los modelos con acceso directo a la base de datos.</p>
 
@@ -51,7 +52,8 @@ comments: []
 
 <p>La sintaxis para desarrollar una clase con estas características es exactamente igual que una clase normal, solo que a esta se le incluyen los módulos de ActiveModel que vayamos a utilizar. Un ejemplo de esto es el siguiente:</p>
 
-<pre>class Message
+```ruby
+class Message
   include ActiveModel::Validations
 
   attr_accessor :nombre, :email, :contenido
@@ -63,7 +65,7 @@ comments: []
   final
   
 final 
-</pre>
+```
 
 <p>Como ven en el ejemplo es una clase normal pero en ésta incluimos <code>ActiveModel::Validations</code> para utilizar el módulo de validaciones de ActiveRecord que estudiamos en el <a href="http://codehero.co/activerecord-validaciones/">capítulo anterior</a>.</p>
 
@@ -75,7 +77,8 @@ final
 
 <p>Empezaremos creando nuestro modelo:</p>
 
-<pre>class Message
+```ruby
+class Message
 
 #incluimos los módulos que vamos a utilizar 
   include ActiveModel::Validations  #necesario para agregar las condiciones de validacion
@@ -104,21 +107,24 @@ final
   end
   
 end
-</pre>
+```
 
 <p>Una vez creado nuestro modelo ActiveModel simplemente creamos el controlador y las vistas necesarias. Como ya dijimos en capítulos anteriores podemos crear el controlador de una forma rápida con el terminal y la siguiente línea de comando:</p>
 
-<pre>rails g controller mensajes
-</pre>
+```ruby
+rails g controller mensajes
+```
 
 <p>Agregamos en el archivo de rutas la siguiente linea, para que Rails reconozca las rutas para el controlador:</p>
 
-<pre>resources :mensajes
-</pre>
+```ruby
+resources :mensajes
+```
 
 <p>Creamos nuestro controlador:</p>
 
-<pre>class MensajesController &lt; ApplicationController
+```ruby
+class MensajesController &lt; ApplicationController
 
   def index
     @mensaje = Mensaje.new
@@ -136,7 +142,7 @@ end
   end
   
 end
-</pre>
+```
 
 <p>Vemos algunas diferencias mínimas con respecto a otro modelos que ya hemos creado antes con acceso a base de datos, por ejemplo: cambiamos el método <code>save</code>(@mensaje.save) por el método <code>valid?</code>(@mensaje.valid?) porque obviamente ya no estamos guardando en base de datos, de resto se maneja bastante parecido que con ActiveRecord.</p>
 
@@ -154,34 +160,38 @@ end
 
 <p>Para finalizar con el curso de hoy veremos como funciona el módulo para serializar un objetos con ActiveModel. En Rails es bastante sencillo convertir un objeto a <strong>JSON</strong> o <strong>XML</strong> solo necesitamos incluir en nuestra clase el módulo para serializar objetos:</p>
 
-<pre>include ActiveModel::Serializers::JSON
+```ruby
+include ActiveModel::Serializers::JSON
   include ActiveModel::Serializers::Xml
-</pre>
+```
 
 <p>Luego declaramos un método donde creamos un Hash con los atributos del objeto de la siguiente forma (tomando como ejemplo el objeto del ejercicio anterior)</p>
 
-<pre>def attributes
+```ruby
+def attributes
     {'nombre' => nil,"email" =>nil, "contenido"=>nil}
   end
-</pre>
+```
 
 <p>Listo ahora en el controlador solo decidimos como queremos mostrar el resultado.</p>
 
-<pre>#formato XML
+```ruby
+#formato XML
   # render :xml => @mensaje.to_xml
 
 #formato JSON  
   render :json => @mensaje.to_json
-</pre>
+```
 
 <p>y obtendremos algo como esto dependiendo del formato que lo necesitemos (El ejemplo lo muestra en formato JSON):</p>
 
-<pre>{
+```ruby
+{
     "nombre":"Ricardo Sampayo",
     "email":"me@RicardoSampayo.com",
     "contenido":"Mensaje"
 }
-</pre>
+```
 
 <hr />
 
