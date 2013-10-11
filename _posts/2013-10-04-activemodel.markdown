@@ -63,8 +63,7 @@ class Message
   def initialize (nombre, email,contenido)
    @nombre, @email, @contenido = nombre, email, contenido
   final
-  
-final 
+final
 ```
 
 <p>Como ven en el ejemplo es una clase normal pero en ésta incluimos <code>ActiveModel::Validations</code> para utilizar el módulo de validaciones de ActiveRecord que estudiamos en el <a href="http://codehero.co/activerecord-validaciones/">capítulo anterior</a>.</p>
@@ -80,18 +79,18 @@ final
 ```ruby
 class Message
 
-#incluimos los módulos que vamos a utilizar 
+#incluimos los módulos que vamos a utilizar
   include ActiveModel::Validations  #necesario para agregar las condiciones de validacion
   include ActiveModel::Conversion # contiene entre otras cosas el metodo to_key que usamos en el formulario
 
-#declaramos las variables del modelo  
+#declaramos las variables del modelo
   attr_accessor :name, :email, :content
-  
-#Agregamos las condicones a vailidar  
+
+#Agregamos las condicones a vailidar
   validates_presence_of :name, :email, :content
   validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
   validates_length_of :content, :maximum => 500
-  
+
 # El constructor que recibe un hash con los valores del formulario
 #  y nos crea nuestro objeto mensaje
   def initialize(attributes = {})
@@ -101,11 +100,11 @@ class Message
   end
 
  # Metodo que debemos agregar a nuestro modelo
- # ya que no se van a guardar los datos en la base de datos  
+ # ya que no se van a guardar los datos en la base de datos
   def persisted?
     false
   end
-  
+
 end
 ```
 
@@ -124,12 +123,11 @@ resources :mensajes
 <p>Creamos nuestro controlador:</p>
 
 ```ruby
-class MensajesController &lt; ApplicationController
-
+class MensajesController < ApplicationController
   def index
     @mensaje = Mensaje.new
   end
-  
+
   def create
     @mensaje = Mensaje.new(params[:mensaje])
     if @mensaje.valid?
@@ -140,7 +138,6 @@ class MensajesController &lt; ApplicationController
       render :action => 'index'
     end
   end
-  
 end
 ```
 
@@ -162,34 +159,34 @@ end
 
 ```ruby
 include ActiveModel::Serializers::JSON
-  include ActiveModel::Serializers::Xml
+include ActiveModel::Serializers::Xml
 ```
 
 <p>Luego declaramos un método donde creamos un Hash con los atributos del objeto de la siguiente forma (tomando como ejemplo el objeto del ejercicio anterior)</p>
 
 ```ruby
 def attributes
-    {'nombre' => nil,"email" =>nil, "contenido"=>nil}
-  end
+  {'nombre' => nil,"email" =>nil, "contenido"=>nil}
+end
 ```
 
 <p>Listo ahora en el controlador solo decidimos como queremos mostrar el resultado.</p>
 
 ```ruby
-#formato XML
-  # render :xml => @mensaje.to_xml
+# formato XML
+# render :xml => @mensaje.to_xml
 
-#formato JSON  
-  render :json => @mensaje.to_json
+# formato JSON
+render :json => @mensaje.to_json
 ```
 
 <p>y obtendremos algo como esto dependiendo del formato que lo necesitemos (El ejemplo lo muestra en formato JSON):</p>
 
 ```ruby
 {
-    "nombre":"Ricardo Sampayo",
-    "email":"me@RicardoSampayo.com",
-    "contenido":"Mensaje"
+  "nombre":"Ricardo Sampayo",
+  "email":"me@RicardoSampayo.com",
+  "contenido":"Mensaje"
 }
 ```
 
