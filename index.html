@@ -7,7 +7,8 @@ title: Your New Jekyll Site
   <h1>Blog Posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; 
+      <li><span>{{ post.date | date_to_string }}</span> &raquo;
+        <span class="glyphicon glyphicon-star"></span>
         <a href="{{ post.url }}">{{ post.series.nombre }}: {{ post.title }}</a>
       </li>
     {% endfor %}
