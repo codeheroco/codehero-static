@@ -47,6 +47,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass!
+  bootstrap-sass (~> 3.0.0.0)!
   compass (~> 0.12.2)
   jekyll (~> 1.2.1)
+  liquid (~> 2.5.3)
+  maruku (~> 0.7.0)
+  redcarpet (~> 2.3.0)
