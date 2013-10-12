@@ -19,6 +19,7 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     directory_watcher (1.4.1)
+    dotenv (0.9.0)
     fast-stemmer (1.0.2)
     fssm (0.2.10)
     highline (1.6.19)
@@ -49,6 +50,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.0.0.0)!
   compass (~> 0.12.2)
+  dotenv (~> 0.9.0)
   jekyll (~> 1.2.1)
   liquid (~> 2.5.3)
   maruku (~> 0.7.0)

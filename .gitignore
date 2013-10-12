@@ -1,3 +1,4 @@
+.env
 _site
 .DS_Store
 .sass-cache/
