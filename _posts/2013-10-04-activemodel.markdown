@@ -15,7 +15,7 @@ series:
   thumbnail: none
 categories:
 - Cursos
-- Ruby on Rails
+- Ruby-on-Rails
 tags:
 - Cursos
 - Ruby on Rails

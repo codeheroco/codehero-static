@@ -1,5 +1,6 @@
 timezone: America/Caracas
 name: Codehero blog.
+permalink: none
 markdown: redcarpet
 future: false
 pygments: true
