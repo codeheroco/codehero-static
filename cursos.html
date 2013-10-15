@@ -1,0 +1,19 @@
+---
+layout: default
+title: Cursos - Codehero
+permalink: category/cursos.html
+---
+
+<div id="home">
+  <h1>Entradas Categorizadas: Cursos</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.categories contains 'cursos' %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo;
+        <span class="glyphicon glyphicon-star"></span>
+        <a href="{{ post.url }}">{{ post.series.nombre }}: {{ post.title }}</a>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

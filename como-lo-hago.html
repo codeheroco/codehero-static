@@ -1,0 +1,19 @@
+---
+layout: default
+title: Cómo lo hago - Codehero
+permalink: category/como-lo-hago.html
+---
+
+<div id="home">
+  <h1>Cómo lo hago</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.categories contains 'cómo lo hago' %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo;
+        <span class="glyphicon glyphicon-star"></span>
+        <a href="{{ post.url }}">{{ post.series.nombre }}: {{ post.title }}</a>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
