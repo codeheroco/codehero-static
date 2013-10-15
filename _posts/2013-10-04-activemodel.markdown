@@ -11,7 +11,7 @@ wordpress_id: 2347
 wordpress_url: http://codehero.co/?p=2347
 date: 2013-10-04 00:01:34.000000000 -04:30
 series:
-  nombre: Ruby on Rails
+  nombre: Ruby on Rails desde Cero
   thumbnail: none
 categories:
 - Cursos

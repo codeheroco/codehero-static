@@ -4,12 +4,13 @@ status: publish
 published: true
 title: Reset y Cherry-pick.
 author: Alberto Grespan
-author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2221
-wordpress_url: http://codehero.co/?p=2221
 date: 2013-09-12 00:02:25.000000000 -04:30
+author_page: /author/albertogg.html
+series:
+  nombre: Git desde Cero
+  thumbnail: none
 categories:
 - Cursos
 - Git
@@ -17,7 +18,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como regresar los cambios a un determinado <em>"commit"</em> utilizando <code>git reset</code> y como de como pasar un <em>"commit"</em> específico de una rama a otra utilizando <code>git cherry-pick</code>. Los comandos a utilizar esta semana serán los siguientes:</p>
 
