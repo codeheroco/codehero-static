@@ -3,3 +3,22 @@ layout: default
 title: Series - Codehero
 ---
 
+<div id="home">
+  <h1>Series</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.categories contains 'git' %}
+        {% capture post_git %} {{ post_git | plus: 1 }} {% endcapture %}
+      {% endif %}
+      {% if post.categories contains 'laravel' %}
+        {% capture post_laravel %} {{ post_laravel | plus: 1 }} {% endcapture %}
+      {% endif %}
+      {% if post.categories contains 'django' %}
+        {% capture post_django %} {{ post_django | plus: 1 }} {% endcapture %}
+      {% endif %}
+    {% endfor %}
+    <a href="/series/git-desde-cero.html">Git desde Cero</a>{{ post_git }}
+    <a href="/series/laravel-4-desde-cero.html">Laravel 4 desde Cero</a>{{ post_laravel }}
+    <a href="/series/django-desde-cero.html">Django desde Cero</a>{{ post_django }}
+  </ul>
+</div>
