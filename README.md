@@ -61,7 +61,7 @@ Por amor a cristo no vuelvan mierda el repo.
 
 Se pueden ir a la puta madre, si:
 
-- hacen un `git push -f`
-- Sino utilizan `git pull --rebase`
+- hacen un `git push -f` para subir un commit de manera forzada.
+- Si no utilizan `git pull --rebase` para descargar el remote.
 - Suben archivos con trailing whitespaces.
 
