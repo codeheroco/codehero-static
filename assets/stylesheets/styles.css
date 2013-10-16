@@ -4485,7 +4485,7 @@ input[type="button"].btn-block {
 .navbar {
   position: relative;
   z-index: 1000;
-  min-height: 80px;
+  min-height: 85px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -4639,7 +4639,7 @@ input[type="button"].btn-block {
 /* line 150, bootstrap/_navbar.scss */
 .navbar-brand {
   float: left;
-  padding: 30px 15px;
+  padding: 32.5px 15px;
   font-size: 18px;
   line-height: 20px;
 }
@@ -4660,8 +4660,8 @@ input[type="button"].btn-block {
   float: right;
   margin-right: 15px;
   padding: 9px 10px;
-  margin-top: 23px;
-  margin-bottom: 23px;
+  margin-top: 25.5px;
+  margin-bottom: 25.5px;
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -4686,7 +4686,7 @@ input[type="button"].btn-block {
 
 /* line 205, bootstrap/_navbar.scss */
 .navbar-nav {
-  margin: 15px -15px;
+  margin: 16.25px -15px;
 }
 /* line 208, bootstrap/_navbar.scss */
 .navbar-nav > li > a {
@@ -4731,8 +4731,8 @@ input[type="button"].btn-block {
   }
   /* line 245, bootstrap/_navbar.scss */
   .navbar-nav > li > a {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 32.5px;
+    padding-bottom: 32.5px;
   }
 }
 
@@ -4756,8 +4756,8 @@ input[type="button"].btn-block {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 23px;
-  margin-bottom: 23px;
+  margin-top: 25.5px;
+  margin-bottom: 25.5px;
 }
 @media (max-width: 767px) {
   /* line 288, bootstrap/_navbar.scss */
@@ -4801,15 +4801,15 @@ input[type="button"].btn-block {
 
 /* line 334, bootstrap/_navbar.scss */
 .navbar-btn {
-  margin-top: 23px;
-  margin-bottom: 23px;
+  margin-top: 25.5px;
+  margin-bottom: 25.5px;
 }
 
 /* line 343, bootstrap/_navbar.scss */
 .navbar-text {
   float: left;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 32.5px;
+  margin-bottom: 32.5px;
 }
 @media (min-width: 768px) {
   /* line 343, bootstrap/_navbar.scss */
@@ -7829,6 +7829,11 @@ td.visible-print {
 
 /* Literal.Number.Integer.Long */
 /* line 1, _main.scss */
+body {
+  background-color: #f0f0f0;
+}
+
+/* line 4, _main.scss */
 .navbar {
   text-transform: uppercase;
 }
