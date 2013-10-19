@@ -7837,3 +7837,10 @@ body {
 .navbar {
   text-transform: uppercase;
 }
+
+/* line 8, _main.scss */
+.navbar-brand {
+  font-size: 20px;
+  letter-spacing: 4px;
+  transition: all 0.3s ease-in;
+}

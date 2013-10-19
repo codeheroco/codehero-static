@@ -4,3 +4,9 @@ body {
 .navbar {
   text-transform: uppercase;
 }
+
+.navbar-brand {
+  font-size: 20px;
+  letter-spacing: 4px;
+  transition: all 0.3s ease-in;
+}
