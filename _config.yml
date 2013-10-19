@@ -25,3 +25,14 @@ pygments: true
 host: 0.0.0.0
 port: 3000
 baseurl: /
+
+assets:
+  dirname: assets
+  baseurl: /assets/
+  sources:
+    - _assets/javascript
+    - _assets/stylesheets
+    - _assets/images
+    - _assets/fonts
+  js_compressor: uglifier
+  css_compressor: sass
