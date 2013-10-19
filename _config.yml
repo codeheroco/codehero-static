@@ -36,3 +36,7 @@ assets:
     - _assets/fonts
   js_compressor: uglifier
   css_compressor: sass
+  cachebust: hard
+  cache: false
+  gzip: [ text/css, application/javascript ]
+  debug: false
