@@ -1,9 +1,27 @@
+brand:
+  name: Codehero
+  facebook: codeheroblog
+  twitter: codeheroblog
+  gplus: '114001556421077350451'
+  github: codeheroco
+
+  disqus:
+    shortname: codeheroblog
+
+  analytics:
+    google: 'UA-41464412-1'
+
 timezone: America/Caracas
-name: Codehero
-permalink: none
-markdown: redcarpet
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'config.rb', 'Rakefile']
 future: false
+
+permalink: none
+paginate_path: 'page:num'
+paginate: 10
+
+markdown: redcarpet
 pygments: true
+
 host: 0.0.0.0
 port: 3000
-
+baseurl: /
