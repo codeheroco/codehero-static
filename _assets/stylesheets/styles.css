@@ -5149,4 +5149,5 @@ body {
 .navbar-brand {
   font-size: 20px;
   letter-spacing: 4px;
-  transition: all 0.3s ease-in; }
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
