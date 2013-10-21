@@ -48,7 +48,7 @@ $ rbenv install | xargs cat .ruby-version
 ```
 
 Cuando termine de instalar esa versión de ruby la setean como la versión por
-defecto a utilizar en su maquína.
+defecto a utilizar en su maquína. En este caso es la versión `2.0.0-p247`
 ```sh
 $ rbenv global 2.0.0-p247
 ```
@@ -83,7 +83,7 @@ El archivo `.env` está en el `.gitignore` no se debería subir.
 Luego cambian la variable dentro del archivo `.env`:
 
 ```sh
-`ENV=development`.
+ENV=development
 ```
 
 La diferencia entre producción y development es el css minificado y que el
