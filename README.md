@@ -24,6 +24,8 @@ $ brew update
 $ brew install rbenv ruby-build rbenv-gem-rehash
 ```
 
+> Deben exportar `if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi` en `.bashrc` o `.zshrc`. 
+
 Cuando termine la instalación reinicien la consola. **La cierran y la vuelven a
 abrir** o si estan en zsh:
 ```sh
@@ -34,6 +36,9 @@ Si están en bash:
 ```sh
 $ bash -l
 ```
+
+Revisen la instalación completa en el [README de rbenv para Mac](https://github.com/sstephenson/rbenv#homebrew-on-mac-os-x)
+o simplemente lean [toda la instalación](https://github.com/sstephenson/rbenv#installation).
 
 ## Instalación
 
