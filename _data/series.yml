@@ -1,0 +1,75 @@
+- name: Django desde Cero
+  status: (Serie en Progreso)
+  url-series: django-desde-cero
+  thumb: url
+
+- name: Ember.js desde Cero
+  status: (Serie en Progreso)
+  url-series: ember-js-desde-cero
+  thumb: url
+
+- name: Git desde Cero
+  status: (Serie Completada)
+  url-series: git-desde-cero
+  thumb: url
+
+- name: iOS 7 desde Cero
+  status: (Serie en Progreso)
+  url-series: ios-siete-decodificado
+  thumb: url
+
+- name: iOS desde Cero
+  status: (Serie Completada)
+  url-series: ios-desde-cero
+  thumb: url
+
+- name: jQuery desde Cero
+  status: (Serie en Progreso)
+  url-series: jquery-desde-cero
+  thumb: url
+
+- name: Laravel 4 desde Cero
+  status: (Serie en Progreso)
+  url-series: laravel-4-desde-cero
+  thumb: url
+
+- name: MongoDB desde Cero
+  status: (Serie en Progreso)
+  url-series: mongodb-desde-cero
+  thumb: url
+
+- name: Node.js desde Cero
+  status: (Serie en Progreso)
+  url-series: node-y-express
+  thumb: url
+
+- name: Objectice-C desde Cero
+  status: (Serie Completada)
+  url-series: objective-c-desde-cero
+  thumb: url
+
+- name: PHP desde Cero
+  status: (Serie Completada)
+  url-series: php-desde-cero
+  thumb: url
+
+- name: Python desde Cero
+  status: (Serie Completada)
+  url-series: python-desde-cero
+  thumb: url
+
+- name: Ruby desde Cero
+  status: (Serie Completada)
+  url-series: ruby-desde-cero
+  thumb: url
+
+- name: Ruby on Rails desde Cero
+  status: (Serie en Progreso)
+  url-series: ruby-on-rails-desde-cero
+  thumb: url
+
+- name: Sinatra desde Cero
+  status: (Serie en Progreso)
+  url-series: sinatra-desde-cero
+  thumb: url
+

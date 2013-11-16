@@ -4,4 +4,15 @@ title: Autores - Codehero
 permalink: authors.html
 ---
 
-<h1>hi, aqui faltan los autores</h1>
+<ul>
+{% for autores in site.data.autores %}
+  <h2>{{ autores.name }}</h2>
+  <img src="http://www.gravatar.com/avatar/{{ autores.thumb }}" alt="gravatar">
+  <li><a href="http://github.com/{{ autores.github }}">Github</a></li>
+  <li><a href="http://facebook.com/{{ autores.facebook }}">Facebook</a></li>
+  <li><a href="http://twitter.com/{{ autores.twitter }}">Twitter</a></li>
+  <li><a href="http://plus.google.com/{{ autores.gplus }}">Google+</a></li>
+  <li><a href="http://{{ autores.web }}">Web Site</a></li>
+  <li>{{ autores.description }}</li>
+{% endfor %}
+</ul>
