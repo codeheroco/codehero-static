@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v3.0.0
  *
@@ -5151,3 +5152,34 @@ body {
   letter-spacing: 4px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
+
+.social-networks {
+  padding: 39px 0 36px 0;
+  background-color: #D35400;
+  text-align: center;
+  color: #eee; }
+
+.upcase {
+  text-transform: uppercase; }
+
+.horizontal-list {
+  list-style: none;
+  margin-bottom: 0; }
+  .horizontal-list li {
+    display: inline; }
+  .horizontal-list a {
+    color: #eee; }
+
+.horizontal-list-style-shits:before {
+  font-size: 14px;
+  padding: 0 10px;
+  content: "•"; }
+
+.copyright {
+  padding: 39px 0 36px 0;
+  background-color: #333;
+  text-align: center;
+  font-size: 13px;
+  color: #999; }
+  .copyright p {
+    margin-bottom: 0; }
