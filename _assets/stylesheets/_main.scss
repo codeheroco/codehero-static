@@ -16,10 +16,19 @@ body {
   background-color: #D35400;
   text-align: center;
   color: #eee;
+
+  h3 {
+    font-weight: 300;
+  }
 }
 
 .upcase {
   text-transform: uppercase;
+}
+
+.letter-space {
+  @extend .upcase;
+  letter-spacing: 4px;
 }
 
 .horizontal-list {

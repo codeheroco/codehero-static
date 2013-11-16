@@ -5158,9 +5158,14 @@ body {
   background-color: #D35400;
   text-align: center;
   color: #eee; }
+  .social-networks h3 {
+    font-weight: 300; }
 
-.upcase {
+.upcase, .letter-space {
   text-transform: uppercase; }
+
+.letter-space {
+  letter-spacing: 4px; }
 
 .horizontal-list {
   list-style: none;
