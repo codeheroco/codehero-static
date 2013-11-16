@@ -11,6 +11,10 @@ body {
   @include transition(all 0.3s ease-in-out);
 }
 
+.center-in-div {
+  text-align: center;
+}
+
 .social-networks {
   padding: 39px 0 36px 0;
   background-color: #D35400;

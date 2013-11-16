@@ -2,19 +2,23 @@
 layout: default
 title: Your New Jekyll Site
 ---
-
-<div class="col-md-8">
-  <!-- This loops through the paginated posts -->
-  {% for post in paginator.posts %}
-    <article>
-      <span class="date">{{ post.date | date_to_string }}</span>
-      <h1>
-        <a href="{{ post.url }}">{{ post.series.nombre }}: {{ post.title }}</a>
-      </h1>
-      <p class="author">
-      </p>
-    </article>
-  {% endfor %}
-
-  {% include paginator.html %}
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <!-- This loops through the paginated posts -->
+        {% for post in paginator.posts %}
+          <article>
+            <span class="date">{{ post.date | date_to_string }}</span>
+            <h1>
+              <a href="{{ post.url }}">{{ post.series.nombre }}: {{ post.title }}</a>
+            </h1>
+            <p class="author">
+            </p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% include paginator.html %}
+  </div>
 </div>
