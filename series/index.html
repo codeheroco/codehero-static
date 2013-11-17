@@ -7,7 +7,7 @@ title: Series - Codehero
   <h1>Series</h1>
   <ul class="posts">
     {% for series in site.data.series %}
-      <img src="{{ series.thumb }}" alt="thumnail">
+      {{ series.thumb | image }}
       <h2><a href="/series/{{ series.url-series }}.html">{{ series.name }}</a></h2>
       <li>{{ series.status }}</li>
     {% endfor %}
