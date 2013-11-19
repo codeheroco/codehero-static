@@ -13,7 +13,7 @@ layout: nil
 	{% for post in site.posts limit: 20 %} 
  	<entry>
  	  	<title>{{ post.title | escape }}</title>
- 	  	<link href="http://localhost:3000{{ post.url }}"/>
+ 	  	<link href="http://codehero.co{ post.url }}"/>
  	  	<updated>{{ post.date | date_to_xmlschema }}</updated>
  	  	<id>http://codehero.co{{ post.id }}</id>
  	  	<content type="html">{{ post.content | xml_escape | truncatewords: 100 }}</content>
