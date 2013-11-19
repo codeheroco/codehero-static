@@ -9,7 +9,7 @@ layout: nil
 	<link href="http://codehero.co"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
 	<id>http://codehero.co</id>
- 	<icon>http://i.imgur.com/HL66BfR.png</icon>
+ 	<icon>http://i.imgur.com/OZ5xRQT.png</icon>
 	{% for post in site.posts limit: 20 %}
  	<entry>
  	  	<title>{{ post.title | escape }}</title>
