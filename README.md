@@ -24,7 +24,7 @@ $ brew update
 $ brew install rbenv ruby-build rbenv-gem-rehash
 ```
 
-> Deben exportar `if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi` en `.bashrc` o `.zshrc`. 
+> Deben exportar `if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi` en `.bashrc` o `.zshrc`.
 
 Cuando termine la instalación reinicien la consola. **La cierran y la vuelven a
 abrir** o si estan en zsh:
@@ -111,6 +111,19 @@ seguramente será un `rake task`, algo como `rake deploy`.
 ## Git y Contribución.
 
 Por amor a cristo no vuelvan mierda el repo.
+
+Para que no se vuelva mierda el repo la mejor manera para contribuir es la
+siguiente:
+
+- Crear una rama local (feature branch).
+- Trabajar de manera local en esa rama.
+- Realizar todos los commits que desean o son necesarios.
+- Cuando terminan hacen `push` de la rama local al repo remoto.
+- Crean un `pull request` de los cambios realizados. (así vemos facilmente los cambios)
+- Todos verificamos que los commits no rompen nada.
+- (Opcional) Si alguien quiere corregir algo lo hace.
+- Se hace un `merge` de la rama en `master` se borra el feature branch.
+- Repetir el proceso.
 
 Se pueden ir a la puta madre, si:
 
