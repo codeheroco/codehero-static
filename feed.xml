@@ -16,7 +16,10 @@ layout: nil
  	  	<link href="http://codehero.co{{ post.url }}"/>
  	  	<updated>{{ post.date | date_to_xmlschema }}</updated>
  	  	<id>http://codehero.co{{ post.id }}</id>
- 	  	<content type="html">{{ post.content | xml_escape | truncatewords: 100 }}</content>
+ 	  	<content type="html">
+ 	  		{{ post.content | truncatehtml: 1000 | xml_escape }}
+			&lt;p&gt;&lt;a href="http://codehero.co{{ post.url }}"&gt;Seguir leyendo...&lt;/a&gt;&lt;/p&gt;
+ 	  	</content>
  	  	<author>
  	  		<name>{{ post.author }}</name>
  	  		<email>{{ post.author_email }}</email>
