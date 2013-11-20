@@ -16,7 +16,7 @@ timezone: America/Caracas
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'config.rb', 'Rakefile']
 future: false
 
-permalink: none
+permalink: /:title
 paginate_path: 'page:num'
 paginate: 10
 
