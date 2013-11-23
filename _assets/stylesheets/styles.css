@@ -5262,7 +5262,10 @@ ul {
 
 article {
   border-bottom: solid 1px #ddd;
-  padding: 8px; }
+  padding-top: 8px; }
+
+footer {
+  margin-top: 32px; }
 
 .navbar {
   text-transform: uppercase; }
