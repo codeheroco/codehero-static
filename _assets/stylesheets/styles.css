@@ -5256,6 +5256,14 @@ td.visible-print {
 body {
   background-color: #f0f0f0; }
 
+ul {
+  padding-left: 0px;
+  list-style: none; }
+
+article {
+  border-bottom: solid 1px #ddd;
+  padding: 8px; }
+
 .navbar {
   text-transform: uppercase; }
 
@@ -5283,7 +5291,6 @@ body {
   letter-spacing: 4px; }
 
 .horizontal-list {
-  list-style: none;
   margin-bottom: 0; }
   .horizontal-list li {
     display: inline; }
@@ -5303,3 +5310,8 @@ body {
   color: #999; }
   .copyright p {
     margin-bottom: 0; }
+
+.contenido-fondo-blanco {
+  border: solid 1px #ddd;
+  background-color: #fff;
+  border-radius: 0.50rem; }

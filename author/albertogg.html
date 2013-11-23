@@ -6,20 +6,26 @@ author_name: Alberto Grespan
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="row">
-      <div class="col-xs-12 col-sm-8 col-md-8">
-        <ul>
-          {% for autor in site.data.autores %}
-            {% if autor.name == page.author_name %}
-              <h1>{{ autor.name }}</h1>
-              <img src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
-              <li><a href="http://github.com/{{ autor.github }}">Github</a></li>
-              <li><a href="http://facebook.com/{{ autor.facebook }}">Facebook</a></li>
-              <li><a href="http://twitter.com/{{ autor.twitter }}">Twitter</a></li>
-              <li><a href="http://plus.google.com/{{ autor.gplus }}">Google+</a></li>
-              <li><a href="http://{{ autor.web }}">Web Site</a></li>
-              <li>{{ autor.description }}</li>
-            {% endif %}
-          {% endfor %}
+      <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
+        <ul class="author-list horizontal-list">
+          <div class="row">
+            {% for autor in site.data.autores %}
+              {% if autor.name == page.author_name %}
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                  <img src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9">
+                  <h1>{{ autor.name }}</h1>
+                  <li><a href="http://github.com/{{ autor.github }}">Github</a></li>
+                  <li><a href="http://facebook.com/{{ autor.facebook }}">Facebook</a></li>
+                  <li><a href="http://twitter.com/{{ autor.twitter }}">Twitter</a></li>
+                  <li><a href="http://plus.google.com/{{ autor.gplus }}">Google+</a></li>
+                  <li><a href="http://{{ autor.web }}">Web Site</a></li>
+                  <p>{{ autor.description }}</p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
         </ul>
         <h2>Publicaciones</h2>
         <hr>
