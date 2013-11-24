@@ -1,3 +1,8 @@
+// Custom Codehero Colors
+// ------------------------------
+$orange-codehero: #D35400;
+$white-codehero: #fff;
+
 $navbar-height:                    85px !default;
 $icon-font-path: "/fonts/bootstrap/" !default;
 $icon-font-name:          "glyphicons-halflings-regular" !default;
@@ -11,3 +16,9 @@ $icon-font-name:          "glyphicons-halflings-regular" !default;
        url('#{$icon-font-path}#{$icon-font-name}.ttf') format('truetype'),
        url('#{$icon-font-path}#{$icon-font-name}.svg#glyphicons_halflingsregular') format('svg');
 }
+
+// Pagination
+// -------------------------
+$pagination-border:                    $orange-codehero !default;
+$pagination-active-bg:                 $orange-codehero !default;
+

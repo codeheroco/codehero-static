@@ -16,6 +16,10 @@ footer {
   margin-top: 32px;
 }
 
+.centered {
+  text-align: center;
+}
+
 .navbar {
   text-transform: uppercase;
 }
@@ -89,3 +93,23 @@ footer {
   border-radius: 0.50rem;
 }
 
+.gravatar-img {
+  border-radius: 0.50rem;
+  height: 150px;
+  width: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.underline-title {
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* This is a rewrite of the bootstrap 3 paginator class
+ do not mess with this shit */
+.pagination {
+  margin: 20px 0 0 0;
+  a {
+    color: #E67E22;
+  }
+}

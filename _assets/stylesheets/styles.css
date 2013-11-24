@@ -3474,7 +3474,7 @@ input[type="button"].btn-block {
       line-height: 1.42857;
       text-decoration: none;
       background-color: white;
-      border: 1px solid #dddddd;
+      border: 1px solid #d35400;
       margin-left: -1px; }
     .pagination > li:first-child > a,
     .pagination > li:first-child > span {
@@ -3495,8 +3495,8 @@ input[type="button"].btn-block {
   .pagination > .active > span:focus {
     z-index: 2;
     color: white;
-    background-color: #428bca;
-    border-color: #428bca;
+    background-color: #d35400;
+    border-color: #d35400;
     cursor: default; }
   .pagination > .disabled > span,
   .pagination > .disabled > span:hover,
@@ -3506,7 +3506,7 @@ input[type="button"].btn-block {
   .pagination > .disabled > a:focus {
     color: #999999;
     background-color: white;
-    border-color: #dddddd;
+    border-color: #d35400;
     cursor: not-allowed; }
 
 .pagination-lg > li > a,
@@ -3554,7 +3554,7 @@ input[type="button"].btn-block {
       display: inline-block;
       padding: 5px 14px;
       background-color: white;
-      border: 1px solid #dddddd;
+      border: 1px solid #d35400;
       border-radius: 15px; }
     .pager li > a:hover,
     .pager li > a:focus {
@@ -5267,6 +5267,9 @@ article {
 footer {
   margin-top: 32px; }
 
+.centered {
+  text-align: center; }
+
 .navbar {
   text-transform: uppercase; }
 
@@ -5318,3 +5321,20 @@ footer {
   border: solid 1px #ddd;
   background-color: #fff;
   border-radius: 0.50rem; }
+
+.gravatar-img {
+  border-radius: 0.50rem;
+  height: 150px;
+  width: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.underline-title {
+  border-bottom: 1px solid #eeeeee; }
+
+/* This is a rewrite of the bootstrap 3 paginator class
+ do not mess with this shit */
+.pagination {
+  margin: 20px 0 0 0; }
+  .pagination a {
+    color: #E67E22; }

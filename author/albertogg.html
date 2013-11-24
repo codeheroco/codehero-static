@@ -11,11 +11,11 @@ author_name: Alberto Grespan
           <div class="row">
             {% for autor in site.data.autores %}
               {% if autor.name == page.author_name %}
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                  <img src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+                <div class="hidden-xs col-sm-4 col-md-3">
+                  <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-9">
-                  <h1>{{ autor.name }}</h1>
+                  <h1 class="underline-title">{{ autor.name }}</h1>
                   <li><a href="http://github.com/{{ autor.github }}">Github</a></li>
                   <li><a href="http://facebook.com/{{ autor.facebook }}">Facebook</a></li>
                   <li><a href="http://twitter.com/{{ autor.twitter }}">Twitter</a></li>
