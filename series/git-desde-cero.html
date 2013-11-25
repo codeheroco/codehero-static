@@ -10,6 +10,7 @@ post_cat: git
     {% for series in site.data.series %}
       {% if series.name == page.series_header %}
         <h1>{{ series.name }}</h1>
+        <p>{{ series.description }}</p>
         {% capture thumb_path %} {{ series.thumb | asset_path }} {% endcapture %}
         {% capture series_status %} {{ series.status }} {% endcapture %}
       {% endif %}
@@ -17,14 +18,14 @@ post_cat: git
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
+  <div class="contenido-fondo-blanco col-xs-12 col-sm-12 col-md-12">
     <h3>Artículos en esta serie</h3>
     {{ series_status }}
     <hr>
     {% for post in site.posts %}
       {% if post.categories contains page.post_cat %}
         <div class="col-xs-12 col-sm-6 col-md-3">
-          <article>
+          <article class="article-series">
             <img src="{{ thumb_path }}">
             <h5>
               <a href="{{ post.url }}">{{ post.title }}</a>

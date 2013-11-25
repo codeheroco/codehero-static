@@ -5267,9 +5267,6 @@ article {
 footer {
   margin-top: 32px; }
 
-.centered {
-  text-align: center; }
-
 .navbar {
   text-transform: uppercase; }
 
@@ -5281,6 +5278,10 @@ footer {
 
 .center-in-div {
   text-align: center; }
+
+.article-series {
+  padding: 8px;
+  border-bottom: none; }
 
 .social-networks {
   padding: 39px 0 36px 0;
