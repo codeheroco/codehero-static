@@ -4,16 +4,12 @@ title: Cursos - Codehero
 permalink: category/articulos/noticias.html
 ---
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="row">
-      <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
-        {% for post in site.posts %}
-          {% if post.categories contains 'notícias' %}
-            {% include article-section.html %}
-          {% endif %}
-        {% endfor %}
-      </div>
-      {% include ads-section.html %}
-    </div>
+  <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
+    {% for post in site.posts %}
+      {% if post.categories contains 'notícias' %}
+        {% include article-section.html %}
+      {% endif %}
+    {% endfor %}
   </div>
+  {% include ads-section.html %}
 </div>
