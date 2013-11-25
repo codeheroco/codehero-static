@@ -3,26 +3,22 @@ layout: default
 title: Series - Codehero
 ---
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="row">
-      <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
-        <h1>Series</h1>
-        <hr>
-        {% for series in site.data.series %}
-          <article class="articulos-series">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                {{ series.thumb | image }}
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-8">
-                <h2><a href="/series/{{ series.url-series }}.html">{{ series.name }}</a></h2>
-                <p>{{ series.status }}</p>
-                <p>Autor: <a href="/author/{{ series.author-url }}.html">{{ series.author }}</a></p>
-              </div>
-            </div>
-          </article>
-        {% endfor %}
-      </div>
-    </div>
+  <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
+    <h1>Series</h1>
+    <hr>
+    {% for series in site.data.series %}
+      <article class="articulos-series">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            {{ series.thumb | image }}
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-8">
+            <h2><a href="/series/{{ series.url-series }}.html">{{ series.name }}</a></h2>
+            <p>{{ series.status }}</p>
+            <p>Autor: <a href="/author/{{ series.author-url }}.html">{{ series.author }}</a></p>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
   </div>
 </div>
