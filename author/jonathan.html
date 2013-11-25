@@ -1,0 +1,45 @@
+---
+layout: default
+title: jonathan - Codehero
+author_name: Jonathan Wiesel
+---
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="row">
+      <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
+        <ul class="author-list horizontal-list">
+          <div class="row">
+            {% for autor in site.data.autores %}
+              {% if autor.name == page.author_name %}
+                <div class="hidden-xs col-sm-4 col-md-3">
+                  <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9">
+                  <h1 class="underline-title">{{ autor.name }}</h1>
+                  <li><a href="http://github.com/{{ autor.github }}">Github</a></li>
+                  <li><a href="http://facebook.com/{{ autor.facebook }}">Facebook</a></li>
+                  <li><a href="http://twitter.com/{{ autor.twitter }}">Twitter</a></li>
+                  <li><a href="http://plus.google.com/{{ autor.gplus }}">Google+</a></li>
+                  <li><a href="http://{{ autor.web }}">Web Site</a></li>
+                  <p>{{ autor.description }}</p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </ul>
+        <h2>Publicaciones</h2>
+        <hr>
+        {% for post in site.posts %}
+          {% if post.author == page.author_name %}
+            <article>
+              <span class="date">{{ post.date | date_to_string }}</span>
+              <h1>
+                <a href="{{ post.url }}">{{ post.series.nombre }}: {{ post.title }}</a>
+              </h1>
+            </article>
+            {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

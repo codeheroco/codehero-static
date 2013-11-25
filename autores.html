@@ -6,7 +6,7 @@ permalink: authors.html
 
 <ul>
 {% for autores in site.data.autores %}
-  <h2>{{ autores.name }}</h2>
+  <h2><a href="/author/{{ autores.namelink }}.html">{{ autores.name }}</h2>
   <img src="http://www.gravatar.com/avatar/{{ autores.thumb }}" alt="gravatar">
   <li><a href="http://github.com/{{ autores.github }}">Github</a></li>
   <li><a href="http://facebook.com/{{ autores.facebook }}">Facebook</a></li>
