@@ -1,42 +1,9 @@
 ---
-layout: default
+layout: series
 title: Git desde Cero - Codehero
 series_header: Git desde Cero
 post_cat: git
+bg-color: f05033
+font-color: fff
 ---
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
-    <h3>Serie</h3>
-    {% for series in site.data.series %}
-      {% if series.name == page.series_header %}
-        <h1>{{ series.name }}</h1>
-        <p>{{ series.description }}</p>
-        {% capture thumb_path %} {{ series.thumb | asset_path }} {% endcapture %}
-        {% capture series_status %} {{ series.status }} {% endcapture %}
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
-<div class="row">
-  <div class="contenido-fondo-blanco col-xs-12 col-sm-12 col-md-12">
-    <h3>Artículos en esta serie</h3>
-    {{ series_status }}
-    <hr>
-    {% for post in site.posts %}
-      {% if post.categories contains page.post_cat %}
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <article class="article-series">
-            <img src="{{ thumb_path }}">
-            <h5>
-              <a href="{{ post.url }}">{{ post.title }}</a>
-            </h5>
-            <p class="author">
-              Por <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>
-            </p>
-          </article>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
-
+{% include templates/serie-detalle.html %}

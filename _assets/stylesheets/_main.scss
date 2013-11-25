@@ -26,6 +26,25 @@ footer {
   @include transition(all 0.3s ease-in-out);
 }
 
+.series-banner {
+  margin: -20px 0 30px 0;
+  padding: 10px 0 40px 0;
+
+  h1 {
+    font-size: ($font-size-base * 3.0);
+    margin: 10px 0 26px 0;
+  }
+
+  h3 {
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    font-weight: 300;
+  }
+}
+
 .center-in-div {
   text-align: center;
 }
