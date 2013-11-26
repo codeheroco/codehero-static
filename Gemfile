@@ -12,3 +12,4 @@ gem 'jekyll-assets', '~> 0.7.3'
 gem 'uglifier', '~> 2.2.1'
 gem 'nokogiri', '~> 1.6.0'
 gem 'iconv', '~> 1.0.3'
+gem "font-awesome-sass", "~> 4.0.2"
