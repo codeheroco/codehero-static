@@ -86,6 +86,10 @@ footer {
 }
 
 .horizontal-list {
+  a {
+    text-decoration: none;
+  }
+
   margin-bottom: 0;
 
   li {
@@ -97,7 +101,7 @@ footer {
   @extend .horizontal-list;
 
   a {
-    & > i{
+    i {
       color: rgba(0, 0, 0, 0.5);
       padding-left: 5px;
       @include transition(all 0.3s ease-in-out);
