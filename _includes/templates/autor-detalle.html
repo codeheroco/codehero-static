@@ -9,31 +9,7 @@
             </div>
             <div class="col-xs-12 col-sm-8 col-md-9">
               <h1 class="underline-title">{{ autor.name }}</h1>
-              {% if autor.github %}
-                <li><a href="http://github.com/{{ autor.github }}" target="_blank"><i class="fa fa-github-square fa-3x"></i></a></li>
-              {% endif %}
-              {% if autor.facebook %}
-                <li><a href="http://facebook.com/{{ autor.facebook }}" target="_blank"><i class="fa fa-facebook-square fa-3x"></i></a></li>
-              {% endif %}
-              {% if autor.twitter %}
-                <li><a href="http://twitter.com/{{ autor.twitter }}" target="_blank"><i class="fa fa-twitter-square fa-3x"></i></a></li>
-              {% endif %}
-              {% if autor.gplus %}
-                <li><a href="http://plus.google.com/{{ autor.gplus }}" target="_blank"><i class="fa fa-google-plus-square fa-3x"></i></a></li>
-              {% endif %}
-              {% if autor.linkedin %}
-                <li>
-                  <a href="http://www.linkedin.com/profile/view?id={{autor.linkedin }}" target="_blank">
-                    <i class="fa fa-linkedin-square fa-3x"></i>
-                  </a>
-                </li>
-              {% endif %}
-              {% if autor.web %}
-                <li><a href="http://{{ autor.web }}" target="_blank"><i class="fa fa-globe fa-3x"></i></a></li>
-              {% endif %}
-              {% if autor.email %}
-                <li><a href="mailto:{{ autor.email }}" target="_blank"><i class="fa fa-envelope fa-3x"></i></a></li>
-              {% endif %}
+              {% include templates/autor-redes-sociales.html %}
               <p>{{ autor.description }}</p>
             </div>
           {% endif %}
