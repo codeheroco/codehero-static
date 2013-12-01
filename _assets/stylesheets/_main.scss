@@ -31,6 +31,14 @@ footer {
   text-transform: uppercase;
 }
 
+.date {
+  color: white;
+  background-color: $orange-codehero;
+  display: block;
+  text-align: center;
+  border-radius: 0.2rem;
+}
+
 .navbar-brand {
   font-size: 20px;
   letter-spacing: 4px;

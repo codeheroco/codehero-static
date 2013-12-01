@@ -1,1 +1,36 @@
 // Aqui van todos los media queries.
+@media (max-width: $screen-xs-min) {
+  .date {
+    border-radius: 0.2rem 0.2rem 0 0;
+  }
+
+}
+
+@media (max-width: $screen-sm-min) {
+  .date {
+    margin: 0 auto;
+  }
+
+  .article-img {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  h1 {
+    font-size: $font-size-base * 1.7; // ~24px
+  }
+}
+
+@media (max-width: $screen-lg-min) {
+  .article-img {
+    width: 100%;
+  }
+}
+
+@media (min-width: $screen-md-max) {
+  .article-img {
+    width: 100%;
+  }
+}
