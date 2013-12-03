@@ -4,3 +4,4 @@
 //= require twitter-share
 //= require google-share
 //= require facebook-share
+//= require disqus-count
