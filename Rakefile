@@ -21,3 +21,19 @@ task :server => :dotenv do
     end
   end
 end
+
+desc "Copies everything from the bootstrap-sass gem into the proyect!"
+task :update_tb do
+  puts "Are you sure you want to update twitter bootstrap? [yn]"
+  case $stdin.gets.chomp
+  when 'y'
+    puts "Copying..."
+    sh "cp -r $(bundle show bootstrap-sass)/vendor/assets/stylesheets/bootstrap/* _assets/stylesheets/bootstrap/"
+    sh "cp -r $(bundle show bootstrap-sass)/vendor/assets/javascripts/bootstrap/* _assets/javascript/bootstrap/"
+    sh "cp -r $(bundle show bootstrap-sass)/vendor/assets/fonts/bootstrap/* fonts/bootstrap/"
+    sh "rm _assets/stylesheets/bootstrap/bootstrap.scss"
+    puts "Copied!"
+  when 'n'
+    puts "Aborting..."
+  end
+end
