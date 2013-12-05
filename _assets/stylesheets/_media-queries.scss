@@ -1,16 +1,23 @@
+@media (max-width: $screen-xs-min) {
+  .date {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: $screen-sm-min) {
   .date {
     margin: 0 auto;
     border-radius: 0.2rem 0.2rem 0 0;
+    width: 270px;
 
     i {
       font-size: $font-size-base * 0.93; //~13px
     }
   }
 
-  .article-img {
+  img, h1, a, p {
     margin: 0 auto;
-    display: block;
+    text-align: center;
   }
 }
 
@@ -20,17 +27,7 @@
   }
 }
 
-@media (max-width: $screen-lg-min) {
-  .article-img {
-    width: 100%;
-  }
-}
-
 @media (min-width: $screen-md-max) {
-  .article-img {
-    width: 100%;
-  }
-
   .date {
     padding: 6px 8px 4px 8px;
     border-radius: 0.4rem;
