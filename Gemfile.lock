@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: efab96f854dc8b08d46297b9af313fbe815124ac
+  revision: 99d5746f653e4d5fdccc5cb8d278b32b0b2c6bce
   specs:
-    bootstrap-sass (3.0.2.1)
+    bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
 
 GEM
@@ -112,7 +112,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.0.2.0)!
+  bootstrap-sass (~> 3.0.3.0)!
   dotenv (~> 0.9.0)
   font-awesome-sass (~> 4.0.2)
   iconv (~> 1.0.3)
