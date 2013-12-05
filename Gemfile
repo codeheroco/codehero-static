@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'jekyll', '~> 1.3.0'
-gem 'bootstrap-sass', '~> 3.0.2.0', github: 'thomas-mcdonald/bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.0.3.0', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'sass', '~> 3.2.12'
 gem 'rb-fsevent', '~> 0.9.3'
 gem 'liquid', '~> 2.5.3'
