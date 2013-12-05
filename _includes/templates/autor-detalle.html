@@ -20,12 +20,7 @@
     <hr>
     {% for post in site.posts %}
       {% if post.author == page.author_name %}
-        <article>
-          <span class="date">{{ post.date | date_to_string }}</span>
-          <h1>
-            <a href="{{ post.url }}">{{ post.series.nombre }}: {{ post.title }}</a>
-          </h1>
-        </article>
+        {% include article-section.html %}
       {% endif %}
     {% endfor %}
   </div>
