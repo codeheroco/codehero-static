@@ -22,9 +22,9 @@ task :server => :dotenv do
   end
 end
 
-desc "Copies everything from the bootstrap-sass gem into the proyect!"
+desc "Copies everything from the bootstrap-sass gem into the project!"
 task :update_tb do
-  puts "Are you sure you want to update twitter bootstrap? [yn]"
+  puts "Are you sure you want to update twitter bootstrap? [y/n]"
   case $stdin.gets.chomp
   when 'y'
     puts "Copying..."
@@ -32,6 +32,22 @@ task :update_tb do
     sh "cp -r $(bundle show bootstrap-sass)/vendor/assets/javascripts/bootstrap/* _assets/javascript/bootstrap/"
     sh "cp -r $(bundle show bootstrap-sass)/vendor/assets/fonts/bootstrap/* fonts/bootstrap/"
     sh "rm _assets/stylesheets/bootstrap/bootstrap.scss"
+    puts "Copied!"
+  when 'n'
+    puts "Aborting..."
+  end
+end
+
+desc "Copies everything from the font-awesome-sass gem into the project!"
+task :update_fa do
+  puts "Are you sure you want to update FontAwesome? [y/n]"
+  case $stdin.gets.chomp
+  when 'y'
+    puts "Copying..."
+    sh "cp -r $(bundle show font-awesome-sass)/vendor/assets/stylesheets/font-awesome/* _assets/stylesheets/font-awesome/"
+    sh "cp $(bundle show font-awesome-sass)/vendor/assets/stylesheets/font-awesome.scss _assets/stylesheets/font-awesome/"
+    sh "mv _assets/stylesheets/font-awesome/font-awesome.scss _assets/stylesheets/font-awesome/_font-awesome.scss"
+    sh "cp -r $(bundle show font-awesome-sass)/vendor/assets/fonts/* fonts/font-awesome/"
     puts "Copied!"
   when 'n'
     puts "Aborting..."
