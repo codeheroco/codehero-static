@@ -9,8 +9,7 @@ task :server => :dotenv do
       system %Q{bundle exec jekyll build}
   else
     pids = [
-      spawn("bundle exec jekyll serve --watch --drafts"),
-      spawn("bundle exec scss --watch _assets/stylesheets:_assets/stylesheets")
+      spawn("bundle exec jekyll serve --watch --drafts")
     ]
 
     trap "INT" do
