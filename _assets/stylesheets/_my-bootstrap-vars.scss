@@ -10,18 +10,20 @@ $alto-thumbnail-de-series: 200px;
 $ancho-gravatar-de-autor: 150px;
 $alto-gravatar-de-autor: 150px;
 
-$navbar-height:                    85px !default;
-$icon-font-path: "/fonts/bootstrap/" !default;
-$icon-font-name:          "glyphicons-halflings-regular" !default;
+// Bootstrap font location.
+// ------------------------------
+$navbar-height:                    85px;
+$icon-font-path: "fonts/bootstrap/";
+$icon-font-name:          "glyphicons-halflings-regular";
 
 // Import the fonts
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('#{$icon-font-path}#{$icon-font-name}.eot');
-  src: url('#{$icon-font-path}#{$icon-font-name}.eot?#iefix') format('embedded-opentype'),
-       url('#{$icon-font-path}#{$icon-font-name}.woff') format('woff'),
-       url('#{$icon-font-path}#{$icon-font-name}.ttf') format('truetype'),
-       url('#{$icon-font-path}#{$icon-font-name}.svg#glyphicons_halflingsregular') format('svg');
+  src: url(asset_path('#{$icon-font-path}#{$icon-font-name}.eot'));
+  src: url(asset_path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
+       url(asset_path('#{$icon-font-path}#{$icon-font-name}.woff')) format('woff'),
+       url(asset_path('#{$icon-font-path}#{$icon-font-name}.ttf')) format('truetype'),
+       url(asset_path('#{$icon-font-path}#{$icon-font-name}.svg#glyphicons_halflingsregular')) format('svg');
 }
 
 // Pagination
