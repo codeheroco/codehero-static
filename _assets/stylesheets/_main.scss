@@ -28,12 +28,16 @@ footer {
   margin-top: 32px;
 }
 
+// .wrapper and .push classes are used for the sticky footer
+// ---------------------------------------------------------
+
 .wrapper {
   min-height: 100%;
   height: auto !important;
   height: 100%;
   margin: 0 auto -432px;
 }
+
 .push {
   height: 432px;
 }
