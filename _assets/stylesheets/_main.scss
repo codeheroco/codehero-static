@@ -1,4 +1,5 @@
-body {
+html, body {
+  height: 100%;
   background-color: #f0f0f0;
 }
 
@@ -25,6 +26,16 @@ article {
 
 footer {
   margin-top: 32px;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -432px;
+}
+.push {
+  height: 432px;
 }
 
 .navbar {
