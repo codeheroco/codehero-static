@@ -40,6 +40,13 @@ footer {
 
 .push {
   height: 432px;
+
+.remove-footer-padding {
+  padding-right: 0;
+}
+
+.remove-footer-margin {
+  margin-right: 0;
 }
 
 .navbar {
