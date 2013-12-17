@@ -27,6 +27,14 @@ footer {
   margin-top: 32px;
 }
 
+.remove-footer-padding {
+  padding-right: 0;
+}
+
+.remove-footer-margin {
+  margin-right: 0;
+}
+
 .navbar {
   text-transform: uppercase;
 }
@@ -58,6 +66,14 @@ footer {
   font-size: 20px;
   letter-spacing: 4px;
   @include transition(all 0.3s ease-in-out);
+}
+
+// Centrar todos los thumbnails en series/index.html
+// -------------------------------------------------
+.series {
+  & img {
+    margin: 0 auto;
+  }
 }
 
 .series-banner {
@@ -109,11 +125,16 @@ footer {
 }
 
 .horizontal-list {
+  margin-bottom: 0;
+
   a {
     text-decoration: none;
-  }
+    color: $white-codehero;
 
-  margin-bottom: 0;
+    &:hover {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
 
   li {
     display: inline;
@@ -124,6 +145,12 @@ footer {
   @extend .horizontal-list;
 
   a {
+    color: $orange-codehero;
+
+    &:hover {
+      color: rgba(211, 84, 0, 0.9);
+    }
+
     i {
       color: rgba(0, 0, 0, 0.5);
       padding-left: 5px;

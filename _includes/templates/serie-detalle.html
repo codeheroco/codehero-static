@@ -24,8 +24,8 @@
       {% for post in site.posts %}
         {% if post.categories contains page.post_cat %}
           <div class="col-xs-12 col-sm-6 col-md-3">
-            <article class="article-series">
-              <img src="{{ thumb_path }}">
+            <article class="center-in-div article-series">
+              <img class="img-responsive" src="{{ thumb_path }}" alt="thumbnail">
               <h5>
                 <a href="{{ post.url }}">{{ post.title }}</a>
               </h5>
