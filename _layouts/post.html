@@ -1,11 +1,16 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
-{% include share-buttons.html %}
-
-<div class="post">
-{{ content }}
-{% include disqus.html %}
+<div class="row">
+  <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.date | date_to_string }}</p>
+      {% include share-buttons.html %}
+    <div class="post">
+      {{ content }}
+      {% include disqus.html %}
+    </div>
+  </div>
+  {% include ads-section.html %}
 </div>
+
