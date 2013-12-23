@@ -16,7 +16,6 @@ tags:
 - php
 - cookie
 - session
-comments: []
 ---
 <p>En este capítulo de PHP vamos a conocer dos componentes muy importantes de la programación web, las <strong>Cookies</strong> y las <strong>Sessions</strong>. Los servidores web normalmente no guardan los estados, esto quiere decir que no saben quien visitó una página o cuales ha visitado un usuario especifico, ni que ha hecho en ellas. Aquí es donde entran las <strong>Cookies</strong> y las <strong>Sessions</strong>, estas nos proveen mecanismos para seguir lo que hace un usuario en nuestra web y así poder brindarle un mejor servicio. Cada una tiene su propósito, funciones y características específicas, las cuales veremos en este capítulo. Con este información podras escoger cual de las dos necesitas implementar dependiendo de tus necesidades.</p>
 

@@ -17,14 +17,6 @@ tags:
 - Ruby on Rails
 - ActiveRecord
 - Asociaciones
-comments:
-- id: 205
-  author: ActiveRecord parte 2 | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/activerecord-parte-2/
-  date: '2013-09-06 00:07:17 -0430'
-  date_gmt: '2013-09-06 04:37:17 -0430'
-  content: '[&#8230;] ActiveRecord Asociaciones [&#8230;]'
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior estudiamos conceptos básicos de ActiveRecord, pero aún nos quedan conceptos de este tema.</p>
 

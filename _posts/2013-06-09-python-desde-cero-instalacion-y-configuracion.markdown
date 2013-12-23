@@ -16,7 +16,6 @@ tags:
 - Python
 - instalacion
 - configuracion
-comments: []
 ---
 <p>Bienvenido a Python desde Cero, serie en la cual aprenderemos Python desde Cero. En esta sesión, estudiaremos como instalar y configurar Python en nuestros computadores.</p>
 

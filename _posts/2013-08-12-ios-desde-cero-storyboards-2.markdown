@@ -17,7 +17,6 @@ tags:
 - iOS
 - desde cero
 - stotyboard
-comments: []
 ---
 <p>Los storyboards son una de las características más emocionantes del iOS SDK. Hoy esteremos dándole un vistazo a esta funcionalidad en iOS desde Cero.</p>
 
@@ -29,11 +28,11 @@ comments: []
 
 <p>Creamos un nuevo proyecto de tipo "Single View Application".</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-1.04.36-AM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-1.04.36-AM.png" alt="Single View application Vista unica" class="aligncenter size-full wp-image-1942" /></a></p>
+<p><img src="http://i.imgur.com/hJ8mvzh.png" alt="Single View application Vista unica" class="aligncenter size-full wp-image-1942" /></p>
 
 <p>Le colocamos un nombre a nuestro proyecto y habilitamos el check que dice "Use Storyboards".</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-10.48.44-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-10.48.44-PM.png" alt="guardando proyecto" class="aligncenter size-full wp-image-1943" /></a></p>
+<p><img src="http://i.imgur.com/ONjCt9L.png" alt="guardando proyecto" class="aligncenter size-full wp-image-1943" /></p>
 
 <hr />
 
@@ -43,27 +42,27 @@ comments: []
 
 <p>Agreguemos un Table View Controller a nuestro storyboard.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.23.10-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.23.10-PM.png" alt="Agregando un table view" class="aligncenter size-full wp-image-1944" /></a></p>
+<p><img src="http://i.imgur.com/lu7aCiRh.png" alt="Agregando un table view" class="aligncenter size-full wp-image-1944" /></p>
 
 <p>Habiendo seleccionado el tableview en el inspector podemos convertirlo en un tableview estático, esto quiere decir que su contenido puede ser modelador en Interface Builder.</p>
 
 <p>Si hacemos click en una de las celdas que viene por defecto en el controlador podemos colocarle un estilo. Yo le colocaré estilo Basic:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.23.10-PM1.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.23.10-PM1.png" alt="estilo de celda de table view" class="aligncenter size-full wp-image-1946" /></a></p>
+<p><img src="http://i.imgur.com/lu7aCiRh.png" alt="estilo de celda de table view" class="aligncenter size-full wp-image-1946" /></p>
 
 <p>Y colocarle como identificador "myCell".</p>
 
 <p>Ahora podemos hacer doble click sobre la celda y editar el texto del label que contiene.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.23.48-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.23.48-PM.png" alt="estilo de celda de table view" class="aligncenter size-full wp-image-1945" /></a></p>
+<p><img src="http://i.imgur.com/gbp1QYMh.png" alt="estilo de celda de table view" class="aligncenter size-full wp-image-1945" /></p>
 
 <p>Agreguemos un botón en el primer view controller.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.34.56-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.34.56-PM.png" alt="imagen de button en primer viewcontroller" class="aligncenter size-full wp-image-1947" /></a></p>
+<p><img src="http://i.imgur.com/EV2OREph.png" alt="imagen de button en primer viewcontroller" class="aligncenter size-full wp-image-1947" /></p>
 
 <p>Ahora agreguemos un tercer view controller con un label:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.37.26-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.37.26-PM.png" alt="tercer view controller con label" class="aligncenter size-full wp-image-1948" /></a></p>
+<p><img src="http://i.imgur.com/7r858MPh.png" alt="tercer view controller con label" class="aligncenter size-full wp-image-1948" /></p>
 
 <hr />
 
@@ -73,15 +72,15 @@ comments: []
 
 <p>Vamos a hacer <em>ctrl + click</em> sobre el botón del primer view controller y arrastrando hasta el table view controller creamos nuestro primer segue. Asegurate de hacer click en <em>Push</em> en el menú contextual que aparece.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Untitled.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Untitled.png" alt="conectar primer view controller con table view controller" class="aligncenter size-full wp-image-1951" /></a></p>
+<p><img src="http://i.imgur.com/GEKSS9Y.png" alt="conectar primer view controller con table view controller" class="aligncenter size-full wp-image-1951" /></p>
 
 <p>Y ahora podemos observar como aparece una flecha entre los dos controladores. Esto significa que al hacer click sobre el botón, la app navegará hasta el table view cotroller.</p>
 
 <p>Si corremos esta aplicación en este momento nos daremos cuenta que al hacer tap sobre el botón no nos va a llevar a ningún lado. Esto es porque la aplicación necesita de un Navigation controller para poder cambiar de una vista a otra. Esto lo logramos haciendo click en el primer view controller y haciendo click en Editor -> Product -> Embed In -> Navigation Controller envolvemos el primer view controller en un Navigation Controller.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.47.46-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.47.46-PM.png" alt="Screen Shot 2013-08-11 at 11.47.46 PM" class="aligncenter size-full wp-image-1954" /></a></p>
+<p><img src="http://i.imgur.com/fuidhaKh.png" alt="Screen Shot 2013-08-11 at 11.47.46 PM" class="aligncenter size-full wp-image-1954" /></p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.52.04-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-11-at-11.52.04-PM.png" alt="navigation controller conectado a view controller pro storyboard" class="aligncenter size-full wp-image-1953" /></a></p>
+<p><img src="http://i.imgur.com/sanPUip.png" alt="navigation controller conectado a view controller por storyboard" class="aligncenter size-full wp-image-1953" /></p>
 
 <p>Ahora si podemos correr el proyecto y ver como funciona la transición.</p>
 
@@ -97,11 +96,11 @@ comments: []
 
 <p>Ahora volvemos al Storyboard y asignamos a LabelViewController como clase controlador de la escena. Esto lo hacemos haciendo click sobre el tercer view controller y asignándolo en el inspector de identidad.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-12.11.41-AM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-12.11.41-AM.png" alt="asignación de clase a escena de storyboard" class="aligncenter size-full wp-image-1955" /></a></p>
+<p><img src="http://i.imgur.com/zAqExcr.png" alt="asignación de clase a escena de storyboard" class="aligncenter size-full wp-image-1955" /></p>
 
 <p>Ahora creamos un outlet en el controlador para el label de la escena y un property string para guardar el valor que esta va a contener.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Untitled2.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Untitled2.png" alt="conectar el outlet del label" class="aligncenter size-full wp-image-1956" /></a></p>
+<p><img src="http://i.imgur.com/zuQHib2.png" alt="conectar el outlet del label" class="aligncenter size-full wp-image-1956" /></p>
 
 <p>Después de esto nuestro código debería lucir de la siguiente manera:</p>
 
@@ -127,15 +126,15 @@ comments: []
 
 <p>Ahora debemos crear otra clase para el table view controller, de modo que podamos pasar los datos de una a la otra. Repetimos el mismo procedimiento para crear una clase solo que ahora vamos a heredar de UITableViewController.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-12.22.55-AM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-12.22.55-AM.png" alt="creación de clase de table view controller" class="aligncenter size-full wp-image-1957" /></a></p>
+<p><img src="http://i.imgur.com/aNRGGLc.png" alt="creación de clase de table view controller" class="aligncenter size-full wp-image-1957" /></p>
 
 <p>Asignamos la clase a la escena.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-12.23.46-AM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-12.23.46-AM.png" alt="asignar clase a table view controller" class="aligncenter size-full wp-image-1958" /></a></p>
+<p><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-12.23.46-AM.png" alt="asignar clase a table view controller" class="aligncenter size-full wp-image-1958" /></p>
 
 <p>Conectamos con un segue las escenas.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/png"><img src="http://codehero.co/oc-content/uploads/2013/08/png" alt="crear segue de table view controller a otro controller" class="aligncenter size-full wp-image-1959" /></a></p>
+<p><img src="http://i.imgur.com/0QssMcq.png" alt="crear segue de table view controller a otro controller" class="aligncenter size-full wp-image-1959" /></p>
 
 <p>Para pasar un valor de una vista a otra se debe sobre escribir el método prepareForSegue:sender: en el controlador de partida, por lo tanto en TableViewController debemos implementarlo. (recuerda importar labelViewController en TableViewController)</p>
 

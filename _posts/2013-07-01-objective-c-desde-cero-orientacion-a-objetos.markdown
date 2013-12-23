@@ -18,16 +18,6 @@ tags:
 - Objetos
 - clases
 - desde cero
-comments:
-- id: 189
-  author: 'Objective-C desde Cero: Orientación a Objetos - parte 2 | CODEHERO'
-  author_email: ''
-  author_url: http://codehero.co/objective-c-desde-cero-orientacion-a-objetos-parte-2/
-  date: '2013-07-15 00:20:59 -0430'
-  date_gmt: '2013-07-15 04:50:59 -0430'
-  content: '[...] En este capítulo seguiremos trabajando sobre el proyecto del capítulo
-    anterior. Si no venías siguiendo la serie, puedes clonarlo del siguiente repo
-    de GitHub. Si quieres leer en capitulo anterior, puedes visitarlo aquí [...]'
 ---
 <p>En este capítulo de <strong><em>Objective-C desde Cero</em></strong> hablaremos de como este lenguaje implementa el paradigma orientado a objetos.</p>
 
@@ -47,19 +37,19 @@ comments:
 
 <p>Una vez tengamos la ventana principal de Xcode con nuestro proyecto listo para desarrollase, vamos a crear una clase nueva. Hacemos click derecho en nuestra capeta principal del proyecto (option + click) y seleccionamos New File.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.45.14-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.45.14-PM.png" alt="Imagen de menu New File Xcode" class="aligncenter size-full wp-image-1246" /></a></p>
+<p><a href="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.45.14-PM.png"><img src="http://i.imgur.com/NlJO9ow.png" alt="Imagen de menu New File Xcode" class="aligncenter size-full wp-image-1246" /></a></p>
 
 <p>En el menú de plantillas seleccionamos Objective-C Class.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.45.55-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.45.55-PM.png" alt="imagen de menú de plantillas de Xcode - selección: Objective-C Class" class="aligncenter size-full wp-image-1247" /></a></p>
+<p><a href="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.45.55-PM.png"><img src="http://i.imgur.com/WCQL5PW.png" alt="imagen de menú de plantillas de Xcode - selección: Objective-C Class" class="aligncenter size-full wp-image-1247" /></a></p>
 
 <p>Llamamos a nuestra clase <strong><em>Person</em></strong> e indicamos que es una subclase de <strong><em>NSObject</em></strong>. En Objective-C, todas las clases heredan de <strong><em>NSObject</em></strong>, así como en java todas de <strong><em>Object</em></strong>.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.46.51-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.46.51-PM.png" alt="Imagen de nombre de clase Person" class="aligncenter size-full wp-image-1248" /></a></p>
+<p><a href="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.46.51-PM.png"><img src="http://i.imgur.com/7aeHQJe.png" alt="Imagen de nombre de clase Person" class="aligncenter size-full wp-image-1248" /></a></p>
 
 <p>Guardamos el archivo en la carpeta de nuestro proyecto, le damos a *&#42;Create&#42; y veremos como aparece nuestra clase en el navegador de archivos. Vamos de una vez al archivo .h (encabezado).</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.47.18-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.47.18-PM.png" alt="Imagen de navegador de archivos con Person.h seleccionado" class="aligncenter size-full wp-image-1249" /></a></p>
+<p><a href="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-30-at-8.47.18-PM.png"><img src="http://i.imgur.com/n67OY81.png" alt="Imagen de navegador de archivos con Person.h seleccionado" class="aligncenter size-full wp-image-1249" /></a></p>
 
 <p>Debería contener lo siguiente:</p>
 
@@ -240,9 +230,13 @@ int main(int argc, const char * argv[])
 
 <p>Aquí imprimimos los dos parámetros.</p>
 
-<pre>+ (int)age
+<pre>+(int)age
 {
-    NSLog(@"Mi edad es 25 años");
+int myAge = 24
+
+NSLog(@"mi edad es %i años", myAge);
+
+return myAge;
 }
 </pre>
 
@@ -274,7 +268,11 @@ int main(int argc, const char * argv[])
 
 + (int)age
 {
-    NSLog(@"Mi edad es 25 años");
+int myAge = 24
+
+NSLog(@"mi edad es %i años", myAge);
+
+return myAge;
 }
 
 @end

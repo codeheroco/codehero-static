@@ -20,7 +20,6 @@ tags:
 - desde cero
 - estructura
 - proyecto
-comments: []
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior aprendimos cómo instalar y construir nuestra primera aplicación en Ruby on Rails.</p>
 
@@ -34,7 +33,7 @@ comments: []
 
 <p>Esta estructura consta de una serie de carpetas y archivos que nos hacen trabajar de forma ordenada y eficiente. La estructura es la siguiente:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/estructura_rails.jpg" alt="estructura_rails" /></p>
+<p><img src="http://i.imgur.com/gB8jA3r.jpg?1" alt="estructura_rails" /></p>
 
 <p>Esta estructura la iremos conociendo más a detalle a lo largo del curso, pero me gustaría destacar algunos archivos importantes:</p>
 
@@ -132,7 +131,7 @@ production:
 
 <p>Lo más importante de todo lo que crea esta línea de comando en el terminal es sin duda el archivo '<em>app/controllers/bienvenida_controller.rb</em>' que es el controlador en sí y las vistas asociadas a éste, en este caso es una sola '<em>app/views/bienvenida/index.html.erb</em>'. Si todo les funcionó correctamente pueden revisar su obra en <a href="http://127.0.0.1:3000/bienvenida/index">http://localhost:3000/bienvenida/index</a></p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/controlador_rails.jpg" alt="controlador_rails" /></p>
+<p><img src="http://i.imgur.com/CWOs514.jpg?1" alt="controlador_rails" /></p>
 
 <hr />
 

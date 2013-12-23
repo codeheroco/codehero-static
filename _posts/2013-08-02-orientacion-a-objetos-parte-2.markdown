@@ -17,7 +17,6 @@ tags:
 - Ruby
 - Cursos
 - Objetos
-comments: []
 ---
 <p>Bienvenidos una vez más a Ruby desde Cero. En el capítulo anterior estudiamos la primera parte del paradigma orientado a objetos aplicado al lenguaje.</p>
 
@@ -29,7 +28,7 @@ comments: []
 
 <p>Es uno de los mecanismos mas utilizados en la programación orientada a objetos que nos facilitan la reutilización y la extensibilidad del código. La herencia es la relación entre una clase general y otra más específica. Por ejemplo: Si declaramos una clase Ave derivada de una clase Animal, todos los métodos y variables asociadas con la clase Animal, serán automáticamente heredados por la subclase Ave. Veamos el siguiente gráfico para comprender mejor esto:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/ruby_herencia.jpg" alt="herencia_ruby" /></p>
+<p><img src="http://i.imgur.com/i4Uhwbg.jpg?1" alt="herencia_ruby" /></p>
 
 <p>Como vemos en el gráfico tenemos cinco componentes que heredan del componente 'Animal', estas subclases heredan todos los atributos y comportamientos del padre, incluso es posible alterarlos o agregarles nuevos atributos. El beneficio de la herencia es que las clases inferiores de la jerarquía obtienen las características de los de arriba, sino que también pueden añadir características específicas propias.</p>
 

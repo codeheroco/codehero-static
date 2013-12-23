@@ -6,7 +6,7 @@ title: Nuevos servicios de Dropbox llevarán la sincronización multiplataforma 
   nivel
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1361
 wordpress_url: http://codehero.co/?p=1361
@@ -20,7 +20,6 @@ tags:
 - datastore
 - drop-in
 - icloud
-comments: []
 ---
 <hr />
 

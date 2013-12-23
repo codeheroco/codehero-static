@@ -18,14 +18,6 @@ tags:
 - table views
 - uitableview
 - desde cero
-comments:
-- id: 185
-  author: 'iOS desde Cero: Table Views (UITableView)'
-  author_email: ''
-  author_url: http://www.meneame.net/story/ios-desde-cero-table-views-uitableview
-  date: '2013-07-08 17:35:03 -0430'
-  date_gmt: '2013-07-08 22:05:03 -0430'
-  content: '[...] iOS desde Cero: Table Views (UITableView)  [...]'
 ---
 <p>En este capitulo de <strong><em>iOS desde Cero</em></strong> hablaremos del componente de interfaz gráfica más utilizado de iOS, los Table Views.</p>
 
@@ -35,15 +27,15 @@ comments:
 
 <p>En esto ya somos unos expertos. Abrimos Xcode y creamos un nuevo proyecto (Seleccionamos "Single View Application" y quitamos el check de Use storyboards; seguiremos usando Xib's por ahora)</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Creación-del-proyecto-en-Xcode.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Creación-del-proyecto-en-Xcode.png" alt="Creación del proyecto en Xcode" class="aligncenter size-full wp-image-1339" /></a></p>
+<p><img src="http://i.imgur.com/WOTWpIb.png" alt="Creación del proyecto en Xcode" class="aligncenter size-full wp-image-1339" /></p>
 
 <p>Vamos a ViewController.xib y agregamos un "Table View" desde el inspector a nuestra vista.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Agregar-UITableView-a-ViewController.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Agregar-UITableView-a-ViewController.png" alt="Agregar UITableView a ViewController" class="aligncenter size-full wp-image-1340" /></a></p>
+<p><img src="http://i.imgur.com/VaVdSEw.png" alt="Agregar UITableView a ViewController" class="aligncenter size-full wp-image-1340" /></p>
 
 <p>Ahora conectamos el table view con el código. La manera más fácil es la que aprendimos en la lección anterior. Colocamos el editor en modo asistente y haciendo Option+click arrastramos desde el controlador hasta el código</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Conectando-UITableView-con-el-código.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Conectando-UITableView-con-el-código.png" alt="Conectando UITableView con el código" class="aligncenter size-full wp-image-1341" /></a></p>
+<p><img src="http://i.imgur.com/WGSY7anh.png" alt="Conectando UITableView con el código" class="aligncenter size-full wp-image-1341" /></p>
 
 <p>Ya tenemos el table view conectado al código, ahora vamos a agregar un array como un atributo de la clase para guardar lógicamente el contenido de nuestra tabla.</p>
 
@@ -191,7 +183,7 @@ comments:
 
 <p>Ahora si corremos la aplicación deberíamos ver la tabla llena con los nombres de las ciudades.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Imagen-de-la-app-corriendo-con-el-uitableview.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Imagen-de-la-app-corriendo-con-el-uitableview.png" alt="Imagen-de-la-app-corriendo-con-el-uitableview" class="aligncenter size-full wp-image-1342" /></a></p>
+<p><img src="http://i.imgur.com/155kMPS.png" alt="Imagen-de-la-app-corriendo-con-el-uitableview" class="aligncenter size-full wp-image-1342" /></p>
 
 <h2>Delegando los toques de recibe la tabla</h2>
 
@@ -210,7 +202,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 <h2>Conclusión</h2>
 
-<p>En este capítulo aprendimos los conceptos básicos para implementar un table view en nuestra app. Para ampliar tus conocimientos y experimentar con otros métodos de UITableViewDataSource y UITableViewDelegate visita la documentación de Apple sobre <a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UITableViewDataSource_Protocol/Reference/Reference.html">data source</a> y <a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UITableViewDelegate_Protocol/Reference/Reference.html">delegate</a>.</p>
+<p>En este capítulo aprendimos los conceptos básicos para implementar un table view en nuestra app. Para ampliar tus conocimientos y experimentar con otros métodos de UITableViewDataSource y UITableViewDelegate visita la documentación de Apple sobre [data source][5] y [delegate][6].</p>
 
 <p>En estas direcciones está todo lo que necesitas saber sobre estos protocolos, solo que está en inglés. Si tienes alguna duda o no sabes inglés puedes dejar tus preguntas abajo en los comentarios.</p>
 

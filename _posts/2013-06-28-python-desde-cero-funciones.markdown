@@ -15,18 +15,6 @@ categories:
 tags:
 - Python
 - funciones
-comments:
-- id: 188
-  author: 'Python desde Cero: Módulos | CODEHERO'
-  author_email: ''
-  author_url: http://codehero.co/python-desde-cero-modulos/
-  date: '2013-07-12 07:15:04 -0430'
-  date_gmt: '2013-07-12 11:45:04 -0430'
-  content: '[...] Bienvenidos una vez más a Python desde Cero, curso en el cual aprendemos
-    a programar sin conocimiento alguno. En el capítulo anterior, te enseñe como crear
-    y usar funciones dentro de Python. Si eres nuevo en este curso, te recomiendo
-    que le eches un vistazo al capítulo anterior para que te pongas en contexto (Capítulo
-    3) [...]'
 ---
 <p>Bienvenidos una vez más a Python desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe todo lo referente al uso de variables, operadores y estructuras de control. Si eres nuevo en este curso, te recomiendo que le eches un vistazo a los capítulos anteriores para que te pongas en contexto (<a href="http://codehero.co/python-desde-cero-variables-operadores-y-estructuras-de-control/">Capítulo 2</a>)</p>
 

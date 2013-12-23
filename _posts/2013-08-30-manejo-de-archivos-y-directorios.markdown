@@ -17,7 +17,6 @@ tags:
 - Ruby
 - Cursos
 - Archivos
-comments: []
 ---
 <p>Bienvenidos una vez más a Ruby desde cero, curso con el cual aprendemos del lenguaje sin necesidad de tener previo conocimiento en el tema. En el capítulo anterior estuvimos estudiando el concepto de módulos aplicado al lenguaje. En este nuevo capítulo estaremos estudiando el manejo de archivos en Ruby, desde como abrirlo hasta como escribir y leer información del mismo.</p>
 

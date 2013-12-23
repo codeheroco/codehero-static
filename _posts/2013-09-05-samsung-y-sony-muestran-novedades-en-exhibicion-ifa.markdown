@@ -5,7 +5,7 @@ published: true
 title: 'Samsung y Sony muestran novedades en exhibición IFA '
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2180
 wordpress_url: http://codehero.co/?p=2180
@@ -14,7 +14,6 @@ categories:
 - Artículos
 - Notícias
 tags: []
-comments: []
 ---
 <p>El día de hoy iniciaron los anuncios de las nuevas tecnologías en una de las exhibiciones tecnológicas más grandes de Europa, la IFA que se lleva a cabo en Berlín, Alemania. Los gigantes Samsung y Sony dieron un gran espectáculo revelando sus novedades, echemos un vistazo a algunos de sus grandes anuncios.</p>
 

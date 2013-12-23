@@ -5,7 +5,7 @@ published: true
 title: SEA continua ciber-ataques ahora contra Twitter y el NYTimes
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2123
 wordpress_url: http://codehero.co/?p=2123
@@ -20,7 +20,6 @@ tags:
 - sirio
 - dns
 - melbourneit
-comments: []
 ---
 <p>En los pasados días un emergente grupo de hackers sirios conocidos con el acrónimo SEA o Ejercito Electrónico Sirio en inglés, logró afectar temporalmente el dominio web principal de Twitter y del New York Times.</p>
 

@@ -20,7 +20,6 @@ tags:
 - categorias
 - protocolos
 - desde cero
-comments: []
 ---
 <p>Bienvenido de vuelta a <strong><em>Objective-C desde Cero</em></strong>, en el capítulo anterior estuvimos hablando de clases, mensajes, apuntadores y objetos.</p>
 
@@ -214,11 +213,11 @@ comments: []
 
 <p>Para crear un protocolo en nuestro proyecto vamos a File > New y seleccionamos "Cocoa Touch" -> "Objective-C protocolo".</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-14-at-8.39.09-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-14-at-8.39.09-PM.png" alt="Nuevo protocolo en Xcode" class="aligncenter size-full wp-image-1401" /></a></p>
+<p><img src="http://i.imgur.com/n4g41uO.png" alt="Nuevo protocolo en Xcode" class="aligncenter size-full wp-image-1401" /></p>
 
 <p>Y especificamos el nombre de nuestro protocolo. Yo lo llamé Entidad.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-14-at-8.39.26-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-14-at-8.39.26-PM.png" alt="Nombre de nuevo protocolo en Xcode" class="aligncenter size-full wp-image-1400" /></a></p>
+<p><img src="http://i.imgur.com/Bh3S8QV.png" alt="Nombre de nuevo protocolo en Xcode" class="aligncenter size-full wp-image-1400" /></p>
 
 <p>Ahora simplemente agregamos las propiedades o métodos que queramos.</p>
 
@@ -286,11 +285,11 @@ comments: []
 
 <p>En Xcode vamos a File > New y seleccionamos "Cocoa Touch" -> "Objective-C class extension".</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-14-at-8.25.59-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-14-at-8.25.59-PM.png" alt="Nueva categoría en Xcode" class="aligncenter size-full wp-image-1403" /></a></p>
+<p><img src="http://i.imgur.com/ZVnUPd3.png" alt="Nueva categoría en Xcode" class="aligncenter size-full wp-image-1403" /></p>
 
 <p>Y especificamos el nombre de nuestra categoría y la clase que extiende. Yo la llamé Runner.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-14-at-8.31.37-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-14-at-8.31.37-PM.png" alt="Nombre de nueva categoría en Xcode" class="aligncenter size-full wp-image-1402" /></a></p>
+<p><img src="http://i.imgur.com/doGf0Gp.png" alt="Nombre de nueva categoría en Xcode" class="aligncenter size-full wp-image-1402" /></p>
 
 <p>Agregar un método se hace exactamente igual que como hacemos con las clases. Escribimos la declaración en el .h y la implementación en el .m. Luego con solo importar la categoría todas las instancias de la clase Person, tendrán esta método.</p>
 

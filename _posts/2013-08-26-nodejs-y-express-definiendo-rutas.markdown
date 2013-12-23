@@ -18,14 +18,6 @@ tags:
 - express
 - rutas
 - Node.js
-comments:
-- id: 207
-  author: Package.json | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/node-js-y-express-package-json/
-  date: '2013-09-17 00:03:25 -0430'
-  date_gmt: '2013-09-17 04:33:25 -0430'
-  content: '[&#8230;] Definiendo Rutas [&#8230;]'
 ---
 <p>Bienvenidos a la segunda lección de <em>Node.js y Express</em>. En el capitulo anterior hablamos de como instalar node, express, y generamos y corrimos nuestra primera aplicación. Hoy vamos a empezar a agregar nuestro propio código.</p>
 

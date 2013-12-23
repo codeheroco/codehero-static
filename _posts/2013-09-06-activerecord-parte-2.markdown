@@ -19,7 +19,6 @@ tags:
 - ActiveRecord
 - Scopes
 - Joins
-comments: []
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios para que puedas desarrollar tus propias aplicaciones Web. Hasta este capítulo ya tenemos suficientes herramientas para comenzar con nuestra aplicación Web, abarcando temas básicos como instalación, estructura, vistas dinámicas e incluso conocimos un poco de ActiveRecord.</p>
 

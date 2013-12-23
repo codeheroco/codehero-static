@@ -5,7 +5,7 @@ published: true
 title: Cómo Hacer Benchmarks a Sistemas *nix
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2147
 wordpress_url: http://codehero.co/?p=2147
@@ -22,7 +22,6 @@ tags:
 - linode
 - aws
 - digital ocean
-comments: []
 ---
 <p>Muchas veces nos hemos encontrado en la situación que deseamos comparar el rendimiento y capacidades de varios computadores; sin embargo las diferencias entre tecnologías de hardware puede ser dificil de indetificar cual es el mejor a simple vista, para estos casos es de gran utilidad herramientas que sean capaces otorgar una calificación o índice que sirva de comparación, este proceso se les conoce como <strong>benchmark</strong>.</p>
 

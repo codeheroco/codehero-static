@@ -18,7 +18,6 @@ tags:
 - Tutorial
 - desde cero
 - indroduccion
-comments: []
 ---
 <p>Es esta serie voy a mostrarte como desarrollar aplicaciones para iPhone, iPod Touch y iPad utilizando el iOS SDK. Durante el progreso de esta serie elaboraremos varias aplicaciones para ilustrar los procesos básicos y técnicas de programación fundamentales para tu formación como desarrollador de esta plataforma.</p>
 
@@ -50,7 +49,7 @@ comments: []
 
 <p>Deberías ver una ventana de bienvenida con una lista de los proyecto recientemente abiertos del lado derecho; si lo acabas de instalar, esta lista debería estar vacía.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-09-at-3.41.55-PM.jpg" alt="Xcode - Ventana de Bienvenida" class="aligncenter size-full wp-image-961" /></p>
+<p><img src="http://i.imgur.com/HA7sUzN.jpg" alt="Xcode - Ventana de Bienvenida" class="aligncenter size-full wp-image-961" /></p>
 
 <p>Vamos a crear un nuevo proyecto. Haz click en "Create a new Xcode project" en la ventana de bienvenida o puedes también ir a, File > New > Project, y Escoge (doble click) la plantilla "Single View Application".</p>
 
@@ -67,7 +66,7 @@ comments: []
 <li><strong>Include Unit Tests:</strong> No queremos pruebas unitarias para esta demostración así que dejémoslo vacío.</li>
 </ul>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-09-at-5.05.58-PM.jpg" alt="Opciones de proyecto en Xcode" class="aligncenter size-full wp-image-962" /></p>
+<p><img src="http://i.imgur.com/47XFu7G.jpg" alt="Opciones de proyecto en Xcode" class="aligncenter size-full wp-image-962" /></p>
 
 <p>Hacemos click en continuar y guardamos el proyecto en la dirección de nuestra preferencia.</p>
 
@@ -86,7 +85,7 @@ comments: []
 
 <p>Si seleccionas el archivo MainStoryboard.storyboard, el editor lo abrirá en Interface Builder. Este es un módulo de Xcode (antes una aplicación por separado), que sirve para construir las interfaces de usuario que se desplegarán en la pantalla.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-09-at-10.27.38-PM.jpg" alt="ventana principal de Interface builder" class="aligncenter size-full wp-image-968" /></p>
+<p><img src="http://i.imgur.com/hJQ5WsJ.jpg" alt="ventana principal de Interface builder" class="aligncenter size-full wp-image-968" /></p>
 
 <ol>
 <li>Del lado izquierdo, justo después del navegador de archivos, tenemos una lista jerárquica de las vistas que tenemos en el editor. </li>
@@ -99,7 +98,7 @@ comments: []
 
 <p>Ahora podemos correr nuestra aplicación. Haz click en el botón "Run" (en la esquina superior izquierda) y verás como Xcode compila y corre. La aplicación se ejecutará en el iOS Simulator.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-09-at-10.55.03-PM.jpg" alt="iOS desde Cero - iOS Simulator" class="aligncenter size-full wp-image-969" /></p>
+<p><img src="http://i.imgur.com/3XfQHWv.jpg" alt="iOS desde Cero - iOS Simulator" class="aligncenter size-full wp-image-969" /></p>
 
 <p>En este momento solo vemos un rectángulo blanco, es porque nuestra vista está vacía, pero pronto le daremos más vida. Por ahora solo te hablaré de algunas de las cosas que puede y no puede hacer el simulador.</p>
 

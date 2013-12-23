@@ -5,7 +5,7 @@ published: true
 title: BREACH, la nueva vulnerabilidad SSL
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1904
 wordpress_url: http://codehero.co/?p=1904
@@ -18,7 +18,6 @@ tags:
 - ssl
 - breach
 - https
-comments: []
 ---
 <p>Muchísimo talento y abundante información interesante se ha dado a conocer por los expertos en seguridad informática en la conferencia de Black Hat de Las Vegas la semana pasada, un tema en particular que llamó nuestra atención fue la vulnerabilidad BREACH presentada por Angelo Prado y Yoel Gluck, ambos Jefes de Seguridad en Salesforce.com, junto a Neal Harris, experto en criptografía actualmente desenvolviéndose como ingeniero de seguridad de aplicaciones en Square Inc.</p>
 

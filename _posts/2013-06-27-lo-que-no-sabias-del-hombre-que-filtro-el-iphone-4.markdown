@@ -5,7 +5,7 @@ published: true
 title: Lo que no sabías del hombre que filtró el iPhone 4
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1165
 wordpress_url: http://codehero.co/?p=1165
@@ -18,7 +18,6 @@ tags:
 - gizmodo
 - leak
 - filtro
-comments: []
 ---
 <p>Por si no lo sabías o se te había olvidado, en Abril de 2010 un chico de 21 años llamado Brian Hogan encontró en un bar californiano un prototipo del que sería la nueva iteración del iPhone para ese año, el iPhone 4. Poco después Hogan habló de la venta del equipo con el portal tecnológico Gizmodo por una módica suma de $8000, lo demás, como dicen, es historia.</p>
 

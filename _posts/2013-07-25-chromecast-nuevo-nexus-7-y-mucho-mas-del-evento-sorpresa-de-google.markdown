@@ -5,7 +5,7 @@ published: true
 title: Chromecast, nuevo Nexus 7 y mucho más del evento sorpresa de Google
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1669
 wordpress_url: http://codehero.co/?p=1669
@@ -18,7 +18,6 @@ tags:
 - chromecast
 - nexus
 - android
-comments: []
 ---
 <p>El día de ayer en la mañana se llevó a cabo un evento sorpresa de Google, en el cual se revelaron muchas novedades que fueron recibidas muy gratamente, repasemos algunas:</p>
 

@@ -18,7 +18,6 @@ tags:
 - marcapagina
 - client-side
 - server-side
-comments: []
 ---
 <p>Bienvenidos Ember.js desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe todo lo relacionado con las propiedades computadas dentro de Ember.js. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/ember-js-desde-cero-observadores/">Capítulo 4 - Observadores)</a>)</p>
 
@@ -38,7 +37,7 @@ comments: []
 
 <p>Antes de ver como esta estructurado exactamente la arquitectura en Ember.js es bueno que veamos como funcionan las aplicaciones normalmente en MVC. Veamos el siguiente diagrama:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/10/emberjs-server-side.png" alt="emberjs-cliente-side" /></p>
+<p><img src="http://i.imgur.com/a17cxGj.png" alt="emberjs-cliente-side" /></p>
 
 <blockquote>
   <p>Observemos que este tipo de aplicación corre en el servidor y no en el cliente.</p>
@@ -56,7 +55,7 @@ comments: []
 
 <p>Ember.js no trabaja de esa manera. Veamos el siguiente diagrama:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/10/emberjs-cliente-side.png" alt="emberjs-server-side" /></p>
+<p><img src="http://i.imgur.com/Iu1FZVM.png" alt="emberjs-server-side" /></p>
 
 <blockquote>
   <p>Observemos que este tipo de aplicación corre en el cliente y no en el servidor.</p>
@@ -76,7 +75,7 @@ comments: []
 
 <p>Siguiendo el ejemplo que veníamos desarrollando en el capitulo anterior LINK. Veamos el siguiente diagrama:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/10/emberjs-request.png" alt="emberjs-request" /></p>
+<p><img src="http://i.imgur.com/McQMR6C.png" alt="emberjs-request" /></p>
 
 <p>Supongamos que hacemos el siguiente request en el explorador <code>/marcapaginas</code>, este nos debería devolver todos los marca paginas disponibles en la app. El funcionamiento en sí de la app debería ser, acceder al router de los marca libros para que este defina un controlador (en nuestro caso <strong>Controlador Marcapaginas</strong>), a su vez si se necesita procesar información este acceda al “Modelo Marcapaginas” para que al final, la vista renderiza el template asociado a <strong>Marcapaginas</strong> con la información obtenida anteriormente.</p>
 

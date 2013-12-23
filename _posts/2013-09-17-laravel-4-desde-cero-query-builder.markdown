@@ -18,7 +18,6 @@ tags:
 - sql
 - Query Builder
 - POO
-comments: []
 ---
 <p>En el pasado capítulo vimos lo básico para manejar los CRUD de los modelos que tenga nuestro proyecto de Laravel. Ahora aprenderemos a utilizar SQL escrito por nosotros o con las funciones que nos provee Laravel a traves de <strong>Query Builder</strong>.</p>
 

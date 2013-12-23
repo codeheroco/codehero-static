@@ -20,7 +20,6 @@ tags:
 - jade
 - plantillas
 - templates
-comments: []
 ---
 <p>En este capitulo de <em>Node.js y Express</em> voy a hablarte de un tópico que tocamos muy por encima en el capítulo anterior, Jade.js.</p>
 
@@ -132,7 +131,7 @@ ul
 <pre>- var name = '<span>oscar</span>';
 
 ul
-    li= !{ name }
+    li != { name }
 
 </pre>
 

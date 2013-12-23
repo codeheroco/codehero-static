@@ -19,7 +19,6 @@ tags:
 - control
 - while
 - for
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de la serie PHP desde Cero, en los anteriores capítulos vimos cuales eran los tipos de variables, constantes y los operadores de asignación en PHP. En esta oportunidad estudiaremos cuales son las estructuras de control y aprenderemos como utilizarlas con lo que hemos aprendido anteriormente.</p>
 

@@ -18,14 +18,6 @@ tags:
 - datetime
 - math
 - urllib2
-comments:
-- id: 197
-  author: 'Python desde Cero: Clases, Atributos y Métodos - CODEHERO'
-  author_email: ''
-  author_url: http://codehero.co/python-desde-cero-clases-atributos-y-metodos/
-  date: '2013-07-24 00:00:14 -0430'
-  date_gmt: '2013-07-24 04:30:14 -0430'
-  content: '[...] Módulos [...]'
 ---
 <p>Bienvenidos una vez más a Python desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe como crear y usar funciones dentro de Python. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/python-desde-cero-funciones/">Capítulo 3</a>)</p>
 

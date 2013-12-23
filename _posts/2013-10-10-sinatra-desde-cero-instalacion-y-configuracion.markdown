@@ -17,7 +17,6 @@ tags:
 - Cursos
 - curso
 - Sinatra
-comments: []
 ---
 <h1>Instalación y configuración.</h1>
 

@@ -18,14 +18,6 @@ tags:
 - desde cero
 - metodos
 - bloques
-comments:
-- id: 182
-  author: 'Ruby desde Cero: Métodos &amp; bloques'
-  author_email: ''
-  author_url: http://e.meneame.net/story/ruby-desde-cero-metodos-bloques
-  date: '2013-07-03 17:37:51 -0430'
-  date_gmt: '2013-07-03 22:07:51 -0430'
-  content: '[...] Ruby desde Cero: Métodos &amp; bloques  [...]'
 ---
 <p>Bienvenidos una vez más a Ruby desde Cero. Hasta este capítulo hemos aprendido como instalar, configurar Ruby en nuestros computadores y conocimos un poco las variables, objetos y estructuras de control principales del sistema.</p>
 

@@ -5,7 +5,7 @@ published: true
 title: Yahoo! suma RockMelt a su lista de compras
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1861
 wordpress_url: http://codehero.co/?p=1861
@@ -16,16 +16,6 @@ categories:
 tags:
 - yahoo
 - rockmelt
-comments:
-- id: 201
-  author: El futuro de Flickr en manos de Bernardo Hernández | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/el-futuro-de-flickr-en-manos-de-bernando-hernandez/
-  date: '2013-08-12 00:13:55 -0430'
-  date_gmt: '2013-08-12 04:43:55 -0430'
-  content: '[...] que Marissa Mayer ha tomado las riendas de Yahoo! hemos visto grandes
-    cambios como nuevas adquisiciones de compañias y mucho movimiento en la nómina
-    para obtener personajes talentosos que saquen adelante a la [...]'
 ---
 <p>Uno de los viejos competidores de Google ha estado este año en una racha de compra de compañías con el propósito de mejorar los servicios que ofrece, este año ya ha adquirido un total de 18 compañías, entre ellas Tumblr, la famosa empresa de <em>blogs</em> por la cual pagó mas de 1 billón de dólares.</p>
 

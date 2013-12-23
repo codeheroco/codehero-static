@@ -18,7 +18,6 @@ tags:
 - desde cero
 - express
 - Node.js
-comments: []
 ---
 <p>En el capitulo anterior de <em>Node.js y Express</em> estuvimos hablando de como construir una aplicación de express desde cero. Hoy continuaremos este curso hablando de las vistas.</p>
 

@@ -5,7 +5,7 @@ published: true
 title: 'Google Maps iOS: Lo nuevo en la aplicación y el SDK'
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1479
 wordpress_url: http://codehero.co/?p=1479
@@ -18,7 +18,6 @@ tags:
 - sdk
 - google
 - maps
-comments: []
 ---
 <p>Hace un par de días salió la nueva versión de Google Maps para iOS, emergiendo al mercado una semana después que su versión Android, como era de esperarse.</p>
 

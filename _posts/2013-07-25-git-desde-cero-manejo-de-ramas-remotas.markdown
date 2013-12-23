@@ -17,7 +17,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como manejar las ramas remotas en un proyecto y cuales son las mejores prácticas. Los comandos a utilizar esta semana serán los siguientes:</p>
 
@@ -65,7 +64,7 @@ $ git add . # agregamos al escenario todos los cambios.
 $ git commit -m "Cambio de nombre"
 </pre>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/LOCAL-REMOTA.gif" alt="local-remota" /></p>
+<p><img src="http://i.imgur.com/3sJzdtN.png" alt="local-remota" /></p>
 
 <p>Ahora haremos lo siguiente a partir de nuestra rama <em>arreglos-varios</em> crearemos una nueva rama llamada <em>duplicada-de-arreglos-varios</em> y introduciremos un cambio. Luego de esto empujaremos estos cambios al repositorio remoto desde esta misma rama.</p>
 
@@ -75,7 +74,7 @@ $ git commit -m "Cambio de nombre"
 Switched to a new branch 'duplicada-de-arreglos-varios'
 </pre>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/ramas-parejas.gif" alt="ramas-parejas" /></p>
+<p><img src="http://i.imgur.com/hV0oq98.png" alt="ramas-parejas" /></p>
 
 <p>Introduciremos los siguientes cambios y posteriormente empujaremos hacia la rama <em>arreglos-varios</em>.</p>
 
@@ -119,7 +118,7 @@ Branch a-v set up to track remote branch arreglos-varios from origin.
 Switched to a new branch 'a-v'
 </pre>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/NUEVA-RAMA-2.gif" alt="nueva-rama" /></p>
+<p><img src="http://i.imgur.com/CWAYgQA.png" alt="nueva-rama" /></p>
 
 <h3>¿Cómo eliminar una rama remota?</h3>
 

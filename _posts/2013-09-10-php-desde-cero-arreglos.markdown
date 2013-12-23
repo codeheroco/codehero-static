@@ -18,7 +18,6 @@ tags:
 - arreglos
 - numericos
 - asociativos
-comments: []
 ---
 <p>En este nuevo capitulo de PHP desde Cero estudiaremos los <strong>arreglos</strong>, un tipo de variable que nos permite juntar o agrupar diferentes elementos y manejarlos como si fueran una sola variable. En otros términos un arreglo de una lista de variables.</p>
 
@@ -90,7 +89,7 @@ $libros[1] = array('titulo'=>'Aprendiendo a desarrollar', 'autor'=>'CodeHero');
 <pre>$libros = array();
 $libros[0] = array('titulo'=>'Aprendiendo PHP', 'autor'=>'Ramses Velasquez');
 $libros[1] = array('titulo'=>'Aprendiendo a desarrollar', 'autor'=>'CodeHero');
-echo $libro[1]['autor'];
+echo $libros[1]['autor'];
 // esto devolver el valor CodeHero, ya que especificamos la fila numero 1 y la columna autor
 </pre>
 
@@ -101,7 +100,7 @@ echo $libro[1]['autor'];
 <p>Un elemento de un arreglo puede ser editado con el operador de asignación y especificando la posición en el arreglo, por ejemplo vamos a editar el segundo elemento de un arreglo:</p>
 
 <pre>$figuras = array('cuadrado', 'triángulo', 'circulo');
-$figura[1] = 'rectángulo';
+$figuras[1] = 'rectángulo';
 </pre>
 
 <p>Para agregar un elemento al final de un arreglo podemos utilizar la función <strong>array_push()</strong>. Esta función recibe dos parámetros, el primero es el arreglo en donde se va a insertar y el segundo es el nuevo elemento.</p>

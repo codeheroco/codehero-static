@@ -17,14 +17,6 @@ tags:
 - Ruby
 - Objetos
 - desde cero
-comments:
-- id: 200
-  author: Orientación a Objetos – Parte 2 | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/orientacion-a-objetos-parte-2/
-  date: '2013-08-02 00:01:43 -0430'
-  date_gmt: '2013-08-02 04:31:43 -0430'
-  content: '[...] Orientación a Objetos – Parte 1 [...]'
 ---
 <p>Bienvenidos una vez más a Ruby desde Cero. Hasta este capítulo hemos aprendido cómo instalar y configurar Ruby en nuestros computadores profundizando nuestros conocimientos acerca del lenguaje.</p>
 

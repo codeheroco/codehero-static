@@ -18,7 +18,6 @@ tags:
 - Cursos
 - Protocolo
 - Delegate
-comments: []
 ---
 <p>Bienvenidos una vez más a iOS desde Cero. En este capítulo de la serie estudiaremos un tema bastante importante y que frecuentemente veremos en el desarrollo iOS. Aprenderemos conceptos básicos, y demostraremos estos conceptos con sus respectivos ejemplos.</p>
 
@@ -86,7 +85,7 @@ comments: []
 
 <p>Creamos nuestro archivo protocolo.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/protocol.png" alt="foto" /></p>
+<p><img src="http://i.imgur.com/WOINV9j.png?1" alt="foto" /></p>
 
 <p>Lo nombramos con el nombre que queramos para este ejemplo lo llamaremos <strong>FileDataAccessDelegate</strong></p>
 
@@ -151,7 +150,7 @@ comments: []
 
 <p>Construímos un poco la interfaz y probablemente tengamos como resultado algo así:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/Captura-de-pantalla-2013-09-26-a-las-23.44.34.png" alt="foto" /></p>
+<p><img src="http://i.imgur.com/e0Mhnw4.png?1" alt="foto" /></p>
 
 <hr />
 

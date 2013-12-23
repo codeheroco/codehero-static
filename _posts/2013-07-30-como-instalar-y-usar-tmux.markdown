@@ -5,7 +5,7 @@ published: true
 title: Cómo instalar y usar Tmux
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1768
 wordpress_url: http://codehero.co/?p=1768
@@ -16,7 +16,6 @@ categories:
 tags:
 - howto
 - tmux
-comments: []
 ---
 <p>Para aquellos que gustan de usar el terminal para llevar a cabo las tareas en su día a día pero deben abrir varias ventanas y sesiones para lograr llevar a cabo simultáneos procedimientos, <strong>Tmux</strong> es quizás la herramienta que se estaban perdiendo, esta semana hablaremos sobre cómo puede ayudarte a trabajar en el terminal de una manera más cómoda y eficiente.</p>
 
@@ -53,7 +52,7 @@ comments: []
 <pre>$ tmux new -s primera_sesion
 </pre>
 
-<p><img src="http://cl.ly/image/3e10263a2j3t/Screen%20Shot%202013-07-27%20at%206.14.13%20PM.png" alt="" /></p>
+<p><img src="http://i.imgur.com/0WiOA4W.png" alt="" /></p>
 
 <p>Esto iniciará una nueva sesión del terminal tmux con el nombre <em>primera_sesion</em>. Notemos que en la barra inferior del terminal podemos apreciar además del nombre de la sesión, lo siguiente: &#42;&#42;0:-&#42;&#42;*, esto se traduce en que tenemos una ventana en la sesión (ventana 0), como estamos en el directorio raíz del usuario la ruta es únicamente el guión (-), y el asterisco (*) nos indica que es la ventana activa</p>
 
@@ -61,7 +60,7 @@ comments: []
 
 <p>Por ahora creemos un nuevo panel en nuestra ventana, esto dividirá nuestra ventana horizontal o verticalmente para crear el otro panel, para hacerlo verticalmente presionemos <code>Ctrl-b %</code> y horizontalmente <code>Ctrl-b "</code>. Hagamos ambos para ver que pasa:</p>
 
-<p><img src="http://cl.ly/image/3W1g3T2j2b2G/Screen%20Shot%202013-07-27%20at%206.31.34%20PM.png" alt="" /></p>
+<p><img src="http://i.imgur.com/lS8Ixei.png" alt="" /></p>
 
 <p>Notemos que creamos 2 paneles adicionales, uno al dividir el original verticalmente en 2 y el otro al dividir el nuevo vertical derecho en 2 horizontales. Para poder ciclar entre los diferentes paneles podemos presionar <code>Ctrl-b o</code> o si queremos ir a alguno en particular podemos presionar <code>Ctrl-b q</code> lo cual nos dirá los números de cada panel y si rapidamente presionamos el número del que deseamos podremos ir a él.</p>
 
@@ -73,7 +72,7 @@ comments: []
 
 <p>Ahora creemos una nueva ventana presionando <code>Ctrl-b c</code>:</p>
 
-<p><img src="http://cl.ly/image/2O060A1W1D37/Screen%20Shot%202013-07-27%20at%206.39.58%20PM.png" alt="" /></p>
+<p><img src="http://i.imgur.com/tSpomk9.png" alt="" /></p>
 
 <p>Notemos que hemos creado una nueva ventana de terminal, podemos apreciar en la barra inferior que ahora tenemos la ventana 0 y la 1, el asterisco nos indica la ventana en la cual nos encontramos actualmente.</p>
 
@@ -85,7 +84,7 @@ comments: []
 
 <p>Conectemonos a un servidor por SSH mediante Tmux:</p>
 
-<p><img src="http://cl.ly/image/0i343Z2J1z0c/Screen%20Shot%202013-07-27%20at%206.52.35%20PM.png" alt="" /></p>
+<p><img src="http://i.imgur.com/7AqBKBm.png" alt="" /></p>
 
 <p>Ahora presionemos <code>Ctrl-b d</code> para desatarnos de la sesión.</p>
 
@@ -117,11 +116,11 @@ $ chmod 755 /tmp/emparejado
 
 <p>Ahora en nuestro otro computador nos conectamos por SSH al equipo anfitrión y nos atamos a la sesión (recuerda que debes tener habilitado este tipo de acceso remoto en la configuración de tu computador anfitrión).</p>
 
-<p><img src="http://cl.ly/image/1A09430q3r2i/Screen%20Shot%202013-07-28%20at%203.04.12%20PM.png" alt="" /></p>
+<p><img src="http://i.imgur.com/ZCqXRf1.png" alt="" /></p>
 
 <p>Ahora ambos equipos se encuentran conectados a la misma sesión de Tmux y lo que uno escriba se verá reflejado en el otro:</p>
 
-<p><img src="http://cl.ly/image/071E2E1n0O0y/dual.png" alt="" /> Podemos notar una especie de puntos rellenando el fondo de la ventana más grande, esto se debe a que el terminal toma el tamaño de la ventana más pequeña (en este caso la del invitado) con el fin de que ambos puedan ver la misma información.</p>
+<p><img src="http://i.imgur.com/Oo9ubmT.png" alt="" /> Podemos notar una especie de puntos rellenando el fondo de la ventana más grande, esto se debe a que el terminal toma el tamaño de la ventana más pequeña (en este caso la del invitado) con el fin de que ambos puedan ver la misma información.</p>
 
 <blockquote>
   <p>Si quieres adentrarte más en la programación en pareja por terminal, te recomendamos que le eches un vistazo a <a href="http://tmate.io/">Tmate</a> y <a href="https://github.com/zolrath/wemux">Wemux</a> basadas en Tmux, los cuales ofrecen varias ventajas relacionadas a este fin particular.</p>

@@ -5,7 +5,7 @@ published: true
 title: NSA en conferencia Black Hat 2013
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1825
 wordpress_url: http://codehero.co/?p=1825
@@ -17,7 +17,6 @@ tags:
 - nsa
 - noticia
 - black hat
-comments: []
 ---
 <p>Desde el 27 de Julio hasta hoy se lleva a cabo en Las Vegas, la conferencia más famosa de seguridad informática, la conferencia Black Hat, a la cual acuden cientos de expertos en el tema a exhibir sus capacidades dando a conocer fallas que existen en los sistemas y habiendo logrado explotarlas, demuestran lo que pueden hacer una vez se apoderan de ellos.</p>
 

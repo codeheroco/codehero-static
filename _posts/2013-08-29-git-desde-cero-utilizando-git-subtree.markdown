@@ -17,7 +17,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como agregar, actualizar y utilizar una alternativa a los submódulos de git, llamada <strong><em>subtree</em></strong> en nuestros proyectos. Los comandos a utilizar esta semana serán los siguientes:</p>
 

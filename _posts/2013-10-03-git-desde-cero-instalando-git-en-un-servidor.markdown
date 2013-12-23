@@ -4,15 +4,12 @@ status: publish
 published: true
 title: Instalando git en un servidor
 author: Alberto Grespan
+author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
 wordpress_id: 2341
 wordpress_url: http://codehero.co/?p=2341
 date: 2013-10-03 00:05:15.000000000 -04:30
-author_page: /author/albertogg.html
-series:
-  nombre: Git desde Cero
-  thumbnail: none
 categories:
 - Cursos
 - Git
@@ -20,7 +17,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo y último capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como utilizar git dentro de nuestro servidor privado. Explicaremos los protocolos que existen para realizar esta tarea, crearemos y alojaremos un proyecto en el servidor privado utilizando el protocolo ssh.</p>
 

@@ -5,7 +5,7 @@ published: true
 title: Ubuntu Edge rompe record de recolección de fondos
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2000
 wordpress_url: http://codehero.co/?p=2000
@@ -19,7 +19,6 @@ tags:
 - smartphone
 - record
 - pebble
-comments: []
 ---
 <p>Faltan solo un par de días para que culmine la campaña de recolección de fondos para el desarrollo del dispositivo móvil de Canonical, el <a href="http://www.indiegogo.com/projects/ubuntu-edge">Ubuntu Edge</a>.</p>
 

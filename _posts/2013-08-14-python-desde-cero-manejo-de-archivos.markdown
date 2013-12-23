@@ -20,7 +20,6 @@ tags:
 - leer
 - cerrar
 - abrir
-comments: []
 ---
 <p>Bienvenidos una vez más a Python desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe todo lo relacionado con el módulo MySQLdb, en otras palabras, aprendimos a conectarnos a una base de datos MySql, a crear tablas, y a como insertar, obtener, modificar y eliminar registros de la base da datos usando el API de Python para BD. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/python-desde-cero-bases-de-datos/">Capítulo 6 - Bases de Datos</a>)</p>
 
@@ -45,7 +44,7 @@ comments: []
 
 <p>Aquí está una lista con los diferentes modos de apertura de un archivo:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/modos-apertura-archivos-python.png" alt="modos-apertura-archivos-python" title="modos-apertura-archivos-python" /></p>
+<p><img src="http://i.imgur.com/sbFA1c9.png" alt="modos-apertura-archivos-python" /></p>
 
 <hr />
 
@@ -53,7 +52,7 @@ comments: []
 
 <p>Una vez que hemos abierto el archivo, podemos obtener la información relacionada a el mismo. Veamos una lista con todos los atributos más importantes relacionados al tipo de objeto:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/atributos-archivos-python.png" alt="atributos-archivos-python" title="atributos-archivos-python" /></p>
+<p><img src="http://i.imgur.com/mm0WPEw.png" alt="atributos-archivos-python" /></p>
 
 <p>Veamos un ejemplo sobre como utilizar todo lo que hemos visto hasta ahora:</p>
 

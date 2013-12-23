@@ -5,7 +5,7 @@ published: true
 title: HDMI 2.0 se anuncia oficialmente
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2195
 wordpress_url: http://codehero.co/?p=2195
@@ -18,7 +18,6 @@ tags:
 - '2.0'
 - tv
 - ifa
-comments: []
 ---
 <p>La semana pasada se dieron a conocer las especificaciones de la versión 2.0 de la interfaz de alta calidad de audio y video más conocida en el mercado, el HDMI. Desde los iniciales desarrollos de la primera versión unos 11 años atrás, se han vendido mas de 2 billones de dispositivos compatibles, convirtiendo al protocolo de transferencia de datos de audio/video en el nuevo estándar indiscutible.</p>
 

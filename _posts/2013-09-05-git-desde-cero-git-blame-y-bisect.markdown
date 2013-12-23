@@ -17,7 +17,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como realizar "debugging" utilizando Git, con las herramientas <code>git bisect</code> y <code>git blame</code>. Los comandos a utilizar esta semana serán los siguientes:</p>
 

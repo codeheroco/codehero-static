@@ -18,7 +18,6 @@ tags:
 - desde cero
 - ramas
 - branch
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como manejar las ramas en un proyecto y cuales son las mejores prácticas. Los comandos a utilizar esta semana serán los siguientes:</p>
 
@@ -41,7 +40,7 @@ comments: []
 
 <p>Para comprender esto es necesario realizar un ejemplo.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/1-foto-arbol-sin-ramas.gif" alt="Sin ramas" /></p>
+<p><img src="http://i.imgur.com/S5Tk6r7.png" alt="Sin ramas" /></p>
 
 <blockquote>
   <p>En la foto apreciamos que es un árbol en línea recta que no presenta ramificaciones. ></p>
@@ -112,7 +111,7 @@ $ git add README.md
 $ git commit -m "Agregar modificación al archivo README"
 </pre>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/2-arbol-con-ramificacion.gif" alt="Ramas" /></p>
+<p><img src="http://i.imgur.com/kO5iLhV.png" alt="Ramas" /></p>
 
 <p>En este momento el árbol comienza a presentar una ramificación debido a que existen dos ramas en la cabeza del árbol. Donde solo una de ellas se encuentra de manera "lineal".</p>
 
@@ -134,7 +133,7 @@ Fast-forward
  1 file changed, 5 insertions(+)
 </pre>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/3-union-de-ramas.gif" alt="Union" /></p>
+<p><img src="http://i.imgur.com/yzDIy5H.png" alt="Union" /></p>
 
 <hr />
 
@@ -167,11 +166,11 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 <p>Para resolver este conflicto basta con abrir el archivo con problemas(en nuestro caso README.md) buscar <code>&lt;&lt;&lt;&lt;&lt; &gt;&gt;&gt;&gt;&gt;</code> este tipo de flechas y rayas <code>======</code> eliminarlas y ajustar el código o texto adecuadamente.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/4-conflicto.gif" alt="Conflicto" /></p>
+<p><img src="http://i.imgur.com/9rKQoqx.png" alt="Conflicto" /></p>
 
 <p>Acomodamos el texto como más nos guste.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/5-conflicto-resuelto.gif" alt="Arreglo" /></p>
+<p><img src="http://i.imgur.com/MD2ywk8.png" alt="Arreglo" /></p>
 
 <p>Revisamos el "<em>status</em>" de los archivos y apreciamos lo siguiente:</p>
 
@@ -199,7 +198,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 $ git commit -m "Unión de primera-rama con master"
 </pre>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/6-arbol-final.gif" alt="final" /></p>
+<p><img src="http://i.imgur.com/Qh5RGm8.png" alt="final" /></p>
 
 <p>Podemos apreciar que tenemos una rama que crece del árbol principal y posteriormente se vuelve a unir con el árbol, dejando un "lomo" sobre el mismo.</p>
 

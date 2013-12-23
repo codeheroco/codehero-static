@@ -18,7 +18,6 @@ tags:
 - desde cero
 - registro
 - cambios
-comments: []
 ---
 <h1>Git desde cero: Registrando cambios.</h1>
 

@@ -17,7 +17,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos de otra forma para realizar la unión de ramas llamada <strong>"rebase"</strong>, de como almacenar cambios sin tener que consolidarlos y cuales son las mejores prácticas a la hora de utilizar estas herramientas. Los comandos a utilizar esta semana serán los siguientes:</p>
 

@@ -18,7 +18,6 @@ tags:
 - desde cero
 - navigation
 - navegacion
-comments: []
 ---
 <h1>iOS desde Cero: Navigation Controller</h1>
 
@@ -32,11 +31,7 @@ comments: []
 
 <p>Abrimos Xcode y hacemes click en File -> New -> Project…</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/creando-un-nuevo-proyecto-en-Xcode.png"><img src="http://codehero.co/oc-content/uploads/2013/07/creando-un-nuevo-proyecto-en-Xcode.png" alt="creando un nuevo proyecto en Xcode" class="aligncenter size-full wp-image-1593" /></a></p>
-
 <p>Seleccionamos Application en la sección de iOS y hacemos doble click en Empty Application.</p>
-
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/nuevo-proyecto-en-Xcode-empty-application.png"><img src="http://codehero.co/oc-content/uploads/2013/07/nuevo-proyecto-en-Xcode-empty-application.png" alt="nuevo proyecto en Xcode - empty application" class="aligncenter size-full wp-image-1594" /></a></p>
 
 <p>Le damos un nombre a nuestro proyecto, seleccionamos arc (automatic reference counting) y guardamos. Ya en esto deberíamos ser unos expertos.</p>
 
@@ -50,23 +45,21 @@ comments: []
 
 <p>Vamos a File -> New -> File…, y le hacemos click a Cocoa Touch en el menú iOS y seleccionamos Objective-C Class.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/nueva-clase-en-xcode.jpg"><img src="http://codehero.co/oc-content/uploads/2013/07/nueva-clase-en-xcode.jpg" alt="nueva-clase-en-xcode" class="aligncenter size-full wp-image-1595" /></a></p>
-
 <p>Ahora le damos un nombre a nuestra clases, le decimos que hereda de <em>UIViewController</em> y le decimos que lo queremos con un Xib para interfaz de usuario. Yo lo voy a llamar <em>MainViewController</em>.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/creando-MainViewCotroller.jpg"><img src="http://codehero.co/oc-content/uploads/2013/07/creando-MainViewCotroller.jpg" alt="creando-MainViewCotroller" class="aligncenter size-full wp-image-1596" /></a></p>
+<p><img src="http://i.imgur.com/syS6cGt.jpg" alt="creando-MainViewCotroller" class="aligncenter size-full wp-image-1596" /></p>
 
 <p>Ahora vamos <strong>MainViewController.xib</strong> y arrastramos un botón a la vista. Yo le escribí de titulo "Ir a la próxima vista". Este botón al hacerle click nos va a llevar a la próxima vista. Pero primero hay que escribir el código que haga esta magia.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/agregando-el-boton.png"><img src="http://codehero.co/oc-content/uploads/2013/07/agregando-el-boton.png" alt="agregando el boton" class="aligncenter size-full wp-image-1597" /></a></p>
+<p><img src="http://i.imgur.com/Iyf9jnCh.png" alt="agregando el boton" class="aligncenter size-full wp-image-1597" /></p>
 
 <p>En la vista del asistente, de modo que tengamos el editor de vistas y de código lado a lado (asegurare que el editor de código esté en en archivo <strong>MainViewController.h</strong>), sosteniendo la tecla control hacemos click sobre el botón y arrastramos hasta el código.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/conectando-el-outlet-del-boton.png"><img src="http://codehero.co/oc-content/uploads/2013/07/conectando-el-outlet-del-boton.png" alt="conectando-el-outlet-del-boton" class="aligncenter size-full wp-image-1598" /></a></p>
+<p><img src="http://i.imgur.com/On7cZYm.png" alt="conectando-el-outlet-del-boton" class="aligncenter size-full wp-image-1598" /></p>
 
 <p>Creamos una acción. Yo la llamé <em>goToTheNextView</em> y nos aseguramos que esté seleccionado "Touch Up Inside". Este es el método que se va a llamar al presionar el botón.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/creando-la-accion-del-boton.png"><img src="http://codehero.co/oc-content/uploads/2013/07/creando-la-accion-del-boton.png" alt="creando-la-accion-del-boton" class="aligncenter size-full wp-image-1599" /></a></p>
+<p><img src="http://i.imgur.com/IX8UdD6.png" alt="creando-la-accion-del-boton" class="aligncenter size-full wp-image-1599" /></p>
 
 <p>Ahora antes de navegar al segundo view controller tenemos que crearlo.</p>
 
@@ -78,11 +71,11 @@ comments: []
 
 <p>Abrimos <strong>NextViewController.xib</strong> y le agregamos un label a la vista. En esta vamos a mostrar un mensaje enviado desde la vista anterior, pero ya llegaremos a eso, por ahora vamos a conectar el label con el código mediante un outlet como lo hicimos con el botón.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/conectando-el-outlet-del-label.png"><img src="http://codehero.co/oc-content/uploads/2013/07/conectando-el-outlet-del-label.png" alt="conectando-el-outlet-del-label" class="aligncenter size-full wp-image-1600" /></a></p>
+<p><img src="http://i.imgur.com/B43HVn7.png" alt="conectando-el-outlet-del-label" class="aligncenter size-full wp-image-1600" /></p>
 
 <p>Le colocamos un nombre, yo lo llamé "label".</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/creando-la-outlet-del-label.png"><img src="http://codehero.co/oc-content/uploads/2013/07/creando-la-outlet-del-label.png" alt="creando-outlet-del-label" class="aligncenter size-full wp-image-1601" /></a></p>
+<p><img src="http://i.imgur.com/R3BifTz.png" alt="creando-outlet-del-label" class="aligncenter size-full wp-image-1601" /></p>
 
 <hr />
 
@@ -178,7 +171,7 @@ comments: []
 
 <p>Cuando llamamos a <em>pushViewController:animated</em> en <em>MainViewController</em> le estamos agregando al navigation controller un nuevo view controller a su lista interna y trasicionamos de una vista a otra.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/explicación-navigation-controller.jpg"><img src="http://codehero.co/oc-content/uploads/2013/07/explicación-navigation-controller.jpg" alt="explicación-navigation-controller" class="aligncenter size-full wp-image-1602" /></a></p>
+<p><img src="http://i.imgur.com/gtzJp9F.jpg" alt="explicación-navigation-controller" class="aligncenter size-full wp-image-1602" /></p>
 
 <hr />
 

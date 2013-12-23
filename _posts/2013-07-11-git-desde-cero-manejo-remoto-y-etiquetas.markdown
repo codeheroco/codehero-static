@@ -18,7 +18,6 @@ tags:
 - desde cero
 - remoto
 - etiquetas
-comments: []
 ---
 <h1>Git desde Cero: Manejo remoto y etiquetas.</h1>
 

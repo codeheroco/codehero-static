@@ -17,9 +17,8 @@ tags:
 - url
 - urls
 - avanzadas
-comments: []
 ---
-<p>Bienvenidos una vez más a Django desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe como crear forms o formularios con la ayuda de la librería que trae pre-instalada Django. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/django-desde-cero-formularios-forms/">Capítulo 5 -  Formularios (Forms)</a>)</p>
+<p>Bienvenidos una vez más a Django desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe como crear forms o formularios con la ayuda de la librería que trae pre-instalada Django. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/django-desde-cero-formularios-forms/">Capítulo 5 - Formularios (Forms)</a>)</p>
 
 <p>Hoy, vamos a ver como crear urls avanzadas las cuales nos servirán para manejar información a través de nuestras apps.</p>
 
@@ -43,12 +42,11 @@ comments: []
 
 <p>Una vez que creemos ese archivo debemos agregarle lo siguiente:</p>
 
-<pre>
-from django.conf.urls import patterns, include, url
+<pre>from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'^todos/$', 'blog.views.articulos'),
-    url(r'^obtener/(?P<articulo_id>\d+)/$', 'blog.views.articulo'),
+    url(r'^obtener/(?P&lt;articulo_id>\d+)/$', 'blog.views.articulo'),
 )
 </pre>
 
@@ -64,14 +62,12 @@ urlpatterns = patterns('',
 
 <p>En el archivo <code>urls.py</code> de nuestro sitio, en nuestro caso <strong>PrimerBlog</strong> agregamos lo siguiente:</p>
 
-<pre>
-(r'^articulos/', include('blog.urls')),
+<pre>(r'^articulos/', include('blog.urls')),
 </pre>
 
 <p>Al archivo debería lucir así:</p>
 
-<pre>
-from django.conf.urls import patterns, include, url
+<pre>from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -101,8 +97,7 @@ urlpatterns = patterns('',
 
 <p>Lo tercero y último que tenemos que hacer es crear las vistas que nos permitan manejar estas direcciones que creamos anteriormente. Para esto nos vamos al archivo <code>views.py</code> dentro de nuestra app <strong>blog</strong> y agregamos el siguiente código:</p>
 
-<pre>
-def articulos(request):
+<pre>def articulos(request):
   return render_to_response('index.html', {'articulos' : Articulo.objects.all() })
 
 def articulo(request, articulo_id=1):
@@ -115,8 +110,7 @@ def articulo(request, articulo_id=1):
 
 <p>El archivo <code>views.py</code> debería lucir así:</p>
 
-<pre>
-from django.shortcuts import render_to_response
+<pre>from django.shortcuts import render_to_response
 from blog.models import Articulo
 from forms import ArticuloForm
 from django.http import HttpResponseRedirect
@@ -159,11 +153,11 @@ def articulo(request, articulo_id=1):
 
 <p>Si navegamos hacia http://127.0.0.1:8000/articulos/todos/ deberíamos obtener:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/10/todos-django-urls-avanzadas.png" alt="todos-django-urls-avanzadas" /></p>
+<p><img src="http://i.imgur.com/CasPE61.png" alt="todos-django-urls-avanzadas" /></p>
 
 <p>Si navegamos hacia http://127.0.0.1:8000/articulos/obtener/2 deberíamos obtener el articulo con el id 2:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/10/obtener-django-urls-avanzadas.png" alt="obtener-django-urls-avanzadas" /></p>
+<p><img src="http://i.imgur.com/RU9puPo.png" alt="obtener-django-urls-avanzadas" /></p>
 
 <hr />
 

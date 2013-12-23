@@ -5,7 +5,7 @@ published: true
 title: La nueva generación de transistores ultra veloces
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2068
 wordpress_url: http://codehero.co/?p=2068
@@ -18,7 +18,6 @@ tags:
 - transistor
 - veloz
 - 467ghz
-comments: []
 ---
 <p>Uno de los factores que ha caracterizado el avance tecnológico a nivel computacional a lo largo de los años es la capacidad de miniaturizar cada vez más los componentes electrónicos produciendo en consecuencia la concentración de mayor número de transistores para un pequeño y determinado espacio; sin embargo el límite de este proceso como se emplea hoy en día está proyectado para llegar a su mínima expresión en unos 10 años.</p>
 

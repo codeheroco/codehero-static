@@ -5,7 +5,7 @@ published: true
 title: Operaciones Básicas
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2286
 wordpress_url: http://codehero.co/?p=2286
@@ -22,7 +22,6 @@ tags:
 - drop
 - busqueda
 - insert
-comments: []
 ---
 <p>Luego que hemos instalado MongoDB en la entrada pasada, seguramente querrás comenzar a realizar inserciones y <em>queries</em> para probar las ventajas de esta solución y poner tus habilidades en práctica, comencemos con algunas operaciones básicas para saber como manipular los datos en MongoDB.</p>
 

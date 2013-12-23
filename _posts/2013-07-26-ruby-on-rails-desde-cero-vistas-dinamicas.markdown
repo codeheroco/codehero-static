@@ -16,7 +16,6 @@ categories:
 tags:
 - Ruby on Rails
 - vistas
-comments: []
 ---
 <h1>Ruby on Rails desde Cero: Vistas Dinámicas</h1>
 
@@ -85,7 +84,7 @@ post 'publicacion/create' =&gt; 'publicacion#create'
 
 <p>En este tipo de definición de rutas tenemos que el primer término (get y post) es el protocolo en que se van a recibir los datos, el segundo componente (<a href="http://localhost:3000/publicacion/new">publicacion/new</a> y <a href="http://localhost:3000/publicacion/create">publicacion/create</a>) son las url y el tercer componte (publicacion#new y publicacion#create) es el controlador seguido del método (<strong>controlador#metodo</strong>) al que esta asociado el url. Esto se puede ver mejor referenciado en el siguiente cuadro:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/cuadro_rutas_rails.jpg" alt="foto" /></p>
+<p><img src="http://i.imgur.com/ZmgmJon.jpg?1" alt="foto" /></p>
 
 <h3>Vistas</h3>
 
@@ -95,25 +94,25 @@ post 'publicacion/create' =&gt; 'publicacion#create'
 
 <p>La primera vista la llamaremos '_form.html.erb' y este contendrá el formulario:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/rails_block_1.png" alt="foto" /></p>
+<p><img src="http://i.imgur.com/LdN5rOX.png?1" alt="foto" /></p>
 
 <p>En esta vista encontramos detalles importantes como por ejemplo la dirección a donde se enviará la información del formulario, en este caso colocamos 'publicacion_create_path'. Por otro lado vemos como el formulario tiene los campos de la publicación (titulo y contenido).</p>
 
 <p>Luego crearemos una vista llamada 'new.html.erb' que contiene el formulario de la siguiente forma:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/rails_block_2.png" alt="foto" /></p>
+<p><img src="http://i.imgur.com/IPjA3Kh.png?1" alt="foto" /></p>
 
 <p>Por último la vista principal que lista todas las publicaciones creadas:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/rails_block_3.png" alt="foto" /></p>
+<p><img src="http://i.imgur.com/EPb2O5M.png?1" alt="foto" /></p>
 
 <p>El resultado de estos controladores con sus respectivas vistas es un simple listado de publicaciones en <a href="http://localhost:3000/publicacion">http://localhost:3000/publicacion</a>:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/index_post.jpg" alt="foto" /></p>
+<p><img src="http://i.imgur.com/y0S2rrn.jpg?1" alt="foto" /></p>
 
 <p>Y un formulario para insertar nuevas publicaciones <a href="http://localhost:3000/publicacion/new">http://localhost:3000/publicacion/new</a>:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/new_post.jpg" alt="foto" /></p>
+<p><img src="http://i.imgur.com/HvIrB2x.jpg?1" alt="foto" /></p>
 
 <p>Este proceso para crear un vínculo con la base de datos y manipular los datos puede ser pesado, aún cuando Rails mapea automáticamente los objetos con la base de datos. Rails nos facilita aún mas esto si se trata de vista sencillas ya que cuenta con una herramienta de Scaffolding.</p>
 

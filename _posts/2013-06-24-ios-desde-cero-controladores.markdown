@@ -17,7 +17,6 @@ tags:
 - iOS
 - desde cero
 - controladores
-comments: []
 ---
 <p>Bienvenidos una vez más a <strong><em>iOS desde Cero</em></strong>. En este capítulo de la serie vamos a empezar a desarrollar aplicaciones, ¡Yei!. Aprenderemos las habilidades básicas mínimas que necesitas saber para poder construir cualquier aplicación de iOS utilizando Xcode.</p>
 
@@ -37,7 +36,7 @@ comments: []
 
 <p>Básicamente el patrón MVC se representa de la siguiente manera:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/1-MVC.png"><img src="http://codehero.co/oc-content/uploads/2013/06/1-MVC.png" alt="1 - MVC-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1102" /></a></p>
+<p><img src="http://i.imgur.com/2vKGyqM.png" alt="1 - MVC-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1102" /></p>
 
 <hr />
 
@@ -47,11 +46,11 @@ comments: []
 
 <p>Los objetos en los controladores que deben ser conectados con la interfaz se llaman outlets. Lo que debemos hacer en Xcode es conectar los outlets de los controladores con su representación gráfica:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/2-Conecciones-Outlets.png"><img src="http://codehero.co/oc-content/uploads/2013/06/2-Conecciones-Outlets.png" alt="2 - Conecciones Outlets - ios-desde-cero-controladores" class="aligncenter size-full wp-image-1103" /></a></p>
+<p><img src="http://i.imgur.com/W2FYaCE.png" alt="2 - Conecciones Outlets - ios-desde-cero-controladores" class="aligncenter size-full wp-image-1103" /></p>
 
 <p>Vamos a poner esto en práctica creando un nuevo proyecto en Xcode, haremos una app sencilla que permita a los usuarios introducir su nombre y les retorne un mensaje de saludo.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/xcode-nuevo-proyecto-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/xcode-nuevo-proyecto-ios-desde-cero-controladores.png" alt="xcode-nuevo-proyecto-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1101" /></a></p>
+<p><img src="http://i.imgur.com/2NhlGRs.png" alt="xcode-nuevo-proyecto-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1101" /></p>
 
 <p>Esta vez no vamos a seleccionar <strong>Use Storyboards</strong>, vamos a usar solo xibs, pero si seguiremos usando ARC (automatic reference counting), este es el standard que Apple quiere que todos usemos de ahora en adelante.</p>
 
@@ -59,20 +58,20 @@ comments: []
 
 <p>Vamos a agregar tres objetos a nuestra interfaz:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/agregando-text-field-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/agregando-text-field-ios-desde-cero-controladores.png" alt="agregando-text-field-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1100" /></a></p>
+<p><img src="http://i.imgur.com/US7ObBL.png" alt="agregando-text-field-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1100" /></p>
 
 <ol>
 <li><p>En la parte inferior del inspector escribimos text. En la lista que está inmediatamente arriba, seleccionamos <strong>Text Field</strong> y lo arrastramos hasta la interfaz. Yo lo voy a colocar en la parte superior y lo voy a estirar un poco para tener mejor visibilidad. Tomate la libertad de modificarlo como quieras (o puedas).</p></li>
 <li><p>En el inspector podemos editar algunas propiedades de los objetos que seleccionamos, juega con estos como quieras, es bueno que te familiarices con lo que puedes hacer a través Interface Builder porque así puedes sacar el máximo de él, ya verás en el futuro que hay algunas otras que solo pueden hacerse por código.</p></li>
 </ol>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/agragando-boton-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/agragando-boton-ios-desde-cero-controladores.png" alt="agragando-boton-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1098" /></a></p>
+<p><img src="http://i.imgur.com/8bRsrOc.png" alt="agragando-boton-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1098" /></p>
 
 <ol>
 <li>Ahora agregamos un botón, este será el que el usuario debe presionar para recibir el mensaje de saludo. Igualmente puedes hacerle los cambios que quieras, yo voy a agrandarlo un poco para que sea más fácil de seleccionar.</li>
 </ol>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/agregando-label-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/agregando-label-ios-desde-cero-controladores.png" alt="agregando-label-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1099" /></a></p>
+<p><img src="http://i.imgur.com/W4Wxi7sh.png" alt="agregando-label-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1099" /></p>
 
 <ol>
 <li><p>Ahora solo hace falta agregar un <strong>Label</strong> para mostrarle el mensaje de saludo al usuario.</p></li>
@@ -83,23 +82,23 @@ comments: []
 
 <p>Seleccionamos el editor asistente para que Xcode coloque lado a lado, la vista y la clase controladora.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/asistente-xcode-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/asistente-xcode-ios-desde-cero-controladores.png" alt="asistente-xcode-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1115" /></a></p>
+<p><img src="http://i.imgur.com/kaPTnLg.png" alt="asistente-xcode-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1115" /></p>
 
 <p>Si su pantalla es pequeña como la que estoy usando en este momento (Macbook Pro 13') y el panel izquierdo de Interface Builder (Document Outline) les molesta, pueden colapsarlo haciendo click en el botón de la esquina inferior izquierda.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/boton-ocultar-document-outline-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/boton-ocultar-document-outline-ios-desde-cero-controladores.png" alt="boton-ocultar-document-outline-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1108" /></a></p>
+<p><img src="http://i.imgur.com/lqg2gL8.png" alt="boton-ocultar-document-outline-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1108" /></p>
 
 <p>Si en el editor que aparece del lado derecho no muestra el <em>header file: ViewController.h</em>, puedes navegar hasta él haciendo click en el navegador superior del editor.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/navegador-archivos-editor-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/navegador-archivos-editor-ios-desde-cero-controladores.png" alt="navegador-archivos-editor-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1106" /></a></p>
+<p><img src="http://i.imgur.com/N8mK8u0.png" alt="navegador-archivos-editor-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1106" /></p>
 
 <p>Manteniendo la tecla <strong><em>control</em></strong> presionada, hacemos click sobre el <em>text field</em> y arrastramos hasta el editor del lado derecho.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/conectar-outlet-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/conectar-outlet-ios-desde-cero-controladores.png" alt="conectar-outlet-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1114" /></a></p>
+<p><img src="http://i.imgur.com/Ln37iio.png" alt="conectar-outlet-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1114" /></p>
 
 <p>Entonces aparecerá una pequeña ventana preguntándonos:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/agregar-outlet-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/agregar-outlet-ios-desde-cero-controladores.png" alt="agregar-outlet-ios-desde-cero-controladores" class="aligncenter size-medium wp-image-1111" /></a></p>
+<p>[<img src="http://i.imgur.com/W3LZdHE.png" alt="agregar-outlet-ios-desde-cero-controladores" class="aligncenter size-medium wp-image-1111" />][11]</p>
 
 <ol>
 <li>El tipo de conexión: Seleccionamos <em>Outlet</em></li>
@@ -112,7 +111,7 @@ comments: []
 
 <p>Para el botón, el proceso es similar, solo que con una ligera diferencia. En lugar de seleccionar <em>outlet</em> para el tipo de conexión, seleccionamos <em>Action</em>. Esto es porque no queremos al botón en nuestro código, no vamos a modificar ninguna de sus propiedades. Lo que queremos es recibir el evento de cuando sea presionado por el usuario.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/agregar-outlet-button-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/agregar-outlet-button-ios-desde-cero-controladores.png" alt="agregar-outlet-button-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1110" /></a></p>
+<p><img src="http://i.imgur.com/A4x8EwN.png" alt="agregar-outlet-button-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1110" /></p>
 
 <ol>
 <li>Seleccionamos Action entonces como dijimos anteriormente.</li>
@@ -139,7 +138,7 @@ comments: []
 
 <p>Y del lado izquierdo del editor del código, deberías ver unos pequeños círculos rellenos, al lado de tus outlets. Esto significa que han sido conectados correctamente.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/outlets-conectados-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/outlets-conectados-ios-desde-cero-controladores.png" alt="outlets-conectados-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1109" /></a></p>
+<p><img src="http://i.imgur.com/S2s7ogu.png" alt="outlets-conectados-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1109" /></p>
 
 <hr />
 
@@ -229,7 +228,7 @@ comments: []
 
 <p>Ahora corremos la app. Seleccionamos el <em>Text field</em>, escribimos nuestro nombre (podemos usar el teclado de la máquina, no tenemos que usar el del simulador, duh) y hacemos click en el botón. Debería verse así:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/iphone-app-ios-desde-cero-controladores.png"><img src="http://codehero.co/oc-content/uploads/2013/06/iphone-app-ios-desde-cero-controladores.png" alt="iphone-app-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1112" /></a></p>
+<p><img src="http://i.imgur.com/WwVY9p6.png" alt="iphone-app-ios-desde-cero-controladores" class="aligncenter size-full wp-image-1112" /></p>
 
 <hr />
 

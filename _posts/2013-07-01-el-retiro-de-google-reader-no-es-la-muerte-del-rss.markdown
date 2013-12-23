@@ -5,7 +5,7 @@ published: true
 title: El retiro de Google Reader no es la muerte del RSS
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1230
 wordpress_url: http://codehero.co/?p=1230
@@ -20,7 +20,6 @@ tags:
 - digg
 - pulse
 - newsblur
-comments: []
 ---
 <hr />
 
