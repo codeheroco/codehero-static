@@ -5,7 +5,7 @@ published: true
 title: Cómo instalar, configurar y usar Redis - Parte I
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1969
 wordpress_url: http://codehero.co/?p=1969
@@ -17,15 +17,6 @@ tags:
 - howto
 - instalacion
 - redis
-comments:
-- id: 203
-  author: Cómo instalar, configurar y usar Redis – Parte II | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/como-instalar-configurar-y-usar-redis-parte-ii/
-  date: '2013-08-20 00:01:58 -0430'
-  date_gmt: '2013-08-20 04:31:58 -0430'
-  content: '[&#8230;] semana pasada estuvimos conociendo Redis, vimos algunos detalles
-    sobre las ventajas que ofrece, lo instalamos, aprendimos sobre su [&#8230;]'
 ---
 <p>Nos encontramos en una época donde la velocidad en términos tecnológicos es una obligación. Cada día los sistemas se vuelven más poderosos y más capaces, lo cual nos ha acostumbrado a querer resultados lo más pronto posible. Este enfoque también ha abarcado el tema del almacenamiento de datos, este proceso en altos niveles de concurrencia suele ser un poco lento, lo peor es que muchas veces necesitamos bases de datos que no necesariamente tienen que poseer tablas relacionadas sino más bien tablas aisladas y de igual manera terminamos usando un MySQL, esta semana hablaremos de una novedosa solución que ha estado tomando fuerza rápidamente, la base de datos Redis.</p>
 

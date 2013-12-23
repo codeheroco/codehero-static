@@ -18,7 +18,6 @@ tags:
 - node
 - npm
 - express
-comments: []
 ---
 <p>Node.js, como lo definen sus creadores, es "(…) una plataforma basada en la Chrome JavaScript Runtime para crear aplicaciones web de manera fácil, rápida y escalable. Node.js utiliza un modelo de no-bloqueo orientado a eventos, que lo hace ligero y eficiente, ideal para aplicaciones de data intensiva en tiempo real que se ejecutan a través de dispositivos distribuidos".</p>
 
@@ -30,7 +29,7 @@ comments: []
 
 <p>Instalar nodejs es extremadamente fácil. Solo hay que ir a http://nodejs.org/ y hacer click en el botón de instalar. El explorador descargará un instalador que debemos correr, seguir las instrucciones (siguiente, siguiente, siguiente) y listo.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/pagina-oficial-de-nodejs.png"><img src="http://codehero.co/oc-content/uploads/2013/08/pagina-oficial-de-nodejs.png" alt="pagina oficial de nodejs" class="aligncenter size-full wp-image-2004" /></a></p>
+<p><a href="http://codehero.co/oc-content/uploads/2013/08/pagina-oficial-de-nodejs.png"><img src="http://i.imgur.com/F0URz5c.png" alt="pagina oficial de nodejs" class="aligncenter size-full wp-image-2004" /></a></p>
 
 <p>Ahora si vamos al terminal (consola), podemos comprobar que tenemos node instalado.</p>
 
@@ -149,7 +148,7 @@ Express server listening on port 3000
 
 <p>Si abrimos el explorador de nuestra preferencia en la pagina http://localhost:3000 vamos a recibir una página de bienvenida a express.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/primera-aplicación-web-en-express-y-nodejs.png"><img src="http://codehero.co/oc-content/uploads/2013/08/primera-aplicación-web-en-express-y-nodejs.png" alt="primera aplicación web en express y nodejs" class="aligncenter size-full wp-image-2005" /></a></p>
+<p><a href="http://codehero.co/oc-content/uploads/2013/08/primera-aplicación-web-en-express-y-nodejs.png"><img src="http://i.imgur.com/tMwMf0z.png" alt="primera aplicación web en express y nodejs" class="aligncenter size-full wp-image-2005" /></a></p>
 
 <p>Si volvemos a la consola podemos apreciar como nos indica las rutas que fueron solicitadas para mostrar esta página.</p>
 

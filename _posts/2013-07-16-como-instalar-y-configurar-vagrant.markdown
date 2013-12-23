@@ -5,7 +5,7 @@ published: true
 title: Cómo Instalar y Configurar Vagrant
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1428
 wordpress_url: http://codehero.co/?p=1428
@@ -16,19 +16,6 @@ categories:
 tags:
 - vagrant
 - virtual
-comments:
-- id: 196
-  author: Cómo Instalar y Configurar Chef | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/como-instalar-y-configurar-chef/
-  date: '2013-07-23 00:51:10 -0430'
-  date_gmt: '2013-07-23 05:21:10 -0430'
-  content: '[...] La semana pasada hablamos de Vagrant, una herramienta muy útil que
-    cumple el propósito de facilitar el proceso de construcción de ambientes virtuales
-    de manera automatizada; sin embargo la instalación de software y su configuración
-    en los ambientes es quizás una de las tareas más importantes de este proceso,
-    es por ello que esta semana hablaremos de una de las más utilizadas herramientas
-    de automatización y suministro, Chef. [...]'
 ---
 <p>Es posible que en múltiples ocasiones te hayas encontrado en necesidad de un ambiente virtual de desarrollo. Quizás muchas veces lo necesitaste para hacerte la vida más fácil y no lo sabías. En este ¿Cómo lo hago?, daremos solución a estos problemas mediante el uso de una herramienta de construcción de ambientes, Vagrant.</p>
 
@@ -249,7 +236,7 @@ ln -fs /vagrant /var/www
 
 <p>Y podremos notar en la salida del levantamiento del ambiente como se va instalando el paquete de <em>Apache</em> que indicamos:</p>
 
-<p><img src="http://cl.ly/image/1w3o3r47202E/Screen%20Shot%202013-07-15%20at%203.23.18%20PM.png" alt="apacheInstallOutput" /></p>
+<p><img src="http://i.imgur.com/HqBIkdc.png" alt="apacheInstallOutput" /></p>
 
 <p>Para verificar que efectivamente el servidor <em>Apache</em> ha sido levantado podemos navegar a la siguiente ruta mediante un explorador web que configuramos anteriormente:</p>
 
@@ -258,7 +245,7 @@ ln -fs /vagrant /var/www
 
 <p>Y si todo ha salido bien veremos algo como esto:</p>
 
-<p><img src="http://cl.ly/image/2O2O2Q1V0H0E/Screen%20Shot%202013-07-15%20at%203.25.37%20PM.png" alt="apacheAccess" /></p>
+<p><img src="http://i.imgur.com/lFeL1gZ.png" alt="apacheAccess" /></p>
 
 <hr />
 

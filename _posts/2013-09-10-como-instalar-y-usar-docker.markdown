@@ -5,7 +5,7 @@ published: true
 title: Cómo Instalar y usar Docker
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2189
 wordpress_url: http://codehero.co/?p=2189
@@ -18,7 +18,6 @@ tags:
 - vagrant
 - docker
 - contenedor
-comments: []
 ---
 <p>Es muy común que nos encontremos desarrollando una aplicación y llegue el momento que decidamos tomar todos sus archivos y migrarlos ya sea al ambiente de producción, de prueba o simplemente probar su comportamiento en diferentes plataformas y servicios. Para situaciones de este estilo existen herramientas que, entre otras cosas, nos facilitan el embalaje y despliegue de la aplicación, es aquí donde entra en juego Docker.</p>
 
@@ -200,7 +199,7 @@ ca88a0273698        jonathanwiesel/nginx:latest   /bin/bash           2 minutes 
 
 <p>Podemos apreciar que la última columna nos indica que el puerto 80 del contenedor está redireccionado al puerto local 49159, vayamos al explorador y veamos si Nginx está haciendo lo suyo:</p>
 
-<p><img src="http://cl.ly/image/2C072n1C202U/Screen%20Shot%202013-09-08%20at%204.15.42%20PM.png" alt="" /></p>
+<p><img src="http://i.imgur.com/Bxkca2o.png" alt="" /></p>
 
 <blockquote>
   <p>Normalmente te dirigirías a la dirección <code>localhost</code>, sin embargo en nuestro caso como estamos corriendo Docker dentro de Vagrant, se le ha asignado la IP estática 192.168.33.10 a la instancia de Vagrant para acceder a ella como si fuera otro computador en la red local. Muy al estilo Inception =D</p>

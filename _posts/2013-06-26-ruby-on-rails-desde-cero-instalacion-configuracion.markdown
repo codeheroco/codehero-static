@@ -20,7 +20,6 @@ tags:
 - desde cero
 - instalacion
 - configuracion
-comments: []
 ---
 <p>Las series de tutoriales <em>Ruby on Rails</em> en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En este primer capitulo te mostraremos el proceso de instalación y algunas características básicas del framework.</p>
 
@@ -110,7 +109,7 @@ rbenv rehash
 
 <p>Si no tenemos ningún error el servidor se levanto exitosamente y podremos ver nuestro proyecto funcionando desde el navegador en <a href="http://127.0.0.1:8000/">127.0.0.1:8000</a> (para detener el servidor solo presionamos <code>Ctrl + C</code>). donde veremos la siguiente vista:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/06/rails.jpg" alt="FOTO" /></p>
+<p><img src="http://i.imgur.com/mSCF9rj.jpg?1" alt="FOTO" /></p>
 
 <h2>Conclusión</h2>
 

@@ -5,7 +5,7 @@ published: true
 title: Modelado de Datos
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2351
 wordpress_url: http://codehero.co/?p=2351
@@ -20,7 +20,6 @@ tags:
 - modelado
 - tipos de datos
 - patrones
-comments: []
 ---
 <h1>MongoDB desde Cero: Modelado de Datos</h1>
 
@@ -81,7 +80,7 @@ comments: []
 
 <p>Muchas opiniones concuerdan que las relaciones 1 a 1 deben ser finalmente normalizadas para formar una única tabla; sin embargo existen consideraciones especiales donde es mejor separar los datos en tablas diferentes. Supongamos el caso que tenemos una tabla <strong><em>persona</em></strong> y otra tabla <strong><em>documentos personales</em></strong>, donde una persona tiene un solo juego de documentos personales y que un juego de documentos personales solo puede pertenecer a una persona.</p>
 
-<p><img src="http://cl.ly/image/2C2H1n2V063W/1-1.png" alt="Relaciones 1-1" /></p>
+<p><img src="http://i.imgur.com/6FPVYaN.png" alt="Relaciones 1-1" /></p>
 
 <p>Si traducimos esto tal cual a lo que sabemos hasta ahora de MongoDB sería algo así:</p>
 
@@ -117,7 +116,7 @@ DocumentosPersonales = {
 
 <p>Supongamos ahora el caso de una tabla <strong><em>persona</em></strong> y otra tabla <strong><em>dirección</em></strong>. Donde una persona puede poseer varias direcciones.</p>
 
-<p><img src="http://cl.ly/image/1i000x240t1R/1-n.png" alt="Relaciones 1-n" /></p>
+<p><img src="http://i.imgur.com/HskW8Ft.png" alt="Relaciones 1-n" /></p>
 
 <blockquote>
   <p>Por el momento no nos pondremos creativos al pensar que una dirección puede pertenecer a más de una persona.</p>
@@ -268,7 +267,7 @@ Persona = {
 
 <p>Al aplicar normalización quedaría algo así:</p>
 
-<p><img src="http://cl.ly/image/0s2j0G283I3R/n-n-normal.png" alt="Relaciones n-n nomralizadas" /></p>
+<p><img src="http://i.imgur.com/iMzNTxW.png" alt="Relaciones n-n nomralizadas" /></p>
 
 <p>Para modelar este caso es muy similar al de relaciones uno a muchos con referencia por lo que colocaremos en ambos tipos de documento un arreglo de referencias al otro tipo. Agreguemos una persona adicional para demostrar mejor el punto:</p>
 
@@ -318,7 +317,7 @@ Persona2 = {
 
 <p>Seguro debes estar esperando el caso más complejo de todos, aquellas ocasiones donde la tabla intermedia tiene campos adicionales.</p>
 
-<p><img src="http://cl.ly/image/3L1v0n1U0U1u/n-n-field.png" alt="Relaciones n-n campos adicionales" /></p>
+<p><img src="http://i.imgur.com/n3BbFV2.png" alt="Relaciones n-n campos adicionales" /></p>
 
 <p>Tomando como base el ejemplo anterior, agregaremos el campo adicional usando el patrón para <strong>embeber</strong> de la siguiente manera:</p>
 

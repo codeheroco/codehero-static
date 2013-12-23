@@ -5,7 +5,7 @@ published: true
 title: Cómo Instalar y Configurar Chef
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1623
 wordpress_url: http://codehero.co/?p=1623
@@ -18,7 +18,6 @@ tags:
 - vagrant
 - chef
 - suministro
-comments: []
 ---
 <p><a href="http://codehero.co/como-instalar-y-configurar-vagrant/">La semana pasada hablamos de Vagrant</a>, una herramienta muy útil que cumple el propósito de facilitar el proceso de construcción de ambientes virtuales de manera automatizada; sin embargo la instalación de software y su configuración en los ambientes es quizás una de las tareas más importantes de este proceso, es por ello que esta semana hablaremos de una de las más utilizadas herramientas de automatización y suministro, <strong>Chef</strong>.</p>
 
@@ -165,7 +164,7 @@ yum
 
 <p>Para verificar que en efecto se ha instalado la receta de Nginx que especificamos, vayamos al explorador de internet y verifiquemos la dirección del servidor:</p>
 
-<p><img src="http://cl.ly/QOxl/screenshot.png" alt="" /></p>
+<p><img src="http://i.imgur.com/sKzWVcD.png" alt="" /></p>
 
 <p>Notemos que la parte inferior refleja que, en efecto, Nginx v1.2.3 está instalado y está sirviéndonos esta página 404.</p>
 

@@ -5,7 +5,7 @@ published: true
 title: Qué esperar en el próximo foro de desarrolladores de Intel
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1989
 wordpress_url: http://codehero.co/?p=1989
@@ -19,7 +19,6 @@ tags:
 - stampede
 - haswell
 - xeon
-comments: []
 ---
 <p>Ya falta menos de un mes para uno de los eventos mas grandes de Intel, el IDF 2013, el cual se llevará a cabo en el Centro de Convenciones Moscone en San Francisco entre el 10 y 12 de Septiembre. Desde hace un tiempo las conferencias de desarrolladores han atraído cada vez más la atención del público, la gente se anima a echar un vistazo a las nuevas tecnologías que están a la vuelta de la esquina, esto independientemente de ser desarrolladores o consumidores.</p>
 

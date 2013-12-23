@@ -19,7 +19,6 @@ tags:
 - dinamica
 - render_to_response
 - desde cero
-comments: []
 ---
 <p>Bienvenidos una vez más a Django desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe como crear modelos de base de datos y como hacer que Django sincronice y generé las tablas por nosotros. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/django-desde-cero-modelos-y-base-de-datos/">Capítulo 2</a>)</p>
 
@@ -57,28 +56,28 @@ def home(request):
 
 <p>Lo primero que tenemos que hacer es cumplir con el estándar de Django para manejar los templates, para eso es necesario crear dentro de nuestro directorio de la app una carpeta denominada <code>templates</code>.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/carpeta-templates.png" alt="Django Vistas Dinámicas Carpeta Template" /></p>
+<p><img src="http://i.imgur.com/JaPRdN5.png" alt="Django Vistas Dinámicas Carpeta Template" /></p>
 
 <p>Segundo, creamos un archivo <code>index.html</code> dentro de la carpeta <code>templates</code> con el siguiente contenido HTML:</p>
 
-<pre><div class="container">
+```html
+{% raw %}
   <h1>
     Primer Blog
   </h1>
-  
   <h2>
     Titulo
   </h2>
-  
+
   <h3>
     Publicado el día por el autor
   </h3>
-  
   <p>
     Contenido
   </p>
+{% endraw %}
 </div>
-</pre>
+```
 
 <blockquote>
   <p>Observemos que el archivo solo va a contener un HTML básico para poder probar que de verdad Django esta retornando el contenido correcto.</p>
@@ -88,7 +87,7 @@ def home(request):
 
 <p>Ya que nuestras plantillas están en:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/carpeta-index.png" alt="Vistas Dinámicas Carpeta Index" /></p>
+<p><img src="http://i.imgur.com/hxQId6g.png" alt="Vistas Dinámicas Carpeta Index" /></p>
 
 <p>Vamos a tener que modificar la linea 105 del archivo con lo siguiente:</p>
 
@@ -122,7 +121,7 @@ def home(request):
 
 <p>Si navegamos a la dirección http://127.0.0.1:8000 y nos retorna lo siguiente, entonces hemos configurado con éxito nuestra primera vista!</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/pagina-template.png" alt="Vistas Dinámicas Pagina basica" /></p>
+<p><img src="http://i.imgur.com/O6M2njY.png" alt="Vistas Dinámicas Pagina basica" /></p>
 
 <hr />
 
@@ -137,21 +136,20 @@ def home(request):
 <p>Primero modifiquemos el archivo <code>index.html</code> dentro de <code>../blog/templates</code> con:</p>
 
 <pre><div class="container">
+{% raw %}
   <h1>
     Primer Blog
   </h1>
-  
   <h2>
     {{ titulo }}
   </h2>
-  
   <h3>
     Publicado el {{ dia }} por {{ autor }}
   </h3>
-  
   <p>
     {{ contenido }}
   </p>
+{% endraw %}
 </div>
 </pre>
 
@@ -179,7 +177,7 @@ def home(request):
 
 <p>Ahora guardemos el archivo y refresquemos el explorador. Si te aparece lo siguiente ya creamos nuestra primera vista dinámica!.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/pagina-dinamica-basica.png" alt="Vistas Dinámicas template" /></p>
+<p><img src="http://i.imgur.com/OpJAjnx.png" alt="Vistas Dinámicas template" /></p>
 
 <hr />
 
@@ -222,28 +220,27 @@ def home(request):
 <p>Por último, vamos a modificar el template o plantilla <code>index.html</code> para que no solo despliegue un entrada de la base de datos sino que si poseemos múltiples datos pueda mostrarlos todos. Vemos como:</p>
 
 <pre><div class="container">
+{% raw %}
   <h1>
     Mi primer blog
   </h1>
-  
   <hr />
   {% for articulo in articulos %}
   <div class="art">
     <h2>
       {{ articulo.titulo }}
+
     </h2>
-    
     <h3>
       Publicado el {{ articulo.fecha }} por {{ articulo.autor }}
     </h3>
-    
     <p>
       {{ articulo.texto }}
     </p>
   </div>
-  
   <hr />
   {% endfor %}
+{% endraw %}
 </div>
 </pre>
 
@@ -253,7 +250,7 @@ def home(request):
 
 <p>Si corremos el servidor nuevamente y obtenemos el siguiente resultado es que creamos exitosamente un sitio dinamo en Django!.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/pagina-dinamica-avanzada.png" alt="Vistas Dinámicas template Avanzado" /></p>
+<p><img src="http://i.imgur.com/NB02Mq4.png" alt="Vistas Dinámicas template Avanzado" /></p>
 
 <blockquote>
   <p>Observemos, que aparecen varios articulos reflejados ya que mi base de datos posee varias entradas de articulos, cabe destacar que ese HTML solo desplegará cuantas entradas tengas.</p>

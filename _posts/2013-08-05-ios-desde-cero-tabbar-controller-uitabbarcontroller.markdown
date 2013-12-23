@@ -20,7 +20,6 @@ tags:
 - bar
 - uitabbar
 - uitabbarcontroller
-comments: []
 ---
 <p>En el capítulo anterior de la serie iOS desde Cero, hablamos sobre como crear aplicaciones con varias vistas y como cambiar de una a otra. En el capítulo de hoy continuaremos hablando de aplicaciones con múltiples vistas pero utilizando el controlador tab bar.</p>
 
@@ -30,15 +29,15 @@ comments: []
 
 <p>Abramos Xcode para crear un nuevo proyecto. Vamos a File -> New -> Project…</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/creando-un-nuevo-proyecto-en-Xcode.png"><img src="http://codehero.co/oc-content/uploads/2013/07/creando-un-nuevo-proyecto-en-Xcode.png" alt="creando un nuevo proyecto en Xcode" class="aligncenter size-full wp-image-1593" /></a></p>
+<p><img src="http://i.imgur.com/Qf9SR3A.png" alt="creando un nuevo proyecto en Xcode" class="aligncenter size-full wp-image-1593" /></p>
 
 <p>Seleccionamos "Application" en la sección de iOS y hacemos doble click en "Tabbed Application".</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-9.15.58-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-9.15.58-PM.png" alt="creando un tabbed application en Xcode" class="aligncenter size-full wp-image-1869" /></a></p>
+<p><img src="http://i.imgur.com/U01q36V.png" alt="creando un tabbed application en Xcode" class="aligncenter size-full wp-image-1869" /></p>
 
 <p>Le damos un nombre a nuestro proyecto, seleccionamos arc (automatic reference counting) y guardamos.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-9.26.43-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-9.26.43-PM.png" alt="dandole nombre al proyecto de tabbed application en Xcode" class="aligncenter size-full wp-image-1872" /></a></p>
+<p><img src="http://i.imgur.com/JiBRHct.png" alt="dandole nombre al proyecto de tabbed application en Xcode" class="aligncenter size-full wp-image-1872" /></p>
 
 <h2>Explorando el código generado</h2>
 
@@ -46,13 +45,13 @@ comments: []
 
 <p>Corramos el proyecto para ver que hace este código.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Imagen-del-proyecto-corriendo-primera-vez.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Imagen-del-proyecto-corriendo-primera-vez.png" alt="proyecto de tabber application corriendo primera vez" class="aligncenter size-full wp-image-1870" /></a></p>
+<p><img src="http://i.imgur.com/2lvmCg4.png" alt="proyecto de tabber application corriendo primera vez" class="aligncenter size-full wp-image-1870" /></p>
 
 <p>Vemos que tenemos una aplicación con un tabbar de dos botones.</p>
 
 <p>Vamos a abrir <strong>FirstViewController.xib</strong>. Observamos una vista que contiene un label, un textview y una barra negra en la parte inferior que parece representar el tabbar, pero en realidad no lo es. Esta barra simula la presencia del tabbar. Si hacemos click sobre ella, podemos notar que en el Attribute Inspector, en su sección Simulated Metrics, al atributo Bottom bar está asignado el valor <em>Tab bar</em>. Esto es simplemente para ayudar al desarrollador a visualizar el look final, podemos dejar de asignar este valor e igualmente el controlador se vería en el tab bar.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-10.29.30-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-10.29.30-PM.png" alt="firstviewcontroller primer tab del tabbar" class="aligncenter size-full wp-image-1871" /></a></p>
+<p><img src="http://i.imgur.com/ZwjsP2Vh.png" alt="firstviewcontroller primer tab del tabbar" class="aligncenter size-full wp-image-1871" /></p>
 
 <p>Si vamos a <strong>SecondViewController.xib</strong> tampoco encontraremos ningún tab bar.</p>
 
@@ -106,15 +105,15 @@ comments: []
 
 <p>Seleccionamos <em>Objective-C Class</em> en la división de <strong>iOS</strong>.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-11.39.28-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-11.39.28-PM.png" alt="asignando un nombre a nueva clase en Xcode" class="aligncenter size-full wp-image-1874" /></a></p>
+<p><img src="http://i.imgur.com/fRyLZht.png" alt="asignando un nombre a nueva clase en Xcode" class="aligncenter size-full wp-image-1874" /></p>
 
 <p>Le ponemos un nombre a nuestra clase. En mi caso será <em>ThirdViewController</em> y heredará de UIViewController.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-11.36.23-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-04-at-11.36.23-PM.png" alt="creación de nueva clase en Xcode" class="aligncenter size-full wp-image-1873" /></a></p>
+<p><img src="http://i.imgur.com/ixQAJ0Vh.png" alt="creación de nueva clase en Xcode" class="aligncenter size-full wp-image-1873" /></p>
 
 <p>Ahora vayamos a ThridViewController.xib y manipulemos un poco nuestra vista. Agreguemos un label que diga "Third View" para saber que es la tercera vista y si queremos podemos colocar el bottom bar como lo tienen los otros view controllers que generó Xcode, nuevamente esto es opcional.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-05-at-12.50.50-AM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-05-at-12.50.50-AM.png" alt="tercer view controller ThirdViewController.xib en interface builder" class="aligncenter size-full wp-image-1875" /></a></p>
+<p><img src="http://i.imgur.com/ixQAJ0Vh.png" alt="tercer view controller ThirdViewController.xib en interface builder" class="aligncenter size-full wp-image-1875" /></p>
 
 <p>Para agregarlo como un tercer tab, simplente tenemos que ir a <strong>AppDelegate.m</strong> e importar <em>ThirdViewController.h</em>:</p>
 
@@ -162,7 +161,7 @@ comments: []
 
 <p>Si corremos la aplicación vemos que el view controller aparece como una tercera vista, pero aún no tiene ninguna imagen ni texto en el botón</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/iOS-Simulator-Screen-shot-Aug-5-2013-12.33.24-AM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/iOS-Simulator-Screen-shot-Aug-5-2013-12.33.24-AM.png" alt="aplicación corriendo con tres tabs" class="aligncenter size-full wp-image-1876" /></a></p>
+<p><img src="http://i.imgur.com/dNv2dTg.png" alt="aplicación corriendo con tres tabs" class="aligncenter size-full wp-image-1876" /></p>
 
 <hr />
 
@@ -211,7 +210,7 @@ UITabBarSystemItemMostViewed
 
 <p>Ahora, si corremos la app una vez más observaremos como ya el tercer tab tiene su imagen y título.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/iOS-Simulator-Screen-shot-Aug-5-2013-12.33.39-AM.png"><img src="http://codehero.co/oc-content/uploads/2013/08/iOS-Simulator-Screen-shot-Aug-5-2013-12.33.39-AM.png" alt="aplicación corriendo con tres tabs donde la tercera tiene titulo e imagen" class="aligncenter size-full wp-image-1877" /></a></p>
+<p><img src="http://i.imgur.com/FVErkXB.png" alt="aplicación corriendo con tres tabs donde la tercera tiene titulo e imagen" class="aligncenter size-full wp-image-1877" /></p>
 
 <hr />
 

@@ -5,7 +5,7 @@ published: true
 title: ¿Podrán los gemelos "originarios" de Facebook impulsar la reputación de Bitcoin?
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1290
 wordpress_url: http://codehero.co/?p=1290
@@ -17,7 +17,6 @@ tags:
 - bitcoin
 - facebook
 - winklevoss
-comments: []
 ---
 <hr />
 

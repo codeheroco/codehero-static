@@ -19,7 +19,6 @@ tags:
 - get
 - post
 - enlaces
-comments: []
 ---
 <p>En este nuevo capitulo de PHP aprenderemos como enviar información a un script PHP para que los sitios sean interactivos. Para este capítulo se necesita tener conocimientos básico de HTML y formularios, ya que los formularios será la principal manera de enviar la información al script.</p>
 

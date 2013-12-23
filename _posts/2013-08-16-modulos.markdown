@@ -17,7 +17,6 @@ tags:
 - Ruby
 - Cursos
 - Módulos
-comments: []
 ---
 <p>Bienvenidos una vez más a Ruby desde Cero. En los últimos capítulos estudiamos las clases y el paradigma orientado a objetos aplicados al lenguaje. Si aún no te has puesto al día con la serie te invito a echarle un vistazo a <a href="[http://codehero.co/series/ruby-desde-cero/]">Ruby desde Cero</a></p>
 

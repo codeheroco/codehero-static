@@ -15,7 +15,6 @@ categories:
 - Notícias
 tags:
 - Windows
-comments: []
 ---
 <p>Este miércoles 26 de junio, Microsoft presentó las novedades de Windows 8.1 en su keynote de la conferencia Build 2013 y liberó un preview para que lo probemos.</p>
 

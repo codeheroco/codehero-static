@@ -18,7 +18,6 @@ tags:
 - Ruby on Rails
 - curso
 - ActiveRecord
-comments: []
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. Hasta este capítulo ya tenemos suficientes herramientas para comenzar con nuestra aplicación Web, abarcando temas básicos como instalación, estructura y funcionamiento de vistas dinámicas.</p>
 

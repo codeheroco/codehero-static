@@ -20,17 +20,6 @@ tags:
 - historial
 - enmendar
 - regresar
-comments:
-- id: 183
-  author: Bitacoras.com
-  author_email: ''
-  author_url: http://bitacoras.com/
-  date: '2013-07-04 10:20:22 -0430'
-  date_gmt: '2013-07-04 14:50:22 -0430'
-  content: |-
-    <strong>Información Bitacoras.com...</strong>
-
-    Esta anotación ha sido propuesta por un usuario para ser votada en Bitacoras.com. Para que el proceso finalice, deberás registrar tu blog en el servicio....
 ---
 <h1>Git desde cero: Historial, enmendar y regresar cambios.</h1>
 

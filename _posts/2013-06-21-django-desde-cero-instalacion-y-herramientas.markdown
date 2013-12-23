@@ -20,7 +20,6 @@ tags:
 - desde cero
 - instalacion
 - herramientas
-comments: []
 ---
 <p>Bienvenido a Django desde Cero, curso en el cual aprenderas Django sin conocimiento alguno. En esta clase, estudiaremos como instalar las herramientas que nos facilitarán la instalación de Django en nuestros computadores, a su vez, crearemos un ambiente virtual de desarrollo e iniciaremos nuestro primer proyecto.</p>
 
@@ -210,7 +209,7 @@ Quit the server with CONTROL-C.
 
 <p>Si te aparece este mensaje hemos levantado el servidor exitosamente!. Ahora veamos el proyecto desde el explorador. Naveguemos a la siguiente dirección: <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> nos debería aparecer lo siguiente:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/06/django-curso-servidor.jpg" alt="FOTO" /></p>
+<p><img src="http://i.imgur.com/3Uoy5YK.jpg" alt="FOTO" /></p>
 
 <blockquote>
   <p>Para detener el servidor lo único que tenemos que hacer es presionar <code>Ctrl + C</code>.</p>

@@ -21,7 +21,6 @@ tags:
 - routes
 - views
 - blade
-comments: []
 ---
 <p>En el pasado capitulo de esta serie estudiamos la estructura de un proyecto de Laravel 4 y creamos una lista de usuarios. En este capitulo continuaremos con esa lista de usuarios, pero esta vez crearemos un formulario para crear un nuevo usuario y un enlace en la lista para ver la información detalla de cada uno. Con esto obtendremos mas conocimientos sobre las rutas y las vistas, utilizando Blade, en Laravel 4.</p>
 
@@ -132,7 +131,7 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 
 <p>Primero crearemos la carpeta <strong>layouts</strong> dentro de la carpeta <strong>views</strong>, luego dentro de esta crearemos nuestro <strong>master.blade.php</strong> con el siguiente código.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/master.blade_.png"><img src="http://codehero.co/oc-content/uploads/2013/08/master.blade_.png" alt="master blade" class="aligncenter size-full wp-image-2038" /></a></p>
+<p><a href="http://i.imgur.com/k5jRfG0.png"><img src="http://i.imgur.com/k5jRfG0.png" alt="master blade" class="aligncenter size-full wp-image-2038" /></a></p>
 
 <p>Como podemos observar esto es la estructura básica HTML de una página web que contiene las etiquetas <code>&lt;html&gt;</code>, <code>&lt;body&gt;</code> y <code>&lt;div&gt;</code>. También podemos observar que hay unas funciones de Blade <strong>@section</strong>, <strong>@show</strong>, <strong>@yield</strong>, estas son las que nos van a ayudar a crear las plantillas mediante herencia y creación se secciones para no tener que repetir código HTML en cada vista que tengamos.</p>
 
@@ -158,29 +157,20 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 @section('content')
         <h1>
   Usuarios
+      
     
   
 </h1>
         {{ HTML::link('usuarios/nuevo', 'Crear Usuario'); }}
 
-
-
-
-
-
 <ul>
   @foreach($usuarios as $usuario)
-         <li>
+           <li>
     {{ HTML::link( 'usuarios/'.$usuario->id , $usuario->nombre.' '.$usuario->apellido ) }}
-              
-          
       
   </li>
-        @endforeach
-      
-    
-  
-</ul>
+          @endforeach
+  </ul>
 @stop
 
 </pre>
@@ -208,6 +198,7 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
         {{ HTML::link('usuarios', 'volver'); }}
         <h1>
   Crear Usuario
+      
     
   
 </h1>
@@ -246,17 +237,11 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
         {{ HTML::link('usuarios', 'Volver'); }}
         <h1>
   Usuario {{$usuario->id}}
-    
-  
+      
 </h1>
         
         {{ $usuario->nombre .' '.$usuario->apellido }}
         
-
-
-
-
-
 <br />
         {{ $usuario->created_at}}
 @stop

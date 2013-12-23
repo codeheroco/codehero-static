@@ -17,7 +17,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como agregar interactivamente archivos al escenario (staging) y continuaremos con <code>git rebase</code> tocando un punto importante sobre como modificar el historial de cambios. Los comandos a utilizar esta semana serán los siguientes:</p>
 

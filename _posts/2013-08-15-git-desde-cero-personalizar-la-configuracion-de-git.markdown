@@ -17,7 +17,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como personalizar la configuración de git. Pondremos colores en nuestro terminal que funcionan para representar cambios, colores en el log, alias de comandos, entre otros detalles. Por ser un <em>curso</em> un poco distinto no nos enfocaremos en comandos particulares sino más bien en el archivo .gitconfig que se encuentra en el <strong>$HOME</strong> del usuario.</p>
 

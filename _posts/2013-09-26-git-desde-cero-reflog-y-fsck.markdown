@@ -17,7 +17,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como recuperar algún <em>"commit"</em> que pudo perderse o ser borrado sin querer cuando modificamos el historial o borramos una rama. Para esto utilizaremos <code>git reflog</code> y como alternativa extrema si por algún motivo no podemos recuperarlo utilizaremos <code>git fsck</code>.</p>
 

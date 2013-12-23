@@ -24,7 +24,6 @@ tags:
 - nsmutablediccionary
 - nsmutablearray
 - nsmutablestring
-comments: []
 ---
 <p>En el capítulo anterior hablamos de como hacer nuestras propias clases.</p>
 
@@ -38,11 +37,11 @@ comments: []
 
 <p>Como siempre abrimos Xcode y esta vez crearemos un nuevo proyecto de tipo "Command Line Tool".</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-28-at-6.41.28-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-28-at-6.41.28-PM.png" alt="nuevo proyecto xcode" class="aligncenter size-full wp-image-1787" /></a></p>
+<p><img src="http://i.imgur.com/39ZX0jm.png" alt="nuevo proyecto xcode" class="aligncenter size-full wp-image-1787" /></p>
 
 <p>Yo voy a llamar a mi proyecto "Clases de Apple". Usaremos "Automatic Reference Counting"</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-28-at-6.42.07-PM.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Screen-Shot-2013-07-28-at-6.42.07-PM.png" alt="nombrar de proyecto en xcode" class="aligncenter size-full wp-image-1788" /></a></p>
+<p><img src="http://i.imgur.com/3Cb2GU9.png" alt="nombrar de proyecto en xcode" class="aligncenter size-full wp-image-1788" /></p>
 
 <hr />
 
@@ -73,7 +72,7 @@ comments: []
 NSString *test3 = [NSString stringWithFormat:@"El numero es: %i", anInteger];
 </pre>
 
-<p><em>%i</em> es reemplazado por el valor de la variable <em>anInteger</em>. Dependiendo del tipo de dato de la variable el especificador de formato varía. Por ejemplo, si la variable fuera de tipo <em>double</em>, usaríamos <em>%d</em>, si fuera otro string usaríamos %@. Para conocer más sobre especificadores de formato, te invito a revisar la <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html#//apple_ref/doc/uid/TP40004265-SW1">documentación de Apple</a>.</p>
+<p><em>%i</em> es reemplazado por el valor de la variable <em>anInteger</em>. Dependiendo del tipo de dato de la variable el especificador de formato varía. Por ejemplo, si la variable fuera de tipo <em>double</em>, usaríamos <em>%d</em>, si fuera otro string usaríamos %@. Para conocer más sobre especificadores de formato, te invito a revisar la &#91;documentación de Apple&#93;&#91;3&#93;.</p>
 
 <h3>Strings mutables</h3>
 

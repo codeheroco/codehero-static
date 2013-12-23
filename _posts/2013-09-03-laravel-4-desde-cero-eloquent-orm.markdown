@@ -23,7 +23,6 @@ tags:
 - eloquent
 - base datos
 - crud
-comments: []
 ---
 <p>En el capítulo anterior de la serie de Laravel 4 vimos como crear y ver a un usuario, por lo tanto ya hemos utilizado lo más básico del ORM que trae este framework. En esta oportunidad profundizaremos un poco sobre <strong>Eloquent ORM</strong>, para esto vamos a conocer cuales son los métodos para realizar todas las operaciones CRUD sobre una tabla (modelo) y veremos los códigos de ejemplo para entender como funciona.</p>
 
@@ -35,7 +34,7 @@ comments: []
 
 <p>Ahora que sabemos que es <strong>Eloquent ORM</strong> vamos a aprender a utilizarlo, para esto vamos a ver unos ejemplos que se ejecutaran utilizando una tabla de carros con los siguientes campos.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/09/Captura-de-pantalla-2013-09-02-a-las-17.01.37.png"><img src="http://codehero.co/oc-content/uploads/2013/09/Captura-de-pantalla-2013-09-02-a-las-17.01.37.png" alt="laravel 4 base datos" class="aligncenter size-full wp-image-2152" /></a></p>
+<p><a href="http://i.imgur.com/XO9vacM.png"><img src="http://i.imgur.com/XO9vacM.png" alt="laravel 4 base datos" class="aligncenter size-full wp-image-2152" /></a></p>
 
 <p>Para poder utilizar esta tabla de carros con Eloquent ORM debemos entonces crear un modelo en cual extienda de Eloquent. La creación del modelo y las variables que estamos creando ya se han visto en los capítulos anteriores, así que si algo no te resulta familiar en este punto te recomiendo que revises las entradas anteriores.</p>
 

@@ -6,7 +6,7 @@ title: Falla de seguridad en tarjetas SIM demuestra vulnerabilidad en cientos de
   de teléfonos
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1586
 wordpress_url: http://codehero.co/?p=1586
@@ -19,7 +19,6 @@ tags:
 - seguridad
 - gsm
 - nohl
-comments: []
 ---
 <p>El investigador alemán Karsten Nohl, fundador de los Laboratorios de Investigación en Seguridad de Berlín, ha descubierto la manera de <strong><em>hackear</em></strong> remotamente las tarjetas SIM de diversas compañías que se basan en un viejo estándar denominado DES (inglés para <strong><em>Estandar de Cifrado de Data</em></strong>) que protege la tarjeta con una llave de seguridad de 56 bits.</p>
 

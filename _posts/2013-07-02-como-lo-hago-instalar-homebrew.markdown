@@ -5,7 +5,7 @@ published: true
 title: Cómo Instalar Homebrew
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1123
 wordpress_url: http://codehero.co/?p=1123
@@ -17,24 +17,6 @@ tags:
 - como lo hago
 - howto
 - homebrew
-comments:
-- id: 186
-  author: Cómo instalar oh-my-zsh | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/como-lo-hago-instalar-oh-my-zsh/
-  date: '2013-07-09 04:54:08 -0430'
-  date_gmt: '2013-07-09 09:24:08 -0430'
-  content: '[...] de instalación de ZSH en Mac OS X en caso de que no venga ya instalado
-    es por Homebrew (ingresa aquí si no sabes cómo instalar Homebrew). Simplemente
-    ejecuta el siguiente comando en el directorio raíz de tu [...]'
-- id: 198
-  author: Cómo instalar y usar Tmux | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/como-instalar-y-usar-tmux/
-  date: '2013-07-30 00:01:43 -0430'
-  date_gmt: '2013-07-30 04:31:43 -0430'
-  content: '[...] Mac OS X el proceso de instalación recomendado es mediante el uso
-    de Homebrew, con solo una línea ya estaremos listos para usar la [...]'
 ---
 <p>En este <strong><em>Cómo lo hago</em></strong> se explicará el proceso de instalación de Homebrew, requerimientos del sistema y además hablaremos brevemente sobre él.</p>
 

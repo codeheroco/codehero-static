@@ -16,7 +16,6 @@ tags:
 - php
 - desde cero
 - operadores
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de la serie PHP desde Cero, en esta oportunidad revisaremos cuales son y para que sirven los <strong>operadores</strong> en PHP.</p>
 
@@ -30,7 +29,7 @@ comments: []
 
 <p>Este tipo de operadores sirven para realizar operaciones matemáticas.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/php_operadores_aritmeticos.png"><img src="http://codehero.co/oc-content/uploads/2013/07/php_operadores_aritmeticos.png" alt="operadores aritméticos en php" class="aligncenter size-full wp-image-1802" /></a></p>
+<p><a href="http://imgur.com/PxPQAZI.png"><img src="http://imgur.com/PxPQAZI.png" alt="operadores aritméticos en php" class="aligncenter size-full wp-image-1802" /></a></p>
 
 <p>Los operadores aritméticos siempre necesitan dos operandos, uno de cada lado del operador. Veamos unos ejemplos:</p>
 
@@ -53,7 +52,7 @@ $num = 1 % 2;
 
 <p>Los operadores de comparación son usados con dos operandos, uno de cada lado del operador. En la siguiente tabla se ven todos los operadores con un ejemplo.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/php_operadores_comparacion.png"><img src="http://codehero.co/oc-content/uploads/2013/07/php_operadores_comparacion.png" alt="operadores de comparación en php" class="aligncenter size-full wp-image-1803" /></a></p>
+<p><a href="http://imgur.com/Q9kPAF5.png"><img src="http://imgur.com/Q9kPAF5.png" alt="operadores de comparación en php" class="aligncenter size-full wp-image-1803" /></a></p>
 
 <hr />
 
@@ -61,7 +60,7 @@ $num = 1 % 2;
 
 <p>Los operadores lógicos sirven para evaluar partes de expresiones devolviendo True o False, ayudan a tomar decisiones de como el script debe ejecutarse. Los operadores lógicos de PHP son los siguientes:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/php_operadores_logicos.png"><img src="http://codehero.co/oc-content/uploads/2013/07/php_operadores_logicos.png" alt="php_operadores_logicos" class="aligncenter size-full wp-image-1805" /></a></p>
+<p><a href="http://imgur.com/kMVTYmS.png"><img src="http://imgur.com/kMVTYmS.png" alt="php_operadores_logicos" class="aligncenter size-full wp-image-1805" /></a></p>
 
 <p>Estos operadores se entenderán de manera mas clara cuando se unan con las estructuras de control, pero por ahora debemos saber cuales son y que hace cada uno.</p>
 
@@ -125,7 +124,7 @@ echo "Me gusta el numero " . $numero; // el resultado es -> Me gusta el numero 9
 
 <p>A continuación veremos todos los operadores de asignación:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/php_operadores_asignacion.png"><img src="http://codehero.co/oc-content/uploads/2013/07/php_operadores_asignacion.png" alt="operadores de asignación en php" class="aligncenter size-full wp-image-1804" /></a></p>
+<p><a href="http://imgur.com/LjG7GCk.png"><img src="http://imgur.com/LjG7GCk.png" alt="operadores de asignación en php" class="aligncenter size-full wp-image-1804" /></a></p>
 
 <hr />
 

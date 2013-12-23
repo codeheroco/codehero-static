@@ -5,7 +5,7 @@ published: true
 title: La impresión 3D toma un nuevo paso
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2085
 wordpress_url: http://codehero.co/?p=2085
@@ -18,7 +18,6 @@ tags:
 - 3d
 - makerbot
 - digitizer
-comments: []
 ---
 <p>El concepto de impresión en tercera dimensión es quizás un poco más antiguo de lo que piensas, se remonta a la década de los 80 donde Charles Hull, actual vicepresidente y CTO (ejecutivo técnico en jefe) de 3D Systems, introdujo el concepto de <em>estereolitografía</em> o impresión en 3D, sin embargo el procedimiento era relativamente complicado y la maquinaria usada en aquel entonces tendría un costo de más de $100.000.</p>
 

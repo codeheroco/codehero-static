@@ -20,18 +20,6 @@ tags:
 - db
 - blog
 - desde cero
-comments:
-- id: 195
-  author: 'Django desde Cero: Vistas Dinámicas | CODEHERO'
-  author_email: ''
-  author_url: http://codehero.co/django-desde-cero-vistas-dinamicas/
-  date: '2013-07-19 08:06:22 -0430'
-  date_gmt: '2013-07-19 12:36:22 -0430'
-  content: '[...] Bienvenidos una vez más a Django desde Cero, curso en el cual aprendemos
-    a programar sin conocimiento alguno. En el capítulo anterior, te enseñe como crear
-    modelos de base de datos y como hacer que Django sincronice y generé las tablas
-    por nosotros. Si eres nuevo en este curso, te recomiendo que le eches un vistazo
-    al capítulo anterior para que te pongas en contexto (Capítulo 2) [...]'
 ---
 <p>Bienvenidos una vez más a Django desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe como instalar y configurar Django en un ambiente virtual. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/django-desde-cero-instalacion-y-herramientas/">Capítulo 1</a>)</p>
 

@@ -17,7 +17,6 @@ tags:
 - laravel
 - laravel 4
 - mvc
-comments: []
 ---
 <p>En el pasado tutorial creamos nuestro primer proyecto de <strong>Laravel 4</strong> y comprobamos que la instalación fuese correcta. En este nuevo capitulo vamos a revisar las carpetas que contienen nuestro código y daremos nuestros primeros pasos con este framework. Para esto crearemos una tabla con usuarios y mediante el uso del patrón MVC mostraremos en la pantalla del navegador la lista con los nombres.</p>
 
@@ -76,7 +75,7 @@ CREATE TABLE `usuarios` (
 
 <p>Ya que en este tutorial solo vamos a cubrir el método para mostrar la lista de usuarios, entonces tenemos que tenerlos creados en la base datos. Para este tutorial he insertado 4 usuarios.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/laravel-4-2-datos-mysql.png"><img src="http://codehero.co/oc-content/uploads/2013/08/laravel-4-2-datos-mysql.png" alt="laravel-4-2-datos-mysql" class="aligncenter size-full wp-image-1890" /></a></p>
+<p><a href="http://i.imgur.com/ETUYcHD.png"><img src="http://i.imgur.com/ETUYcHD.png" alt="laravel-4-2-datos-mysql" class="aligncenter size-full wp-image-1890" /></a></p>
 
 <hr />
 
@@ -106,21 +105,13 @@ class Usuario extends Eloquent { //Todos los modelos deben extender la clase Elo
 <pre><h1>
   Usuarios
 </h1>
-
-
 <ul>
   @foreach($usuarios as $usuario)
-      <!-- Equivalente en Blade a <?php foreach ($usuarios as $usuario) ?>
+  <!-- Equivalente en Blade a <?php foreach ($usuarios as $usuario) ?> -->
     
-  
-  <li>
-    {{ $usuario->nombre.' '.$usuario->apellido }}
-      
-  </li>
-    
-  <!-- Equivalente en Blade a <?php echo $usuario->nombre.' '.$usuario->apellido ?>
-      @endforeach 
-  
+     <li> {{ $usuario->nombre.' '.$usuario->apellido }} </li>
+     <!-- Equivalente en Blade a <?php echo $usuario->nombre.' '.$usuario->apellido ?> -->
+  @endforeach 
 </ul>
 </pre>
 
@@ -179,11 +170,11 @@ class UsuariosController extends BaseController {
 
 <p>Ahora vamos al navegador y entramos en la siguen url <code>localhost/codehero-laravel/public/usuarios</code> para probar lo que hemos hecho y comprobar que todo funciona correctamente.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/larevel-4-2-resultado.png"><img src="http://codehero.co/oc-content/uploads/2013/08/larevel-4-2-resultado.png" alt="Laravel 4 Resultado peticion GET" class="aligncenter size-full wp-image-1889" /></a></p>
+<p><a href="http://i.imgur.com/5FnCRKx.png"><img src="http://i.imgur.com/5FnCRKx.png" alt="Laravel 4 Resultado peticion GET" class="aligncenter size-full wp-image-1889" /></a></p>
 
 <p>En la siguiente imagen podemos observar gráficamente el proceso que se llevo a acabo cuando hicimos la petición al servidor.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/08/laravel-4-2-diagrama.png"><img src="http://codehero.co/oc-content/uploads/2013/08/laravel-4-2-diagrama.png" alt="Diagrama ejecución Laravel 4" class="aligncenter size-full wp-image-1891" /></a></p>
+<p><a href="http://i.imgur.com/gSBfr58.png"><img src="http://i.imgur.com/gSBfr58.png" alt="Diagrama ejecución Laravel 4" class="aligncenter size-full wp-image-1891" /></a></p>
 
 <hr />
 

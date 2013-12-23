@@ -6,7 +6,7 @@ title: Microsoft traiciona privacidad de usuarios mientras que expertos en segur
   luchan por ellos
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1416
 wordpress_url: http://codehero.co/?p=1416
@@ -18,7 +18,6 @@ tags:
 - nsa
 - hemlis
 - microsoft
-comments: []
 ---
 <p>El diario británico, <em>The Guardian</em>, ha revelado nueva información acerca de los documentos filtrados por <a href="http://codehero.co/como-el-caso-snowden-cambio-la-vision-del-mundo/">Edward Snowden</a> relacionados con los programas de espionaje llevados a cabo por la NSA.</p>
 

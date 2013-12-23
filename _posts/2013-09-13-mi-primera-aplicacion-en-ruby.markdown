@@ -17,7 +17,6 @@ tags:
 - Ruby
 - Cursos
 - Aplicación
-comments: []
 ---
 <p>Bienvenidos una vez más a Ruby desde cero, curso con el cual aprendemos del lenguaje sin necesidad de tener previo conocimiento en el tema. Hasta este capítulo ya abarcamos todos los puntos del curso, lo que nos hace héroes en Ruby desde Cero.</p>
 

@@ -18,15 +18,6 @@ tags:
 - Objetos
 - variables
 - desde cero
-comments:
-- id: 192
-  author: 'Ruby desde Cero: Orientación a Objetos – parte 1. | CODEHERO'
-  author_email: ''
-  author_url: http://codehero.co/ruby-desde-cero-orientacion-a-objetos-parte-1/
-  date: '2013-07-17 00:03:47 -0430'
-  date_gmt: '2013-07-17 04:33:47 -0430'
-  content: '[...] Para mostrar estos ejemplos utilizaremos algunos de los tipos de
-    variables que estudiamos en el Capítulo 2: Variables y Objetos. [...]'
 ---
 <h1>Ruby desde cero: variables y Objetos.</h1>
 
@@ -142,7 +133,7 @@ Ricardo
 <p>En el siguiente cuadro mostraremos la lista de posibles operadores para trabajar con los objetos numéricos. Estos están en orden de mayor a menor rango de presencia, es decir se ejecutaran primero los operadores superiores de la tabla.</p></li>
 </ul>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/07/ruby-operadores.png" alt="operadores" /></p>
+<p><img src="http://i.imgur.com/TKUbUrc.png" alt="operadores" /></p>
 
 <h3>Cadena de caracteres</h3>
 

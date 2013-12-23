@@ -17,7 +17,6 @@ tags:
 - Cursos
 - Git
 - curso
-comments: []
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre algunos de los <em>"hooks"</em> (ganchos) más populares que tiene git.</p>
 

@@ -5,7 +5,7 @@ published: true
 title: Introducción e Instalación
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2255
 wordpress_url: http://codehero.co/?p=2255
@@ -20,7 +20,6 @@ tags:
 - mongo
 - mongodb
 - nosql
-comments: []
 ---
 <p>Las bases de datos relacionales están pasando de moda, los desarrolladores optan cada vez más por opciones novedosas de NoSQL debido a sus altos niveles de rendimiento y fácil escalabilidad. Hace unas semanas hablamos de las bondades de <a href="http://codehero.co/como-instalar-configurar-y-usar-redis/">Redis</a>; sin embargo algunos andan temerosos por tener poco tiempo y prefieren una solución con un poco más de reputación, es por esto que esta semana hablaremos de las base de datos NoSQL más utilizada, MongoDB.</p>
 

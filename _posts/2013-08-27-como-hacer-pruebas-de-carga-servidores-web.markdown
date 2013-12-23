@@ -5,7 +5,7 @@ published: true
 title: Cómo Hacer Pruebas de Carga a Servidores Web
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2101
 wordpress_url: http://codehero.co/?p=2101
@@ -20,7 +20,6 @@ tags:
 - ab
 - apachebench
 - siege
-comments: []
 ---
 <p>Cuando estás desarrollando un aplicativo web que podría estar bajo altos niveles de tráfico, luego de configurarla y tener todo listo para hacerla disponible al mundo es una buena práctica ponerla bajo pruebas de estrés y pruebas de carga para determinar su capacidad y velocidad de respuesta, esto permite saber los límites bajo los cuales tu aplicación se comportará de manera apropiada y te permitirá saber cuando necesitarás implementar diferentes estrategias de optimización como a niveles de configuración del servidor o a veces implementar soluciones de balanceo de carga.</p>
 

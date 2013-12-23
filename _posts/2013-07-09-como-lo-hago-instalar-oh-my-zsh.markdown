@@ -5,7 +5,7 @@ published: true
 title: 'Cómo instalar oh-my-zsh   '
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1282
 wordpress_url: http://codehero.co/?p=1282
@@ -17,15 +17,6 @@ tags:
 - oh-myz-zsh
 - zsh
 - terminal
-comments:
-- id: 202
-  author: Personalizar la configuración de Git. - CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/git-desde-cero-personalizar-la-configuracion-de-git/
-  date: '2013-08-15 00:05:08 -0430'
-  date_gmt: '2013-08-15 04:35:08 -0430'
-  content: '[&#8230;] tienen un terminal con ZSH con oh-my-zsh o su alternativa en
-    Bash seguramente te gustan los colores, la personalización del terminal y [&#8230;]'
 ---
 <p>Esta semana, en ¿Cómo Lo Hago?, hablaremos de uno de los complementos que a muchos les convierte el manejo cotidiano del terminal en un paseo por el parque. el framework oh-my-zsh.</p>
 
@@ -200,7 +191,7 @@ alias ga="git add"
 
 <p>Naveguemos a un directorio que sea un repositorio de git para observar las ayudas visuales, por ejemplo, el directorio de oh-my-zsh (si, es un directorio de Git, si no te diste cuenta mira el primer paso del método manual de instalación):</p>
 
-<p><img src="http://cl.ly/image/1S3I0j1J2U0L/Screen%20Shot%202013-07-01%20at%2010.19.55%20PM.png" alt="screenGit" /></p>
+<p><img src="http://i.imgur.com/oS4Gnhv.png" alt="screenGit" /></p>
 
 <p>Podemos notar que el tema nos muestra la rama de git en la que se encuentra actualmente el usuario. Adicionalmente el asterisco amarillo nos indica que hay cambios que no han sido registrados, probablemente al ponerme a jugar con los archivos internos de oh-my-zsh.</p>
 

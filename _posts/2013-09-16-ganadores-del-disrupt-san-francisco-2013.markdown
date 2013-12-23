@@ -5,7 +5,7 @@ published: true
 title: Ganadores del TechCrunch Disrupt San Francisco 2013
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2241
 wordpress_url: http://codehero.co/?p=2241
@@ -18,7 +18,6 @@ tags:
 - techcrunch
 - layer
 - estimote
-comments: []
 ---
 <p>La semana pasada se llevó a cabo un evento donde, entre otras cosas como el <em>Hackathon</em>, se presentan, compiten y premian los mejores <em>startups</em> que aun no han sido dados a conocer públicamente, el TechCrunch Disrupt de San Francisco, entre los competidores estuvo <a href="http://codehero.co/cota-el-futuro-de-cargar-dispositivos-inalambricamente/">Cota, por Ossia Inc. del cual hablamos la semana pasada;</a> sin embargo esta novedosa idea aunque con muchas oportunidades de cambiar el mundo como lo conocemos, no logró cautivar tanto a los jueces como aquellos que al final de la jornada se llevaron el premio.</p>
 

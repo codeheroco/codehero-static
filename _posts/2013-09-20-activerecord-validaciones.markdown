@@ -18,7 +18,6 @@ tags:
 - Ruby on Rails
 - ActiveRecord
 - Validaciones
-comments: []
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior estudiamos a detalle muchas de las funcionalidades que nos da ActiveRecord para manejar nuestra base de datos de forma eficiente en Rails, pero aún nos quedan las validaciones que éste nos ofrece.</p>
 
@@ -123,13 +122,13 @@ end
 
 <p>Por último creamos nuestro formulario donde cargaremos la información.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/codigo_validadores.png" alt="codigo" /></p>
+<p><img src="http://i.imgur.com/xHi82F0.png?1" alt="codigo" /></p>
 
 <p>Como ven en la imagen se puede dividir en dos partes: la parte superior consta del manejo de errores, es donde se obtiene el objeto, se verifica si contiene errores y los muestra en una lista; y por último la parte inferior es nuestro formulario.</p>
 
 <p>Veamos cómo nos muestra Ruby on Rails los errores en el formulario que acabamos de crear (obviamente se pueden editar los estilos para mostrar una mejor presentación).</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/pantalla_validadores.png" alt="codigo" /></p>
+<p><img src="http://i.imgur.com/k71Qi9L.png?1" alt="codigo" /></p>
 
 <hr />
 

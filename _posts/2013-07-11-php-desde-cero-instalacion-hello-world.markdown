@@ -17,14 +17,6 @@ tags:
 - desde cero
 - instalacion
 - configuracion
-comments:
-- id: 194
-  author: PHP+MYSQL | Pearltrees
-  author_email: ''
-  author_url: http://www.pearltrees.com/walticogt/php-mysql/id6070472#pearl84277427&amp;show=reveal,6
-  date: '2013-07-18 14:48:13 -0430'
-  date_gmt: '2013-07-18 19:18:13 -0430'
-  content: '[...] PHP desde Cero: Instalación &amp; Hello World [...]'
 ---
 <p>Bienvenido a PHP desde Cero, en esta serie de tutoriales aprenderemos a utilizar el lenguaje con el cual la mayoría de los sitios web están desarrollados. En este primer capítulo aprenderemos que es <strong>PHP</strong>, instalaremos un servidor de prueba y crearemos nuestro típico "Hola Mundo!".</p>
 
@@ -60,7 +52,7 @@ comments:
 <li>5 - El cliente muestra la respuesta en el formato que sea requerido (HTML, XML, PDF, JPEG, etc). </li>
 </ul>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/codehero_php_2.png"><img src="http://codehero.co/oc-content/uploads/2013/07/codehero_php_2-300x217.png" alt="codehero_php_2" class="aligncenter size-medium wp-image-1372" /></a></p>
+<p><a href="http://i.imgur.com/RUZm6m0.png"><img src="http://i.imgur.com/RUZm6m0.png" alt="codehero_php_2" class="aligncenter size-medium wp-image-1372" /></a></p>
 
 <hr />
 
@@ -88,7 +80,7 @@ comments:
 
 <p>Ahora lo vamos a guardar en la carpeta del servidor que hemos instalado(en nuestro caso htdocs), el archivo debe estar guardado con extensión <strong>.php</strong>, vamos a llamarlo <strong>codehero.php</strong>. Por último vamos a probar desde el navegador lo que hemos creado, para esto escribimos en la barra de direcciones <code>http://localhost/codehero.php</code>. Si todo ha salido bien deberíamos ver la pantalla del explorador en blanco con el mensaje <strong>"Hola Mundo!"</strong>. Listo ya hemos creado y probado nuestro primer script de PHP.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/codehero_php_1.png"><img src="http://codehero.co/oc-content/uploads/2013/07/codehero_php_1.png" alt="codehero_php_1" class="aligncenter size-full wp-image-1371" /></a></p>
+<p><a href="http://imgur.com/6oH8krz.png"><img src="http://imgur.com/6oH8krz" alt="codehero_php_1" class="aligncenter size-full wp-image-1371" /></a></p>
 
 <p>Ahora veamos poco a poco que significa todo esto:</p>
 

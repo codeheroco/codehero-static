@@ -19,16 +19,6 @@ tags:
 - configuracion
 - laravel
 - composer
-comments:
-- id: 209
-  author: 'Laravel 4 desde Cero: Instalaci&oacute;n &amp; ...'
-  author_email: ''
-  author_url: http://www.scoop.it/t/programacion-web-desde-cero/p/4008169840/laravel-4-desde-cero-instalacion-configuracion
-  date: '2013-09-24 16:35:11 -0430'
-  date_gmt: '2013-09-24 21:05:11 -0430'
-  content: '[&#8230;] Curso en el cual aprenderemos Laravel desde Cero. En este curso,
-    estudiaremos las caracter&iacute;sticas y herramientas necesarias para usar Laravel
-    4.&nbsp; [&#8230;]'
 ---
 <p>Bienvenido a Laravel desde Cero, en este nuevo curso aprenderemos a desarrollar aplicaciones web con <a href="http://laravel.com/">Laravel</a> 4. En este primer capitulo revisaremos las principales características de este framework y todos los pasos necesarios para la creación de un proyecto. Para este curso se asumen conocimientos medios o avanzados en PHP.</p>
 
@@ -76,20 +66,20 @@ $ sudo mv composer.phar /usr/local/bin/composer
 
 <p>Si la instalación ha terminado correctamente, entonces nos debe aparece una lista de los comandos y opciones que tiene Composer.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Captura-de-pantalla-2013-07-22-a-las-22.28.02.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Captura-de-pantalla-2013-07-22-a-las-22.28.02-300x193.png" alt="Composer Instalacion Exitosa Mac" class="aligncenter size-medium wp-image-1616" /></a></p>
+<p><a href="http://i.imgur.com/OvO1TZ3.png"><img src="http://i.imgur.com/OvO1TZ3.png" alt="Composer Instalacion Exitosa Mac" class="aligncenter size-full wp-image-1616" /></a></p>
 
 <h3>Instalación de Composer en Windows</h3>
 
 <p>En Windows la instalación se puede hacer mediante un instalador ejecutable que se descarga en la pagina de <a href="http://getcomposer.org/">Composer</a>. El instalador nos solicitará la ubicación de nuestro <strong>php.exe</strong>, la cual dependerá de donde hemos instalado XAMPP.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/composer.png"><img src="http://codehero.co/oc-content/uploads/2013/07/composer-300x231.png" alt="Composer instalacion Windos" class="aligncenter size-medium wp-image-1620" /></a></p>
+<p><a href="http://i.imgur.com/4kvbihX.png"><img src="http://i.imgur.com/4kvbihX.png" alt="Composer instalacion Windos" class="aligncenter size-medium wp-image-1620" /></a></p>
 
 <p>El instalador se encargara de modificar la variable <strong>PATH</strong> para que podamos hacer uso de Composer desde cualquier lugar en la consola. Para probar que la instalación se llevo acabo correctamente ejecutamos el siguiente comando y nos debería aparecer una lista con todos los posibles comando que acepta Composer.</p>
 
 <pre>C:\>composer 
 </pre>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/cmd-composer.png"><img src="http://codehero.co/oc-content/uploads/2013/07/cmd-composer-300x151.png" alt="Composer Instalacion Exitosa Windows" class="aligncenter size-medium wp-image-1617" /></a></p>
+<p><a href="http://i.imgur.com/3xxeyrQ.png"><img src="http://i.imgur.com/3xxeyrQ.png" alt="Composer Instalacion Exitosa Windows" class="aligncenter size-full wp-image-1617" /></a></p>
 
 <h3>Instalación de Laravel</h3>
 
@@ -104,7 +94,7 @@ $ sudo mv composer.phar /usr/local/bin/composer
 
 <p>Este comando descarga una copia completa de la versión mas reciente de Laravel 4 desde los repositorios de Composer con todas las dependencias y librerías que el framework necesita. El proyecto se creara con el nombre que se le indique en el parámetro, en este caso lo llamamos <em>codehero-laravel</em>.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Captura-de-pantalla-2013-07-22-a-las-20.48.26.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Captura-de-pantalla-2013-07-22-a-las-20.48.26-300x171.png" alt="Laravel Instalacion Mac" class="aligncenter size-medium wp-image-1618" /></a></p>
+<p><a href="http://i.imgur.com/pUJO6kK.png"><img src="http://i.imgur.com/pUJO6kK.png" alt="Laravel Instalacion Mac" class="aligncenter size-full wp-image-1618" /></a></p>
 
 <p>Ya tenemos un proyecto de Laravel 4 creado, vamos a probarlo. Para esto debemos correr nuestro servidor Apache y entrar desde el navegador a <code>localhost/codehero-laravel/public</code>.</p>
 
@@ -112,7 +102,7 @@ $ sudo mv composer.phar /usr/local/bin/composer
   <p>Si el navegador muestra un error de <strong>ErrorException file_put_contents()</strong>, significa que debemos darle permisos de escritura a la carpeta <code>/app/storage/</code>. Esto lo podemos hacer ejecutando el comando <code>sudo chmod -R 777 storage</code>.</p>
 </blockquote>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/07/Captura-de-pantalla-2013-07-22-a-las-20.50.39.png"><img src="http://codehero.co/oc-content/uploads/2013/07/Captura-de-pantalla-2013-07-22-a-las-20.50.39-300x185.png" alt="Laravel Instalacion exitosa" class="aligncenter size-medium wp-image-1619" /></a></p>
+<p><a href="http://i.imgur.com/rszalrV.png"><img src="http://i.imgur.com/rszalrV.png" alt="Laravel Instalacion exitosa" class="aligncenter size-full wp-image-1619" /></a></p>
 
 <p>De ahora en adelante cada vez que queramos crear un nuevo proyecto en Laravel 4 para comenzar a desarrollar una aplicación diferente, solo tenemos que ejecutar el comando anterior y cambiar el nombre del proyecto. La instalación de Composer solo se lleva a cabo la primera vez.</p>
 

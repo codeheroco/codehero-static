@@ -5,7 +5,7 @@ published: true
 title: Bootstrap 3 muestra sus notorios cambios en versión RC1
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1781
 wordpress_url: http://codehero.co/?p=1781
@@ -17,7 +17,6 @@ tags:
 - bootstrap
 - web
 - noticia
-comments: []
 ---
 <p>Este fin de semana el equipo de Bootstrap, el afamado <em>framework</em> de desarrollo web, ha liberado el primer candidato a versión final (RC1) de <a href="http://getbootstrap.com/">Bootstrap 3</a>. En vista de que el 1% de todos los sitios que habitan el internet se encuentran basados en Bootstrap, la continuación del desarrollo de este <em>framework</em> era inminente.</p>
 

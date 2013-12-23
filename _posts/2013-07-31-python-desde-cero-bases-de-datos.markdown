@@ -22,7 +22,6 @@ tags:
 - eliminar
 - obtener
 - crear
-comments: []
 ---
 <p>Bienvenidos una vez más a Python desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe a programar orientado a objetos, es decir, aprendimos como definir una clase, como definir sus atributos, como instanciarla y como generar la lógica necesaria para su completo funcionamiento. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/python-desde-cero-clases-atributos-y-metodos/">Capítulo 5 - Clases, Atributos y Métodos</a>)</p>
 

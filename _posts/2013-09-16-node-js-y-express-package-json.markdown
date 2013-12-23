@@ -20,7 +20,6 @@ tags:
 - package
 - json
 - config
-comments: []
 ---
 <p>Como mencioné anteriormente en el capitulo <em><a href="http://codehero.co/nodejs-y-express-definiendo-rutas/">Definiendo Rutas</a></em>, Package.json es un archivo dentro de nuestras aplicaciones de Node cuyo fin es documentar un paquete de Node. En nuestro caso el paquete sería la aplicación que estamos desarrollando.</p>
 

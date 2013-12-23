@@ -18,7 +18,6 @@ tags:
 - laravel 4
 - eloquent orm
 - relaciones
-comments: []
 ---
 <p>En este nuevo capítulo de Laravel vamos aprender como relacionar nuestros modelos, ya que casi siempre los datos en las diferentes tablas de un proyecto están relacionados. Esto se logra gracias a Eloquent ORM, que nos proporciona una manera sencilla relacionar modelos (uno a uno, uno a muchos y muchos a muchos).</p>
 

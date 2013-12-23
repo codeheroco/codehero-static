@@ -19,7 +19,6 @@ tags:
 - estructuras
 - loops
 - ciclos
-comments: []
 ---
 <p>Bienvenidos una vez más a Ruby desde Cero. Hasta este capítulo hemos aprendido como instalar, configurar Ruby en nuestros computadores y conocimos un poco las variables y objetos principales del sistema.</p>
 

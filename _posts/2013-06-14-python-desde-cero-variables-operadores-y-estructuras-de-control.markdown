@@ -15,7 +15,6 @@ categories:
 tags:
 - Python
 - Tutorial
-comments: []
 ---
 <p>Bienvenidos una vez más a Python desde Cero, serie en donde aprendemos Python desde cero. En el capítulo anterior descargamos Python, lo instalamos, nos paseamos por las diferentes maneras sobre como ejecutar scripts y hicimos nuestro primer programa, un Hola Mundo!.</p>
 

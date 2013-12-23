@@ -17,14 +17,6 @@ tags:
 - variables
 - constantes
 - desde cero
-comments:
-- id: 193
-  author: PHP+MYSQL | Pearltrees
-  author_email: ''
-  author_url: http://www.pearltrees.com/walticogt/php-mysql/id6070472#pearl84277404&amp;show=reveal,6
-  date: '2013-07-18 14:46:14 -0430'
-  date_gmt: '2013-07-18 19:16:14 -0430'
-  content: '[...] Variables &amp; Constantes [...]'
 ---
 <p>Una gran parte de desarrollar scripts y de la programación en general tiene que ver con el manejo y manipulación de datos. En el caso de PHP los datos pueden ir desde simples números enteros, hasta objetos con diferentes propiedades. Para hacer uso de estos datos y poder manipularlos utilizamos las variables y constantes.</p>
 

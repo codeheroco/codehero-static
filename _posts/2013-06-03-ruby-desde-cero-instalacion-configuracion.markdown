@@ -18,7 +18,6 @@ tags:
 - desde cero
 - instalacion
 - configuracion
-comments: []
 ---
 <p>Las series de tutoriales <strong>Ruby</strong> en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones. En este primer capitulo te mostraremos el proceso de instalación y algunas características básicas del lenguaje para introducirte en en este nuevo mundo.</p>
 

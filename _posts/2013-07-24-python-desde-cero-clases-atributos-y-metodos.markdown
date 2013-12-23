@@ -21,14 +21,6 @@ tags:
 - atributos
 - oo
 - orientado a objetos
-comments:
-- id: 199
-  author: 'Python desde Cero: Bases de Datos - CODEHERO'
-  author_email: ''
-  author_url: http://codehero.co/python-desde-cero-bases-de-datos/
-  date: '2013-07-31 02:58:57 -0430'
-  date_gmt: '2013-07-31 07:28:57 -0430'
-  content: '[...] Clases, Atributos y Métodos [...]'
 ---
 <p>Bienvenidos una vez más a Python desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe como crear módulos en Python, como importarlos en nuestros programas, y como usar los módulos que vienen incorporados en el lenguaje. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/python-desde-cero-modulos/">Capítulo 4</a>)</p>
 

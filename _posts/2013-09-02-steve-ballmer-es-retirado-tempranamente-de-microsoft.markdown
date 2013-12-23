@@ -5,7 +5,7 @@ published: true
 title: 'Steve Ballmer es retirado tempranamente de Microsoft '
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2140
 wordpress_url: http://codehero.co/?p=2140
@@ -18,7 +18,6 @@ tags:
 - steve ballmer
 - retiro
 - ceo
-comments: []
 ---
 <p>La semana pasada el CEO de Microsoft anunció que en un período de un año se estaría retirando de la compañía, aseguró que la decisión era totalmente de él mediante una emotiva carta dirigida al personal. Al parecer la partida de Ballmer no es exactamente como se presentó.</p>
 

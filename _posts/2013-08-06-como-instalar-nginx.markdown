@@ -5,7 +5,7 @@ published: true
 title: Cómo Instalar Nginx
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1851
 wordpress_url: http://codehero.co/?p=1851
@@ -21,7 +21,6 @@ tags:
 - webserver
 - servidor web
 - proxy
-comments: []
 ---
 <p>Desde hace mucho tiempo cuando nos hemos encontrado en la necesidad de un servidor HTTP, la primera solución que nos venia a la cabeza era Apache; sin embargo los tiempos han cambiado, las exigencias de los desarrolladores y clientes han incrementado y el uso de este antiguo gigante ha venido disminuyendo cada vez mas, esta semana hablaremos de su mayor contendiente, Nginx.</p>
 
@@ -118,7 +117,7 @@ $ start nginx
 
 <p>Luego de haber instalado e iniciado Nginx, probemos que efectivamente sirve dirigiéndonos a la dirección web donde fue instalado (si estamos instalando localmente será <code>localhost</code>) y especificando el puerto por defecto de instalación (en OS X, Homebrew durante la instalación debió indicarlo, suele ser <code>8080</code>. Los demás suelen establecerlo directamente en el <code>80</code>), y veremos una página como esta:</p>
 
-<p><img src="http://cl.ly/image/0l2K1n011c0u/Screen%20Shot%202013-08-03%20at%208.24.21%20PM.png" alt="" /></p>
+<p><img src="http://i.imgur.com/KAWLZng.png" alt="" /></p>
 
 <blockquote>
   <p>Puede que haya conflictos con el puerto si tienes instalado otro servidor web como Apache que se encuentre en funcionamiento y escuchando el mismo puerto, esto lo solucionaremos más adelante en la configuración.</p>

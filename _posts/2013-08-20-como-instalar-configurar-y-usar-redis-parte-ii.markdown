@@ -5,7 +5,7 @@ published: true
 title: Cómo instalar, configurar y usar Redis – Parte II
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1996
 wordpress_url: http://codehero.co/?p=1996
@@ -19,7 +19,6 @@ tags:
 - instalar
 - comandos
 - consejos
-comments: []
 ---
 <p>La semana pasada <a href="http://codehero.co/como-instalar-configurar-y-usar-redis/">estuvimos conociendo Redis</a>, vimos algunos detalles sobre las ventajas que ofrece, lo instalamos, aprendimos sobre su estructura y tipos de datos. Hoy continuaremos el tema y hablaremos de la configuración de la instancia y lo que esto implica, además conoceremos varios comandos básicos para que puedas empezar a sacarle provecho a tu nueva base de datos, también hablaremos de otros detalles que expanden las capacidades de Redis y algunos consejos a tomar en cuenta.</p>
 
@@ -356,7 +355,7 @@ OK
 </pre>
 
 <blockquote>
-  <p>Los <em>hashes</em> son de gran utilidad para definir estructuras tipo objetos, donde el identificador único sería la llave principal del <em>hash</em> (usuario:1), la definición de atributos serian las llaves dentro del <em>hash</em> (nombre, apellido, …) y los valores respectivos a los atributos serían los valores de cada llave del <em>hash</em> (Jonathan, Wiesel, …). Inclusive podemos añadir y borrar atributos dinámicamente según sea necesario, a diferencia de la estructura común de una tabla de base de datos que las columnas se encuentran predefinidas</p>
+  <p>Los <em>hashes</em> son de gran utilidad para definir estructuras tipo objetos, donde el identificador único sería la llave principal del <em>hash</em> (usuario:1), la definición de atributos serian las llaves dentro del <em>hash</em> (nombre, apellido, …) y los valores respectivos a los atributos serían los valores de cada llave del <em>hash</em> (Jonathan, Wiesel, …). Inclusive podemos añadir y borrar atributos dinámicamente según sea necesario, a diferencia de la estructura común de una tabla de base de datos que las columnas se encuentran predefinidas</p>
 </blockquote>
 
 <hr />

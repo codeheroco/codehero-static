@@ -18,7 +18,6 @@ tags:
 - Cursos
 - NSOperationQueues
 - NSOperations
-comments: []
 ---
 <p>Bienvenidos una vez más a iOS desde Cero, curso con el cual aprenderemos a programar sin necesidad de previo conocimiento en el lenguaje. En capítulos anteriores, conocimos algunos de los componentes iOS como UITableViews y Storyboards que estaremos utilizando en este nuevo curso.</p>
 
@@ -40,21 +39,19 @@ comments: []
 
 <p>El ejemplo consta de un <strong>UITableView</strong> sencillo (ya aprendido en <a href="http://codehero.co/ios-desde-cero-table-views-uitableview/">Capítulos anteriores</a>) que carga y procesa una lista de urls donde están almacenadas una serie de imágenes. Para desarrollar esto, lo primero que debemos hacer es crear nuestro TableView en el StoryBoard dando como resultado algo parecido a éste:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/10/Captura-de-pantalla-2013-10-10-a-las-22.34.57.png" alt="StroyBoard" /></p>
+<p><img src="http://i.imgur.com/ovFggfi.png?1" alt="StroyBoard" /></p>
 
 <p>Como se observa en la imagen el ViewController consta de un <strong>UItableView</strong> que contiene una celda (Recuerden agregar el identificador de la celda) a la que agregaremos un <strong>UIImageView</strong> donde posteriormente cargaremos nuestra imagen, un <strong>UILabel</strong> en el que identificaremos la posición de la celda.</p>
 
 <p>Luego creamos una clase que hereda de <strong>UITableViewCell</strong>, para nuestro caso llamaremos RSCell y en la cual declaramos los componente ya graficados en la celda del UItableView en el StoryBoard de la siguiente manera:</p>
 
-<pre>
-@property (nonatomic,weak) IBOutlet UIImageView *imageCell;
+<pre>@property (nonatomic,weak) IBOutlet UIImageView *imageCell;
 @property (nonatomic,weak) IBOutlet UILabel *labelDescription;
 </pre>
 
 <p>Una vez creada la clase de la celda y hechas las asociaciones correspondientes a los componentes del StoryBoard vamos de una vez a armar nuestro DataSource con los requisitos mínimos para su funcionamiento, y de la forma más básica sin aún hacer uso de nuestra clase NSOperations y NSOperationQueues, obteniendo como resultado la siguiente implementación del DataSource:</p>
 
-<pre>
-#pragma mark dataSource
+<pre>#pragma mark dataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _datasource.count;
@@ -93,8 +90,7 @@ comments: []
 
 <p>implementaremos nuestra clase de la siguiente forma:</p>
 
-<pre>
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+<pre>-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identificador =@"myCell";
     RSCell *cell = [tableView dequeueReusableCellWithIdentifier:identificador];
@@ -132,7 +128,7 @@ comments: []
 
 <p>Finalmente ya podemos correr nuestra aplicación y darnos cuenta del gran cambio que hacen estas clases a una aplicación para mejorar el performance y la experiencia del usuario. Si todo salió bien pudiéramos tener una aplicación como esta:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/10/Captura-de-pantalla-2013-10-10-a-las-23.31.21.png" alt="aplicacion_final" /></p>
+<p><img src="http://i.imgur.com/x4rNZ9Z.png?1" alt="aplicacion_final" /></p>
 
 <hr />
 

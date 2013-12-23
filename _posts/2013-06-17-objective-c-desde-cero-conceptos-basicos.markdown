@@ -18,7 +18,6 @@ tags:
 - desde cero
 - conceptos
 - basico
-comments: []
 ---
 <p>Bienvenido a esta nueva serie que se estará presentando alternativamente a la serie "iOS desde Cero", para fortalecer las bases que te harán entender mejor y desarrollar aplicaciones más robustas, tanto para Mac OS X como para iOS.</p>
 
@@ -56,11 +55,11 @@ comments: []
   <a href="http://codehero.co/ios-sdk-desde-cero-introduccion/">"iOS desde Cero"</a>.
 </div>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/1-Xcode-Nuevo-Proyecto.jpeg"><img src="http://codehero.co/oc-content/uploads/2013/06/1-Xcode-Nuevo-Proyecto.jpeg" alt="ventana de Xcode Nuevo Proyecto" class="aligncenter size-full wp-image-1032" /></a></p>
+<p><a href="http://codehero.co/oc-content/uploads/2013/06/1-Xcode-Nuevo-Proyecto.jpeg"><img src="http://i.imgur.com/QiJyGLe.jpg" alt="ventana de Xcode Nuevo Proyecto" class="aligncenter size-full wp-image-1032" /></a></p>
 
 <p>En la siguiente ventana colocamos el nombre del producto, el nombre de la organización, el identificador de la compañía, y seleccionamos "Foundation" del combo y chequeamos "Use Automatic Reference Counting"</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/2-Xcode-Proyecto-Descripcion.jpeg"><img src="http://codehero.co/oc-content/uploads/2013/06/2-Xcode-Proyecto-Descripcion.jpeg" alt="detalle de proyecto - objective-c" class="aligncenter size-full wp-image-1033" /></a></p>
+<p><a href="http://codehero.co/oc-content/uploads/2013/06/2-Xcode-Proyecto-Descripcion.jpeg"><img src="http://i.imgur.com/lFFxFjS.jpg" alt="detalle de proyecto - objective-c" class="aligncenter size-full wp-image-1033" /></a></p>
 
 <blockquote>
   <p><strong>"Foundation"</strong> es un framework de Apple que facilita el manejo de estructuras básicas como colecciones, strings, fechas, entre otros.</p>
@@ -127,7 +126,7 @@ int main(int argc, const char * argv[]) //2
 
 <p>En la parte inferior de la ventana veremos que apareció un panel, este contiene a la consola del lado derecho.</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/06/3-Objective-C-Corriendo-el-programa-Consola.jpeg"><img src="http://codehero.co/oc-content/uploads/2013/06/3-Objective-C-Corriendo-el-programa-Consola.jpeg" alt="Consola de xcode" class="aligncenter size-full wp-image-1034" /></a></p>
+<p><a href="http://codehero.co/oc-content/uploads/2013/06/3-Objective-C-Corriendo-el-programa-Consola.jpeg"><img src="http://i.imgur.com/8iN5Yr5.jpg" alt="Consola de xcode" class="aligncenter size-full wp-image-1034" /></a></p>
 
 <p>Luego de correr la aplicación debería decir:</p>
 
@@ -154,7 +153,7 @@ int main(int argc, const char * argv[]) //2
 <li><strong>float</strong>: para puntos flotante (valores con decimales)</li>
 <li><strong>double</strong>: un punto flotante de mayor precisión (dobla la cantidad de decimales de float)</li>
 <li><strong>char</strong>: para carateres simples</li>
-<li><strong>BOOL</strong>: este es el que incluimos que no tenia C, es para valores buleanos (verdadero o falso, en objective-C: YES o NO)</li>
+<li><strong>BOOL</strong>: este es el que incluimos que no tenia C, es para valores booleanos (verdadero o falso, en objective-C: YES o NO)</li>
 </ul>
 
 <h3>Condicionales</h3>

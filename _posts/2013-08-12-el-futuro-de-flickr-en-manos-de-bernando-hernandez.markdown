@@ -5,7 +5,7 @@ published: true
 title: El futuro de Flickr en manos de Bernardo Hernández
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 1933
 wordpress_url: http://codehero.co/?p=1933
@@ -16,7 +16,6 @@ categories:
 tags:
 - yahoo
 - flickr
-comments: []
 ---
 <p>Desde que Marissa Mayer ha tomado las riendas de Yahoo! hemos visto grandes cambios como <a href="http://codehero.co/yahoo-suma-a-rockmelt-a-su-lista-de-compras/">nuevas adquisiciones de compañias</a> y mucho movimiento en la nómina para obtener personajes talentosos que saquen adelante a la compañía, entre ellos se encuentra Bernardo Hernández, trabajó como Director en Google y Zagat, además de ser fundador de otros <em>startups</em> y compañías que tuvieron inicios en España.</p>
 

@@ -5,7 +5,7 @@ published: true
 title: Actualizaciones / Updates
 author: Jonathan Wiesel
 author_login: jonathan
-author_email: jonathanwiesel@gmail.com
+author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 wordpress_id: 2325
 wordpress_url: http://codehero.co/?p=2325
@@ -20,7 +20,6 @@ tags:
 - actualizacion
 - modificacion
 - save
-comments: []
 ---
 <p>Como mencionamos en la entrada pasada, la parte de actualizaciones o updates la dejamos por separado para tratar de ser un poco más detallados y extendernos en esta área para que puedas dominar con mayor destreza la manipulación de los datos.</p>
 
