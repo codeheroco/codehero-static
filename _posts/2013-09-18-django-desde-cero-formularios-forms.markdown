@@ -18,14 +18,6 @@ tags:
 - form
 - forms
 - csrf
-comments:
-- id: 210
-  author: Urls Avanzadas | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/django-desde-cero-urls-avanzadas/
-  date: '2013-10-02 06:27:08 -0430'
-  date_gmt: '2013-10-02 10:57:08 -0430'
-  content: '[&#8230;] Formularios (Forms) [&#8230;]'
 ---
 <p>Bienvenidos una vez más a Django desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe como como configurar, acceder y manejar el módulo de administrador que viene pre-instalado con Django. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/django-desde-cero-sitio-de-administracion/">Capítulo 4 - Sitio de Administración </a>)</p>
 
@@ -221,14 +213,7 @@ def crear(request):
 
 <p>Debemos crear el archivo <code>crear_articulo.html</code> dentro de la carpeta <strong>templates</strong> en la app <strong>blog</strong> y agregarle el siguiente código:</p>
 
-<pre> <form action="/crear/" method="post">{% raw %}{% csrf_token %}{% endraw %}
-<ul>
-{{ form.as_ul }}
-</ul>
-
-<input type="submit" name="submit" value="Crear Articulo">
-</form> 
-</pre>
+<p><img src="http://i.imgur.com/40rgqdn.png" alt="django-forms-html" /></p>
 
 <blockquote>
   <p>Observemos que dentro de esta plantilla es donde renderizamos el form que creamos anteriormente con el método <code>form.as_ul</code>, a su vez es donde especificamos la dirección de la ruta que Django tiene que buscar para poder procesar el form, en nuestro caso <code>/crear/</code>.</p>
@@ -247,15 +232,15 @@ def crear(request):
 
 <p>Una vez que encienda navegamos hacia la ruta que creamos <code>http://127.0.0.1:8000/crear</code>:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/form-django.png" alt="form-django" /></p>
+<p><img src="http://i.imgur.com/Al99R3u.png" alt="form-django" /></p>
 
 <p>Ahora cargamos unos datos de prueba:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/llenado-form-django.png" alt="llenado-form-django" /></p>
+<p><img src="http://i.imgur.com/2Tg1xNd.png" alt="llenado-form-django" /></p>
 
 <p>Si clickeamos <strong>Crear Articulo</strong> deberíamos observar el nuevo <em>articulo</em>:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/todos-articulos-django.png" alt="todos-articulos-django" /></p>
+<p><img src="http://i.imgur.com/pkdfzPY.png" alt="todos-articulos-django" /></p>
 
 <p>Si quieres saber más información acerca de los forms o formularios en Django, te recomiendo que visites <a href="https://docs.djangoproject.com/en/dev/topics/forms/">Formularios Django</a></p>
 
