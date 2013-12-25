@@ -10,20 +10,15 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2347
 wordpress_url: http://codehero.co/?p=2347
 date: 2013-10-04 00:01:34.000000000 -04:30
-series:
-  nombre: Ruby on Rails desde Cero
-  thumbnail: none
 categories:
 - Cursos
-- Ruby-on-Rails
+- Ruby on Rails
 tags:
 - Cursos
 - Ruby on Rails
 - Validaciones
 - Serialización
 - ActiveModel
-meta:
-  description: Serie de Ruby on Rails and shit
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En capítulos anteriores hemos aprendido muchas de las ventajas del framework, desde la instalación y la puesta en marcha de nuestras aplicaciones, hasta el capítulo anterior: ActiveRecord, herramienta que nos proporciona Rails para la administración y funcionamiento de los modelos con acceso directo a la base de datos.</p>
 
@@ -52,8 +47,7 @@ meta:
 
 <p>La sintaxis para desarrollar una clase con estas características es exactamente igual que una clase normal, solo que a esta se le incluyen los módulos de ActiveModel que vayamos a utilizar. Un ejemplo de esto es el siguiente:</p>
 
-```ruby
-class Message
+<pre>class Message
   include ActiveModel::Validations
 
   attr_accessor :nombre, :email, :contenido
@@ -63,8 +57,9 @@ class Message
   def initialize (nombre, email,contenido)
    @nombre, @email, @contenido = nombre, email, contenido
   final
-final
-```
+  
+final 
+</pre>
 
 <p>Como ven en el ejemplo es una clase normal pero en ésta incluimos <code>ActiveModel::Validations</code> para utilizar el módulo de validaciones de ActiveRecord que estudiamos en el <a href="http://codehero.co/activerecord-validaciones/">capítulo anterior</a>.</p>
 
@@ -76,21 +71,20 @@ final
 
 <p>Empezaremos creando nuestro modelo:</p>
 
-```ruby
-class Message
+<pre>class Message
 
-#incluimos los módulos que vamos a utilizar
+#incluimos los módulos que vamos a utilizar 
   include ActiveModel::Validations  #necesario para agregar las condiciones de validacion
   include ActiveModel::Conversion # contiene entre otras cosas el metodo to_key que usamos en el formulario
 
-#declaramos las variables del modelo
+#declaramos las variables del modelo  
   attr_accessor :name, :email, :content
-
-#Agregamos las condicones a vailidar
+  
+#Agregamos las condicones a vailidar  
   validates_presence_of :name, :email, :content
   validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
   validates_length_of :content, :maximum => 500
-
+  
 # El constructor que recibe un hash con los valores del formulario
 #  y nos crea nuestro objeto mensaje
   def initialize(attributes = {})
@@ -100,34 +94,32 @@ class Message
   end
 
  # Metodo que debemos agregar a nuestro modelo
- # ya que no se van a guardar los datos en la base de datos
+ # ya que no se van a guardar los datos en la base de datos  
   def persisted?
     false
   end
-
+  
 end
-```
+</pre>
 
 <p>Una vez creado nuestro modelo ActiveModel simplemente creamos el controlador y las vistas necesarias. Como ya dijimos en capítulos anteriores podemos crear el controlador de una forma rápida con el terminal y la siguiente línea de comando:</p>
 
-```ruby
-rails g controller mensajes
-```
+<pre>rails g controller mensajes
+</pre>
 
 <p>Agregamos en el archivo de rutas la siguiente linea, para que Rails reconozca las rutas para el controlador:</p>
 
-```ruby
-resources :mensajes
-```
+<pre>resources :mensajes
+</pre>
 
 <p>Creamos nuestro controlador:</p>
 
-```ruby
-class MensajesController < ApplicationController
+<pre>class MensajesController &lt; ApplicationController
+
   def index
     @mensaje = Mensaje.new
   end
-
+  
   def create
     @mensaje = Mensaje.new(params[:mensaje])
     if @mensaje.valid?
@@ -138,18 +130,19 @@ class MensajesController < ApplicationController
       render :action => 'index'
     end
   end
+  
 end
-```
+</pre>
 
 <p>Vemos algunas diferencias mínimas con respecto a otro modelos que ya hemos creado antes con acceso a base de datos, por ejemplo: cambiamos el método <code>save</code>(@mensaje.save) por el método <code>valid?</code>(@mensaje.valid?) porque obviamente ya no estamos guardando en base de datos, de resto se maneja bastante parecido que con ActiveRecord.</p>
 
 <p>Por último creamos nuestra vista de igual manera que en el capítulo anterior, agregando los bloques que detectan los errores del modelo:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/10/Captura-de-pantalla-2013-10-03-a-las-22.36.27.png" alt="codigoVista" /></p>
+<p><img src="http://i.imgur.com/z7YW0uc.png?1" alt="codigoVista" /></p>
 
 <p>Para finalmente tener un resultado parecido al siguiente, Cabe destacar que el diseño y los mensajes pudieran ser modificados para mejorar la presentación de la pagina.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/10/Captura-de-pantalla-2013-10-03-a-las-22.36.37.png" alt="codigoVista" /></p>
+<p><img src="http://i.imgur.com/3whUVqG.png?1" alt="codigoVista" /></p>
 
 <hr />
 
@@ -157,38 +150,34 @@ end
 
 <p>Para finalizar con el curso de hoy veremos como funciona el módulo para serializar un objetos con ActiveModel. En Rails es bastante sencillo convertir un objeto a <strong>JSON</strong> o <strong>XML</strong> solo necesitamos incluir en nuestra clase el módulo para serializar objetos:</p>
 
-```ruby
-include ActiveModel::Serializers::JSON
-include ActiveModel::Serializers::Xml
-```
+<pre>include ActiveModel::Serializers::JSON
+  include ActiveModel::Serializers::Xml
+</pre>
 
 <p>Luego declaramos un método donde creamos un Hash con los atributos del objeto de la siguiente forma (tomando como ejemplo el objeto del ejercicio anterior)</p>
 
-```ruby
-def attributes
-  {'nombre' => nil,"email" =>nil, "contenido"=>nil}
-end
-```
+<pre>def attributes
+    {'nombre' => nil,"email" =>nil, "contenido"=>nil}
+  end
+</pre>
 
 <p>Listo ahora en el controlador solo decidimos como queremos mostrar el resultado.</p>
 
-```ruby
-# formato XML
-# render :xml => @mensaje.to_xml
+<pre>#formato XML
+  # render :xml => @mensaje.to_xml
 
-# formato JSON
-render :json => @mensaje.to_json
-```
+#formato JSON  
+  render :json => @mensaje.to_json
+</pre>
 
 <p>y obtendremos algo como esto dependiendo del formato que lo necesitemos (El ejemplo lo muestra en formato JSON):</p>
 
-```ruby
-{
-  "nombre":"Ricardo Sampayo",
-  "email":"me@RicardoSampayo.com",
-  "contenido":"Mensaje"
+<pre>{
+    "nombre":"Ricardo Sampayo",
+    "email":"me@RicardoSampayo.com",
+    "contenido":"Mensaje"
 }
-```
+</pre>
 
 <hr />
 

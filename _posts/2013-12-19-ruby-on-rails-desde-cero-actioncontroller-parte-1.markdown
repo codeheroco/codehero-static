@@ -74,9 +74,7 @@ tags:
 
 <p>Sin nada:</p>
 
-<p>&lt;</p>
-
-<p>pre$ rails g controller Publicacions index --no-template-engine --no-test-framework --no-assets --no-helper </pre></p>
+<p><pre>$ rails g controller Publicacions index --no-template-engine --no-test-framework --no-assets --no-helper </pre></p>
 
 <p>Si quieren observar cualquier otra opción particular simplemente utilicen el comando -h:</p>
 
@@ -108,7 +106,7 @@ end
 
 <pre>def index
   if params[:draft] == "privada"
-    @publicacions = Publicacion.where("estado = 'privada'") 
+    @publicacions = Publicacion.where("estado = 'privada'")
   else
     @publicacions = Publicacion.where("estado = 'publica'")
   end

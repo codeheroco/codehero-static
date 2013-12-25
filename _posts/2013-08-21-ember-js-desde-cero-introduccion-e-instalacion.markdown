@@ -21,14 +21,6 @@ tags:
 - app
 - handlebars
 - jquery
-comments:
-- id: 204
-  author: Clases y Objetos | CODEHERO
-  author_email: ''
-  author_url: http://codehero.co/ember-js-desde-cero-clases-y-objetos/
-  date: '2013-08-28 01:35:31 -0430'
-  date_gmt: '2013-08-28 06:05:31 -0430'
-  content: '[&#8230;] Introducción e Instalación [&#8230;]'
 ---
 <p>Bienvenidos Ember.js desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. Hoy, vamos a ver una introducción a Ember.js, sus beneficios y vamos a crear nuestra primera app con el framework.</p>
 
@@ -66,7 +58,7 @@ comments:
 
 <p>Descargarnos la última versión en mi caso la <strong>1.10.2</strong>:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/jquery.png" alt="jquery" /></p>
+<p><img src="http://i.imgur.com/ABW0Oor.png" alt="jquery" /></p>
 
 <blockquote>
   <p>Es importante que descargues la versión comprimida. Para mayor información sobre <a href="http://jquery.com/">jQuery</a>.</p>
@@ -78,7 +70,7 @@ comments:
 
 <p>Descargarnos la última versión en mi caso la <strong>1.0.0</strong>:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/handlebarsjs.png" alt="handlebars.js" /></p>
+<p><img src="http://i.imgur.com/eflvYuN.png" alt="handlebars.js" /></p>
 
 <blockquote>
   <p>Para mayor información sobre <a href="http://handlebarsjs.com/">Handlebars</a>.</p>
@@ -90,7 +82,7 @@ comments:
 
 <p>Descargarnos la última versión en mi caso la <strong>1.0.0</strong>:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/emberjs.png" alt="ember.js" /></p>
+<p><img src="http://i.imgur.com/4P4u4dk.png" alt="ember.js" /></p>
 
 <blockquote>
   <p>Es importante que la versión sea la de desarrollo porque es la que nos permite saber cuales son los errores de la app en caso de que exista alguno.</p>
@@ -102,14 +94,7 @@ comments:
 
 <p>Agreguemos el siguiente código:</p>
 
-<pre>
-
-    
-
-
-
-
-</pre>
+<p><img src="http://i.imgur.com/uvBSzV1.png" alt="ember-js-html" /></p>
 
 <p>Ahora a este código debemos agregarle las dependencias que descargamos anteriormente. Veamos cómo:</p>
 
@@ -124,22 +109,15 @@ comments:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<pre>
-
-    
-
-
-
-
-</pre>
+<p><img src="http://i.imgur.com/hcg3aZE.png" alt="ember-js-archivo-index-html" /></p>
 
 <p>Probemos el archivo <code>index.html</code> en el explorador solo para comprobar que no exista ningún error con las dependencias (Hasta los momentos no hemos configurado nuestra app con el framework).</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/primera-app-emberjs.png" alt="primera-app-emberjs" /></p>
+<p><img src="http://i.imgur.com/nqlOc9a.png" alt="primera-app-emberjs" /></p>
 
 <p>Si cargamos el archivo veremos que no nos aparece nada, y eso está bien!, pero vayamos más allá y revisemos las dependencias dentro del explorador. Para hacer esto debemos abrir el <strong>inspector de desarrollo</strong>, en mi caso, estoy usando Chrome para Mac, por lo que presionando <code>option + command + I</code> debería abrirlo. En la pestaña <strong>Resources</strong> deberían estar todos los scripts de dependencias.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/dependencias-primera-app-emberjs.png" alt="dependencias-primera-app-emberjs" /></p>
+<p><img src="http://i.imgur.com/5XI8Y80.png" alt="dependencias-primera-app-emberjs" /></p>
 
 <p>Lo siguiente es inicializar nuestra aplicación con Ember.js</p>
 
@@ -156,14 +134,7 @@ comments:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<pre>
-
-    
-
-
-
-
-</pre>
+<p><img src="http://i.imgur.com/Rg6DlWk.png" alt="ember-js-html-archivo-II" /></p>
 
 <p> </p>
 
@@ -171,7 +142,7 @@ comments:
 
 <p>Si de verdad queremos estar seguros de qué la app este siendo inicializada hagamos lo siguiente, en el <strong>inspector</strong>, vayamos a la pestaña que dice <em>Console</em> y escribamos <code>App</code>:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/console-primera-app-emberjs.png" alt="console-primera-app-emberjs" /></p>
+<p><img src="http://i.imgur.com/3LMpDbS.png" alt="console-primera-app-emberjs" /></p>
 
 <blockquote>
   <p>Si le aparece una serie de características y métodos en la variable <strong>class</strong> entonces quiere decir que hemos inicializado de manera correcta nuestra aplicación en Ember.js</p>
@@ -188,6 +159,9 @@ comments:
 <pre><script type="text/x-handlebars" data-template-name="index">
     <h1>
   Bienvenido a Ember.js!
+      
+    
+  
 </h1>
 </script>
 </pre>
@@ -200,22 +174,11 @@ comments:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<pre>
-
-    
-
-    <script type="text/x-handlebars" data-template-name="index">
-        <h1>
-  Bienvenido a Ember.js!
-</h1>
-    </script>
-
-
-</pre>
+<p><img src="http://i.imgur.com/DnEymbl.png" alt="ember-js-archivo-html-III" /></p>
 
 <p>Si corremos en el explorador el archivo debemos observamos los siguiente:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/plantilla-primera-app-emberjs.png" alt="plantilla-primera-app-emberjs" /></p>
+<p><img src="http://i.imgur.com/p152lAY.png" alt="plantilla-primera-app-emberjs" /></p>
 
 <p>Felicitaciones has creado tu primera app con Ember.js!</p>
 

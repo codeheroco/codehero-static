@@ -18,7 +18,6 @@ tags:
 - observador
 - observadores
 - observer
-comments: []
 ---
 <p>Bienvenidos Ember.js desde Cero, curso en el cual aprendemos a programar sin conocimiento alguno. En el capítulo anterior, te enseñe todo lo relacionado con las propiedades computadas dentro de Ember.js. Si eres nuevo en este curso, te recomiendo que le eches un vistazo al capítulo anterior para que te pongas en contexto (<a href="http://codehero.co/ember-js-desde-cero-propiedades-computadas-computed-properties/">Capítulo 3 - Propiedades Computadas (Computed Properties)</a>)</p>
 
@@ -69,54 +68,7 @@ comments: []
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<pre>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Aprendamos Ember.js en Codehero!</title>
-        <script src="jquery.min.js"></script>
-        <script src="handlebars.js"></script>
-        <script src="ember.js"></script>
-        <script>
-            window.App = Ember.Application.create();
-
-            var cuentaGlobal = 0;
-
-            var Marcapagina = Ember.Object.extend({
-
-                convertir_en_link: function() {
-                    return "<a href='" + this.get("url") + "'>"
-                            + this.get("nombre")
-                            + "</a>";
-                }
-                ,link: function() {
-                    return this.convertir_en_link();
-                }.property("nombre", "url")
-
-                ,detalle: function() {
-                    return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
-                }.property('link', 'nombre', 'url')
-
-                ,modificarCuenta: function() {
-                    cuentaGlobal += 1;
-                    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
-                }
-
-            });
-
-
-            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
-
-        </script>
-    </head>
-<body>
-    <script type="text/x-handlebars" data-template-name="index">
-        <h1>Bienvenido a Ember.js!</h1>
-    </script>
-</body>
-</html>
-</pre>
+<p><img src="http://i.imgur.com/YPJFmAe.png" alt="ember-js-html-I" /></p>
 
 <p>Una vez que tengamos definido el método que queramos llamar cada vez que se dispare el observador pasamos a declarar el observador como tal. Podemos hacerlo de dos maneras diferentes:</p>
 
@@ -147,54 +99,7 @@ comments: []
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<pre>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Aprendamos Ember.js en Codehero!</title>
-        <script src="jquery.min.js"></script>
-        <script src="handlebars.js"></script>
-        <script src="ember.js"></script>
-        <script>
-            window.App = Ember.Application.create();
-
-            var cuentaGlobal = 0;
-
-            var Marcapagina = Ember.Object.extend({
-
-                convertir_en_link: function() {
-                    return "<a href='" + this.get("url") + "'>"
-                            + this.get("nombre")
-                            + "</a>";
-                }
-                ,link: function() {
-                    return this.convertir_en_link();
-                }.property("nombre", "url")
-
-                ,detalle: function() {
-                    return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
-                }.property('link', 'nombre', 'url')
-
-                ,modificarCuenta: function() {
-                    cuentaGlobal += 1;
-                    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
-                }.observes("nombre")
-
-            });
-
-
-            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
-
-        </script>
-    </head>
-<body>
-    <script type="text/x-handlebars" data-template-name="index">
-        <h1>Bienvenido a Ember.js!</h1>
-    </script>
-</body>
-</html>
-</pre>
+<p><img src="http://i.imgur.com/3DRQInc.png" alt="ember-js-html-II" /></p>
 
 <hr />
 
@@ -218,53 +123,7 @@ comments: []
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<pre>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Aprendamos Ember.js en Codehero!</title>
-        <script src="jquery.min.js"></script>
-        <script src="handlebars.js"></script>
-        <script src="ember.js"></script>
-        <script>
-            window.App = Ember.Application.create();
-
-            var cuentaGlobal = 0;
-
-            var Marcapagina = Ember.Object.extend({
-
-                convertir_en_link: function() {
-                    return "<a href='" + this.get("url") + "'>"
-                            + this.get("nombre")
-                            + "</a>";
-                }
-                ,link: function() {
-                    return this.convertir_en_link();
-                }.property("nombre", "url")
-
-                ,detalle: function() {
-                    return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
-                }.property('link', 'nombre', 'url')
-
-                ,modificarCuenta: Ember.observer(function() {
-                    cuentaGlobal += 1;
-                    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
-                }, "nombre")
-
-            });
-
-
-            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
-
-        </script>
-    </head>
-<body>
-    <script type="text/x-handlebars" data-template-name="index">
-        <h1>Bienvenido a Ember.js!</h1>
-    </script>
-</body>
-</html>
-</pre>
+<p><img src="http://i.imgur.com/Mr0Pnkr.png" alt="ember-js-html-II" /></p>
 
 <hr />
 
@@ -279,7 +138,7 @@ comments: []
 <pre>cuentaGlobal
 </pre>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/cuentaGlobal-observador-emberjs.png" alt="cuentaGlobal-observador-emberjs" /></p>
+<p><img src="http://i.imgur.com/Bu0sSH8.png" alt="cuentaGlobal-observador-emberjs" /></p>
 
 <blockquote>
   <p>Observemos que su valor es cero porque apenas la estamos inicializando.</p>
@@ -292,7 +151,7 @@ comments: []
 
 <p>Deberíamos obtener:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/set-observador-emberjs.png" alt="set-observador-emberjs" /></p>
+<p><img src="http://i.imgur.com/0P8I78y.png" alt="set-observador-emberjs" /></p>
 
 <blockquote>
   <p>Observemos que al utilizar el <em>log</em> en la función <code>modificarCuenta</code> nos informará el valor real de <code>cuentaGlobal</code>.</p>
@@ -300,7 +159,7 @@ comments: []
 
 <p>Por no dejar, probemos otra vez cuanto es el valor de <code>cuentaGlobal</code>:</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/09/cuentaGlobal-II-observador-emberjs.png" alt="cuentaGlobal-II-observador-emberjs" /></p>
+<p><img src="http://i.imgur.com/D4xCGOX.png" alt="cuentaGlobal-II-observador-emberjs" /></p>
 
 <p>Si quieres saber más información sobre <em>observadores</em> en <strong>Ember.js</strong> te invito a que visites <a href="http://emberjs.com/guides/object-model/observers/">Observadores</a></p>
 
