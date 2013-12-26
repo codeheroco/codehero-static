@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2611
 wordpress_url: http://codehero.co/?p=2611
 date: 2013-11-15 00:01:30.000000000 -04:30
+series:
+  nombre: Ruby on Rails desde Cero
+  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Cursos
 - Ruby on Rails
@@ -31,10 +34,11 @@ tags:
 
 <p>Imaginemos un ejemplo simple: Si tenemos un método dentro de algunos de nuestros modelos, que reciba dos valores, los sume y retorne una respuesta, pudiéramos hacer una prueba unitaria que pruebe el método con dos valores predeterminados de los cuales conozcamos de antemano su respuesta. Algo así:</p>
 
-<pre>test "suma_simple" do
+```ruby
+test "suma_simple" do
   assert_equal( suma(2,2), 4 )
 end
-</pre>
+```
 
 <p>En esta pequeña prueba se verifica que el resultado de la suma sea igual a cuatro, si esto es así, la prueba resultará exitosa.</p>
 
@@ -73,8 +77,8 @@ end
 
 <p>Los datos que vamos a utilizar de pruebas se guardan en la carpeta <code>fixtures</code> y nos sirven para ser usados en las pruebas. De estos archivos, existe uno para cada modelo que tenemos en la aplicación y son independientes de la base de datos. La estructura del contenido de estos archivos es más o menos así:</p>
 
-<pre># Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
+```ruby
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 one:
   nombre: Ricardo
   apellido: Sampayo
@@ -86,8 +90,7 @@ two:
   apellido: Cursos
   nacimiento: 2013-09-05
   sexo: m
-
-</pre>
+```
 
 <p>Se puede observar fácilmente en la estructura que se crean dos objetos de tipo usuario.</p>
 
@@ -97,10 +100,10 @@ two:
 
 <p>Ejecutar pruebas en Rails es bastante sencillo sólo debemos ejecutar unas líneas de comando y ver qué resultados nos arroja. Primero debemos asegurarnos de que la base de datos de prueba esté creada con éxito, si no debemos ejecutar los comandos ya estudiados para generarla. (Recuerde que la configuración de las bases de datos está en el archivo database.yml).</p>
 
-<pre>$ rake db:migrate
-...
-$ rake db:test:load
-</pre>
+```sh
+$ bundle exec rake db:migrate
+$ bundle exec rake db:test:load
+```
 
 <p>Algunos de los comandos para preparar la aplicación de pruebas son:</p>
 
@@ -114,48 +117,44 @@ $ rake db:test:load
 
 <p>Listo! una vez comprobado y preparado nuestro ambiente de pruebas sólo nos queda saber cómo ejecutar pruebas. Sólo debemos ejecutar la siguiente límea de comando para llamar a todas las pruebas del sistema.</p>
 
-<pre>rake test
-</pre>
+```sh
+$ bundle exec rake test
+```
 
 <p>Y obtendremos algo así:</p>
 
-<pre>Run options: --seed 20850
-
+```sh
+Run options: --seed 20850
 # Running tests:
-
 .
-
 Finished tests in 0.094405s, 10.5927 tests/s, 10.5927 assertions/s.
-
 1 tests, 1 assertions, 0 failures, 0 errors, 0 skips
-</pre>
+```
 
 <p>También podemos llamar a los test de forma independiente, con el nombre de la prueba:</p>
 
-<pre>rake test test/models/usuario_test.rb
-</pre>
+```sh
+$ bundle exec rake test test/models/usuario_test.rb
+```
 
 <p>O incluso más detallada con el nombre del método dentro de la prueba.</p>
 
-<pre>rake test test/models/usuario_test.rb test_prueba_codehero
-</pre>
+```sh
+$ bundle exec rake test test/models/usuario_test.rb test_prueba_codehero
+```
 
 <p>Para este caso forzamos una prueba para que falle y tenemos esto como resultado:</p>
 
-<pre>Run options: -n test_prueba_codehero --seed 51120
-
+```sh
+Run options: -n test_prueba_codehero --seed 51120
 # Running tests:
-
 F
-
 Finished tests in 0.056565s, 17.6788 tests/s, 17.6788 assertions/s.
-
   1) Failure:
 UsuarioTest#test_prueba_codehero [/Users/ricardosampayo/Documents/CodeHero/ruby_on_rails_activerecord/test/models/usuario_test.rb:6]:
 Failed assertion, no message given.
-
 1 tests, 1 assertions, 1 failures, 0 errors, 0 skips
-</pre>
+```
 
 <p>Como vemos, el resultado de las pruebas es bastante completo, nos indica tanto la cantidad de pruebas que se ejecutaron, como el resultado de ellas indicándonos fallas o errores, incluso vemos cuales pruebas son las que tienen problemas y el rendimiento de la ejecución.</p>
 
@@ -171,10 +170,10 @@ Failed assertion, no message given.
 
 <p>En esta prueba desarrollaremos tres métodos que actúan sobre el objeto <em>Usuario</em> y validan que se pueda guardar un usuario, el nombre de un usuario sea el correcto, entre otras.</p>
 
-<pre>require 'test_helper'
+```ruby
+require 'test_helper'
 
-class UsuarioTest &lt; ActiveSupport::TestCase
-  
+class UsuarioTest < ActiveSupport::TestCase
   test "guardar_usuario" do
     user1 = Usuario.new({ apellido: 'Sampayo', nombre: 'Ricardo', nacimiento: Time.zone.parse("1988-05-09"), sexo: 'm' })
     assert user1.save
@@ -182,32 +181,27 @@ class UsuarioTest &lt; ActiveSupport::TestCase
 
   test "validar_nombre" do
     user1 = Usuario.new({ apellido: 'Sampayo', nombre: 'Ricardo', nacimiento: Time.zone.parse("1988-05-09"), sexo: 'm' })
-    assert_equal( user1.nombre, 'Ricardo')  
+    assert_equal( user1.nombre, 'Ricardo')
   end
 
   test "prueba_fallida" do
     assert false
   end
-
 end
-</pre>
+```
 
 <p>El resultado al ejecutar estas pruebas es el siguiente:</p>
 
-<pre>Run options: --seed 43885
-
+```ruby
+Run options: --seed 43885
 # Running tests:
-
 .F.
-
 Finished tests in 0.076813s, 39.0559 tests/s, 39.0559 assertions/s.
-
   1) Failure:
 UsuarioTest#test_prueba_fallida [/Users/ricardosampayo/Documents/CodeHero/ruby_on_rails_activerecord/test/models/usuario_test.rb:16]:
 Failed assertion, no message given.
-
 3 tests, 3 assertions, 1 failures, 0 errors, 0 skips
-</pre>
+```
 
 <p>Probablemente se hayan dado cuenta de que hay varios tipos de afirmaciones para las pruebas, veremos unas cuantas a continuación:</p>
 

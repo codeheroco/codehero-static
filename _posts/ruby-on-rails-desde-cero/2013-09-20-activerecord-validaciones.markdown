@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2282
 wordpress_url: http://codehero.co/?p=2282
 date: 2013-09-20 00:01:04.000000000 -04:30
+series:
+  nombre: Ruby on Rails desde Cero
+  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Cursos
 - Ruby on Rails
@@ -67,28 +70,27 @@ tags:
 
 <p>Ahora, luego de haber descrito muy brevemente algunos de los validadores que nos ofrece Rails veamos un ejemplo donde usaremos algunos de estos atributos.</p>
 
-<pre>class Persona &lt; ActiveRecord::Base
+```ruby
+class Persona < ActiveRecord::Base
+  # Confirmamos el email y validamos que no sean vacios con presence
+  # mostramos el mensaje de error con message
+  validates :email , presence: true , confirmation: true
+  validates :email_confirmation, presence: { message: " es requerido"}
 
-    # Confirmamos el email y validamos que no sean vacios con presence
-    # mostramos el mensaje de error con message
-    validates :email , presence: true , confirmation: true 
-    validates :email_confirmation, presence: { message: " es requerido"}
+  # Validamos en una expresion regular nuestro email
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, format: { :with => VALID_EMAIL_REGEX , message: "El formato del correo es invalido" }
 
-    # Validamos en una expresion regular nuestro email
-     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :email, format: { :with => VALID_EMAIL_REGEX , message: "El formato del correo es invalido" }
+  # Validamos que el identificador tenga entre 8 a 12 caracteres
+  validates :identificador, length: { in: 8..12 , message: "debe tener entre 8 y 12 caracteres"}
 
-    # Validamos que el identificador tenga entre 8 a 12 caracteres
-    validates :identificador, length: { in: 8..12 , message: "debe tener entre 8 y 12 caracteres"}
+  # Validamos que el identificador solo sea numerico
+  validates :identificador, numericality: { only_integer: true }
 
-    # Validamos que el identificador solo sea numerico
-    validates :identificador, numericality: { only_integer: true }
-
-    # Validamos que el email sea unico
-    validates :email, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
+  # Validamos que el email sea unico
+  validates :email, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
 end
-
-</pre>
+```
 
 <p>Como seguramente hemos visto en el ejemplo, una serie de opciones que le dan forma a las validaciones, como el mensaje: que nos da el error que queremos mostrar cuando no se cumpla la condición.</p>
 
@@ -96,33 +98,75 @@ end
 
 <p>Una vez creado el modelo creamos nuestros controladores para generar, recibir y procesar la información ingresada por el usuario. El controlador que realizaremos para este ejemplo sólo consta de dos métodos: <strong>index</strong> que carga la lista de personas ya almacenadas y nos mostrará un formulario para cargar la información y <strong>create</strong> simplemente recibe la información del formulario y la procesa. Veamos esto en código.</p>
 
-<pre>def index
-    # Crea una persona nueva para cargarla con informacion
-    @nuevo_usuario = Persona.new
-     # Carga todas las personas de base de datos
-    @usuarios    = Persona.all
-  end
-  
-  def create
-  
-  # Recibe y crea una persona con los datos del formulario
-    @nuevo_usuario = Persona.new(params[:nuevo_usuario].permit(:nombre, :email,:identificador, :telefono,:sexo,:email_confirmation))
-    @usuarios    = Persona.all
+```ruby
+def index
+  # Crea una persona nueva para cargarla con informacion
+  @nuevo_usuario = Persona.new
+   # Carga todas las personas de base de datos
+  @usuarios    = Persona.all
+end
 
-    # intenta guardar en base de datos
-      if @nuevo_usuario.save
-        #si tiene exito nos lleva al index
-        redirect_to validation_path
-      else
-        # si no carga nuevamente la vista con los errores a corregir
-         render action: 'index' 
-      end
+def create
+  # Recibe y crea una persona con los datos del formulario
+  @nuevo_usuario = Persona.new(params[:nuevo_usuario].permit(:nombre, :email,:identificador, :telefono,:sexo,:email_confirmation))
+  @usuarios    = Persona.all
+
+  # intenta guardar en base de datos
+  if @nuevo_usuario.save
+    #si tiene exito nos lleva al index
+    redirect_to validation_path
+  else
+    # si no carga nuevamente la vista con los errores a corregir
+     render action: 'index'
   end
-</pre>
+end
+```
 
 <p>Por último creamos nuestro formulario donde cargaremos la información.</p>
 
-<p><img src="http://i.imgur.com/xHi82F0.png?1" alt="codigo" /></p>
+```html
+<%=  form_for :nuevo_usuario, url: validation_create_path  do |f| %>
+  <% if @nuevo_usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nuevo_usuario.errors.count, "error") %> error antes de guardar:</h2>
+
+      <ul>
+      <% @nuevo_usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+    <div class="field">
+    <%= f.label :email_confirmation %><br>
+    <%= f.text_field :email_confirmation %>
+  </div>
+    <div class="field">
+    <%= f.label :identificador %><br>
+    <%= f.text_field :identificador %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo %><br>
+    <%= f.text_field :sexo %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+```
 
 <p>Como ven en la imagen se puede dividir en dos partes: la parte superior consta del manejo de errores, es donde se obtiene el objeto, se verifica si contiene errores y los muestra en una lista; y por último la parte inferior es nuestro formulario.</p>
 

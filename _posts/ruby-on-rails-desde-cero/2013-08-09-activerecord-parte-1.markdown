@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1922
 wordpress_url: http://codehero.co/?p=1922
 date: 2013-08-09 00:01:05.000000000 -04:30
+series:
+  nombre: Ruby on Rails desde Cero
+  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Cursos
 - Ruby on Rails
@@ -44,62 +47,72 @@ tags:
 
 <p>ActiveRecord ofrece cinco maneras para obtener un objeto único que iremos demostrando una a una:</p>
 
+> Para poder probar estas funcionalidades de ActiveRecord utilizaremos la consola de rails mediante el comando `rails console`.
+
 <h3>Find</h3>
 
 <p>Esta función nos permite obtener un objeto de la base de datos buscándolo por el identificador primario (primary key), un Ejemplo de esto seria:</p>
 
-<pre># suponiendo existe el modelo Usuario
+```ruby
+# suponiendo existe el modelo Usuario
 usuario = Usuario.find(10)
-</pre>
+```
 
 <p>Suponiendo que 'Usuario' es el modelo que accede a base de datos, este ejemplo ejecuta el siguiente comando MySQL:</p>
 
-<pre>SELECT * FROM usuarios WHERE usuarios.id = 10 LIMIT 1
-</pre>
+```ruby
+SELECT * FROM usuarios WHERE usuarios.id = 10 LIMIT 1
+```
 
 <h3>take</h3>
 
 <p>Esta función simplemente toma un objeto de la base de datos sin un orden específico. Veamos un ejemplo y la ejecución SQL que éste ejecuta:</p>
 
-<pre>usuario = Usuario.take
-</pre>
+```ruby
+usuario = Usuario.take
+```
 
 <p>Este ejemplo ejecuta por detrás del código el siguiente comando SQL:</p>
 
-<pre>SELECT * FROM usuarios LIMIT 1
-</pre>
+```ruby
+SELECT * FROM usuarios LIMIT 1
+```
 
 <h3>first y last</h3>
 
 <p>Estas útiles funciones nos dan el primer y último registro del objeto que estemos solicitando respectivamente. Veamos ejemplos de estas funciones y la equivalencia en sintaxis SQL:</p>
 
-<pre># primer objeto de la tabla
+```ruby
+# primer objeto de la tabla
 usuario = Usuario.first
 
 # ultimo Objeto de la lista
 usuario = Usuario.last
-</pre>
+```
 
 <p>El equivalente a la ejecución de estos ejemplos sería lo siguiente:</p>
 
-<pre># primer objeto de la tabla
+```ruby
+# primer objeto de la tabla
 SELECT * FROM usuarios ORDER BY usuarios.id ASC LIMIT 1
 
 # ultimo Objeto de la lista
 SELECT * FROM usuarios ORDER BY usuarios.id DESC LIMIT 1
-</pre>
+```
 
 <h3>find_by</h3>
 
 <p>Esta última función recupera el primer registro que coincida con las características dadas, veamos un ejemplo con su equivalencia SQL para entender mejor:</p>
 
-<pre>Usuario.find_by nombre: 'Ricardo', apellido: 'Sampayo'
-</pre>
+```ruby
+Usuario.find_by nombre: 'Ricardo', apellido: 'Sampayo'
+```
 
 <p>El equivalente comando SQL para este ejemplo es el siguiente:</p>
 
-<pre>SELECT * FROM usuarios WHERE nombre = 'Ricardo' and  apellido = 'Sampayo' LIMIT 1
-</pre>
+```ruby
+SELECT * FROM usuarios WHERE nombre = 'Ricardo' and  apellido = 'Sampayo' LIMIT 1
+```
 
 <hr />
 
@@ -111,31 +124,31 @@ SELECT * FROM usuarios ORDER BY usuarios.id DESC LIMIT 1
 
 <p>Esta función como su nombre nos dice recupera todos los registros de una tabla retornando en un arreglos de objetos. Ejemplo y equivalencia en SQL:</p>
 
-<pre>usuarios = Usuario.all
-</pre>
+```ruby
+usuarios = Usuario.all
+```
 
 <p>Su equivalente sentencia SQL:</p>
 
-<pre>SELECT * FROM usuarios 
-</pre>
+```ruby
+SELECT * FROM usuarios
+```
 
 <h3>find_each</h3>
 
 <p>El find_each método recupera un lote de registros y a continuación podemos manipular cada uno de los registros de forma individual. Este proceso ocurre hasta que haya procesado todos los objetos. Veamos unos ejemplos para comprender mejor esto:</p>
 
-<pre># por defecto este primer ejemplo nos da los primeros 1000 registros 
-
+```ruby
+# por defecto este primer ejemplo nos da los primeros 1000 registros
 Usuario.find_each do |user|
-  . . . # se manipula cada uno de los objetos  
+. . . # se manipula cada uno de los objetos
 end
 
 # En este otro ejemplo se extraen 5000 registros partiendo del usuario con identificador 15
-
 Usuario.find_each(start: 15, batch_size: 5000) do |user|
-  . . . # se manipula cada uno de los objetos  
+. . . # se manipula cada uno de los objetos
 end
-
-</pre>
+```
 
 <hr />
 
@@ -145,56 +158,57 @@ end
 
 <p>Primero mostraremos un ejemplo estableciendo como condición una cadena de caracteres ('String' es la que menos les recomiendo):</p>
 
-<pre># todos los usuarios que se llamen Ricardo
+```ruby
+# todos los usuarios que se llamen Ricardo
 usuarios = Usuario.where("nombre = 'Ricardo'")
 
 #todos los usuarios que su nombre comience por Ri
 usuarios = Usuario.where("nombre LIKE 'Ri%'")
-</pre>
+```
 
 <p>Estos ejemplos ejecutan la siguiente sentencia SQL respectivamente:</p>
 
-<pre># todos los usuarios que se llamen Ricardo
+```ruby
+# todos los usuarios que se llamen Ricardo
 SELECT * FROM usuarios WHERE nombre = 'Ricardo';
 
 #todos los usuarios que su nombre comience por Ri
 SELECT * FROM usuarios WHERE nombre like 'Ri%' ;
-
-</pre>
+```
 
 <p>A continuación mostraremos unos ejemplos más seguros para establecer condiciones de búsqueda, al igual que lo hemos hecho hasta ahora mostrando la sentencia SQL para ayudarnos a entrar en contexto:</p>
 
-<pre># todos los usuarios que se llamen Ricardo
+```ruby
+# todos los usuarios que se llamen Ricardo
 Usuario.where("nombre = ?", 'Ricardo')
 
 # todos los usuarios mayores de 18 y menores de 50 años
-Usuario.where("edad >= :init_edad AND edad &lt;= :fin_edad", {init_edad: 18, fin_edad: 50})
-
-</pre>
+Usuario.where("edad >= :init_edad AND edad <= :fin_edad", {init_edad: 18, fin_edad: 50})
+```
 
 <p>Su equivalente SQL:</p>
 
-<pre>SELECT * FROM usuarios WHERE nombre = 'Ricardo';
-
-SELECT * FROM usuarios WHERE edad >= 18 and edad &lt;= 50;
-</pre>
+```ruby
+SELECT * FROM usuarios WHERE nombre = 'Ricardo';
+SELECT * FROM usuarios WHERE edad >= 18 and edad <= 50;
+```
 
 <p>Por último también podemos establecer nuestras condiciones de búsqueda como si fueran objetos ('Hash'), veamos un ejemplo para explicar esto mejor:</p>
 
-<pre># todos los usuarios que se llamen Ricardo
+```ruby
+# todos los usuarios que se llamen Ricardo
 Usuario.where(nombre: 'Ricardo')
 
 # Todos los usuarios que el nombre sea DIFERENTE de Ricardo
 Usuario.where.not(nombre: 'Ricardo')
-</pre>
+```
 
 <p>Su equivalente SQL:</p>
 
-<pre>SELECT * FROM usuarios WHERE nombre = 'Ricardo';
-
+```ruby
+SELECT * FROM usuarios WHERE nombre = 'Ricardo';
 SELECT * FROM usuarios WHERE nombre != 'Ricardo';
-
-</pre>
+```
 
 <hr />
 
@@ -204,19 +218,20 @@ SELECT * FROM usuarios WHERE nombre != 'Ricardo';
 
 <p>Por ejemplo ordenaremos en este caso los usuarios por fecha de última modificación ('updated_at' campos que se crean automáticamente para auditoria) de la siguiere manera:</p>
 
-<pre>ordenando por updated_al de forma ascendente 
+```ruby
+ordenando por updated_al de forma ascendente
 Usuario.order("updated_at")
 
 Ordenando por fecha de modificación decreciente y por nombre ascendente
 Usuario.order("updated_at DESC , nombre ASC")
-</pre>
+```
 
 <p>Su equivalente SQL:</p>
 
-<pre>SELECT * FROM usuarios ORDER BY usuarios.updated_at ASC;
-
+```ruby
+SELECT * FROM usuarios ORDER BY usuarios.updated_at ASC;
 SELECT * FROM usuarios ORDER BY usuarios.updated_at DESC , usuarios.nombre ASC;
-</pre>
+```
 
 <hr />
 
@@ -224,19 +239,20 @@ SELECT * FROM usuarios ORDER BY usuarios.updated_at DESC , usuarios.nombre ASC;
 
 <p>Estas dos funciones nos permiten limitar la cantidad de elementos solicitados a la base de datos empezando desde un punto específico. un ejemplo de esto es lo siguiente:</p>
 
-<pre>solo 8 usuarios sin orden especifico
+```ruby
+solo 8 usuarios sin orden especifico
 Usuario.limit(8)
 
 solo 5 usuarios sin orden especifico comenzando desde la fila 31
 Usuario.limit(5).offset(30)
-</pre>
+```
 
 <p>Su equivalente SQL:</p>
 
-<pre>SELECT * FROM usuarios LIMIT 8 ;
-
+```ruby
+SELECT * FROM usuarios LIMIT 8 ;
 SELECT * FROM usuarios LIMIT 5 OFFSET 30;
-</pre>
+```
 
 <hr />
 
@@ -244,11 +260,12 @@ SELECT * FROM usuarios LIMIT 5 OFFSET 30;
 
 <p>Al igual que con sintaxis SQL ActiveRecord nos permite hacer agrupaciones por algún campo de la base de datos y especificar condiciones a estos grupos veamos un ejemplo:</p>
 
-<pre>#Trae la fecha de actualización y el promedio de la edad 
+```ruby
+#Trae la fecha de actualización y el promedio de la edad
 #agrupados por día y donde el promedio sea mayor a 18
 
 Usuario.select(date(updated_at) as ordered_date, avg(edad) as edad_avg").group("date(updated_at)").having("avg(edad) > ?", 18)
-</pre>
+```
 
 <hr />
 

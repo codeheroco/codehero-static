@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1153
 wordpress_url: http://codehero.co/?p=1153
 date: 2013-06-26 06:04:25.000000000 -04:30
+series:
+  nombre: Ruby on Rails desde Cero
+  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Cursos
 - Ruby on Rails
@@ -43,69 +46,80 @@ tags:
 
 <p>Lo primero que debemos hacer es instalar Ruby con el siguiente comando (Este paso esta explicado de mejor manera en la serie de tutorales <a href="http://codehero.co/category/tutoriales/ruby/">Ruby desde cero</a>):</p>
 
-<pre>brew install ruby 
-</pre>
+```sh
+$ brew install ruby
+```
 
 <p>Luego de esto instalamos rbenv es un paquete que proporciona apoyo para instalación y manipulación de diferentes versiones de Ruby y las herramientas necesarias para configurar tu framework. Luego instalamos ruby-build para compilar diferentes versiones de Ruby. el comando para instalar estos paquetes es el siguiente:</p>
 
-<pre>brew install rbenv ruby-build
-</pre>
+```sh
+$ brew install rbenv ruby-build
+```
 
 <p>Por último instalamos Rails, con el gestor de paquetes RubyGems utilizando el siguiente comando:</p>
 
-<pre>gem install rails  
-</pre>
+```sh
+$ gem install rails
+```
 
 <p>Con RubyGems también podemos listar y verificar las gemas y paquetes relacionados con el lenguaje (con este comando vemos que versión de railes instalamos):</p>
 
-<pre>gem list
-</pre>
+```sh
+$ gem list
+```
 
 <h3>Ruby on Rails en Ubuntu</h3>
 
 <p>EL proceso de instalación en Ubuntu es bastante parecido al de Mac OS X, solo que para este no utilizamos un gestor de paquetes. Cabe destacar que para instalar Ruby en Ubunto debemos añadir a la instalación todas las dependencias que requiera el lenguaje. Primero instalamos rbenv con el siguiente comando:</p>
 
-<pre>git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-</pre>
+```sh
+$ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+```
 
 <p>Luego agregamos la tuta del rbenv al PATH del sistema:</p>
 
-<pre>echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
-echo 'eval "$(rbenv init -)"' >> .bash_profile
-source ~/.bash_profile  
-</pre>
+```sh
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
+$ echo 'eval "$(rbenv init -)"' >> .bash_profile
+$ source ~/.bash_profile
+```
 
 <p>Una vez culminara la instalación del rbenv, instalamos ruby-build para así poder manejar varias versiones del lenguaje, con el siguiente comando:</p>
 
-<pre>pushd /tmp
-  git clone git://github.com/sstephenson/ruby-build.git
-  cd ruby-build
-  ./install.sh
-popd
-</pre>
+```sh
+$ pushd /tmp
+$ git clone git://github.com/sstephenson/ruby-build.git
+$ cd ruby-build
+$ ./install.sh
+$ popd
+```
 
 <p>El siguiente paso es instalar la versión que queramos de Ruby, para este caso es (ruby 2.0.0p195):</p>
 
-<pre>rbenv install 2.0.0p195
-rbenv rehash
-</pre>
+```sh
+$ rbenv install 2.0.0-p353
+$ rbenv rehash
+```
 
 <p>Por último al igual que para Mac OS X instalamos la version de Rails que necesitemos:</p>
 
-<pre>gem install rails   
-</pre>
+```sh
+$ gem install rails
+```
 
 <h2>Primeros paso con Ruby on Rails</h2>
 
 <p>Lo primero que necesitamos hacer es crear un nuevo proyecto, para ello nos ubicamos en una carpeta donde queramos alojar el proyecto, y ejecutamos el siguiente comando:</p>
 
-<pre>rails new codehero_web
-</pre>
+```sh
+$ rails new codehero_web
+```
 
 <p>Veremos como en la consola se agregan una gran cantidad de archivos que conforman la estructura del proyecto. y por ultimo arrancamos el servidor:</p>
 
-<pre>rails s
-</pre>
+```sh
+$ rails s
+```
 
 <p>Si no tenemos ningún error el servidor se levanto exitosamente y podremos ver nuestro proyecto funcionando desde el navegador en <a href="http://127.0.0.1:8000/">127.0.0.1:8000</a> (para detener el servidor solo presionamos <code>Ctrl + C</code>). donde veremos la siguiente vista:</p>
 
