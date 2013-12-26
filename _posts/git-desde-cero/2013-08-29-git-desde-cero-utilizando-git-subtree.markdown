@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2126
 wordpress_url: http://codehero.co/?p=2126
 date: 2013-08-29 00:03:34.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -60,78 +63,87 @@ tags:
 
 <h3>¿Cómo agregar el subárbol al proyecto?</h3>
 
-<pre>$ git subtree add --prefix node_express_subtree https://github.com/codeheroco/nodejs-y-express-rutas master --squash
+```sh
+$ git subtree add --prefix node_express_subtree https://github.com/codeheroco/nodejs-y-express-rutas master --squash
 git fetch https://github.com/codeheroco/nodejs-y-express-rutas master
 From https://github.com/codeheroco/nodejs-y-express-rutas
  * branch            master     -> FETCH_HEAD
 Added dir 'node_express_subtree'
-</pre>
+```
 
 <p>Con este comando hemos creado una capeta llamada <em>node_express_subtree</em> donde estamos guardando la información del repositorio <a href="https://github.com/codeheroco/nodejs-y-express-rutas">node y express rutas</a> que se encuentra en la rama <code>master</code> y además solo estamos almacenando localmente el último <em>commit</em> en nuestro ordenador al usar la bandera <code>--squash</code>.</p>
 
 <p>Si observamos el <em>log</em>, podemos apreciar lo que se describió en el párrafo anterior.</p>
 
-<pre>$ git log --pretty=format:'%h - %an, %ar : %s' --graph
+```sh
+$ git log --pretty=format:'%h - %an, %ar : %s' --graph
 *   08bddd4 - albertogg, 59 minutes ago : Merge commit '4f34bfe8efc8f797bac71dfcd736cb7fa14efc42' as 'node_express_subtree'
 |\
 | * 4f34bfe - albertogg, 59 minutes ago : Squashed 'node_express_subtree/' content from commit 0f81501
 * 2614422 - albertogg, 7 days ago : Primer commit con un submódulo
-</pre>
+```
 
 <h4>¿Qué pasa si semanas después, se han introducido múltiples cambios al proyecto que nosotros tenemos como subproyecto y queremos actualizarlo?</h4>
 
 <p>Pues la respuesta es bastante sencilla. Al igual que cuando utilizamos <code>pull</code> para actualizar nuestro proyecto principal hacemos esto pero agregando el subcomando <code>subtree</code>, de la siguiente manera:</p>
 
-<pre>$ git subtree pull --prefix node_express_subtree https://github.com/codeheroco/nodejs-y-express-rutas master --squash
+```sh
+$ git subtree pull --prefix node_express_subtree https://github.com/codeheroco/nodejs-y-express-rutas master --squash
 From https://github.com/codeheroco/nodejs-y-express-rutas
  * branch            master     -> FETCH_HEAD
 Subtree is already at commit 0f815018df127cd663ecc8b89500d5f40f40b9b4.
-</pre>
+```
 
 <p>Como el proyecto <a href="https://github.com/codeheroco/nodejs-y-express-rutas">node y express rutas</a> no presenta modificaciones el comando nos dice que se encuentra en el <em>commit</em> 0f815018df127cd663ecc8b89500d5f40f40b9b4, es decir en la última versión.</p>
 
 <p><strong>La manera más organizada</strong> de utilizar sería agregando en primera mano la ruta remota al proyecto con un "alias" para no tener que recordar el "URL" del mismo. El trabajo posterior a esto es prácticamente lo mismo que se realizó en la manera rápida con ligeras modificaciones.</p>
 
-<pre>$ git remote add -f node_express_subtree https://github.com/codeheroco/nodejs-y-express-rutas
+```sh
+$ git remote add -f node_express_subtree https://github.com/codeheroco/nodejs-y-express-rutas
 Updating node_express_subtree
 From https://github.com/codeheroco/nodejs-y-express-rutas
  * [new branch]      master     -> node_express_subtree/master
-</pre>
+```
 
 <p>Si revisamos las ramas remotas que tenemos asociadas al proyecto observamos que <code>node_express_subtree</code> está identificada dentro de la lista.</p>
 
-<pre>$ git remote -v
+```sh
+$ git remote -v
 node_express_subtree    https://github.com/codeheroco/nodejs-y-express-rutas (fetch)
 node_express_subtree    https://github.com/codeheroco/nodejs-y-express-rutas (push)
 origin  git@github.com:codeheroco/tutorial-git.git (fetch)
 origin  git@github.com:codeheroco/tutorial-git.git (push)
-</pre>
+```
 
 <p>Ahora agregamos el subárbol al proyecto.</p>
 
-<pre>$ git subtree add --prefix node_express_subtree node_express_subtree master --squash
-</pre>
+```sh
+$ git subtree add --prefix node_express_subtree node_express_subtree master --squash
+```
 
 <p>Para actualizar el subárbol</p>
 
-<pre>$ git fetch node_express_subtree
+```sh
+$ git fetch node_express_subtree
 $ git subtree pull --prefix node_express_subtree node_express_subtree  master --squash
 From https://github.com/codeheroco/nodejs-y-express-rutas
  * branch            master     -> FETCH_HEAD
 Subtree is already at commit 0f815018df127cd663ecc8b89500d5f40f40b9b4.
-</pre>
+```
 
 <h3>¿Cómo contribuir cambios desde el subtree?</h3>
 
 <p>Debemos tener una rama de <code>upstream</code> que debería ser un "fork" del proyecto original al que queremos contribuir en nuestra cuenta o carpeta personal de github (esto únicamente si dicho proyecto se encuentra en github) y agregar su dirección remota.</p>
 
-<pre>$ git remote add albertogg-node-express https://github.com/albertogg/nodejs-y-express-rutas
-</pre>
+```sh
+$ git remote add albertogg-node-express https://github.com/albertogg/nodejs-y-express-rutas
+```
 
 <p>Una vez que tengamos esta dirección remota disponible queda hacer un push a nuestro proyecto y posteriormente hacer un pull-request al proyecto principal.</p>
 
-<pre>$ git subtree push --prefix=node_express_subtree albertogg-node-express master
-</pre>
+```sh
+$ git subtree push --prefix=node_express_subtree albertogg-node-express master
+```
 
 <p>Sé que puede parecer algo confuso, pero realmente es lo que hemos estado trabajado a lo largo de todos estos cursos, únicamente se está agregando el subcomando de <code>git subtree</code> antes del resto de las acciones principales de git.</p>
 

@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 1910
 wordpress_url: http://codehero.co/?p=1910
 date: 2013-08-08 00:10:44.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -35,7 +38,8 @@ tags:
 
 <p>Vamos interactivamente a agregar una serie de archivos tanto nuevos como viejos al escenario de git y posteriormente a consolidarlos para ver visualmente como funciona el comando.</p>
 
-<pre># Creamos un nuevo archivo
+```sh
+# Creamos un nuevo archivo
 $ touch nuevo_archivo.md
 
 # Con un editor de texto agregamos la siguiente línea.
@@ -60,11 +64,12 @@ git add -i
   1: status   2: update   3: revert   4: add untracked
   5: patch    6: diff     7: quit     8: help
 What now> 4
-</pre>
+```
 
 <p>Lo que nos indica la pantalla en este momento es que tenemos 2 archivos que presentan cambios pero no se han agregado al stage. Queremos agregar el nuevo archivo creado al escenario y sumarle uno de los viejos para realizar posteriormente un commit.</p>
 
-<pre># Continuando
+```sh
+# Continuando
 What now> 4
   1: nuevo_archivo.md
 Add untracked>> 1
@@ -85,11 +90,12 @@ What now> 1 # Revisamos el git status
   1: status   2: update   3: revert   4: add untracked
   5: patch    6: diff     7: quit     8: help
 What now> 2
-</pre>
+```
 
 <p>En este momento observamos que luego de agregar el nuevo archivo y de revisar el stage utilizando la opción 1, el <em>comando interactivo</em> ya nos dice que hemos agregado satisfactoriamente al stage el "nuevo_archivo.md" y presenta 1 línea de "cambio". Continuemos, agreguemos uno de los viejos archivos al stage.</p>
 
-<pre># Continuando
+```sh
+# Continuando
 What now> 2
            staged     unstaged path
   1:    unchanged        +2/-0 Archivo2_cambio_de_nombre.txt
@@ -114,11 +120,12 @@ What now> 1 # Revisamos el git status
   1: status   2: update   3: revert   4: add untracked
   5: patch    6: diff     7: quit     8: help
 What now> 6
-</pre>
+```
 
 <p>Vemos que en este momento existen nuestros 2 archivos en escenario. Ahora podemos realizar un <em>diff</em> sobre cualquiera de los archivos que ahí se encuentren. Este <em>diff</em> dentro del comando interactivo es un simil a utilizar el comando <code>git diff --cached</code> que utilizamos en los primeros cursos.</p>
 
-<pre># Continuando
+```sh
+# Continuando
 What now> 6
            staged     unstaged path
   1:        +2/-0      nothing hola_jonathan.md
@@ -128,31 +135,33 @@ Review diff>> # elegimos cualquiera de los 2
   1: status   2: update   3: revert   4: add untracked
   5: patch    6: diff     7: quit     8: help
 What now> 7 # Nos salimos.
-</pre>
+```
 
 <p>Hemos concluido y salido del <code>git add -i</code> y agregamos nuestros dos archivos para el <em>commit</em>, si queremos, podemos ejecutar el comando <code>git status</code> para comprobar que lo que hemos agregado mediante el comando <code>git add -i</code> funcionó como esperabamos.</p>
 
-<pre>$ git status
+```sh
+$ git status
 # On branch master
 # Changes to be committed:
-#   (use "git reset HEAD &lt;file>..." to unstage)
+#   (use "git reset HEAD <file>..." to unstage)
 #
 #   modified:   hola_jonathan.md
 #   new file:   nuevo_archivo.md
 #
 # Changes not staged for commit:
-#   (use "git add &lt;file>..." to update what will be committed)
-#   (use "git checkout -- &lt;file>..." to discard changes in working directory)
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
 #
 #   modified:   Archivo2_cambio_de_nombre.txt
 #
-</pre>
+```
 
 <p>Podemos observar que todo está listo para realizar el commit que queremos. El commit se realiza normalmente utilizando nuestro conocido comando <code>git commit</code>. Para este caso en particular haremos algo diferente para demostrar el comando <code>git rebase -i</code>. Guardaremos estos cambios en un <em>stash</em>, los llevaremos a una nueva rama y haremos el rebase interactivo.</p>
 
 <p>Previo a realizar un <code>git stash</code> agregamos todos los archivos al escenario antes de cambiar de rama.</p>
 
-<pre>$ git add .
+```sh
+$ git add .
 $ git stash
 Saved working directory and index state WIP on master: f2ead5d Referencia en readme.
 HEAD is now at f2ead5d Referencia en readme.
@@ -167,35 +176,36 @@ Switched to a new branch 'rama-para-rebase-interactivo'
 $ % git stash pop
 # On branch rama-para-rebase-interactivo
 # Changes to be committed:
-#   (use "git reset HEAD &lt;file>..." to unstage)
+#   (use "git reset HEAD <file>..." to unstage)
 #
 #   new file:   nuevo_archivo.md
 #
 # Changes not staged for commit:
-#   (use "git add &lt;file>..." to update what will be committed)
-#   (use "git checkout -- &lt;file>..." to discard changes in working directory)
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
 #
 #   modified:   Archivo2_cambio_de_nombre.txt
 #   modified:   hola_jonathan.md
 #
 Dropped refs/stash@{0} (eb15ce2cc60a1829f24442fb14b3e69eb0866580)
-</pre>
+```
 
 <p>En este momento sí realizaremos los respectivos <em>commits</em> como estaban planeados. Es decir, el archivo nuevo y no de los viejos.</p>
 
-<pre>$ git add hola_jonathan.md
+```sh
+$ git add hola_jonathan.md
 $ git commit -m "Commit planeado. archivo nuevo y viejo"
 [rama-para-rebase-interactivo a735092] Commit planeado. archivo nuevo y viejo
  2 files changed, 3 insertions(+)
  create mode 100644 nuevo_archivo.md
- 
+
 # Hacemos el commit del archivo viejo que quedó solo.
 
 $ git status
 # On branch rama-para-rebase-interactivo
 # Changes not staged for commit:
-#   (use "git add &lt;file>..." to update what will be committed)
-#   (use "git checkout -- &lt;file>..." to discard changes in working directory)
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
 #
 #   modified:   Archivo2_cambio_de_nombre.txt
 #
@@ -205,7 +215,7 @@ $ git add Archivo2_cambio_de_nombre.txt
 $ git commit -m "Archivo2 con cambios en la línea 5"
 [rama-para-rebase-interactivo 38a72fd] Archivo2 con cambios en la línea 5
  1 file changed, 2 insertions(+)
-</pre>
+```
 
 <p>Ahora pasemos al rebase interactivo.</p>
 
@@ -245,7 +255,8 @@ $ git commit -m "Archivo2 con cambios en la línea 5"
 
 <p>Una vez comprendido esto, hagamos nuestro <code>git rebase -i</code> con un <code>squash</code> de los 2 commits para tener un historial más "limpio".</p>
 
-<pre>$ git rebase -i master
+```sh
+$ git rebase -i master
 
 # Se abre el editor de texto y se nos presenta lo siguiente.
 
@@ -273,7 +284,7 @@ pick 38a72fd Archivo2 con cambios en la línea 5
 # Realizaremos el siguiente cambio en la segunda línea únicamente, cambiamos pick por squash.
 
 pick a735092 Commit planeado. archivo nuevo y viejo
-squash 38a72fd Archivo2 con cambios en la línea 5 
+squash 38a72fd Archivo2 con cambios en la línea 5
 
 # Guardamos los cambios y cerramos el editor. Se abrirá nuevamente para que modifiquemos el mensaje del commit si nos provoca. Pero no haremos nada. El resultado es el siguiente.
 
@@ -281,11 +292,12 @@ squash 38a72fd Archivo2 con cambios en la línea 5
  3 files changed, 5 insertions(+)
  create mode 100644 nuevo_archivo.md
 Successfully rebased and updated refs/heads/rama-para-rebase-interactivo.
-</pre>
+```
 
 <p>Luego queda realizar el <em>merge</em> con la rama master y todo estará listo.</p>
 
-<pre>$ git checkout master
+```sh
+$ git checkout master
 $ git merge rama-para-rebase-interactivo
 Updating f2ead5d..de13f1b
 Fast-forward
@@ -298,7 +310,7 @@ Fast-forward
 # Borramos la rama recién unida.
 
 $ git branch -d rama-para-rebase-interactivo
-</pre>
+```
 
 <p>En este punto si observamos nuestro <em>log</em> observamos que existe un solo <em>commit</em> que contiene todas las modificaciones antes descritas.</p>
 

@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2175
 wordpress_url: http://codehero.co/?p=2175
 date: 2013-09-05 00:02:01.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -39,7 +42,8 @@ tags:
 
 <p>Vamos a verlo en acción.</p>
 
-<pre>$ git blame app.js
+```sh
+$ git blame app.js
 c4c4f2a2 (Jonathan Wiesel              2013-09-02 22:38:34 -0430  6) var dotenv = require('dotenv')();
 c4c4f2a2 (Jonathan Wiesel              2013-09-02 22:38:34 -0430  7) dotenv.load();
 c4c4f2a2 (Jonathan Wiesel              2013-09-02 22:38:34 -0430  8)
@@ -50,19 +54,21 @@ c4c4f2a2 (Jonathan Wiesel              2013-09-02 22:38:34 -0430 12) ,  db  = re
 98b032f9 (Oscar Vicente González Greco 2013-08-29 18:14:19 -0430 13) ,  auth = require('./passportConfig')
 98b032f9 (Oscar Vicente González Greco 2013-08-29 18:14:19 -0430 14) ,  flash = require("connect-flash");
 ae36bb76 (Oscar Vicente González Greco 2013-08-25 14:05:52 -0430 15)
-</pre>
+```
 
 <p>Podemos apreciar que lo primero que nos muestra es el <em>"hash"</em> corto, único del <em>"commit"</em>, luego encontramos el nombre de usuario que realizó, la fecha, y la respectiva línea de código.</p>
 
 <p>También podemos filtra el número de <em>"commits"</em> que queremos observar. Por ejemplo: si sabemos que nuestro problema comenzó a ocurrir a partir de un <em>"commit"</em> específico y se refleja hasta "X" <em>"commit"</em> más adelante filtramos estos resultados para encontrar que se modificó en estos <em>"commit"</em>.</p>
 
-<pre>$ git blame ae36..c4c4 -- app.js
-</pre>
+```sh
+$ git blame ae36..c4c4 -- app.js
+```
 
 <p>Si queremos cambiar el nombre de la persona por su email, realizamos lo siguiente.</p>
 
-<pre>$ git blame -e app.js
-</pre>
+```sh
+$ git blame -e app.js
+```
 
 <p>En general y con la ayuda este comando podemos encontrar quién fue el culpable de introducir un error particular en uno de nuestros proyectos.</p>
 
@@ -72,7 +78,8 @@ ae36bb76 (Oscar Vicente González Greco 2013-08-25 14:05:52 -0430 15)
 
 <p>Este comando nos ayuda a verificar que fue lo que sucedió con nuestro código entre varios <em>"commits"</em>, es decir. Le notificamos a Git que versión está buena o no produce el error y que versión da el error o se comporta de manera extraña. De aquí en adelante git busca un <em>"commit"</em> intermedio a estos dos que le dimos anteriormente y realiza una especie de <em>"checkout"</em> el cual nos permite estar en la versión de código del <em>"commit"</em> intermedio, es aquí cuando realizamos nuestras pruebas, si todo marcha acode a lo deseado, le notificamos a git que éste <em>"commit"</em> se encuentra bien y proseguimos, luego git vuelve a buscar otro <em>"commit"</em> intermedio a este nuevo que nosotros confirmamos como "correcto" y el <em>"commit"</em> final de nuestra búsqueda. Realizamos el mismo procedimiento hasta dar con el error. Vamos a demostrarlo.</p>
 
-<pre>$ git log
+```sh
+$ git log
 * c811a8b - Jonathan Wiesel, 3 days ago : cambiado tamaño de username en model user
 * 489c942 - Jonathan Wiesel, 3 days ago : ignorado archivo de intelliJ
 * 98b032f - Oscar Vicente González Greco, 5 days ago : se agrego soporte para sesiones con passport.js
@@ -80,34 +87,38 @@ ae36bb76 (Oscar Vicente González Greco 2013-08-25 14:05:52 -0430 15)
 * 2b0356f - Oscar Vicente González Greco, 9 days ago : re arregló gitignore
 * ae36bb7 - Oscar Vicente González Greco, 9 days ago : Se eliminó intellij. se agregó orm. se reorganizó estructura del proyecto a una más mantenible.
 * e2d314d - Oscar Vicente González Greco, 2 weeks ago : commit inicial / se hizo un CRUD de usurio
-</pre>
+```
 
 <p>Vamos a elegir el <em>"commit"</em> e2d314d cómo bueno y c4c4f2a cómo el malo.</p>
 
-<pre>$ git bisect start
+```sh
+$ git bisect start
 $ git bisect good e2d314d
 $ git bisect bad c4c4f2a
 Bisecting: 3 revisions left to test after this (roughly 2 steps)
 [98b032f929230bcda22367f90223b270a3199800] se agrego soporte para sesiones con passport.js
-</pre>
+```
 
 <p>En este punto corremos nuestra suite de pruebas o las pruebas necesarias.</p>
 
-<pre>$ git bisect good
+```sh
+$ git bisect good
 Bisecting: 1 revision left to test after this (roughly 1 step)
 [c811a8b18de58a2aed18b70df6019b03672ef637] cambiado tamaño de username en model user
-</pre>
+```
 
 <p>Corremos nuevamente la suite de pruebas o las pruebas necesarias.</p>
 
-<pre>$ git bisect good
+```sh
+$ git bisect good
 Bisecting: 0 revisions left to test after this (roughly 0 steps)
 [b53c0dd8432aa928cded2efe2f49f2a3a81adcff] agregado modelo vehicle y userVehicle, agregado listar todos los vehículos del sistema
-</pre>
+```
 
 <p>Corremos nuevamente la suite de pruebas o las pruebas necesarias. Encontramos el error, marcamos como malo.</p>
 
-<pre>$ git bisect bad
+```sh
+$ git bisect bad
 b53c0dd8432aa928cded2efe2f49f2a3a81adcff is the first bad commit
 commit b53c0dd8432aa928cded2efe2f49f2a3a81adcff
 Author: Jonathan W
@@ -120,14 +131,15 @@ Date:   Sat Aug 31 17:38:23 2013 -0430
 :040000 040000 03f3fa7be92462c3c4cbc52d1e023516540fe62f 4bddcd8a960bc0f6944e2c078b9e11d2f58085fd M  controllers
 :100644 100644 6d17e5f8f000caf50ae4e13d93f6c1b0317a6711 49278121379ba65eb8db4652625bd4be34c802ce M  dbConfig.js
 :040000 040000 5b87e3f615ac423234361bb062eaa2afd0011c3a ebba61f808c3d7894bcf02faf31d85c49e227e3b M  models
-</pre>
+```
 
 <p>Reseteamos el estado del bisect</p>
 
-<pre>$ git bisect reset
+```sh
+$ git bisect reset
 Previous HEAD position was b53c0dd... agregado modelo vehicle y userVehicle, agregado listar todos los vehiculos del sistema
 Switched to branch 'master'
-</pre>
+```
 
 <p>De Aquí en adelante nos toca realizar un <em>"checkout"</em> de la versión que queremos corregir, o parcharla directamente sobre lo que venimos trabajando.</p>
 

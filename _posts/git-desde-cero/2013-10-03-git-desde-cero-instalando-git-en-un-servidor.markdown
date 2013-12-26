@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2341
 wordpress_url: http://codehero.co/?p=2341
 date: 2013-10-03 00:05:15.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -83,22 +86,29 @@ tags:
 
 <p>Lo primero es tener acceso al servidor. Una vez dentro de servidor vamos a crear un usuario llamado <code>git</code>. Luego copiar la llave ssh del usuario, crear un repositorio y por último subirle contenido al mismo.</p>
 
-<pre>$ sudo adduser git</pre>
+```sh
+$ sudo adduser git
+```
 
 <p>Seguimos las preguntas e indicaciones para crear el usuario, luego nos cambiamos a ese usuario y creamos la carpeta <code>.ssh</code></p>
 
-<pre>$ su git
+```sh
+$ su git
 $ cd
 $ mkdir .ssh
-</pre>
+```
 
 <p>Ahora existen dos maneras posibles de copiar las llaves del usuario hacia el servidor. Estando en nuestro computador y si tenemos <code>ssh-copy-id</code> empleamos el siguiente comando.</p>
 
-<pre>$ ssh-copy-id git@192.168.1.2 # IP del servidor.</pre>
+```sh
+$ ssh-copy-id git@192.168.1.2 # IP del servidor.
+```
 
 <p>Sino tenemos <code>ssh-copy-id</code> instalado debemos hacerlo "manual"</p>
 
-<pre>$ cat .ssh/id_rsa.pub | ssh git@192.168.1.2 "cat >> ~/.ssh/authorized_keys" </pre>
+```sh
+$ cat .ssh/id_rsa.pub | ssh git@192.168.1.2 "cat >> ~/.ssh/authorized_keys"
+```
 
 <blockquote>
   <p>Les recuerdo nuevamente las llaves ssh deben estar creadas previamente.</p>
@@ -106,12 +116,13 @@ $ mkdir .ssh
 
 <p>Ahora crearemos un repositorio <strong><em>vacío</em></strong> dentro de la carpeta <code>~/miproyecto</code> en el <code>$HOME</code> del usuario.</p>
 
-<pre>$ mkdir ~/miproyecto
+```sh
+$ mkdir ~/miproyecto
 $ cd ~/miproyecto
 $ mkdir miproyecto.git
 $ cd miproyecto.git
 $ git --bare init
-</pre>
+```
 
 <blockquote>
   <p>La bandera <code>--bare</code> genera el repositorio pero completamente vacío.</p>
@@ -119,13 +130,14 @@ $ git --bare init
 
 <p>Ahora en la computadora del usuario o nuestra computadora vamos a subir un proyecto que tengamos a el servidor.</p>
 
-<pre>$ cd miproyecto_local
+```sh
+$ cd miproyecto_local
 $ git init
 $ git add .
 $ git commit -m 'initial commit'
 $ git remote add origin git@192.168.1.2:/home/git/miproyecto.git
 $ git push origin master
-</pre>
+```
 
 <p>Listo, a partir de este momento otros "pueden" clonar y subir cambios al proyecto simplemente agregando su llave de ssh al servidor.</p>
 
@@ -133,9 +145,10 @@ $ git push origin master
 
 <p>Si llegan a instalar acceso mediante HTTP/S para el repositorio también pueden utilizar un visualizador web del proyecto, es decir, una página web como si fuese Github que les permite ver <em>"commits", "tags", "branches"</em> y toda la información relevante del proyecto en una página web súper sencilla pero muy útil. La interfaz se llama <strong>GitWeb</strong>, para activarla necesitamos un servidor web (valga la redundancia), algo como <code>webrick</code> en ruby o cualquier otro servidor web sencillo. Se utiliza ejecutando el siguiente comando:</p>
 
-<pre>$ git instaweb --httpd=webrick
+```sh
+$ git instaweb --httpd=webrick
 $ git instaweb --httpd=webrick --stop # Para detener el daemon
-</pre>
+```
 
 <p>Recuerden que para que la interfaz sea pública la debemos agregar a un VirtualHost en apache o a un Server Block en nginx.</p>
 

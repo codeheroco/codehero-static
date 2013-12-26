@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2315
 wordpress_url: http://codehero.co/?p=2315
 date: 2013-09-26 00:02:52.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -36,7 +39,8 @@ tags:
 
 <p>El "reflog" se utiliza por medio del comando <code>git reflog</code> tiene ciertas banderas como "expire" para expirar datos dentro del "reflog", pero por lo general solo utilizamos el comando normal.</p>
 
-<pre>$ git reflog --relative-date
+```sh
+$ git reflog --relative-date
 On branch master
 926a59c HEAD@{7 days ago}: reset: moving to 926a59cc1c
 47fede5 HEAD@{7 days ago}: commit: Prueba del hook
@@ -45,7 +49,7 @@ On branch master
 926a59c HEAD@{2 weeks ago}: reset: moving to 926a59c
 2614422 HEAD@{2 weeks ago}: reset: moving to 2614422d18
 ...
-</pre>
+```
 
 <p>Mediante la bandera <code>--relative-date</code> apreciamos una fecha relativa de cuando se realizó el "commit" <code>{7 days ago}</code>, esto nos puede ayudar de cierta manera a orientarnos mejor.</p>
 
@@ -53,22 +57,25 @@ On branch master
 
 <p>Hagamos esta simple prueba, vamos a regresar al "commit" del capítulo 8 de número <code>de13f1b</code> lo vamos a buscar el por mensaje.</p>
 
-<pre>$ git reflog --relative-date | grep -i planeado
+```sh
+$ git reflog --relative-date | grep -i planeado
 de13f1b HEAD@{7 weeks ago}: rebase -i (squash): Commit planeado. archivo nuevo y viejo
 a735092 HEAD@{7 weeks ago}: commit: Commit planeado. archivo nuevo y viejo
-</pre>
+```
 
 <p>Luego vamos a crear una rama nueva para no afectar el estado actual de nuestra rama principal.</p>
 
-<pre>$ git co -b prueba-reflog
+```sh
+$ git co -b prueba-reflog
 Switched to a new branch 'prueba-reflog'
-</pre>
+```
 
 <p>Y por último a ir a ese estado particular.</p>
 
-<pre>$ git reset --hard de13f1b
+```sh
+$ git reset --hard de13f1b
 HEAD is now at de13f1b Commit planeado. archivo nuevo y viejo
-</pre>
+```
 
 <p>Este procedimiento es exactamente el mismo que se debe realizar cuando se pierde un "commit", y de querer podemos utilizar <code>git cherry-pick</code> para trasladar el "commit" a la rama que queramos.</p>
 
@@ -84,7 +91,8 @@ HEAD is now at de13f1b Commit planeado. archivo nuevo y viejo
 
 <p>Vamos a probar los dos comandos y observar las distintas salidas.</p>
 
-<pre>$ git fsck --full
+```sh
+$ git fsck --full
 Checking object directories: 100% (256/256), done.
 dangling blob 43882b2283b87566d08b5307ff3c5e8abd095b6f
 dangling commit 4b7347b7514526606484599ee67d7b7abb601a14
@@ -92,11 +100,12 @@ dangling blob b4f0de027a1ccdc432ac652052e78e2f53caa1ff
 dangling blob bead78cc772d5149ce300480d274d09cf5632368
 dangling commit eb15ce2cc60a1829f24442fb14b3e69eb0866580
 dangling commit f511b3332361558cff180717868ac208132bb2bf
-</pre>
+```
 
 <p>Ahora aplicamos el <code>--unreachable</code></p>
 
-<pre>$ git fsck --unreachable
+```sh
+$ git fsck --unreachable
 Checking object directories: 100% (256/256), done.
 unreachable commit 32018436db16348f4d84bb8b40aa394a195c6ded
 unreachable blob 43882b2283b87566d08b5307ff3c5e8abd095b6f
@@ -107,7 +116,7 @@ unreachable blob b4f0de027a1ccdc432ac652052e78e2f53caa1ff
 unreachable blob bead78cc772d5149ce300480d274d09cf5632368
 unreachable commit eb15ce2cc60a1829f24442fb14b3e69eb0866580
 unreachable commit f511b3332361558cff180717868ac208132bb2bf
-</pre>
+```
 
 <p>Podemos apreciar que entre los dos existen objetos similares y todos tienen un "hash" por lo cual si aplicamos el mismo procedimiento utilizado con el "reflog" vamos a poder retornar dicho "commit" a el historial.</p>
 
