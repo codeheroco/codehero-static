@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2806
 wordpress_url: http://codehero.co/?p=2806
 date: 2013-12-05 00:39:30.000000000 -04:30
+series:
+  nombre: Sinatra desde Cero
+  thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Cursos
 - Sinatra
@@ -44,7 +47,8 @@ tags:
 
 <h4>Estructura</h4>
 
-<pre>tree .
+```sh
+$ tree .
 .
 ├── app
 │   ├── controllers
@@ -57,7 +61,7 @@ tags:
 │       ├── layout.erb
 │       └── not_found.erb
 └── config.ru
-</pre>
+```
 
 <ul>
 <li><p>En los <strong>controladores</strong> tenemos el <code>application_controller</code> que viene siendo nuestro controlador principal y de donde heredarán todos los demás controladores de la aplicación. El <code>users_controller</code> que contiene las rutas de la aplicación relacionadas con los usuarios.</p></li>
@@ -68,7 +72,8 @@ tags:
 
 <p>Echemos un vistazo al contenido de dichos archivos.</p>
 
-<pre># application_helper.rb
+```ruby
+# application_helper.rb
 
 module ApplicationHelper
   def title(value = nil)
@@ -76,13 +81,14 @@ module ApplicationHelper
     @title ? "#{@title}" : "Título por defecto"
   end
 end
-</pre>
+```
 
 <p>El <code>application_helper</code>: es el "helper" principal de la aplicación, se encuentra dentro de un módulo y está encargado de establecer un título a las páginas html que se encuentran dentro de la carpeta de las vistas.</p>
 
-<pre># application_controller.rb
+```ruby
+# application_controller.rb
 
-class ApplicationController &lt; Sinatra::Base
+class ApplicationController < Sinatra::Base
   helpers ApplicationHelper
 
   # establece la carpeta de vistas a ../views.
@@ -94,13 +100,14 @@ class ApplicationController &lt; Sinatra::Base
     erb :not_found
   end
 end
-</pre>
+```
 
 <p>Por lo que podemos ver en el archivo <code>application_controller</code> al ser el controlador principal de Sinatra hereda de <code>Sinatra::Base</code> incluye el helper <code>ApplicationHelper</code> que se encuentra en la carpeta de helpers, establece la ruta de donde se encontrarán las vistas y contiene el manejo de errores para las páginas 404.</p>
 
-<pre># users_controller.rb 
+```ruby
+# users_controller.rb
 
-class UsersController &lt; ApplicationController
+class UsersController < ApplicationController
   get '/' do
     title "Usuarios"
     erb :users
@@ -111,40 +118,42 @@ class UsersController &lt; ApplicationController
     erb :users
   end
 end
-</pre>
+```
 
 <p>Aquí podemos ver que <code>users_controller</code> es un controlador que hereda de <code>application_controller</code> y a su vez contiene dos rutas de tipo <code>get</code> donde les establece los títulos a dichas páginas y utiliza la vista <code>users</code>.</p>
 
-<pre lang="ruby"># layout.erb
+```html
+# layout.erb
 
 <html>
   <head>
     <title><%= title %></title>
   </head>
-  <\body>
+  <body>
     <%= yield %>
   </body>
 </html>
-</pre>
+```
 
-<p>Este es el esqueleto HTML principal de la aplicación; es reusable por el resto de las vistas de la aplicación con la finalidad de no repetir siempre lo mismo. Cuando creamos otra vista se inyectará su contenido dentro de la etiqueta <code>&lt;%= yield %&gt;</code>. se pueden crear distintos tipos de esqueletos predefinidos pero cuando se deseen utilizar se le debe indicar a Sinatra manualmente cual es el que se debe usar <code>erb :users, :layout =&gt; :otro_layout</code></p>
+<p>Este es el esqueleto HTML principal de la aplicación; es reusable por el resto de las vistas de la aplicación con la finalidad de no repetir siempre lo mismo. Cuando creamos otra vista se inyectará su contenido dentro de la etiqueta <code><%= yield %&gt;</code>. se pueden crear distintos tipos de esqueletos predefinidos pero cuando se deseen utilizar se le debe indicar a Sinatra manualmente cual es el que se debe usar <code>erb :users, :layout =&gt; :otro_layout</code></p>
 
-<pre># users.erb
+```ruby
+# users.erb
 
 Página de usuarios!
-</pre>
+```
 
 <p>Este archivo al igual que el <code>not_found.erb</code> solo contienen texto.</p>
 
-<pre># config.ru
+```ruby
+# config.ru
 
 require 'sinatra/base'
 Dir.glob('./app/{helpers,controllers}/*.rb').each { |file| require file }
 
 map("/users") { run UsersController }
 map("/")        { run ApplicationController }
-
-</pre>
+```
 
 <p>Por último y para mi, el más importante del post es el archivo <code>config.ru</code>, ya que es aquí donde Sinatra genera nuestra aplicación. Primero un <code>require 'sinatra/base</code> para crear nuestra aplicación modular; segundo por medio del uso de <code>Dir.glob</code> se realiza un <code>require</code> de cada uno de los archivos que contenga extensión <code>.rb</code>, y por último se agregan los módulos cómo middleware, definiendo lo siguiente:</p>
 
@@ -155,43 +164,45 @@ map("/")        { run ApplicationController }
 
 <p>Hagamos una prueba de nuestra pequeña aplicación.</p>
 
-<pre>$ rackup -p 3000
+```sh
+$ rackup -p 3000
 
 $ curl --request GET localhost:3000
-&lt;\html>
-  &lt;\head>
-    &lt;\title>Not Found!&lt;\/title>
-  &lt;\/head>
-  &lt;\body>
+<html>
+  <head>
+    <title>Not Found!</title>
+  </head>
+  <body>
     La página no existe 404!
-  &lt;\/body>
-&lt;\/html>
-</pre>
+  </body>
+</html>
+```
 
 <p>Aquí podemos apreciar que al acceder por una ruta que no existe dentro de nuestra aplicación la misma nos arroja la vista <code>not_found.erb</code> que se encuentra definida en <code>application_controller</code>.</p>
 
 <p>Ahora probemos las rutas de <code>/users</code>:</p>
 
-<pre>$ curl --request GET localhost:3000/users
-&lt;\html>
-  &lt;\head>
-    &lt;\title>Usuarios&lt;\/title>
-  &lt;\/head>
-  &lt;\body>
+```sh
+$ curl --request GET localhost:3000/users
+<html>
+  <head>
+    <title>Usuarios</title>
+  </head>
+  <body>
     Página de usuarios!
-  &lt;\/body>
-&lt;\/html>
+  </body>
+</html>
 
 $ curl --request GET localhost:3000/users/1
-&lt;\html>
-  &lt;\head>
-    &lt;\title>Usuario 1&lt;\/title>
-  &lt;\/head>
-  &lt;\body>
+<html>
+  <head>
+    <title>Usuario 1</title>
+  </head>
+  <body>
     Página de usuarios!
-  &lt;\/body>
-&lt;\/html>
-</pre>
+  </body>
+</html>
+```
 
 <p>A diferencia de la anterior observamos que efectivamente ambas rutas de <code>users_controller.rb</code> están precedidas por el slug <code>users</code> aunque dichas rutas no estén escritas así dentro del controlador. La semana entrante veremos otras maneras existentes para agregar middleware y realizar el enrutamiento a nuestra aplicación en Siantra.</p>
 

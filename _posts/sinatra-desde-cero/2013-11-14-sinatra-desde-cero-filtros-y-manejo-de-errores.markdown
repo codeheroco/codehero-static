@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2607
 wordpress_url: http://codehero.co/?p=2607
 date: 2013-11-14 02:08:31.000000000 -04:30
+series:
+  nombre: Sinatra desde Cero
+  thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Cursos
 - Sinatra
@@ -38,7 +41,8 @@ tags:
 
 <p>En el siguiente ejemplo se creará un <strong>"Before filter"</strong> el cual le dará un valor a una variable que será mostrada en pantalla.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 before do
   @before_value = 'Hola, Mundo!'
@@ -47,7 +51,7 @@ end
 get '/' do
   "El valor de la variable será: #{@before_value}"
 end
-</pre>
+```
 
 <p>Al ingresar al URL se aprecia el mensaje completo <code>El valor de la variable será: Hola, Mundo!</code> indicando que el filtro funcionó.</p>
 
@@ -57,7 +61,8 @@ end
 
 <p>Para el ejemplo de <strong>"After filter"</strong> utilizaremos el mismo código anterior pero agregaremos el filtro y observaremos la salida que se muestra en el terminal.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 before do
   @before_value = 'Hola, Mundo!'
@@ -70,11 +75,12 @@ end
 after do
   puts "Llamando al After filter."
 end
-</pre>
+```
 
 <p>Podemos observar que por cada una de las peticiones realizadas al servidor se ejecuta el "after filter".</p>
 
-<pre>ruby server.rb
+```sh
+ruby server.rb
 Puma 2.6.0 starting...
 * Min threads: 0, max threads: 16
 * Environment: development
@@ -84,7 +90,7 @@ After filter called to perform some task.
 ::1 - - [13/Nov/2013 23:59:43] "GET / HTTP/1.1" 200 32 0.0040
 Llamando al After filter.
 ::1 - - [13/Nov/2013 23:59:43] "GET /favicon.ico HTTP/1.1" 404 448 0.0010
-</pre>
+```
 
 <h2>Manejo de Errores</h2>
 
@@ -96,7 +102,8 @@ Llamando al After filter.
 
 <p>El manejo de errores de tipo <em>404 Not Found</em> se activa cuando la petición a una ruta de la aplicación no se encontró y por esta razón salta esta operación. Debemos tener siempre encuenta el orden en el que se encuentren las rutas. En sinatra el error <em>404</em> está definido por el bloque <code>not_found</code>.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 before do
   content_type :txt
@@ -109,15 +116,16 @@ end
 get '/' do
   "El valor de la variable será"
 end
-</pre>
+```
 
 <p>La respuesta obtenida siempre será por el <code>not_found</code> y con un mensaje similar a este del lado del servidor <code>::1 - - [14/Nov/2013 01:21:36] "GET /asd HTTP/1.1" 404 52 0.0027</code></p>
 
 <p>El cliente verá el mensaje que tiene el bloque <code>not_found</code>:</p>
 
-<pre>curl --request GET http://localhost:4567/asd
+```sh
+curl --request GET http://localhost:4567/asd
 Whoops! You requested a route that wasn't available.
-</pre>
+```
 
 <h3>Internal Server Error</h3>
 
@@ -125,9 +133,10 @@ Whoops! You requested a route that wasn't available.
 
 <p>Para el bloque <code>error</code> basta con agregarlo a las rutas</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
-before do 
+before do
   content_type :txt
 end
 
@@ -138,7 +147,7 @@ end
 error do
   "Y U NO WORK?"
 end
-</pre>
+```
 
 <hr />
 

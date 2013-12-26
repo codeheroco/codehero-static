@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2364
 wordpress_url: http://codehero.co/?p=2364
 date: 2013-10-10 00:02:29.000000000 -04:30
+series:
+  nombre: Sinatra desde Cero
+  thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Cursos
 - Sinatra
@@ -62,12 +65,15 @@ tags:
   <p>Si en lo personal tienes preferencia con otro manejador de versiones de Ruby y conoces como instalarlo puedes proceder a hacerlo, o puedes revisar <a href="https://github.com/postmodern/chruby">chruby</a> y <a href="https://rvm.io/">rvm</a>.</p>
 </blockquote>
 
-<pre>$ brew install rbenv ruby-build rbenv-gem-rehash
-</pre>
+```sh
+$ brew install rbenv ruby-build rbenv-gem-rehash
+```
 
 <p>De esta manera tendremos instalado el manejador de versiones y el instalador de Ruby.</p>
 
-<pre>$ rbenv install 2.0.0-p247</pre>
+```sh
+$ rbenv install 2.0.0-p247
+```
 
 <p>Una vez instalada la versión de Ruby debemos reiniciar el Terminal. Cerrándolo y abriéndolo.</p>
 
@@ -75,7 +81,9 @@ tags:
 
 <p>Una vez que ya tenemos la versión de Ruby 2.0 por defecto de nuestro equipo es hora de instalar la gema de Sinatra y del servidor Ruby necesario para correr la aplicación llamado "Thin".</p>
 
-<pre>$ gem install sinatra thin</pre>
+```sh
+$ gem install sinatra thin
+```
 
 <p>Esto instalará todas las dependencias necesarias para ambas gemas.</p>
 
@@ -85,21 +93,25 @@ tags:
 
 <p>Instalaremos de igual manera rbenv y ruby-build, aunque un poco diferente.</p>
 
-<pre>$ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+```sh
+$ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 $ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-</pre>
+```
 
 <p>Una vez instalados debemos exportar la dirección particular donde se encuentra instalado para poder utilizar el comando <code>rbenv</code> desde cualquier ubicación.</p>
 
-<pre>$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+```sh
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-</pre>
+```
 
 <p>Reiniciamos el Terminal y si todo funcionó correctamente al correr <code>$ type rbenv</code> debería indicarnos que es una función.</p>
 
 <p>A partir de este paso instalamos ruby en su versión 2.0.0 parche 247 tal cual como en Mac OS X.</p>
 
-<pre>$ rbenv install 2.0.0-p247</pre>
+```sh
+$ rbenv install 2.0.0-p247
+```
 
 <p>Una vez instalada la versión de Ruby debemos reiniciar el Terminal. Cerrándolo y abriéndolo.</p>
 
@@ -107,7 +119,9 @@ $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 
 <p>Una vez que ya tenemos la versión de Ruby 2.0 por defecto de nuestro equipo es hora de instalar la gema de Sinatra y del servidor Ruby necesario para correr la aplicación llamado "Thin".</p>
 
-<pre>$ gem install sinatra thin</pre>
+```sh
+$ gem install sinatra thin
+```
 
 <p>Esto instalará todas las dependencias necesarias para ambas gemas.</p>
 
@@ -119,19 +133,21 @@ $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 
 <p>Debemos crear un archivo llamado <code>server.rb</code> dentro de una carpeta de nuestra preferencia y escribir lo siguiente:</p>
 
-<pre>$ cat server.rb
+```sh
+$ cat server.rb
 require 'sinatra'
 
 get '/' do
   "Hola, mundo!"
 end
-</pre>
+```
 
 <p>cuando hayan finalizado, para poder visualizar debemos correr el servidor de <code>thin</code> para observar el mensaje "Hola, mundo!" en nuestro navegador Web. Para esto utilizamos el siente comando:</p>
 
-<pre>$ ruby server.rb
+```ruby
+$ ruby server.rb
 == Sinatra/1.4.3 has taken the stage on 4567 for development with backup from Thin
-</pre>
+```
 
 <p>Si abrimos nuestro navegador en <a href="http://localhost:4567">localhost con el puerto 4567</a> observaremos nuestro "Hola, mundo!".</p>
 

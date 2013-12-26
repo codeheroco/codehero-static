@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2498
 wordpress_url: http://codehero.co/?p=2498
 date: 2013-10-31 02:53:03.000000000 -04:30
+series:
+  nombre: Sinatra desde Cero
+  thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Sinatra
 tags:
@@ -35,26 +38,38 @@ tags:
 
 <p>Primero debemos crear el servidor y agregar la ruta y el verbo adecuado para servir nuestra vista estática.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/nosotros.html' do
   "cargando pagina estatica."
 end
-</pre>
+```
 
 <p>Segundo debemos crear una carpeta que se llame <code>public</code> en la raíz del proyecto, para posteriormente agregar la vista estática.</p>
 
-<p><img src="http://i.imgur.com/5qH2CG9.png" alt="foto" /></p>
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"> <title>Nosotros | codehero.co</title>
+  </head>
+  <body>
+    <h1>Codehero.co</h1>
+  </body>
+</html>
+```
 
 <p>Si utilizamos la herramienta <code>tree</code> para ver la estructura del proyecto podemos observar:</p>
 
-<pre>.
+```sh
+.
 ├── public
 │   └── nosotros.html
 └── server.rb
 
 1 directory, 2 files
-</pre>
+```
 
 <p>Por lo que pueden observar es bastante sencillo crear y utilizar vistas estáticas. Por otro lado ¿qué ocurre cuando no se encuentra el archivo <code>nosotros.html</code>? Pues simplemente veremos en pantalla el mensaje <code>"cargando pagina estatica."</code> que escribimos en la ruta.</p>
 
@@ -66,14 +81,30 @@ end
 
 <p>Independientemente de mi opinión estas vistas existen y las podemos utilizar de la siguiente manera:</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/index' do
   erb :index
 end
-</pre>
 
-<p><img src="http://i.imgur.com/Iu6BOXg.png" alt="enlinea" /></p>
+{% raw %}
+__END__
+
+@@index
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vista lineal</title>
+  </head>
+  <body>
+    <h1>Hola mundo desde la vista lineal!</h1>
+  </body>
+</html>
+{% endraw %}
+```
 
 <p>Lo primero que debemos observar es que la ruta tiene un tipo de "template" llamado <code>erb</code>. Lo segundo es que el nombre de la vista es de tipo "symbol" (<code>:índex</code>). Lo tercero es que se está delimitando el código de la ruta y la vista con <code>__END__</code> y la cuarta anotación es que la vista se llama con <code>@@index</code>.</p>
 
@@ -85,51 +116,77 @@ end
 
 <p>Hagamos una pequeña prueba:</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/contacto' do
   erb :contacto
 end
-</pre>
+```
 
 <p>En la carpeta <code>views</code> debemos crear un archivo llamado contacto y agregar un "markup" en HTML. se debe tener presente que el archivo aunque tenga "markup" HTML debe tener extensión <code>.erb</code> ya que le estamos diciendo a Sinatra que ese es el "markup" que utilizaremos.</p>
 
-<p><img src="http://i.imgur.com/2p61uNt.png" alt="externa" /></p>
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vista de Contacto</title>
+  </head>
+  <body>
+    <h1>Hola, desde la vista de contacto</h1>
+  </body>
+</html>
+```
 
 <p>La estructura del proyecto es la siguiente:</p>
 
-<pre>.
+```sh
+.
 ├── public
 │   └── nosotros.html
 ├── server.rb
 └── views
     └── contacto.erb
-</pre>
+```
 
 <p>La ubicación de la carpeta de las vistas puede ser modificada si no es del agrado de ustedes de la siguiente manera <code>set :views, File.dirname(__FILE__) + '/su_directorio_de_preferencia'</code></p>
 
 <p>Si llegaran a crear subcarpetas dentro de <code>views</code> como podría ser <code>views/usuarios</code> deben especificar la ruta a la vista que quieren utilizar.</p>
 
-<pre>get '/:usuarios/' do
+```ruby
+get '/:usuarios/' do
   erb '/usuarios/index'.to_sym
 end
-</pre>
+```
 
 <h3>Paso de parámetros a las vistas</h3>
 
 <p>El paso de parámetros a las vistas es algo sumamente normal en una aplicación ya que son estos los que convierten una vista "estática" en dinámica. En Sinatra es relativamente sencillo realizar un paso de parámetros. Supongamos que estamos buscando en una base de datos el nombre de un usuario y lo queremos mostrar en una vista.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/usuario' do
   @nombre = "alberto"
   erb :usuario
 end
-</pre>
+```
 
 <p>Podemos observar que la variable <code>nombre</code> contiene una @. Este carácter permite que el contenido de la variable se encuentre visible en las vistas. Luego de la misma manera que hicimos anteriormente agregamos la vista.</p>
 
-<p><img src="http://i.imgur.com/w2EXuo3.png" alt="parametro" /></p>
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vista de mostrar usuario</title>
+  </head>
+  <body>
+  <h1>Hola, <%= @nombre %></h1>
+  </body>
+</html>
+```
 
 <p>Aquí la única diferencia notable con respecto de la vista de contacto es que utilizamos unos caracteres especiales asociados a <code>.erb</code> para poder hacer visible el contenido de la variable. De esta manera al acceder a la ruta <code>/usuario</code> en nuestro navegador podremos ver que despliega el contenido esperado.</p>
 

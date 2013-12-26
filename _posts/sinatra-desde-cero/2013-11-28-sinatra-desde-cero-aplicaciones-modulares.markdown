@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2705
 wordpress_url: http://codehero.co/?p=2705
 date: 2013-11-28 00:12:15.000000000 -04:30
+series:
+  nombre: Sinatra desde Cero
+  thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Cursos
 - Sinatra
@@ -42,39 +45,43 @@ tags:
 
 <p>Primero creamos un archivo que se llame <code>server.rb</code> con el siguiente código.</p>
 
-<pre>require 'sinatra/base'
+```ruby
+require 'sinatra/base'
 
-class MyApp &lt; Sinatra::Base
+class MyApp < Sinatra::Base
   get '/' do
     "Hola, Subclass"
   end
 end
-</pre>
+```
 
 <p>Podemos observar que prácticamente es el mismo esqueleto de una aplicación clásica pero utiliza <code>sinatra/base</code> en vez de <code>sinatra</code> y nuestra aplicación se encuentra en una clase llamada <code>MyApp</code> que hereda de <code>Sinatra::Base</code> la cual contiene las rutas de nuestra aplicación.</p>
 
 <p>Posterior a esto debemos crear otro archivo con el nombre <code>config.ru</code> con el siguiente código.</p>
 
-<pre>require "./server"
+```ruby
+require "./server"
 run MyApp
-</pre>
+```
 
 <p>Debemos recordar que el nombre de archivo <code>config.ru</code> es una convención de nombre utilizado por las aplicaciones que usan <a href="https://github.com/rack/rack">Rack</a> como base.</p>
 
 <p>Como estamos utilizando las bondades de Rack debemos encender el servidor de la siguiente manera</p>
 
-<pre>$ rackup -s puma -p 3000
+```sh
+$ rackup -s puma -p 3000
 
 # nos imprime
 Puma 2.6.0 starting...
 * Min threads: 0, max threads: 16
 * Environment: development
 * Listening on tcp://0.0.0.0:3000
-</pre>
+```
 
 <p>Podemos utilizar otro servidor que no sea <code>puma</code>, algo como <code>unicorn</code> o <code>webrick</code> si los tenemos instalados de la siguiente manera.</p>
 
-<pre>$ rackup -s webrick -p 3000
+```sh
+$ rackup -s webrick -p 3000
 
 # nos imprime
 [2013-11-27 21:42:43] INFO  WEBrick 1.3.1
@@ -82,51 +89,55 @@ Puma 2.6.0 starting...
 [2013-11-27 21:42:43] INFO  WEBrick::HTTPServer#start: pid=89169 port=3000
 ^C[2013-11-27 21:42:45] INFO  going to shutdown ...
 [2013-11-27 21:42:45] INFO  WEBrick::HTTPServer#start done.
-</pre>
+```
 
 <p>Les recomiendo ver todas las posibilidades que nos entrega el comando <code>rackup</code> utilizando la bandera <code>-h</code>.</p>
 
 <p>Ahora si vamos a internet o hacemos un cURL podemos observar que la pequeña aplicación hecha con un Subclass de Sinatra nos arroja la información correcta <code>Hola, Subclass</code> en la pantalla.</p>
 
-<pre>$ curl --request GET localhost:3000/
+```sh
+$ curl --request GET localhost:3000/
 Hola, Subclass%
-</pre>
+```
 
 <p>Ahora que sabemos sobre Subclases en Sinatra debemos tener presente que todas las Rutas de la aplicación se pueden heredar mediante Subclases, ya sean para manejo de errores, extensiones, middleware, etc…</p>
 
 <p>Vamos a realizar una pequeña prueba para que vean como se puede heredar utilizando subclases de una clase propia que creemos.</p>
 
-<pre>class MyApp &lt; Sinatra::Base
+```ruby
+class MyApp < Sinatra::Base
   get '/' do
     "Hola, Subclass"
   end
 end
 
-class SegundoApp &lt; MyApp
+class SegundoApp < MyApp
   get '/hola' do
     "Hola desde nuestra segunda subclase."
   end
 end
-</pre>
+```
 
 <p>Hemos creado dentro del mismo archivo una segunda clase llamada <code>SengundoApp</code> con una ruta llamada <code>/hola</code> que imprime un texto.</p>
 
 <p>Los cambios que tuvimos que realizar en nuestro <code>config.ru</code> son los siguientes:</p>
 
-<pre>require 'sinatra/base'
+```ruby
+require 'sinatra/base'
 
 require "./server"
 run SegundoApp
-</pre>
+```
 
 <p>Podemos apreciar que no mucho cambió, decidí que la linea de <code>require "sinatra/base"</code> se encontraba mejor en este archivo para no tener que agregarlo a cada uno de los archivos que creemos, por último estamos haciendo <code>run SendundoApp</code> ya que es la última subclase y contiene todas las anteriores. Fueron cambios sencillos y fáciles de entender, vamos a probar en el terminal lo que nos mostraría por pantalla las rutas.</p>
 
-<pre>$ curl --request GET localhost:3000/
+```sh
+$ curl --request GET localhost:3000/
 Hola, Subclass%
 
 $ curl --request GET localhost:3000/hola
 Hola desde nuestra segunda subclase.%
-</pre>
+```
 
 <p>De manera muy sencilla hemos creado una aplicación que pudiese encontrarse en 2 archivos distintos y que contendría una ruta cada uno. La semana entrante veremos como crear una pequeña aplicación con estructura similar a la de Rails para el manejo de los controladores usando Subclases.</p>
 

@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2847
 wordpress_url: http://codehero.co/?p=2847
 date: 2013-12-12 01:19:13.000000000 -04:30
+series:
+  nombre: Sinatra desde Cero
+  thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Cursos
 - Sinatra
@@ -50,9 +53,10 @@ tags:
 
 <p>Cómo funciona Rack::Cascade:</p>
 
-<pre># config.ru
+```ruby
+# config.ru
 run Rack::Cascade.new [ProductsController, UsersController, ApplicationController]
-</pre>
+```
 
 <p>Muy sencillo creamos un cascade y le entregamos todas nuestras aplicaciones en el orden que deseamos, él se encargará del resto.</p>
 
@@ -64,21 +68,23 @@ run Rack::Cascade.new [ProductsController, UsersController, ApplicationControlle
 
 <p>Basados en el código de la semana pasada haremos el cambio únicamente en el <code>config.ru</code> y luego agregaremos una nueva ruta.</p>
 
-<pre># config.ru 
+```ruby
+# config.ru
 run Rack::URLMap.new({
   "/users" => UsersController,
   "/" => ApplicationController
 })
-</pre>
+```
 
 <p>Luego para agregar cualquier ruta solo basta con agregar un <em>"slug"</em> como "/products" y conocer el nombre de su controlador.</p>
 
-<pre>run Rack::URLMap.new({
+```ruby
+run Rack::URLMap.new({
   "/users" => UsersController,
   "/products" => ProductsController,
   "/" => ApplicationController
 })
-</pre>
+```
 
 <p>Si hacen la prueba utilizando su navegador web o utilizando <code>curl</code> de la misma manera que la semana pasada se darán cuenta que funciona igual.</p>
 
@@ -86,7 +92,8 @@ run Rack::URLMap.new({
 
 <p>Rack Mount es un router. Los rotures reciben la solicitud y deciden a quien se la van a entregar, esto puede aumentar la flexibilidad con la que escribimos las rutas de nuestra aplicación pero a su vez la complejidad de las mismas. Por otra parte Rack::Mount no viene integrada directamente en rack, sino más bien es una gema aparte que debe ser instalada <code>gen isntall rack-mount</code>.</p>
 
-<pre># config.ru
+```ruby
+# config.ru
 Routes = Rack::Mount::RouteSet.new do |set|
   set.add_route UsersController, { :request_method => 'GET', :path_info => %r{^/users$} }
   set.add_route ProductsController,{ :request_method => 'GET', :path_info => %r{^/products$} }
@@ -94,7 +101,7 @@ Routes = Rack::Mount::RouteSet.new do |set|
 end
 
 run Routes
-</pre>
+```
 
 <p>Según tengo entendido Rack mount no fue diseñada para uso directo si no más bien para uso de otras librerías, por consiguiente creo que no es algo muy popular.</p>
 
@@ -102,12 +109,13 @@ run Routes
 
 <p>Utilizando únicamente Sinatra también podemos implementar un Rack Router de la siguiente manera.</p>
 
-<pre># routes.rb
-class Routes &lt; ApplicationController
+```ruby
+# routes.rb
+class Routes < ApplicationController
   get('/users') { UsersController.call(env) }
   get('/products') { ProductsController.call(env) }
 end
-</pre>
+```
 
 <p>Se debe crear un archivo para manejo de rutas de la manera descrita para luego invocar <code>use Routes</code> bien sea desde el config.ru o desde la aplicación sinatra.</p>
 

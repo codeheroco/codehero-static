@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2443
 wordpress_url: http://codehero.co/?p=2443
 date: 2013-10-24 00:12:27.000000000 -04:30
+series:
+  nombre: Sinatra desde Cero
+  thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Sinatra
 tags:
@@ -37,42 +40,46 @@ tags:
 
 <p>¿Cómo se utiliza el paso de parámetros en Sinatra? Pues es relativamente sencillo, vamos a verlo para los 3 casos 'GET', 'POST', 'PUT'.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/:nombre' do
   "Hola, #{params[:nombre]}"
 end
-</pre>
+```
 
 <p>Hemos utilizado un parámetro llamado <code>nombre</code> que "almacena" cualquier palabra pero se está utilizando para recibir el nombre de una persona y luego imprime el mismo por pantalla.</p>
 
-<pre>$ curl --request GET localhost:4567/alberto
+```sh
+$ curl --request GET localhost:4567/alberto
 Hola, alberto%
-</pre>
+```
 
 <p>De esta manera cualquier nombre que le pasemos a través de ese URL se verá reflejado al imprimir el "markup".</p>
 
 <p>Si ahora nos encontráramos en una aplicación con un formulario de inicio de sesión y enviamos el nombre de usuario y contraseña por 'POST' se recibiría así:</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 post '/login' do
   username = params[:username] # Nombre de usuario
   password = params[:password] # Contraseña
 end
-</pre>
+```
 
 <p>Si quisiéramos modificar los datos de un usuario previamente creado en una base de datos haríamos lo siguiente con una petición de tipo 'PUT':</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 put '/usuario/:id' do
   Usuario u = Usuario.find(params[:id])
 ￼￼  u.primer_nombre = params[:primer_nombre]
-  u.segundo_nombre = params[:segundo_nombre] 
+  u.segundo_nombre = params[:segundo_nombre]
   u.save
 end
-</pre>
+```
 
 <p>Esto lo que realiza es buscar el usuario con el "id" en base de datos utilizando un ORM para esto y una vez que lo ha encontrado modifica sus datos con los que se encuentran en el formulario de "editar usuario" en la página.</p>
 
@@ -80,16 +87,18 @@ end
 
 <p>¿Qué son "query strings"? posiblemente habrán visto en algún momento en un URL un parámetro con esta representación <code>?variable=hola</code>, los mismos pueden ser utilizados para pasar información muy particular como lo puede ser muchas veces el idioma de la página. Si te gustan mucho los URL limpios estoy muy seguro de que vas a obviar los "query strings" lo mayor posible.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/:nombre' do
   "Hola, #{params[:nombre]} y #{params[:segundo]}"
 end
-</pre>
+```
 
-<pre>$ curl --request GET localhost:4567/alberto?segundo=jonathan
+```sh
+$ curl --request GET localhost:4567/alberto?segundo=jonathan
 Hola, alberto y jonathan%
-</pre>
+```
 
 <p>Cualquier nombre o palabra que escribamos en el "query string" <code>?segundo=</code> se mostrará en pantalla.</p>
 
@@ -97,54 +106,60 @@ Hola, alberto y jonathan%
 
 <p>Las rutas con "wild cards" se representan con el carácter ** (*) ** y quiere decir que son capaces de recibir cualquier tipo de parámetro que se desee. Para poder recibir un parámetro con "wild card" se debe utilizar <code>params[:splat]</code>.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/*' do
   "Se recibió usando un wild card este parámetro: #{params[:splat]}"
 end
-</pre>
+```
 
 <p>El resultado es el siguiente:</p>
 
-<pre>$ curl --request GET localhost:4567/hola
+```sh
+$ curl --request GET localhost:4567/hola
 Se recibió usando un wild card este parámetro: ["hola"]%
-</pre>
+```
 
 <h3>Expresiones regulares</h3>
 
 <p>Podemos utilizar expresiones regulares para crear y adaptar rutas que den la misma respuesta a distintos casos. Por ejemplo: para agregar un usuario o un administrador se podría realizar captando la petición por una misma ruta para luego definir que tipo de usuario se desea agregar utilizando función interna dentro de la ruta que capturó la petición.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get %r{/(c|h)ola} do
   "La ruta funciona para las dos palabras!"
 end
-</pre>
+```
 
 <p>Si comprobamos la respuesta que obtenemos podemos observar que es exactamente la misma.</p>
 
-<pre>$ curl --request GET localhost:4567/hola
-La ruta funciona para las dos palabras!%                                                                                
+```sh
+$ curl --request GET localhost:4567/hola
+La ruta funciona para las dos palabras!%
 
 $ curl --request GET localhost:4567/cola
 La ruta funciona para las dos palabras!%
-</pre>
+```
 
 <h3>Halting (Interrupción)</h3>
 
 <p>Este tipo de ruta la utilizamos cuando queremos finalizar una operación ya sea porque se está tardando demasiado tiempo o simplemente ha ocurrido un problema grave del lado del servidor. Cabe destacar que lo que realiza este comportamiento es la función <code>halt</code> que nos proporciona Sinatra en el DSL. El mensaje <code>500</code> es simplemente uno de los códigos de error existenten que representan problemas del lado del servidor.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/error' do
   'Este mensaje no se va a ver'
   halt 500
 end
-</pre>
+```
 
 <p>Si observamos la salida con un <code>--verbose</code> para ver en detalle que ocurre, podremos apreciar que nos devuelve un "server error"</p>
 
-<pre>$ curl --request GET --verbose localhost:4567/error
+```sh
+$ curl --request GET --verbose localhost:4567/error
 * About to connect() to localhost port 4567 (#0)
 *   Trying 127.0.0.1...
 * connected
@@ -154,22 +169,23 @@ end
 > Host: localhost:4567
 > Accept: */*
 >
-&lt; HTTP/1.1 500 Internal Server Error
-&lt; Content-Type: text/html;charset=utf-8
-&lt; X-XSS-Protection: 1; mode=block
-&lt; X-Content-Type-Options: nosniff
-&lt; X-Frame-Options: SAMEORIGIN
-&lt; Content-Length: 0
-&lt;
+< HTTP/1.1 500 Internal Server Error
+< Content-Type: text/html;charset=utf-8
+< X-XSS-Protection: 1; mode=block
+< X-Content-Type-Options: nosniff
+< X-Frame-Options: SAMEORIGIN
+< Content-Length: 0
+<
 * Connection #0 to host localhost left intact
 * Closing connection #0
-</pre>
+```
 
 <h3>Pasando una petición</h3>
 
 <p>Cuando hablamos sobre las rutas con expresiones regulares dijimos que al utilizarlas se podía responder a distintos comportamientos de le la misma en "funciones internas". El paso de peticiones es una manera de realizar esto de manera sencilla, observemos el ejemplo:</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 before do
   content_type :txt
@@ -183,21 +199,23 @@ end
 get '/hola' do
   "servido desde /hola!"
 end
-</pre>
+```
 
 <p>Veamos la los resultados:</p>
 
-<pre>$ curl --request GET localhost:4567/cola
-Estoy sirviendo la petición para /cola!%                                                                                
+```sh
+$ curl --request GET localhost:4567/cola
+Estoy sirviendo la petición para /cola!%
 $ curl --request GET localhost:4567/hola
 servido desde /hola!%
-</pre>
+```
 
 <h3>Redireccionando</h3>
 
 <p>Este tipo de ruta la utilizamos cuando queremos re-dirigir al usuario a un otra dirección ya sea dentro o fuera de nuestro dominio. A esta función le podemos pasar un código a la petición para notificar si el mismo es una re-dirección temporal o permanente.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/redirect' do
   redirect 'http://www.google.com'
@@ -206,7 +224,7 @@ end
 get '/redirect2' do
   redirect 'http://www.google.com', 301
 end
-</pre>
+```
 
 <blockquote>
   <p>Todos los ejemplos utilizados en este curso fueron extraídos del libro <a href="http://shop.oreilly.com/product/0636920019664.do?sortby=publicationDate">Sinatra: Up and Running</a></p>
