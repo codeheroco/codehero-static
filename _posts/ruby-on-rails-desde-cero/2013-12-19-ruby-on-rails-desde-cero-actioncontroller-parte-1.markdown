@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2874
 wordpress_url: http://codehero.co/?p=2874
 date: 2013-12-19 00:10:26.000000000 -04:30
+series:
+  nombre: Ruby on Rails desde Cero
+  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Ruby on Rails
 tags:
@@ -41,7 +44,8 @@ tags:
 
 <p>Para crear únicamente un controlador lo podemos realizar de la siguiente manera:</p>
 
-<pre>$ rails g controller Publicacion index
+```sh
+$ rails g controller Publicacion index
       create  app/controllers/publicacion_controller.rb
        route  get "publicacion/index"
       invoke  erb
@@ -58,28 +62,33 @@ tags:
       create      app/assets/javascripts/publicacion.js.coffee
       invoke    scss
       create      app/assets/stylesheets/publicacion.css.scss
-</pre>
+```
 
 <p>Particularmente podemos crear el controlador <em>completo</em>, con vistas, "suite" de pruebas, "assets" y "helpers" cómo también podemos simplemente crear lo que deseemos, mediante el paso de parámetros.</p>
 
 <p>Sin "suite" de pruebas:</p>
 
-<pre>$ rails g controller Publicacions index --no-test-framework
-</pre>
+```sh
+$ rails g controller Publicacions index --no-test-framework
+```
 
 <p>Sin vistas:</p>
 
-<pre>$ rails g controller Publicacions index --no-template-engine
-</pre>
+```sh
+$ rails g controller Publicacions index --no-template-engine
+```
 
 <p>Sin nada:</p>
 
-<p><pre>$ rails g controller Publicacions index --no-template-engine --no-test-framework --no-assets --no-helper </pre></p>
+```sh
+$ rails g controller Publicacions index --no-template-engine --no-test-framework --no-assets --no-helper
+```
 
 <p>Si quieren observar cualquier otra opción particular simplemente utilicen el comando -h:</p>
 
-<pre>$ rails g controller -h
-</pre>
+```sh
+$ rails g controller -h
+```
 
 <h3>Métodos y acciones</h3>
 
@@ -87,12 +96,13 @@ tags:
 
 <p>Cuando vemos como está conformado un Controlador apreciamos lo siguen:</p>
 
-<pre>class PublicacionsController &lt; ApplicationController
+```ruby
+class PublicacionsController < ApplicationController
   def index
     @publicacion = Publicacion.all
   end
 end
-</pre>
+```
 
 <p>Existe una clase llamada <code>PublicacionsController</code> que hereda de la clase <code>ApplicationController</code> y dentro de esta se encuentra (en este caso) un método llamado <code>índex</code> que contiene una acción particular, dicha acción es ir a la base de datos y buscar todas las publicaciones, generando el objeto <code>@publicacion</code> que está disponible en la vista <code>index.html.erb</code>.</p>
 
@@ -104,18 +114,20 @@ end
 
 <p>Si queremos buscar por el estado actual un tipo de publicación y utilizando el siguiente parámetro en el URL: <code>/publicacions?estado=publica</code>, realizamos lo siguiente:</p>
 
-<pre>def index
+```ruby
+def index
   if params[:draft] == "privada"
     @publicacions = Publicacion.where("estado = 'privada'")
   else
     @publicacions = Publicacion.where("estado = 'publica'")
   end
 end
-</pre>
+```
 
 <p>Por otro lado si estamos aceptando el contenido de un formulario de publicación generado por Rails, que viene del URL <code>/publicacions/new</code> y será procesado por el método <code>create</code> del controlador <code>PublicacionsController</code>, realizamos lo siguiente:</p>
 
-<pre>def new
+```ruby
+def new
   @publicacion = Publicacion.new
 end
 
@@ -127,7 +139,7 @@ def create
     render "new"
   end
 end
-</pre>
+```
 
 <p>Como Rails trabaja de manera <a href="http://es.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a> hay muchos elementos que engranar a la hora de entender como funciona el formulario, ya que puede parecer muy mágica la implementación si no se conoce. El formulario tiene un valor interno en el elemento <code>input</code> del HTML llamado <code>name</code> que contiene una referencia al objeto <code>@publicacion</code> que fue inicializado cuando accedimos por la Ruta <code>/publicacions/new</code> que hace referencia al método <code>new</code> del Controlador Publicacions. Cuando apretamos el botón de enviar formulario se utiliza el método <code>create</code> que lee la información proveniente del objeto <code>@publicacion</code> para luego crearlo en la base de datos o si por algún motivo tiene problemas se reenvía al usuario de vuelta a la página <code>publicacions/new</code></p>
 

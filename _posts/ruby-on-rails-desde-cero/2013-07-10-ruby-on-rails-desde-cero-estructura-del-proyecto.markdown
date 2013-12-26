@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1348
 wordpress_url: http://codehero.co/?p=1348
 date: 2013-07-10 00:01:25.000000000 -04:30
+series:
+  nombre: Ruby on Rails desde Cero
+  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Cursos
 - Ruby on Rails
@@ -33,7 +36,86 @@ tags:
 
 <p>Esta estructura consta de una serie de carpetas y archivos que nos hacen trabajar de forma ordenada y eficiente. La estructura es la siguiente:</p>
 
-<p><img src="http://i.imgur.com/gB8jA3r.jpg?1" alt="estructura_rails" /></p>
+```sh
+tree .
+.
+├── Gemfile
+├── Gemfile.lock
+├── README.rdoc
+├── Rakefile
+├── app
+│   ├── assets
+│   │   ├── images
+│   │   ├── javascripts
+│   │   │   └── application.js
+│   │   └── stylesheets
+│   │       └── application.css
+│   ├── controllers
+│   │   ├── application_controller.rb
+│   │   └── concerns
+│   ├── helpers
+│   │   └── application_helper.rb
+│   ├── mailers
+│   ├── models
+│   │   └── concerns
+│   └── views
+│       └── layouts
+│           └── application.html.erb
+├── bin
+│   ├── bundle
+│   ├── rails
+│   └── rake
+├── config
+│   ├── application.rb
+│   ├── boot.rb
+│   ├── database.yml
+│   ├── environment.rb
+│   ├── environments
+│   │   ├── development.rb
+│   │   ├── production.rb
+│   │   └── test.rb
+│   ├── initializers
+│   │   ├── backtrace_silencers.rb
+│   │   ├── filter_parameter_logging.rb
+│   │   ├── inflections.rb
+│   │   ├── mime_types.rb
+│   │   ├── secret_token.rb
+│   │   ├── session_store.rb
+│   │   └── wrap_parameters.rb
+│   ├── locales
+│   │   └── en.yml
+│   └── routes.rb
+├── config.ru
+├── db
+│   └── seeds.rb
+├── lib
+│   ├── assets
+│   └── tasks
+├── log
+├── public
+│   ├── 404.html
+│   ├── 422.html
+│   ├── 500.html
+│   ├── favicon.ico
+│   └── robots.txt
+├── test
+│   ├── controllers
+│   ├── fixtures
+│   ├── helpers
+│   ├── integration
+│   ├── mailers
+│   ├── models
+│   └── test_helper.rb
+├── tmp
+│   └── cache
+│       └── assets
+└── vendor
+    └── assets
+        ├── javascripts
+        └── stylesheets
+
+38 directories, 36 files
+```
 
 <p>Esta estructura la iremos conociendo más a detalle a lo largo del curso, pero me gustaría destacar algunos archivos importantes:</p>
 
@@ -54,22 +136,26 @@ tags:
 
 <p>Lo primero que debemos hacer para configurar una base de datos MySQL es instalar MySQL con la siguiente línea de comando.</p>
 
-<pre>brew install mysql
-</pre>
+```sh
+$ brew install mysql
+```
 
 <p>Luego agregamos la siguiente línea en el archivo Gemlife para comunicarle al framework que vamos a utilizar MySQL.</p>
 
-<pre>gem 'mysql2'
-</pre>
+```sh
+$ gem 'mysql2'
+```
 
 <p>Corremos el siguiente comando en el terminal, ubicados en el directorio de la aplicación, para que Rails revise las gemas necesarias, y si no las tienen en el sistema las instale automáticamente.</p>
 
-<pre>bundle install
-</pre>
+```sh
+$ bundle install
+```
 
 <p>Por último creamos las bases de datos a utilizar y modificamos el archivo '<em>database.yml</em>' de la siguiente manera:</p>
 
-<pre>development:
+```yaml
+development:
   adapter: mysql2
   encoding: utf8
   database: codehero_development
@@ -92,10 +178,10 @@ production:
   encoding: utf8
   database: codehero_production
   username: root
-  password: root 
+  password: root
   host: 127.0.0.1
   port: 3306
-</pre>
+```
 
 <p>Rails es capaz de manejar las tres base de datos dependiendo del ambiente de trabajo al que se este haciendo referencia (desarrollado, pruebas y producción).</p>
 
@@ -107,11 +193,14 @@ production:
 
 <p>En Rails crear un Controlador es bastante fácil, lo podemos hacer con una simple línea de comando que crea los archivos dentro de la estructura antes mencionada. Para demostrarlo crearemos un controlador sencillo, con la siguiente línea de comando en el directorio de la aplicación:</p>
 
-<pre>rails generate controller bienvenida index</pre>
+```sh
+$ rails generate controller bienvenida index
+```
 
 <p>Con esta línea estamos pidiendo al framework crear un controlador llamado 'bienvenida' y el método <em>índex</em> de éste. Cabe destacar que luego pueden incluirse los métodos que se necesiten agregándolos directamente al archivo del controlador y creando vistas a mano sin necesidad de utilizar una línea de comando. A continuación pueden ver el resultado de la línea de comando:</p>
 
-<pre>create  app/controllers/bienvenida_controller.rb
+```sh
+create  app/controllers/bienvenida_controller.rb
        route  get "bienvenida/index"
       invoke  erb
       create    app/views/bienvenida
@@ -127,11 +216,26 @@ production:
       create      app/assets/javascripts/bienvenida.js.coffee
       invoke    scss
       create      app/assets/stylesheets/bienvenida.css.scss
-</pre>
+```
 
 <p>Lo más importante de todo lo que crea esta línea de comando en el terminal es sin duda el archivo '<em>app/controllers/bienvenida_controller.rb</em>' que es el controlador en sí y las vistas asociadas a éste, en este caso es una sola '<em>app/views/bienvenida/index.html.erb</em>'. Si todo les funcionó correctamente pueden revisar su obra en <a href="http://127.0.0.1:3000/bienvenida/index">http://localhost:3000/bienvenida/index</a></p>
 
-<p><img src="http://i.imgur.com/CWOs514.jpg?1" alt="controlador_rails" /></p>
+```sh
+$ curl --request GET http://localhost:3000/bienvenida/index
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CodeheroWeb</title>
+  <meta content="authenticity_token" name="csrf-param" />
+  <meta content="mRVyOtFnRfq4nFPFJHD+GzVw/Z/nWnno6BI2yEZNzgQ=" name="csrf-token" />
+</head>
+<body>
+  <h1>Bienvenida#index</h1>
+  <p>Find me in app/views/bienvenida/index.html.erb</p>
+</body>
+</html>
+```
 
 <hr />
 
@@ -145,18 +249,20 @@ production:
 
 <p>Para crear un modelo en Rails al igual que los controladores, el framework nos proporciona una línea de comando que nos hace fácil el trabajo, siempre podemos elegir hacerlo manualmente. La línea de comando es la siguiente:</p>
 
-<pre>rails generate model usuario nombre:string apellido:string fecha_nacimiento:datetime
-</pre>
+```sh
+$ rails generate model usuario nombre:string apellido:string fecha_nacimiento:datetime
+```
 
 <p>El resultado al ejecutar esta línea de comando es el siguiente:</p>
 
-<pre>invoke  active_record
+```sh
+invoke  active_record
       create    db/migrate/20130707222645_create_usuarios.rb
       create    app/models/usuario.rb
       invoke    test_unit
       create      test/models/usuario_test.rb
       create      test/fixtures/usuarios.yml
-</pre>
+```
 
 <p>Al ejecutar la línea de comando le estamos pidiendo a Rails que genere el modelo necesario para manejar una tabla en base de datos llamada '<em>usuario</em>' con tres campos (nombre, apellido y fecha_nacimiento). Estos atributos se agregan automáticamente a la tabla de usuario en la base de datos y se asigna al modelo correspondiente.</p>
 

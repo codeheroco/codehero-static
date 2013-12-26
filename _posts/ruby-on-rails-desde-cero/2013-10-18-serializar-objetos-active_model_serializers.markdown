@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2416
 wordpress_url: http://codehero.co/?p=2416
 date: 2013-10-18 00:03:27.000000000 -04:30
+series:
+  nombre: Ruby on Rails desde Cero
+  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Cursos
 - Ruby on Rails
@@ -41,13 +44,15 @@ tags:
 
 <p>Básicamente la instalación de esta gema, en Ruby on Rails y en nuestra aplicación, sigue dos sencillos pasos. Primero agregamos en el archivo Gemlife nuestra gema de la siguiente manera:</p>
 
-<pre>gem "active_model_serializers"
-</pre>
+```ruby
+gem "active_model_serializers"
+```
 
 <p>Luego, nos vamos a nuestra consola o terminal y nos dirigimos hasta el directorio donde está el proyecto. Entramos dentro de la carpeta del proyecto y ejecutamos la famosa línea de código para instalar las gemas:</p>
 
-<pre>bundle install
-</pre>
+```sh
+$ bundle install
+```
 
 <p>Una vez realizados estos dos sencillos pasos ya nuestra aplicación está lista para hacer uso de nuestra gema serializadora.</p>
 
@@ -55,25 +60,29 @@ tags:
 
 <p>Para crear el serializador sólo basta con ejecutar un línea de comando en nuestra consola o terminal. Si queremos crear un modelo desde cero y ya estamos seguros que vamos a necesitar serializar los objetos, porque queremos hacer un API o simplemente queremos mostrarlo en un formato de uso común (JSON), utilizamos el siguiente comando:</p>
 
-<pre>rails g resource nombre_modelo atributo1:string atributo2:string 
-</pre>
+```sh
+$ rails g resource nombre_modelo atributo1:string atributo2:string
+```
 
 <p>o</p>
 
-<pre>rails generate resource nombre_modelo atributo1:string atributo2:string 
-</pre>
+```sh
+$ rails generate resource nombre_modelo atributo1:string atributo2:string
+```
 
 <p>Como ven este comando nos crea los mismos archivos que cuando creamos un modelo, sólo que adicionalmente en la carpeta <strong>app</strong> nos agrega una nueva carpeta llamada <strong>serializers</strong> y a ésta un archivo Ruby donde desarrollamos la lógica para serializar.</p>
 
 <p>También es posible crear un serializador a un objeto ya existente en nuestra aplicación de la siguiente manera:</p>
 
-<pre>rails g serializer nombre_modelo
-</pre>
+```sh
+$ rails g serializer nombre_modelo
+```
 
 <p>o</p>
 
-<pre>rails generate serializer nombre_modelo
-</pre>
+```sh
+$ rails generate serializer nombre_modelo
+```
 
 <p>Este comando sólo nos crea la clase en Ruby, donde desarrollamos la lógica para serializar el objeto que indicamos.</p>
 
@@ -81,10 +90,11 @@ tags:
 
 <p>Una vez que creamos nuestro serializador nos damos cuenta que tenemos unos archivos Ruby nuevos dentro de la carpeta Serializer que se debió haber creado. Estos archivos deben tener algo como esto:</p>
 
-<pre>class UsuariosSerializer &lt; ActiveModel::Serializer
+```ruby
+class UsuariosSerializer < ActiveModel::Serializer
   attributes :id, :nombre, :apellido, :nacimiento, :sexo
 end
-</pre>
+```
 
 <p>Como ven es una simple clase que extiende de <code>ActiveModel::Serializer</code> con los atributos del modelo que en nuestro caso es <strong>Usuario</strong>.</p>
 
@@ -94,19 +104,19 @@ end
 
 <p>Una vez revisada y modificada la clase serializadora del modelo simplemente nos vamos a nuestro controlador y creamos un método (Recuerda agregar la ruta al archivo routes.rb). Por ejemplo:</p>
 
-<pre>class Usuario &lt; ApplicationController
-
+```ruby
+class Usuario < ApplicationController
   def serializador
     @ejemplo1    = Usuario.all
     render json: @ejemplo1
   end
-
 end
-</pre>
+```
 
 <p>Listo!, con este comando ya tenemos a todos los usuarios impresos en formato JSON en nuestra aplicación.</p>
 
-<pre>{
+```json
+{
   "nombreControlador": [
     {
       "id": 6,
@@ -124,7 +134,7 @@ end
     }
   ]
 }
-</pre>
+```
 
 <h3>¿Cómo cambiar la estructura del JSON?</h3>
 
@@ -132,29 +142,32 @@ end
 
 <p>Imaginemos que necesitamos a los usuarios, pero en este caso particular sólo nos hace falta el nombre completo y la fecha de nacimiento de cada uno de los usuarios. Debemos desarrollar el serializador de la siguiente forma:</p>
 
-<pre>class UsuarioSerializer &lt; ActiveModel::Serializer
+```ruby
+class UsuarioSerializer < ActiveModel::Serializer
   attributes :nacimiento, {full_name: :full_name}
 
   def full_name
     "#{object.nombre} #{object.apellido}"
   end
 end
-</pre>
+```
 
 <p>Como ven en el ejemplo, desarrollamos una función llamada <code>full_name</code> donde concatenamos el nombre, ya que, para nuestro uso interno usamos el nombre por separado. Por último, para mostrar los atributos que queremos simplemente los sacamos o agregamos a nuestra lista de atributos.</p>
 
 <p>Si deseáramos agregarle información extra a nuestra salida en formato JSON pudiéramos agregarlo directamente en nuestro controlador con la etiqueta <code>meta</code>. Veamos el siguiente ejemplo y la salida que genera:</p>
 
-<pre>def serializador
-    @ejemplo1    = Usuario.all 
-    # meta_key es para cambiarle el nombre a la etiqueta que estamos agregando
-    render json: @ejemplo1 , meta: {total: 10}, meta_key: 'meta_object'
-  end
-</pre>
+```ruby
+def serializador
+  @ejemplo1    = Usuario.all
+  # meta_key es para cambiarle el nombre a la etiqueta que estamos agregando
+  render json: @ejemplo1 , meta: {total: 10}, meta_key: 'meta_object'
+end
+```
 
 <p>Para tener una salida parecida a la siguiente:</p>
 
-<pre>{
+```json
+{
   "nombre_controlador": [
     {
       "nacimiento": "1988-05-09",
@@ -165,23 +178,25 @@ end
     "total": 10
   }
 }
-</pre>
+```
 
 <p>Por último, para terminar con este punto, esta gema también nos ofrece la posibilidad de tener varios serializadores con estructuras diferentes para ser usados según sea el caso. Por ejemplo, el serializador que hemos utilizado hasta ahora sólo tiene fecha de nacimiento y el nombre completo, pero, pudiéramos necesitar otro serializador que provea toda la información del modelo sin necesidad de aplicarle cambios al serializador principal. Veamos en el siguiente ejemplo cómo podemos llamar a un serializador diferente.</p>
 
-<pre>def serializador
-    @ejemplo1    = Usuario.first
-    render json: @ejemplo1 , serializer: UsuarioCustomSerializer
-  end
-</pre>
+```ruby
+def serializador
+  @ejemplo1    = Usuario.first
+  render json: @ejemplo1 , serializer: UsuarioCustomSerializer
+end
+```
 
 <p>En caso de que el objeto que vayamos a serializar sea un <strong>arreglo de objetos</strong> utilizamos el siguiente:</p>
 
-<pre>def serializador
-    @ejemplo1    = Usuario.all
-    render json: @ejemplo1 , each_serializer: UsuarioCustomSerializer
-  end
-</pre>
+```ruby
+def serializador
+  @ejemplo1    = Usuario.all
+  render json: @ejemplo1 , each_serializer: UsuarioCustomSerializer
+end
+```
 
 <hr />
 

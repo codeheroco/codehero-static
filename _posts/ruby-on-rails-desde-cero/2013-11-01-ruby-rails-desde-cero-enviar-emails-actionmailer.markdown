@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2525
 wordpress_url: http://codehero.co/?p=2525
 date: 2013-11-01 00:21:08.000000000 -04:30
+series:
+  nombre: Ruby on Rails desde Cero
+  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Cursos
 - Ruby on Rails
@@ -30,7 +33,8 @@ tags:
 
 <p><em>/config/environments/development.rb</em></p>
 
-<pre>config.action_mailer.delivery_method = :smtp
+```ruby
+config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
@@ -39,7 +43,7 @@ config.action_mailer.smtp_settings = {
   password:             'secret',
   authentication:       'plain',
   enable_starttls_auto: true  }
-</pre>
+```
 
 <p>Esta configuración esta diseñada para enviar correos desde gmail como prueba para verificar que funcione. Recuerde agregar su <strong>domain</strong>, <strong>user_name</strong> y su <strong>password</strong> para que funcione el ejemplo.</p>
 
@@ -51,26 +55,29 @@ config.action_mailer.smtp_settings = {
 
 <p>Nos ubicamos con la consola o terminal en el directorio de nuestro proyecto y escribimos la siguiente línea:</p>
 
-<pre>rails generate mailer ActionCorreo
-</pre>
+```sh
+$ rails generate mailer ActionCorreo
+```
 
 <p>Este comando nos crea una lista de archivos y carpetas que vamos a utilizar para poder enviar correos. La lista de estos archivos la verán cuando ejecuten el comando y debería ser algo como esto:</p>
 
-<pre>create  app/mailers/action_correo.rb
+```sh
+create  app/mailers/action_correo.rb
 invoke  erb
 create    app/views/action_correo
 invoke  test_unit
 create    test/mailers/action_correo_test.rb
-</pre>
+```
 
 <p>Como ven, nos crea dentro de nuestra aplicación una carpeta <strong>mailers</strong> y dentro de ella nuestro archivo Ruby (<strong>action_correo.rb</strong>) que se puede ver como un controlador para enviar correos. Este archivo debe contener algo parecido a este código:</p>
 
 <p><em>app/mailers/action_correo.rb</em></p>
 
-<pre>class UserMailer &lt; ActionMailer::Base
+```ruby
+class UserMailer < ActionMailer::Base
   default from: 'from@example.com'
 end
-</pre>
+```
 
 <p>También vemos que el comando nos crea una carpeta dentro de las vista donde alojaremos los archivos con el contenido de los correos electrónicos (Esto lo veremos un poco más avanzado el tutorial).</p>
 
@@ -78,32 +85,55 @@ end
 
 <p>Una vez creado nuestro Mailer, le vamos a agregar un método, el cual será el encargado de enviar nuestro primer correo electrónico desde Ruby on Rails. Este será un correo simple sin adjuntos, sólo texto html y un único destinatario. Primero, creamos un método dentro de nuestro Mailer de la siguiente manera:</p>
 
-<pre>def bienvenido_email(user)
-   @user = user
-   @url  = 'http://codeHero.co'
-   mail(to: @user.email, subject: 'Aprende a programar con nuestros cursos gratis')
- end
-</pre>
+```ruby
+def bienvenido_email(user)
+  @user = user
+  @url  = 'http://codeHero.co'
+  mail(to: @user.email, subject: 'Aprende a programar con nuestros cursos gratis')
+end
+```
 
 <p>Como ven, el método recibe una variable que en nuestro caso es un objeto usuario, luego definimos las variables que utilizaremos para armar el contenido del mensaje y por último ejecutamos la función de envío de correos, agregándoles el correo destinatario y el título de nuestro email.</p>
 
 <p>Una vez creado el método agregamos un archivo a la carpeta de las vistas que se creo en el paso anterior, donde vamos a desarrollar el contenido del correo electrónico. Este archivo lo llamaremos igual que el método del Mailer <strong>bienvenido_email.html.erb</strong> (como se dieron cuenta, aplica la misma teoría que un controlador normal). La ruta y el contenido del correo electrónico es el siguiente.</p>
 
-<p><em>/views/action_correo/bienvenido_email.html.erb</em> <img src="http://i.imgur.com/E3eN9uV.png?1" alt="codigo" /></p>
+<em>/views/action_correo/bienvenido_email.html.erb</em>
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bienvenido a CodeHero.co, <%= @user.nombre %></h1>
+    <p>
+      Tu correo ha sido enviado satisfactoriamente y su identificador es:
+      <%= @user.identificador %>.<br/>
+    </p>
+    <p>
+      Recuerda visitarnos en: <a href="<%= @url %>">CodeHero.co</a>
+    </p>
+    <p>Te recomiendo echarle un vistazo a la serie completa de Ruby on Rails desde cero, así como a las otras series de CodeHero, agradeciendo de antemano todas sus dudas y comentarios en la sección de comentarios.</p>
+    <p>¡Hasta el próximo capítulo!</p>
+  </body>
+</html>
+```
 
 <p>¡Listo! Ya tenemos configurado nuestra clase para enviar un correo electrónico, sólo nos queda implementarlo en nuestro controlador normal del proyecto. Pudiera ser de la siguiente manera: Creando un método dentro de un controlador, que cree, envíe por correo electrónico y muestre en formato JSON el usuario</p>
 
-<pre>def enviarCorreo
-        #Creamos el usuario     
-        @persona1 = Persona.create({ nombre: 'Ricardo Sampayo', email: 'me@ricardoSampayo.com',email_confirmation: 'me@ricardoSampayo.com"', identificador: "123456789", sexo: 'm', telefono: '123456789123' })
-        
-        # Llamamos al   ActionMailer que creamos
-        ActionCorreo.bienvenido_email(@persona1).deliver
-        
-        # mostramos el usuario en formato JSON
-        render json: @persona1
-    end
-</pre>
+```ruby
+def enviarCorreo
+  #Creamos el usuario
+  @persona1 = Persona.create({ nombre: 'Ricardo Sampayo', email: 'me@ricardoSampayo.com',email_confirmation: 'me@ricardoSampayo.com"', identificador: "123456789", sexo: 'm', telefono: '123456789123' })
+
+  # Llamamos al   ActionMailer que creamos
+  ActionCorreo.bienvenido_email(@persona1).deliver
+
+  # mostramos el usuario en formato JSON
+  render json: @persona1
+end
+```
 
 <p>Al ejecutar este método nos debe llegar un correo electrónico como este:</p>
 
@@ -113,23 +143,25 @@ end
 
 <p>También es bastante fácil enviar correos con archivos adjuntos en Ruby on Rails, lo único que debemos hacer es agregarle en el Mailer los archivos adjuntos de la siguiente forma:</p>
 
-<pre>attachments["codehero.png"] = File.read("#{Rails.root}/public/codehero.png") 
-</pre>
+```ruby
+attachments["codehero.png"] = File.read("#{Rails.root}/public/codehero.png")
+```
 
 <p>Como ven es bastante fácil añadir un adjunto, tan sólo hay que añadir una nueva llamada a <code>attachments</code>, poniendo como clave el nombre del adjunto y pasando el archivo correspondiente.</p>
 
 <p>Por otro lado agregar múltiples destinatarios es igual de sencillo que todos los procedimientos que hemos visto en el framework, simplemente, los tenemos que agregar de la siguiente forma:</p>
 
-<pre>email_with_name = "#{@user.nombre} &lt;#{@user.email}>"
-    email_with_name2 = "Ricardo &lt; test@ricardosampayo.com>"
-    email_with_name3 = "Ricardo &lt; test2@ricardosampayo.com>"
-    email_with_name4 = "Ricardo &lt; test3@ricardosampayo.com>"
+```ruby
+email_with_name = "#{@user.nombre} <#{@user.email}>"
+email_with_name2 = "Ricardo < test@ricardosampayo.com>"
+email_with_name3 = "Ricardo < test2@ricardosampayo.com>"
+email_with_name4 = "Ricardo < test3@ricardosampayo.com>"
 
-    mail(to: [email_with_name, email_with_name3], 
-        bcc: email_with_name2,
-        cc: email_with_name4,
-        subject: 'Aprende a programar con nuestros cursos gratis')
-</pre>
+mail(to: [email_with_name, email_with_name3],
+     bcc: email_with_name2,
+     cc: email_with_name4,
+     subject: 'Aprende a programar con nuestros cursos gratis')
+```
 
 <p>En el ejemplo, vemos como estamos enviando el correo directamente a dos usuarios, por otro lado, también agregamos dos usuarios más <strong>con copia</strong> y <strong>con copia oculta</strong> respectivamente.</p>
 
@@ -141,19 +173,21 @@ end
 
 <p>Lo primero que debemos hacer es crear la clase interceptadora. Esta clase podría ir en el directorio /lib, y le pondremos el nombre development_mail_interceptor.rb.</p>
 
-<pre>class DevelopmentMailInterceptor  
-    def self.delivering_email(message)  
-        message.to = "test99@ricardosampayo.com"  
-    end  
-end  
-</pre>
+```ruby
+class DevelopmentMailInterceptor
+  def self.delivering_email(message)
+    message.to = "test99@ricardosampayo.com"
+  end
+end
+```
 
 <p>El método de clase delivering_email recibe el mensaje de correo que está a punto de ser enviado y cambia la persona a la que iba dirigido el correo.</p>
 
 <p>Antes de que el interceptor pueda hacer su trabajo, es necesario registrar el interceptor, esto se puede hacer en un archivo de inicialización en <strong>config/initializers/</strong> el cual llamaremos <strong>setup_mail.rb</strong></p>
 
-<pre>Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?  
-</pre>
+```ruby
+Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
+```
 
 <blockquote>
   <p>Esto invocará al método delivering_email en nuestro interceptador, si nuestra aplicación está en modo de desarrollo. Usted puede leer sobre la creación de entornos Rails para obtener más información sobre los <a href="http://guides.rubyonrails.org/configuring.html#creating-rails-environments">entornos personalizados</a>.</p>

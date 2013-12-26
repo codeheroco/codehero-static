@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1723
 wordpress_url: http://codehero.co/?p=1723
 date: 2013-07-26 00:01:30.000000000 -04:30
+series:
+  nombre: Ruby on Rails desde Cero
+  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Cursos
 - Ruby on Rails
@@ -33,13 +36,15 @@ tags:
 
 <p>Lo primero que aprenderemos es a crear una entidad de base de datos para almacenar las publicaciones de nuestra aplicación. Para hacer esto construimos un modelo igual que en el capítulo anterior de la siguiente manera:</p>
 
-<pre>rails generate model Publicacion titulo:string contenido:text
-</pre>
+```sh
+$ rails generate model Publicacion titulo:string contenido:text
+```
 
 <p>Una vez creado el modelo por consola podemos utilizar el comando 'rake' para construir la estructura de datos que tenemos en nuestro proyecto al manejador de base de datos que estemos utilizando. El comando es el siguente:</p>
 
-<pre>rake db:migrate
-</pre>
+```sh
+$ bundle exec rake db:migrate
+```
 
 <p>De esta manera hemos creado una entidad publicación la cual tendrá la interacción directa con la base de datos. Pero aún no sabemos como conectar esta información con nuestras vistas a través de los controladores.</p>
 
@@ -47,29 +52,29 @@ tags:
 
 <p>Como ya vimos en el capítulo anterior crearemos un controlador llamado 'Publicacion' que servirá de puente entre las vistas y los modelos de la siguiente forma:</p>
 
-<pre>rails generate controller publicacion
-</pre>
+```sh
+$ rails generate controller publicacion
+```
 
 <p>Lo primero que vamos a hacer es configurar nuestro controlador para que nos sirva de enlace entre el modelo, la base de datos y nuestras vistas dinámicas. Empezaremos creando métodos dentro del controlador que acabamos de crear de la siguiente forma:</p>
 
 <p>Nos posicionamos dentro del archivo 'publicacion_controller.rb' ubicado dentro del directorio 'app/controller/' y agregamos los métodos 'index', 'new' y 'create', los cuales listan las publicaciones, prepararan el formulario y guardan la información del mismo respectivamente:</p>
 
-<pre>def new
-        @publicacion = Publicacion.new
-    end
+```ruby
+def new
+  @publicacion = Publicacion.new
+end
 
-    def index
-        @publicaciones = Publicacion.all
-    end
+def index
+  @publicaciones = Publicacion.all
+end
 
-    def create
-        @publicacion = Publicacion.new(params[:publicacion].permit(:titulo, :contenido))
-        @publicacion.save
- 
-        redirect_to publicacion_path    # esta ruta se explica a continuación
-
-    end
-</pre>
+def create
+  @publicacion = Publicacion.new(params[:publicacion].permit(:titulo, :contenido))
+  @publicacion.save
+  redirect_to publicacion_path    # esta ruta se explica a continuación
+end
+```
 
 <p>Vean como no hace falta enviar las variables a las vistas (como hacen otros lenguajes), simplemente con declararlas e inicializarlas en el controlador es suficiente.</p>
 
@@ -77,10 +82,11 @@ tags:
 
 <p>Una vez que sepamos los métodos a utilizar debemos manipular el archivo de las rutas, para hacerle saber las direcciones que vamos a estar usando. El archivo de rutas se encuentra en el directorio: '/config/routes.rb'. agregaremos las dos rutas necesarias para usar estos métodos del controlador:</p>
 
-<pre>get 'publicacion' =&gt; 'publicacion#index'
-get 'publicacion/new' =&gt; 'publicacion#new'
-post 'publicacion/create' =&gt; 'publicacion#create'
-</pre>
+```ruby
+get 'publicacion' => 'publicacion#index'
+get 'publicacion/new' => 'publicacion#new'
+post 'publicacion/create' => 'publicacion#create'
+```
 
 <p>En este tipo de definición de rutas tenemos que el primer término (get y post) es el protocolo en que se van a recibir los datos, el segundo componente (<a href="http://localhost:3000/publicacion/new">publicacion/new</a> y <a href="http://localhost:3000/publicacion/create">publicacion/create</a>) son las url y el tercer componte (publicacion#new y publicacion#create) es el controlador seguido del método (<strong>controlador#metodo</strong>) al que esta asociado el url. Esto se puede ver mejor referenciado en el siguiente cuadro:</p>
 
@@ -94,17 +100,56 @@ post 'publicacion/create' =&gt; 'publicacion#create'
 
 <p>La primera vista la llamaremos '_form.html.erb' y este contendrá el formulario:</p>
 
-<p><img src="http://i.imgur.com/LdN5rOX.png?1" alt="foto" /></p>
+```html
+<%= form_for :publicacion, url: publicacion_create_path do |f| %>
+  <p>
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </p>
+
+  <p>
+    <%= f.label :contenido %><br>
+    <%= f.text_area :contenido %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+```
 
 <p>En esta vista encontramos detalles importantes como por ejemplo la dirección a donde se enviará la información del formulario, en este caso colocamos 'publicacion_create_path'. Por otro lado vemos como el formulario tiene los campos de la publicación (titulo y contenido).</p>
 
 <p>Luego crearemos una vista llamada 'new.html.erb' que contiene el formulario de la siguiente forma:</p>
 
-<p><img src="http://i.imgur.com/IPjA3Kh.png?1" alt="foto" /></p>
+```html
+<h1>Nueva publicación</h1>
+<%= render 'form' %>
+```
 
-<p>Por último la vista principal que lista todas las publicaciones creadas:</p>
+Por último la vista principal que lista todas las publicaciones creadas: `index.html.erb`
 
-<p><img src="http://i.imgur.com/EPb2O5M.png?1" alt="foto" /></p>
+```html
+<table>
+  <thead>
+    <tr>
+      <th>titulo</th>
+      <th>contenido</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publicaciones.each do |publicacion| %>
+      <tr>
+        <td><%= publicacion.titulo %></td>
+        <td><%= publicacion.contenido %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nueva publicación', publicacion_new_path %>
+```
 
 <p>El resultado de estos controladores con sus respectivas vistas es un simple listado de publicaciones en <a href="http://localhost:3000/publicacion">http://localhost:3000/publicacion</a>:</p>
 
@@ -126,7 +171,7 @@ post 'publicacion/create' =&gt; 'publicacion#create'
 <li>Genera el modelo.</li>
 <li>Genera las rutas automáticamente.</li>
 <li>Se apega a los estándares de Rails.</li>
-<li>Genera vistas y controlador del (CRUD): 
+<li>Genera vistas y controlador del (CRUD):
 
 <ul>
 <li>Creación.</li>
@@ -139,12 +184,14 @@ post 'publicacion/create' =&gt; 'publicacion#create'
 
 <p>Todo esto se genera con la siguiente linea de comando:</p>
 
-<pre>rails generate scaffold post titulo:string contenido:text
-</pre>
+```sh
+$ rails generate scaffold post titulo:string contenido:text
+```
 
 <p>Con esta línea estamos creando un objeto "post" con dos atributos ('titulo' y 'contenido') al igual que cuando creamos "publicacion" esta linea de comando genera lo siguiente:</p>
 
-<pre>invoke  active_record
+```sh
+invoke  active_record
    create    db/migrate/20130725032950_create_posts.rb
    create    app/models/post.rb
    invoke    test_unit
@@ -177,12 +224,13 @@ post 'publicacion/create' =&gt; 'publicacion#create'
    create      app/assets/stylesheets/posts.css.scss
    invoke  scss
 identical    app/assets/stylesheets/scaffolds.css.scss
-</pre>
+```
 
 <p>El comando para revertir y destruir un scaffold es igual de simple:</p>
 
-<pre>rails destroy scaffold post  
-</pre>
+```sh
+$ rails destroy scaffold post
+```
 
 <p>Si ejecutaron la línea de comando para generar el Scaffold y ejecutaron el comando para migrar los objetos a la base de datos antes mencionado ('rake db:migrare'), podrán ver como el framework por arte de magia les crea todo el CRUD (crear, leer, modificar y eliminar según sus siglas en ingles) incluso con validaciones y mensajes de error. Si ejecutaron la línea de comando creándolo con el nombre 'post' pueden revisar la magia en <a href="http://localhost:3000/posts">http://localhost:3000/posts</a></p>
 
