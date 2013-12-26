@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 1062
 wordpress_url: http://codehero.co/?p=1062
 date: 2013-06-20 04:33:06.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -52,8 +55,9 @@ tags:
 
 <p><strong><em>Método Recomendado</em></strong>: Para realizar la instalación en este Sistema Operativo es recomendable tener instalado <a href="http://mxcl.github.io/homebrew/">Homebrew</a>. Haciendo uso del Terminal.app y de hombrew, escribimos el siguiente comando:</p>
 
-<pre>$ brew install git
-</pre>
+```sh
+$ brew install git
+```
 
 <p>Si el terminal no es de tú preferencia puede hacer uso de un cliente de interfaz gráfica para realizar la instalación de Git. El cliente de <a href="http://mac.github.com/">Github</a> nos facilita esta tarea.</p>
 
@@ -61,13 +65,15 @@ tags:
 
 <p>Si nos encontramos en distribuciones como Fedora, podemos hacer uso del manejador de paquetes de dicha distribución y mediante el siguiente comando instalaremos Git:</p>
 
-<pre>$ yum install git-core
-</pre>
+```sh
+$ yum install git-core
+```
 
 <p>Si nos encontramos en distribuciones basadas en Debian, tal como Ubuntu, utilizamos el siguiente comando:</p>
 
-<pre>$ apt-get install git
-</pre>
+```sh
+$ apt-get install git
+```
 
 <h3>Windows</h3>
 
@@ -83,30 +89,34 @@ tags:
 
 <p>Lo primero que de debe hacer es decirle a Git cual será nombre de la persona que hará uso de él:</p>
 
-<pre>$ git config --global user.name "Pedro Perez"
-</pre>
+```sh
+$ git config --global user.name "Pedro Perez"
+```
 
 <h3>Configuración del email</h3>
 
 <p>Git hace uso del email del usuario cuando consolida la data, por esta razón necesitamos configurarlo:</p>
 
-<pre>$ git config --global user.email "pedroperez@ejemplo.com"
-</pre>
+```sh
+$ git config --global user.email "pedroperez@ejemplo.com"
+```
 
 <p><strong>Podemos revisar que estén bien escritos</strong> haciendo uso del siguiente comando:</p>
 
-<pre>$ git config --list
+```sh
+$ git config --list
 user.name=Pedro Perez
 user.email=pedroperez@ejemplo.com
-</pre>
+```
 
 <p>También debemos conocer que Git guarda esta información dentro del archivo oculto <strong><em>.gitconfig</em></strong> en el <strong><em>Home</em></strong> del usuario. Utilizando el siguiente comando podemos observar la información suministramos durante la configuración:</p>
 
-<pre>$ cat ~/.gitconfig
+```sh
+$ cat ~/.gitconfig
 [user]
         name = Pedro Perez
         email = pedroperez@ejemplo.com
-</pre>
+```
 
 <hr />
 
@@ -126,9 +136,10 @@ user.email=pedroperez@ejemplo.com
 
 <p>Podemos crear una carpeta y luego iniciar el repositorio dentro, utilizando los siguientes comandos:</p>
 
-<pre>$ mkdir Ejemplo && cd Ejemplo
+```sh
+$ mkdir Ejemplo && cd Ejemplo
 $ git init .
-</pre>
+```
 
 <p>Con el comando <strong>git init</strong> se crea una carpeta oculta llamada <strong>.git</strong> (se encuentra dentro de la carpeta <em>Ejemplo</em>) y contiene toda la información necesaria para que podamos realizar las versiones (copias de seguridad) de nuestro proyecto. En este punto Git no está llevando el control de ningún archivo.</p>
 
@@ -136,10 +147,11 @@ $ git init .
 
 <p>Con nuestro repositorio listo, queremos llevar el control de nuestro primer archivo. Para esto debemos crearlo dentro de nuestra carpeta <em>Ejemplo</em> y agregarlo al escenario:</p>
 
-<pre>$ touch Archivo1.txt # Creamos el archivo vacío
+```sh
+$ touch Archivo1.txt # Creamos el archivo vacío
 $ echo 'Hola Mundo' >> Archivo1.txt  # Le agregamos texto al archivo
 $ git add Archivo1.txt # colocamos el archivo en escenario
-</pre>
+```
 
 <p>Al ejecutar el comando <strong>git add Archivo1.txt</strong> estamos confirmando (agregando el archivo al escenario) que los cambios que realizamos sobre <em>Archivo1.txt</em> se quieren respaldar la próxima vez que consolidemos la data.</p>
 
@@ -147,8 +159,9 @@ $ git add Archivo1.txt # colocamos el archivo en escenario
 
 <p>Para consolidar el archivo previamente creado y puesto en escenario debemos utilizar el siguiente comando:</p>
 
-<pre>$ git commit -m "Commit Inicial" 
-</pre>
+```sh
+$ git commit -m "Commit Inicial"
+```
 
 <p><strong><em>nota:</em></strong> La bandera <strong>-m</strong> indica que se debe consolidar el archivo con un mensaje informativo.</p>
 

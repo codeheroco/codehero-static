@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 1986
 wordpress_url: http://codehero.co/?p=1986
 date: 2013-08-15 00:01:20.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -40,10 +43,11 @@ tags:
 
 <p>Es bastante, se podría colocar una global o una local (para un proyecto específico) de la siguiente manera.</p>
 
-<pre>$ git config --global push.default current
+```sh
+$ git config --global push.default current
 # De manera local en un proyecto específico.
 $ git config --local push.default upstream
-</pre>
+```
 
 <p>Todas configuraciones globales se escriben en un archivo en el <em>"$HOME"</em> del usuario que tiene siempre el mismo nombre y se llama <strong>.gitconfig</strong> es "oculto".</p>
 
@@ -55,8 +59,9 @@ $ git config --local push.default upstream
 
 <p>Normalmente cuando utilizamos <code>git pull</code> sobre una rama, ésta realiza dos funciones <code>git fetch</code> y <code>git merge</code> ésta última puede ocasionar conflictos que debemos solucionar y posteriormente unirlos a mano con otro <em>merge</em> agregando información que no aporta nada al historial del proyecto. Por esta razón es recomendable, que de requerir realizar un <em>pull</em> se emplee el comando <em>rebase</em> en vez del <em>merge</em> de manera directa. Para realizar esto debemos cambiar la configuración por defecto de git o utilizar <code>git pull --rebase</code> cada vez que se quieran descargar "actualizaciones" del servidor remoto. Como manera más practica cambiemos la configuración por defecto</p>
 
-<pre>$ git config --global --bool pull.rebase true
-</pre>
+```sh
+$ git config --global --bool pull.rebase true
+```
 
 <p>De requerir volver a un simple <em>merge</em> por una ocasión específica se puede emplear el comando <code>git pull --no-rebase</code>y listo.</p>
 
@@ -78,18 +83,20 @@ $ git config --local push.default upstream
 
 <p>Para el <strong>status</strong> utilizaremos la abreviación <strong>st</strong>, para <strong>checkout</strong> como <strong>co</strong> y el <strong>log</strong> como <strong>lg</strong>.</p>
 
-<pre>$ git config --global alias.st status
+```sh
+$ git config --global alias.st status
 
 $ git config --global alias.co checkout
 
 $ git config --global alias.lg "log --pretty=format:'%h - %an, %ar : %s' --graph"
-</pre>
+```
 
 <p>Ahora si reiniciamos el Terminal con <code>bash -l</code>, <code>exec $SHELL -l</code> o simplemente cerrando y abriendo uno. los tendremos funcionando.</p>
 
 <p>Como había dicho más arriba si realizamos una lectura del archivo <strong><em>.gitconfig</em></strong> podremos ver como está estructurado el mismo.</p>
 
-<pre>$ cat ~/.gitconfig
+```sh
+$ cat ~/.gitconfig
 [alias]
     co = checkout
     st = status
@@ -103,7 +110,7 @@ $ git config --global alias.lg "log --pretty=format:'%h - %an, %ar : %s' --graph
     default = current
 [pull]
     rebase = true
-</pre>
+```
 
 <p>De manera muy sencilla se puede entender para que funciona cada etiqueta del archivo.</p>
 
@@ -119,25 +126,28 @@ $ git config --global alias.lg "log --pretty=format:'%h - %an, %ar : %s' --graph
 
 <p>Primero para utilizar los colores que git nos proporciona por defecto debemos incluir esta opción <code>git config --global color.ui true</code>. Luego de manera específica agregar que comandos queremos "colorear".</p>
 
-<pre>$ git config --global color.ui true
+```sh
+$ git config --global color.ui true
 $ git config --global color.status auto
 $ git config --global color.log auto.
-</pre>
+```
 
 <p>A partir de este momento cuando empleemos estos comandos se representarán las modificaciones en el <em>status</em> con colores rojo y verde. Por otro lado el log tendrá algo de amarillo en los títulos.</p>
 
 <p>De los colores que nos ofrece git como el "estandar" u opción por defecto también los podemos personalizarlos de la siguiente manera:</p>
 
-<pre>$ git config color.status.changed green
+```sh
+$ git config color.status.changed green
 $ git config color.status.untracked cyan
-</pre>
+```
 
 <p>Esto cambiará el color de los archivos modificados a verde y de los archivos que git no sigue en cyan.</p>
 
 <p>Si queremos representar todo el texto con un color diferente en cualquier sección, podríamos crear un alias en conjunto con los colores, algo como:</p>
 
-<pre>$ git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an>%Creset' --abbrev-commit
-</pre>
+```sh
+$ git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+```
 
 <p>Ten en cuenta que git es altamente personalizable y más cuando mezclamos nuestros conocimientos con un poco de ayuda del internet.</p>
 

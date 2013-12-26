@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 1830
 wordpress_url: http://codehero.co/?p=1830
 date: 2013-08-01 00:09:09.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -37,7 +40,8 @@ tags:
 
 <p>Pongámonos en marcha y probemos como funciona el rebase!</p>
 
-<pre>$ git checkout master
+```sh
+$ git checkout master
 
 # Creamos una nueva rama llamada readme-branch
 $ git checkout -b readme-branch
@@ -65,11 +69,12 @@ Luego para ir a un capítulo en específico utilizamos el comando:
 
 De esta manera estamos cambiando al final del capítulo con toda la "solución"
 o texto del mismo.
-</pre>
+```
 
 <p>Consolidamos los cambios realizados y posteriormente realizamos el rebase de la rama readme-branch a la rama master de la siguiente manera:</p>
 
-<pre>$ git status
+```sh
+$ git status
 $ git add README.md
 $ git commit -m "Mejor archivo README"
 
@@ -89,11 +94,12 @@ Updating c99705e..48eb2db # en este punto esta consolidando en master.
 Fast-forward
  README.md | 13 +++++++++++--
  1 file changed, 11 insertions(+), 2 deletions(-)
-</pre>
+```
 
 <p>Pudiésemos también aplicar el rebase a una rama sin necesidad de estar ubicados en ella como por ejemplo, estando parados sobre una nueva rama llamada a-v creada a partir de master. Vamos a rebasar la rama readme-branch a master. hagamos la prueba!</p>
 
-<pre>$ git chechout -b a-v
+```sh
+$ git chechout -b a-v
 $ git rebase master readme-branch
 Switched to branch 'readme-branch' # git nos cambia a la rama readme-branch
 Current branch readme-branch is up to date. # Actualiza virtualmente master
@@ -107,13 +113,14 @@ Updating c99705e..48eb2db
 Fast-forward
  README.md | 13 +++++++++++--
  1 file changed, 11 insertions(+), 2 deletions(-)
-</pre>
+```
 
 <p>Listo ya hemos realizado un merge utilizando primero <em>rebase</em>. Recuerden que como buena práctica debemos o deberíamos eliminar las ramas que han sido unidas y por último sino quieren que sus compañeros los odien <strong>no vayan a realizar un rebase de una rama pública!</strong>.</p>
 
-<pre>$ git branch -d readme-branch
+```sh
+$ git branch -d readme-branch
 Deleted branch readme-branch (was 48eb2db).
-</pre>
+```
 
 <hr />
 
@@ -129,7 +136,8 @@ Deleted branch readme-branch (was 48eb2db).
 
 <p>Pues muy sencillo, vamos a agregar unos cambios a una nueva rama llamada <em>rama-stash</em>. Para probar como funciona, haremos <em>stash</em> de unos cambios y luego los volveremos a aplicar.</p>
 
-<pre>$ git checkout -b rama-stash
+```sh
+$ git checkout -b rama-stash
 Switched to a new branch 'rama-stash'
 
 $ nano README.md
@@ -144,17 +152,18 @@ Recuerden que para la explicación completa de este curso se pueden dirigir a
 $ git status
 # On branch rama-stash
 # Changes not staged for commit:
-#   (use "git add &lt;file>..." to update what will be committed)
-#   (use "git checkout -- &lt;file>..." to discard changes in working directory)
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
 #
 #    modified:   README.md
 #
 no changes added to commit (use "git add" and/or "git commit -a")
-</pre>
+```
 
 <p>Ahora guardaremos los cambios y posteriormente los volveremos a aplicar.</p>
 
-<pre>$ git stash
+```sh
+$ git stash
 Saved working directory and index state WIP on rama-stash: 48eb2db Mejor archivo README
 HEAD is now at 48eb2db Mejor archivo README
 
@@ -169,16 +178,17 @@ nothing to commit, working directory clean
 $ git stash list
 Saved working directory and index state WIP on rama-stash: 48eb2db Mejor archivo README
 stash@{0}: WIP on rama-stash: 48eb2db Mejor archivo README
-</pre>
+```
 
 <p>Ahora nos toca escoger si queremos reaplicar los cambios o simplemente borrarlos, cualquiera de las dos opciones es posible en este momento.</p>
 
-<pre># Para aplicar los cambios
+```sh
+# Para aplicar los cambios
 $ git stash pop
 # On branch rama-stash
 # Changes not staged for commit:
-#   (use "git add &lt;file>..." to update what will be committed)
-#   (use "git checkout -- &lt;file>..." to discard changes in working directory)
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
 #
 #    modified:   README.md
 #
@@ -187,13 +197,14 @@ Dropped refs/stash@{0} (f511b3332361558cff180717868ac208132bb2bf)
 
 # para borrarlos
 $ git stash drop
-</pre>
+```
 
 <p>Si existiera más de un stash disponible, se tiene que decir explícitamente si queremos reaplicar los cambios o borrarlos de la siguiente manera:</p>
 
-<pre>$ git stash pop stash@{0} # Para reaplicar
+```sh
+$ git stash pop stash@{0} # Para reaplicar
 $ git stash drop stash@{0} # Para borrarlos
-</pre>
+```
 
 <p>El comando stash es uno de los más utilizados cuando requerimos cambiarnos de rama para "arreglar" otro problema o simplemente requerimos un cambio de rama para realizar una prueba. Mi consejo es que siempre que puedan aplicarlo lo hagan y por favor no realicen commits con código con errores.</p>
 

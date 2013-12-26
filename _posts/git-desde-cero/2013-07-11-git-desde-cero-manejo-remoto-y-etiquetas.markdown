@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 1387
 wordpress_url: http://codehero.co/?p=1387
 date: 2013-07-11 00:38:22.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -43,7 +46,8 @@ tags:
 
 <p><strong>nota:</strong> debemos tomar en cuenta que al realizar una clonación se genera una carpeta con el nombre del proyecto y posiblemente unos archivos. Por lo que puede ser conveniente realizar un cambio de directorio a uno que se encuentre dentro del <em>HOME</em> del usuario para ahorrarnos inconvenientes.</p>
 
-<pre>$ git clone https://github.com/codeheroco/tutorial-git.git
+```sh
+$ git clone https://github.com/codeheroco/tutorial-git.git
 Cloning into 'tutorial-git'...
 remote: Counting objects: 17, done.
 remote: Compressing objects: 100% (12/12), done.
@@ -53,26 +57,28 @@ Checking connectivity... done
 
 # Cambiamos de directorio, al directorio creado.
 $ cd tutorial-git
-$ git remote     
+$ git remote
 origin
-</pre>
+```
 
 <p>Cuando utilizamos el comando <em>git remote</em> podemos observar que nos retornó <em>origin</em>, y esto no es más que un seudónimo para la dirección <em>https://github.com/codeheroco/tutorial-git.git</em> que viene siendo nuestra dirección remota de donde efectuamos la clonación. Para observar si esto es cierto de manera detallada utilizamos el siguiente comando:</p>
 
-<pre>$ git remote -v
+```sh
+$ git remote -v
 origin  https://github.com/codeheroco/tutorial-git.git (fetch)
 origin  https://github.com/codeheroco/tutorial-git.git (push)
-</pre>
+```
 
 <p>Si tuviésemos otro repositorio del mismo proyecto pero en un servidor de pruebas donde alojamos código que necesitamos ir probando, pudiésemos agregar otra dirección remota y enviarle los cambios sin afectar a <em>"origin"</em>.</p>
 
-<pre>$ git remote add servidor-de-pruebas https://github.com/albertogg/tutorial-git.git
+```sh
+$ git remote add servidor-de-pruebas https://github.com/albertogg/tutorial-git.git
 $ git remote -v
 origin  https://github.com/codeheroco/tutorial-git.git (fetch)
 origin  https://github.com/codeheroco/tutorial-git.git (push)
 servidor-de-pruebas https://github.com/albertogg/tutorial-git.git (fetch)
 servidor-de-pruebas https://github.com/albertogg/tutorial-git.git (push)
-</pre>
+```
 
 <p>Podemos observar que tenemos ambas direcciones y seudónimos para poder ir a buscar (fetch) y enviar (push) código.</p>
 
@@ -82,7 +88,9 @@ servidor-de-pruebas https://github.com/albertogg/tutorial-git.git (push)
 
 <p>Una vez que hemos conectado el repositorio remoto con el local y tenemos cambios consolidados en nuestro computador (local) que deseamos compartir, utilizamos el comando <em>git push &#91;seudónimo&#93; &#91;ramificación&#93;</em> o en nuestro caso:</p>
 
-<pre>$ git push origin master </pre>
+```sh
+$ git push origin master
+```
 
 <hr />
 
@@ -90,7 +98,8 @@ servidor-de-pruebas https://github.com/albertogg/tutorial-git.git (push)
 
 <p>El comando <em>git fetch</em> es utilizado para ir a buscar los archivos al servidor. Es decir, si estamos trabajando con varias personas en un mismo proyecto es muy probable que cuando nosotros estemos introduciendo un cambio o una funcionalidad, nuestros compañeros también estén haciendo lo mismo y a su vez enviando estos cambios a un servidor remoto. Utilizando el comando <em>fetch</em> obtenemos los cambios consolidados que se encuentren en el servidor remoto que hayan sido realizados por nuestros compañeros y los copiamos a nuestro computador. por ejemplo:</p>
 
-<pre>$ git fetch origin
+```sh
+$ git fetch origin
 
 # Descargamos los cambios de origin
 remote: Counting objects: 4, done.
@@ -99,7 +108,7 @@ remote: Total 3 (delta 0), reused 3 (delta 0)
 Unpacking objects: 100% (3/3), done.
 From github.com:codeheroco/tutorial-git
    c250a0f..0022f43  master     -> origin/master
-</pre>
+```
 
 <p>De esta manera actualizamos nuestra información local con la información que se encuentre remota. Pero no será reflejada en el <em>git log</em> hasta que la unamos con nuestro árbol de trabajo (ramificación).</p>
 
@@ -115,7 +124,8 @@ From github.com:codeheroco/tutorial-git
 
 <p>Para tener una idea de lo que realiza este comando basta con emplearlo.</p>
 
-<pre>$ git pull
+```sh
+$ git pull
 
 # Cómo previamente habíamos descargado los cambios utilizando
 # fetch obtuvimos la siguiente salida.
@@ -123,7 +133,7 @@ From github.com:codeheroco/tutorial-git
 First, rewinding head to replay your work on top of it...
 Fast-forwarded master to 0022f43897359daf973985a140a087c849b2bb0f.
 
-</pre>
+```
 
 <p>Posterior a la ejecución hemos actualizado nuestro repositorio local haciendo una copia de los cambios en el repositorio remoto y los mismos se ven reflejados inmediatamente en el <em>git log</em>.</p>
 
@@ -135,25 +145,29 @@ Fast-forwarded master to 0022f43897359daf973985a140a087c849b2bb0f.
 
 <p>En el repositorio remoto de Codehero venimos utilizando <em>tags</em> desde el inicio; esperando a este capítulo para enseñaros. su funcionalidad.</p>
 
-<pre>$ git tag
+```sh
+$ git tag
 
 # mostramos los tags creados, sólo si existen.
 Capitulo-1
 Capitulo-2
 Capitulo-3
-</pre>
+```
 
 <p>Para crear un tag basta con utilizar el siguiente comando:</p>
 
-<pre>$ git tag "Capitulo-4" </pre>
+```sh
+$ git tag "Capitulo-4"
+```
 
 <p>Sí queremos ver la información de este último tag podríamos emplear el siguiente comando:</p>
 
-<pre>$ git show Capitulo-4
+```sh
+$ git show Capitulo-4
 
 #obteniendo la siguen salida
 commit 0022f43897359daf973985a140a087c849b2bb0f
-Author: Jonathan Wiesel &lt;jonathanwiesel@gmail.com>
+Author: Jonathan Wiesel <jonathanwiesel@gmail.com>
 Date:   Wed Jul 10 19:48:51 2013 -0430
 
     jonathan's file added
@@ -164,18 +178,19 @@ index 0000000..876f92f
 --- /dev/null
 +++ b/hola,_soy_jonathan.md
 @@ -0,0 +1,2 @@
-+##Hola, soy Jonathan. 
++##Hola, soy Jonathan.
 +##Estoy ayudando a Alberto
 \ No newline at end of file
-</pre>
+```
 
 <p>Una vez que hayamos creado nuevos tags y queramos compartirlos con el repositorio remoto sólo debemos emplear el comando <em>pull</em> con la bandera <em>--tags</em> de la siguiente manera:</p>
 
-<pre>$ git push origin master --tags
+```sh
+$ git push origin master --tags
 Total 0 (delta 0), reused 0 (delta 0)
 To git@github.com:codeheroco/tutorial-git.git
  * [new tag]         Capitulo-4 -> Capitulo-4
-</pre>
+```
 
 <hr />
 

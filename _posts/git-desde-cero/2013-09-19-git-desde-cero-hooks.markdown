@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2275
 wordpress_url: http://codehero.co/?p=2275
 date: 2013-09-19 00:02:03.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -61,7 +64,8 @@ tags:
 
 <p>Entremos primero en la carpeta para observar cuales son los ganchos que por defecto que vienen con la creación del repositorio git.</p>
 
-<pre>$ cd .git/hooks
+```sh
+$ cd .git/hooks
 $ ls -la
 total 40
 drwxr-xr-x 11 albertogg  374 Sep 18 14:27 .
@@ -75,22 +79,25 @@ drwxr-xr-x 15 albertogg  510 Sep 18 14:27 ..
 -rwxr-xr-x  1 albertogg 4951 Jun 26 23:08 pre-rebase.sample
 -rwxr-xr-x  1 albertogg 1239 Jun 26 23:08 prepare-commit-msg.sample
 -rwxr-xr-x  1 albertogg 3611 Jun 26 23:08 update.sample
-</pre>
+```
 
 <p>Vamos a utilizar en este caso el "pre-commit hook". Debemos renombrar los archivos y quitarles la terminación ".sample" para que git los reconozca normalmente.</p>
 
-<pre>$ mv pre-commit.sample pre-commit</pre>
+```sh
+$ mv pre-commit.sample pre-commit
+```
 
 <p>Ahora voy a agregar unos espacios en blanco a cualquier línea dentro de uno de los archivos del repositorio y luego a intentar realizar un "commit" para que observen lo que sucede.</p>
 
-<pre>$ nano Archivo2_cambio_de_nombre.txt # agrego unos espacios en blanco al final de la segunda línea.
+```sh
+$ nano Archivo2_cambio_de_nombre.txt # agrego unos espacios en blanco al final de la segunda línea.
 
 # intento realizar un "commit" y esto es lo que ocurre.
 
 $ git commit -am "Prueba de hook"
 Archivo2_cambio_de_nombre.txt:2: trailing whitespace.
 +Agregando una segunda linea
-</pre>
+```
 
 <p>Se canceló el "commit" ya que no pasó la prueba que realiza el "pre-commit hook". A partir de este momento debemos corregir y volver a realizar el "commit" para observar si hemos solventado todos los problemas existentes, de ser así se realizará el "commit" normalmente y sin espacios en blanco.</p>
 

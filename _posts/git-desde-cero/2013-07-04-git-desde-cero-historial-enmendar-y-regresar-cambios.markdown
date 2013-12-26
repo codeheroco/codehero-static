@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 1295
 wordpress_url: http://codehero.co/?p=1295
 date: 2013-07-04 01:12:52.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -42,57 +45,60 @@ tags:
 
 <p>Basándonos en lo aprendido en el curso número 2 <a href="codehero.co/git-desde-cero-registrando-cambios/">Git desde cero: Registrando Cambios</a> vamos a realizar una clonación de nuestro repositorio (si es que no lo hemos hecho antes).</p>
 
-<pre>$ cd ~/CodeHero/ # Creamos la carpeta sino existe (mkdir).
+```sh
+$ cd ~/CodeHero/ # Creamos la carpeta sino existe (mkdir).
 $ git clone https://github.com/codeheroco/tutorial-git.git # Clonación del repositorio.
-</pre>
+```
 
 <p>Una vez que nos haya concluido la clonación del repositorio <a href="https://github.com/codeheroco/tutorial-git">remoto</a> procederemos a utilizar el comando <em>git log</em> para observar el historial de cambios.</p>
 
-<pre>$ git log
+```sh
+$ git log
 
 # observamos la siguiente salida
 
 commit 5a135147bbf82384a57f5c264ab2788251fdeaca
-Author: albertogg &lt;albertogrespan@gmail.com>
+Author: albertogg <albertogrespan@gmail.com>
 Date:   Thu Jun 27 00:38:00 2013 -0430
 
     Cambio de nombre del archivo 2
 
 commit 0f8a083e6d8103a380d9f0bf3b9f9e27232525fe
-Author: albertogg &lt;albertogrespan@gmail.com>
+Author: albertogg <albertogrespan@gmail.com>
 Date:   Thu Jun 27 00:31:02 2013 -0430
 
     Eliminar el Archivo1
 
 commit 2e37d7ffccea8b53cf4095f7adc2701a13d1d39c
-Author: albertogg &lt;albertogrespan@gmail.com>
+Author: albertogg <albertogrespan@gmail.com>
 Date:   Thu Jun 27 00:13:52 2013 -0430
 
     Modificaciones sobre el Archivo2
 
 commit 9322f84de544f059a014cdd9d2a196917a290ef6
-Author: albertogg &lt;albertogrespan@gmail.com>
+Author: albertogg <albertogrespan@gmail.com>
 Date:   Thu Jun 27 00:02:49 2013 -0430
 
     Agregar Archivo2
 
 commit 1b80a9119abaf37e68d6beb1919fdb109e16da29
-Author: albertogg &lt;albertogrespan@gmail.com>
+Author: albertogg <albertogrespan@gmail.com>
 Date:   Wed Jun 26 23:09:55 2013 -0430
 
     Commit Inicial
-</pre>
+```
 
 <p>Si hacemos memoria o nos vamos a los dos (2) cursos anteriores podemos observar que ésta fue la información consolidada en su desarrollo.</p>
 
 <p>Esta es una manera algo complicada de apreciar ciertos cambios y no nos enseña los cambios que realizamos sobre los archivos. De necesitar ver un nivel de detalle mayor se puede utilizar el siguiente comando, el cual es un resumén de lo ocurrido en ese cambio:</p>
 
-<pre>$ git log --stat
+```sh
+$ git log --stat
 
 # observamos la salida (se encuentra reducida a lo último que se consolido)
 
 commit 5a135147bbf82384a57f5c264ab2788251fdeaca
-Author: albertogg &lt;albertogrespan@gmail.com>
+Author: albertogg <albertogrespan@gmail.com>
 Date:   Thu Jun 27 00:38:00 2013 -0430
 
     Cambio de nombre del archivo 2
@@ -100,16 +106,17 @@ Date:   Thu Jun 27 00:38:00 2013 -0430
  Archivo2.txt                  | 2 --
  Archivo2_cambio_de_nombre.txt | 2 ++
  2 files changed, 2 insertions(+), 2 deletions(-)
-</pre>
+```
 
 <p>De requerir ver un nivel de detalle todavía mayor como por ejemplo: mostrar las líneas donde ocurrieron los cambios (diferencias) utilizamos el siguiente comando:</p>
 
 <p><strong>nota:</strong> la bandera <em>-1</em> se utiliza para observar únicamente lo último que fue consolidado.</p>
 
-<pre>$ git log -p -1
+```sh
+$ git log -p -1
 
 commit 5a135147bbf82384a57f5c264ab2788251fdeaca
-Author: albertogg &lt;albertogrespan@gmail.com>
+Author: albertogg <albertogrespan@gmail.com>
 Date:   Thu Jun 27 00:38:00 2013 -0430
 
     Cambio de nombre del archivo 2
@@ -121,7 +128,7 @@ index 4564504..0000000
 +++ /dev/null
 @@ -1,2 +0,0 @@
 -Cambiando la primera línea # Se eliminaron estas líneas.
--Agregando una segunda línea 
+-Agregando una segunda línea
 diff --git a/Archivo2_cambio_de_nombre.txt b/Archivo2_cambio_de_nombre.txt
 new file mode 100644
 index 0000000..4564504
@@ -130,20 +137,21 @@ index 0000000..4564504
 @@ -0,0 +1,2 @@
 +Cambiando la primera línea # Se agregaron estas líneas.
 +Agregando una segunda línea
-</pre>
+```
 
 <p>Podemos ver que al hacer cambio de nombre del archivo los cambios se marcan como si se hubiese eliminado el primer archivo y se creó otro, etiquetando la información sobre el <em>Archivo2.txt</em> como eliminada o borrada y la del <em>Archivo2_cambio_de_nombre.txt</em> como agregada, siendo esta la misma.</p>
 
 <p>Por último si lo que queremos es visualizar en el historial de modificaciones en forma gráfica para observar el orden en el que se han almacenado los cambios podemos utilizar un método que abrevia de manera cuantiosa el historial.</p>
 
-<pre>$ git log --pretty=format:"%h - %an - %ar - %s" --graph
+```sh
+$ git log --pretty=format:"%h - %an - %ar - %s" --graph
 
 * 5a13514 - albertogg - 7 days ago - Cambio de nombre del archivo 2
 * 0f8a083 - albertogg - 7 days ago - Eliminar el Archivo1
 * 2e37d7f - albertogg - 7 days ago - Modificaciones sobre el Archivo2
 * 9322f84 - albertogg - 7 days ago - Agregar Archivo2
 * 1b80a91 - albertogg - 7 days ago - Commit Inicial
-</pre>
+```
 
 <p>Describiendo la siguiente salida apreciamos lo siguiente los * asteriscos son la representación gráfica de cada cambio almacenado (commit), luego tenemos el número de serial (hash) resumido, el autor, el tiempo cuando se realizó y el título del mensaje "breve".</p>
 
@@ -157,8 +165,9 @@ index 0000000..4564504
 
 <p>Vamos a realizar una serie de cambios, los consolidaremos y agregaremos otro cambio posteriormente.</p>
 
-<pre>$ touch README.md
-$ echo '# Repositorio git para el curso Git desde cero' >> README.md 
+```sh
+$ touch README.md
+$ echo '# Repositorio git para el curso Git desde cero' >> README.md
 $ git status # omitimos la salida
 $ git add README.md
 $ git commit -m "Agregar archivo README.md"
@@ -172,7 +181,7 @@ $ git add Archivo2_cambio_de_nombre.txt
 
 $ git commit --amend --no-edit # Dejamos el mismo mensaje
 $ git commit --amend -m "Nuevo mensaje para el cambio"
-</pre>
+```
 
 <p><strong>nota:</strong> Es sumamente importante que si los cambios fueron consolidados y enviados al servidor remoto <em>NO</em> se utilice este comando; ya que se modifica el número de serial único de los cambios hechos y vamos a tener un conflicto difícil de resolver.</p>
 
@@ -184,7 +193,8 @@ $ git commit --amend -m "Nuevo mensaje para el cambio"
 
 <p>Si escribimos <em>git status</em> este comando nos recordará del comando <em>reset</em> en todo momento. Hagamos la prueba modifiquemos nuestro archivo README.</p>
 
-<pre>$ echo 'Un curso exclusivo de codehero basado en el libro Pro Git' >> README.md 
+```sh
+$ echo 'Un curso exclusivo de codehero basado en el libro Pro Git' >> README.md
 $ git add README.md
 $ git status
 # On branch master
@@ -192,17 +202,17 @@ $ git status
 #   (use "git push" to publish your local commits)
 #
 # Changes to be committed:
-#   (use "git reset HEAD &lt;file>..." to unstage) # Para bajar del escenario
+#   (use "git reset HEAD <file>..." to unstage) # Para bajar del escenario
 #
 #   modified:   README.md
 #
 
 # vamos a bajarlo del escenario, porque no queremos este cambio aún.
 
-$ git reset HEAD README.md 
+$ git reset HEAD README.md
 Unstaged changes after reset:
 M   README.md
-</pre>
+```
 
 <p>La salida del comando anterior nos indica lo siguiente: el archivo se encuentra fuera del escenario y presenta modificaciones.</p>
 
@@ -212,7 +222,8 @@ M   README.md
 
 <p>¿Qué pasara si ahora nos arrepintiéramos de esa última modificación y la quisiéramos eliminar? Pues es muy fácil utilizando <em>git checkout</em> lo devolveremos a su ultimo estado solo basta con emplear el siguiente comando:</p>
 
-<pre>$ git checkout -- README.md
+```sh
+$ git checkout -- README.md
 
 # si ahora revisamos el status veremos que no existe modificación alguna.
 
@@ -222,7 +233,7 @@ $ git status
 #   (use "git push" to publish your local commits)
 #
 nothing to commit, working directory clean
-</pre>
+```
 
 <p><strong>nota:</strong> el comando <em>status</em> también nos recuerda como descartar los cambios en todo momento. El comando <em>checkout</em> no es utilizado únicamente para esto.</p>
 

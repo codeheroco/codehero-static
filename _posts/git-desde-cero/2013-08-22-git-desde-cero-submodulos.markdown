@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2063
 wordpress_url: http://codehero.co/?p=2063
 date: 2013-08-22 00:02:33.000000000 -04:30
+series:
+  nombre: Git desde Cero
+  thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git
@@ -40,7 +43,8 @@ tags:
 
 <p>Empecemos por agregar el submódulo, en este caso será el de <a href="https://github.com/codeheroco/chef">chef</a>. Lo primero que debemos hacer es ir y buscar el URL del repositorio en git.</p>
 
-<pre>$ git submodule add https://github.com/codeheroco/chef.git chef-submodule
+```sh
+$ git submodule add https://github.com/codeheroco/chef.git chef-submodule
 Cloning into 'chef-submodule'...
 remote: Counting objects: 335, done.
 remote: Compressing objects: 100% (190/190), done.
@@ -48,33 +52,36 @@ remote: Total 335 (delta 77), reused 332 (delta 77)
 Receiving objects: 100% (335/335), 267.46 KiB | 72.00 KiB/s, done.
 Resolving deltas: 100% (77/77), done.
 Checking connectivity... done
-</pre>
+```
 
 <p>Con el comando anterior hemos realizado lo siguiente. Creamos un submódulo llamado <strong>chef-submodule</strong> el cual viene siendo una carpeta más dentro de nuestro proyecto y descargamos todo el contenido del repositorio <a href="https://github.com/codeheroco/chef">chef</a> dentro de ella. Si ahora miramos el <code>git status</code> del repositorio principal observamos lo siguiente.</p>
 
-<pre>$ git status
+```sh
+$ git status
 # On branch master
 # Changes to be committed:
-#   (use "git reset HEAD &lt;file>..." to unstage)
+#   (use "git reset HEAD <file>..." to unstage)
 #
 #   new file:   .gitmodules
 #   new file:   chef-submodule
 #
-</pre>
+```
 
 <p>Se creó un archivo oculto llamado .gitmodules el cual tiene la información necesaria sobre él o los submódulos que queramos tener en nuestro proyecto.</p>
 
-<pre>$ cat .gitmodules
+```sh
+$ cat .gitmodules
 [submodule "chef-submodule"]
     path = chef-submodule
     url = https://github.com/codeheroco/chef.git
-</pre>
+```
 
 <p>Es importante que este archivo suba al control de versiones y <strong><em>no</em></strong> se agregue en ningún momento al archivo <em>.gitignore</em>.</p>
 
 <p>Si ahora realizamos un <code>git diff --cached</code> sobre nuestro submódulo podemos ver que aunque <em>chef-submodule</em> es una subcarpeta con un repositorio interno independiente de nuestro proyecto, git identifica que se realizaron cambios dentro de la misma, lo que nos indica que se debe realizar un <code>git commit</code> para respaldar el nuevo estado del proyecto principal.</p>
 
-<pre>$ git diff --cached chef-submodule
+```sh
+$ git diff --cached chef-submodule
 diff --git a/chef-submodule b/chef-submodule
 new file mode 160000
 index 0000000..57532b1
@@ -83,18 +90,19 @@ index 0000000..57532b1
 @@ -0,0 +1 @@
 +Subproject commit 57532b1d0888246b38c94ba2c70861548257cd6f
 (END)
-</pre>
+```
 
 <p>Si observamos detenidamente el diff, vemos que el cambio que git detecta es simplemente un cambio en el <strong><em>HEAD</em></strong> del submódulo, es decir que el hash del último <em>commit</em> cambió.</p>
 
 <p>Realicemos el commit del proyecto con el submódulo.</p>
 
-<pre>$ git commit -m "Primer commit con un submódulo"
+```sh
+$ git commit -m "Primer commit con un submódulo"
 [master 2614422] Primer commit con un submódulo
  2 files changed, 4 insertions(+)
  create mode 100644 .gitmodules
  create mode 160000 chef-submodule
-</pre>
+```
 
 <p>De manera efectiva hemos guardado nuestro proyecto en un repositorio git en conjunto con el submódulo.</p>
 
@@ -113,7 +121,8 @@ index 0000000..57532b1
 
 <p>Realicemos la demostración:</p>
 
-<pre>$ git clone https://github.com/codeheroco/tutorial-git.git
+```sh
+$ git clone https://github.com/codeheroco/tutorial-git.git
 Cloning into 'tutorial-git'...
 remote: Counting objects: 49, done.
 remote: Compressing objects: 100% (31/31), done.
@@ -141,7 +150,7 @@ Receiving objects: 100% (335/335), 267.46 KiB | 67.00 KiB/s, done.
 Resolving deltas: 100% (77/77), done.
 Checking connectivity... done
 Submodule path 'chef-submodule': checked out '57532b1d0888246b38c94ba2c70861548257cd6f'
-</pre>
+```
 
 <p>De la misma manera que actualizamos el submódulo aquí, para descargar la información que contiene dicho submódulo, se realiza cuando se requiere actualizar en caso de que alguien haya introducido alguna modificación. Ésta actualización viene siendo lo mismo que hacer <code>git pull --rebase</code> en el repositorio principal.</p>
 
@@ -151,10 +160,11 @@ Submodule path 'chef-submodule': checked out '57532b1d0888246b38c94ba2c708615482
 
 <p>Uno de los principales errores que se cometen al utilizar submódulos es cuando uno de los desarrolladores introduce cambios locales en el código de alguno de los submódulos, realiza su <em>commit</em>, y lo confirma en el repositorio principal, hace <em>push</em> del repositorio principal pero no del submódulo. Entonces cuando alguien quiere realizar un <code>git submodule update</code> el <em>commit</em> que se encuentra en la cabecera no corresponde con el que dice la información del proyecto ocurriendo un error "incorregible" hasta que no se actualice el submódulo por la persona correcta.</p>
 
-<pre>$ git submodule update
+```sh
+$ git submodule update
 fatal: reference isn’t a tree: 57532b1d0888246b38c94ba2c70861548257cd6f
 Unable to checkout '57532b1d0888246b38c94ba2c70861548257cd6f' in submodule path 'chef-submodule'
-</pre>
+```
 
 <p>Por esta razón hay que tener cuidado cuando uno utiliza submódulos, por un pequeño olvido nos puede causar una tarde amarga.</p>
 
