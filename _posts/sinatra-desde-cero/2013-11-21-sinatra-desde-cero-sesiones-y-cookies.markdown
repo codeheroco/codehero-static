@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2653
 wordpress_url: http://codehero.co/?p=2653
 date: 2013-11-21 01:21:34.000000000 -04:30
+series:
+  nombre: Sinatra desde Cero
+  thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Cursos
 - Sinatra
@@ -46,25 +49,26 @@ tags:
 
 <p>El bloque de configuración de Sinatra nos permite personalizar el funcionamiento de nuestra aplicación; el mismo puede ser usado basado en ambientes (desarrollo, pruebas, producción).</p>
 
-<pre>require 'sinatra'
-  
-configure do 
+```ruby
+require 'sinatra'
+
+configure do
   enable :sessions
 end
 
-before do 
+before do
   content_type :txt
 end
 
 get '/set' do
-  session[:foo] = Time.now 
+  session[:foo] = Time.now
   "Estableciendo la sesión."
 end
 
 get '/fetch' do
   "El valor de la sesión es: #{session[:foo]}"
 end
-</pre>
+```
 
 <p>Sinatra automáticamente crea una llave de seguridad para codificar y descodificar las sesiones de manera segura de todas maneras aunque Sinatra cree automáticamente las llaves de seguridad es mucho mejor que nosotros creemos y agreguemos esta llave de manera manual.</p>
 
@@ -72,18 +76,19 @@ end
 
 <p>Destruir una sesión es más fácil que crearla, y solo basta con llamar a <code>session.clear</code> dentro de una de nuestras rutas.</p>
 
-<pre>require 'sinatra'
-  
-configure do 
+```ruby
+require 'sinatra'
+
+configure do
   enable :sessions
 end
 
-before do 
+before do
   content_type :txt
 end
 
 get '/set' do
-  session[:foo] = Time.now 
+  session[:foo] = Time.now
   "Estableciendo la sesión."
 end
 
@@ -95,7 +100,7 @@ get '/logout' do
   session.clear
   redirect '/fetch'
 end
-</pre>
+```
 
 <p>De la misma manera como lo explicamos en el párrafo anterior dentro de la ruta <code>/logout</code> destruimos la sesión y posterior a esto redirecionamos al usuario hacia la ruta <code>/fetch</code> para comprobar que no existe un valor de la variable sesión.</p>
 
@@ -103,7 +108,8 @@ end
 
 <p>Indirectamente hemos explicado que son cookies y hemos dicho que van en el lado del cliente. Pero… ¿Qué son realmente los cookies? Los cookies son pequeños fragmentos de metadata que se almacenan del lado del usuario y esencialmente existen dos tipos de cookies <em>de sesión</em> y <em>persistentes</em> la diferencia entre ambos es sencilla. Los cookies de sesión expiran cuando el usuario cierra su navegador o destruye la sesión haciendo un logout de la misma. Los cookies persistentes simplemente tienen una fecha de caducidad.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/' do
   response.set_cookie "foo", "bar"
@@ -114,11 +120,11 @@ get '/read' do
   "El valor del cookie es: #{request.cookies['foo']}."
 end
 
-get '/delete' do 
+get '/delete' do
   response.delete_cookie "foo"
   "El cookie ha sido eliminado."
 end
-</pre>
+```
 
 <hr />
 

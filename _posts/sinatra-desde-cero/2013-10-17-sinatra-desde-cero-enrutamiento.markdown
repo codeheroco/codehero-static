@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 2409
 wordpress_url: http://codehero.co/?p=2409
 date: 2013-10-17 00:11:44.000000000 -04:30
+series:
+  nombre: Sinatra desde Cero
+  thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Cursos
 tags:
@@ -67,7 +70,8 @@ tags:
 
 <p>Si se recuerdan del capítulo anterior, en la última parte hicimos una pequeña aplicación que respondía a una petición de tipo GET y escribía "Hola, mundo!". Ahora vamos a mostrar como responde Sinatra a los diferentes verbos HTTP.</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 get '/' do
   "Hola, mundo!"
@@ -92,15 +96,16 @@ end
 options '/' do
   "Hola, mundo! desde un OPTIONS"
 end
-</pre>
+```
 
 <p>Si probamos la petición GET y POST utilizando el comando <code>cURL</code> podemos ver como responden las diferentes rutas de nuestra pequeña aplicación.</p>
 
-<pre>$ curl -X POST localhost:4567
-Hola, mundo! desde un POST%                                                                                                 
+```sh
+$ curl -X POST localhost:4567
+Hola, mundo! desde un POST%
 $ curl -X GET localhost:4567
 Hola, mundo!%
-</pre>
+```
 
 <p>De la misma manera funcionan el resto de los recursos cuando le pasamos el tipo de verbo que queremos usar!</p>
 
@@ -112,7 +117,8 @@ Hola, mundo!%
 
 <p>En el archivo <code>server.rb</code></p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 ['/uno', '/dos'].each do |route|
   get route do
@@ -123,19 +129,20 @@ Hola, mundo!%
     "Triggered #{route} via POST"
   end
 end
-</pre>
+```
 
 <p>si probamos con cURL</p>
 
-<pre>% curl --request POST localhost:4567/uno
-Triggered /uno via POST%                                                                                                
+```sh
+% curl --request POST localhost:4567/uno
+Triggered /uno via POST%
 % curl --request POST localhost:4567/dos
-Triggered /dos via POST%                                                                                                
+Triggered /dos via POST%
 % curl --request GET localhost:4567/uno
-Hola desde /uno via GET%                                                                                                
+Hola desde /uno via GET%
 % curl --request GET localhost:4567/dos
 Hola desde /dos via GET%
-</pre>
+```
 
 <p>Por lo que podemos observar si dos URL son relativamente similares podemos realizar algo similar. Esto es muy útil para realizar los famosos CRUD ya que necesitamos varias peticiones similares que respondan tanto a GET como a POSTS.</p>
 
