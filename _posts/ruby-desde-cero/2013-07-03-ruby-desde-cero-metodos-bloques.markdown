@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1265
 wordpress_url: http://codehero.co/?p=1265
 date: 2013-07-03 00:00:02.000000000 -04:30
+series:
+  nombre: Ruby desde Cero
+  thumbnail: http://i.imgur.com/lBeuRS1.png
 categories:
 - Cursos
 - Ruby
@@ -33,36 +36,38 @@ tags:
 
 <p>Primero antes de empezar con los ejemplos conoceremos la sintaxis de los métodos:</p>
 
-<pre>def nombre_del_metodo
-   codigo...
+```ruby
+def nombre_del_metodo
+  codigo...
 end
-</pre>
+```
 
 <p>A continuación ejemplo de métodos sencillos para familiarizarnos con la sintaxis:</p>
 
-<pre>def bienvenido                      #imprime saludo de bienvenida
-    puts "Hola CodeHero"
+```ruby
+def bienvenido                      #imprime saludo de bienvenida
+  puts "Hola CodeHero"
 end
 
 def sumatoria                       #método que imprime una suma entre dos números
-    puts 2 + 3
+  puts 2 + 3
 end
 
 def es_verdadero?                   #método que imprime una variable Booleana
-    valor = 3
-    if valor>5
-        puts "verdadero"
-    else
-        puts "falso"
-    end
+  valor = 3
+  if valor>5
+    puts "verdadero"
+  else
+    puts "falso"
+  end
 end
 
 def palabra_mas_larga               #Imprime la palabra mas larga de un arreglo
-    frutas = ["fresa", "pera", "manzana","kiwi"]
-    palabra_larga = frutas.inject do |fruta1, fruta2|
-        fruta1.length > fruta2.length ? fruta1 : fruta2
-    end
-    puts palabra_larga
+  frutas = ["fresa", "pera", "manzana","kiwi"]
+  palabra_larga = frutas.inject do |fruta1, fruta2|
+    fruta1.length > fruta2.length ? fruta1 : fruta2
+  end
+  puts palabra_larga
 end
 
 #Llamadas a los métodos:
@@ -70,15 +75,16 @@ bienvenido
 sumatoria
 es_verdadero?
 palabra_mas_larga
-</pre>
+```
 
 <p>En el ejemplo vimos como se declaran 5 métodos con procedimientos diferentes y las llamadas a ellos una vez declarados los métodos. dando como resultado lo siguiente:</p>
 
-<pre>Hola CodeHero   #llamada a bienvenido
+```ruby
+Hola CodeHero   #llamada a bienvenido
 5               #llamada a sumatoria
 falso           #llamada es_verdadero?
 manzana         #llamada a palabra_mas_larga
-</pre>
+```
 
 <hr />
 
@@ -88,41 +94,44 @@ manzana         #llamada a palabra_mas_larga
 
 <p>La sintaxis de estos métodos es exactamente igual con la única diferencia que se declaran las variables que reciben a continuación del nombre entre paréntesis (()) y separados por coma de la siguiente manera:</p>
 
-<pre>def nombre_del_metodo (variable1,variable2, . . .)
-   codigo...
+```ruby
+def nombre_del_metodo (variable1,variable2, . . .)
+  codigo...
 end
-</pre>
+```
 
-<p>o</p>
+<p>Ó</p>
 
-<pre>def nombre_del_metodo (variable1 = valor1,variable2 = valor2, . . .)
-   codigo...
+```ruby
+def nombre_del_metodo (variable1 = valor1,variable2 = valor2, . . .)
+  codigo...
 end
-</pre>
+```
 
 <p>Para la demostración modificaremos un poco el ejemplo anterior, agregándole argumentos a alguno de los métodos de la siguiente manera:</p>
 
-<pre>def bienvenido (nombre)                 #imprime saludo de bienvenida
-    puts "Hola #{nombre}"
+```ruby
+def bienvenido (nombre)                 #imprime saludo de bienvenida
+  puts "Hola #{nombre}"
 end
 
 def sumatoria (valor1,valor2 = 3)       #método que imprime una suma entre dos números
-    puts valor1 + valor2
+  puts valor1 + valor2
 end
 
 def es_verdadero? (valor)               #método que imprime una variable Booleana
-    if valor>5
-        puts "verdadero"
-    else
-        puts "falso"
-    end
+  if valor>5
+    puts "verdadero"
+  else
+    puts "falso"
+  end
 end
 
 def palabra_mas_larga (frutas)          #Imprime la palabra mas larga de un arreglo
-    palabra_larga = frutas.inject do |fruta1, fruta2|
-        fruta1.length > fruta2.length ? fruta1 : fruta2
-    end
-    puts palabra_larga
+  palabra_larga = frutas.inject do |fruta1, fruta2|
+    fruta1.length > fruta2.length ? fruta1 : fruta2
+  end
+  puts palabra_larga
 end
 
 #Llamadas a los métodos:
@@ -136,18 +145,19 @@ es_verdadero? (6)
 es_verdadero? (2)
 
 palabra_mas_larga (["banana", "naranja", "cereza","durazno"])
-</pre>
+```
 
 <p>Arrojando como resultado de las llamada a lo largo del código lo siguiente:</p>
 
-<pre>Hola Ricardo
+```ruby
+Hola Ricardo
 Hola CodeHero
 7
 10
 verdadero
 falso
 durazno
-</pre>
+```
 
 <hr />
 
@@ -155,38 +165,38 @@ durazno
 
 <p>Las funciones en Ruby son exactamente iguales que los métodos lo único que estas retornan un objeto. La sintaxis de estos tipos de métodos es la siguiente:</p>
 
-<pre>def nombre_del_metodo (variable1,variable2, . . .)
-   
-   codigo...
-   
-   return valor
+```ruby
+def nombre_del_metodo (variable1,variable2, . . .)
+  codigo...
+  return valor
 end
-</pre>
+```
 
 <p>Al igual que los métodos anteriores modificaremos un poco la estructura del ejemplo para que apliquen las funciones y para aumentar la complejidad y utilizar conceptos estudiados anteriormente. Para este caso vamos a usar variables de instancia:</p>
 
-<pre>@frutas = ["banana", "naranja", "cereza","pera"]
+```ruby
+@frutas = ["banana", "naranja", "cereza","pera"]
 def bienvenido (nombre)                 #imprime saludo de bienvenida
-    return "Hola #{nombre}"
+  return "Hola #{nombre}"
 end
 
 def sumatoria (valor1,valor2 = 3)       #método que imprime una suma entre dos números
-    return valor1 + valor2
+  return valor1 + valor2
 end
 
 def es_verdadero? (valor)               #método que imprime una variable Booleana
-    if valor>5
-        return "verdadero"
-    else
-        return "falso"
-    end
+  if valor>5
+    return "verdadero"
+  else
+    return "falso"
+  end
 end
 
 def palabra_mas_larga                   #Imprime la palabra mas larga de un arreglo
-    palabra_larga = @frutas.inject do |fruta1, fruta2|
-        fruta1.length > fruta2.length ? fruta1 : fruta2
-    end
-    puts palabra_larga
+  palabra_larga = @frutas.inject do |fruta1, fruta2|
+    fruta1.length > fruta2.length ? fruta1 : fruta2
+  end
+  puts palabra_larga
 end
 
 #Llamadas a los métodos:
@@ -208,19 +218,20 @@ puts "resultado de es_verdadero?(2): " +respuesta
 palabra_mas_larga
 @frutas = @frutas + ["pina","patilla","mandarinas"]  #altera la variable de instancia
 palabra_mas_larga
-</pre>
+```
 
 <p>En el código se puede ver como algunos métodos retornan un resultado que posteriormente es alterado e impreso:</p>
 
-<pre>resultado de bienvenido("Ricardo"): Hola Ricardo
+```ruby
+resultado de bienvenido("Ricardo"): Hola Ricardo
 resultado de bienvenido("CodeHero"): Hola CodeHero
 resultado de sumatoria(4): 7
 resultado de sumatoria(7): 10
 resultado de es_verdadero?(6): verdadero
 resultado de es_verdadero?(2): falso
-naranja 
+naranja
 mandarinas
-</pre>
+```
 
 <p>En el ejemplo se puede observar cómo funcionan las variables de instancias antes definidas en otros capítulos de la serie, pero nunca demostradas hasta este momento. La variables están definidas fuera de los métodos internos y tiene como peculiaridad la posibilidad de alterarlas desde cualquier lugar con acceso a ella.</p>
 
@@ -232,52 +243,56 @@ mandarinas
 
 <p>La sintaxis de estas atractivas funciones es la siguiente:</p>
 
-<pre>nombre_del_bloque{
-   código …
+```ruby
+nombre_del_bloque {
+  código …
 }
-</pre>
+```
 
 <p>En el siguiente ejemplo ejecutaremos un programa sencillo para familiarizarnos con la sintaxis y entender un poco mejor estas complejas características del lenguaje:</p>
 
-<pre>def bienvenido (nombre)                 #imprime saludo de bienvenida
-    puts "Hola #{nombre}"
-    yield
+```ruby
+def bienvenido (nombre)                 #imprime saludo de bienvenida
+  puts "Hola #{nombre}"
+  yield
 end
-
 
 #Llamadas a los métodos:
 bienvenido ("Ricardo") { puts "CodeHero. Cursos en el mejor idioma: CASTELLANO"}
 bienvenido ("CodeHero") { puts "CodeHero. Cursos en el mejor idioma: CASTELLANO"}
-</pre>
+```
 
 <p>En el ejemplo se puede ver como se llama un método enviándole un bloque de código a ejecutar, cabe destacar que <em>yield</em> hace ejecutar el código del bloque dentro del método arrojando como resultado lo siguiente:</p>
 
-<pre>Hola Ricardo
+```ruby
+Hola Ricardo
 CodeHero. Cursos en el mejor idioma: CASTELLANO
 Hola CodeHero
 CodeHero. Cursos en el mejor idioma: CASTELLANO
-</pre>
+```
 
 <p>En el siguiente ejemplo demostraremos cómo los bloques también tienen argumentos y la manera de consultar si existe un bloque a ejecutar:</p>
 
-<pre>def bienvenido (nombre)  
-    puts "Hola #{nombre}"       #imprime saludo de bienvenida
-    if block_given?
-       yield('CASTELLANO')      
-    end               
-    
+```ruby
+def bienvenido (nombre)
+  puts "Hola #{nombre}"       #imprime saludo de bienvenida
+  if block_given?
+    yield('CASTELLANO')
+  end
 end
+
 #Llamadas a los métodos:
-bienvenido ("Ricardo") {  |idioma| puts "CodeHero Cursos en el mejor idioma: "+  idioma}
-bienvenido ("CodeHero") 
-</pre>
+bienvenido ("Ricardo") {  |idioma| puts "CodeHero Cursos en el mejor idioma: " + idioma}
+bienvenido ("CodeHero")
+```
 
 <p>En el código se puede ver como se evitan excepciones de código al preguntar si existe un bloque a ejecutar y como pasarle los argumentos a un bloque de código:</p>
 
-<pre>Hola Ricardo
+```ruby
+Hola Ricardo
 CodeHero Cursos en el mejor idioma: CASTELLANO
 Hola CodeHero
-</pre>
+```
 
 <hr />
 

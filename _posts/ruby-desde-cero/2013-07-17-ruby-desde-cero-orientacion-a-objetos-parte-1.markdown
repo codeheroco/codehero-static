@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1460
 wordpress_url: http://codehero.co/?p=1460
 date: 2013-07-17 00:01:30.000000000 -04:30
+series:
+  nombre: Ruby desde Cero
+  thumbnail: http://i.imgur.com/lBeuRS1.png
 categories:
 - Cursos
 - Ruby
@@ -34,26 +37,23 @@ tags:
 
 <p>Un ejemplo de como se definiría la clase vehículo en Ruby es la siguiente:</p>
 
-<pre>Class Vehiculo
-{
-   @numero_de_ruedas
-   @caballos_de_fuerza
-   @tipo_de_tanque
-   @capacidad
-   
-   def exceso_velocidad
+```ruby
+class Vehiculo
+  @numero_de_ruedas
+  @caballos_de_fuerza
+  @tipo_de_tanque
+  @capacidad
 
-   end
-   
-   def manejar
-   
-   end
-   
-   def detenerse
-   
-   end
+  def exceso_velocidad
+  end
+
+  def manejar
+  end
+
+  def detenerse
+  end
 end
-</pre>
+```
 
 <p>Para comprender mejor las clases vamos a definir una a una sus características.</p>
 
@@ -63,12 +63,12 @@ end
 
 <p>Un ejemplo de como se instancian los objetos en Ruby es el siguiente:</p>
 
-<pre>class Vehiculo
-    def detenerse
-        "frenando . . ."
-    end
+```ruby
+class Vehiculo
+  def detenerse
+    "frenando . . ."
+  end
 end
-
 
 automovil = Vehiculo.new
 puts "El vehiculo esta " + automovil.detenerse
@@ -78,14 +78,15 @@ puts "El camion esta " + camion.detenerse
 
 moto = Vehiculo.new
 puts "La moto esta " + moto.detenerse
-</pre>
+```
 
 <p>En el ejemplo se define una clase "vehiculo" bastante sencilla con un método único para detenerlo. Se crean tres objetos de tipo vehículo completamente diferentes pero con el mismo comportamiento. El resultado del ejemplo es el siguiente:</p>
 
-<pre>El vehiculo esta frenando . . .
+```ruby
+El vehiculo esta frenando . . .
 El camion esta frenando . . .
 La moto esta frenando . . .
-</pre>
+```
 
 <h3>Atributos</h3>
 
@@ -93,17 +94,16 @@ La moto esta frenando . . .
 
 <p>Para mostrar estos ejemplos utilizaremos algunos de los tipos de variables que estudiamos en el <a href="http://codehero.co/ruby-desde-cero-variables-y-objetos-2/">Capítulo 2: Variables y Objetos</a>.</p>
 
-<pre>class Vehiculo
-    def numero_ruedas
-        @numero_ruedas
-    end
+```ruby
+class Vehiculo
+  def numero_ruedas
+    @numero_ruedas
+  end
 
-    def numero_ruedas=(numero)
-        @numero_ruedas = numero
-    end
-
+  def numero_ruedas=(numero)
+    @numero_ruedas = numero
+  end
 end
-
 
 automovil = Vehiculo.new
 automovil.numero_ruedas = 4
@@ -111,48 +111,46 @@ puts "El vehiculo tiene " + automovil.numero_ruedas.to_s + " ruedas."
 
 camion = Vehiculo.new
 camion.numero_ruedas = 8
-puts "El camion tiene " + camion.numero_ruedas.to_s + " ruedas." 
+puts "El camion tiene " + camion.numero_ruedas.to_s + " ruedas."
 
 moto = Vehiculo.new
 moto.numero_ruedas = 2
 puts "La moto tiene " + moto.numero_ruedas.to_s + " ruedas."
-
-</pre>
+```
 
 <p>En este ejemplo podemos ver una variable de instancia "numero_ruedas", pero a ésta no se le puede acceder de manera directa, si no, a través de métodos (getter y setters). El resultado de esta ejecución es la siguiente:</p>
 
-<pre>El vehiculo tiene 4 ruedas.
+```ruby
+El vehiculo tiene 4 ruedas.
 El camion tiene 8 ruedas.
 La moto tiene 2 ruedas.
-</pre>
+```
 
 <p>En el siguiente ejemplo veremos cómo se declaran y utilizan las variables públicas o de lectura y escritura únicamente:</p>
 
-<pre>class Vehiculo
+```ruby
+class Vehiculo
+  attr_accessor :marca                # variable publica
+  attr_reader :color                  # variable publica de solo lectura
+  attr_writer :velocidad_max          # variable publica de solo escritura
 
-attr_accessor :marca                # variable publica
-attr_reader :color                  # variable publica de solo lectura
-attr_writer :velocidad_max          # variable publica de solo escritura
+  def velocidad_max           # sin este metodo no se puede leer
+                              # el color fuera de la clase
+    @velocidad_max
+  end
 
-    def velocidad_max           # sin este metodo no se puede leer 
-                                # el color fuera de la clase
-        @velocidad_max              
-    end
+  def preparar_variables  # este metodo escribe las variabbles de solo lectura
+    @color = "Amarillo"
+  end
 
-    def preparar_variables  # este metodo escribe las variabbles de solo lectura
-        @color = "Amarillo"
-    end
+  def numero_ruedas
+    @numero_ruedas
+  end
 
-    def numero_ruedas
-        @numero_ruedas
-    end
-
-    def numero_ruedas=(numero)
-        @numero_ruedas = numero
-    end
-
+  def numero_ruedas=(numero)
+    @numero_ruedas = numero
+  end
 end
-
 
 automovil = Vehiculo.new
 automovil.numero_ruedas = 4
@@ -161,59 +159,57 @@ automovil.marca = "Nissan"
 automovil.preparar_variables
 puts "El vehiculo tiene " + automovil.numero_ruedas.to_s + " ruedas."
 puts "velocidad max: " + automovil.velocidad_max + " marca: " + automovil.marca
-puts "color: " + automovil.color 
+puts "color: " + automovil.color
 
 camion = Vehiculo.new
 camion.numero_ruedas = 8
 camion.velocidad_max = "120 km"
 camion.marca = "Toyota"
 camion.preparar_variables
-puts "El camion tiene " + camion.numero_ruedas.to_s + " ruedas." 
+puts "El camion tiene " + camion.numero_ruedas.to_s + " ruedas."
 puts "velocidad max: " + camion.velocidad_max + " marca: " + camion.marca
-puts "color: " + camion.color 
-
-</pre>
+puts "color: " + camion.color
+```
 
 <p>En el ejemplo vemos cómo 'marca' es una variable pública, 'color' y 'velocidad_max' son sólo de lectura y escritura respectivamente. Al ejecutar el ejemplo tenemos como resultado lo siguiente:</p>
 
-<pre>El vehiculo tiene 4 ruedas.
+```ruby
+El vehiculo tiene 4 ruedas.
 velocidad max: 180 km marca: Nissan
 color: Amarillo
 
 El camion tiene 8 ruedas.
 velocidad max: 120 km marca: Toyota
 color: Amarillo
-</pre>
+```
 
 <h3>Inicializar</h3>
 
 <p>Este método se ejecuta automáticamente cuando se instancia la clase del objeto sin necesidad de llamarlo. Para demostrarlo modificaremos un poco el método anterior de la siguiente manera:</p>
 
-<pre>class Vehiculo
+```ruby
+class Vehiculo
+  attr_accessor :marca                # variable publica
+  attr_reader :color                  # variable publica de solo lectura
+  attr_writer :velocidad_max          # variable publica de solo escritura
 
-attr_accessor :marca                # variable publica
-attr_reader :color                  # variable publica de solo lectura
-attr_writer :velocidad_max          # variable publica de solo escritura
+  def initialize          # este método se llama automáticamente al instanciar el objeto
+    @color = "Amarillo"
+  end
 
-    def initialize          # este método se llama automáticamente al instanciar el objeto
-        @color = "Amarillo"
-    end
+  def velocidad_max           # sin este método no se puede leer
+                              # el color fuera de la clase
+    @velocidad_max
+  end
 
-    def velocidad_max           # sin este método no se puede leer 
-                                # el color fuera de la clase
-        @velocidad_max              
-    end
+  def numero_ruedas
+    @numero_ruedas
+  end
 
-    def numero_ruedas
-        @numero_ruedas
-    end
-
-    def numero_ruedas=(numero)
-        @numero_ruedas = numero
-    end
-
+  def numero_ruedas=(numero)
+    @numero_ruedas = numero
+  end
 end
-
 
 automovil = Vehiculo.new
 automovil.numero_ruedas = 4
@@ -222,17 +218,17 @@ automovil.marca = "Nissan"
 
 puts "El vehiculo tiene " + automovil.numero_ruedas.to_s + " ruedas."
 puts "velocidad max: " + automovil.velocidad_max + " marca: " + automovil.marca
-puts "color: " + automovil.color 
+puts "color: " + automovil.color
 
 camion = Vehiculo.new
 camion.numero_ruedas = 8
 camion.velocidad_max = "120 km"
 camion.marca = "Toyota"
 
-puts "El camion tiene " + camion.numero_ruedas.to_s + " ruedas." 
+puts "El camion tiene " + camion.numero_ruedas.to_s + " ruedas."
 puts "velocidad max: " + camion.velocidad_max + " marca: " + camion.marca
-puts "color: " + camion.color 
-</pre>
+puts "color: " + camion.color
+```
 
 <p>Como ven en este objeto se eliminó el método 'preparar_variables' y se agregó el método 'initialize' que se llama automáticamente luego de instanciar el objeto. El resultado de este ejemplo es exactamente igual al primero.</p>
 
@@ -242,39 +238,36 @@ puts "color: " + camion.color
 
 <p>En el ejemplo aprenderemos a crear métodos estáticos, que se pueden llamar sin instanciar la clase, y a usar por primera vez en el curso las variables de clase:</p>
 
-<pre>class Vehiculo
+```ruby
+class Vehiculo
+  attr_accessor :marca                # variable publica
+  attr_reader :color                  # variable publica de solo lectura
+  attr_writer :velocidad_max          # variable publica de solo escritura
 
-    attr_accessor :marca                # variable publica
-    attr_reader :color                  # variable publica de solo lectura
-    attr_writer :velocidad_max          # variable publica de solo escritura
+  @@cantidad_de_vehiculos_instanciados = 0
 
-    @@cantidad_de_vehiculos_instanciados = 0
-    
-    def initialize          # este metodo se llama automaticamente al instanciar el objeto
-        @color = "Amarillo"
-        @@cantidad_de_vehiculos_instanciados +=1
-    end
+  def initialize          # este metodo se llama automaticamente al instanciar el objeto
+    @color = "Amarillo"
+    @@cantidad_de_vehiculos_instanciados +=1
+  end
 
-    def velocidad_max           # sin este metodo no se puede leer 
-                                # el color fuera de la clase
-        @velocidad_max              
-    end
+  def velocidad_max           # sin este metodo no se puede leer
+                              # el color fuera de la clase
+    @velocidad_max
+  end
 
-    def numero_ruedas
-        @numero_ruedas
-    end
+  def numero_ruedas
+    @numero_ruedas
+  end
 
-    def numero_ruedas=(numero)
-        @numero_ruedas = numero
-    end
+  def numero_ruedas=(numero)
+    @numero_ruedas = numero
+  end
 
-    def self.numero_vehiculos_instanciados
-        @@cantidad_de_vehiculos_instanciados
-    end
-
-
+  def self.numero_vehiculos_instanciados
+    @@cantidad_de_vehiculos_instanciados
+  end
 end
-
 
 automovil = Vehiculo.new
 automovil.numero_ruedas = 4
@@ -283,24 +276,24 @@ automovil.marca = "Nissan"
 
 puts "El vehiculo tiene " + automovil.numero_ruedas.to_s + " ruedas."
 puts "velocidad max: " + automovil.velocidad_max + " marca: " + automovil.marca
-puts "color: " + automovil.color 
+puts "color: " + automovil.color
 
 camion = Vehiculo.new
 camion.numero_ruedas = 8
 camion.velocidad_max = "120 km"
 camion.marca = "Toyota"
 
-puts "El camion tiene " + camion.numero_ruedas.to_s + " ruedas." 
+puts "El camion tiene " + camion.numero_ruedas.to_s + " ruedas."
 puts "velocidad max: " + camion.velocidad_max + " marca: " + camion.marca
-puts "color: " + camion.color 
+puts "color: " + camion.color
 
 puts "cantidad de vehiculos intanciados: " + Vehiculo.numero_vehiculos_instanciados.to_s
-
-</pre>
+```
 
 <p>En el ejemplo vemos como se declaran las variables estáticas ('self.numero_vehiculos_instanciados') es importante destacar que no hace falta inicializar el objeto para llamar al método y el uso de las variables de clase, para este caso la utilizamos para que sume la cantidad de vehículos creados a partir de la clase 'Vehiculo'. El resultado del ejemplo es el siguiente:</p>
 
-<pre>El vehiculo tiene 4 ruedas.
+```ruby
+El vehiculo tiene 4 ruedas.
 velocidad max: 180 km marca: Nissan
 color: Amarillo
 
@@ -309,7 +302,7 @@ velocidad max: 120 km marca: Toyota
 color: Amarillo
 
 cantidad de vehiculos intanciados: 2
-</pre>
+```
 
 <h2>Conclusión</h2>
 

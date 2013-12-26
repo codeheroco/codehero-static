@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 812
 wordpress_url: http://www.polarux.com/?p=812
 date: 2013-06-03 03:22:50.000000000 -04:30
+series:
+  nombre: Ruby desde Cero
+  thumbnail: http://i.imgur.com/lBeuRS1.png
 categories:
 - Cursos
 - Ruby
@@ -47,19 +50,22 @@ tags:
 
 <p>Ruby ya viene integrado al sistema operativo se puede verificar abriendo el terminal.app y colocando la siguiente linea de comando: <strong>ruby -v</strong> o <strong>ruby --version</strong>:</p>
 
-<pre>>> ruby -v  
->> ruby 2.0.0p195 (2013-05-14 revision 40734) [x86_64-darwin12.3.0] 
-</pre>
+```sh
+$ ruby -v
+$ ruby 2.0.0p195 (2013-05-14 revision 40734) [x86_64-darwin12.3.0]
+```
 
 <p>Por otro lado si por alguna razón no dispones de Ruby en el sistema operativo los puedes descargar <a href="http://www.ruby-lang.org/en/downloads/">ruby-lang.org</a> o utilizar un gestor de paquetes para Mac OS X como lo es <a href="http://mxcl.github.io/homebrew/">Homebrew</a>, con el siguiente comando (Requiere instalación previa de Homebrew):</p>
 
-<pre>>> brew install ruby
-</pre>
+```sh
+$ brew install ruby
+```
 
 <p>Luego de instalado por Homebrew agregamos la ruta de primero al $PATH de la siguiente forma:</p>
 
-<pre>>> export PATH=/usr/local/bin:$PATH 
-</pre>
+```sh
+$ export PATH=/usr/local/bin:$PATH
+```
 
 <p>Para versiones anteriores a Leopard le recomendamos revisar las versiones de Ruby disponibles para su sistema operativo.</p>
 
@@ -67,8 +73,9 @@ tags:
 
 <p>AL igual que para la instalación de Ruby en Mac OS se verifica la versión del lenguaje de la misma manera y dependiendo de la distribución de Linux que poseas se instala de diferentes maneras. Por ejemplo Debian, GNU/Linux o Ubuntu se utiliza el gestor de paquetes APT de la siguiente manera:</p>
 
-<pre>>> sudo apt-get install ruby1.9.1
-</pre>
+```sh
+$ sudo apt-get install ruby1.9.1
+```
 
 <p>En otros sistemas operativos se puede buscar en el repositorio de paquetes para el administrador de tu distribución Linux.</p>
 
@@ -84,13 +91,15 @@ tags:
 
 <p>En nuestro primer ejemplo vamos a hacer un programa simple que imprima una cadena de caracteres sencilla. Para imprimir esta cadena vamos a utilizar la función <em>puts</em> y escribimos la cadena entre comillas.</p>
 
-<pre>>> ruby -e "puts 'Bienvenido a CodeHero'"
+```sh
+$ ruby -e "puts 'Bienvenido a CodeHero'"
 Bienvenido a CodeHero
-</pre>
+```
 
 <p>En el segundo ejemplo vamos a crear un archivo plano con ayuda de un editor de texto, lo vamos a llamar pruebaCodeHero.rb (la extensión para los archivos en Ruby es .rb) y lo guardamos, pero antes agregamos unos comandos al archivo:</p>
 
-<pre>puts "Bienvenidos a CodeHero"
+```ruby
+puts "Bienvenidos a CodeHero"
 # Una simple suma
 puts 2 + 3
 # Multiplicación
@@ -101,40 +110,42 @@ puts 3 ** 2
 puts "codeHero".reverse
 # Imprime todo en mayúscula
 puts "codeHero".upcase
-</pre>
+```
 
 <p>Desde el terminal ejecutamos el archivo de la siguiente forma. "<em>ruby pruebaCodeHero.rb</em>" y ya empezamos a ver algunos detalles en el lenguaje, como por ejemplo los comentarios que llevan un # al principio de la linea, no se usa ningún indicativo de que se termino el comando simplemente un salto de linea (enter) y vemos algunas funciones del objeto <em>String</em> (reverse y upcase)</p>
 
-<pre>>> ruby pruebaCodeHero.rb 
+```sh
+$ ruby pruebaCodeHero.rb
 Bienvenidos a CodeHero
 5
 18
 9
 oreHedoc
 CODEHERO
-</pre>
+```
 
 <p>Para el ultimo ejemplo vamos a utilizar la consola de Ruby interactiva, este es un espacio para probar código Ruby directo con el interprete. Para sistemas operativos Mac OSX y Linux se llama <strong>irb (Interactive Ruby Shell)</strong> y para Windows <strong>fxri</strong>. se activa con el nombre de irm y una vez dentro ejecutamos comando Ruby de la siguiente manera:</p>
 
-<pre>>> irb                              
+```ruby
+>> irb
 2.0.0p195 :001 > 2 + 3
-=> 5 
+=> 5
 2.0.0p195 :002 > puts "CodeHero"
 CodeHero
-=> nil 
+=> nil
 2.0.0p195 :003 > 45 / 9
-=> 5 
+=> 5
 2.0.0p195 :004 > puts "CoDeHeRo".downcase
 codehero
-=> nil 
+=> nil
 2.0.0p195 :005 > puts "codehero".capitalize
 Codehero
-=> nil 
+=> nil
 2.0.0p195 :006 > 2 ** 3
-=> 8 
+=> 8
 2.0.0p195 :007 > quit
 >>
-</pre>
+```
 
 <hr />
 
@@ -144,12 +155,14 @@ Codehero
 
 <p>Otra opción es utilizando el comando <strong><em>ri</em></strong> (Ruby Information) desde el terminal del sistema operativo, al igual que la pagina se encuentra toda la información de cada uno de los objetos. Por ejemplo la información del Objeto <em>String</em>:</p>
 
-<pre>>> ri String
-</pre>
+```sh
+$ ri String
+```
 
 <p>retorna entre otras cosa la información general del String de la siguiente manera:</p>
 
-<pre>---------------------------------
+```ruby
+---------------------------------
 = Includes:
 Comparable (from ruby site)
 
@@ -170,7 +183,7 @@ that modify the contents of a String object.  Typically, methods with names
 ending in ``!'' modify their receiver, while those without a ``!'' return a
 new String.  However, there are exceptions, such as String#[]=.
 ---------------------------------
-</pre>
+```
 
 <hr />
 

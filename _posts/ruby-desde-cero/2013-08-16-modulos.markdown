@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1993
 wordpress_url: http://codehero.co/?p=1993
 date: 2013-08-16 00:01:56.000000000 -04:30
+series:
+  nombre: Ruby desde Cero
+  thumbnail: http://i.imgur.com/lBeuRS1.png
 categories:
 - Cursos
 - Ruby
@@ -34,12 +37,13 @@ tags:
 
 <p>Lo primero que debemos hacer para adentrarnos en el concepto y comenzar a elaborar algunos ejemplos es conocer la sintaxis:</p>
 
-<pre>module Identificador
-   declaracion1
-   declaracion2
-   . . .
+```ruby
+module Identificador
+  declaracion1
+  declaracion2
+  . . .
 end
-</pre>
+```
 
 <p>Al igual que con los métodos de clase, se llama a un método del módulo precediendo su nombre con el nombre módulo y un punto ( . ), y se hace referencia a una constante utilizando el nombre del módulo y el signo de dos puntos ( : ).</p>
 
@@ -59,26 +63,26 @@ end
 
 <p>Luego de tanta descripción veamos un ejemplo y así seguramente entenderemos mejor el concepto de namespace:</p>
 
-<pre>module Semana
-   PRIMER_DIA = "lunes"
-   def Semana.semanas_en_mes
-      puts "un mes tiene cuatro semanas"
-      return 4
-   end
-   def Semana.semanas_en_anio
-      puts "un anio tiene 52 semanas"
-   end
+```ruby
+module Semana
+  PRIMER_DIA = "lunes"
+  def Semana.semanas_en_mes
+    puts "un mes tiene cuatro semanas"
+    return 4
+  end
+  def Semana.semanas_en_anio
+    puts "un anio tiene 52 semanas"
+  end
 end
 
 class Codehero
-   N_MESES = 10
-   def n_de_meses
-      puts "las semanas inician el #{Semana::PRIMER_DIA}" 
-      number=10 * Semana::semanas_en_mes
-      puts "cantidad de semanas en 10 meses es #{number}"
-   end
+  N_MESES = 10
+  def n_de_meses
+    puts "las semanas inician el #{Semana::PRIMER_DIA}"
+    number=10 * Semana::semanas_en_mes
+    puts "cantidad de semanas en 10 meses es #{number}"
+  end
 end
-
 
 puts Semana::PRIMER_DIA
 Semana.semanas_en_mes
@@ -86,18 +90,19 @@ Semana.semanas_en_anio
 puts "==================="
 d1=Codehero.new
 d1.n_de_meses
-</pre>
+```
 
 <p>En este ejemplo creamos un módulo 'Semana' que agrupa una serie de métodos y constantes relacionadas a una semana, que posteriormente utilizamos en una clase de prueba y fuera de ella. El resultado de esta ejecución lo podemos observar a continuación:</p>
 
-<pre>lunes
+```ruby
+lunes
 un mes tiene cuatro semanas
 un anio tiene 52 semanas
 ===================
 las semanas inician el lunes
 un mes tiene cuatro semanas
 cantidad de semanas en 10 meses es 40
-</pre>
+```
 
 <h3>Mixins</h3>
 
@@ -105,63 +110,66 @@ cantidad de semanas en 10 meses es 40
 
 <p>Vamos a ver un ejemplo en el que añadimos un método a la clase String que elimina los espacios en blanco de principio y fin de una cadena de caracteres.</p>
 
-<pre>module UtilidadesString
+```ruby
+module UtilidadesString
   def quitar_espacios
     self.to_s.strip.gsub(' ', '')
   end
 end
- 
+
 class String
   include UtilidadesString
 end
- 
+
 puts " Hola CodeHero, El Mejor Portal De Aprendizaje En Espaniol ".quitar_espacios
-</pre>
+```
 
 <p>El resultado de la ejecución del programa es una cadena sin espacios:</p>
 
-<pre>HolaCodeHero,ElMejorPortalDeAprendizajeEnEspaniol
-</pre>
+```ruby
+HolaCodeHero,ElMejorPortalDeAprendizajeEnEspaniol
+```
 
 <p>En el ejemplo vimos como le agregamos un método de instancia a la clase String, con esta herramienta también es posible extender una clase con métodos de clases, haciendo uso del 'extend'. Haciendo posible incluir varios módulos en una misma clase, consiguiendo un efecto similar a una herencia múltiple no permitida por Ruby. Veamos un ejemplo sencillo de esto:</p>
 
-<pre>module Calendario
- 
-    def self.included(base)
-        base.send :include, Dia
-        base.send :extend, Semana
-    end
+```ruby
+module Calendario
+  def self.included(base)
+    base.send :include, Dia
+    base.send :extend, Semana
+  end
 
-    module Dia
-        def dia_en_anio
-           "un anio tiene 365 dias"
-        end
+  module Dia
+    def dia_en_anio
+      "un anio tiene 365 dias"
     end
- 
-    module Semana
-       PRIMER_DIA = "lunes"
-       def semanas_x_mes(number)
-           "#{number} meses tiene #{number * 4} semanas"
-       end
+  end
 
+  module Semana
+    PRIMER_DIA = "lunes"
+
+    def semanas_x_mes(number)
+      "#{number} meses tiene #{number * 4} semanas"
     end
+  end
 end
- 
+
 class MiClase
   include Calendario
 end
- 
+
 #llamada a las clases
- 
+
 puts MiClase.semanas_x_mes(4)
 puts MiClase.new.dia_en_anio
-</pre>
+```
 
 <p>Como podemos ver en el ejemplo al agregar en un módulo el método 'included', éste se ejecutará cada vez que sea incluido por otro módulo o clase. En este ejemplo, cuando se incluye el módulo, añadimos los métodos de instancia(include) y de clase(extend). Dándonos como resultado una clase con comportamientos diferentes de dos módulos, el resultado de ejecutar el programa es el siguiente:</p>
 
-<pre>4 meses tiene 16 semanas
+```ruby
+4 meses tiene 16 semanas
 un anio tiene 365 dias
-</pre>
+```
 
 <hr />
 

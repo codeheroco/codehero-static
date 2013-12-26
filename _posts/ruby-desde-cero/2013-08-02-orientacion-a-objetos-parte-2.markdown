@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1843
 wordpress_url: http://codehero.co/?p=1843
 date: 2013-08-02 00:01:12.000000000 -04:30
+series:
+  nombre: Ruby desde Cero
+  thumbnail: http://i.imgur.com/lBeuRS1.png
 categories:
 - Cursos
 - Ruby
@@ -36,55 +39,46 @@ tags:
 
 <p>La sintaxis para heredar de una clase es la siguiente:</p>
 
-<pre>class Objeto &lt; Objeto_padre
-
+```ruby
+class Objeto < Objeto_padre
 end
-</pre>
+```
 
 <p>Para demostrar observemos el siguiente ejemplo:</p>
 
-<pre>class Animal
+```ruby
+class Animal
+  attr_reader :habitat
+  attr_accessor :descripcion
+  attr_reader :color                  # variable publica de solo lectura
 
-    attr_reader :habitat
-    attr_accessor :descripcion
-    attr_reader :color                  # variable publica de solo lectura
+  def initialize          # este metodo se llama automaticamente al instanciar el objeto
+  end
 
-    
-    def initialize          # este metodo se llama automaticamente al instanciar el objeto
-    end
+  def respiracion
+    puts "Inhala y exhala"
+  end
 
-    def respiracion
-        puts "Inhala y exhala"
-    end
+  def color
+    @color
+  end
 
-    def color
-        @color
-    end
-
-    def color=(color)
-        @color = color
-    end
-
+  def color=(color)
+    @color = color
+  end
 end
 
-class Reptil &lt; Animal
-    
-    def initialize          # este metodo se llama automaticamente al instanciar el objeto
-        @habitat = "tierra"
-    end
-
+class Reptil < Animal
+  def initialize          # este metodo se llama automaticamente al instanciar el objeto
+    @habitat = "tierra"
+  end
 end
 
-class Ave &lt; Animal
-    
-    def initialize          # este metodo se llama automaticamente al instanciar el objeto
-        @habitat = "Aire"
-    end
-
+class Ave < Animal
+  def initialize          # este metodo se llama automaticamente al instanciar el objeto
+    @habitat = "Aire"
+  end
 end
-
-
-
 
 reptil = Reptil.new
 reptil.descripcion = "Lagarto"
@@ -99,16 +93,16 @@ ave.color = "marron"
 
 puts "El Animal es un: " + ave.descripcion + ", color: " + ave.color + ', habitat natural: ' +ave.habitat
 ave.respiracion
-
-</pre>
+```
 
 <p>En el ejemplo vemos como se componen tres clases (Animal (padre), Pez y Reptil (Subclases)). Vemos como Pez y Reptil heredan los atributos y comportamientos de la clase padre, por lo tanto desde el punto de vista del programador los Reptiles y Aves tienen una serie de atributos predefinidos (color, hábitat y descripción) y un comportamiento de respiración que simplemente inhala y exhala. Veamos el resultado de esto a continuación:</p>
 
-<pre>El Animal es un: Lagarto, color: verde, habitat natural: tierra
+```sh
+El Animal es un: Lagarto, color: verde, habitat natural: tierra
 Inhala y exhala
 El Animal es un: Buho, color: marron, habitat natural: Aire
 Inhala y exhala
-</pre>
+```
 
 <p>Con el manejo de herencia surgen una serie de conceptos que hacen del paradigma orientado a objetos una técnica irresistible de usar. Estos conceptos los definimos a continuación:</p>
 
@@ -118,22 +112,22 @@ Inhala y exhala
 
 <p>A continuación mostraremos un ejemplo sencillo para entender mejor el concepto:</p>
 
-<pre>class Principal  
-  def metodo_prueba  
-    puts 'Es un metodo de la clase principal'  
-  end  
-end  
-  
-class Subclase_uno &lt; Principal  
-  def metodo_prueba  
-    puts 'Se sustituye el metodo principal'  
-  end  
-end  
+```ruby
+class Principal
+  def metodo_prueba
+    puts 'Es un metodo de la clase principal'
+  end
+end
 
-class Subclase_dos &lt; Principal  
+class Subclase_uno < Principal
+  def metodo_prueba
+    puts 'Se sustituye el metodo principal'
+  end
+end
 
-end  
-  
+class Subclase_dos < Principal
+end
+
 principal = Principal.new
 principal.metodo_prueba
 puts "++++----++++"
@@ -142,16 +136,17 @@ secundario.metodo_prueba
 puts "++++----++++"
 tercero = Subclase_dos.new
 tercero.metodo_prueba
-</pre>
+```
 
 <p>En este ejemplo se puede ver claramente como el objeto denominado 'Subclase_uno' remplaza el método 'metodo_prueba' del padre con otras características y como el objeto 'subclase_dos' simplemente hereda los métodos con el mismo comportamiento. Aquí el resultado de la ejecución del programa:</p>
 
-<pre>Es un metodo de la clase principal
+```sh
+Es un metodo de la clase principal
 ++++----++++
 Se sustituye el metodo principal
 ++++----++++
 Es un metodo de la clase principal
-</pre>
+```
 
 <h3>Acceder a los métodos de la superclase</h3>
 
@@ -159,36 +154,35 @@ Es un metodo de la clase principal
 
 <p>Para demostrar esto veremos un ejemplo bastante sencillo, que seguramente nos ayudará a entender mejor este concepto:</p>
 
-<pre>class Principal  
-  def metodo_prueba  
-    puts 'Es un metodo de la clase principal'  
-  end  
-end  
-  
-class Subclase_uno &lt; Principal  
-  def metodo_prueba  
+```ruby
+class Principal
+  def metodo_prueba
+    puts 'Es un metodo de la clase principal'
+  end
+end
+
+class Subclase_uno < Principal
+  def metodo_prueba
     super()
-    puts 'y se le agrega este nuevo comportamiento'  
-  end  
-end  
+    puts 'y se le agrega este nuevo comportamiento'
+  end
+end
 
-
-  
 principal = Principal.new
 principal.metodo_prueba
 puts "++++----++++"
 secundario = Subclase_uno.new
 secundario.metodo_prueba
-
-</pre>
+```
 
 <p>En el ejemplo vemos como la subclase ('Subclase_uno') sustituye el método del padre (metodo_prueba) llamando a su implementación en la clase padre con la función <strong>'super()</strong>' para así agregarle nuevos comportamientos al método. El resultado al ejecutar este pequeño programa es el siguiente:</p>
 
-<pre>Es un metodo de la clase principal
+```sh
+Es un metodo de la clase principal
 ++++----++++
 Es un metodo de la clase principal
 y se le agrega este nuevo comportamiento
- </pre>
+ ```
 
 <blockquote>
   <p>En conclusión la herencia permite crear una clase que es un perfeccionamiento o especialización de otra clase.</p>
@@ -200,20 +194,19 @@ y se le agrega este nuevo comportamiento
 
 <p>En muchos lenguajes es posible crear dos versiones diferentes de un método con el mismo nombre. Sin embargo, una clase de Ruby sólo puede tener un método con un nombre (Si se definen dos métodos con el mismo nombre Ruby reconoce únicamente el ultimo definido). Una solución para este problema es crear un método único con una lógica para verificar cuantos y que tipos de argumentos hay. Demostremos esto con un ejemplo:</p>
 
-<pre>class Codehero 
-
-  def initialize(*args)   
+```ruby
+class Codehero
+  def initialize(*args)
     if args.size > 1
-        puts 'No se permiten dos o mas atributos'
+      puts 'No se permiten dos o mas atributos'
     else
-      if args.size == 0  
+      if args.size == 0
         hola_mundo
-      else  
+      else
         hola(args[0])
-      end 
-
+      end
     end
-  end  
+  end
 
   def hola_mundo
     puts "Hola CodeHero"
@@ -222,25 +215,20 @@ y se le agrega este nuevo comportamiento
   def hola(name)
     puts "Hola #{name}"
   end
+end
 
-
-end  
-  
-
-
-  
 ejemplo1 = Codehero.new('Ricardo Sampayo')
 ejemplo2 = Codehero.new
 ejemplo3 = Codehero.new('Ricardo','Sampayo')
-
-</pre>
+```
 
 <p>En el ejemplo vemos como creamos un único constructor ('initialize') y en éste colocamos una lógica para manejar argumentos, que consiste en: si el constructor recibe más de un argumento imprime un mensaje de error, si no recibe argumentos llama al método 'hola_mundo' y si recibe un argumento llama al método 'hola' con la variable recibida. El resultado de esta ejecución es la siguiente:</p>
 
-<pre>Hola Ricardo Sampayo
+```sh
+Hola Ricardo Sampayo
 Hola CodeHero
 No se permiten dos o mas atributos
-</pre>
+```
 
 <hr />
 
