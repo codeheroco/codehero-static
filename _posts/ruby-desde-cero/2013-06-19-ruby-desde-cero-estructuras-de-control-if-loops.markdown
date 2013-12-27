@@ -10,9 +10,8 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1041
 wordpress_url: http://codehero.co/?p=1041
 date: 2013-06-19 03:35:35.000000000 -04:30
-series:
-  nombre: Ruby desde Cero
-  thumbnail: http://i.imgur.com/lBeuRS1.png
+serie: Ruby desde Cero
+thumbnail: http://i.imgur.com/lBeuRS1.png
 categories:
 - Cursos
 - Ruby

@@ -10,6 +10,8 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2852
 wordpress_url: http://codehero.co/?p=2852
 date: 2013-12-17 00:05:45.000000000 -04:30
+serie: MongoDB desde Cero
+thumbnail: http://i.imgur.com/XFFMeqB.png
 categories:
 - Cursos
 - MongoDB
@@ -130,8 +132,8 @@ miRS:PRIMARY> rs.conf()
 <p>Ahora en nuestro equipo secundario debemos indicarle el nombre del <strong>replica set</strong> de la misma manera que lo hicimos con la primaria, indicandolo en su archivo de configuración o al levantar manualmente la instancia. (en este caso utilizamos el nombre <code>miRS</code>)</p>
 
 <pre>vagrant@precise32:~$  sudo nano /etc/mongodb.conf
-    
-# mongodb.conf 
+
+# mongodb.conf
 ...
 # in replica set configuration, specify the name of the replica set
 replSet = miRS
@@ -140,8 +142,8 @@ replSet = miRS
 <p>Reiniciamos la instancia:</p>
 
 <pre>vagrant@precise32:~$ sudo service mongodb restart
- * Restarting database mongodb                                                                 [ OK ] 
-vagrant@precise32:~$ mongo 
+ * Restarting database mongodb                                                                 [ OK ]
+vagrant@precise32:~$ mongo
 MongoDB shell version: 2.4.8
 ...
 > rs.status()
@@ -158,7 +160,7 @@ MongoDB shell version: 2.4.8
 <p>Tomemos nota del <em>host</em> donde se encuentra esta instancia de <code>mongod</code> para poder agregarla al <strong>replica set</strong>:</p>
 
 <pre>vagrant@precise32:~$ ifconfig
-eth1      Link encap:Ethernet  HWaddr **:**:**:**:**:**  
+eth1      Link encap:Ethernet  HWaddr **:**:**:**:**:**
           inet addr:192.168.33.10  Bcast:192.168.33.255  Mask:255.255.255.0
           ...
 </pre>
@@ -257,7 +259,7 @@ miRS:PRIMARY> rs.conf()
                 "host" : "192.168.33.10:27017"
             }
         ]
-    }  
+    }
 </pre>
 
 <p>Es aquí donde debemos definir la configuración para cada miembro. Será tan fácil como asignarle dicho comando a una variable y empezaremos a manipular el objeto como lo haríamos normalmente en Javascript:</p>
@@ -340,9 +342,9 @@ miRS:PRIMARY> rs.conf()
             "self" : true
         }
     ],
-    "ok" : 1 
+    "ok" : 1
 }
-    
+
 miRS:PRIMARY> rs.conf()
 {
     "_id" : "miRS",
@@ -353,7 +355,7 @@ miRS:PRIMARY> rs.conf()
             "host" : "Mordor.local:27017"
         }
     ]
-}  
+}
 </pre>
 
 <p>De igual manera si accedemos a nuestro antiguo miembro podremos ver que se encuentra con estado <code>REMOVED</code>:</p>
@@ -377,7 +379,7 @@ miRS:PRIMARY> rs.conf()
         }
     ],
     "ok" : 1
-}  
+}
 </pre>
 
 <hr />
@@ -388,16 +390,16 @@ miRS:PRIMARY> rs.conf()
 
 <p>Luego reiniciemos la instancia y borraremos los rastros del <strong>replica set</strong> al borrar la base de datos local donde se almacena la información de la misma:</p>
 
-<pre>vagrant@precise32:~$ sudo nano /etc/mongodb.conf 
+<pre>vagrant@precise32:~$ sudo nano /etc/mongodb.conf
 ...
 # mongodb.conf
 ...
 # in replica set configuration, specify the name of the replica set
 # replSet = miRS #eliminamos o comentamos esta linea
 ...
-    
+
 vagrant@precise32:~$ sudo service mongodb restart
- * Restarting database mongodb                                                                [ OK ] 
+ * Restarting database mongodb                                                                [ OK ]
 vagrant@precise32:~$ mongo
 ...
 > use local

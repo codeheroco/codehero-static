@@ -10,6 +10,8 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2325
 wordpress_url: http://codehero.co/?p=2325
 date: 2013-09-30 00:02:36.000000000 -04:30
+serie: MongoDB desde Cero
+thumbnail: http://i.imgur.com/XFFMeqB.png
 categories:
 - Cursos
 - MongoDB
@@ -70,10 +72,10 @@ tags:
 
 <pre>> db.autores.update(
     {nombre: 'Ricardo'},
-    {   
-        nombre: 'Ricardo', 
-        apellido: 'Sampayo', 
-        secciones: ['Ruby','Rails'], 
+    {
+        nombre: 'Ricardo',
+        apellido: 'Sampayo',
+        secciones: ['Ruby','Rails'],
         esAmigo: false
     }
 );
@@ -118,7 +120,7 @@ tags:
 
 <pre>> db.autores.update(
     { nombre: 'Ricardo' },
-    { 
+    {
         $set: { esAmigo: true , age : 25 }
     }
 );
@@ -135,7 +137,7 @@ tags:
 
 <pre>> db.autores.update(
     { nombre: 'Ricardo' },
-    { 
+    {
         $inc: { age : 1 }
     }
 );
@@ -149,7 +151,7 @@ tags:
 
 <pre>> db.autores.update(
     { nombre: 'Ricardo' },
-    { 
+    {
         $rename: { 'age' : 'edad' }
     }
 );
@@ -159,7 +161,7 @@ tags:
 
 <pre>> db.autores.update(
     { nombre: 'Ricardo' },
-    { 
+    {
         $unset: { esAmigo : '' }
     }
 );
@@ -173,7 +175,7 @@ tags:
 
 <pre>> db.autores.update(
     { nombre: 'Ricardo' },
-    { 
+    {
         $push: { secciones : 'jQuery' }
     }
 );
@@ -189,7 +191,7 @@ tags:
 
 <pre>> db.autores.update(
     { nombre: 'Ricardo' },
-    { 
+    {
         $push: { secciones : { $each : ['Haskell','Go','ActionScript'] } }
     }
 );
@@ -199,7 +201,7 @@ tags:
 
 <pre>> db.autores.update(
     { nombre: 'Ricardo' },
-    { 
+    {
         $pop: { secciones : 1 }
     }
 );
@@ -213,7 +215,7 @@ tags:
 
 <pre>> db.autores.update(
     { nombre: 'Ricardo' },
-    { 
+    {
         $pull: { secciones : 'jQuery' }
     }
 );
@@ -223,7 +225,7 @@ tags:
 
 <pre>> db.autores.update(
     { nombre: 'Ricardo' },
-    { 
+    {
         $pullAll: { secciones : ['Haskell','Go'] }
     }
 );
@@ -258,7 +260,7 @@ tags:
     _id:        ObjectId('5246049e7bc1a417cc91ec8c')
     nombre:     'Ramses',
     apellido:   'Velasquez',
-    secciones:  ['Laravel', 'PHP'] 
+    secciones:  ['Laravel', 'PHP']
 });
 </pre>
 

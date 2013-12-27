@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 1851
 wordpress_url: http://codehero.co/?p=1851
 date: 2013-08-06 00:00:18.000000000 -04:30
+thumbnail: http://i.imgur.com/4gIHp9Q.jpg
 categories:
 - Cómo lo hago
 - Nginx
@@ -131,7 +132,7 @@ $ start nginx
 
 <h3>Mac OS X y FreeBSD</h3>
 
-<pre>/usr/local/etc/nginx/nginx.conf 
+<pre>/usr/local/etc/nginx/nginx.conf
 </pre>
 
 <h3>Linux</h3>
@@ -203,25 +204,25 @@ index  index.html index.htm;
 
 <pre>location ~ \.php$ {
         fastcgi_pass  localhost:9000;
-        
+
         fastcgi_param  QUERY_STRING       $query_string;
         fastcgi_param  REQUEST_METHOD     $request_method;
         fastcgi_param  CONTENT_TYPE       $content_type;
         fastcgi_param  CONTENT_LENGTH     $content_length;
-        
+
         fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;
         fastcgi_param SCRIPT_FILENAME     $document_root$fastcgi_script_name;
         fastcgi_param  REQUEST_URI        $request_uri;
         fastcgi_param  DOCUMENT_URI       $document_uri;
         fastcgi_param  DOCUMENT_ROOT      $document_root;
         fastcgi_param  SERVER_PROTOCOL    $server_protocol;
-        
+
         fastcgi_param  REMOTE_ADDR        $remote_addr;
         fastcgi_param  REMOTE_PORT        $remote_port;
         fastcgi_param  SERVER_ADDR        $server_addr;
         fastcgi_param  SERVER_PORT        $server_port;
         fastcgi_param  SERVER_NAME        $server_name;
-            
+
         include       fastcgi_params;
 }
 </pre>
@@ -257,12 +258,12 @@ index  index.html index.htm;
 server {
     listen       202.54.1.1:80;
     server_name  www.dominio.com;
- 
+
     access_log  /var/log/nginx/log/www.dominio.access.log  main;
     error_log  /var/log/nginx/log/www.dominio.error.log;
     root   /usr/share/nginx/html;
     index  index.html index.htm;
- 
+
     ## mandamos la petición a apache ##
     location / {
         proxy_pass  http://apachephp;

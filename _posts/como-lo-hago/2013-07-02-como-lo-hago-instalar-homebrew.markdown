@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 1123
 wordpress_url: http://codehero.co/?p=1123
 date: 2013-07-02 00:00:36.000000000 -04:30
+thumbnail: http://i.imgur.com/w4cWGGz.png
 categories:
 - Cómo lo hago
 - Homebrew

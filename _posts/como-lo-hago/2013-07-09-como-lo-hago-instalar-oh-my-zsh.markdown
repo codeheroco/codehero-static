@@ -2,7 +2,7 @@
 layout: post
 status: publish
 published: true
-title: 'Cómo instalar oh-my-zsh   '
+title: Cómo instalar oh-my-zsh
 author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 1282
 wordpress_url: http://codehero.co/?p=1282
 date: 2013-07-09 04:30:30.000000000 -04:30
+thumbnail: http://i.imgur.com/QZ0cnJe.png
 categories:
 - Cómo lo hago
 - oh-my-zsh
@@ -153,7 +154,7 @@ tags:
 
 <pre>alias gs="git status"
 alias ga="git add"
-... 
+...
 </pre>
 
 <p>Los alias son simplemente comandos personalizados que puedes definir para ejecutar otros comandos en el terminal, por ejemplo en nuestro archivo tenemos el comando <strong><em>gs</em></strong> que al ser invocado ejecutaría el comando <strong><em>git status</em></strong>. Puedes definir la cantidad de alias que desees.</p>

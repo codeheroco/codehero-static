@@ -10,9 +10,8 @@ author_url: http://albertogrespan.com
 wordpress_id: 2874
 wordpress_url: http://codehero.co/?p=2874
 date: 2013-12-19 00:10:26.000000000 -04:30
-series:
-  nombre: Ruby on Rails desde Cero
-  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+serie: Ruby on Rails desde Cero
+thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Ruby on Rails
 tags:

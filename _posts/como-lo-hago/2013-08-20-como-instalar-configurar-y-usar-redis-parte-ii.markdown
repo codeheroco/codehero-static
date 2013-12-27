@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 1996
 wordpress_url: http://codehero.co/?p=1996
 date: 2013-08-20 00:00:05.000000000 -04:30
+thumbnail: http://i.imgur.com/lrn4QBG.png
 categories:
 - Cómo lo hago
 - Redis
@@ -246,7 +247,7 @@ OK
 3) "perro"
 4) "elefante"
 
-> ZRANGEBYSCORE animales:tamaño 0 15 
+> ZRANGEBYSCORE animales:tamaño 0 15
 1) "hormiga"
 2) "0.20000000000000001"
 3) "raton"
@@ -259,9 +260,9 @@ OK
 
 <blockquote>
   <p>Los juegos ordenados siguen el principio de mantener el ordenes de sus elementos según su puntaje de menos a mayor, sin importar el orden en el que fueron introducidos.</p>
-  
+
   <p>ZRANK nos permite determinar la posición que tiene cierto valor dentro de un juego ordenado según el puntaje que tiene.</p>
-  
+
   <p>ZRANGE recibe como parámetros la llave, la posición de inicio del rango a buscar y la cantidad de elementos a tomar, en nuestro caso utilizamos que empiece en la posición 0 y al indicar que seleccione -1 elementos, tomará todos los elementos del juego.</p>
 </blockquote>
 
@@ -307,7 +308,7 @@ OK
 
 <blockquote>
   <p>Usar listas es muy parecido a usar pilas y colas en programación, primero metimos a la llave <code>series:codehero</code> en forma de cola (o por la derecha) las series <code>pyhton</code> y <code>ruby</code>, luego en forma de pila (o por la izquierda) la serie <code>git</code>, esto resultaría en tener primero <code>git</code> luego <code>python</code> y por último <code>ruby</code>. Luego introducimos por la cola las series <code>ios</code> y <code>php</code> respectivamente, con el comando LPOP y RPOP podemos tomar y eliminar el primer y último elemento respectivamente, por lo que en nuestro caso quedarían los elementos centrales de la lista</p>
-  
+
   <p>Para LRANGE aplica el mismo caso que ZRANGE.</p>
 </blockquote>
 
@@ -398,7 +399,7 @@ QUEUED
 > DISCARD
 OK
 
-> GET valor 
+> GET valor
 "1"
 </pre>
 

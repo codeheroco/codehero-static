@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 1768
 wordpress_url: http://codehero.co/?p=1768
 date: 2013-07-30 00:00:47.000000000 -04:30
+thumbnail: http://i.imgur.com/Tiw1ii6.png
 categories:
 - Cómo lo hago
 - tmux
@@ -93,7 +94,7 @@ tags:
 <pre>$ tmux list-sessions
 primera_sesion: 2 windows (created Sat Jul 27 18:04:37 2013) [104x31]
 
-$ tmux attach-session -t primera_sesion 
+$ tmux attach-session -t primera_sesion
 </pre>
 
 <p>Esto reanudará nuestra sesión tal cual como la dejamos.</p>

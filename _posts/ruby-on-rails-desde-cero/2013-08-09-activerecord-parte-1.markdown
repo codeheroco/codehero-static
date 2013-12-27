@@ -10,9 +10,8 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 1922
 wordpress_url: http://codehero.co/?p=1922
 date: 2013-08-09 00:01:05.000000000 -04:30
-series:
-  nombre: Ruby on Rails desde Cero
-  thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+serie: Ruby on Rails desde Cero
+thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 categories:
 - Cursos
 - Ruby on Rails

@@ -10,9 +10,8 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 812
 wordpress_url: http://www.polarux.com/?p=812
 date: 2013-06-03 03:22:50.000000000 -04:30
-series:
-  nombre: Ruby desde Cero
-  thumbnail: http://i.imgur.com/lBeuRS1.png
+serie: Ruby desde Cero
+thumbnail: http://i.imgur.com/lBeuRS1.png
 categories:
 - Cursos
 - Ruby

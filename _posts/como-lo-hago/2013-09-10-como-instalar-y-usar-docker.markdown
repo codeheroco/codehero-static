@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2189
 wordpress_url: http://codehero.co/?p=2189
 date: 2013-09-10 00:00:53.000000000 -04:30
+thumbnail: http://i.imgur.com/aFoOgeD.png
 categories:
 - Cómo lo hago
 - Docker
@@ -44,7 +45,7 @@ tags:
 <p>Debido a que Docker funciona mejor con el kernel 3.8 veamos si nuestra instancia aplica para este propósito</p>
 
 <pre>$ uname -a
-Linux precise64 3.2.0-23-generic... 
+Linux precise64 3.2.0-23-generic...
 </pre>
 
 <p>Ya que esta versión de Ubuntu viene con la 3.2 debemos actualizarlo, así que inicialmente haremos:</p>
@@ -60,7 +61,7 @@ Linux precise64 3.2.0-23-generic...
 <p>Probemos que en efecto el kernel fue actualizado:</p>
 
 <pre>$ uname -a
-Linux precise64 3.8.0-30-generic... 
+Linux precise64 3.8.0-30-generic...
 </pre>
 
 <p>Bien, ahora agreguemos el repositorio de Docker y sus llaves lista local de fuentes y llavero local:</p>
@@ -140,7 +141,7 @@ root@78c9c995707b:/# ls -A
 …
 root@78c9c995707b:/# apt-get install nginx
 …
-root@78c9c995707b:/# nginx -v 
+root@78c9c995707b:/# nginx -v
 nginx version: nginx/1.2.1
 </pre>
 
@@ -149,7 +150,7 @@ nginx version: nginx/1.2.1
 <pre>$ docker ps
 
 ID                  IMAGE               COMMAND             CREATED             STATUS              PORTS
-9593993899c1        base:latest         /bin/bash           3 minutes ago       Up 3 minutes                        
+9593993899c1        base:latest         /bin/bash           3 minutes ago       Up 3 minutes
 </pre>
 
 <p>Ahora con esto podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:</p>
@@ -159,7 +160,7 @@ ID                  IMAGE               COMMAND             CREATED             
 
 <blockquote>
   <p>Los estándares de Docker estipulan que los nombres de las imagenes deben seguir el formato [nombre_usuario]/[nombre_imagen].</p>
-  
+
   <p>Todo cambio que hagas en la imagen y no le hagas commit se perderá en cuanto se cierre el contenedor.</p>
 </blockquote>
 
@@ -177,7 +178,7 @@ base                   ubuntu-quantl       b750fe79269d        5 months ago     
 
 <p>Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker. Iniciemos el contenedor de la siguiente manera:</p>
 
-<pre>$ docker run -p 80 -i -t jonathanwiesel/nginx /bin/bash 
+<pre>$ docker run -p 80 -i -t jonathanwiesel/nginx /bin/bash
 </pre>
 
 <blockquote>
@@ -194,7 +195,7 @@ Starting nginx: nginx.
 
 <pre>$ docker ps
 ID                  IMAGE                         COMMAND             CREATED             STATUS              PORTS
-ca88a0273698        jonathanwiesel/nginx:latest   /bin/bash           2 minutes ago       Up 2 minutes        49159->80  
+ca88a0273698        jonathanwiesel/nginx:latest   /bin/bash           2 minutes ago       Up 2 minutes        49159->80
 </pre>
 
 <p>Podemos apreciar que la última columna nos indica que el puerto 80 del contenedor está redireccionado al puerto local 49159, vayamos al explorador y veamos si Nginx está haciendo lo suyo:</p>

@@ -10,6 +10,8 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2712
 wordpress_url: http://codehero.co/?p=2712
 date: 2013-12-03 00:06:37.000000000 -04:30
+serie: MongoDB desde Cero
+thumbnail: http://i.imgur.com/XFFMeqB.png
 categories:
 - Cursos
 - MongoDB
@@ -81,7 +83,7 @@ $ cd dump/codehero
 
 autores.bson                 fantasmas.metadata.json      system.indexes.bson
 autores.metadata.json        otrosFantasmas.bson          system.users.bson
-fantasmas.bson               otrosFantasmas.metadata.json system.users.metadata.json 
+fantasmas.bson               otrosFantasmas.metadata.json system.users.metadata.json
 </pre>
 
 <blockquote>
@@ -207,7 +209,7 @@ system.users
 <ul>
 <li>Base de datos origen. - <code>codehero</code></li>
 <li>Base de datos destino. - <code>codeheroRemoto</code></li>
-<li>Dirección de instancia de origen - <code>192.168.0.100</code> 
+<li>Dirección de instancia de origen - <code>192.168.0.100</code>
 
 <ul>
 <li>Podriamos concatenarle el puerto de ser necesario - <code>192.168.0.100:27017</code></li>
