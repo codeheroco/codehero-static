@@ -19,129 +19,142 @@ tags:
 - howto
 - homebrew
 ---
-<p>En este <strong><em>Cómo lo hago</em></strong> se explicará el proceso de instalación de Homebrew, requerimientos del sistema y además hablaremos brevemente sobre él.</p>
+En este ***Cómo lo hago*** se explicará el proceso de instalación de Homebrew, requerimientos del sistema y además hablaremos brevemente sobre él.
 
-<hr />
+* * *
 
-<h2>¿Qué es Homebrew?.</h2>
+## ¿Qué es Homebrew?.
 
-<p>Homebrew es un manejador de paquetes hecho en Ruby para la plataforma Mac OS X el cual permite una fácil gestión de software libre en tu computador. Para aquellos familiarizados con ambientes Linux, Homebrew funciona parecido al <strong><em>apt-get</em></strong> de las distribuciones basadas en Debian.</p>
+Homebrew es un manejador de paquetes hecho en Ruby para la plataforma Mac OS X el cual permite una fácil gestión de software libre en tu computador. Para aquellos familiarizados con ambientes Linux, Homebrew funciona parecido al ***apt-get*** de las distribuciones basadas en Debian.
 
-<hr />
+* * *
 
-<h2>¿Por qué utilizar un manejador de paquetes en lugar de instalar manualmente?</h2>
+## ¿Por qué utilizar un manejador de paquetes en lugar de instalar manualmente?.
 
-<p>Utilizar un manejador de paquetes ofrece numerosas ventajas:</p>
+Utilizar un manejador de paquetes ofrece numerosas ventajas:
 
-<ul>
-<li>Permite actualizar facilmente versiones de paquetes completos.</li>
-<li>Las dependencias se instalan automáticamente sin que el usuario deba hacerlo previamente.</li>
-<li>Descarga, compila e instala en un solo paso.</li>
-<li>Evita duplicidad de paquetes.</li>
-<li>Eliminar paquetes es igual de fácil que instalarlos.</li>
-<li>Paquetes es más que aplicaciones, por ejemplo wget.</li>
-<li>Los paquetes son instalados en su propio directorio y su enlace simbólico se almacenan en <em>/usr/local</em></li>
-</ul>
+*   Permite actualizar facilmente versiones de paquetes completos.
+*   Las dependencias se instalan automáticamente sin que el usuario deba hacerlo previamente.
+*   Descarga, compila e instala en un solo paso.
+*   Evita duplicidad de paquetes.
+*   Eliminar paquetes es igual de facil que instalarlos.
+*   Paquetes es más que aplicaciones, por ejemplo wget.
+*   Los paquetes son instalados en su propio directorio y su enlace simbólico se almacenan en */usr/local*
 
-<hr />
+* * *
 
-<h2>¿Y por qué debo usar Homebrew, no hay alternativas?</h2>
+## ¿Y por qué debo usar Homebrew, no hay alternativas?
 
-<p>Ciertamente Homebrew no es el único manejador de paquetes para OSX, también se encuentran <a href="http://www.macports.org/">MacPorts</a> y <a href="http://finkproject.org/">Fink</a>; sin embargo estos otros manejadores suelen instalar sus propias versiones de las herramientas, que ya posee el sistema operativo, lo cual produce una duplicación de librerías y archivos binarios. Además que Homebrew trata de ofrecer un nivel aceptable de compatibilidad con el sistema operativo al usar herramientas de Xcode para construir las dependecias.</p>
+Ciertamente Homebrew no es el único manejador de paquetes para OSX, también se encuentran [MacPorts][1] y [Fink][2]; sin embargo estos otros manejadores suelen instalar sus propias versiones de las herramientas, que ya posee el sistema operativo, lo cual produce una duplicación de librerías y archivos binarios. Además que Homebrew trata de ofrecer un nivel aceptable de compatibilidad con el sistema operativo al usar herramientas de Xcode para construir las dependecias.
 
-<hr />
+* * *
 
-<h2>Bien, ¿Qué necesito?</h2>
+## Bien, ¿Qué necesito?
 
-<p>La configuración recomendada para asegurar una máxima compatibilidad es:</p>
+La configuración recomendada para asegurar una máxima compatibilidad es:
 
-<ul>
-<li>Un computador Mac con CPU Intel.</li>
-<li>OS X 10.6 (Snow Leopard) o mayor. </li>
-<li><a href="http://itunes.apple.com/us/app/xcode/id497799835">Linea de comandos de Xcode</a>.</li>
-</ul>
+*   Un computador Mac con CPU Intel.
+*   OS X 10.6 (Snow Leopard) o mayor.
+*   [Linea de comandos de Xcode][3].
 
-<p><em>Nota: es posible instalar Homebrew en computadores PowerPC con OSX 10.4; sin embargo es un proceso que debe hacerse con cautela. Más detalles en la <a href="https://github.com/mistydemeo/tigerbrew">rama experimental de GitHub.</a></em></p>
+*Nota: es posible instalar Homebrew en computadores PowerPC con OSX 10.4; sin embargo es un proceso que debe hacerse con cautela. Más detalles en la [rama experimental de GitHub.][4]*
 
-<hr />
+* * *
 
-<h2>Perfecto. ¡Quiero Homebrew ya! ¿Cómo lo instalo?</h2>
+## Perfecto. Quiero Homebrew ya! ¿Cómo lo instalo?
 
-<p>Debido a que Ruby se encuentra preinstalado en OSX, instalar Homebrew es tan fácil como abrir el terminal y ejecutar el siguiente comando:</p>
+Debido a que Ruby se encuentra preinstalado en OSX, instalar Homebrew es tan fácil como abrir el terminal y ejecutar el siguiente comando:
 
-<pre>$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-</pre>
+```sh
+$ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+```
 
-<p>Esto buscará en el repositorio de Github la ultima versión de Homebrew y la instalará en tu sistema.</p>
+Esto buscará en el repositorio de Github la ultima versión de Homebrew y la instalará en tu sistema.
 
-<p>Es recomendable luego de instalar Homebrew, antes de realizar cualquier otra operación, ejecutar el comando:</p>
+Es recomendable luego de instalar Homebrew, antes de realizar cualquier otra operación, ejecutar el comando:
 
-<pre>$ brew doctor
-</pre>
+```sh
+$ brew doctor
+```
 
-<p>Este proceso detectará si existe algún inconveniente que pueda causar problemas de compilación o compatibilidad más adelante. Por ejemplo, tener instalado Xcode pero no la Linea de Comandos de Xcode puede llevar a problemas de compilación, Homebrew lo sabe y lo puede advertir en su diagnostico con <strong><em>doctor</em></strong>:</p>
+Este proceso detectará si existe algún inconveniente que pueda causar problemas de compilación o compatibilidad más adelante. Por ejemplo, tener instalado Xcode pero no la Linea de Comandos de Xcode puede llevar a problemas de compilación, Homebrew lo sabe y lo puede advertir en su diagnostico con ***doctor***:
 
-<pre>Warning: Experimental support for using Xcode without the "Command Line Tools".
+```sh
+Warning: Experimental support for using Xcode without the "Command Line Tools".
 You have only installed Xcode. If stuff is not building, try installing the
 "Command Line Tools for Xcode" package provided by Apple.
-</pre>
+```
 
-<p>Como dijimos antes, los enlaces simbólicos de los paquetes de Hombrew se almacenan en /usr/local/bin, lo que nos ofrece la ventaja de no necesitar invocar el comando <strong><em>sudo</em></strong>, lo cual viene siendo uno de los lemas de la solución Homebrew, ya que esto puede comprometer el sistema.</p>
+Como dijimos antes, los enlaces simbólicos de los paquetes de Hombrew se almacenan en /usr/local/bin, lo que nos ofrece la ventaja de no necesitar invocar el comando ***sudo*** lo cual viene siendo uno de los lemas de la solución Hombrew ya que esto puede comprometer el sistema.
 
-<p>Es posible que un paquete ya se encuentre instalado en el computador y que nosotros hayamos decidido instalarlo por Homebrew, por ejemplo, Ruby. Podremos notar que tendremos 2 versiones de Ruby, una en <strong><em>/usr/bin</em></strong> y otra en <strong><em>/usr/local/bin</em></strong> (instalada por Homebrew).</p>
+Es posible que un paquete ya se encuentre instalado en el computador y que nosotros hayamos decidido instalarlo por Homebrew, por ejemplo, Ruby. Podremos notar que tendremos 2 versiones de Ruby, una en ***/usr/bin*** y otra en ***/usr/local/bin*** (instalada por Homebrew).
 
-<p><strong>¿Cómo saber cual de las 2 se está utilizando?</strong></p>
+**¿Cómo saber cual de las 2 se está utilizando?**
 
-<p>Para determinar esto podemos hacer uso del siguiente comando:</p>
+Para determinar esto podemos hacer uso del siguiente comando:
 
-<pre>$ echo $PATH
-</pre>
+```sh
+$ echo $PATH
+```
 
-<p>y podremos obtener una salida como esta:</p>
+y podremos obtener una salida como esta:
 
-<pre>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-</pre>
+```sh
+/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+```
 
-<p>En este caso, la salida nos indica que al ejecutar el comando <strong><em>ruby</em></strong>, el sistema buscará el enlace simbólico de dicho comando en el orden previamente indicado, es decir, primero en <strong><em>/usr/bin</em></strong>, luego en <strong><em>/bin</em></strong> y así sucesivamente hasta que exista la primera ocurrencia. Esto quiere decir que la versión de Ruby que estaría utilizando al ejecutar el comando sería la que trae el computador (alojada en <strong>/usr/bin</strong>) en lugar de la que instalamos por Homebrew.</p>
+En este caso, la salida nos indica que al ejecutar el comando ***ruby***, el sistema buscará el enlace simbólico de dicho comando en el orden previamente indicado, es decir, primero en ***/usr/bin***, luego en ***/bin*** y así sucesivamente hasta que exista la primera ocurrencia. Esto quiere decir que la versión de Ruby que estaría utilizando al ejecutar el comando sería la que trae el computador (alojada en **/usr/bin**) en lugar de la que instalamos por Homebrew.
 
-<p>Para evitar este tipo de inconvenientes, es recomendable editar ( o crear si no existe ) el archivo .bashrc ( .zshrc en caso de que usen la linea de comandos ZSH ) en el directorio principal del usuario, e indicar el orden deseado de búsqueda de comandos agregando algo parecido a esto:</p>
+Para evitar este tipo de inconvenientes, es recomendable editar ( o crear si no existe ) el archivo .bashrc ( .zshrc en caso de que usen la linea de comandos ZSH ) en el directorio principal del usuario, e indicar el orden deseado de búsqueda de comandos agregando algo parecido a esto:
 
-<pre>export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-</pre>
+```sh
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+```
 
-<p>De esta manera el directorio en el que Homebrew guarda los enlaces simbólicos de los paquetes será el primero en ser buscado al ejecutar un comando.</p>
+De esta manera el directorio en el que Homebrew guarda los enlaces simbólicos de los paquetes será el primero en ser buscado al ejecutar un comando.
+* * *
 
-<hr />
+## ¿Ahora qué?
 
-<h2>¿Ahora qué?</h2>
+Ahora solo queda empezar a experimentar con Homebrew. En Homebrew los nombres de los paquetes se les denomina fórmulas, puedes comenzar probando instalar formulas básicas como ***git***:
 
-<p>Ahora solo queda empezar a experimentar con Homebrew. En Homebrew los nombres de los paquetes se les denomina fórmulas, puedes comenzar probando instalar fórmulas básicas como <strong><em>git</em></strong>:</p>
+```sh
+$ brew install git
+```
 
-<pre>$ brew install git
-</pre>
+¿Quieres saber si la fórmula que buscas está en Homebrew?:
 
-<p>¿Quieres saber si la fórmula que buscas está en Homebrew?:</p>
+```sh
+$ brew search nombre_formula
+```
 
-<pre>$ brew search nombre_formula
-</pre>
+Instalaste una fórmula que no te gusta y la quieres borrar:
 
-<p>Instalaste una fórmula que no te gusta y la quieres borrar:</p>
+```sh
+$ brew remove nombre_formula
+```
 
-<pre>$ brew remove nombre_formula
-</pre>
+¿Quieres actualizar una fórmula?:
 
-<p>¿Quieres actualizar una fórmula?:</p>
+```sh
+$ brew upgrade nombre_formula
+```
 
-<pre>$ brew upgrade nombre_formula
-</pre>
+¿Quieres actualizar Homebrew?:
 
-<p>¿Quieres actualizar Homebrew?:</p>
+```sh
+$ brew update
+```
 
-<pre>$ brew update
-</pre>
+* * *
 
-<hr />
+## Conclusión
 
-<h2>Conclusión</h2>
+Mucho provecho se le puede sacar a esta herramienta, instalarla es solo el primer paso para tener un computador con un sistema interno sencillo de manejar, fácil de mantener, menos conflictivo y altamente expansible. Cualquier duda que tengas la puedes expresar en los comentarios y trataré de responderte lo mejor que pueda.
 
-<p>Mucho provecho se le puede sacar a esta herramienta, instalarla es solo el primer paso para tener un computador con un sistema interno sencillo de manejar, fácil de mantener, menos conflictivo y altamente expansible. Cualquier duda que tengas la puedes expresar en los comentarios y trataré de responderte lo mejor que pueda.</p>
+ [1]: http://www.macports.org/
+ [2]: http://finkproject.org/
+ [3]: http://itunes.apple.com/us/app/xcode/id497799835
+ [4]: https://github.com/mistydemeo/tigerbrew
+
+

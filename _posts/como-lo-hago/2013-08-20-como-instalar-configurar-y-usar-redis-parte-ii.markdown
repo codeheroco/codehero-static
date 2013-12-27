@@ -21,130 +21,119 @@ tags:
 - comandos
 - consejos
 ---
-<p>La semana pasada <a href="http://codehero.co/como-instalar-configurar-y-usar-redis/">estuvimos conociendo Redis</a>, vimos algunos detalles sobre las ventajas que ofrece, lo instalamos, aprendimos sobre su estructura y tipos de datos. Hoy continuaremos el tema y hablaremos de la configuración de la instancia y lo que esto implica, además conoceremos varios comandos básicos para que puedas empezar a sacarle provecho a tu nueva base de datos, también hablaremos de otros detalles que expanden las capacidades de Redis y algunos consejos a tomar en cuenta.</p>
+La semana pasada [estuvimos conociendo Redis](http://codehero.co/como-instalar-configurar-y-usar-redis/), vimos algunos detalles sobre las ventajas que ofrece, lo instalamos, aprendimos sobre su estructura y tipos de datos. Hoy continuaremos el tema y hablaremos de la configuración de la instancia y lo que esto implica, además conoceremos varios comandos básicos para que puedas empezar a sacarle provecho a tu nueva base de datos, también hablaremos de otros detalles que expanden las capacidades de Redis y algunos consejos a tomar en cuenta.
 
-<hr />
+***
+##Configuración
 
-<h2>Configuración</h2>
+El archivo de configuración de Redis es bastante intuitivo y fácil de configurar, busquémoslo y veamos algunos detalles de su contenido.
 
-<p>El archivo de configuración de Redis es bastante intuitivo y fácil de configurar, busquémoslo y veamos algunos detalles de su contenido.</p>
+###*nix
 
-<h3>*nix</h3>
+```sh
+/etc/redis/6379.conf
+```
 
-<pre>/etc/redis/6379.conf
-</pre>
+>Si aceptamos las opciones por defecto al crear el servidor, el archivo de configuración tendrá el nombre del puerto por defecto `6379`.
 
-<blockquote>
-  <p>Si aceptamos las opciones por defecto al crear el servidor, el archivo de configuración tendrá el nombre del puerto por defecto <code>6379</code>.</p>
-</blockquote>
+###Mac OS X
 
-<h3>Mac OS X</h3>
+```sh
+/usr/local/etc/redis.conf
+```
 
-<pre>/usr/local/etc/redis.conf
-</pre>
+</br>
+Veamos algunas de las cosas que podemos especificar en la configuración:
 
-<p></br> Veamos algunas de las cosas que podemos especificar en la configuración:</p>
+* Demonizar el servicio.
+```
+daemonize yes
+```
 
-<ul>
-<li>Demonizar el servicio.</li>
-</ul>
+* Cambiar el puerto donde escucha el servidor:
+```
+port 6379
+```
 
-<pre>daemonize yes
-</pre>
+* Que el servidor esté atado a una única dirección.
+```
+bind 127.0.0.1
+```
 
-<ul>
-<li>Cambiar el puerto donde escucha el servidor:</li>
-</ul>
+Esto permitirá que sólo la dirección especificada pueda acceder a la base de datos.
 
-<pre>port 6379
-</pre>
+* Frecuencia de salvado en persistencia
 
-<ul>
-<li>Que el servidor esté atado a una única dirección.</li>
-</ul>
+```
+save 900  1
+save 300  10
+save 60   10000
+```
 
-<pre>bind 127.0.0.1
-</pre>
+La configuración por defecto establece 3 casos, pero puedes agregar los que consideres necesarios:
 
-<p>Esto permitirá que sólo la dirección especificada pueda acceder a la base de datos.</p>
+Guardar en persistencia cada 60 segundos si al menos 1000 llaves han sido cambiadas, cada 5 minutos si al menos 10 llaves han cambiado o cada 15 minutos si al menos una llave cambió.
 
-<ul>
-<li>Frecuencia de salvado en persistencia </li>
-</ul>
+> Recuerda que Redis mantiene la base de datos en memoria y es importante que tener respaldada su información en disco.
 
-<pre>save 900 1
-save 300 10
-save 60 10000
-</pre>
+* Replicación
 
-<p>La configuración por defecto establece 3 casos, pero puedes agregar los que consideres necesarios:</p>
+Establecer servidores Redis de replicación de datos es sumamente sencillo, tan solo debes establecer quién es la base datos maestra:
 
-<p>Guardar en persistencia cada 60 segundos si al menos 1000 llaves han sido cambiadas, cada 5 minutos si al menos 10 llaves han cambiado o cada 15 minutos si al menos una llave cambió.</p>
+```
+slaveof IP_del_maestro Puerto_del_maestro
+```
 
-<blockquote>
-  <p>Recuerda que Redis mantiene la base de datos en memoria y es importante que tener respaldada su información en disco.</p>
-</blockquote>
+Si el servidor maestro posee clave lo debemos especificar:
 
-<ul>
-<li>Replicación</li>
-</ul>
+```
+masterauth password
+```
 
-<p>Establecer servidores Redis de replicación de datos es sumamente sencillo, tan solo debes establecer quién es la base datos maestra:</p>
+Una vez establecido este parámetro, la base de datos *esclava* se sincronizará automaticamente con la *maestra*.
 
-<pre>slaveof IP_del_maestro Puerto_del_maestro
-</pre>
+Además puedes especificar el tiempo si los esclavos solo serán capaces de recibir llamadas de lectura:
 
-<p>Si el servidor maestro posee clave lo debemos especificar:</p>
+```
+slave-read-only yes
+```
 
-<pre>masterauth password
-</pre>
+* Seguridad
 
-<p>Una vez establecido este parámetro, la base de datos <em>esclava</em> se sincronizará automaticamente con la <em>maestra</em>.</p>
+Evidentemente es posible asignarle una clave de acceso a la base de datos:
 
-<p>Además puedes especificar el tiempo si los esclavos solo serán capaces de recibir llamadas de lectura:</p>
+```
+requirepass mi_password
+```
 
-<pre>slave-read-only yes
-</pre>
+Adicionalmente, debido a que el comando nativo CONFIG permite cambiar la configuración de la instancia mientras funciona, podemos renombrar este comando para que cualquiera que trata de modificarlo con malas intenciones se le vea dificultada su tarea:
 
-<ul>
-<li>Seguridad</li>
-</ul>
+```
+rename-command CONFIG b840fc02d524045429941cc15f59e41cb7be6c52
+```
 
-<p>Evidentemente es posible asignarle una clave de acceso a la base de datos:</p>
+O inclusive podemos deshabilitar el comando asignándole una cadena vacía:
 
-<pre>requirepass mi_password
-</pre>
+```
+rename-command CONFIG ""
+```
 
-<p>Adicionalmente, debido a que el comando nativo CONFIG permite cambiar la configuración de la instancia mientras funciona, podemos renombrar este comando para que cualquiera que trata de modificarlo con malas intenciones se le vea dificultada su tarea:</p>
+* Bitacora de persistencia
 
-<pre>rename-command CONFIG b840fc02d524045429941cc15f59e41cb7be6c52
-</pre>
+Redis posee una segunda estrategia de persistencia que consiste en guardar en un archivo, la bitácora o lista de todos los comandos y/o acciones que han sido ejecutadas, esto con el fin de que si la base de datos falla, al levantarse nuevamente la información puede ser reconstruida nuevamente siguiente dicha bitácora.
 
-<p>O inclusive podemos deshabilitar el comando asignándole una cadena vacía:</p>
+```
+appendonly no
+```
+***
+##Comandos Básicos
 
-<pre>rename-command CONFIG ""
-</pre>
+Veamos algunos de los comandos más utilizados al interactuar con Redis, para echar un vistazo a la lista completa puedes visitar [la página oficial](http://redis.io/commands).
 
-<ul>
-<li>Bitacora de persistencia</li>
-</ul>
+* Cadenas de caracteres
 
-<p>Redis posee una segunda estrategia de persistencia que consiste en guardar en un archivo, la bitácora o lista de todos los comandos y/o acciones que han sido ejecutadas, esto con el fin de que si la base de datos falla, al levantarse nuevamente la información puede ser reconstruida nuevamente siguiente dicha bitácora.</p>
-
-<pre>appendonly no
-</pre>
-
-<hr />
-
-<h2>Comandos Básicos</h2>
-
-<p>Veamos algunos de los comandos más utilizados al interactuar con Redis, para echar un vistazo a la lista completa puedes visitar <a href="http://redis.io/commands">la página oficial</a>.</p>
-
-<ul>
-<li>Cadenas de caracteres</li>
-</ul>
-
-<pre>> SET llavePrueba valor1
+```sh
+> SET llavePrueba valor1
 OK
 
 > GET llavePrueba
@@ -155,17 +144,14 @@ OK
 
 > GET llavePrueba
 (nil)
-</pre>
+```
 
-<blockquote>
-  <p>Guarda una llave con el valor especificado y obtiene su valor, y finalmente elimina el par de llave-valor. La salida de <code>(integer) 1</code> luego de borrar indica que el comando fue ejecutado satisfactoriamente.</p>
-</blockquote>
+>Guarda una llave con el valor especificado y obtiene su valor, y finalmente elimina el par de llave-valor. La salida de `(integer) 1` luego de borrar indica que el comando fue ejecutado satisfactoriamente.
 
-<ul>
-<li>Contadores y expiraciones </li>
-</ul>
+* Contadores y expiraciones
 
-<pre>> SET llaveNumerica 1
+```sh
+> SET llaveNumerica 1
 OK
 
 > INCR llaveNumerica
@@ -173,13 +159,13 @@ OK
 
 > INCRBY llaveNumerica 5
 (integer) 7
-</pre>
+```
 
-<blockquote>
-  <p>Si el valor de una llave es numerico es posible incrementaro con <code>INCR</code> y <code>INCRBY</code>.</p>
-</blockquote>
+>Si el valor de una llave es numerico es posible incrementaro con `INCR` y `INCRBY`.
 
-<pre>> EXPIRE llaveNumerica 10
+
+```sh
+> EXPIRE llaveNumerica 10
 (integer) 1
 
 > TTL llaveNumerica
@@ -187,17 +173,14 @@ OK
 …
 > GET llaveNumerica
 (nil)
-</pre>
+```
 
-<blockquote>
-  <p>Podemos colocar un tiempo de vencimiento de la llave para que sea eliminada después del tiempo especificado, el comando <code>TTL</code> nos arroja el tiempo de vida que le queda a la llave (Time To Live), si la llave es <em>seteada</em> nuevamente, el tiempo de expiración será eliminado.</p>
-</blockquote>
+>Podemos colocar un tiempo de vencimiento de la llave para que sea eliminada después del tiempo especificado, el comando `TTL` nos arroja el tiempo de vida que le queda a la llave (Time To Live), si la llave es *seteada* nuevamente, el tiempo de expiración será eliminado.
 
-<ul>
-<li>Juegos</li>
-</ul>
+* Juegos
 
-<pre>> SADD juegos ajedrez
+```sh
+> SADD juegos ajedrez
 (integer) 1
 
 > SADD juegos ludo
@@ -216,17 +199,14 @@ OK
 
 > SISMEMBER juegos ajedrez
 (integer) 0
-</pre>
+```
 
-<blockquote>
-  <p>Usando los juegos o <em>sets</em> podemos agregar distintos valores a una llave, como los juegos en otros lenguajes los valores se guardan sin ningún orden en particular.</p>
-</blockquote>
+>Usando los juegos o *sets* podemos agregar distintos valores a una llave, luego verificar
 
-<ul>
-<li>Juegos ordenados</li>
-</ul>
+* Juegos ordenados
 
-<pre>> ZADD animales:tamaño 5 perro
+```sh
+> ZADD animales:tamaño 5 perro
 (integer) 1
 
 > ZADD animales:tamaño 1 raton
@@ -256,21 +236,19 @@ OK
 6) "5"
 7) "elefante"
 8) "12"
-</pre>
+```
 
-<blockquote>
-  <p>Los juegos ordenados siguen el principio de mantener el ordenes de sus elementos según su puntaje de menos a mayor, sin importar el orden en el que fueron introducidos.</p>
+> Los juegos ordenados siguen el principio de mantener el ordenes de sus elementos según su puntaje de menos a mayor, sin importar el orden en el que fueron introducidos.
 
-  <p>ZRANK nos permite determinar la posición que tiene cierto valor dentro de un juego ordenado según el puntaje que tiene.</p>
+>ZRANK nos permite determinar la posición que tiene cierto valor dentro de un juego ordenado según el puntaje que tiene.
 
-  <p>ZRANGE recibe como parámetros la llave, la posición de inicio del rango a buscar y la cantidad de elementos a tomar, en nuestro caso utilizamos que empiece en la posición 0 y al indicar que seleccione -1 elementos, tomará todos los elementos del juego.</p>
-</blockquote>
 
-<ul>
-<li>Listas</li>
-</ul>
+>ZRANGE recibe como parámetros la llave, la posición de inicio del rango a buscar y la cantidad de elementos a tomar, en nuestro caso utilizamos que empiece en la posición 0 y al indicar que seleccione -1  elementos, tomará todos los elementos del juego.
 
-<pre>> RPUSH series:codehero python
+* Listas
+
+```sh
+> RPUSH series:codehero python
 (integer) 1
 
 > RPUSH series:codehero ruby
@@ -304,19 +282,16 @@ OK
 1) "python"
 2) "ruby"
 3) "ios"
-</pre>
+```
 
-<blockquote>
-  <p>Usar listas es muy parecido a usar pilas y colas en programación, primero metimos a la llave <code>series:codehero</code> en forma de cola (o por la derecha) las series <code>pyhton</code> y <code>ruby</code>, luego en forma de pila (o por la izquierda) la serie <code>git</code>, esto resultaría en tener primero <code>git</code> luego <code>python</code> y por último <code>ruby</code>. Luego introducimos por la cola las series <code>ios</code> y <code>php</code> respectivamente, con el comando LPOP y RPOP podemos tomar y eliminar el primer y último elemento respectivamente, por lo que en nuestro caso quedarían los elementos centrales de la lista</p>
+>Usar listas es muy parecido a usar pilas y colas en programación, primero metimos a la llave `series:codehero` en forma de cola (o por la derecha) las series `pyhton` y `ruby`, luego en forma de pila (o por la izquierda) la serie `git`, esto resultaría en tener primero `git` luego `python` y por último `ruby`. Luego introducimos por la cola las series `ios` y `php` respectivamente, con el comando LPOP y RPOP podemos tomar y eliminar el primer y último elemento respectivamente, por lo que en nuestro caso quedarían los elementos centrales de la lista
 
-  <p>Para LRANGE aplica el mismo caso que ZRANGE.</p>
-</blockquote>
+>Para LRANGE aplica el mismo caso que ZRANGE.
 
-<ul>
-<li>Hashes</li>
-</ul>
+* Hashes
 
-<pre>> HMSET usuario:1 nombre Jonathan apellido Wiesel correo jonathanwiesel@gmail.com
+```sh
+> HMSET usuario:1 nombre Jonathan apellido Wiesel correo jonathanwiesel@gmail.com
 OK
 
 > HGETALL usuario:1
@@ -353,19 +328,17 @@ OK
 4) "jonathanwiesel@gmail.com"
 5) "password"
 6) "1234"
-</pre>
+```
 
-<blockquote>
-  <p>Los <em>hashes</em> son de gran utilidad para definir estructuras tipo objetos, donde el identificador único sería la llave principal del <em>hash</em> (usuario:1), la definición de atributos serian las llaves dentro del <em>hash</em> (nombre, apellido, …) y los valores respectivos a los atributos serían los valores de cada llave del <em>hash</em> (Jonathan, Wiesel, …). Inclusive podemos añadir y borrar atributos dinámicamente según sea necesario, a diferencia de la estructura común de una tabla de base de datos que las columnas se encuentran predefinidas</p>
-</blockquote>
+> Los *hashes* son de gran utilidad para definir estructuras tipo objetos, donde el identificador único sería la llave principal del *hash* (usuario:1), la definición de atributos serian las llaves dentro del *hash* (nombre, apellido, …) y los valores respectivos a los atributos serían los valores de cada llave del *hash* (Jonathan, Wiesel, …). Inclusive podemos añadir y borrar atributos dinámicamente según sea necesario, a diferencia de la estructura común de una tabla de base de datos que las columnas se encuentran predefinidas
 
-<hr />
+***
+##Transacciones
 
-<h2>Transacciones</h2>
+Una de las ventajas que nos ofrece Redis tal como otros sistemas de base de datos es la posibilidad de definir y ejecutar transacciones, es decir, un conjunto de operaciones definidas una por una que al ejecutar la transacción se ejecuten en el orden que fueron definidos en una única llamada. Aquí entran en juego los comandos `MULTI` y `EXEC`:
 
-<p>Una de las ventajas que nos ofrece Redis tal como otros sistemas de base de datos es la posibilidad de definir y ejecutar transacciones, es decir, un conjunto de operaciones definidas una por una que al ejecutar la transacción se ejecuten en el orden que fueron definidos en una única llamada. Aquí entran en juego los comandos <code>MULTI</code> y <code>EXEC</code>:</p>
-
-<pre>> MULTI
+```sh
+> MULTI
 OK
 
 > SET valor 1
@@ -381,13 +354,12 @@ QUEUED
 1) OK
 2) (integer) 2
 3) (integer) 6
-</pre>
+```
 
-<blockquote>
-  <p>El comando <code>MULTI</code> nos permite definir que los comandos que sigan serán parte de una transacción, por esto vemos que al ejecutar algún comando obtenemos como respuesta la palabra <code>QUEUED</code>(encolado).</p>
-</blockquote>
+> El comando `MULTI` nos permite definir que los comandos que sigan serán parte de una transacción, por esto vemos que al ejecutar algún comando obtenemos como respuesta la palabra `QUEUED`(encolado).
 
-<pre>> SET valor 1
+```sh
+> SET valor 1
 OK
 
 >MULTI
@@ -401,40 +373,31 @@ OK
 
 > GET valor
 "1"
-</pre>
+```
 
-<blockquote>
-  <p>Supongamos que estamos a la mitad de la definición de una transacción y nos hemos equivocado en algo, usando el comando <code>DISCARD</code> la transacción es abortada.</p>
-</blockquote>
+> Supongamos que estamos a la mitad de la definición de una transacción y nos hemos equivocado en algo, usando el comando `DISCARD` la transacción es abortada.
 
-<p>Es posible que estés pensando lo siguiente: ¿Y si a la mitad de la ejecución de una de mis transacciones ocurre alguna operación de otro cliente que modifica alguna de las llaves que voy a usar en mi transacción y altera el comportamiento de la misma?. No te preocupes, antes de definir la transacción puede utilizar el comando <code>WATCH</code> y especificar las llaves que no quieres que se modifiquen por otros durante la ejecución de tu transacción. Si en efecto otro cliente modifica una llave que esta bajo el comando <code>WATCH</code> mientras la transacción se está ejecutando, la transacción fallará.</p>
+Es posible que estés pensando lo siguiente: ¿Y si a la mitad de la ejecución de una de mis transacciones ocurre alguna operación de otro cliente que modifica alguna de las llaves que voy a usar en mi transacción y altera el comportamiento de la misma?. No te preocupes, antes de definir la transacción puede utilizar el comando `WATCH` y especificar las llaves que no quieres que se modifiquen por otros durante la ejecución de tu transacción. Si en efecto otro cliente modifica una llave que esta bajo el comando `WATCH` mientras la transacción se está ejecutando, la transacción fallará.
 
-<hr />
+***
+##Redis Sentinel
+A partir de la versión estable 2.4.16 se comenzó a implementar un sistema de manejo de instancias llamado **Redis Sentinel**, el cual permite monitorear si la instancia maestra y sus esclavas se están comportando de manera correcta, notifica al administrador de sistema o a otro sistema externo, comunicándose mediante un API, si algo malo está sucediendo con las instancias. Más impresionante aún, si el maestro se cae, Sentinel es capaz de elegir a un esclavo y promoverlo a maestro, si el viejo maestro vuelve a levantarse es asignado como esclavo del nuevo maestro.
 
-<h2>Redis Sentinel</h2>
+>En el directorio donde se encuentra el archivo de configuración de tu servidor Redis debe estar también el de Sentinel.
 
-<p>A partir de la versión estable 2.4.16 se comenzó a implementar un sistema de manejo de instancias llamado <strong>Redis Sentinel</strong>, el cual permite monitorear si la instancia maestra y sus esclavas se están comportando de manera correcta, notifica al administrador de sistema o a otro sistema externo, comunicándose mediante un API, si algo malo está sucediendo con las instancias. Más impresionante aún, si el maestro se cae, Sentinel es capaz de elegir a un esclavo y promoverlo a maestro, si el viejo maestro vuelve a levantarse es asignado como esclavo del nuevo maestro.</p>
+***
+##Información Adicional
 
-<blockquote>
-  <p>En el directorio donde se encuentra el archivo de configuración de tu servidor Redis debe estar también el de Sentinel.</p>
-</blockquote>
+Ya que estás hecho un héroe en Redis hablemos de algunos detalles de optimización y seguridad.
 
-<hr />
+Siempre que consigas la oportunidad para **usar hashes**, ¡hazlo!. Redis almacena los *hashes* pequeños en memoria de manera muy eficiente y ocupando muy poco espacio, tal como vimos en nuestro ejemplo anteriormente, es más eficiente hacerlo de esa manera que asignarle una llave a cada valor del *hash* por separado.
 
-<h2>Información Adicional</h2>
+Si tienes la oportunidad de elegir la arquitectura del computador donde estará alojado el servidor Redis, es preferible **usar instancias de 32bits**, ya que bajo esta arquitectura los punteros de memoria son más pequeños y por ende consumen menos recursos. Sin embargo hay que tomar en cuenta que en este caso la instancia estaría limitada a 4GB de memoria.
 
-<p>Ya que estás hecho un héroe en Redis hablemos de algunos detalles de optimización y seguridad.</p>
+Si pretendes montar tu servidor Redis en instancias en la nube como Amazon Web Services, el uso instancias EC2 con **almacenamiento ESB no es recomendado** debido a su lento rendimiento para escribir en disco (procesos de persistencia de data), se recomienda tener almacenamiento efímero o local, e ir moviendo al volumen ESB periodicamente.
 
-<p>Siempre que consigas la oportunidad para <strong>usar hashes</strong>, ¡hazlo!. Redis almacena los <em>hashes</em> pequeños en memoria de manera muy eficiente y ocupando muy poco espacio, tal como vimos en nuestro ejemplo anteriormente, es más eficiente hacerlo de esa manera que asignarle una llave a cada valor del <em>hash</em> por separado.</p>
+Usando librerías cliente comunes para comunicarse con Redis el concepto de **inyección NoSQL es imposible** bajo circunstancias normales debido al protocolo que se utiliza.
+***
+##Conclusión
 
-<p>Si tienes la oportunidad de elegir la arquitectura del computador donde estará alojado el servidor Redis, es preferible <strong>usar instancias de 32bits</strong>, ya que bajo esta arquitectura los punteros de memoria son más pequeños y por ende consumen menos recursos. Sin embargo hay que tomar en cuenta que en este caso la instancia estaría limitada a 4GB de memoria.</p>
-
-<p>Si pretendes montar tu servidor Redis en instancias en la nube como Amazon Web Services, el uso instancias EC2 con <strong>almacenamiento ESB no es recomendado</strong> debido a su lento rendimiento para escribir en disco (procesos de persistencia de data), se recomienda tener almacenamiento efímero o local, e ir moviendo al volumen ESB periodicamente.</p>
-
-<p>Usando librerías cliente comunes para comunicarse con Redis el concepto de <strong>inyección NoSQL es imposible</strong> bajo circunstancias normales debido al protocolo que se utiliza.</p>
-
-<hr />
-
-<h2>Conclusión</h2>
-
-<p>En esta segunda parte de Redis aprendimos a configurar nuestro servidor, conocimos comandos y operaciones comunes para crear, manipular y eliminar data, y conocimos varias ventajas técnicas que nos ofrece esta solución NoSQL de almacenamiento de datos. Los invitamos que nos cuenten sus experiencias.</p>
+En esta segunda parte de Redis aprendimos a configurar nuestro servidor, conocimos comandos y operaciones comunes para crear, manipular y eliminar data, y conocimos varias ventajas técnicas que nos ofrece esta solución NoSQL de almacenamiento de datos. Los invitamos que nos cuenten sus experiencias.

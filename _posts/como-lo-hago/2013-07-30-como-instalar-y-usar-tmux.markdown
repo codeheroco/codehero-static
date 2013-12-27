@@ -18,143 +18,160 @@ tags:
 - howto
 - tmux
 ---
-<p>Para aquellos que gustan de usar el terminal para llevar a cabo las tareas en su día a día pero deben abrir varias ventanas y sesiones para lograr llevar a cabo simultáneos procedimientos, <strong>Tmux</strong> es quizás la herramienta que se estaban perdiendo, esta semana hablaremos sobre cómo puede ayudarte a trabajar en el terminal de una manera más cómoda y eficiente.</p>
+Para aquellos que gustan de usar el terminal para llevar a cabo las tareas en su día a día pero deben abrir varias ventanas y sesiones para lograr llevar a cabo simultáneos procedimientos, **Tmux** es quizás la herramienta que se estaban perdiendo, esta semana hablaremos sobre cómo puede ayudarte a trabajar en el terminal de una manera más cómoda y eficiente.
 
-<hr />
+***
 
-<h2>¿Qué es Tmux?</h2>
+##¿Qué es Tmux?
 
-<p>Su nombre es el diminutivo de <em>terminal multiplexer</em> (multiplicador de terminal), y nos permite habilitar múltiples sesiones, ventanas y paneles para ser controladas mediante el mismo terminal. Es compatible con plataformas Linux, Mac OS X, FreeBSD, OpenBSD, NetBSD y Solaris.</p>
+Su nombre es el diminutivo de *terminal multiplexer*  (multiplicador de terminal), y nos permite habilitar múltiples sesiones, ventanas y paneles para ser controladas mediante el mismo terminal. Es compatible con plataformas Linux, Mac OS X, FreeBSD, OpenBSD, NetBSD y Solaris.
 
-<p>La mejor manera de demostrar sus ventajas y funcionalidades es probandolo, así que procedamos a instalarlo.</p>
+La mejor manera de demostrar sus ventajas y funcionalidades es probandolo, así que procedamos a instalarlo.
 
-<hr />
+***
 
-<h2>¿Cómo lo instalo?</h2>
+##¿Cómo lo instalo?
 
-<p>En Mac OS X el proceso de instalación recomendado es mediante el uso de <a href="http://codehero.co/como-lo-hago-instalar-homebrew/">Homebrew</a>, con solo una línea ya estaremos listos para usar la herramienta:</p>
+En Mac OS X el proceso de instalación recomendado es mediante el uso de [Homebrew](http://codehero.co/como-lo-hago-instalar-homebrew/), con solo una línea ya estaremos listos para usar la herramienta:
 
-<pre>$ brew install tmux
-</pre>
+```sh
+$ brew install tmux
+```
 
-<p>En otros sistemas que soportan el comando <em>apt-get</em>, la instalación es igual de sencilla:</p>
+En otros sistemas que soportan el comando *apt-get*, la instalación es igual de sencilla:
 
-<pre>$ apt-get install tmux
-</pre>
+```sh
+$ apt-get install tmux
+```
 
-<p>En su defecto también puedes dirigirte a la <a href="http://tmux.sourceforge.net/">página oficial de tmux</a>, descargar el <em>.tar.gz</em> y seguir el procedimiento de instalación manual.</p>
+En su defecto también puedes dirigirte a la [página oficial de tmux](http://tmux.sourceforge.net/), descargar el *.tar.gz* y seguir el procedimiento de instalación manual.
 
-<hr />
+***
+##¿Cómo lo uso?
 
-<h2>¿Cómo lo uso?</h2>
+Para comenzar creemos una sesión nueva:
+```sh
+$ tmux new -s primera_sesion
+```
 
-<p>Para comenzar creemos una sesión nueva:</p>
+![](http://i.imgur.com/0WiOA4W.png)
 
-<pre>$ tmux new -s primera_sesion
-</pre>
+Esto iniciará una nueva sesión del terminal tmux con el nombre *primera_sesion*. Notemos que en la barra inferior del terminal podemos apreciar además del nombre de la sesión, lo siguiente: **0:-\***, esto se traduce en que tenemos una ventana en la sesión (ventana 0), como estamos en el directorio raíz del usuario la ruta es únicamente el guión (-), y el asterisco (*) nos indica que es la ventana activa
 
-<p><img src="http://i.imgur.com/0WiOA4W.png" alt="" /></p>
+Debemos resaltar que el funcionamiento de tmux está enfocado a atajos de teclado, para ejecutar una funcionalidad debemos presionar Ctrl-b (accionador por defecto), luego los soltamos y presionamos la tecla de la acción que deseamos.
 
-<p>Esto iniciará una nueva sesión del terminal tmux con el nombre <em>primera_sesion</em>. Notemos que en la barra inferior del terminal podemos apreciar además del nombre de la sesión, lo siguiente: &#42;&#42;0:-&#42;&#42;*, esto se traduce en que tenemos una ventana en la sesión (ventana 0), como estamos en el directorio raíz del usuario la ruta es únicamente el guión (-), y el asterisco (*) nos indica que es la ventana activa</p>
+Por ahora creemos un nuevo panel en nuestra ventana, esto dividirá nuestra ventana horizontal o verticalmente para crear el otro panel, para hacerlo verticalmente presionemos `Ctrl-b %` y horizontalmente `Ctrl-b "`. Hagamos ambos para ver que pasa:
 
-<p>Debemos resaltar que el funcionamiento de tmux está enfocado a atajos de teclado, para ejecutar una funcionalidad debemos presionar Ctrl-b (accionador por defecto), luego los soltamos y presionamos la tecla de la acción que deseamos.</p>
+![](http://i.imgur.com/lS8Ixei.png)
 
-<p>Por ahora creemos un nuevo panel en nuestra ventana, esto dividirá nuestra ventana horizontal o verticalmente para crear el otro panel, para hacerlo verticalmente presionemos <code>Ctrl-b %</code> y horizontalmente <code>Ctrl-b "</code>. Hagamos ambos para ver que pasa:</p>
+Notemos que creamos 2 paneles adicionales, uno al dividir el original verticalmente en 2 y el otro al dividir el nuevo vertical derecho en 2 horizontales. Para poder ciclar entre los diferentes paneles podemos presionar `Ctrl-b o` o si queremos ir a alguno en particular podemos presionar `Ctrl-b q` lo cual nos dirá los números de cada panel y si rapidamente presionamos el número del que deseamos podremos ir a él.
 
-<p><img src="http://i.imgur.com/lS8Ixei.png" alt="" /></p>
+> Si estas trabajando en un ambiente que te permite hacer uso de un ratón, más adelante explicaremos como configurar tmux para que lo soporte y hacer que el cambio de paneles sea más sencillo.
 
-<p>Notemos que creamos 2 paneles adicionales, uno al dividir el original verticalmente en 2 y el otro al dividir el nuevo vertical derecho en 2 horizontales. Para poder ciclar entre los diferentes paneles podemos presionar <code>Ctrl-b o</code> o si queremos ir a alguno en particular podemos presionar <code>Ctrl-b q</code> lo cual nos dirá los números de cada panel y si rapidamente presionamos el número del que deseamos podremos ir a él.</p>
+Digamos que no necesitamos estos 3 paneles ahora, así que desechemos este último presionando `Ctrl-b x`.
 
-<blockquote>
-  <p>Si estas trabajando en un ambiente que te permite hacer uso de un ratón, más adelante explicaremos como configurar tmux para que lo soporte y hacer que el cambio de paneles sea más sencillo.</p>
-</blockquote>
+Ahora creemos una nueva ventana presionando `Ctrl-b c`:
 
-<p>Digamos que no necesitamos estos 3 paneles ahora, así que desechemos este último presionando <code>Ctrl-b x</code>.</p>
+![](http://i.imgur.com/tSpomk9.png)
 
-<p>Ahora creemos una nueva ventana presionando <code>Ctrl-b c</code>:</p>
+Notemos que hemos creado una nueva ventana de terminal, podemos apreciar en la barra inferior que ahora tenemos la ventana 0 y la 1, el asterisco nos indica la ventana en la cual nos encontramos actualmente.
 
-<p><img src="http://i.imgur.com/tSpomk9.png" alt="" /></p>
+Para ciclar entre las diferentes ventanas podemos presionar `Ctrl-b n` para ir a la próxima ventana, `Ctrl-b p` para ir a la anterior o simplemente especificar la ventana que queremos, por ejemplo si quisiéramos ir a la ventana 0 presionaríamos `Ctrl-b 0`.
 
-<p>Notemos que hemos creado una nueva ventana de terminal, podemos apreciar en la barra inferior que ahora tenemos la ventana 0 y la 1, el asterisco nos indica la ventana en la cual nos encontramos actualmente.</p>
+###Estado de sesión
 
-<p>Para ciclar entre las diferentes ventanas podemos presionar <code>Ctrl-b n</code> para ir a la próxima ventana, <code>Ctrl-b p</code> para ir a la anterior o simplemente especificar la ventana que queremos, por ejemplo si quisiéramos ir a la ventana 0 presionaríamos <code>Ctrl-b 0</code>.</p>
+Una de las grandes ventajas de tmux es su habilidad de desatarnos de la sesión, todo lo que la sesión contiene se mantendrá intacto. Hagamos una prueba de esto.
 
-<h3>Estado de sesión</h3>
+Conectemonos a un servidor por SSH mediante Tmux:
 
-<p>Una de las grandes ventajas de tmux es su habilidad de desatarnos de la sesión, todo lo que la sesión contiene se mantendrá intacto. Hagamos una prueba de esto.</p>
+![](http://i.imgur.com/7AqBKBm.png)
 
-<p>Conectemonos a un servidor por SSH mediante Tmux:</p>
+Ahora presionemos `Ctrl-b d` para desatarnos de la sesión.
 
-<p><img src="http://i.imgur.com/7AqBKBm.png" alt="" /></p>
+Notaremos que hemos vuelto a nuestro terminal común con el mensaje **[detached]**; sin embargo todo lo que dejamos corriendo en la sesión sigue ejecutandose, nuestra conexión SSH no está cerrada, volvamos a atar la sesión para comproblarlo:
 
-<p>Ahora presionemos <code>Ctrl-b d</code> para desatarnos de la sesión.</p>
-
-<p>Notaremos que hemos vuelto a nuestro terminal común con el mensaje <strong>[detached]</strong>; sin embargo todo lo que dejamos corriendo en la sesión sigue ejecutandose, nuestra conexión SSH no está cerrada, volvamos a atar la sesión para comproblarlo:</p>
-
-<pre>$ tmux list-sessions
+```sh
+$ tmux list-sessions
 primera_sesion: 2 windows (created Sat Jul 27 18:04:37 2013) [104x31]
 
 $ tmux attach-session -t primera_sesion
-</pre>
+```
 
-<p>Esto reanudará nuestra sesión tal cual como la dejamos.</p>
+Esto reanudará nuestra sesión tal cual como la dejamos.
 
-<blockquote>
-  <p>Debemos tener en cuenta que si el computador en el que estamos trabajando es apagado las sesiones se perderán.</p>
-</blockquote>
+>Debemos tener en cuenta que si el computador en el que estamos trabajando es apagado las sesiones se perderán.
 
-<h3>Programación en pareja</h3>
+###Programación en pareja
 
-<p>Otro de los usos más interesantes que se le da a Tmux es la programación remota en pareja.</p>
+Otro de los usos más interesantes que se le da a Tmux es la programación remota en pareja.
 
-<p>Para esto se recomienda construir una sesión de usuario aparte de la que usamos convencionalmente en el computador ya que no queremos que alguien acceda a nuestra información. En este caso lo haremos con nuestro usuario normal para la demostración.</p>
+Para esto se recomienda construir una sesión de usuario aparte de la que usamos convencionalmente en el computador ya que no queremos que alguien acceda a nuestra información. En este caso lo haremos con nuestro usuario normal para la demostración.
 
-<p>Debemos crear la sesión especificando el <em>socket</em> que usará, lo cual permitirá compartirla entre varios usuarios, para dar acceso a otros usuarios al <em>socket</em> debemos otorgarle los permisos necesarios:</p>
-
-<pre>$ tmux -S /tmp/emparejado
+Debemos crear la sesión especificando el *socket* que usará, lo cual permitirá compartirla entre varios usuarios, para dar acceso a otros usuarios al *socket* debemos otorgarle los permisos necesarios:
+```sh
+$ tmux -S /tmp/emparejado
 $ chmod 755 /tmp/emparejado
-</pre>
+```
 
-<p>Ahora en nuestro otro computador nos conectamos por SSH al equipo anfitrión y nos atamos a la sesión (recuerda que debes tener habilitado este tipo de acceso remoto en la configuración de tu computador anfitrión).</p>
+Ahora en nuestro otro computador nos conectamos por SSH al equipo anfitrión y nos atamos a la sesión (recuerda que debes tener habilitado este tipo de acceso remoto en la configuración de tu computador anfitrión).
 
-<p><img src="http://i.imgur.com/ZCqXRf1.png" alt="" /></p>
+![](http://i.imgur.com/ZCqXRf1.png)
 
-<p>Ahora ambos equipos se encuentran conectados a la misma sesión de Tmux y lo que uno escriba se verá reflejado en el otro:</p>
+Ahora ambos equipos se encuentran conectados a la misma sesión de Tmux y lo que uno escriba se verá reflejado en el otro:
 
-<p><img src="http://i.imgur.com/Oo9ubmT.png" alt="" /> Podemos notar una especie de puntos rellenando el fondo de la ventana más grande, esto se debe a que el terminal toma el tamaño de la ventana más pequeña (en este caso la del invitado) con el fin de que ambos puedan ver la misma información.</p>
+![](http://i.imgur.com/Oo9ubmT.png)
+Podemos notar una especie de puntos rellenando el fondo de la ventana más grande, esto se debe a que el terminal toma el tamaño de la ventana más pequeña (en este caso la del invitado) con el fin de que ambos puedan ver la misma información.
 
-<blockquote>
-  <p>Si quieres adentrarte más en la programación en pareja por terminal, te recomendamos que le eches un vistazo a <a href="http://tmate.io/">Tmate</a> y <a href="https://github.com/zolrath/wemux">Wemux</a> basadas en Tmux, los cuales ofrecen varias ventajas relacionadas a este fin particular.</p>
-</blockquote>
+> Si quieres adentrarte más en la programación en pareja por terminal, te recomendamos que le eches un vistazo a [Tmate](http://tmate.io/) y [Wemux](https://github.com/zolrath/wemux) basadas en Tmux, los cuales ofrecen varias ventajas relacionadas a este fin particular.
 
-<hr />
+***
+##Hoja de atajos
 
-<h2>Hoja de atajos</h2>
+Especifiquemos algunos de los atajos más comunes.
 
-<p>Especifiquemos algunos de los atajos más comunes.</p>
+Acción | Atajo
+------------ | -------------
+Crear nueva ventana | `Ctrl-b c`
+Eliminar ventana actual | `Ctrl-b &`
+Mover a ventana siguiente | `Ctrl-b n`
+Mover a ventana anterior | `Ctrl-b p`
+Mover a ventana especifica | `Ctrl-b <num ventana>`
+Mover a ultima ventana seleccionada | `Ctrl-b l`
+Mostar ventanas (al seleccionar una se irá a ella) | `Ctrl-b w`
+Dividir panel verticalmente | `Ctrl-b %`
+Dividir panel horizontalmente | `Ctrl-b "`
+Ciclar entre paneles | `Ctrl-b o`
+Mostar paneles (al seleccionar uno rapidamente, se irá a él) | `Ctrl-b q`
+Mover panel actual a la derecha | `Ctrl-b }`
+Mover panel actual a la izquierda | `Ctrl-b {`
+Eliminar panel actual | `Ctrl-b x`
+Eliminar todos los paneles excepto el actual | `Ctrl-b !`
+Mostrar la hora | `Ctrl-b t`
+Desatar de la sesión | `Ctrl-b d`
+Mostar sesiones (al seleccionar una se irá a ella) | `Ctrl-b s`
+Renombrar sesión | `Ctrl-b $`
+Escribir en consola de comandos (comandos avanzados) | `Ctrl-b :`
+Mostar atajos | `Ctrl-b ?`
 
-<p><a href="http://cl.ly/image/2C240E081u1r/cheatsheet.png" target="_blank"><img src="http://cl.ly/image/2C240E081u1r/cheatsheet.png" alt="cheatsheet" /></a> Haz click en la imagen para verla en tamaño completo.</p>
+***
+##Configuración adicional
 
-<hr />
+Podemos personalizar la experiencia con Tmux mediante la creación de un archivo de configuración.
 
-<h2>Configuración adicional</h2>
+En él podemos especificar varios aspectos como:
 
-<p>Podemos personalizar la experiencia con Tmux mediante la creación de un archivo de configuración.</p>
+* Aspecto de los componentes gráficos.
+* Remapear el accionador y otras funciones.
+* Activar el soporte de mouse.
+* Modificar parte del comportamiento.
+* Y mucho más...
 
-<p>En él podemos especificar varios aspectos como:</p>
+Este archivo de configuración debe llamarse *.tmux.conf* y debe estar almacenado en el directorio raíz de nuestro usuario. [Aquí](https://github.com/albertogg/dotfiles/blob/master/tmux/tmux.conf.symlink) puede ver un buen ejemplo de la estructura de uno.
 
-<ul>
-<li>Aspecto de los componentes gráficos.</li>
-<li>Remapear el accionador y otras funciones.</li>
-<li>Activar el soporte de mouse.</li>
-<li>Modificar parte del comportamiento.</li>
-<li>Y mucho más...</li>
-</ul>
+***
+##Conclusión
 
-<p>Este archivo de configuración debe llamarse <em>.tmux.conf</em> y debe estar almacenado en el directorio raíz de nuestro usuario. <a href="https://github.com/albertogg/dotfiles/blob/master/tmux/tmux.conf.symlink">Aquí</a> puede ver un buen ejemplo de la estructura de uno.</p>
+Esta herramienta es de las mejores compañeras si realizas múltiples tareas en el terminal, aprendimos un poco sobre sus ventajas, funcionalidades y usos, solo queda que te pongas a experimentar por tu cuenta. Te invitamos que nos relates tu experiencia y otros usos que le has podido dar.
 
-<hr />
 
-<h2>Conclusión</h2>
 
-<p>Esta herramienta es de las mejores compañeras si realizas múltiples tareas en el terminal, aprendimos un poco sobre sus ventajas, funcionalidades y usos, solo queda que te pongas a experimentar por tu cuenta. Te invitamos que nos relates tu experiencia y otros usos que le has podido dar.</p>

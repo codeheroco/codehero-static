@@ -22,82 +22,74 @@ tags:
 - apachebench
 - siege
 ---
-<p>Cuando estás desarrollando un aplicativo web que podría estar bajo altos niveles de tráfico, luego de configurarla y tener todo listo para hacerla disponible al mundo es una buena práctica ponerla bajo pruebas de estrés y pruebas de carga para determinar su capacidad y velocidad de respuesta, esto permite saber los límites bajo los cuales tu aplicación se comportará de manera apropiada y te permitirá saber cuando necesitarás implementar diferentes estrategias de optimización como a niveles de configuración del servidor o a veces implementar soluciones de balanceo de carga.</p>
+#Cómo Lo Hago: Pruebas de Carga a Servidores Web
+***
+Cuando estás desarrollando un aplicativo web que podría estar bajo altos niveles de tráfico, luego de configurarla y tener todo listo para hacerla disponible al mundo, es una buena práctica ponerla bajo pruebas de estrés y pruebas de carga y concurrencia para determinar su capacidad y velocidad de respuesta, esto permite saber los límites bajo los cuales tu aplicación se comportará de manera apropiada y te permitirá saber cuando necesitarás implementar diferentes estrategias de optimización como a niveles de configuración del servidor o a veces implementar soluciones de balanceo de carga.
 
-<hr />
+***
+##¿Qué es una prueba de carga?
+Una prueba de carga se define como el proceso que se le impone a un sistema basado en una cantidad predefinida de peticiones o procedimientos con la finalidad de determinar su comportamiento esperado para dicha situación.
 
-<h2>¿Qué es una prueba de carga?</h2>
+***
+##¿Cual es la diferencia con una prueba de estrés?
+Mucha gente los define como sinónimos y no hacen ninguna distinción; sin embargo el concepto de pruebas de estrés refiere al caso particular de determinar el comportamiento del sistema bajo un nivel de exigencia mayor al que es capaz de manejar, de ahí el origen de su nombre.
 
-<p>Una prueba de carga se define como el proceso que se le impone a un sistema basado en una cantidad predefinida de peticiones o procedimientos con la finalidad de determinar su comportamiento esperado para dicha situación.</p>
+Bajo este tipo de pruebas el sistema se satura y los escenarios más comunes suelen ser:
 
-<hr />
+* El sistema va respondiendo lo que puede y desecha algunas peticiones.
 
-<h2>¿Cual es la diferencia con una prueba de estrés?</h2>
+* El sistema responde todas las peticiones pero con un retraso considerable.
 
-<p>Mucha gente los define como sinónimos y no hacen ninguna distinción; sin embargo el concepto de pruebas de estrés refiere al caso particular de determinar el comportamiento del sistema bajo un nivel de exigencia mayor al que es capaz de manejar, de ahí el origen de su nombre.</p>
+* El sistema colapsa y queda fuera de línea.
 
-<p>Bajo este tipo de pruebas el sistema se satura y los escenarios más comunes suelen ser:</p>
+> Muchos ataques DDoS se basan en este principio para inundar de peticiones a un servicio con la intención de hacerlo colapsar si el mismo no posee medidas de seguridad que lo protejan en estos casos.
 
-<ul>
-<li><p>El sistema va respondiendo lo que puede y desecha algunas peticiones.</p></li>
-<li><p>El sistema responde todas las peticiones pero con un retraso considerable.</p></li>
-<li><p>El sistema colapsa y queda fuera de línea.</p></li>
-</ul>
+***
+##Herramientas de pruebas de carga HTTP
 
-<blockquote>
-  <p>Muchos ataques DDoS se basan en este principio para inundar de peticiones a un servicio con la intención de hacerlo colapsar si el mismo no posee medidas de seguridad que lo protejan en estos casos.</p>
-</blockquote>
+Existen muchas herramientas en el mercado que satisfacen este propósito, varias de ellas pagas, aquí en lo posible tratamos de enfocaros en soluciones de código abierto así que les hablaremos de algunas muy interesantes y dejaremos que ustedes decidan cual les parece la más apropiada para sus necesidades.
 
-<hr />
+> Para la realización de pruebas de este tipo se recomienda establecer una línea base sin niveles de concurrencia e ir aumentándolo para poder apreciar la evolución del comportamiento.
 
-<h2>Herramientas de pruebas de carga HTTP</h2>
+Todas ofrecen otras opciones y funcionalidades que los hacen más flexibles pero aquí solo veremos ejemplos básicos.
 
-<p>Existen muchas herramientas en el mercado que satisfacen este propósito, varias de ellas pagas, aquí en lo posible tratamos de enfocaros en soluciones de código abierto así que les hablaremos de algunas muy interesantes y dejaremos que ustedes decidan cual les parece la más apropiada para sus necesidades.</p>
 
-<blockquote>
-  <p>Para la realización de pruebas de este tipo se recomienda establecer una línea base sin niveles de concurrencia e ir aumentándolo para poder apreciar la evolución del comportamiento.</p>
-</blockquote>
+***
+##ApacheBench
+Esta herramienta como su nombre lo indica nos la entrega la fundación Apache y ofrece múltiples opciones, además viene preinstalada en los sistemas Mac OS X.
 
-<p>Todas ofrecen otras opciones y funcionalidades que los hacen más flexibles pero aquí solo veremos ejemplos básicos.</p>
+> Se recomienda actualizar la versión que viene preinstalada para evitar varios problemas conocidos.
 
-<hr />
-
-<h2>ApacheBench</h2>
-
-<p>Esta herramienta como su nombre lo indica nos la entrega la fundación Apache y ofrece múltiples opciones, además viene preinstalada en los sistemas Mac OS X.</p>
-
-<blockquote>
-  <p>Se recomienda actualizar la versión que viene preinstalada para evitar varios problemas conocidos.</p>
-</blockquote>
-
-<pre>> $ brew tap homebrew/dupes
+> ```sh
+> $ brew tap homebrew/dupes
 > ...
 > $ brew install ab
-> </pre>
+> ```
 
-<p>Para instalarlo en sistemas Linux basados en Debian basta con ejecutar el siguiente comando:</p>
+Para instalarlo en sistemas Linux basados en Debian basta con ejecutar el siguiente comando:
 
-<pre>$ sudo apt-get install apache2-utils
-</pre>
+```sh
+$ sudo apt-get install apache2-utils
+```
 
-<p>Ahora solo queda empezar a probar contra un servidor. Ya que no queremos que nos bloqueen de ningún sitio por estar atacándolo sin merced, lo haremos contra uno local.</p>
+Ahora solo queda empezar a probar contra un servidor. Ya que no queremos que nos bloqueen de ningún sitio por estar atacándolo sin merced, lo haremos contra uno local.
 
-<p>El formato más común para realizar una prueba es algo como esto:</p>
+El formato más común para realizar una prueba es algo como esto:
 
-<pre>$ ab -n 10000 -c 100 -g grafica.data http://localhost:8888/loadTesting/test
-</pre>
+```sh
+$ ab -n 10000 -c 100 -g grafica.data http://localhost:8888/loadTesting/test
+```
 
-<ul>
-<li><code>ab</code> nos permite hacer uso de la herramienta.</li>
-<li><code>-n</code> especificamos la cantidad de peticiones que deseamos enviar.</li>
-<li><code>-c</code> especificamos la cantidad de conexiones concurrentes.</li>
-<li><code>-g</code> podemos generar una gráfica de gnuplot para apreciar mejor los resultados.</li>
-<li>Finalmente colocamos la dirección que deseamos probar.</li>
-</ul>
+* `ab` nos permite hacer uso de la herramienta.
+* `-n` especificamos la cantidad de peticiones que deseamos enviar.
+* `-c` especificamos la cantidad de conexiones concurrentes.
+* `-g` podemos generar una gráfica de gnuplot para apreciar mejor los resultados.
+* Finalmente colocamos la dirección que deseamos probar.
 
-<p>Tendríamos como resultado una salida así:</p>
+Tendríamos como resultado una salida así:
 
-<pre>This is ApacheBench, Version 2.3 &lt;$Revision: 1373084 $>
+```
+This is ApacheBench, Version 2.3 <$Revision: 1373084 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
@@ -151,67 +143,62 @@ Percentage of the requests served within a certain time (ms)
   98%   1318
   99%   1475
  100%   2425 (longest request)
-</pre>
+```
 
-<p>Podemos apreciar varios datos de interés como:</p>
+Podemos apreciar varios datos de interés como:
 
-<ul>
-<li>Tiempos promedio de peticiones por segundo.</li>
-<li>Tiempo promedio para cumplir una petición.</li>
-<li>Velocidad de transferencia. </li>
-<li>Tiempos por estado de petición.</li>
-</ul>
+* Tiempos promedio de peticiones por segundo.
+* Tiempo promedio para cumplir una petición.
+* Velocidad de transferencia.
+* Tiempos por estado de petición.
 
-<hr />
+***
+##Siege
+Una herramienta utilizada ampliamente por desarrolladores (y algunos *hacktivistas*) para realización de pruebas de carga. Cortesía de JoeDog Software
 
-<h2>Siege</h2>
+En Mac OS X el procedimiento de instalación es el de costumbre:
+```sh
+$ brew install siege
+```
 
-<p>Una herramienta utilizada ampliamente por desarrolladores (y algunos <em>hacktivistas</em>) para realización de pruebas de carga. Cortesía de JoeDog Software</p>
+En Debian Linux igual de fácil con:
+```sh
+$ apt-get install siege
+```
 
-<p>En Mac OS X el procedimiento de instalación es el de costumbre:</p>
+Hagamos una prueba parecida a la que hicimos con ApacheBench:
 
-<pre>$ brew install siege
-</pre>
+```sh
+$ siege -t 60s -c 100 -b -q http://localhost:8888/loadTesting/test
+```
 
-<p>En Debian Linux igual de fácil con:</p>
+* `siege` nos permite hacer uso de la herramienta.
+* `-t` especificamos el tiempo que tomará la prueba.
+* `-c` especificamos la cantidad de conexiones concurrentes.
+* `-b` obliga a no tener ningún retraso entre cada usuario simulado (modo benchmark).
+* `-q` elimina la salida resultante de cada petición que va mostrando el proceso durante la prueba.
+* Finalmente colocamos la dirección que deseamos probar.
 
-<pre>$ apt-get install siege
-</pre>
+Tendríamos como resultado una salida así:
 
-<p>Hagamos una prueba parecida a la que hicimos con ApacheBench:</p>
-
-<pre>$ siege -t 60s -c 100 -b -q http://localhost:8888/loadTesting/test
-</pre>
-
-<ul>
-<li><code>siege</code> nos permite hacer uso de la herramienta.</li>
-<li><code>-t</code> especificamos el tiempo que tomará la prueba.</li>
-<li><code>-c</code> especificamos la cantidad de conexiones concurrentes.</li>
-<li><code>-b</code> obliga a no tener ningún retraso entre cada usuario simulado (modo benchmark).</li>
-<li><code>-q</code> elimina la salida resultante de cada petición que va mostrando el proceso durante la prueba.</li>
-<li>Finalmente colocamos la dirección que deseamos probar.</li>
-</ul>
-
-<p>Tendríamos como resultado una salida así:</p>
-
-<pre>Transactions:                   7718 hits
-Availability:                   100.00 %
-Elapsed time:                   59.83 secs
-Data transferred:               0.32 MB
-Response time:                  0.77 secs
-Transaction rate:               129.00 trans/sec
-Throughput:                     0.01 MB/sec
-Concurrency:                    98.97
+```
+Transactions:             7718 hits
+Availability:             100.00 %
+Elapsed time:             59.83 secs
+Data transferred:           0.32 MB
+Response time:              0.77 secs
+Transaction rate:           129.00 trans/sec
+Throughput:               0.01 MB/sec
+Concurrency:              98.97
 Successful transactions:        7718
-Failed transactions:               0
-Longest transaction:            2.74
-Shortest transaction:           0.02
-</pre>
+Failed transactions:             0
+Longest transaction:          2.74
+Shortest transaction:         0.02
+```
 
-<p>También podemos especificar con el atributo <code>-f</code> la ruta a un archivo donde puedes especificar múltiples direcciones que deseas atacar en la misma prueba, además el atributo <code>-d</code> permite colocar un intervalo de retraso entre cada usuario simulado, lo cual simularía un comportamiento más natural.</p>
+También podemos especificar con el atributo `-f` la ruta a un archivo donde puedes especificar múltiples direcciones que deseas atacar en la misma prueba, además el atributo `-d` permite colocar un intervalo de retraso entre cada usuario simulado, lo cual simularía un comportamiento más natural.
+***
+##Conclusión
+Esta práctica de aplicación de pruebas de carga es de suma utilidad especialmente cuando te encuentras en la parte de ajustes de configuración del servidor y/o aplicación ya que te permite identificar los límites y posibles fallas antes de que ocurran en un ambiente productivo. Inclusive si estás indeciso y no te decides en qué tecnología aplicar para un proyecto particular y cual sería el de mayor aguante, puedes hacer un boceto de cada una y ponerlos a prueba para tomar una decisión más objetiva.
 
-<hr />
 
-<h2>Conclusión</h2>
-
-<p>Esta práctica de aplicación de pruebas de carga es de suma utilidad especialmente cuando te encuentras en la parte de ajustes de configuración del servidor y/o aplicación ya que te permite identificar los límites y posibles fallas antes de que ocurran en un ambiente productivo. Inclusive si estás indeciso y no te decides en qué tecnología aplicar para un proyecto particular y cual sería el de mayor aguante, puedes hacer un boceto de cada una y ponerlos a prueba para tomar una decisión más objetiva.</p>
