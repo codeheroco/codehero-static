@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2481
 wordpress_url: http://codehero.co/?p=2481
 date: 2013-10-29 00:05:13.000000000 -04:30
+thumbnail: http://i.imgur.com/g7bY7xW.png
 categories:
 - Cómo lo hago
 - nmap

@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 1969
 wordpress_url: http://codehero.co/?p=1969
 date: 2013-08-13 00:00:11.000000000 -04:30
+thumbnail: http://i.imgur.com/lrn4QBG.png
 categories:
 - Cómo lo hago
 - Redis
@@ -38,9 +39,9 @@ tags:
 
 <blockquote>
   <p>En Mac OS X se puede ver la cantidad de descriptores disponibles ejecutando el comando <code>launchctl limit</code>, en la variable maxfiles.</p>
-  
+
   <p>En otros sistemas *nix puedes utilizar el comando <code>cat /proc/sys/fs/file-max</code>.</p>
-  
+
   <p>Este valor es editable.</p>
 </blockquote>
 
@@ -61,7 +62,7 @@ tags:
 <p>Esta es quizás la más fácil de entender, simplemente una llave posee un valor común y corriente tipo <em>string</em>:</p>
 
 <pre>Representación:
-llave => valor 
+llave => valor
 </pre>
 
 <ul>
@@ -71,9 +72,9 @@ llave => valor
 <p>Este tipo de dato permite almacenar varias cadenas de caracteres ordenadas por orden de inserción en una llave, muy parecido al concepto de pilas y colas:</p>
 
 <pre>Representación:
-llave => valor1 
-         valor2 
-         … 
+llave => valor1
+         valor2
+         …
 </pre>
 
 <ul>
@@ -91,10 +92,10 @@ llave => valor1
 <p>Lo primero que pensarías que es es una lista que no permite duplicados, según lo que vimos anteriormente, pues no. Un juego ordenado, al igual que un juego convencional es una serie de cadenas de caracteres no duplicados que tienen asociado un puntaje, al cada miembro poseer un puntaje se determina el orden del juego del menor a mayor puntaje.</p>
 
 <pre>Representación:
-llave => 80 valor2 
+llave => 80 valor2
          25 valor1
-         10 valor3 
-         … 
+         10 valor3
+         …
 </pre>
 
 <ul>
@@ -104,10 +105,10 @@ llave => 80 valor2
 <p>Este tipo de dato es quizás uno de los más interesantes ya que suelen utilizarse para definir objetos o mapas. Un hash permite asignar a una llave una serie de atributos y valores, tal como lo haría un objeto común, veamos un ejemplo para apreciarlo mejor:</p>
 
 <pre>Representación:
-user:1000 => usuario        jonathanwiesel 
+user:1000 => usuario        jonathanwiesel
              email          jonathanwiesel@gmail.com
              nombre         Jonathan Wiesel
-             … 
+             …
 </pre>
 
 <blockquote>
@@ -159,7 +160,7 @@ $ make test
 
 <p>Finalmente lo instalamos:</p>
 
-<pre>$ sudo make install 
+<pre>$ sudo make install
 </pre>
 
 <p>Una vez instalado podemos utilizar un <em>script</em> que viene por defecto para poner a funcionar tu servidor Redis:</p>
@@ -186,7 +187,7 @@ $ sudo ./install_server.sh
 
 <p>De lo contrario podemos ejecutar:</p>
 
-<pre>$ redis-server /usr/local/etc/redis.conf  
+<pre>$ redis-server /usr/local/etc/redis.conf
 </pre>
 
 <p>Para ambos casos esto iniciará el servidor utilizando el archivo de configuración que trae Redis por defecto.</p>
@@ -195,7 +196,7 @@ $ sudo ./install_server.sh
 
 <p>Finalmente probemos que nuestro servidor Redis esté funcionando ejecutando el comando <code>redis-cli</code>, y veremos algo como esto:</p>
 
-<pre>redis 127.0.0.1:6379> 
+<pre>redis 127.0.0.1:6379>
 </pre>
 
 <p>Esto nos indica que en efecto nos hemos conectado al servidor Redis, en este caso en la dirección de <em>localhost</em> escuchando en el puerto estándar <code>6379</code>. Aquí podremos ejecutar comandos propios de Redis, tal como si nos hubiésemos conectado por terminal a una base de datos MySQL.</p>

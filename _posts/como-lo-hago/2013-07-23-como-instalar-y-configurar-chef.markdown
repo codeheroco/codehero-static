@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 1623
 wordpress_url: http://codehero.co/?p=1623
 date: 2013-07-23 00:00:29.000000000 -04:30
+thumbnail: http://i.imgur.com/j5VGZcA.png
 categories:
 - Cómo lo hago
 - Chef
@@ -92,7 +93,7 @@ $ knife solo init .
 
 <p>Finalmente dejamos que Librarian se encargue de buscar y descargar las recetas que necesitamos:</p>
 
-<pre>$ librarian-chef install 
+<pre>$ librarian-chef install
 
 Installing apt (2.0.0)
 Installing build-essential (1.4.0)
@@ -103,11 +104,11 @@ Installing nginx (1.7.1)
 
 $ ls cookbooks
 
-apt             
-build-essential 
-nginx           
-ohai            
-runit           
+apt
+build-essential
+nginx
+ohai
+runit
 yum
 </pre>
 
@@ -131,7 +132,7 @@ yum
 
 <p>Ahora sabiendo esta IP podremos crear el nodo:</p>
 
-<pre>$ knife solo prepare vagrant@192.168.33.10 
+<pre>$ knife solo prepare vagrant@192.168.33.10
 </pre>
 
 <blockquote>
@@ -196,7 +197,7 @@ cookbook 'nginx', '~> 1.1.2'
   <p>Luego, usando Librarian, volvemos a construir los recetarios:</p>
 </blockquote>
 
-<pre>$ librarian-chef install 
+<pre>$ librarian-chef install
 Installing build-essential (1.4.0)
 Installing ohai (1.1.10)
 Installing nginx (1.1.4)

@@ -10,6 +10,8 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2351
 wordpress_url: http://codehero.co/?p=2351
 date: 2013-10-07 00:05:09.000000000 -04:30
+serie: MongoDB desde Cero
+thumbnail: http://i.imgur.com/XFFMeqB.png
 categories:
 - Cursos
 - MongoDB
@@ -132,7 +134,7 @@ DocumentosPersonales = {
 
 Direccion1 = {
     pais            :   'Venezuela',
-    estado          :   'Distrito Capital' 
+    estado          :   'Distrito Capital'
     ciudad          :   'Caracas'
     urbanizacion    :   'La Florida',
     avenida         :   ...,
@@ -143,7 +145,7 @@ Direccion1 = {
 
 Direccion2 = {
     pais            :   'Estados Unidos',
-    estado          :   'Florida' 
+    estado          :   'Florida'
     ciudad          :   'Miami'
     urbanizacion    :   'Aventura',
     avenida         :   ...,
@@ -257,7 +259,7 @@ Persona = {
 
 <blockquote>
   <p>En lo posible trata de utilizar la opción de embeber si los arreglos no variarán mucho ya que al realizar la búsqueda de la persona obtienes de una vez las direcciones, mientras que al trabajar con referencias tu aplicación debe manejar una lógica múltiples búsquedas para resolver las referencias, lo que sería el equivalente a los <em>joins</em>.</p>
-  
+
   <p>En caso de utilizar la segunda opción, ¿Cual de los 2 últimos enfoques utilizar?. En este caso debemos tomar en cuenta que tanto puede crecer la lista de direcciones, en caso que la tendencia sea a crecer mucho, para evitar arreglos mutantes y en constante crecimiento el <strong>segundo</strong> enfoque sería el más apropiado.</p>
 </blockquote>
 
@@ -354,10 +356,10 @@ Persona1 = {
     genero      :   'M',
     direcciones :   [{
             direccion_id    :   1,
-            viveAqui        :   true 
+            viveAqui        :   true
         },{
             direccion_id    :   2,
-            viveAqui        :   false 
+            viveAqui        :   false
         }]
 }
 
@@ -368,7 +370,7 @@ Persona2 = {
     genero      :   'M',
     direcciones :   [{
             direccion_id    :   2,
-            viveAqui        :   true 
+            viveAqui        :   true
         }]
 }
 

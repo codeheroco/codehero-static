@@ -10,6 +10,8 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2541
 wordpress_url: http://codehero.co/?p=2541
 date: 2013-11-05 00:05:16.000000000 -04:30
+serie: MongoDB desde Cero
+thumbnail: http://i.imgur.com/XFFMeqB.png
 categories:
 - Cursos
 - MongoDB
@@ -54,7 +56,7 @@ tags:
         update: { $inc: { secuencia: 1 } },
         new:    true
     });
-    
+
     return resultado.secuencia;
 }
 </pre>

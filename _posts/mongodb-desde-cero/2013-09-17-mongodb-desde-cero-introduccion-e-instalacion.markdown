@@ -10,6 +10,8 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2255
 wordpress_url: http://codehero.co/?p=2255
 date: 2013-09-17 00:00:02.000000000 -04:30
+serie: MongoDB desde Cero
+thumbnail: http://i.imgur.com/XFFMeqB.png
 categories:
 - Cursos
 - MongoDB
@@ -70,7 +72,7 @@ $ echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen'
 <pre>$ sudo apt-get update
 ...
 $ sudo apt-get install mongodb-10gen
-... 
+...
 </pre>
 
 <p>Para gestionar el servicio de MongoDB basta con ejecutar:</p>

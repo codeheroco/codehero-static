@@ -10,9 +10,8 @@ author_url: http://albertogrespan.com
 wordpress_id: 2806
 wordpress_url: http://codehero.co/?p=2806
 date: 2013-12-05 00:39:30.000000000 -04:30
-series:
-  nombre: Sinatra desde Cero
-  thumbnail: http://i.imgur.com/UXeX0sa.png
+serie: Sinatra desde Cero
+thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
 - Cursos
 - Sinatra

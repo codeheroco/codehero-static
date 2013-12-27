@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2663
 wordpress_url: http://codehero.co/?p=2663
 date: 2013-11-26 00:05:15.000000000 -04:30
+thumbnail: http://i.imgur.com/R2H9UgY.png
 categories:
 - Cómo lo hago
 - rsync
@@ -117,7 +118,7 @@ prueba1 prueba2 prueba3 prueba4 prueba5 prueba6 prueba7 prueba8 prueba9
 <p>Luego le diremos a <strong>rsync</strong> que pase todos los archivos del directorio <code>origen</code> al directorio <code>destino</code>:</p>
 
 <pre>~/origen $ cd
-$ rsync -a origen/ destino  
+$ rsync -a origen/ destino
 </pre>
 
 <blockquote>
@@ -137,7 +138,7 @@ prueba1 prueba2 prueba3 prueba4 prueba5 prueba6 prueba7 prueba8 prueba9
 
 <pre>~/destino $ touch prueba10
 ~/destino $ cd
-$ rsync -anv destino/ origen 
+$ rsync -anv destino/ origen
 
 sending incremental file list
 ./
@@ -181,15 +182,15 @@ total size is 0  speedup is 0.00 (DRY RUN)
 
 <blockquote>
   <p>Si estás en OS X y no tienes <code>ssh-copy-id</code> puedes instalarlo por <a href="http://codehero.co/como-lo-hago-instalar-homebrew/">Homebrew</a> o sino puedes utilizar el equivalente:</p>
-  
+
   <p><code>$ cat ~/.ssh/id_rsa.pub | ssh vagrant@192.168.33.10 "cat &gt;&gt; ~/.ssh/authorized_keys"</code></p>
-  
+
   <p>Suponiendo que tomaste las opciones por defecto al crear las llaves SSH.</p>
 </blockquote>
 
 <p>Luego de esto nos pedirá la clave del equipo remoto para poder copiar las llaves.</p>
 
-<pre>vagrant@192.168.33.10's password: 
+<pre>vagrant@192.168.33.10's password:
 </pre>
 
 <p>Al finalizar este proceso no necesitaremos volver a introducir la clave para ingresar a este equipo por SSH, tratemos para verificarlo:</p>

@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 1428
 wordpress_url: http://codehero.co/?p=1428
 date: 2013-07-16 00:00:02.000000000 -04:30
+thumbnail: http://i.imgur.com/SOCox1I.png
 categories:
 - Cómo lo hago
 - Vagrant
@@ -208,7 +209,7 @@ ls /vagrant
 
 <blockquote>
   <p>La semana entrante hablaremos de <strong>Chef</strong>, una herramienta de suministro que se integra muy bien con Vagrant y está basada en la creación de recetas.</p>
-  
+
   <p><strong>Actualización:</strong> <a href="http://codehero.co/como-instalar-y-configurar-chef/">¿Cómo lo hago? Instalar y configurar Chef</a>, ya está al aire.</p>
 </blockquote>
 

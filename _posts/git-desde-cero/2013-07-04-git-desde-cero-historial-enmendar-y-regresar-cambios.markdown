@@ -10,9 +10,8 @@ author_url: http://albertogrespan.com
 wordpress_id: 1295
 wordpress_url: http://codehero.co/?p=1295
 date: 2013-07-04 01:12:52.000000000 -04:30
-series:
-  nombre: Git desde Cero
-  thumbnail: http://i.imgur.com/IzAdb3d.png
+serie: Git desde Cero
+thumbnail: http://i.imgur.com/IzAdb3d.png
 categories:
 - Cursos
 - Git

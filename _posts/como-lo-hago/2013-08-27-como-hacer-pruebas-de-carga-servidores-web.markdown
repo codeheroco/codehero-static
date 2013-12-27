@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2101
 wordpress_url: http://codehero.co/?p=2101
 date: 2013-08-27 00:05:01.000000000 -04:30
+thumbnail: http://i.imgur.com/VuJGkJA.png
 categories:
 - Cómo lo hago
 - Pruebas de Carga
@@ -69,7 +70,7 @@ tags:
   <p>Se recomienda actualizar la versión que viene preinstalada para evitar varios problemas conocidos.</p>
 </blockquote>
 
-<pre>> $ brew tap homebrew/dupes 
+<pre>> $ brew tap homebrew/dupes
 > ...
 > $ brew install ab
 > </pre>

@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2147
 wordpress_url: http://codehero.co/?p=2147
 date: 2013-09-03 00:00:40.000000000 -04:30
+thumbnail: http://i.imgur.com/VuJGkJA.png
 categories:
 - Cómo lo hago
 - Pruebas de Carga

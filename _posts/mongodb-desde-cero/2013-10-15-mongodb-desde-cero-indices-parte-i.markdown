@@ -10,6 +10,8 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2382
 wordpress_url: http://codehero.co/?p=2382
 date: 2013-10-15 00:05:22.000000000 -04:30
+serie: MongoDB desde Cero
+thumbnail: http://i.imgur.com/XFFMeqB.png
 categories:
 - Cursos
 - MongoDB
@@ -78,10 +80,10 @@ tags:
 <p>La semana pasada jugamos unas 15 rondas de poker, creamos una colección <strong>puntuaciones</strong> y anotamos las siguientes puntuaciones finales:</p>
 
 <pre>{
-    nombre:     'Ricardo', 
+    nombre:     'Ricardo',
     ganadas:    3,
-    perdidas:   3, 
-    retiradas:  9, 
+    perdidas:   3,
+    retiradas:  9,
     dinero:     15,
     mejores:    ['1 trío', '2 pares'],
     comentarios:[
@@ -96,10 +98,10 @@ tags:
 }
 
 {
-    nombre:     'Ramses', 
-    ganadas:    8, 
-    perdidas:   4, 
-    retiradas:  3, 
+    nombre:     'Ramses',
+    ganadas:    8,
+    perdidas:   4,
+    retiradas:  3,
     dinero:     120,
     mejores:    ['Escalera real', 'Full house'],
     comentarios:[
@@ -115,9 +117,9 @@ tags:
 
 {
     nombre:     'Oscar',
-    ganadas:    4, 
-    perdidas:   6, 
-    retiradas:  5, 
+    ganadas:    4,
+    perdidas:   6,
+    retiradas:  5,
     dinero:     30,
     mejores:    ['Full house', '1 trío'],
     comentarios:[

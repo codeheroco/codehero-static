@@ -10,6 +10,8 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2286
 wordpress_url: http://codehero.co/?p=2286
 date: 2013-09-23 00:00:27.000000000 -04:30
+serie: MongoDB desde Cero
+thumbnail: http://i.imgur.com/XFFMeqB.png
 categories:
 - Cursos
 - MongoDB
@@ -27,7 +29,7 @@ tags:
 
 <hr />
 
-<!--Primero creemos una base de datos para nuestro ejemplo, para ello solo debemos ejecutar el comando `use codehero`, esto cambiará de base de datos a la que hemos especificado, como una base de datos con este nombre no existe simplemente la creará apenas insertemos algún registro. 
+<!--Primero creemos una base de datos para nuestro ejemplo, para ello solo debemos ejecutar el comando `use codehero`, esto cambiará de base de datos a la que hemos especificado, como una base de datos con este nombre no existe simplemente la creará apenas insertemos algún registro.
 
 Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo que la manera en que se usa en consola es como si estuviéramos ejecutando comandos Javascript. Por lo tanto las operaciones que se llevan a cabo son tan solo funciones sobre el objeto `db`, el objeto principal de la base de datos. -->
 
@@ -35,7 +37,7 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <p>Las operaciones son como funciones de Javascript, así que llamaremos al objeto base de datos <code>db</code> y crearemos una nueva propiedad o lo que se asemejaría al concepto de tabla con el nombre de <code>autores</code> y le asociaremos su valor correspondiente (un objeto autor), es decir, una <strong>colección</strong> con un <strong>documento</strong> asociado:</p>
 
-<pre>> db.autores.insert({ 
+<pre>> db.autores.insert({
     nombre      :   'Jonathan',
     apellido    :   'Wiesel',
     secciones   :   ['Como lo hago' , 'MongoDB']
@@ -48,7 +50,7 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <p>Inclusive es posible declarar el documento como un objeto, almacenarlo en una variable y posteriormente insertarlo de la siguiente manera:</p>
 
-<pre>> var autorDelPost = { 
+<pre>> var autorDelPost = {
     nombre      : 'Jonathan',
     apellido    : 'Wiesel',
     secciones   : ['Como lo hago' , 'MongoDB']
@@ -65,13 +67,13 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <p>Agreguemos un par de autores más:</p>
 
-<pre>> db.autores.insert({ 
+<pre>> db.autores.insert({
     nombre      :   'Oscar',
     apellido    :   'Gonzalez',
     secciones   :   ['iOS' , 'Objective C' , 'NodeJS' ],
     socialAdmin :   true
 });
-> db.autores.insert({ 
+> db.autores.insert({
     nombre      :   'Alberto',
     apellido    :   'Grespan',
     secciones   :   'Git',
@@ -98,9 +100,9 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <blockquote>
   <p>Si lo deseas puedes manualmente especificar el valor del campo <code>_id</code> cuando estas insertando los registros con el comando <code>db.coleccion.insert()</code>; sin embargo ten en cuenta que debes asegurar que este valor sea único, de lo contrario los registros con dicho campo duplicado resultarán en error por clave primaria duplicada.</p>
-  
+
   <p>Una búsqueda como la anterior sería similar en SQL a:</p>
-  
+
   <p><code>SELECT * FROM autores</code></p>
 </blockquote>
 
@@ -115,7 +117,7 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <blockquote>
   <p>En SQL sería similar a:</p>
-  
+
   <p><code>SELECT * FROM autores WHERE socialAdmin = true</code></p>
 </blockquote>
 
@@ -128,15 +130,15 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <blockquote>
   <p>Es importante destacar que si el documento resultante hubiese tenido en la propiedad <code>secciones</code> un arreglo en lugar de una cadena de caracteres, si dicho arreglo tuviese el valor <code>Git</code> también cumple la condición.</p>
-  
+
   <p>En SQL sería similar a:</p>
-  
+
   <p><code>SELECT * FROM autores WHERE genero = 'M' AND secciones = 'Git'</code></p>
 </blockquote>
 
 <p>Veamos ahora un ejemplo un poco más avanzado de filtros con condiciones donde queremos que solo ALGUNA de ellas se cumpla:</p>
 
-<pre>> db.autores.find({ 
+<pre>> db.autores.find({
     $or: [
         {socialAdmin : true},
         {genero: 'M'}
@@ -151,7 +153,7 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <blockquote>
   <p>En SQL sería similar a:</p>
-  
+
   <p><code>SELECT * FROM autores WHERE socialAdmin = true OR genero = 'M'</code></p>
 </blockquote>
 
@@ -166,7 +168,7 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <blockquote>
   <p>En SQL sería similar a:</p>
-  
+
   <p><code>SELECT * FROM autores LIMIT 1</code></p>
 </blockquote>
 
@@ -181,9 +183,9 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <blockquote>
   <p>El número 1 que acompaña al argumento de ordenamiento es el tipo de orden, <code>1</code> para descendiente y <code>-1</code> para ascendente</p>
-  
+
   <p>En SQL sería similar a:</p>
-  
+
   <p><code>SELECT * FROM autores ORDER BY apellido DESC</code></p>
 </blockquote>
 
@@ -217,7 +219,7 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <blockquote>
   <p>En SQL sería similar a:</p>
-  
+
   <p><code>DELETE FROM autores WHERE nombre = 'Jonathan'</code></p>
 </blockquote>
 
@@ -228,7 +230,7 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <blockquote>
   <p>En SQL sería similar a:</p>
-  
+
   <p><code>DELETE FROM autores</code></p>
 </blockquote>
 
@@ -239,7 +241,7 @@ Como hablamos al inicio del curso, MongoDB está basado en Javascript, por lo qu
 
 <blockquote>
   <p>En SQL sería similar a:</p>
-  
+
   <p><code>DROP TABLE autores</code></p>
 </blockquote>
 

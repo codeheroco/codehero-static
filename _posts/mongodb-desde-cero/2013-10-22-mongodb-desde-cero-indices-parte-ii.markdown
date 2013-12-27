@@ -10,6 +10,8 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2419
 wordpress_url: http://codehero.co/?p=2419
 date: 2013-10-22 00:05:56.000000000 -04:30
+serie: MongoDB desde Cero
+thumbnail: http://i.imgur.com/XFFMeqB.png
 categories:
 - Cursos
 - MongoDB
@@ -41,7 +43,7 @@ tags:
 
 <pre>Full house      => [Ramses, Oscar]
 1 trio          => [Ricardo, Oscar]
-Escalera real   => [Ramses] 
+Escalera real   => [Ramses]
 </pre>
 
 <p>Por lo que es posible utilizar estos valores en las búsquedas al buscar por el campo <strong>mejores</strong> utilizando el índice:</p>
@@ -56,7 +58,7 @@ Escalera real   => [Ramses]
 
 <p>En este caso se toma el campo del documento interno para hacerlo índice, digamos que nos interesan los comentarios que expresaron nuestros jugadores durante la noche:</p>
 
-<pre>> db.puntuaciones.ensureIndex({ 'comentarios.texto' : 1 });> 
+<pre>> db.puntuaciones.ensureIndex({ 'comentarios.texto' : 1 });>
 </pre>
 
 <p>Con la notación de punto podemos especificar el campo interno del arreglo del documento padre para que nos sirva de índice. Lo podríamos utilizar en un <em>query</em> como este:</p>
@@ -80,7 +82,7 @@ Escalera real   => [Ramses]
 <p>Ahora si tratamos de introducir un nuevo jugador con un nombre que ya exista obtendremos un error de índice duplicado:</p>
 
 <pre>> var otroRicardo = {
-    nombre :    'Ricardo' 
+    nombre :    'Ricardo'
 }
 
 > db.puntuaciones.insert(otroRicardo)
@@ -166,7 +168,7 @@ E11000 duplicate key error index: test.puntuaciones.$nombre_1  dup key: { : "Ric
     "nChunkSkips" : 0,
     "millis" : 0,
     "indexBounds" : {
-        
+
     },
     "server" : "Mordor.local:27017"
 }
@@ -264,7 +266,7 @@ E11000 duplicate key error index: test.puntuaciones.$nombre_1  dup key: { : "Ric
     "nChunkSkips" : 0,
     "millis" : 0,
     "indexBounds" : {
-        
+
     },
     "server" : "Mordor.local:27017"
 }
