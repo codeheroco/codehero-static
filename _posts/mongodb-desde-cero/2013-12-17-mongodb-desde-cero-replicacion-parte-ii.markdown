@@ -28,29 +28,31 @@ tags:
 - miembros
 - práctica
 ---
-<p>La semana pasada aprendimos la teoría de replicación en MongoDB mejor conocido como <strong>replica set</strong>. Ahora estamos listos para tomar esos conocimientos y llevarlos a la práctica.</p>
+La semana pasada aprendimos la teoría de replicación en MongoDB mejor conocido como **replica set**. Ahora estamos listos para tomar esos conocimientos y llevarlos a la práctica.
+***
+##Convertir a Replica Set
+Uno de los casos de uso comunes al implementar estrategias de replicación es la de primero trabajar con una instancia independiente y luego convertirla a **replica set**. Veamos lo que debemos hacer para llevar a cabo este sencillo proceso:
 
-<hr />
+Primero debemos detener la instancia de `mongod`.
 
-<h2>Convertir a Replica Set</h2>
+Luego debemos especificar el nombre del **replica set** que será formada, para ello podemos especificarlo en el archivo de configuración como:
 
-<p>Uno de los casos de uso comunes al implementar estrategias de replicación es la de primero trabajar con una instancia independiente y luego convertirla a <strong>replica set</strong>. Veamos lo que debemos hacer para llevar a cabo este sencillo proceso:</p>
+```
+replSet = <nombre_del_replica_set>
+```
 
-<p>Primero debemos detener la instancia de <code>mongod</code>.</p>
+O si lo prefieres puedes pasarlo como argumento al comando de ejecución de la instancia cuando no se ejecuta como un servicio:
 
-<p>Luego debemos especificar el nombre del <strong>replica set</strong> que será formada, para ello podemos especificarlo en el archivo de configuración como:</p>
+```sh
+$ mongod --replSet <nombre_del_replica_set>
+```
 
-<pre>replSet = nombre_del_replica_set
-</pre>
+Posteriormente al levantar la instancia de `mongod`, entraremos al la consola de `mongo`:
 
-<p>O si lo prefieres puedes pasarlo como argumento al comando de ejecución de la instancia cuando no se ejecuta como un servicio:</p>
-
-<pre>mongod --replSet nombre_del_replica_set
-</pre>
-
-<p>Posteriormente al levantar la instancia de <code>mongod</code>, entraremos al la consola de <code>mongo</code>:</p>
-
-<pre>$ mongo
+```sh
+$ mongo
+```
+```js
 ...
 > rs.status()
 {
@@ -61,24 +63,26 @@ tags:
 }
 > rs.conf()
 null
-</pre>
+```
 
-<p>El comando <code>rs.status()</code> nos indica el estado actual del <strong>replica set</strong>, en este caso podemos observar que en efecto a la instancia le ha sido indicada que debe trabajar como un <strong>replica set</strong>; sin embargo esta no ha sido iniciada y por eso no tiene asignada ninguna configuración (accesible con el comando <code>rs.config()</code>).</p>
+El comando `rs.status()` nos indica el estado actual del **replica set**, en este caso podemos observar que en efecto a la instancia le ha sido indicada que debe trabajar como un **replica set**; sin embargo esta no ha sido iniciada y por eso no tiene asignada ninguna configuración (accesible con el comando `rs.config()`).
 
-<p>Iniciemos el <strong>replica set</strong> ejecutando el comando <code>rs.initiate()</code>:</p>
+Iniciemos el **replica set** ejecutando el comando `rs.initiate()`:
 
-<pre>> rs.initiate()
+```js
+> rs.initiate()
 {
     "info2" : "no configuration explicitly specified -- making one",
     "me" : "Mordor.local:27017",
     "info" : "Config now saved locally.  Should come online in about a minute.",
     "ok" : 1
 }
-</pre>
+```
 
-<p>Para este caso <code>mongod</code> creará una configuración sencilla base para el <strong>replica set</strong>. Vemos lo que esta iniciación ha logrado:</p>
+Para este caso `mongod` creará una configuración sencilla base para el **replica set**. Vemos lo que esta iniciación ha logrado:
 
-<pre>miRS:PRIMARY> rs.status()
+```js
+miRS:PRIMARY> rs.status()
 {
     "set" : "miRS",
     "date" : ISODate("2013-12-15T15:43:27Z"),
@@ -109,43 +113,43 @@ miRS:PRIMARY> rs.conf()
         }
     ]
 }
-</pre>
+```
 
-<p>Ahora la consola de <code>mongo</code> nos indica el miembro especifico sobre el cual estamos ejecutando los comandos, en este caso sobre el primario (<code>PRIMARY</code>) del <strong>replica set</strong> de nombre <code>miRS</code>.</p>
 
-<p>Podemos notar también mucha información con respecto a los miembros del <strong>replica set</strong> como la estampilla de tiempo de la última operación realizada (optime), su estado funcional, su función dentro del <strong>replica set</strong>, entre otros.</p>
+Ahora la consola de `mongo` nos indica el miembro especifico sobre el cual estamos ejecutando los comandos, en este caso sobre el primario (`PRIMARY`) del **replica set** de nombre `miRS`.
 
-<hr />
+Podemos notar también mucha información con respecto a los miembros del **replica set** como la estampilla de tiempo de la última operación realizada (optime), su estado funcional, su función dentro del **replica set**, entre otros.
+***
+##Agregar miembros
+Ya hemos convertido una instancia independiente en un **replica set**; sin embargo no nos sirve de nada una solución de este tipo con un solo miembro, para demostrar esto utilizaré una instancia de Ubuntu con [Vagrant](http://codehero.co/como-instalar-y-configurar-vagrant/), pero si lo deseas también puedes utilizar otros equipos que tengas a la mano o incluso levantar otras instancias de `mongod` en tu mismo equipo utilizando archivos de configuración diferentes o puertos distintos.
 
-<h2>Agregar miembros</h2>
+Lo primero que debemos hacer es obviamente tener instalado MongoDB en nuestro equipo secundario.
 
-<p>Ya hemos convertido una instancia independiente en un <strong>replica set</strong>; sin embargo no nos sirve de nada una solución de este tipo con un solo miembro, para demostrar esto utilizaré una instancia de Ubuntu con <a href="http://codehero.co/como-instalar-y-configurar-vagrant/">Vagrant</a>, pero si lo deseas también puedes utilizar otros equipos que tengas a la mano o incluso levantar otras instancias de <code>mongod</code> en tu mismo equipo utilizando archivos de configuración diferentes o puertos distintos.</p>
+Luego debemos asegurarnos de que el directorio de data de dicha instancia esté vacía ya que este miembro copiará toda la información del miembro primario.
 
-<p>Lo primero que debemos hacer es obviamente tener instalado MongoDB en nuestro equipo secundario.</p>
+> También puedes copiar manualmente la información del miembro primario, esto reducirá el tiempo de preparación de este miembro secundario.
 
-<p>Luego debemos asegurarnos de que el directorio de data de dicha instancia esté vacía ya que este miembro copiará toda la información del miembro primario.</p>
+Ahora en nuestro equipo secundario debemos indicarle el nombre del **replica set** de la misma manera que lo hicimos con la primaria, indicandolo en su archivo de configuración o al levantar manualmente la instancia. (en este caso utilizamos el nombre `miRS`)
 
-<blockquote>
-  <p>También puedes copiar manualmente la información del miembro primario, esto reducirá el tiempo de preparación de este miembro secundario.</p>
-</blockquote>
-
-<p>Ahora en nuestro equipo secundario debemos indicarle el nombre del <strong>replica set</strong> de la misma manera que lo hicimos con la primaria, indicandolo en su archivo de configuración o al levantar manualmente la instancia. (en este caso utilizamos el nombre <code>miRS</code>)</p>
-
-<pre>vagrant@precise32:~$  sudo nano /etc/mongodb.conf
+```sh
+vagrant@precise32:~$  sudo nano /etc/mongodb.conf
 
 # mongodb.conf
 ...
 # in replica set configuration, specify the name of the replica set
 replSet = miRS
-</pre>
+```
 
-<p>Reiniciamos la instancia:</p>
+Reiniciamos la instancia:
 
-<pre>vagrant@precise32:~$ sudo service mongodb restart
+```sh
+vagrant@precise32:~$ sudo service mongodb restart
  * Restarting database mongodb                                                                 [ OK ]
 vagrant@precise32:~$ mongo
 MongoDB shell version: 2.4.8
 ...
+```
+```js
 > rs.status()
 {
     "startupStatus" : 3,
@@ -153,27 +157,31 @@ MongoDB shell version: 2.4.8
     "ok" : 0,
     "errmsg" : "can't get local.system.replset config from self or any seed (EMPTYCONFIG)"
 }
-</pre>
+```
 
-<p>En este caso no ejecutaremos <code>rs.inititate()</code> ya que el <strong>replica set</strong> se encuentra iniciado por otro lado y este miembro será uno que agregaremos a este ya existente.</p>
+En este caso no ejecutaremos `rs.inititate()` ya que el **replica set** se encuentra iniciado por otro lado y este miembro será uno que agregaremos a este ya existente.
 
-<p>Tomemos nota del <em>host</em> donde se encuentra esta instancia de <code>mongod</code> para poder agregarla al <strong>replica set</strong>:</p>
+Tomemos nota del *host* donde se encuentra esta instancia de `mongod` para poder agregarla al **replica set**:
 
-<pre>vagrant@precise32:~$ ifconfig
+```sh
+vagrant@precise32:~$ ifconfig
 eth1      Link encap:Ethernet  HWaddr **:**:**:**:**:**
           inet addr:192.168.33.10  Bcast:192.168.33.255  Mask:255.255.255.0
           ...
-</pre>
+```
 
-<p>Ahora volveremos a nuestra instancia primaria para agregar el nuevo miembro al <strong>replica set</strong>:</p>
 
-<pre>miRS:PRIMARY> rs.add('192.168.33.10:27017')
+Ahora volveremos a nuestra instancia primaria para agregar el nuevo miembro al **replica set**:
+
+```js
+miRS:PRIMARY> rs.add('192.168.33.10:27017')
 { "ok" : 1 }
-</pre>
+```
 
-<p>Y si esperamos un poco a que MongoDB haga su magia podremos notar algo como esto:</p>
+Y si esperamos un poco a que MongoDB haga su magia podremos notar algo como esto:
 
-<pre>miRS:PRIMARY> rs.status()
+```js
+miRS:PRIMARY> rs.status()
 {
     "set" : "miRS",
     "date" : ISODate("2013-12-15T17:40:32Z"),
@@ -210,7 +218,7 @@ eth1      Link encap:Ethernet  HWaddr **:**:**:**:**:**
 }
 miRS:PRIMARY> rs.conf()
 {
-   "_id" : "miRS",
+    "_id" : "miRS",
     "version" : 2,
     "members" : [
         {
@@ -223,29 +231,23 @@ miRS:PRIMARY> rs.conf()
         }
     ]
 }
-</pre>
+```
 
-<blockquote>
-  <p>En mi caso tuve que colocar en el archivo <code>/etc/hosts</code> de mi equipo secundario la asociación del <em>host</em> <code>Mordor.local</code> a la IP de mi equipo principal <code>192.168.0.100</code>, ya que de lo contrario el nuevo miembro no podría resolver ese nombre a nivel de DNS para lograr conectarse con el miembro principal.</p>
-</blockquote>
+> En mi caso tuve que colocar en el archivo `/etc/hosts` de mi equipo secundario la asociación del *host* `Mordor.local` a la IP de mi equipo principal `192.168.0.100`, ya que de lo contrario el nuevo miembro no podría resolver ese nombre a nivel de DNS para lograr conectarse con el miembro principal.
 
-<h3>Agregar árbitro</h3>
+###Agregar árbitro
+Si quisiéramos agregar un árbitro ejecutaríamos en lugar de `rs.add(..)`, el comando `rs.addArb(...)`. Recuerda que el directorio especificado para este miembro donde se almacenaría la data será únicamente utilizado para almacenar configuración, **NO** el conjunto de datos, ya que los árbitros no poseen una copia del conjunto de datos.
 
-<p>Si quisiéramos agregar un árbitro ejecutaríamos en lugar de <code>rs.add(..)</code>, el comando <code>rs.addArb(...)</code>. Recuerda que el directorio especificado para este miembro donde se almacenaría la data será únicamente utilizado para almacenar configuración, <strong>NO</strong> el conjunto de datos, ya que los árbitros no poseen una copia del conjunto de datos.</p>
+***
+##Configuración de miembros
+Como vimos la semana pasada existen varios tipos de miembros secundarios además de algunas consideraciones especiales que se pueden especificar para los miembros del **replica set**, si recordamos bien, delimitar estas funcionalidades se basan en una sencilla configuración del miembro para el fin especifico.
 
-<hr />
+> Estas configuraciones deben realizarse desde el miembro primario.
 
-<h2>Configuración de miembros</h2>
+Configurarlo es muy sencillo, hagamos uso de nuestros conocimientos de Javascript para esto. Veamos el último comando que ejecutamos:
 
-<p>Como vimos la semana pasada existen varios tipos de miembros secundarios además de algunas consideraciones especiales que se pueden especificar para los miembros del <strong>replica set</strong>, si recordamos bien, delimitar estas funcionalidades se basan en una sencilla configuración del miembro para el fin especifico.</p>
-
-<blockquote>
-  <p>Estas configuraciones deben realizarse desde el miembro primario.</p>
-</blockquote>
-
-<p>Configurarlo es muy sencillo, hagamos uso de nuestros conocimientos de Javascript para esto. Veamos el último comando que ejecutamos:</p>
-
-<pre>miRS:PRIMARY> rs.conf()
+```js
+miRS:PRIMARY> rs.conf()
     {
         "_id" : "miRS",
         "version" : 2,
@@ -260,27 +262,28 @@ miRS:PRIMARY> rs.conf()
             }
         ]
     }
-</pre>
+```
 
-<p>Es aquí donde debemos definir la configuración para cada miembro. Será tan fácil como asignarle dicho comando a una variable y empezaremos a manipular el objeto como lo haríamos normalmente en Javascript:</p>
+Es aquí donde debemos definir la configuración para cada miembro. Será tan fácil como asignarle dicho comando a una variable y empezaremos a manipular el objeto como lo haríamos normalmente en Javascript:
 
-<pre>config = rs.conf()
-</pre>
+```js
+config = rs.conf()
+```
 
-<p>Pongamos como ejemplo la configuración de un <strong>miembro retrasado</strong> el cual sabemos ahora que es un miembro de <strong>prioridad 0</strong>, que debe ser además un <strong>miembro escondido</strong> y posee un tiempo de retraso determinado, hagamos esto con nuestro miembro secundario:</p>
+Pongamos como ejemplo la configuración de un **miembro retrasado** el cual sabemos ahora que es un miembro de **prioridad 0**, que  debe ser además un **miembro escondido** y posee un tiempo de retraso determinado, hagamos esto con nuestro miembro secundario:
 
-<pre>config.members[1].priority = 0
+```js
+config.members[1].priority = 0
 config.members[1].hidden = true
 config.members[1].slaveDelay = 3600
-</pre>
+```
 
-<blockquote>
-  <p>Si quisieramos podríamos definir también la cantidad de votos que puede tener este miembro para determinar su influencia en elecciones con el atributo <code>votes</code>.</p>
-</blockquote>
+> Si quisieramos podríamos definir también la cantidad de votos que puede tener este miembro para determinar su influencia en elecciones con el atributo `votes`.
 
-<p>Y ahora solo reconfiguramos el <strong>replica set</strong> de la siguiente manera :</p>
+Y ahora solo reconfiguramos el **replica set** de la siguiente manera :
 
-<pre>rs.reconfig(config)
+```js
+rs.reconfig(config)
 ...
 miRS:PRIMARY> rs.conf()
 {
@@ -300,31 +303,32 @@ miRS:PRIMARY> rs.conf()
         }
     ]
 }
-</pre>
+```
 
-<p>Muy bien ahora ya tenemos configurado un miembro retrasado en nuestro <strong>replica set</strong>.</p>
+Muy bien ahora ya tenemos configurado un miembro retrasado en nuestro **replica set**.
 
-<p>También puedes configurar directo el miembro cuando lo estás agregando al <strong>replica set</strong> especificando los parámetros directamente de la siguiente manera:</p>
+También puedes configurar directo el miembro cuando lo estás agregando al **replica set** especificando los parámetros directamente de la siguiente manera:
 
-<pre>rs.add( { _id: 1, host: '192.168.33.10:27017',  priority: 0, hidden: true, slaveDelay: 3600 } )
-</pre>
+```js
+rs.add( { _id: 1, host: '192.168.33.10:27017',  priority: 0, hidden: true, slaveDelay: 3600 } )
+```
 
-<hr />
+***
+##Eliminación de miembros
+Supongamos el caso que deseamos eliminar uno de los miembros del **replica set**. Si dicho miembro es el primario debemos primero relevarlo de su cargo y dejar que un nuevo primario sea elegido.
 
-<h2>Eliminación de miembros</h2>
+Para esto ejecutaríamos el comando `rs.stepDown(<cantidad_segundos>)` en el miembro primario, esto lo forzará a ceder su papel como primario y evitará ser elegido en la siguiente elección durante la cantidad de segundos indicada.
 
-<p>Supongamos el caso que deseamos eliminar uno de los miembros del <strong>replica set</strong>. Si dicho miembro es el primario debemos primero relevarlo de su cargo y dejar que un nuevo primario sea elegido.</p>
+Posteriormente podremos eliminar un miembro desde el primario de la siguiente manera:
 
-<p>Para esto ejecutaríamos el comando <code>rs.stepDown(&lt;cantidad_segundos&gt;)</code> en el miembro primario, esto lo forzará a ceder su papel como primario y evitará ser elegido en la siguiente elección durante la cantidad de segundos indicada.</p>
+```js
+rs.remove('192.168.33.10:27017')
+```
 
-<p>Posteriormente podremos eliminar un miembro desde el primario de la siguiente manera:</p>
+Si revisamos el estado y configuración del **replica set** luego de esto, podremos ver que en efecto esa instancia ya no forma parte de la misma.
 
-<pre>rs.remove('192.168.33.10:27017')
-</pre>
-
-<p>Si revisamos el estado y configuración del <strong>replica set</strong> luego de esto, podremos ver que en efecto esa instancia ya no forma parte de la misma.</p>
-
-<pre>miRS:PRIMARY> rs.status()
+```js
+miRS:PRIMARY> rs.status()
 {
     "set" : "miRS",
     "date" : ISODate("2013-12-15T19:57:23Z"),
@@ -356,11 +360,12 @@ miRS:PRIMARY> rs.conf()
         }
     ]
 }
-</pre>
+```
 
-<p>De igual manera si accedemos a nuestro antiguo miembro podremos ver que se encuentra con estado <code>REMOVED</code>:</p>
+De igual manera si accedemos a nuestro antiguo miembro podremos ver que se encuentra con estado `REMOVED`:
 
-<pre>miRS:REMOVED> rs.status()
+```js
+miRS:REMOVED> rs.status()
 {
     "set" : "miRS",
     "date" : ISODate("2013-12-15T20:07:29Z"),
@@ -380,17 +385,17 @@ miRS:PRIMARY> rs.conf()
     ],
     "ok" : 1
 }
-</pre>
+```
 
-<hr />
+***
+##Convertir miembro en independiente
 
-<h2>Convertir miembro en independiente</h2>
+Para utilizar este antiguo miembro secundario como una instancia aislada nuevamente podemos volver a ejecutar el comando de inicio de la instacia sin el parámetro `--replSet` o eliminarlo del archivo de configuración (dependiendo de cómo hayas decidido iniciar la instancia de `mongod`).
 
-<p>Para utilizar este antiguo miembro secundario como una instancia aislada nuevamente podemos volver a ejecutar el comando de inicio de la instacia sin el parámetro <code>--replSet</code> o eliminarlo del archivo de configuración (dependiendo de cómo hayas decidido iniciar la instancia de <code>mongod</code>).</p>
+Luego reiniciemos la instancia y borraremos los rastros del **replica set** al borrar la base de datos local donde se almacena la información de la misma:
 
-<p>Luego reiniciemos la instancia y borraremos los rastros del <strong>replica set</strong> al borrar la base de datos local donde se almacena la información de la misma:</p>
-
-<pre>vagrant@precise32:~$ sudo nano /etc/mongodb.conf
+```sh
+vagrant@precise32:~$ sudo nano /etc/mongodb.conf
 ...
 # mongodb.conf
 ...
@@ -402,14 +407,14 @@ vagrant@precise32:~$ sudo service mongodb restart
  * Restarting database mongodb                                                                [ OK ]
 vagrant@precise32:~$ mongo
 ...
+```
+```js
 > use local
 switched to db local
 > db.dropDatabase()
 { "dropped" : "local", "ok" : 1 }
-</pre>
+```
 
-<hr />
-
-<h2>Conclusión</h2>
-
-<p>Ya sabemos como tener un cluster de replicación en MongoDB, esto nos permitirá tener una alta disponibilidad de los datos y aseguraremos la durabilidad de los mismos por el incremento de la redundancia. De igual manera estaremos protegidos en caso que sucedan situaciones catastróficas inesperadas. Incluso podrías configurar en el <em>driver</em> de MongoDB de tu aplicación cliente para que lea de los miembros secundarios en caso de que sea necesario. Más adelante llevaremos el concepto de <em>clusterización</em> mucho más lejos cuando hablemos de <strong>fragmentación</strong>. Hasta entonces.</p>
+***
+##Conclusión
+Ya sabemos como tener un cluster de replicación en MongoDB, esto nos permitirá tener una alta disponibilidad de los datos y aseguraremos la durabilidad de los mismos por el incremento de la redundancia. De igual manera estaremos protegidos en caso que sucedan situaciones catastróficas inesperadas. Incluso podrías configurar en el *driver* de MongoDB de tu aplicación cliente para que lea de los miembros secundarios en caso de que sea necesario. Más adelante llevaremos el concepto de *clusterización*  mucho más lejos cuando hablemos de **fragmentación**. Hasta entonces.
