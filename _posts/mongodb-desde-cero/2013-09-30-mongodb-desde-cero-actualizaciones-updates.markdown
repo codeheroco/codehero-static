@@ -23,15 +23,14 @@ tags:
 - modificacion
 - save
 ---
-<p>Como mencionamos en la entrada pasada, la parte de actualizaciones o updates la dejamos por separado para tratar de ser un poco más detallados y extendernos en esta área para que puedas dominar con mayor destreza la manipulación de los datos.</p>
+Como mencionamos en la entrada pasada, la parte de actualizaciones la dejamos por separado para tratar de ser un poco más detallados y extendernos en esta área para que puedas dominar con mayor destreza la manipulación de los datos.
+***
+##Estructura
 
-<hr />
+Para modificar los documentos que ya se encuentran almacenados usaremos el comando `.update()` el cual tiene una estructura como esta:
 
-<h2>Estructura</h2>
-
-<p>Para modificar los documentos que ya se encuentran almacenados usaremos el comando <code>.update()</code> el cual tiene una estructura como esta:</p>
-
-<pre>db.coleccion.update(
+```js
+db.coleccion.update(
     filtro,
     cambio,
     {
@@ -39,38 +38,37 @@ tags:
         multi:  booleano
     }
 );
-</pre>
+```
 
-<p>Aclaremos un poco lo que nos indica la estructura.</p>
+Aclaremos un poco lo que nos indica la estructura.
 
-<p><code>filtro</code> - debemos especificar como encontrar el registro que desemos modificar, sería el mismo tipo de filtro que usamos en las búsquedas o <strong>finders</strong>.</p>
+`filtro` - debemos especificar como encontrar el registro que desemos modificar, sería el mismo tipo de filtro que usamos en las búsquedas o **finders**.
 
-<p><code>cambio</code> - aquí especificamos los cambios que se deben hacer. Sin embargo ten en cuenta que hay 2 tipos de cambios que se pueden hacer:</p>
+`cambio` - aquí especificamos los cambios que se deben hacer. Sin embargo ten en cuenta que hay 2 tipos de cambios que se pueden hacer:
 
-<ul>
-<li>Cambiar el documento completo por otro que especifiquemos.</li>
-<li>Modificar nada más los campos especificados.</li>
-</ul>
+* Cambiar el documento completo por otro que especifiquemos.
+* Modificar nada más los campos especificados.
 
-<p><code>upsert</code> (opcional, <code>false</code> por defecto) - este parametro nos permite especificar en su estado <code>true</code> que si el filtro no encuentra ningun resutlado entonces el cambio debe ser insertado como un nuevo registro.</p>
+`upsert` (opcional, `false` por defecto) - este parametro nos permite especificar en su estado `true` que si el filtro no encuentra ningun resutlado entonces el cambio debe ser insertado como un nuevo registro.
 
-<p><code>multi</code> (opcional, <code>false</code> por defecto) - en caso de que el filtro devuelva más de un resultado, si especificamos este parametro como <code>true</code>, el cambio se realizará a todos los resultados, de lo contrario solo se le hará al primero (al de menor Id).</p>
+`multi` (opcional, `false` por defecto) - en caso de que el filtro devuelva más de un resultado, si especificamos este parametro como `true`, el cambio se realizará a todos los resultados, de lo contrario solo se le hará al primero (al de menor Id).
 
-<hr />
+***
 
-<h2>Actualización sobrescrita (overwrite)</h2>
+##Actualización sobrescrita (overwrite)
+Bien, probemos insertando nuevo autor, el cual modificaremos luego:
 
-<p>Bien, probemos insertando nuevo autor, el cual modificaremos luego:</p>
-
-<pre>> db.autores.insert({
+```js
+> db.autores.insert({
     nombre      :   'Ricardo',
     apellido    :   'S'
 });
-</pre>
+```
 
-<p>Ahora probemos el primer caso, cambiar todo el documento, esto significa que en lugar de cambiar solo los campos que especifiquemos, el documento será sobreescrito con lo que indiquemos:</p>
+Ahora probemos el primer caso, cambiar todo el documento, esto significa que en lugar de cambiar solo los campos que especifiquemos, el documento será sobreescrito con lo que indiquemos:
 
-<pre>> db.autores.update(
+```js
+> db.autores.update(
     {nombre: 'Ricardo'},
     {
         nombre: 'Ricardo',
@@ -79,180 +77,175 @@ tags:
         esAmigo: false
     }
 );
-</pre>
+```
 
-<p>Notemos que como primer parámetro indicamos el <code>filtro</code>, en este caso que el nombre sea <code>Ricardo</code>, luego indicamos el cambio que hariamos, como estamos probando el primer caso indicamos el documento completo que queremos que sustituya al actual. Si hacemos <code>db.autores.find({nombre:'Ricardo'});</code> podremos ver que en efecto el documento quedó como especificamos:</p>
+Notemos que como primer parámetro indicamos el `filtro`, en este caso que el nombre sea `Ricardo`, luego indicamos el cambio que hariamos, como estamos probando el primer caso indicamos el documento completo que queremos que sustituya al actual. Si hacemos `db.autores.find({nombre:'Ricardo'});` podremos ver que en efecto el documento quedó como especificamos:
 
-<pre>{ "_id" : ObjectId("523c91f2299e6a9984280762"), "nombre" : "Ricardo", "apellido" : "Sampayo", "secciones" : [  "Ruby",  "Rails" ], "esAmigo" : false }
-</pre>
+```js
+{ "_id" : ObjectId("523c91f2299e6a9984280762"), "nombre" : "Ricardo", "apellido" : "Sampayo", "secciones" : [  "Ruby",  "Rails" ], "esAmigo" : false }
+```
 
-<blockquote>
-  <p>Sobreescbirir el documento no cambiará su identificador único <code>_id</code>.</p>
-</blockquote>
+> Sobreescbirir el documento no cambiará su identificador único `_id`.
 
-<hr />
+***
+##Operadores de Modificación
 
-<h2>Operadores de Modificación</h2>
+Ahora probemos cambiar los campos que deseamos, para este caso haremos uso de lo que se denominan como operadores de modificación.
 
-<p>Ahora probemos cambiar los campos que deseamos, para este caso haremos uso de lo que se denominan como operadores de modificación.</p>
+Hablemos un poco sobre algunos de estos operadores antes de verlos en acción:
 
-<p>Hablemos un poco sobre algunos de estos operadores antes de verlos en acción:</p>
+* `$inc` - incrementa en una cantidad numerica especificada el valor del campo a en cuestión.
+* `$rename` - renombrar campos del documento.
+* `$set` - permite especificar los campos que van a ser modificados.
+* `$unset` - eliminar campos del documento.
 
-<ul>
-<li><code>$inc</code> - incrementa en una cantidad numerica especificada el valor del campo a en cuestión.</li>
-<li><code>$rename</code> - renombrar campos del documento.</li>
-<li><code>$set</code> - permite especificar los campos que van a ser modificados. </li>
-<li><code>$unset</code> - eliminar campos del documento.</li>
-</ul>
+Referentes a arreglos:
 
-<p>Referentes a arreglos:</p>
+* `$pop` - elimina el primer o último valor de un arreglo.
+* `$pull` - elimina los valores de un arreglo que cumplan con el filtro indicado.
+* `$pullAll` - elimina los valores especificados de un arreglo.
+* `$push` - agrega un elemento a un arreglo.
+* `$addToSet` - agrega elementos a un arreglo solo sí estos no existen ya.
+* `$each` - para ser usado en conjunto con `$addToSet` o `$push` para indicar varios elementos a ser agregados al arreglo.
 
-<ul>
-<li><code>$pop</code> - elimina el primer o último valor de un arreglo.</li>
-<li><code>$pull</code> - elimina los valores de un arreglo que cumplan con el filtro indicado.</li>
-<li><code>$pullAll</code> - elimina los valores especificados de un arreglo.</li>
-<li><code>$push</code> - agrega un elemento a un arreglo.</li>
-<li><code>$addToSet</code> - agrega elementos a un arreglo solo sí estos no existen ya.</li>
-<li><code>$each</code> - para ser usado en conjunto con <code>$addToSet</code> o <code>$push</code> para indicar varios elementos a ser agregados al arreglo.</li>
-</ul>
 
-<p>Hagamos una prueba sobre nuestro nuevo documento:</p>
+Hagamos una prueba sobre nuestro nuevo documento:
 
-<pre>> db.autores.update(
+```js
+> db.autores.update(
     { nombre: 'Ricardo' },
     {
         $set: { esAmigo: true , age : 25 }
     }
 );
-</pre>
+```
 
-<p>En este caso estamos usando el operador <code>$set</code> para 2 propositos a la vez:</p>
+En este caso estamos usando el operador `$set` para 2 propositos a la vez:
 
-<ul>
-<li>Actualizar el valor de un campo (cambiamos esAmigo de <code>false</code> a <code>true</code>).</li>
-<li>Creamos un campo nuevo (age) asignandole el valor <code>25</code>.</li>
-</ul>
+* Actualizar el valor de un campo (cambiamos esAmigo de `false` a `true`).
+* Creamos un campo nuevo (age) asignandole el valor `25`.
 
-<p>Supongamos que Ricardo cumplió años en estos días, así que para incrementar el valor de su edad lo podemos hacer así:</p>
+Supongamos que Ricardo cumplió años en estos días, así que para incrementar el valor de su edad lo podemos hacer así:
 
-<pre>> db.autores.update(
+```js
+> db.autores.update(
     { nombre: 'Ricardo' },
     {
         $inc: { age : 1 }
     }
 );
-</pre>
+```
 
-<blockquote>
-  <p>También podemos indicar números negativos para decrementar.</p>
-</blockquote>
+> También podemos indicar números negativos para decrementar.
 
-<p>Aquí hablamos español, así que cambiemos ese campo <code>age</code> por lo que le corresponde:</p>
+Aquí hablamos español, así que cambiemos ese campo `age` por lo que le corresponde:
 
-<pre>> db.autores.update(
+```js
+> db.autores.update(
     { nombre: 'Ricardo' },
     {
         $rename: { 'age' : 'edad' }
     }
 );
-</pre>
+```
 
-<p>Los que trabajamos en Codehero somos todos amigos así que no es necesario guardar el campo <code>esAmigo</code>:</p>
+Los que trabajamos en Codehero somos todos amigos así que no es necesario guardar el campo `esAmigo`:
 
-<pre>> db.autores.update(
+```js
+> db.autores.update(
     { nombre: 'Ricardo' },
     {
         $unset: { esAmigo : '' }
     }
 );
-</pre>
+```
 
-<blockquote>
-  <p>El valor que le "asignes" al campo a eliminar no tendrá ningun efecto, pero es necesario escribirlo por motivos de sintaxis.</p>
-</blockquote>
+> El valor que le "asignes" al campo a eliminar no tendrá ningun efecto, pero es necesario escribirlo por motivos de sintaxis.
 
-<p>Pasemos ahora a la parte de modificación de arreglos, agreguemosle algunas secciones extra a nuestro autor:</p>
+Pasemos ahora a la parte de modificación de arreglos, agreguemosle algunas secciones extra a nuestro autor:
 
-<pre>> db.autores.update(
+```js
+> db.autores.update(
     { nombre: 'Ricardo' },
     {
         $push: { secciones : 'jQuery' }
     }
 );
-</pre>
+```
 
-<blockquote>
-  <p>Si se quiere asegurar que el elemento no esté duplicado se usaría <code>$addToSet</code></p>
-</blockquote>
+> Si se quiere asegurar que el elemento no esté duplicado se usaría `$addToSet`
 
-<p>Esto agregará al final del arreglo de secciones el elemento <code>jQuery</code>.</p>
+Esto agregará al final del arreglo de secciones el elemento `jQuery`.
 
-<p>Agreguemos algunas secciones más en un solo paso:</p>
 
-<pre>> db.autores.update(
+
+Agreguemos algunas secciones más en un solo paso:
+
+```js
+> db.autores.update(
     { nombre: 'Ricardo' },
     {
         $push: { secciones : { $each : ['Haskell','Go','ActionScript'] } }
     }
 );
-</pre>
+```
 
-<p>Bueno en realidad Ricardo no maneja desde hace un tiempo ActionScript así que eliminemos ese ultimo elemento del arreglo:</p>
+Bueno en realidad Ricardo no maneja desde hace un tiempo ActionScript así que eliminemos ese ultimo elemento del arreglo:
 
-<pre>> db.autores.update(
+```js
+> db.autores.update(
     { nombre: 'Ricardo' },
     {
         $pop: { secciones : 1 }
     }
 );
-</pre>
+```
 
-<blockquote>
-  <p>Para eliminar el último elemento se coloca 1, para el primero -1.</p>
-</blockquote>
+> Para eliminar el último elemento se coloca 1, para el primero -1.
 
-<p>Ricardo hace tiempo que no nos habla sobre jQuery asi que hasta que no se reivindique quitemoslo de sus secciones:</p>
+Ricardo hace tiempo que no nos habla sobre jQuery asi que hasta que no se reivindique quitemoslo de sus secciones:
 
-<pre>> db.autores.update(
+```js
+> db.autores.update(
     { nombre: 'Ricardo' },
     {
         $pull: { secciones : 'jQuery' }
     }
 );
-</pre>
+```
 
-<p>Pensandolo bien, Ricardo nunca nos ha hablado de Haskell ni Go tampoco, eliminemoslos también:</p>
+Pensandolo bien, Ricardo nunca nos ha hablado de Haskell ni Go tampoco, eliminemoslos también:
 
-<pre>> db.autores.update(
+```js
+> db.autores.update(
     { nombre: 'Ricardo' },
     {
         $pullAll: { secciones : ['Haskell','Go'] }
     }
 );
-</pre>
+```
 
-<hr />
+***
 
-<h2>Comando .save()</h2>
+##Comando .save()
+Otra manera para actualizar o insertar registros es mediante el uso del comando `.save()`. Este comando recibe como parámetro únicamente un documento.
 
-<p>Otra manera para actualizar o insertar registros es mediante el uso del comando <code>.save()</code>. Este comando recibe como parámetro únicamente un documento.</p>
+Insertar un registro es tal cual como si hicieramos un `.insert()`:
 
-<p>Insertar un registro es tal cual como si hicieramos un <code>.insert()</code>:</p>
-
-<pre>> db.autores.save({
+```js
+> db.autores.save({
     nombre:     'Ramses'
 });
-</pre>
+```
 
-<p>En cuanto al caso de actualización de registros te estarás preguntando:</p>
+En cuanto al caso de actualización de registros te estarás preguntando:
 
-<blockquote>
-  <p>¿Si solo recibe un documento, como sabe Mongo que documento debe actualizar?</p>
-</blockquote>
+> ¿Si solo recibe un documento, como sabe Mongo que documento debe actualizar?
 
-<p>En estos casos puedes hacer el equivalente a una actualización sobrescrita con tan solo indicar el <code>_id</code> del registro a actualizar como parte del nuevo documento.</p>
+En estos casos puedes hacer el equivalente a una actualización sobrescrita con tan solo indicar el `_id` del registro a actualizar como parte del nuevo documento.
 
-<pre>> db.autores.find({nombre: 'Ramses'});
+```js
+> db.autores.find({nombre: 'Ramses'});
 
 { "_id" : ObjectId("5246049e7bc1a417cc91ec8c"), "nombre" : "Ramses" }
 
@@ -262,14 +255,11 @@ tags:
     apellido:   'Velasquez',
     secciones:  ['Laravel', 'PHP']
 });
-</pre>
+```
 
-<blockquote>
-  <p>En esta caso particular, debido a que Mongo le asigno automáticamente ese ID autogenerado poco amigable, ese mismo es el que pusimos en nuestro documento para que Mongo sepa que debe actualizar ese registro, algunos recomiendan usar <code>_id</code> que no sean establecidos por Mongo sino por la librería del cliente para evitar trabajar con este tipo de identificadores poco amigables.</p>
-</blockquote>
+> En esta caso particular, debido a que Mongo le asigno automáticamente ese ID autogenerado poco amigable, ese mismo es el que pusimos en nuestro documento para que Mongo sepa que debe actualizar ese registro, algunos recomiendan usar `_id` que no sean establecidos por Mongo sino por la librería del cliente para evitar trabajar con este tipo de identificadores poco amigables.
 
-<hr />
-
-<h2>Conclusión</h2>
-
-<p>Como has podido notar, MongoDB es muy poderoso y ofrece muchas ventajas en cuento a la modificación de sus registros. Claro, las búsquedas también se pueden tornar bastante interesantes según nuestras necesidades y eso lo veremos más adelante, a medida que vamos avanzando iremos tocando la mayoría de los temas que puedan servir de ayuda para que logres dominar al máximo esta solución NoSQL.</p>
+>
+***
+##Conclusión
+Como has podido notar, MongoDB es muy poderoso y ofrece muchas ventajas en cuento a la modificación de sus registros. Claro, las búsquedas también se pueden tornar bastante interesantes según nuestras necesidades y eso lo veremos más adelante, a medida que vamos avanzando iremos tocando la mayoría de los temas que puedan servir de ayuda para que logres dominar al máximo esta solución NoSQL.

@@ -10,6 +10,7 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1211
 wordpress_url: http://codehero.co/?p=1211
 date: 2013-06-28 04:30:49.000000000 -04:30
+thumbnail: http://i.imgur.com/GLOeJ0Q.png
 categories:
 - Artículos
 - Notícias

@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 1781
 wordpress_url: http://codehero.co/?p=1781
 date: 2013-07-29 00:00:02.000000000 -04:30
+thumbnail: http://i.imgur.com/NKyEqSw.png
 categories:
 - Artículos
 - Notícias

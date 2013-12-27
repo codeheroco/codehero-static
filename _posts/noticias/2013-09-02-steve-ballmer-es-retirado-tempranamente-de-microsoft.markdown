@@ -10,6 +10,7 @@ author_url: http://jonathanwiesel.com/
 wordpress_id: 2140
 wordpress_url: http://codehero.co/?p=2140
 date: 2013-09-02 00:00:52.000000000 -04:30
+thumbnail: http://i.imgur.com/sMskTV3.png
 categories:
 - Artículos
 - Notícias
