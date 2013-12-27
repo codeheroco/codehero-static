@@ -23,80 +23,76 @@ tags:
 - descubrimiento
 - syn
 ---
-<p>Un factor muy importante a considerar en la seguridad de una red o un equipo con acceso a la misma, es aquel que define el nivel de exposición de los servicios que esta ofrece. Esto con la finalidad de delimitar o al menos conocer sus puntos de entrada y salida de una red o equipo y obtener información detallada sobre el ellos. Para cumplir con este propósito, esta semana hablaremos de un conocido escáner de redes llamado <strong>nmap</strong>.</p>
+Un factor muy importante a considerar en la seguridad de una red o un equipo con acceso a la misma, es aquel que define el nivel de exposición de los servicios que esta ofrece. Esto con la finalidad de delimitar o al menos conocer sus puntos de entrada y salida de una red o equipo y obtener información detallada sobre el ellos. Para cumplir con este propósito, esta semana hablaremos de un conocido escáner de redes llamado **nmap**.
+* * *
+## ¿Qué es nmap?
 
-<hr />
+Nmap se define como una suite de herramientas de descubrimiento de redes de código abierto, ha sido utilizada desde hace mucho tiempo en procesos de auditorias de seguridad ya que la misma permite determinar los puntos de acceso de una red y logra extraer grandes y útiles cantidades de información de la misma. Algunos de los puntos que caracterizan a esta herramienta son sus capacidades de determinar lo siguiente:
 
-<h2>¿Qué es nmap?</h2>
+*   *Hosts* en una red.
+*   Servicios ofrecidos por cada *host*.
+*   Tipos de paquetes y firewalls que utilizan.
+*   Sistema operativo que ejecutan.
+*   Y mucho más...
 
-<p>Nmap se define como una suite de herramientas de descubrimiento de redes de código abierto, ha sido utilizada desde hace mucho tiempo en procesos de auditorias de seguridad ya que la misma permite determinar los puntos de acceso de una red y logra extraer grandes y útiles cantidades de información de la misma. Algunos de los puntos que caracterizan a esta herramienta son sus capacidades de determinar lo siguiente:</p>
+Como podrás imaginar, esta herramienta permite determinar los puntos débiles los cuales pueden ser aprovechados por individuos con malas intenciones para perjudicar la integridad de la red o aquellos que la componen. Su uso relacionado al *hacking* ha sido tan controversial que ha figurado en varios filmes famosos a nivel mundial como Matrix Recargado, Duro de Matar 4, Bourne Ultimatum, La Chica del Dragón Tatuado e incluso en la reciente película de ciencia ficción protagonizada por Matt Damon, Elysium.
 
-<ul>
-<li><em>Hosts</em> en una red.</li>
-<li>Servicios ofrecidos por cada <em>host</em>.</li>
-<li>Tipos de paquetes y firewalls que utilizan.</li>
-<li>Sistema operativo que ejecutan.</li>
-<li>Y mucho más...</li>
-</ul>
+Sin duda **nmap** permite conocer información importante de una red, pero no creas que con él ya tendrás acceso inmediato a la misma como lo has visto en los filmes, conocer vulnerabilidades y/o puntos de acceso es muy diferente a saber explotarlos (y este último no es el objetivo de este curso), es nuestro derecho como usuarios saber como protegernos al conocer esta información, y en **CODEHERO** es nuestro deber guiarte para lograrlo.
 
-<p>Como podrás imaginar, esta herramienta permite determinar los puntos débiles los cuales pueden ser aprovechados por individuos con malas intenciones para perjudicar la integridad de la red o aquellos que la componen. Su uso relacionado al <em>hacking</em> ha sido tan controversial que ha figurado en varios filmes famosos a nivel mundial como Matrix Recargado, Duro de Matar 4, Bourne Ultimatum, La Chica del Dragón Tatuado e incluso en la reciente película de ciencia ficción protagonizada por Matt Damon, Elysium.</p>
+> Ten en cuenta que el uso de esta herramienta a niveles abiertos puede estar prohibido en tu país o jurisdicción, lo que aprendas aquí debes utilizarlo en redes y ambientes propios y controlados.
 
-<p>Sin duda <strong>nmap</strong> permite conocer información importante de una red, pero no creas que con él ya tendrás acceso inmediato a la misma como lo has visto en los filmes, conocer vulnerabilidades y/o puntos de acceso es muy diferente a saber explotarlos (y este último no es el objetivo de este curso), es nuestro derecho como usuarios saber como protegernos al conocer esta información, y en <strong>CODEHERO</strong> es nuestro deber guiarte para lograrlo.</p>
+* * *
 
-<blockquote>
-  <p>Ten en cuenta que el uso de esta herramienta a niveles abiertos puede estar prohibido en tu país o jurisdicción, lo que aprendas aquí debes utilizarlo en redes y ambientes propios y controlados.</p>
-</blockquote>
+## ¿Cómo lo instalo?
 
-<hr />
+El primer paso para experimentar con esta herramienta es instalarla, como siempre aquí te enseñamos la manera más sencilla y eficiente de hacerlo.
 
-<h2>¿Cómo lo instalo?</h2>
+### Mac OS X
 
-<p>El primer paso para experimentar con esta herramienta es instalarla, como siempre aquí te enseñamos la manera más sencilla y eficiente de hacerlo.</p>
+Utilizaremos nuestro manejador de paquetes favorito, [Homebrew:][1]
 
-<h3>Mac OS X</h3>
+```sh
+$ brew install nmap
+```
 
-<p>Utilizaremos nuestro manejador de paquetes favorito, <a href="http://codehero.co/como-lo-hago-instalar-homebrew/">Homebrew:</a></p>
+### Debian
 
-<pre>$ brew install nmap
-</pre>
+Para sistemas basados en Debian como Ubuntu utilizaremos el manejador de paquetes por defecto del sistema:
 
-<h3>Debian</h3>
+```sh
+$ apt-get install nmap
+```
 
-<p>Para sistemas basados en Debian como Ubuntu utilizaremos el manejador de paquetes por defecto del sistema:</p>
+### Fedora
 
-<pre>$ apt-get install nmap
-</pre>
+Para sistemas basados en Fedora como CentOS o Red Hat utilizaremos el manejador de paquetes YUM:
 
-<h3>Fedora</h3>
+```sh
+$ yum install nmap
+```
 
-<p>Para sistemas basados en Fedora como CentOS o Red Hat utilizaremos el manejador de paquetes YUM:</p>
+### Windows
 
-<pre>$ yum install nmap
-</pre>
+En caso de ambientes Windows deben dirigirse al [portal de descargas de nmap][2] y descargar el instalador.
 
-<h3>Windows</h3>
+> Durante la instalación, si se te ofrece la opción, debes seleccionar instalar WinPcap.
 
-<p>En caso de ambientes Windows deben dirigirse al <a href="http://nmap.org/download.html">portal de descargas de nmap</a> y descargar el instalador.</p>
+Para el caso particular de ambientes Windows, al ejecutar el comando que ejecutará las funciones de **nmap** deberás estar ubicado (por línea de comandos) en el directorio donde fue instalado (donde se encuentre el nmap.exe)
 
-<blockquote>
-  <p>Durante la instalación, si se te ofrece la opción, debes seleccionar instalar WinPcap.</p>
-</blockquote>
+* * *
 
-<p>Para el caso particular de ambientes Windows, al ejecutar el comando que ejecutará las funciones de <strong>nmap</strong> deberás estar ubicado (por línea de comandos) en el directorio donde fue instalado (donde se encuentre el nmap.exe)</p>
+## Usos básicos
 
-<hr />
+El uso de esta herramienta puede ser bastante extenso, por esta razón trataremos de cubrir solo algunos de los casos de uso básicos y más utilizados. Para mayor información pueden acceder a la [guía de referencia en español de nmap.][3].
 
-<h2>Usos básicos</h2>
+A continuación iremos probando progresivamente los comandos más comunes de **nmap**.
 
-<p>El uso de esta herramienta puede ser bastante extenso, por esta razón trataremos de cubrir solo algunos de los casos de uso básicos y más utilizados. Para mayor información pueden acceder a la <a href="http://nmap.org/man/es/">guía de referencia en español de nmap.</a>.</p>
+### Escaneo Ping
 
-<p>A continuación iremos probando progresivamente los comandos más comunes de <strong>nmap</strong>.</p>
+Uno de los más utilizados por muchos ya que permite determinar los *hosts* que se encuentran activos en una red, probemos con nuestra red local (en mi caso es la `192.168.0.1`).
 
-<h3>Escaneo Ping</h3>
-
-<p>Uno de los más utilizados por muchos ya que permite determinar los <em>hosts</em> que se encuentran activos en una red, probemos con nuestra red local (en mi caso es la <code>192.168.0.1</code>).</p>
-
-<pre>$ nmap -sP 192.168.0.1/24
+```sh
+$ nmap -sP 192.168.0.1/24
 
 Nmap scan report for dlinkrouter.interlink.net.ve (192.168.0.1)
 Host is up (0.0027s latency).
@@ -107,19 +103,18 @@ Host is up (0.049s latency).
 Nmap scan report for 192.168.0.104
 Host is up (0.015s latency).
 Nmap done: 256 IP addresses (4 hosts up) scanned in 16.16 seconds
-</pre>
+```
 
-<p>Podemos apreciar que <strong>nmap</strong> ha encontrado 4 hosts activos, el router y 3 más, evidentemente una de ellas es el computador donde estoy escribiendo, pero los otros 2 los descubriremos pronto.</p>
+Podemos apreciar que **nmap** ha encontrado 4 hosts activos, el router y 3 más, evidentemente una de ellas es el computador donde estoy escribiendo, pero los otros 2 los descubriremos pronto.
 
-<blockquote>
-  <p>Notemos que hemos puesto un <code>/24</code> luego de la IP inicial que define mi red, esto indica que los primeros 24 bits de la IP definen la subred y los 8 bits restantes definen el espacio reservado para los <em>hosts</em>, es posible también indicarlo de las siguiente manera: <code>192.168.0.1-255</code> ó <code>192.168.0.*</code> lo cual de igualmente significa que se debe tomar la subred de <em>hosts</em> que van desde el 192.168.0.<code>1</code>, 192.168.0.<code>2</code> ... al 192.168.0.<code>255</code>. Este tipo de subred es la más común para redes locales domésticas.</p>
-</blockquote>
+> Notemos que hemos puesto un `/24` luego de la IP inicial que define mi red, esto indica que los primeros 24 bits de la IP definen la subred y los 8 bits restantes definen el espacio reservado para los *hosts*, es posible también indicarlo de las siguiente manera: `192.168.0.1-255` ó `192.168.0.*` lo cual de igualmente significa que se debe tomar la subred de *hosts* que van desde el 192.168.0.`1`, 192.168.0.`2` ... al 192.168.0.`255`. Este tipo de subred es la más común para redes locales domésticas.
 
-<h3>Escaneo TCP Connect</h3>
+### Escaneo TCP Connect
 
-<p>Este se define como el escaneo de puertos más simple, este listará aquellos puertos abiertos y asequibles. Probemos con una de las direcciones IP que encontramos antes para ver de qué se trata:</p>
+Este se define como el escaneo de puertos más simple, este listará aquellos puertos abiertos y asequibles. Probemos con una de las direcciones IP que encontramos antes para ver de qué se trata:
 
-<pre>$ nmap –sT 192.168.0.104
+```sh
+$ nmap –sT 192.168.0.104
 
 Nmap scan report for 192.168.0.104
 Host is up (0.012s latency).
@@ -134,44 +129,43 @@ PORT      STATE SERVICE
 3580/tcp  open  nati-svrloc
 10243/tcp open  unknown
 31038/tcp open  unknown
-</pre>
+```
 
-<p>Podremos notar algunos de los puertos abiertos para este <em>host</em> y los servicios que corren en los mismos.</p>
+Podremos notar algunos de los puertos abiertos para este *host* y los servicios que corren en los mismos.
 
-<h3>Escaneo TCP SYN</h3>
+### Escaneo TCP SYN
 
-<p>Este tipo de escaneo se basa en no establecer una conexión completa con el <em>host</em> para descubrirlo, esto se logra al monitorear los primeros pasos al establecer una conexión conocidos como el <strong>saludo de tres vías</strong>, este comando ejecuta la siguiente lógica para realizar su magia:</p>
+Este tipo de escaneo se basa en no establecer una conexión completa con el *host* para descubrirlo, esto se logra al monitorear los primeros pasos al establecer una conexión conocidos como el **saludo de tres vías**, este comando ejecuta la siguiente lógica para realizar su magia:
 
-<ul>
-<li><strong>nmap</strong> envía al puerto del <em>host</em> el paquete SYN (sincronizar) para notificar que quiere establecer una conexión.</li>
-<li>Si el <em>host</em> responde con un SYN/ACK (sincronizado y reconocido) entonces el puerto esta abierto.</li>
-<li><strong>nmap</strong> envía un paquete RST (resetear) para cerrar la conexión inmediatamente, esto con la intención de no establecer completamente la conexión y de que el intento de conexión no aparezca en las bitácoras de aplicación.</li>
-</ul>
+*   **nmap** envía al puerto del *host* el paquete SYN (sincronizar) para notificar que quiere establecer una conexión.
+*   Si el *host* responde con un SYN/ACK (sincronizado y reconocido) entonces el puerto esta abierto.
+*   **nmap** envía un paquete RST (resetear) para cerrar la conexión inmediatamente, esto con la intención de no establecer completamente la conexión y de que el intento de conexión no aparezca en las bitácoras de aplicación.
 
-<blockquote>
-  <p>Este método se consideró inicialmente como <em>stealth</em> (sigiloso) por esta última razón; sin embargo es de resaltar que varios firewalls modernos son capaces de detectar un escaneo TCP SYN simple.</p>
-</blockquote>
+> Este método se consideró inicialmente como *stealth* (sigiloso) por esta última razón; sin embargo es de resaltar que varios firewalls modernos son capaces de detectar un escaneo TCP SYN simple.
 
-<pre>$ nmap –sS 192.168.0.104
-</pre>
+```sh
+$ nmap –sS 192.168.0.104
+```
 
-<h3>Escaneo FIN, Null y Xmas Tree</h3>
+### Escaneo FIN, Null y Xmas Tree
 
-<p>Debido al alto número de firewalls buscando atrapar los paquetes SYN que puedan poner al descubierto los <em>hosts</em> detrás del mismo, vienen al juego estos tipos de escaneos lo cuales se basan en establecer un juego definido de banderas en el encabezado de la petición TCP con la intención de tratar de evitar el filtrado.</p>
+Debido al alto número de firewalls buscando atrapar los paquetes SYN que puedan poner al descubierto los *hosts* detrás del mismo, vienen al juego estos tipos de escaneos lo cuales se basan en establecer un juego definido de banderas en el encabezado de la petición TCP con la intención de tratar de evitar el filtrado.
 
-<pre>$ nmap –sF 192.168.0.104
+```sh
+$ nmap –sF 192.168.0.104
 ...
 $ nmap –sN 192.168.0.104
 ...
 $ nmap –sX 192.168.0.104
 ...
-</pre>
+```
 
-<h3>Obtener Sistema Operativo del Host</h3>
+### Obtener Sistema Operativo del Host
 
-<p>Es común la necesidad de saber a que nos enfrentamos cuando estamos tratando con el descubrimiento de redes, para esto podemos habilitar la detección de sistema operativo de la siguiente manera:</p>
+Es común la necesidad de saber a que nos enfrentamos cuando estamos tratando con el descubrimiento de redes, para esto podemos habilitar la detección de sistema operativo de la siguiente manera:
 
-<pre>$ nmap -O 192.168.0.102
+```sh
+$ nmap -O 192.168.0.102
 
 ...
 Nmap scan report for 192.168.0.102
@@ -188,23 +182,29 @@ Network Distance: 1 hop
 
 OS detection performed. Please report any incorrect results at http://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 59.95 seconds
-</pre>
+```
 
-<h3>Escaneo de lista</h3>
+### Escaneo de lista
 
-<p>Este comando nos permitirá conocer los nombres de los <em>hosts</em> o direcciones IP de aquella dirección que indiquemos, esto incluye la resolución de nombre DNS. Tengamos en cuenta que este tipo de escaneo no le hará <em>ping</em> a los hosts ni escaneará sus puertos.</p>
+Este comando nos permitirá conocer los nombres de los *hosts* o direcciones IP de aquella dirección que indiquemos, esto incluye la resolución de nombre DNS. Tengamos en cuenta que este tipo de escaneo no le hará *ping* a los hosts ni escaneará sus puertos.
 
-<pre>$ nmap -sL google.com
+```sh
+$ nmap -sL google.com
 
 Nmap scan report for google.com (190.142.193.30)
 Other addresses for google.com (not scanned): 190.142.193.25 190.142.193.39 190.142.193.44 190.142.193.50 190.142.193.59 190.142.193.45 190.142.193.20 190.142.193.35 190.142.193.29 190.142.193.40 190.142.193.49 190.142.193.34 190.142.193.24 190.142.193.55 190.142.193.54
 Nmap done: 1 IP address (0 hosts up) scanned in 0.65 seconds
-</pre>
+```
 
-<p>Podremos notar que hemos logrado obtener una lista de <em>hosts</em> sobre los cuales está operando Google en este momento.</p>
+Podremos notar que hemos logrado obtener una lista de *hosts* sobre los cuales está operando Google en este momento.
 
-<hr />
+* * *
 
-<h2>Conclusión</h2>
+## Conclusión
 
-<p>Esta herramienta es sumamente poderosa, aquí solo hemos tocado la superficie sobre lo que es capaz, recuerda visitar el <a href="http://nmap.org/man/es/">portal web de nmap</a> para más información, más comandos y funcionalidades. Saber qué esta expuesto de una red es el primer paso para lograr protegerla, si encuentras puertos extraños que no deberían estar abiertos, cierralos, estos pueden ser entradas a atacantes e incluso algunos virus. Algunos otros puertos muy normales como el SSH, si no lo usas nunca, considera en cerrarlo, mientras más controlado este un sistema menos oportunidad existe para violentarlo.</p>
+Esta herramienta es sumamente poderosa, aquí solo hemos tocado la superficie sobre lo que es capaz, recuerda visitar el [portal web de nmap][3] para más información, más comandos y funcionalidades. Saber qué esta expuesto de una red es el primer paso para lograr protegerla, si encuentras puertos extraños que no deberían estar abiertos, cierralos, estos pueden ser entradas a atacantes e incluso algunos virus. Algunos otros puertos muy normales como el SSH, si no lo usas nunca, considera en cerrarlo, mientras más controlado este un sistema menos oportunidad existe para violentarlo.
+
+ [1]: http://codehero.co/como-lo-hago-instalar-homebrew/
+ [2]: http://nmap.org/download.html
+ [3]: http://nmap.org/man/es/
+
