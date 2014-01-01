@@ -3,9 +3,19 @@ layout: default
 ---
 <div class="row">
   <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date | date_to_string }}</p>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <img class="img-responsive" src="{{ page.thumbnail }}" alt="post thumbnail">
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-8">
+        <h1>{{ page.title }}</h1>
+        <p> Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a></p>
+        <p class="meta">{{ page.date | date_to_string }}</p>
+      </div>
+    </div>
+    <hr />
       {% include share-buttons.html %}
+    <hr />
     <div class="post">
       {{ content }}
       {% include disqus.html %}
