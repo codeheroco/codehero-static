@@ -14,10 +14,32 @@ layout: default
       </div>
     </div>
     <hr />
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <h4>Detalles del Curso:</h4>
+        <p><b>Dificultad:</b> {{ post.dificultad }}</p>
+        <p><b>Duración:</b> {{ post.duración }}</p>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
       {% include share-buttons.html %}
+      </div>
+    </div>
     <hr />
     <div class="post">
       {{ content }}
+      <hr />
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <h4>¿Te ha gustado esta publicación?</h4>
+          <p><b>Compártela:</b></p>
+          {% include share-buttons.html %}
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <h4>Por {{ page.author }}</h4>
+          <p>Conoce más sobre este autor <a href="/author/{{ page.author_login }}.html">aquí</a></p>
+        </div>
+      </div>
+      <hr />
       {% include disqus.html %}
     </div>
   </div>
