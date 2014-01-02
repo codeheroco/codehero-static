@@ -1,0 +1,15 @@
+.post {
+  p {
+    text-align: left;
+  }
+}
+
+.fa-oscuro {
+  color: black;
+  font-size: 90px;
+
+  &:hover {
+    color: inherit;
+    transition: none;
+  }
+}
