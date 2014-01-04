@@ -1,6 +1,23 @@
 .post {
+  padding-top: 20px;
+
+  img {
+    @include img-responsive();
+    margin: 0 auto;
+    border: 1px solid #eeeeee;
+    background: transparent;
+    padding: 10px 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
   p {
     text-align: left;
+  }
+
+  .no-border-padding {
+    border: none;
+    padding: 0;
   }
 }
 
