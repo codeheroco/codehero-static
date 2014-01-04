@@ -3,41 +3,41 @@ layout: default
 ---
 <div class="row">
   <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <img class="img-responsive" src="{{ page.thumbnail }}" alt="post thumbnail">
-      </div>
-      <div class="col-xs-12 col-sm-8 col-md-8">
-        <h1>{{ page.title }}</h1>
-        <p> Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a></p>
-        <p class="meta">{{ page.date | date_to_string }}</p>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6">
-        <h4>Detalles del Curso:</h4>
-        <p><b>Dificultad:</b> {{ post.dificultad }}</p>
-        <p><b>Duración:</b> {{ post.duracion }}</p>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6">
-        {% include share-buttons.html %}
-      </div>
-    </div>
-    <hr>
-    {% if post.github %}
+    <div class="post">
       <div class="row">
-        <div class="center-in-div col-xs-4 col-sm-2 col-md-2">
-          <i class="fa-oscuro fa fa-github"></i>
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <img class="img-responsive" src="{{ page.thumbnail }}" alt="post thumbnail">
         </div>
-        <div class="col-xs-8 col-sm-10 col-md-10">
-          <p><b>Hemos habilitado un repo en GitHub para que puedas descargar el código de esta entrada:</b></p>
-          <a href="{{ post.github }}">Échale un vistazo aquí.</a>
+        <div class="col-xs-12 col-sm-8 col-md-8">
+          <h1>{{ page.title }}</h1>
+          <p> Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a></p>
+          <p class="meta">{{ page.date | date_to_string }}</p>
         </div>
       </div>
       <hr>
-    {% endif %}
-    <div class="post">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <h4>Detalles del Curso:</h4>
+          <p><b>Dificultad:</b> {{ post.dificultad }}</p>
+          <p><b>Duración:</b> {{ post.duracion }}</p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          {% include share-buttons.html %}
+        </div>
+      </div>
+      <hr>
+      {% if post.github %}
+        <div class="row">
+          <div class="center-in-div col-xs-4 col-sm-2 col-md-2">
+            <i class="fa-oscuro fa fa-github"></i>
+          </div>
+          <div class="col-xs-8 col-sm-10 col-md-10">
+            <p><b>Hemos habilitado un repo en GitHub para que puedas descargar el código de esta entrada:</b></p>
+            <a href="{{ post.github }}">Échale un vistazo aquí.</a>
+          </div>
+        </div>
+        <hr>
+      {% endif %}
       {{ content }}
       <hr>
       <div class="row">
@@ -57,4 +57,3 @@ layout: default
   </div>
   {% include ads-section.html %}
 </div>
-
