@@ -19,11 +19,33 @@
     margin: 0 auto;
     text-align: center;
   }
+
+  .post {
+    .post-header {
+      p {
+        text-align: center;
+      }
+    }
+  }
 }
 
 @media (max-width: $screen-md-min) {
   h1 {
     font-size: $font-size-base * 1.7; // ~24px
+  }
+
+  .post {
+    padding-top: 6px;
+
+    .no-border-padding {
+      height: 100px;
+    }
+
+    .post-header {
+      p {
+        font-size: 0.7em;
+      }
+    }
   }
 }
 
