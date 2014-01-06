@@ -1,6 +1,10 @@
 .post {
   padding-top: 14px;
 
+  a {
+    color: $post-link-color;
+  }
+
   code {
     padding-top: 0;
     padding-bottom: 0;
@@ -22,6 +26,10 @@
   }
 
   .post-header {
+    a {
+      color: #555;
+    }
+
     p {
       font-size: 13px;
       color: #999999;
