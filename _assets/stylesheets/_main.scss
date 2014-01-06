@@ -3,6 +3,12 @@ html, body {
   background-color: #f0f0f0;
 }
 
+a {
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
 ul {
   padding-left: 0px;
   list-style: none;

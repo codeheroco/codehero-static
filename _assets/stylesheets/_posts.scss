@@ -3,6 +3,10 @@
 
   a {
     color: $post-link-color;
+
+    &:hover {
+      color: rgba(230, 126, 34, 0.8);
+    }
   }
 
   code {
@@ -27,7 +31,12 @@
 
   .post-header {
     a {
-      color: #555;
+      color: rgba(85, 85, 85, 1);
+      @include transition(all 0.3s ease-in-out);
+
+      &:hover {
+        color: rgba(128, 128, 128, 1);
+      }
     }
 
     p {
