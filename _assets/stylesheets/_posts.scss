@@ -1,6 +1,12 @@
 .post {
   padding-top: 14px;
 
+  code {
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 1px solid #ddd;
+  }
+
   img {
     @include img-responsive();
     margin: 0 auto;
