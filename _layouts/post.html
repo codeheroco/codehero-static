@@ -46,6 +46,24 @@ layout: default
         </div>
         <hr>
       {% endif %}
+      {% if page.serie %}
+        <div class="alert alert-info">
+          <h4>Más artículos en <a href="/series/{{ page.serie }}">{{ page.serie }}</a></h4>
+          <p>Este es el artículo <b>{{ page.title }}</b> de la serie {{ page.serie }} - <a id="show-post-list" href="#">Mostrar todos</a></p>
+          <ol class="post-ordered-list">
+          {% assign sorted_pages = site.posts | sort:"date" %}
+          {% for post in sorted_pages %}
+            {% if post.serie contains page.serie %}
+              {% if post.title == page.title %}
+                <li>{{ post.title }}</li>
+              {% else %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          </ol>
+        </div>
+      {% endif %}
       {{ content }}
       <hr>
       <div class="detalles-tutorial row">
