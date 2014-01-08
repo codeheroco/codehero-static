@@ -48,7 +48,12 @@ layout: default
       {% endif %}
       {% if page.serie %}
         <div class="alert alert-info">
-          <h4>Más artículos en <a href="/series/{{ page.serie }}">{{ page.serie }}</a></h4>
+          {% for sname in site.data.series %}
+            {% if sname.name == page.serie %}
+              {% assign serie-url = sname.url-series %}
+            {% endif %}
+          {% endfor %}
+          <h4>Más artículos en <a href="/series/{{ serie-url }}.html">{{ page.serie }}</a></h4>
           <p>Este es el artículo <b>{{ page.title }}</b> de la serie {{ page.serie }} - <a id="show-post-list" href="#">Mostrar todos</a></p>
           <ol class="post-ordered-list">
           {% assign sorted_pages = site.posts | sort:"date" %}
