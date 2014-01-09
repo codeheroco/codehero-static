@@ -26,6 +26,10 @@
         text-align: center;
       }
     }
+
+    .social-inline {
+      text-align: center;
+    }
   }
 }
 
@@ -44,6 +48,12 @@
     .post-header {
       p {
         font-size: 0.7em;
+      }
+    }
+
+    .detalles-tutorial {
+      li {
+        display: block;
       }
     }
   }

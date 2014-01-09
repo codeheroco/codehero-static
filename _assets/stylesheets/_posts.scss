@@ -34,6 +34,26 @@
     text-align: left;
   }
 
+  .social-inline {
+    padding-left: 0;
+    display: block;
+    list-style: none;
+
+    li {
+      display: inline;
+    }
+  }
+
+  #social-block {
+    ul {
+      margin-top: 10px;
+    }
+
+    li {
+      display: block !important;
+    }
+  }
+
   .post-header {
     a {
       color: rgba(85, 85, 85, 1);
