@@ -8,7 +8,6 @@ ul {
   list-style: none;
 }
 
-
 i {
   color: rgba(255, 255, 255, 0.4);
   padding-left: 10px;
@@ -108,6 +107,11 @@ footer {
   h4 {
     font-weight: 300;
   }
+}
+
+.img-center-responsive {
+  @include img-responsive();
+  margin: 0 auto;
 }
 
 .center-in-div {
