@@ -30,6 +30,12 @@
     margin-bottom: 12px;
   }
 
+  .video-center-responsive {
+    @extend img;
+    width: 480px;
+    height: 320px;
+  }
+
   p {
     text-align: left;
   }
