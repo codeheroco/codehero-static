@@ -23,6 +23,8 @@ paginate: 10
 
 markdown: redcarpet
 pygments: true
+redcarpet:
+  extensions: ["tables"]
 
 safe: false
 host: 0.0.0.0
