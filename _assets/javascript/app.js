@@ -1,4 +1,5 @@
 //= require scrollto-top
+//= require posts
 //= require bootstrap/dropdown
 //= require bootstrap/collapse
 //= require active_link_nav

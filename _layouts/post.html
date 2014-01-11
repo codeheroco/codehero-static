@@ -1,11 +1,101 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
-{% include share-buttons.html %}
-
-<div class="post">
-{{ content }}
-{% include disqus.html %}
+<div class="row">
+  <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
+    <div class="post">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <img class="no-border-padding img-responsive" src="{{ page.thumbnail }}" alt="post thumbnail">
+        </div>
+        <div class="post-header col-xs-12 col-sm-8 col-md-8">
+          <h1>{{ page.serie}}: {{ page.title }}</h1>
+          <p class="meta">Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a> el {{ page.date | date_to_string }}</p>
+          {% unless page.dificultad or page.duracion %}
+            {% include share-buttons.html %}
+          {% endunless %}
+        </div>
+      </div>
+      <hr>
+      {% if page.duracion or page.dificultad %}
+        <div class="detalles-tutorial row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <h4>Detalles del Curso:</h4>
+            {% if page.dificultad %}
+              <p><b>Dificultad:</b> {{ page.dificultad }}</p>
+            {% endif %}
+            {% if page.duracion %}
+              <p><b>Duración:</b> {{ page.duracion }} min</p>
+            {% endif %}
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div id="social-block">
+              {% include share-buttons.html %}
+            </div>
+          </div>
+        </div>
+        <hr>
+      {% endif %}
+      {% if page.github %}
+        <div class="row">
+          <div class="center-in-div col-xs-4 col-sm-2 col-md-2">
+            <i class="fa-oscuro fa fa-github"></i>
+          </div>
+          <div class="col-xs-8 col-sm-10 col-md-10">
+            <p><b>Hemos habilitado un repo en GitHub para que puedas descargar el código de esta entrada:</b></p>
+            <a href="{{ page.github }}">Échale un vistazo aquí.</a>
+          </div>
+        </div>
+        <hr>
+      {% endif %}
+      {% if page.serie %}
+        <div class="alert alert-info">
+          {% for sname in site.data.series %}
+            {% if sname.name == page.serie %}
+              {% assign serie-url = sname.url-series %}
+            {% endif %}
+          {% endfor %}
+          <h4>Más artículos en <a href="/series/{{ serie-url }}.html">{{ page.serie }}</a></h4>
+          <p>Este es el artículo <b>{{ page.title }}</b> de la serie {{ page.serie }} - <a id="show-post-list" href="#">Mostrar todos</a></p>
+          <ol class="post-ordered-list">
+          {% assign sorted_pages = site.posts | sort:"date" %}
+          {% for post in sorted_pages %}
+            {% if post.serie contains page.serie %}
+              {% if post.title == page.title %}
+                <li>{{ post.title }}</li>
+              {% else %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          </ol>
+        </div>
+      {% endif %}
+      {{ content }}
+      <hr>
+      <div class="detalles-tutorial row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <h4>¿Te ha gustado esta publicación?</h4>
+          <p><b>Compártela:</b></p>
+          {% include share-buttons.html %}
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <div class="hidden-xs col-sm-4 col-md-3">
+            {% for autor in site.data.autores %}
+              {% if autor.name == page.author %}
+                <img class="post-author-thumb" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="col-xs-12 col-sm-8 col-md-9">
+            <h4>Por {{ page.author }}</h4>
+            <p>Conoce más sobre este autor <a href="/author/{{ page.author_login }}.html">aquí</a></p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      {% include disqus.html %}
+    </div>
+  </div>
+  {% include ads-section.html %}
 </div>
