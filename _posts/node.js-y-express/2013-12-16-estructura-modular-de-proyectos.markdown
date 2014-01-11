@@ -25,7 +25,7 @@ tags:
 
 <p>Dile adiós a las clases de cocina, y aprende a desarrollar proyectos modulares en Node.js y Express con la siguiente estructura de proyecto inspirada en la propuesta por TJ Holowaychuk, el creador de express, en el siguiente video:</p>
 
-<iframe src="//player.vimeo.com/video/56166857" width="500" height="513" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe class="video-center-responsive" src="//player.vimeo.com/video/56166857" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 <p><a href="http://vimeo.com/56166857">Modular web applications with Node.js and Express</a> from <a href="http://vimeo.com/user8021748">tjholowaychuk</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
