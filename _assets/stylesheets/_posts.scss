@@ -1,0 +1,115 @@
+.post {
+  padding-top: 14px;
+
+  a {
+    color: $post-link-color;
+
+    &:hover {
+      color: rgba(230, 126, 34, 0.8);
+    }
+  }
+
+  ul {
+    list-style-type: square;
+    padding-left: 30px;
+  }
+
+  code {
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 1px solid #ddd;
+  }
+
+  img {
+    @include img-responsive();
+    margin: 0 auto;
+    border: 1px solid #eeeeee;
+    background: transparent;
+    padding: 10px 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  .video-center-responsive {
+    @extend img;
+    width: 480px;
+    height: 320px;
+  }
+
+  p {
+    text-align: left;
+  }
+
+  .social-inline {
+    padding-left: 0;
+    display: block;
+    list-style: none;
+
+    li {
+      display: inline;
+    }
+  }
+
+  #social-block {
+    ul {
+      margin-top: 10px;
+    }
+
+    li {
+      display: block !important;
+    }
+  }
+
+  .post-header {
+    a {
+      color: rgba(85, 85, 85, 1);
+      @include transition(all 0.3s ease-in-out);
+
+      &:hover {
+        color: rgba(128, 128, 128, 1);
+      }
+    }
+
+    p {
+      font-size: 13px;
+      color: #999999;
+      text-transform: uppercase;
+    }
+  }
+
+  .no-border-padding {
+    border: none;
+    padding: 0;
+    height: 150px;
+  }
+
+  .detalles-tutorial {
+    background-color: #f0f0f0;
+    margin-top: -21px;
+    margin-bottom: -22px;
+    padding-top: 20px;
+    padding-bottom: 21px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .post-ordered-list {
+    display: none;
+  }
+
+  .post-author-thumb {
+    vertical-align: top;
+    padding: 0;
+    border-radius: 0.4rem;
+  }
+}
+
+.fa-oscuro {
+  color: black;
+  font-size: 90px;
+
+  &:hover {
+    color: inherit;
+    transition: none;
+  }
+}
