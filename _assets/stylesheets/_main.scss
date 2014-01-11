@@ -79,6 +79,10 @@ i {
 article {
   border-bottom: solid 1px #ddd;
   padding: 8px;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 footer {
