@@ -79,6 +79,10 @@ i {
 article {
   border-bottom: solid 1px #ddd;
   padding: 8px;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 footer {
@@ -142,12 +146,6 @@ footer {
 
 // Centrar todos los thumbnails en series/index.html
 // -------------------------------------------------
-.series {
-  & img {
-    margin: 0 auto;
-  }
-}
-
 .series-banner {
   margin: -20px 0 30px 0;
   padding: 10px 0 40px 0;
@@ -165,6 +163,11 @@ footer {
   h4 {
     font-weight: 300;
   }
+}
+
+.img-center-responsive {
+  @include img-responsive();
+  margin: 0 auto;
 }
 
 .center-in-div {

@@ -2,7 +2,7 @@
 layout: default
 title: Series - Codehero
 ---
-<div class="series row">
+<div class="row">
   <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
     <h1>Series</h1>
     <hr>
@@ -10,7 +10,7 @@ title: Series - Codehero
       <article class="articulos-series">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <img class="img-responsive" src="{{ series.thumb | asset_path }}" alt="foto">
+            <img class="img-center-responsive" src="{{ series.thumb | asset_path }}" alt="foto">
           </div>
           <div class="col-xs-12 col-sm-6 col-md-8">
             <h1><a href="/series/{{ series.url-series }}.html">{{ series.name }}</a></h1>

@@ -13,6 +13,7 @@ date: 2013-10-17 00:11:44.000000000 -04:30
 serie: Sinatra desde Cero
 thumbnail: http://i.imgur.com/UXeX0sa.png
 categories:
+- Sinatra
 - Cursos
 tags:
 - Cursos
