@@ -7,10 +7,16 @@
     </span>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-    {% if post.thumbnail %}
+    {% if post.serie %}
+      {% for s in site.data.series %}
+        {% if post.serie == s.name %}
+          <img class="img-center-responsive" src="{{ s.thumb }}" alt="Series thumbnail">
+        {% endif %}
+      {% endfor %}
+    {% elsif post.thumbnail %}
       <img class="img-center-responsive" src="{{ post.thumbnail }}" alt="Series thumbnail">
     {% else %}
-      <img class="img-center-responsive" src="http://placehold.it/270x200" alt="foto">
+      <img class="img-center-responsive" src="http://placehold.it/200x200" alt="foto">
     {% endif %}
   </div>
   <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">

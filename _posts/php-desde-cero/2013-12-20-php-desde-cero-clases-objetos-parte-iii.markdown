@@ -9,6 +9,7 @@ author_email: cotufa9@gmail.com
 wordpress_id: 2880
 wordpress_url: http://codehero.co/?p=2880
 date: 2013-12-20 00:14:48.000000000 -04:30
+serie: PHP desde Cero
 categories:
 - Cursos
 - PHP
@@ -37,35 +38,35 @@ tags:
 
 <p>Veamos ahora como es la sintaxis en PHP para definir la herencia en una clase. Hacer que una clase herede de otra en PHP es muy sencillo y se hace colocando la palabra reservada <strong>extends</strong> después del nombre de la clase que estamos creando y luego la clase de la cual queremos heredar. Veamos un ejemplo de esto:</p>
 
-<pre>class Vehiculo{     
-    
+<pre>class Vehiculo{
+
     public $matricula;
     private $color;
     protected $encendido;
-    
+
     public function encender(){
         $this->encendido = true;
-        echo 'Vehiculo encendido <br />';        
+        echo 'Vehiculo encendido <br />';
     }
-    
+
     public function apagar(){
         $this->encendido = false;
-        echo 'Vehiculo apagado <br />';      
+        echo 'Vehiculo apagado <br />';
     }
 }
 
-class Camion extends Vehiculo{  
-    
+class Camion extends Vehiculo{
+
     private $carga;
-    
+
     public function cargar($cantidad_a_cargar){
         $this->carga = $cantidad_a_cargar;
         echo 'Se ha cargado cantidad: '. $cantidad_a_cargar. ' <br />';
     }
-    
+
     public function verificar_encendido(){
         if ($encendido == true){
-            echo 'Camion encendido <br />';  
+            echo 'Camion encendido <br />';
         }else{
             echo 'Camion apagado <br />';
         }
@@ -73,17 +74,17 @@ class Camion extends Vehiculo{
 }
 
 class Autobus extends Vehiculo{
-    
+
     private $pasajeros;
-    
+
     public function subir_pasajeros($cantidad_pasajeros){
         $this->pasajeros = $cantidad_pasajeros;
         echo 'Se han subido '.$cantidad_pasajeros.' pasajeros <br />';
     }
-    
+
     public function verificar_encendido(){
         if ($encendido == true){
-            echo 'Autobus encendido <br />'; 
+            echo 'Autobus encendido <br />';
         }else{
             echo 'Autobus apagado <br />';
         }
@@ -92,16 +93,16 @@ class Autobus extends Vehiculo{
 
 
 $camion = new Camion();
-$camion->encender(); 
+$camion->encender();
 // encender() es un metodo de la clase padre
-// pero al ser un metodo publico es herado por la clase hijo 
-// en este caso Camion y por lo tanto puede ser llamado desde un 
+// pero al ser un metodo publico es herado por la clase hijo
+// en este caso Camion y por lo tanto puede ser llamado desde un
 // objeto de Camion
 $camion->cargar(10);
 $camion->verificar_encendido();
 $camion->matricula = 'MDU - 293';
-// Lo mimsmo que ocurre con el metodo encender() se 
-// aplica para la propiedad de matricula y el metodo 
+// Lo mimsmo que ocurre con el metodo encender() se
+// aplica para la propiedad de matricula y el metodo
 // apagar. Son metodos y propiedades publicas
 // por lo tanto el hijo las hereda sin ningun problema o limitacion
 $camion->apagar();
@@ -113,17 +114,17 @@ $autobus->verificar_encendido();
 $autobus->matricula = 'KDF - 923';
 $autobus->apagar();
 
-// Este codigo deberia imprimir la siguiente salida 
+// Este codigo deberia imprimir la siguiente salida
 
 /*
-Vehiculo encendido 
-Se ha cargado cantidad: 10 
-Camion apagado 
-Vehi­culo apagado 
-Vehiculo encendido 
-Se han subido 5 pasajeros 
-Autobus apagado 
-Vehiculo apagado 
+Vehiculo encendido
+Se ha cargado cantidad: 10
+Camion apagado
+Vehi­culo apagado
+Vehiculo encendido
+Se han subido 5 pasajeros
+Autobus apagado
+Vehiculo apagado
 */
 
 </pre>
