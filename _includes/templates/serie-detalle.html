@@ -7,7 +7,7 @@
           {% if series.name == page.series_header %}
             <h1>{{ series.name }}</h1>
             <h4>{{ series.description }}</h4>
-            {% capture thumb_path %} {{ series.thumb | asset_path }} {% endcapture %}
+            {% capture thumb_path %} {{ series.thumb }} {% endcapture %}
             {% capture series_status %} {{ series.status }} {% endcapture %}
           {% endif %}
         {% endfor %}
