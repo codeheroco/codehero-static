@@ -190,6 +190,16 @@ footer {
   }
 }
 
+.series-social {
+  padding-top: 24px;
+  display: block;
+  list-style: none;
+
+  li {
+    display: inline;
+  }
+}
+
 .upcase {
   text-transform: uppercase;
 }
