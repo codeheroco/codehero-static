@@ -1,7 +1,7 @@
 - name: Django desde Cero
   status: (Serie en Progreso)
   url-series: django-desde-cero
-  thumb: django-desde-cero-icono.png
+  thumb: http://i.imgur.com/I7tpkjs.png
   description: Django es un framework web de alto nivel hecho en python que fomenta el desarrollo rápido de aplicaciones. En esta serie usted aprenderás todo lo básico, incluyendo el trabajo con vistas, plantillas, ORM, e incluso algunas de las características más potentes del framework. Al terminar este curso, tendrás todo lo que necesitas para desarrollar tus propios sitios web y aplicaciones!
   author: Carlos Picca
   author-url: carlos
@@ -9,7 +9,7 @@
 - name: Ember.js desde Cero
   status: (Serie en Progreso)
   url-series: ember-js-desde-cero
-  thumb: ember-desde-cero-icono.png
+  thumb: http://i.imgur.com/GwNwiXH.png
   description: Ember.js es un framework JavaScript para crear aplicaciones web del lado del cliente (código abierto). Esta basado en la arquitectura modelo-vista-controlador (MVC). Esta catalogado como unos de los principales framework a en el mundo de JavaScript ya que permite a los desarrolladores crear aplicaciones de una sola pagina (single-page) escalables.
   author: Carlos Picca
   author-url: carlos
@@ -17,7 +17,7 @@
 - name: Git desde Cero
   status: (Serie Completada)
   url-series: git-desde-cero
-  thumb: git-desde-cero-icono.png
+  thumb: http://i.imgur.com/IzAdb3d.png
   description: Git en pocas palabras es un controlador de versiones distribuido. En esta serie te explicaremos y alejaremos de los miedos que sentimos al utilizar un controlador de versiones por primera vez y supersticiones que los acompañan.
   author: Alberto Grespan
   author-url: albertogg
@@ -25,7 +25,7 @@
 - name: iOS 7 Decodificado
   status: (Serie en Progreso)
   url-series: ios-siete-decodificado
-  thumb: ios-7-decodificado-icono.png
+  thumb: http://i.imgur.com/jB8YFwY.png?1
   description: iOS 7 ofrece una serie de nuevas características incluyendo una nueva vista en miniatura para la multitarea, el Centro de control de cambios y ajustes rápidos, Air Drop, una nueva característica que le permite compartir contenido desde tu teléfono a otro dispositivo iOS 7 a través de Wi-Fi. Saca el máximo partido del sistema operativo móvil de Apple en tus apliaciones con iOS 7 Decodificado.
   author: Ricardo Sampayo
   author-url: ricardo
@@ -33,7 +33,7 @@
 - name: iOS desde Cero
   status: (Serie Completada)
   url-series: ios-desde-cero
-  thumb: ios-desde-cero-icono.png
+  thumb: http://i.imgur.com/rkq7YAU.png?1
   description: iOS es el sistema operativo que corren los iPhone, iPad y iPod Touch. En esta serie aprenderás a desarrollar aplicaciones para esta plataforma utilizando el SDK nativo. A medida que vayamos avanzando elaboraremos varias aplicaciones para ilustrar los procesos básicos y técnicas de programación fundamentales para tu formación como desarrollador iOS.
   author: Oscar González
   author-url: oscar
@@ -41,7 +41,7 @@
 - name: jQuery desde Cero
   status: (Serie en Progreso)
   url-series: jquery-desde-cero
-  thumb: jquery-desde-cero-icono.png
+  thumb: http://i.imgur.com/OUI1E3B.png
   description: jQuery es una librería gratuita y open source, que simplifica la creación de páginas web altamente interactivas. Funciona en todos los exploradores de internet modernos y abstrae características especificas de cada uno de estos, permitiéndonos enforcarnos en el diseño y resultado final, en lugar de tratar de desarrollar funciones complejas en exploradores individuales. ¡Empecemos con jQuery desde Cero!.
   author: Oscar González
   author-url: oscar
@@ -49,7 +49,7 @@
 - name: Laravel 4 desde Cero
   status: (Serie en Progreso)
   url-series: laravel-4-desde-cero
-  thumb: laravel-desde-cero-icono.png
+  thumb: http://i.imgur.com/0dZHBRf.png
   description: Laravel 4 es un framework web hecho en PHP 5 que fomenta el desarrollo rápido de aplicaciones. En esta serie usted aprenderá todo lo básico, incluyendo el trabajo con vistas, plantillas, ORM, e incluso algunas de las características más potentes del framework. Al terminar este curso, tendrás todo lo que necesitas para desarrollar tus propios sitios web y aplicaciones!
   author: Ramses Velasquez
   author-url: ramses
@@ -57,7 +57,7 @@
 - name: MongoDB desde Cero
   status: (Serie en Progreso)
   url-series: mongodb-desde-cero
-  thumb: mongodb-desde-cero-icono.png
+  thumb: http://i.imgur.com/Y1mFWAO.png
   description: MongoDB es la base de datos NoSQL más utilizada actualmente en el mercado, su núcleo está basado en el lenguaje Javascript. Si nunca te has adentrado en el mundo del NoSQL, esta es la mejor oportunidad para hacerlo con Mongo.
   author: Jonathan Wiesel
   author-url: jonathan
@@ -65,7 +65,7 @@
 - name: Node.js desde Cero
   status: (Serie en Progreso)
   url-series: node-y-express
-  thumb: nodejs-desde-cero-icono.png
+  thumb: http://i.imgur.com/prDhefI.png
   description: Node.js es una nueva y asombrosa tecnología que lleva al lenguaje Javascript al lado del servidor. En esta serie aprenderás como utilizar Node.js con el framework Express, la elección por excelencia para desarrollar aplicaciones web en esta plataforma. ¡Vamos a ponernos manos a la obra con Node.js y Express!
   author: Oscar González
   author-url: oscar
@@ -73,7 +73,7 @@
 - name: Objectice-C desde Cero
   status: (Serie Completada)
   url-series: objective-c-desde-cero
-  thumb: objective-c-desde-cero-icono.png
+  thumb: http://i.imgur.com/Orc7gRR.png?1
   description: Objective-C es un lenguaje de programación orientado a objetos creado a como un superset de C agregando un modelo basado en SmallTalk. Si quieres desarrollar poderosas aplicaciones para iOS o Mac OS X, deberás aprender bien este lenguaje primero. ¡Así que únete al club y empecemos con Objective-C desde Cero!
   author: Oscar González
   author-url: oscar
@@ -81,7 +81,7 @@
 - name: PHP desde Cero
   status: (Serie Completada)
   url-series: php-desde-cero
-  thumb: php-desde-cero-icono.png
+  thumb: http://i.imgur.com/1h2FP9O.png
   description: PHP es el lenguaje más utilizado de la web. Así que es hora de mejorar tus conocimientos de construcción de páginas web en html y css, incluyendo dinamísmo. En esta serie, te vamos a enseñar, a partir de cero, como usar PHP. ¡Todos abordo con PHP desde Cero!
   author: Ramses Velasquez
   author-url: ramses
@@ -89,7 +89,7 @@
 - name: Python desde Cero
   status: (Serie Completada)
   url-series: python-desde-cero
-  thumb: python-desde-cero-icono.png
+  thumb: http://i.imgur.com/Hcv203D.png
   description: En esta serie aprenderas lo básico de Python sin tener ningún conocimiento previo del lenguaje.
   author: Carlos Picca
   author-url: carlos
@@ -97,7 +97,7 @@
 - name: Ruby desde Cero
   status: (Serie Completada)
   url-series: ruby-desde-cero
-  thumb: ruby-desde-cero-icono.png
+  thumb: http://i.imgur.com/lBeuRS1.png
   description: Ruby es un uno de los lenguajes más utilizados en Internet. En esta serie aprenderas los conceptos básicos para manejarlo, así como las herramientas y trucos que van de la mano con el lenguje. Si estás esperando para cambiarte a Ruby, ahora es el momento perfecto para hacerlo.
   author: Ricardo Sampayo
   author-url: ricardo
@@ -105,7 +105,7 @@
 - name: Ruby on Rails desde Cero
   status: (Serie en Progreso)
   url-series: ruby-on-rails-desde-cero
-  thumb: ruby-on-rails-desde-cero-icono.png
+  thumb: http://i.imgur.com/ZPAm5Mn.png?1
   description: Ruby on Rails es un framework de aplicaciones web open-source que trabaja sobre el lenguaje de programación Ruby. En esta serie aprenderás el proceso de creación de aplicaciones web dinamicas utilizando el framework. ¡Súbete a los rieles con Ruby on Rails desde Cero!.
   author: Ricardo Sampayo
   author-url: ricardo
@@ -113,7 +113,7 @@
 - name: Sinatra desde Cero
   status: (Serie en Progreso)
   url-series: sinatra-desde-cero
-  thumb: sinatra-desde-cero-icono.png
+  thumb: http://i.imgur.com/UXeX0sa.png
   description: Sinatra es un DSL para construir páginas Web, servicios Web o aplicaciones Web en Ruby. Sinatra está basado en el enfoque minimalista de desarrollo, es decir no existe una estructura ni una manera "correcta" de hacer las cosas, solo una "mejor práctica" de como realizarlo, ofreciendo al desarrollado una manera súper esencial para el manejo del protocolo HTTP.
   author: Alberto Grespan
   author-url: albertogg
