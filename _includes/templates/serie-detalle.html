@@ -9,6 +9,7 @@
             <h4>{{ series.description }}</h4>
             {% capture thumb_path %} {{ series.thumb }} {% endcapture %}
             {% capture series_status %} {{ series.status }} {% endcapture %}
+            {% capture series_url %} {{ series.url-series }} {% endcapture %}
           {% endif %}
         {% endfor %}
       </div>
@@ -18,8 +19,15 @@
 <div class="container">
   <div class="row">
     <div class="contenido-fondo-blanco col-xs-12 col-sm-12 col-md-12">
-      <h3>Artículos en esta serie</h3>
-      {{ series_status }}
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <h3>Artículos en esta serie</h3>
+          {{ series_status }}
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          {% include share-buttons.html %}
+        </div>
+      </div>
       <hr>
       {% for post in site.posts %}
         {% if post.categories contains page.post_cat %}
