@@ -11,7 +11,7 @@ wordpress_id: 2382
 wordpress_url: http://codehero.co/?p=2382
 date: 2013-10-15 00:05:22.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/XFFMeqB.png
+thumbnail: http://i.imgur.com/Y1mFWAO.png
 categories:
 - Cursos
 - MongoDB
