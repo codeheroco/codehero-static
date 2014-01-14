@@ -1,12 +1,18 @@
 ---
 layout: default
 ---
+{% for sname in site.data.series %}
+  {% if sname.name == page.serie %}
+    {% assign serie-url = sname.url-series %}
+    {% assign thumb = sname.thumb %}
+  {% endif %}
+{% endfor %}
 <div class="row">
   <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
     <div class="post">
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4">
-          <img class="no-border-padding img-responsive" src="{{ page.thumbnail }}" alt="post thumbnail">
+          <img class="no-border-padding img-responsive" src="{{ thumb }}" alt="post thumbnail">
         </div>
         <div class="post-header col-xs-12 col-sm-8 col-md-8">
           <h1>{{ page.serie}}: {{ page.title }}</h1>
@@ -50,11 +56,6 @@ layout: default
       {% endif %}
       {% if page.serie %}
         <div class="alert alert-info">
-          {% for sname in site.data.series %}
-            {% if sname.name == page.serie %}
-              {% assign serie-url = sname.url-series %}
-            {% endif %}
-          {% endfor %}
           <h4>Más artículos en <a href="/series/{{ serie-url }}.html">{{ page.serie }}</a></h4>
           <p>Este es el artículo <b>{{ page.title }}</b> de la serie {{ page.serie }} - <a id="show-post-list" href="#">Mostrar todos</a></p>
           <ol class="post-ordered-list">
