@@ -68,7 +68,7 @@ pre {
 
 i {
   color: rgba(255, 255, 255, 0.4);
-  padding-left: 10px;
+  padding: 0 5px 0 5px;
   @include transition(all 0.3s ease-in-out);
 
   &:hover{
