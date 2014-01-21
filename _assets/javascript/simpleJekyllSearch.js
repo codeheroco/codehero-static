@@ -59,7 +59,6 @@
                 for (key in obj) {
                     if(obj.hasOwnProperty(key)){
                         if (obj[key] instanceof Array){
-                            var seen = false;
                             for (var j = 0; j < obj[key].length; j++){
                                 if(obj[key][j].toLowerCase().indexOf(str.toLowerCase()) >= 0){
                                     matches.push(obj);

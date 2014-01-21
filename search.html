@@ -2,9 +2,12 @@
 layout: default
 title: Your New Jekyll Site
 ---
-<input type="text" class="search-field" placeholder="Busca artículos">
 <div class="row">
-    <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
+  <div class="input-group input-group-lg col-xs-12 col-sm-9 col-md-9 search-group">
+    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+    <input type="text" class="form-control search-field" placeholder="Busca artículos">
+  </div>
+  <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
     <div class="results"></div>
   </div>
   {% include ads-section.html %}
