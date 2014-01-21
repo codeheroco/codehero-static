@@ -7,3 +7,5 @@
 //= require google-share
 //= require facebook-share
 //= require disqus-count
+//= require simpleJekyllSearch
+//= require prepareSearch

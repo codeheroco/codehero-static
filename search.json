@@ -1,0 +1,33 @@
+---
+---
+[
+    {% for post in site.posts %}
+        {
+            {% if post.serie %}
+                "title"    : "{{ post.serie | escape }}: {{ post.title | escape }}",
+            {% else%}
+                "title"    : "{{ post.title | escape }}",
+            {% endif %}
+            "url"     : "{{ post.url }}",
+            "tags" : [
+            {% for tag in post.tags %}
+                "{{tag}}" {% if forloop.last %}{% else %},{% endif %}
+            {% endfor%}
+            ],
+            "date"     : "{{ post.date | date_to_string }}",
+            "author":   "{{ post.author }}",
+            "author_login": "{{ post.author_login }}",
+            {% if post.serie %}
+              {% for s in site.data.series %}
+                {% if post.serie == s.name %}
+                  "thumb"   :   "{{ s.thumb }}"
+                {% endif %}
+              {% endfor %}
+            {% elsif post.thumbnail %}
+                "thumb"   :   "{{ post.thumbnail }}"
+            {% else %}
+                "thumb"   :   "http://placehold.it/200x200"
+            {% endif %}
+        } {% if forloop.last %}{% else %},{% endif %}
+    {% endfor %}
+]
