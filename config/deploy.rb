@@ -33,7 +33,7 @@ task :deploy => :environment do
     invoke :'git:clone'
     invoke :'bundle:install'
     queue "mv .env-sample .env"
-    queue "rake server"
+    queue "bundle exec rake server"
   end
 end
 
