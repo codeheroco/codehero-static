@@ -1,5 +1,5 @@
-require 'mina/bundler'
 require 'mina/git'
+require 'mina/bundler'
 require 'mina/rbenv'
 
 # Basic settings:
@@ -14,20 +14,15 @@ set :repository, 'git@github.com:albertogg/codehero-jekyll.git'
 set :branch, 'master'
 
 # Optional settings:
-set :user, 'root'     # Username in the server to SSH to.
-set :port, '22222'    # SSH port number.
+set :user, ENV['user']    # Username in the server to SSH to.
+set :port, ENV['port']    # SSH port number.
+set :rbenv_path, "/usr/local/rbenv"
+set :term_mode, nil
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
-  # If you're using rbenv, use this to load the rbenv environment.
-  # Be sure to commit your .rbenv-version to your repository.
-  set :rbenv_path, "/usr/local/rbenv"
-
   invoke :'rbenv:load'
-
-  # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
