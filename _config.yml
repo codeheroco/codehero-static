@@ -14,7 +14,7 @@ brand:
     google: 'UA-41464412-1'
 
 timezone: America/Caracas
-exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'config.rb', 'Rakefile']
+exclude: ['vendor', 'README.md', 'Gemfile', 'Gemfile.lock', 'config.rb', 'Rakefile']
 future: false
 
 permalink: /:title
