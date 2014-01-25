@@ -8,6 +8,7 @@ require 'mina/rbenv'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
+set :term_mode, nil
 set :domain, '192.168.1.122'
 set :deploy_to, '/var/www/codehero-jekyll'
 set :repository, 'git@github.com:albertogg/codehero-jekyll.git'
@@ -17,11 +18,11 @@ set :branch, 'master'
 set :user, ENV['user']    # Username in the server to SSH to.
 set :port, ENV['port']    # SSH port number.
 set :rbenv_path, "/usr/local/rbenv"
-set :term_mode, nil
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
+  queue %{export RBENV_ROOT=#{rbenv_path}}
   invoke :'rbenv:load'
 end
 
@@ -35,6 +36,7 @@ task :deploy => :environment do
     # instance of your project.
     invoke :'git:clone'
     invoke :'bundle:install'
+    queue "mv .env-sample .env"
     queue "rake server"
   end
 end
