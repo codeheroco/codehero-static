@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2282
 date: 2013-09-20 00:01:04.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Ruby On Rails desde Cero curso CodeHero donde mostramos el lenguaje sin previo conocimiento, este capítulo veremos ActiveRecord validaciones.
 categories:
 - Cursos
 - Ruby on Rails

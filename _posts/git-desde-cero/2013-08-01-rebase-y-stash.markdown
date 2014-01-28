@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1830
 date: 2013-08-01 00:09:09.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 7 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el uso del comando rebase y stash.
 categories:
 - Cursos
 - Git

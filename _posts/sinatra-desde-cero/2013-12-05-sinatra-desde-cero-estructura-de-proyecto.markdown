@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2806
 date: 2013-12-05 00:39:30.000000000 -04:30
 serie: Sinatra desde Cero
 thumbnail: http://i.imgur.com/UXeX0sa.png
+description: Octavo capítulo de la serie Sinatra desde Cero donde aprenderemos a como hacer una aplicación con estructura similar a la de una aplicación de Ruby on Rails
 categories:
 - Cursos
 - Sinatra

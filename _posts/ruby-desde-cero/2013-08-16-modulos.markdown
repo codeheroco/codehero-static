@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1993
 date: 2013-08-16 00:01:56.000000000 -04:30
 serie: Ruby desde Cero
 thumbnail: http://i.imgur.com/lBeuRS1.png
+description: Capítulo de la serie Ruby desde Cero, en el que se estudia el concepto de módulos del lenguaje.
 categories:
 - Cursos
 - Ruby

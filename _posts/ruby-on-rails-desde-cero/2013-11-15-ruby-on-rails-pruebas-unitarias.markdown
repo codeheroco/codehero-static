@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2611
 date: 2013-11-15 00:01:30.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Ruby on Rails desde cero te ofrecemos las herramientas necesarias para implementar software de calidad utilizando pruebas unitarias en Rails.
 categories:
 - Cursos
 - Ruby on Rails

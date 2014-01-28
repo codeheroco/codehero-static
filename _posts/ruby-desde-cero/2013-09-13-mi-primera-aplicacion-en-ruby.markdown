@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2230
 date: 2013-09-13 00:01:40.000000000 -04:30
 serie: Ruby desde Cero
 thumbnail: http://i.imgur.com/lBeuRS1.png
+description: Ruby desde Cero curso CodeHero donde mostramos el lenguaje sin previo conocimiento, este capítulo desarrollamos nuestra primera aplicación en Ruby
 categories:
 - Cursos
 - Ruby

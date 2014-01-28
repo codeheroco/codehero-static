@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1699
 date: 2013-07-25 00:20:22.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 6 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el manejo de ramas remotas para nuestros proyectos.
 categories:
 - Cursos
 - Git

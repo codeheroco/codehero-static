@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2364
 date: 2013-10-10 00:02:29.000000000 -04:30
 serie: Sinatra desde Cero
 thumbnail: http://i.imgur.com/UXeX0sa.png
+description: Capítulo uno de Sinatra desde Cero, donde se enseñan los conceptos básicos, como se realiza su instalación en múltiples SO y realizamos una aplicación.
 categories:
 - Cursos
 - Sinatra

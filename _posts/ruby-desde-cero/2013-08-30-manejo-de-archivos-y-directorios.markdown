@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2135
 date: 2013-08-30 00:01:41.000000000 -04:30
 serie: Ruby desde Cero
 thumbnail: http://i.imgur.com/lBeuRS1.png
+description: Nuevo curso de Ruby desde cero esta vez aprenderemos a manejar archivos y directorios.
 categories:
 - Cursos
 - Ruby
