@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2498
 date: 2013-10-31 02:53:03.000000000 -04:30
 serie: Sinatra desde Cero
 thumbnail: http://i.imgur.com/UXeX0sa.png
+description: Cuarto capítulo de la serie Sinatra desde Cero. En este capítulo hablamos de los tipos de vistas que existen en este maravilloso DSL y aprendemos a usarlos.
 categories:
 - Sinatra
 tags:
