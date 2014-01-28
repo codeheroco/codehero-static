@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=993
 date: 2013-06-12 14:09:29.000000000 -04:30
 serie: Ruby desde Cero
 thumbnail: http://i.imgur.com/lBeuRS1.png
+description: Capítulo 2 de la serie Ruby desde Cero donde aprenderas sobre las variables nativas y los objetos de Ruby.
 categories:
 - Cursos
 - Ruby
