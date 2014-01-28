@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2126
 date: 2013-08-29 00:03:34.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 11 de Git desde Cero, serie en la cual aprenderemos a utilizar subtree (subárboles) dentro de nuestros proyectos, para reutilizar código!
 categories:
 - Cursos
 - Git

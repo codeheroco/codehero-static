@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2221
 date: 2013-09-12 00:02:25.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 13 de Git desde Cero, serie en la cual aprenderemos a utilizar git reset y git cherry-pick dentro de nuestros proyectos!
 categories:
 - Cursos
 - Git

@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1387
 date: 2013-07-11 00:38:22.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 4 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el manejo remoto y etiquetas de nuestros proyectos.
 categories:
 - Cursos
 - Git
