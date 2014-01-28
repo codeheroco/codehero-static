@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2416
 date: 2013-10-18 00:03:27.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Curso Ruby on Rails desde Cero, en este capítulo estaremos describiendo e implementando una gema para serializar objetos llamada active_model_serializers.
 categories:
 - Cursos
 - Ruby on Rails

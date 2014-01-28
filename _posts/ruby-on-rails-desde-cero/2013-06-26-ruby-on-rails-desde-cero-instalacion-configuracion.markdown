@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1153
 date: 2013-06-26 06:04:25.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Curso Ruby on Rails desde cero Instalación y configuración. Las series de tutoriales Ruby on Rails en CodeHero otorgan los conocimientos para desarrollar aplicaciones web
 categories:
 - Cursos
 - Ruby on Rails

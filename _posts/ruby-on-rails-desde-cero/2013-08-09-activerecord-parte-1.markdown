@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1922
 date: 2013-08-09 00:01:05.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Ruby on Rails desde Cero, serie en la cual aprenderemos Ruby on Rails. Estudiaremos los componentes del ActiveRecord.
 categories:
 - Cursos
 - Ruby on Rails
