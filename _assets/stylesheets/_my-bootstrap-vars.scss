@@ -30,6 +30,10 @@ $icon-font-name:          "glyphicons-halflings-regular";
 
 // Pagination
 // -------------------------
-$pagination-border:                    $orange-codehero !default;
-$pagination-active-bg:                 $orange-codehero !default;
-
+$pagination-border:                    $orange-codehero;
+$pagination-active-bg:                 $orange-codehero;
+$pagination-active-border:             $orange-codehero;
+$pagination-hover-border:              $orange-codehero;
+$pagination-disabled-border:           $orange-codehero;
+$pagination-color:                     #E67E22;
+$pagination-hover-color:               $orange-codehero;
