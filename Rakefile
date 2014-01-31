@@ -120,6 +120,10 @@ Seleccione el nombre de la serie a la que pertenece el post:
   1) Sinatra desde Cero
   2) Ruby on Rails desde Cero
   3) MongoDB desde Cero
+  4) jQuery desde Cero
+  5) PHP desde Cero
+  6) Laravel 4 desde Cero
+  7) Node.js desde Cero
     series
     case STDIN.gets.chomp
     when "1"
@@ -128,6 +132,14 @@ Seleccione el nombre de la serie a la que pertenece el post:
       @serie = "Ruby on Rails desde Cero"
     when "3"
       @serie = "MongoDB desde Cero"
+    when "4"
+      @serie = "jQuery desde Cero"
+    when "5"
+      @serie = "PHP desde Cero"
+    when "6"
+      @serie = "Laravel 4 desde Cero"
+    when "7"
+      @serie = "Node.js desde Cero"
     else
       @serie = "Otra serie"
     end
