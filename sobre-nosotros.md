@@ -2,6 +2,7 @@
 layout: default
 title: Sobre Nosotros - Codehero
 permalink: sobre-nosotros.html
+description: Página que habla un poco de la historia de cómo nace Codehero.
 ---
 Este sitio web es una iniciativa que nace de la falta de recursos educativos sobre tecnologías de información en español.
 
