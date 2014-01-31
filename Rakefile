@@ -148,6 +148,7 @@ Seleccione el nombre de la serie a la que pertenece el post:
   end
 
   @slug = "#{@serie} #{@name}"
+  @slug = @slug.tr('ÁáÉéÍíÓóÚú', 'AaEeIiOoUu')
   @slug = @slug.downcase.strip.gsub(' ', '-')
   FileUtils.touch("_drafts/#{@fecha_relativa}-#{@slug}.md")
   open("_drafts/#{@fecha_relativa}-#{@slug}.md", 'a' ) do |file|
