@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2874
 date: 2013-12-19 00:10:26.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Nuevo capítulo de la serie Ruby on Rails desde Cero, donde aprendemos sobre ActionControllers, como generarlos y como se leen parámetros.
 categories:
 - Ruby on Rails
 tags:

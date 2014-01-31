@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2653
 date: 2013-11-21 01:21:34.000000000 -04:30
 serie: Sinatra desde Cero
 thumbnail: http://i.imgur.com/UXeX0sa.png
+description: Sexto capítulo de la serie Sinatra desde Cero, donde hablamos sobre sesiones y cookies, componentes fundamentales de una aplicación web.
 categories:
 - Cursos
 - Sinatra

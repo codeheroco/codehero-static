@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1265
 date: 2013-07-03 00:00:02.000000000 -04:30
 serie: Ruby desde Cero
 thumbnail: http://i.imgur.com/lBeuRS1.png
+description: Ruby desde cero, cursos de los métodos y bloques de Ruby, Detallando para cada una de ellas la sintaxis y demostración.
 categories:
 - Cursos
 - Ruby

@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2275
 date: 2013-09-19 00:02:03.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 14 de la serie Git desde Cero, donde hablamos de una de las más importantes funcionalidades de git llamados hooks y muchos no la conocen.
 categories:
 - Cursos
 - Git

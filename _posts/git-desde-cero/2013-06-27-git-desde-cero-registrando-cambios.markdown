@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1192
 date: 2013-06-27 06:30:01.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 2 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos como instalar, configurar y utilizar Git para nuestros proyectos.
 categories:
 - Cursos
 - Git

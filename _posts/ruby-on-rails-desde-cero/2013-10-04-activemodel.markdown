@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2347
 date: 2013-10-04 00:01:34.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Curso Ruby on Rails desde cero curso ActiveModel modelos sin acceso a base de datos. Mostrando módulos de Validación y Serialización.
 categories:
 - Cursos
 - Ruby on Rails
