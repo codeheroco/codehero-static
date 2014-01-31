@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2607
 date: 2013-11-14 02:08:31.000000000 -04:30
 serie: Sinatra desde Cero
 thumbnail: http://i.imgur.com/UXeX0sa.png
+description: Quinto capítulo de la serie Sinatra desde Cero donde aprendemos a utilizar los filtros before y after como también a manejar errores como el 404 y el 500.
 categories:
 - Cursos
 - Sinatra

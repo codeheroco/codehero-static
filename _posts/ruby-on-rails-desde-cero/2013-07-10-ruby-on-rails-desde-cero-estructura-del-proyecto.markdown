@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1348
 date: 2013-07-10 00:01:25.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Curso Ruby on Rails desde cero Estructura de proyecto y configuración de la base de datos en MySQL.
 categories:
 - Cursos
 - Ruby on Rails

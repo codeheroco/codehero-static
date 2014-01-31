@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2525
 date: 2013-11-01 00:21:08.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Ruby on Rails desde cero. Nuevo Capitulo donde aprendemos a enviar correos electrónicos utilizando ActionMailer.
 categories:
 - Cursos
 - Ruby on Rails

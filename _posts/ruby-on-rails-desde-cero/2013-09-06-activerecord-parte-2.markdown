@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2184
 date: 2013-09-06 00:01:39.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Ruby on Rails desde cero, segunda parte de ActiveRecord donde describimos los Scopes y consultas de tablas asociadas (joins).
 categories:
 - Cursos
 - Ruby on Rails

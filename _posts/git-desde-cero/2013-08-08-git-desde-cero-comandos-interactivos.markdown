@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1910
 date: 2013-08-08 00:10:44.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 8 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el uso de los comandos interactivos rebase y add.
 categories:
 - Cursos
 - Git
