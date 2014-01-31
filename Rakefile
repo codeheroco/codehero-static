@@ -75,8 +75,10 @@ task :new_draft do
   print "Cual es el nombre del post que desea redactar? E.j: Rebase y Stash \n"
   @name = STDIN.gets.chomp
 
-  print "¿En que fecha sale el post? E.j: YYYY-MM-DD\n"
-  @fecha = STDIN.gets.chomp
+  print "¿Número de días que restan para que salga el post? E.j: 2\n"
+  @dias = STDIN.gets.chomp
+  @fecha_relativa = Time.now + @dias.to_i.days
+  @fecha_relativa = @fecha_relativa.strftime("%F")
   print <<-eos
 
 Seleccione el nombre del Autor marcando el número que lo representa:
@@ -139,7 +141,7 @@ Seleccione el nombre del Autor marcando el número que lo representa:
     file.puts "title: #{@name}"
     file.puts "author: #{@autor}"
     file.puts "author_login: #{@handle}"
-    file.puts "date: #{Time.now}"
+    file.puts "date: #{@fecha_relativa}"
     file.puts "description: Escribir una descripción menor a 155 caracteres aquí."
     if @pertenece == 'y'
       file.puts "serie: #{@serie}"
