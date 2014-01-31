@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'dotenv/tasks'
 require 'fileutils'
 require 'colorator'
