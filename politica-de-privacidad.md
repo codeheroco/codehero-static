@@ -2,6 +2,7 @@
 layout: default
 permalink: politica-de-privacidad.html
 title: Codehero - Política de privacidad
+description: Página que contiene las políticas de privacidad de Codehero.
 ---
 ## 1. Nuestra política
 
