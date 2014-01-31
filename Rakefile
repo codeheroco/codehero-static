@@ -1,5 +1,7 @@
 require 'dotenv/tasks'
+require 'fileutils'
 require 'colorator'
+require 'active_support/core_ext'
 
 # Rubygems compile rake task.
 desc "compile and run the site"
@@ -65,5 +67,90 @@ task :update_fa do
     end
   when 'n'
     puts "Aborting..."
+  end
+end
+
+desc "Creating a new draft for post"
+task :new_draft do
+  print "Cual es el nombre del post que desea redactar? E.j: nombre-del-post \n"
+  @name = STDIN.gets.chomp
+
+  print "¿En que fecha sale el post? E.j: YYYY-MM-DD\n"
+  @fecha = STDIN.gets.chomp
+  print <<-eos
+
+Seleccione el nombre del Autor marcando el número que lo representa:
+
+  1) Alberto
+  2) Jonathan
+  3) Oscar
+  4) Ramses
+  5) Carlos
+  eos
+  case STDIN.gets.chomp
+  when "1"
+    @autor = "Alberto Grespan"
+    @handle = "albertogg"
+  when "2"
+    @autor = "Jonathan Wiesel"
+    @handle = "jonathan"
+  when "3"
+    @autor = "Oscar González"
+    @handle = "oscar"
+  when "4"
+    @autor = "Ramses Velasquez"
+    @handle = "ramses"
+  when "5"
+    @autor = "Carlos Picca"
+    @handle = "carlos"
+  end
+
+  print "El post está contenido en una serie? [y/n] \n"
+  @pertenece = STDIN.gets.chomp
+  if @pertenece == 'y'
+    print <<-series
+
+  Seleccione el nombre de la serie a la que pertenece el post:
+
+    1) Git desde Cero
+    2) Sinatra desde Cero
+    3) Ruby desde Cero
+    4) Ruby on Rails desde Cero
+    series
+    case STDIN.gets.chomp
+    when "1"
+      @serie = "Git desde Cero"
+    when "2"
+      @serie = "Sinatra desde Cero"
+    when "3"
+      @serie = "Ruby desde Cero"
+    when "4"
+      @serie = "Ruby on Rails desde Cero"
+    end
+  end
+
+  FileUtils.touch("_drafts/#{@name}.md")
+  open("_drafts/#{@name}.md", 'a' ) do |file|
+    file.puts "---"
+    file.puts "layout: post"
+    file.puts "status: publish"
+    file.puts "title: #{@name}"
+    file.puts "author: #{@autor}"
+    file.puts "author_login: #{@handle}"
+    file.puts "date: #{Time.now}"
+    file.puts "description: Escribir una descripción menor a 155 caracteres aquí."
+    if @pertenece == 'y'
+      file.puts "serie: #{@serie}"
+      file.puts "categories:"
+      file.puts "- Cursos"
+      file.puts "tags:"
+      file.puts "- #{@serie}"
+    else
+      file.puts "categories:"
+      file.puts "- Cómo lo hago"
+      file.puts "tags:"
+      file.puts "thumbnail:"
+    end
+    file.puts "---"
   end
 end
