@@ -112,12 +112,12 @@ Seleccione el nombre del Autor marcando el número que lo representa:
   if @pertenece == 'y'
     print <<-series
 
-  Seleccione el nombre de la serie a la que pertenece el post:
+Seleccione el nombre de la serie a la que pertenece el post:
 
-    1) Git desde Cero
-    2) Sinatra desde Cero
-    3) Ruby desde Cero
-    4) Ruby on Rails desde Cero
+  1) Git desde Cero
+  2) Sinatra desde Cero
+  3) Ruby desde Cero
+  4) Ruby on Rails desde Cero
     series
     case STDIN.gets.chomp
     when "1"
@@ -133,8 +133,8 @@ Seleccione el nombre del Autor marcando el número que lo representa:
 
   @slug = "#{@serie} #{@name}"
   @slug = @slug.downcase.strip.gsub(' ', '-')
-  FileUtils.touch("_drafts/#{@slug}.md")
-  open("_drafts/#{@slug}.md", 'a' ) do |file|
+  FileUtils.touch("_drafts/#{@fecha_relativa}-#{@slug}.md")
+  open("_drafts/#{@fecha_relativa}-#{@slug}.md", 'a' ) do |file|
     file.puts "---"
     file.puts "layout: post"
     file.puts "status: publish"
