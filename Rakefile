@@ -105,6 +105,9 @@ Seleccione el nombre del Autor marcando el número que lo representa:
   when "5"
     @autor = "Carlos Picca"
     @handle = "carlos"
+  else
+    @autor = "Otro Autor"
+    @handle = "otro"
   end
 
   print "El post está contenido en una serie? [y/n] \n"
