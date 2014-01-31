@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1723
 date: 2013-07-26 00:01:30.000000000 -04:30
 serie: Ruby on Rails desde Cero
 thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+description: Curso en el cual aprenderemos Ruby on Rails desde Cero. En esta clase, estudiaremos como crear vistas dinámicas extrayendo entradas de la base de datos
 categories:
 - Cursos
 - Ruby on Rails

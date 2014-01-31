@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2705
 date: 2013-11-28 00:12:15.000000000 -04:30
 serie: Sinatra desde Cero
 thumbnail: http://i.imgur.com/UXeX0sa.png
+description: Séptimo capítulo de la serie Sinatra desde Cero, donde hablaremos sobre aplicaciones modulares para construir aplicaciones más desacopladas y ordenadas.
 categories:
 - Cursos
 - Sinatra

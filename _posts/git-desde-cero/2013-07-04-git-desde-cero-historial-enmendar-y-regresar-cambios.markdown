@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1295
 date: 2013-07-04 01:12:52.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 3 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el historial, enmendar y a regresar cambios en nuestros proyectos.
 categories:
 - Cursos
 - Git

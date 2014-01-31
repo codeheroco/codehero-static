@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2847
 date: 2013-12-12 01:19:13.000000000 -04:30
 serie: Sinatra desde Cero
 thumbnail: http://i.imgur.com/UXeX0sa.png
+description: Noveno capítulo de la serie Sinatra desde Cero, donde hablamos sobre Rack como primera opción para realizar nuestro enrutamiento, middleware y routers.
 categories:
 - Cursos
 - Sinatra
