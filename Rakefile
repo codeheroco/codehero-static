@@ -72,7 +72,7 @@ end
 
 desc "Creating a new draft for post"
 task :new_draft do
-  print "Cual es el nombre del post que desea redactar? E.j: nombre-del-post \n"
+  print "Cual es el nombre del post que desea redactar? E.j: Rebase y Stash \n"
   @name = STDIN.gets.chomp
 
   print "¿En que fecha sale el post? E.j: YYYY-MM-DD\n"
@@ -129,8 +129,10 @@ Seleccione el nombre del Autor marcando el número que lo representa:
     end
   end
 
-  FileUtils.touch("_drafts/#{@name}.md")
-  open("_drafts/#{@name}.md", 'a' ) do |file|
+  @slug = "#{@serie} #{@name}"
+  @slug = @slug.downcase.strip.gsub(' ', '-')
+  FileUtils.touch("_drafts/#{@slug}.md")
+  open("_drafts/#{@slug}.md", 'a' ) do |file|
     file.puts "---"
     file.puts "layout: post"
     file.puts "status: publish"
@@ -152,5 +154,6 @@ Seleccione el nombre del Autor marcando el número que lo representa:
       file.puts "thumbnail:"
     end
     file.puts "---"
+    file.puts "Aquí el contenido"
   end
 end
