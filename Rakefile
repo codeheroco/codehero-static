@@ -114,20 +114,19 @@ Seleccione el nombre del Autor marcando el número que lo representa:
 
 Seleccione el nombre de la serie a la que pertenece el post:
 
-  1) Git desde Cero
-  2) Sinatra desde Cero
-  3) Ruby desde Cero
-  4) Ruby on Rails desde Cero
+  1) Sinatra desde Cero
+  2) Ruby on Rails desde Cero
+  3) MongoDB desde Cero
     series
     case STDIN.gets.chomp
     when "1"
-      @serie = "Git desde Cero"
-    when "2"
       @serie = "Sinatra desde Cero"
-    when "3"
-      @serie = "Ruby desde Cero"
-    when "4"
+    when "2"
       @serie = "Ruby on Rails desde Cero"
+    when "3"
+      @serie = "MongoDB desde Cero"
+    else
+      @serie = "Otra serie"
     end
   end
 
