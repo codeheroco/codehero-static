@@ -164,10 +164,10 @@ Seleccione el nombre de la serie a la que pertenece el post:
       file.puts "tags:"
       file.puts "- #{@serie}"
     else
+      file.puts "thumbnail:"
       file.puts "categories:"
       file.puts "- Cómo lo hago"
       file.puts "tags:"
-      file.puts "thumbnail:"
     end
     file.puts "---"
     file.puts "Aquí el contenido"
