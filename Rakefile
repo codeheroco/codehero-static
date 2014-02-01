@@ -179,12 +179,23 @@ end
 
 desc "Publish post in drafts folder"
 task :publish do
+  puts "Nombres de posts que se encuentran en la carpeta drafts"
   Dir.foreach("_drafts") do |fname|
     next if fname == '.' or fname == '..' or fname == '.keep'
     puts fname
   end
   puts "Introduzca el nombre del archivo a Publicar:"
   @publish = STDIN.gets.chomp
-  FileUtils.mv("_drafts/#{@publish}", "_posts")
-  puts "Publicando artículo... moviendo draft a la carpeta de posts"
+  puts "Listado de directorios (series) donde es posible publicar el draft:"
+  Dir.foreach("_posts") do |fname|
+    next if fname == '.' or fname == '..'
+    puts fname
+  end
+  puts <<-pub
+Introduzca el nombre del directorio (de la lista antes mostrada) a donde desea
+copiar el draft:
+  pub
+  @copy_dir = STDIN.gets.chomp
+  FileUtils.mv("_drafts/#{@publish}", "_posts/#{@copy_dir}")
+  puts "Publicando artículo... moviendo draft a la carpeta de _posts/#{@copy_dir}"
 end
