@@ -74,10 +74,10 @@ end
 
 desc "Creating a new draft for post"
 task :new_draft do
-  print "Cual es el nombre del post que desea redactar? E.j: Rebase y Stash \n"
+  puts "Cual es el nombre del post que desea redactar? E.j: Rebase y Stash"
   @name = STDIN.gets.chomp
 
-  print "¿Número de días que restan para que salga el post? E.j: 2\n"
+  puts "¿Número de días que restan para que salga el post? E.j: 2"
   @dias = STDIN.gets.chomp
   @fecha_relativa = Time.now + @dias.to_i.days
   @fecha_relativa = @fecha_relativa.strftime("%F")
@@ -112,7 +112,7 @@ Seleccione el nombre del Autor marcando el número que lo representa:
     @handle = "otro"
   end
 
-  print "El post está contenido en una serie? [y/n] \n"
+  puts "El post está contenido en una serie? [y/n]"
   @pertenece = STDIN.gets.chomp
   if @pertenece == 'y'
     print <<-series
