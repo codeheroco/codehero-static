@@ -176,3 +176,15 @@ Seleccione el nombre de la serie a la que pertenece el post:
     file.puts "Aquí el contenido"
   end
 end
+
+desc "Publish post in drafts folder"
+task :publish do
+  Dir.foreach("_drafts") do |fname|
+    next if fname == '.' or fname == '..' or fname == '.keep'
+    puts fname
+  end
+  puts "Introduzca el nombre del archivo a Publicar:"
+  @publish = STDIN.gets.chomp
+  FileUtils.mv("_drafts/#{@publish}", "_posts")
+  puts "Publicando artículo... moviendo draft a la carpeta de posts"
+end
