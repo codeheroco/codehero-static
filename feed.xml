@@ -17,8 +17,18 @@ layout: nil
  	  	<updated>{{ post.date | date_to_xmlschema }}</updated>
  	  	<id>http://codehero.co{{ post.id }}</id>
  	  	<content type="html">
- 	  		{{ post.content | truncatehtml: 1000 | xml_escape }}
-			&lt;p&gt;&lt;a href="http://codehero.co{{ post.url }}"&gt;Seguir leyendo...&lt;/a&gt;&lt;/p&gt;
+            <![CDATA[
+                <div >
+                    <img alt="{{ post.title }}" src="{{ post.thumbnail }}" width="90%"/>
+                </div>
+            ]]>
+            {% assign paragraphs = post.content | split:'</p>' %}
+            {% for paragraph in paragraphs limit:1 %}
+                  {{ paragraph | xml_escape }}
+            {% endfor %}
+
+            {% assign footer = '</p><p><a href="http://codehero.co{{ post.url }}">Seguir leyendo...</a></p>' %}
+            {{ footer | xml_escape }}
  	  	</content>
  	  	<author>
  	  		<name>{{ post.author }}</name>
