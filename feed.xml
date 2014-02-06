@@ -4,14 +4,14 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-	<title>CODEHERO</title>
-	<link href="http://codehero.co/feed" rel="self" type="application/atom+xml"/>
-	<link href="http://codehero.co"/>
-	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>http://codehero.co</id>
- 	<icon>http://i.imgur.com/OZ5xRQT.png</icon>
-	{% for post in site.posts limit: 20 %}
- 	<entry>
+    <title>CODEHERO</title>
+    <link href="http://codehero.co/feed" rel="self" type="application/atom+xml"/>
+    <link href="http://codehero.co"/>
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <id>http://codehero.co</id>
+    <icon>http://i.imgur.com/OZ5xRQT.png</icon>
+    {% for post in site.posts limit: 20 %}
+    <entry>
  	  	<title>{{ post.title | escape }}</title>
  	  	<link href="http://codehero.co{{ post.url }}"/>
  	  	<updated>{{ post.date | date_to_xmlschema }}</updated>
@@ -29,12 +29,11 @@ layout: nil
 
             {% assign footer = '</p><p><a href="http://codehero.co{{ post.url }}">Seguir leyendo...</a></p>' %}
             {{ footer | xml_escape }}
- 	  	</content>
- 	  	<author>
- 	  		<name>{{ post.author }}</name>
- 	  		<email>{{ post.author_email }}</email>
- 		</author>
- 	</entry>
- 	{% endfor %}
-
+        </content>
+        <author>
+            <name>{{ post.author }}</name>
+            <email>{{ post.author_email }}</email>
+        </author>
+    </entry>
+    {% endfor %}
 </feed>
