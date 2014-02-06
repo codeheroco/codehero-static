@@ -164,6 +164,7 @@ Seleccione el nombre de la serie a la que pertenece el post:
       file.puts "serie: #{@serie}"
       file.puts "categories:"
       file.puts "- Cursos"
+      file.puts "- #{@serie}"
       file.puts "tags:"
       file.puts "- #{@serie}"
     else
