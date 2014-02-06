@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=1843
 date: 2013-08-02 00:01:12.000000000 -04:30
 serie: Ruby desde Cero
 thumbnail: http://i.imgur.com/lBeuRS1.png
+description: Ruby desde cero, curso de Orientación a Objetos - Parte 2, Estudiaremos detallando para cada una de ellas la sintaxis y realizaremos una demostración.
 categories:
 - Cursos
 - Ruby

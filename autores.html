@@ -2,33 +2,34 @@
 layout: default
 title: Autores - Codehero
 permalink: authors.html
+description: Ficha personal de todos los escritores del Codehero.co
 ---
 
 <div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
   <ul class="author-list horizontal-list-oscuras">
-		{% for autor in site.data.autores %}
-			<div class="row">
-				{% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
-				{% if thecycle == 'odd' %}
-					<div class="hidden-xs col-sm-4 col-md-3" >
-	          <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
-	        </div>
-	        <div class="col-xs-12 col-sm-8 col-md-9">
-	          <h2 class="underline-title"><a href="/author/{{ autor.namelink }}.html">{{ autor.name }}</h2>
-	          {% include templates/autor-redes-sociales.html %}
-	          <p>{{ autor.description }}</p>
-	        </div>
+    {% for autor in site.data.autores %}
+      <div class="row">
+        {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+        {% if thecycle == 'odd' %}
+          <div class="col-xs-3 col-sm-4 col-md-3" >
+            <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+          </div>
+          <div class="col-xs-9 col-sm-8 col-md-9">
+              <h1 class="underline-title"><a href="/author/{{ autor.namelink }}.html">{{ autor.name }}</a></h1>
+            {% include templates/autor-redes-sociales.html %}
+            <p>{{ autor.description }}</p>
+          </div>
         {% else %}
-        	<div class="hidden-xs col-sm-4 col-md-3 col-sm-push-8 col-md-push-9" >
-	          <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
-	        </div>
-	        <div class="col-xs-12 col-sm-8 col-md-9 col-sm-pull-4 col-md-pull-3">
-	          <h2 class="underline-title"><a href="/author/{{ autor.namelink }}.html">{{ autor.name }}</h2>
-	          {% include templates/autor-redes-sociales.html %}
-	          <p>{{ autor.description }}</p>
-	        </div>
+          <div class="col-xs-3 col-sm-4 col-md-3 col-xs-push-9 col-sm-push-8 col-md-push-9" >
+            <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+          </div>
+          <div class="col-xs-9 col-sm-8 col-md-9 col-xs-pull-3 col-sm-pull-4 col-md-pull-3">
+              <h1 class="underline-title"><a href="/author/{{ autor.namelink }}.html">{{ autor.name }}</a></h1>
+            {% include templates/autor-redes-sociales.html %}
+            <p>{{ autor.description }}</p>
+          </div>
         {% endif %}
-			</div>
-		{% endfor %}
-	</ul>
+      </div>
+    {% endfor %}
+  </ul>
 </div>

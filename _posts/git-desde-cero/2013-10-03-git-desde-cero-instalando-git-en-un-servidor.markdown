@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2341
 date: 2013-10-03 00:05:15.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 16 de la serie Git desde Cero, aprenderemos a instalar git en un servidor privado utilizando ssh como protocolo de comunicación.
 categories:
 - Cursos
 - Git

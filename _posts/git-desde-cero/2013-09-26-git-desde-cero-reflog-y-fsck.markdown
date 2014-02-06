@@ -12,6 +12,7 @@ wordpress_url: http://codehero.co/?p=2315
 date: 2013-09-26 00:02:52.000000000 -04:30
 serie: Git desde Cero
 thumbnail: http://i.imgur.com/IzAdb3d.png
+description: Capítulo 15 de la serie Git desde Cero, en este curso hablaremos sobre como recuperar commits perdidos utilizando las herramientas reflog y fsck.
 categories:
 - Cursos
 - Git

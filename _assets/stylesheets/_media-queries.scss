@@ -23,6 +23,26 @@
     }
   }
 
+  .author-list {
+    padding-bottom: 10px;
+
+    p {
+      padding-top: 4px;
+      text-align: left;
+    }
+
+    i {
+      margin-top: 4px;
+      font-size: 20px;
+      padding: 0px;
+    }
+
+    .underline-title {
+      padding-top: 16px;
+      text-align: left;
+    }
+  }
+
   img, h1, a, p {
     margin: 0 auto;
     text-align: center;
@@ -49,6 +69,10 @@
 @media (max-width: $screen-md-min) {
   h1 {
     font-size: $font-size-base * 1.7; // ~24px
+  }
+
+  h2 {
+    font-size: $font-size-base * 1.25; // ~18px
   }
 
   .post {
