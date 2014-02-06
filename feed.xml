@@ -3,28 +3,36 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CODEHERO</title>
+  <link href="http://codehero.co/feed" rel="self" type="application/atom+xml"/>
+  <link href="http://codehero.co"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://codehero.co</id>
+  <icon>http://i.imgur.com/OZ5xRQT.png</icon>
+  {% for post in site.posts limit: 20 %}
+  <entry>
+    <title>{{ post.title | escape }}</title>
+    <link href="http://codehero.co{{ post.url }}"/>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <id>http://codehero.co{{ post.id }}</id>
+    <content type="html">
+      <![CDATA[
+        <div >
+          <img alt="{{ post.title }}" src="{{ post.thumbnail }}"/>
+        </div>
+      ]]>
+      {% assign paragraphs = post.content | split:'</p>' %}
+      {% for paragraph in paragraphs limit:1 %}
+        {{ paragraph | xml_escape }}
+      {% endfor %}
 
-	<title>CODEHERO</title>
-	<link href="http://codehero.co/feed" rel="self" type="application/atom+xml"/>
-	<link href="http://codehero.co"/>
-	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>http://codehero.co</id>
- 	<icon>http://i.imgur.com/OZ5xRQT.png</icon>
-	{% for post in site.posts limit: 20 %}
- 	<entry>
- 	  	<title>{{ post.title | escape }}</title>
- 	  	<link href="http://codehero.co{{ post.url }}"/>
- 	  	<updated>{{ post.date | date_to_xmlschema }}</updated>
- 	  	<id>http://codehero.co{{ post.id }}</id>
- 	  	<content type="html">
- 	  		{{ post.content | truncatehtml: 1000 | xml_escape }}
-			&lt;p&gt;&lt;a href="http://codehero.co{{ post.url }}"&gt;Seguir leyendo...&lt;/a&gt;&lt;/p&gt;
- 	  	</content>
- 	  	<author>
- 	  		<name>{{ post.author }}</name>
- 	  		<email>{{ post.author_email }}</email>
- 		</author>
- 	</entry>
- 	{% endfor %}
-
+      {% assign footer = '</p><p><a href="http://codehero.co{{ post.url }}">Seguir leyendo...</a></p>' %}
+      {{ footer | xml_escape }}
+    </content>
+    <author>
+      <name>{{ post.author }}</name>
+      <email>{{ post.author_email }}</email>
+    </author>
+  </entry>
+  {% endfor %}
 </feed>
