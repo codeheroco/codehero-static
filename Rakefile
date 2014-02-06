@@ -170,7 +170,6 @@ Seleccione el nombre de la serie a la que pertenece el post:
     else
       file.puts "thumbnail:"
       file.puts "categories:"
-      file.puts "- Cómo lo hago"
       file.puts "tags:"
     end
     file.puts "---"
