@@ -19,7 +19,7 @@ layout: nil
  	  	<content type="html">
             <![CDATA[
                 <div >
-                    <img alt="{{ post.title }}" src="{{ post.thumbnail }}" width="90%"/>
+                    <img alt="{{ post.title }}" src="{{ post.thumbnail }}"/>
                 </div>
             ]]>
             {% assign paragraphs = post.content | split:'</p>' %}
