@@ -169,6 +169,9 @@ Seleccione mediante el número la dificultad del post:
     @dificultad = "Heroe"
   end
 
+  puts "Introduzca la duración en minutos que se demora en leer el post:"
+  @duracion = STDIN.gets.chomp
+
   @slug = "#{@serie} #{@name}"
   @slug = @slug.tr('ÁáÉéÍíÓóÚú', 'AaEeIiOoUu')
   @slug = @slug.downcase.strip.gsub(' ', '-')
@@ -183,6 +186,7 @@ Seleccione mediante el número la dificultad del post:
     file.puts "date: #{@fecha_relativa}"
     file.puts "description: Escribir una descripción menor a 155 caracteres aquí."
     file.puts "dificultad: #{@dificultad}"
+    file.puts "duracion: #{@duracion}"
     if @pertenece == 'y'
       file.puts "serie: #{@serie}"
       file.puts "categories:"
