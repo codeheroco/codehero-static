@@ -12,3 +12,4 @@ gem 'jekyll-assets', '~> 0.7.4'
 gem 'uglifier', '~> 2.2.1'
 gem "font-awesome-sass", "~> 4.0.2"
 gem 'therubyracer'
+gem 'mina', '~> 0.3.0'
