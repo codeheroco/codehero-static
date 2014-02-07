@@ -172,6 +172,15 @@ Seleccione mediante el número la dificultad del post:
   puts "Introduzca la duración en minutos que se demora en leer el post:"
   @duracion = STDIN.gets.chomp
 
+  puts "El post tiene repo en Github? [y/n]"
+  case STDIN.gets.chomp
+  when 'y'
+    puts "Introduzca el URL completo al repo:"
+    @github = STDIN.gets.chomp
+  else
+    @github = 'n'
+  end
+
   @slug = "#{@serie} #{@name}"
   @slug = @slug.tr('ÁáÉéÍíÓóÚú', 'AaEeIiOoUu')
   @slug = @slug.downcase.strip.gsub(' ', '-')
@@ -187,6 +196,9 @@ Seleccione mediante el número la dificultad del post:
     file.puts "description: Escribir una descripción menor a 155 caracteres aquí."
     file.puts "dificultad: #{@dificultad}"
     file.puts "duracion: #{@duracion}"
+    unless @github == 'n'
+      file.puts "github: #{@github}"
+    end
     if @pertenece == 'y'
       file.puts "serie: #{@serie}"
       file.puts "categories:"
