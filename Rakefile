@@ -147,6 +147,28 @@ Seleccione el nombre de la serie a la que pertenece el post:
     end
   end
 
+  print <<-dificultad
+Seleccione mediante el número la dificultad del post:
+
+  1) Novato
+  2) Aprendiz
+  3) Intermedio
+  4) Avanzado
+  5) Heroe
+  dificultad
+  case STDIN.gets.chomp
+  when "1"
+    @dificultad = "Novato"
+  when "2"
+    @dificultad = "Aprendiz"
+  when "3"
+    @dificultad = "Intermedio"
+  when "4"
+    @dificultad = "Avanzado"
+  else
+    @dificultad = "Heroe"
+  end
+
   @slug = "#{@serie} #{@name}"
   @slug = @slug.tr('ÁáÉéÍíÓóÚú', 'AaEeIiOoUu')
   @slug = @slug.downcase.strip.gsub(' ', '-')
@@ -160,6 +182,7 @@ Seleccione el nombre de la serie a la que pertenece el post:
     file.puts "author_login: #{@handle}"
     file.puts "date: #{@fecha_relativa}"
     file.puts "description: Escribir una descripción menor a 155 caracteres aquí."
+    file.puts "dificultad: #{@dificultad}"
     if @pertenece == 'y'
       file.puts "serie: #{@serie}"
       file.puts "categories:"
