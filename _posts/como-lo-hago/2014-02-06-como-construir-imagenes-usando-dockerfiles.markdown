@@ -10,6 +10,7 @@ author_url: http://albertogrespan.com
 wordpress_id: 2984
 wordpress_url: http://codehero.co/?p=2984
 date: 2014-02-06 01:21:50.000000000 -04:30
+thumbnail: http://i.imgur.com/aFoOgeD.png
 categories:
 - Cómo lo hago
 - Docker
@@ -18,91 +19,87 @@ tags:
 - docker
 - Dockerfile
 ---
-<p>En una entrada anterior vimos como se instalaba y se utilizada <em>Docker</em> para crear ambientes tanto de desarrollo como producción que funcionaran como embalaje para desplegar la aplicación. En esta veremos como se automatiza el proceso de creación de imágenes utilizando un conjunto de instrucciones que nos presta <em>Docker</em> en una especie de <a href="http://es.wikipedia.org/wiki/Lenguaje_espec%C3%ADfico_del_dominio">DSL</a> para facilitarnos la vida.</p>
+En una entrada anterior vimos como se instalaba y se utilizada *Docker* para crear ambientes tanto de desarrollo como producción que funcionaran como embalaje para desplegar la aplicación. En esta veremos como se automatiza el proceso de creación de imágenes utilizando un conjunto de instrucciones que nos presta *Docker* en una especie de [DSL](http://es.wikipedia.org/wiki/Lenguaje_espec%C3%ADfico_del_dominio) para facilitarnos la vida.
 
-<blockquote>
-  <p>Si no leíste la <a href="http://codehero.co/como-instalar-y-usar-Docker/">entrada anterior</a> te recomendamos hacerlo ya que entenderás mucho mejor lo que ocurrirá aquí y te servirá de guía si aún no lo has instalado.</p>
-</blockquote>
+> Si no leíste la [entrada anterior](http://codehero.co/como-instalar-y-usar-Docker/) te recomendamos hacerlo ya que entenderás mucho mejor lo que ocurrirá aquí y te servirá de guía si aún no lo has instalado.
 
-<hr />
+* * *
 
-<h2>¿Qué necesitamos para automatizar una imagen?</h2>
+##¿Qué necesitamos para automatizar una imagen?
 
-<p>Para automatizar el proceso de creación de imágenes necesitamos pocas cosas:</p>
+Para automatizar el proceso de creación de imágenes necesitamos pocas cosas:
 
-<ul>
-<li>Tener Docker instalado.</li>
-<li>Crear un Dockerfile.</li>
-<li>Conocer un poco el DSL.</li>
-<li>Saber que tarea repetitiva queremos automatizar.</li>
-<li>Construir el contenedor.</li>
-<li>Ser felices.</li>
-</ul>
+- Tener Docker instalado.
+- Crear un Dockerfile.
+- Conocer un poco el DSL.
+- Saber que tarea repetitiva queremos automatizar.
+- Construir el contenedor.
+- Ser felices.
 
-<hr />
+* * *
 
-<h2>¿Qué es un <em>Dockerfile</em> y cómo se crea?</h2>
+## ¿Qué es un *Dockerfile* y cómo se crea?
 
-<p>Un <em>Dockerfile</em> no es más que un archivo que reconoce Docker y que contiene una serie de instrucciones para automatizar el proceso de creación de un contenedor. En pocas palabras en este archivo vamos a agregar todo lo que necesitemos en nuestro contenedor para que cada vez que queramos correr el <em>script</em> de construcción obtengamos un contenedor completamente fresco y actualizado.</p>
+Un *Dockerfile* no es más que un archivo que reconoce Docker y que contiene una serie de instrucciones para automatizar el proceso de creación de un contenedor. En pocas palabras en este archivo vamos a agregar todo lo que necesitemos en nuestro contenedor para que cada vez que queramos correr el *script* de construcción obtengamos un contenedor completamente fresco y actualizado.
 
-<h3>¿Cómo creo un <em>Dockerfile</em>?</h3>
+### ¿Cómo creo un *Dockerfile*?
 
-<p>Para crear este archivo debemos hacerlo de manera manual, utilizando el comando <code>touch</code> en un directorio de vuestra preferencia.</p>
+Para crear este archivo debemos hacerlo de manera manual, utilizando el comando `touch` en un directorio de vuestra preferencia.
 
-<pre>$ touch Dockerfile
-</pre>
+```sh
+$ touch Dockerfile
+```
 
-<p>Este comando se encuentra en todos los Sistemas Operativos basados en Unix, si quieren utilizarlo en Windows pueden hacer uso de esta librería <a href="http://unxutils.sourceforge.net/">unxutils</a> o sencillamente crearlo de otra manera.</p>
+Este comando se encuentra en todos los Sistemas Operativos basados en Unix, si quieren utilizarlo en Windows pueden hacer uso de esta librería [unxutils](http://unxutils.sourceforge.net/) o sencillamente crearlo de otra manera.
 
-<hr />
+* * *
 
-<h2>¿Cómo construyo el contenedor?</h2>
+## ¿Cómo construyo el contenedor?
 
-<p>Una vez que hayamos creado el <em>Dockerfile</em> vamos a poder hacer uso del comando <code>build</code> que proporciona Docker. Este comando se encarga de correr una a una las líneas que se encuentran dentro del archivo y al finalizar si todo salió correctamente tendremos un contenedor listo para usar.</p>
+Una vez que hayamos creado el *Dockerfile* vamos a poder hacer uso del comando `build` que proporciona Docker. Este comando se encarga de correr una a una las líneas que se encuentran dentro del archivo y al finalizar si todo salió correctamente tendremos un contenedor listo para usar.
 
-<h3>Comando build</h3>
+### Comando build
 
-<p>El comando <code>build</code> lo podemos utilizamos de la siguiente manera:</p>
+El comando `build` lo podemos utilizamos de la siguiente manera:
 
-<pre>$ docker build -t nombre/nombre-de-contenedor .
-</pre>
+```sh
+$ docker build -t nombre/nombre-de-contenedor .
+```
 
-<p>Con este comando estamos utilizando el Dockerfile que se encuentra en la carpeta o directorio donde estamos parados, y creando una imagen que se llama nombre/nombre-de-contenedor. El parámetro <code>-t</code> dentro del comando <code>build</code> se utiliza para marcar o nombrar un contenedor y de esta manera poder ubicarlo fácilmente.</p>
+Con este comando estamos utilizando el Dockerfile que se encuentra en la carpeta o directorio donde estamos parados, y creando una imagen que se llama nombre/nombre-de-contenedor. El parámetro `-t` dentro del comando `build` se utiliza para marcar o nombrar un contenedor y de esta manera poder ubicarlo fácilmente.
 
-<blockquote>
-  <p>El <em>nombre</em> es referente a el nombre de la persona que crea el contenedor o nombre del proyecto que lo utilizará. El <em>nombre-del-contenedor</em> será el identificador personal de ese contenedor. El conjunto de nombre/nombre-de-contenedor son utilizados para especificar el nombre del REPOSITORIO tanto en Docker como en su <a href="https://index.docker.io/">indice</a>.</p>
-</blockquote>
+> El *nombre* es referente a el nombre de la persona que crea el contenedor o nombre del proyecto que lo utilizará. El *nombre-del-contenedor* será el identificador personal de ese contenedor. El conjunto de nombre/nombre-de-contenedor son utilizados para especificar el nombre del REPOSITORIO tanto en Docker como en su [indice](https://index.docker.io/).
 
-<hr />
+* * *
 
-<h2>Conociendo el DSL de docker</h2>
+## Conociendo el DSL de docker
 
-<p>En está entrada construiremos un contenedor de nginx basado en Ubuntu y su versión LTS 12.04 que nos funcione para servir cualquier página web. En la <a href="http://codehero.co/como-instalar-y-usar-Docker/">entrada anterior</a> hicimos algo similar aquí automatizaremos el proceso y haremos algo un poco más complejo.</p>
+En está entrada construiremos un contenedor de nginx basado en Ubuntu y su versión LTS 12.04 que nos funcione para servir cualquier página web. En la [entrada anterior](http://codehero.co/como-instalar-y-usar-Docker/) hicimos algo similar aquí automatizaremos el proceso y haremos algo un poco más complejo.
 
-<p>Comencemos agregando las siguientes líneas al <em>Dockerfile</em>:</p>
+Comencemos agregando las siguientes líneas al *Dockerfile*:
 
-<h3>FROM Y MAINTAINER</h3>
+### FROM Y MAINTAINER
 
-<pre>FROM ubuntu:12.04
+```sh
+FROM ubuntu:12.04
 MAINTAINER Alberto Grespan "alberto@codehero.co"
-</pre>
+```
 
-<p>Aquí le estamos indicando a Docker que cuando vaya a crear nuestro contenedor realice lo siguiente:</p>
+Aquí le estamos indicando a Docker que cuando vaya a crear nuestro contenedor realice lo siguiente:
 
-<ul>
-<li>Busca en tú índice de imágenes una que se llama <code>ubuntu:12.04</code> y utilízala como base de nuestro contenedor. Es decir que nuestro contenedor se basará en la estructura de carpetas, archivos y paquetes que conoce y tiene esta versión de Ubuntu.</li>
-<li>El creador y mantenedor de la imagen se llama <em>Alberto Grespan</em> y su correo es <em>alberto@codehero.co</em></li>
-</ul>
+- Busca en tú índice de imágenes una que se llama `ubuntu:12.04` y utilízala como base de nuestro contenedor. Es decir que nuestro contenedor se basará en la estructura de carpetas, archivos y paquetes que conoce y tiene esta versión de Ubuntu.
+- El creador y mantenedor de la imagen se llama *Alberto Grespan* y su correo es *alberto@codehero.co*
 
-<p>Estos son aspectos importantes que debemos conocer, ya que son la base que rige el resto de los comandos que utilizaremos.</p>
+Estos son aspectos importantes que debemos conocer, ya que son la base que rige el resto de los comandos que utilizaremos.
 
-<h3>RUN y ENV</h3>
+### RUN y ENV
 
-<p>El comando <code>RUN</code> ejecuta directamente comandos dentro de el contenedor, y luego persiste los cambios en el contenedor una vez persistidos los cambios continua al siguiente paso (línea) que se encuentre en el <em>Dockerfile</em>.</p>
+El comando `RUN` ejecuta directamente comandos dentro de el contenedor, y luego persiste los cambios en el contenedor una vez persistidos los cambios continua al siguiente paso (línea) que se encuentre en el *Dockerfile*.
 
-<p>El comando <code>ENV</code> como se pueden imaginar establece variables de ambiente de nuestro contenedor y funciona de la misma manera que un <code>export</code> en Linux o Unix. Algo <strong>muy importamte</strong> con respecto a esto, es que las variables de ambiente se pasan a todas las instrucciones de <code>RUN</code> que se ejecuten posteriores a su declaración.</p>
+El comando `ENV` como se pueden imaginar establece variables de ambiente de nuestro contenedor y funciona de la misma manera que un `export` en Linux o Unix. Algo **muy importamte** con respecto a esto, es que las variables de ambiente se pasan a todas las instrucciones de `RUN` que se ejecuten posteriores a su declaración.
 
-<pre>RUN apt-get update -y
+```sh
+RUN apt-get update -y
 
 RUN apt-get install -y language-pack-en
 ENV LANGUAGE en_US.UTF-8
@@ -111,17 +108,16 @@ ENV LC_ALL en_US.UTF-8
 
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
-</pre>
+```
 
-<p>No quiero entrar mucho en detalles de Sistema Operativo pero, estamos actualizando la paquetería conocida por Ubuntu y luego instalando un paquete de lenguajes en inglés, estoy instalando el de inglés porque casi todo necesita estar en <code>en_US.UTF-8</code> lamentablemente, y la codificación es un tema bastante complejo.</p>
+No quiero entrar mucho en detalles de Sistema Operativo pero, estamos actualizando la paquetería conocida por Ubuntu y luego instalando un paquete de lenguajes en inglés, estoy instalando el de inglés porque casi todo necesita estar en `en_US.UTF-8` lamentablemente, y la codificación es un tema bastante complejo.
 
-<p>Una vez que la actualización de paquetes e instalación culminan estoy estableciendo las variables de ambientes del contenedor referentes al lenguaje del mismo y configurando el contenedor para que las utilice por defecto.</p>
+Una vez que la actualización de paquetes e instalación culminan estoy estableciendo las variables de ambientes del contenedor referentes al lenguaje del mismo y configurando el contenedor para que las utilice por defecto.
 
-<blockquote>
-  <p>Si vas a hacer un contenedor de Ruby te recomiendo utilices esta serie de comandos antes descritos para ahorrarte una pesadilla.</p>
-</blockquote>
+> Si vas a hacer un contenedor de Ruby te recomiendo utilices esta serie de comandos antes descritos para ahorrarte una pesadilla.
 
-<pre>RUN apt-get install -y python-software-properties vim
+```sh
+RUN apt-get install -y python-software-properties vim
 
 RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 RUN add-apt-repository ppa:nginx/stable
@@ -130,67 +126,71 @@ RUN apt-get update -y
 RUN apt-get update -y --fix-missing
 
 RUN apt-get -y install nginx
-</pre>
+```
 
-<p>En este fragmento le estamos diciendo a Ubuntu que se aprenda un nuevo URL a un repositorio oficial de nginx el cual nos permitirá instalar la última versión estable de nginx que a la fecha es la <code>1.4.4</code>. Una vez aprendido el repositorio instalaremos dicha versión.</p>
+En este fragmento le estamos diciendo a Ubuntu que se aprenda un nuevo URL a un repositorio oficial de nginx el cual nos permitirá instalar la última versión estable de nginx que a la fecha es la `1.4.4`. Una vez aprendido el repositorio instalaremos dicha versión.
 
-<h3>ADD, EXPOSE y CMD</h3>
+### ADD, EXPOSE y CMD
 
-<p>El comando <code>ADD</code> es utilizado para copiar archivos hacia el contenedor, por lo tanto utiliza dos argumentos que son la fuente y el destino, si la fuente es un URL Docker se encarga de bajar el archivo de Internet y copiarlo al destino descrito.</p>
+El comando `ADD` es utilizado para copiar archivos hacia el contenedor, por lo tanto utiliza dos argumentos que son la fuente y el destino, si la fuente es un URL Docker se encarga de bajar el archivo de Internet y copiarlo al destino descrito.
 
-<p>Por otro lado el comando <code>EXPOSE</code> lo utilizamos para asociar puertos, permitiéndonos exponer un contenedor con el mundo (la computadora anfitrión).</p>
+Por otro lado el comando `EXPOSE` lo utilizamos para asociar puertos, permitiéndonos exponer un contenedor con el mundo (la computadora anfitrión).
 
-<p>El comando <code>CMD</code> es de cierta manera muy similar al comando <code>RUN</code> con la ligera diferencia que no se ejecuta el comando descrito cuando se corre el comando <code>build</code> sino cuando instanciamos (ponemos a funcionar) el contenedor.</p>
+El comando `CMD` es de cierta manera muy similar al comando `RUN` con la ligera diferencia que no se ejecuta el comando descrito cuando se corre el comando `build` sino cuando instanciamos (ponemos a funcionar) el contenedor.
 
-<pre>RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
+```sh
+RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
 ADD https://gist.github.com/albertogg/8837962/raw/5f49760b953cfafe5cdcab5c2a1350bd7f3b244b/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
 CMD ["nginx"]
-</pre>
+```
 
-<p>Que sucede en esta última etapa de nuestro contenedor, pues estamos cambiando el nombre de la configuración que trae nginx por defecto a <code>/etc/nginx/nginx.conf.old</code> ya que no deberíamos borrar nada <em>nunca</em> y mediante el comando <code>ADD</code> estamos descargando una configuración personalizada que he hecho para vosotros. Podemos decir que la única particularidad que tiene es que nginx no corre daemonizado sino que corre en foreground para mantener nuestro contenedor activo.</p>
+Que sucede en esta última etapa de nuestro contenedor, pues estamos cambiando el nombre de la configuración que trae nginx por defecto a `/etc/nginx/nginx.conf.old` ya que no deberíamos borrar nada *nunca* y mediante el comando `ADD` estamos descargando una configuración personalizada que he hecho para vosotros. Podemos decir que la única particularidad que tiene es que nginx no corre daemonizado sino que corre en foreground para mantener nuestro contenedor activo.
 
-<p>Utilizando el comando <code>EXPOSE</code> estamos indicando que nuestro contenedor debe exponer el puerto 80 a la máquina anfitrión y por último en lo que arranquemos el contenedor se ejecutará el <code>CMD</code> y el mismo debe debe correr el comando <code>nginx</code> para comenzar a servir nuestra página.</p>
+Utilizando el comando `EXPOSE` estamos indicando que nuestro contenedor debe exponer el puerto 80 a la máquina anfitrión y por último en lo que arranquemos el contenedor se ejecutará el `CMD` y el mismo debe debe correr el comando `nginx` para comenzar a servir nuestra página.
 
-<h3>ENTRYPOINT, VOLUME y WORKDIR</h3>
+### ENTRYPOINT, VOLUME y WORKDIR
 
-<p>El comando <code>VOLUME</code> permite al contenedor crear un punto de montura mediante un nombre, es decir si escribimos <code>VOLUME ["/var/www"]</code> estaremos creando un punto de montura en el directorio especificado y esto permite compartir dicho punto de montura con otros contenedores o con la máquina anfitrión.</p>
+El comando `VOLUME` permite al contenedor crear un punto de montura mediante un nombre, es decir si escribimos `VOLUME ["/var/www"]` estaremos creando un punto de montura en el directorio especificado y esto permite compartir dicho punto de montura con otros contenedores o con la máquina anfitrión.
 
-<p>El comando <code>WORKDIR</code> es bastante sencillo, el mismo nos permite especificarle a Docker en que directorio va a ejecutar un <code>CMD</code>. Puede ser algo cómo <code>WORKDIR /var/www</code></p>
+El comando `WORKDIR` es bastante sencillo, el mismo nos permite especificarle a Docker en que directorio va a ejecutar un `CMD`. Puede ser algo cómo `WORKDIR /var/www`
 
-<p>El comando <code>ENTRYPOINT</code> se utiliza generalmente en conjunto con el comando <code>CMD</code> y este especifica un comando a ejecutar, se utiliza principalmente cuando estamos repitiendo mucho el uso de un comando particular. Un ejemplo:</p>
+El comando `ENTRYPOINT` se utiliza generalmente en conjunto con el comando `CMD` y este especifica un comando a ejecutar, se utiliza principalmente cuando estamos repitiendo mucho el uso de un comando particular. Un ejemplo:
 
-<pre>CMD "Hola mundo!"
+```sh
+CMD "Hola mundo!"
 ENTRYPOINT ["/bin/echo"]
-</pre>
+```
 
-<p>Esto ejecutará el <code>CMD</code> cuando el contenedor arranque e imprimirá el mensaje <code>Hola mundo!</code>. Cabe destacar que el comando <code>ENTRYPOINT</code> solo se puede declarar una vez.</p>
+Esto ejecutará el `CMD` cuando el contenedor arranque e imprimirá el mensaje `Hola mundo!`. Cabe destacar que el comando `ENTRYPOINT` solo se puede declarar una vez.
 
-<hr />
+* * *
 
-<h2>¿Cómo correr el contenedor creado?</h2>
+## ¿Cómo correr el contenedor creado?
 
-<p>Una vez que hayamos terminado de agregar al <em>Dockerfile</em> todo lo que hemos visto en esta entrada y hayamos utilizado el comando <code>build</code> y todo haya salido como se espera deberíamos ver algo así cuando ejecutemos el siguiente comando:</p>
+Una vez que hayamos terminado de agregar al *Dockerfile* todo lo que hemos visto en esta entrada y hayamos utilizado el comando `build` y todo haya salido como se espera deberíamos ver algo así cuando ejecutemos el siguiente comando:
 
-<pre>vagrant@packer-virtualbox:~$ sudo docker images
+```sh
+vagrant@packer-virtualbox:~$ sudo docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 codehero/nginx      latest              01ede6f2dbd6        1 days ago         590.1 MB
 ubuntu              12.04               8dbd9e392a96        10 months ago       128 MB
-</pre>
+```
 
-<p>El ver que nuestra imagen se encuentra creada nos dice que todo ha salido correctamente y podemos lanzar el contenedor a ruedo. Para realizar esto empleamos el siguiente comando:</p>
+El ver que nuestra imagen se encuentra creada nos dice que todo ha salido correctamente y podemos lanzar el contenedor a ruedo. Para realizar esto empleamos el siguiente comando:
 
-<pre>$ NGINX=$(sudo docker run -d -p 80:80 codehero/nginx)
-</pre>
+```sh
+$ NGINX=$(sudo docker run -d -p 80:80 codehero/nginx)
+```
 
-<p>Aquí estamos creando una variable de ambiente llamada <code>NGINX</code> que ejecuta el contenedor en <em>background</em> <code>-d</code> y está indicándole a la máquina anfitrión que su puerto <code>-p</code> 80 va a estar atado al puerto 80 del contenedor, por consiguiente todo lo que sirvamos desde nuestro contenedor mediante nginx será visto en la máquina anfitrión directamente sin especificar ningún puerto.</p>
+Aquí estamos creando una variable de ambiente llamada `NGINX` que ejecuta el contenedor en *background* `-d` y está indicándole a la máquina anfitrión que su puerto `-p` 80 va a estar atado al puerto 80 del contenedor, por consiguiente todo lo que sirvamos desde nuestro contenedor mediante nginx será visto en la máquina anfitrión directamente sin especificar ningún puerto.
 
-<p>Si prueban colocar la dirección IP de su máquina virtual en su navegador de internet podrán apreciar la famosa página que contiene el mensaje <strong>Welcome to nginx!</strong>.</p>
+Si prueban colocar la dirección IP de su máquina virtual en su navegador de internet podrán apreciar la famosa página que contiene el mensaje **Welcome to nginx!**.
 
-<hr />
+* * *
 
-<h2>Conclusión</h2>
+## Conclusión
 
-<p>Esta semana pudimos adentrarnos un poco más en esta increíble herramienta llamada Docker. Aprendimos como automatizar el proceso de crear un contenedor mediante su DSL. Puedo dar fe que teniendo bajo la manga el conocimiento de la automatización a la hora de crear contenedores te puede ayudar a olvidarte de los famosos ambientes de producción y desarrollo ya que muy fácilmente puedes emular la máquina de producción o simplemente desplegar tu aplicación en la máquina de producción con el mismo contenedor que utilizaste en el desarrollo, salvando días de angustia. Te invitamos a experimentar un poco más con Docker y que nos dejes cualquier comentario que desees referente a él!</p>
+Esta semana pudimos adentrarnos un poco más en esta increíble herramienta llamada Docker. Aprendimos como automatizar el proceso de crear un contenedor mediante su DSL. Puedo dar fe que teniendo bajo la manga el conocimiento de la automatización a la hora de crear contenedores te puede ayudar a olvidarte de los famosos ambientes de producción y desarrollo ya que muy fácilmente puedes emular la máquina de producción o simplemente desplegar tu aplicación en la máquina de producción con el mismo contenedor que utilizaste en el desarrollo, salvando días de angustia. Te invitamos a experimentar un poco más con Docker y que nos dejes cualquier comentario que desees referente a él!
