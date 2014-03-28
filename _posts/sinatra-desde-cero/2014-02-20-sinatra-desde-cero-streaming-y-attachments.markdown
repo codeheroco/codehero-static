@@ -10,6 +10,9 @@ author_url: http://albertogrespan.com
 wordpress_id: 3045
 wordpress_url: http://codehero.co/?p=3045
 date: 2014-02-20 01:06:08.000000000 -04:30
+serie: Sinatra desde Cero
+thumbnail: http://i.imgur.com/UXeX0sa.png
+description: Doceavo capítulo de la serie Sinatra desde Cero, donde hablamos sobre streaming para hacer una aplicación tipo chat y también sobre archivos adjuntos
 categories:
 - Cursos
 - Sinatra
@@ -51,7 +54,8 @@ tags:
 
 <p>Una vez que tengamos instalada la gema debemos crear un archivo llamado <code>cap12.rb</code> y utilizamos el siguiente código:</p>
 
-<pre lang="ruby">require 'sinatra'
+```ruby
+require 'sinatra'
 set server: 'thin', connections: []
 
 before do
@@ -60,7 +64,7 @@ end
 
 get '/chat' do
   stream(:keep_open) do |out|
-    settings.connections &lt;&lt; out
+    settings.connections << out
     out.callback { settings.connections.delete(out) }
   end
 end
@@ -72,7 +76,7 @@ get '/enviar/:mensaje' do
 
   "Enviado #{params[:mensaje]} el mensaje."
 end
-</pre>
+```
 
 <p>Vamos a explicar un poco cómo funciona, lo primero es agregar Sinatra y luego establecer que el servidor de nuestra aplicación sea <code>thin</code> y crear un arreglo de conexiones vacías.</p>
 
@@ -84,18 +88,21 @@ end
 
 <p>Para probar la aplicación podemos realizar lo siguiente:</p>
 
-<pre>$ ruby cap12.rb
-</pre>
+```sh
+$ ruby cap12.rb
+```
 
 <p>Luego abrimos 2 terminales, en 1 vamos a escribir lo siguiente:</p>
 
-<pre>$ curl http://localhost:4567/chat
-</pre>
+```sh
+$ curl http://localhost:4567/chat
+```
 
 <p>y en el otro vamos a mandar los mensajes:</p>
 
-<pre>$ curl http://localhost:4567/enviar/hola
-</pre>
+```sh
+$ curl http://localhost:4567/enviar/hola
+```
 
 <p>Luego revisamos el terminal del <code>/chat</code> y veremos que está el mensaje que agregamos mediante la ruta. Si desean escribir más pueden hacerlo.</p>
 
@@ -103,7 +110,8 @@ end
 
 <p>A diferencia de la conexión abierta este se encarga de enviar los datos necesarios y luego finalizar la conexión. Dentro del mismo archivo <code>cap12.rb</code> u otro si desean debemos agregar el siguiente código:</p>
 
-<pre lang="ruby">require 'sinatra'
+```ruby
+require 'sinatra'
 set server: 'thin'
 
 before do
@@ -119,7 +127,7 @@ get '/' do
     out << "¿Todo bien? \n"
   end
 end
-</pre>
+```
 
 <p>Aquí estamos de igual manera utilizando el método <code>stream</code> para escribir en el bloque con variable <code>out</code> todos los mensajes que necesitamos enviar, cuando se terminen cerramos el <code>stream</code>.</p>
 
@@ -141,7 +149,8 @@ end
 
 <p>Podemos seguir utilizando el archivo <code>cap12.rb</code> o crear uno nuevo:</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 set server: 'thin'
 
 before do
@@ -152,26 +161,27 @@ get '/adjunto' do
   attachment 'archivo.txt'
   "Almacena el archivo!"
 end
-</pre>
+```
 
 <p>Aquí observamos que existe una nueva ruta <code>/adjunto</code> que contiene un método llamado <code>attachment</code>; este método puede recibir un archivo o no, pero aquí lo estamos utilizando con un archivo llamado <code>archivo.txt</code>.</p>
 
 <p>Si ahora hacemos la petición via <code>cURL</code> vamos a observar que el encabezado del la petición tiene una variable que se llama <code>Content-Disposition</code> que indica a que la petición tiene un archivo adjunto y cual es el nombre del archivo, hagamos la prueba:</p>
 
-<pre>$ curl -v http://localhost:4567/adjunto
+```sh
+$ curl -v http://localhost:4567/adjunto
 
-&lt; HTTP/1.1 200 OK
-&lt; Content-Type: text/plain;charset=utf-8
-&lt; Content-Disposition: attachment; filename="archivo.txt"
-&lt; Content-Length: 20
-&lt; X-Content-Type-Options: nosniff
-&lt; Connection: keep-alive
+< HTTP/1.1 200 OK
+< Content-Type: text/plain;charset=utf-8
+< Content-Disposition: attachment; filename="archivo.txt"
+< Content-Length: 20
+< X-Content-Type-Options: nosniff
+< Connection: keep-alive
 * Server thin 1.6.1 codename Death Proof is not blacklisted
-&lt; Server: thin 1.6.1 codename Death Proof
-&lt;
+< Server: thin 1.6.1 codename Death Proof
+<
 * Connection #0 to host localhost left intact
 Almacena el archivo!%
-</pre>
+```
 
 <p>Como lo expliqué anteriormente apreciamos la variable que a su vez contiene el nombre del archivo llamado <code>archivo.txt</code>.</p>
 

@@ -10,6 +10,8 @@ author_url: http://albertogrespan.com
 wordpress_id: 2902
 wordpress_url: http://codehero.co/?p=2902
 date: 2014-01-09 00:10:25.000000000 -04:30
+serie: Sinatra desde Cero
+description: Décimo capítulo de la serie Sinatra desde Cero donde aprendemos a instalar y utilizar de manera muy básica DataMapper para el acceso a base de datos.
 categories:
 - Cursos
 - Sinatra
@@ -47,8 +49,9 @@ tags:
 <li>La primera es incluirla en el <em>Gemfile</em>:</li>
 </ul>
 
-<pre>gem 'data_mapper'
-</pre>
+```ruby
+gem 'data_mapper'
+```
 
 <p>Y luego correr el comando <code>bundle install</code>.</p>
 
@@ -56,8 +59,9 @@ tags:
 <li>La segunda es instalarla manualmente por la linea de comando:</li>
 </ul>
 
-<pre>$ gem install data_mapper
-</pre>
+```sh
+$ gem install data_mapper
+```
 
 <p>Una vez que tengamos instalada la gema debemos instalar la librería de comunicación (adapters) con la base de datos de nuestra preferencia. Pueden ser Mysql, SQLite o Postgres. Nosotros utilizaremos SQLite en este curso, por lo que las instrucciones serán para este. El resto de las librerías de comunicación se pueden ver <a href="http://datamapper.org/getting-started.html">aquí</a>.</p>
 
@@ -65,18 +69,21 @@ tags:
 
 <p>Para <strong><em>Ubuntu</em></strong> o <strong><em>Debian</em></strong></p>
 
-<pre>$ sudo apt-get install libsqlite3-dev
-</pre>
+```sh
+$ sudo apt-get install libsqlite3-dev
+```
 
 <p>Para <strong><em>OS X</em></strong> mediante <em><a href="http://codehero.co/como-lo-hago-instalar-homebrew/">Hombrew</a></em>.</p>
 
-<pre>$ brew install sqlite
-</pre>
+```sh
+$ brew install sqlite
+```
 
 <p>Luego de que la tenemos instalada debemos instalar la librería de comunicación entre DataMapper y SQLite:</p>
 
-<pre>$ gem install dm-sqlite-adapter
-</pre>
+```sh
+$ gem install dm-sqlite-adapter
+```
 
 <p>O realizamos lo propio mediante el <em>Gemfile</em>.</p>
 
@@ -90,22 +97,25 @@ tags:
 
 <p>Abrimos la consola interactiva de Ruby:</p>
 
-<pre>$ irb
-</pre>
+```sh
+$ irb
+```
 
 <blockquote>
   <p>Todos los comandos a partir de este momento se ejecutan dentro de <code>irb</code>.</p>
 </blockquote>
 
-<pre>require 'data_mapper'
+```ruby
+require 'data_mapper'
 DataMapper.setup(:default, 'sqlite::memory:')
-</pre>
+```
 
 <p>En este momento podemos efectivamente crear cualquier modelo de base de datos y comenzar a trabajar en el.</p>
 
 <p>Nosotros crearemos un modelo <em>Usuario</em> con los siguientes atributos, <em>id, email, nombre, fecha_de_creacion</em>. Para esto debemos definir una clase que contiene los campos de la base de datos como propiedades en conjunto con su tipo de dato.</p>
 
-<pre>class User
+```ruby
+class User
   include DataMapper::Resource
 
   property :id, Serial
@@ -113,7 +123,7 @@ DataMapper.setup(:default, 'sqlite::memory:')
   property :nombre, String
   property :created_at, DateTime
 end
-</pre>
+```
 
 <p>Una vez que tengamos nuestro modelo listo debemos llamar <code>DataMapper.finalize</code> esta llamada nos permite decirle a nuestra aplicación que hemos establecido correctamente la base de datos y ya puede acceder a ella. Esta llamada al API debe realizarse justo antes de empezar a acceder a la data cuando en teoría hemos establecido un modelo de datos "final" o "definitivo". Es a decisión del programador elegir el momento correcto para realizar la llamada a este método.</p>
 
@@ -123,28 +133,35 @@ end
 
 <p>Vamos a crear un usuario usando el método <em>create</em> y el segundo usuario con el método <em>new</em> y <em>save</em> que vienen siendo lo mismo que el <em>create</em> pero en dos pasos.</p>
 
-<pre>@user = User.create(email: "alberto@codehero.co", nombre: "alberto", created_at: Time.now)
+```ruby
+@user = User.create(email: "alberto@codehero.co", nombre: "alberto", created_at: Time.now)
 @user2 = User.new(email: "jonathan@codehero.co", nombre: "jonathan", created_at: Time.now)
 @user2.save
-</pre>
+```
 
 <p>Ahora pueden probar que los elementos realmente están creados haciendo el siguiente <em>query</em> que retorna todos los usuarios en base de datos:</p>
 
-<pre>@users = User.all
-</pre>
+```ruby
+@users = User.all
+```
 
-<blockquote>
-  <p>Debería retornar lo siguiente: <code>[#&lt;User @id=1 @email="alberto@codehero.co" @nombre="alberto" @created_at=#&lt;DateTime: 2014-01-08T23:07:39-04:30 ((2456667j,13059s,0n),-16200s,2299161j)&gt;&gt;, #&lt;User @id=2 @email="jonathan@codehero.co" @nombre="jonathan" @created_at=#&lt;DateTime: 2014-01-08T23:07:46-04:30 ((2456667j,13066s,0n),-16200s,2299161j)&gt;&gt;]</code></p>
-</blockquote>
+Debería retornar lo siguiente:
 
-<p>Si ahora quisiéramos buscar el usuario con <code>id = 2</code> debemos realizar el siguiente <em>query</em>:</p>
+```ruby
+[#<User @id=1 @email="alberto@codehero.co" @nombre="alberto" @created_at=#<DateTime: 2014-01-08T23:07:39-04:30 ((2456667j,13059s,0n),-16200s,2299161j)>>, #<User @id=2 @email="jonathan@codehero.co" @nombre="jonathan" @created_at=#<DateTime: 2014-01-08T23:07:46-04:30 ((2456667j,13066s,0n),-16200s,2299161j)>>]
+```
 
-<pre>@u = User.get(2)
-</pre>
+Si ahora quisiéramos buscar el usuario con `id = 2` debemos realizar el siguiente *query*:
 
-<blockquote>
-  <p>Debería retornar: <code>#&lt;User @id=2 @email="jonathan@codehero.co" @nombre="jonathan" @created_at=#&lt;DateTime: 2014-01-08T23:12:37-04:30 ((2456667j,13357s,0n),-16200s,2299161j)&gt;&gt;</code></p>
-</blockquote>
+```ruby
+@u = User.get(2)
+```
+
+Debería retornar:
+
+```ruby
+<User @id=2 @email="jonathan@codehero.co" @nombre="jonathan" @created_at=#<DateTime: 2014-01-08T23:12:37-04:30 ((2456667j,13357s,0n),-16200s,2299161j)>>
+```
 
 <p>Cómo pueden observar por lo que hemos realizado hasta los momentos, DataMapper es bastante sencillo de utilizar y muy práctico para casi cualquier tarea.</p>
 

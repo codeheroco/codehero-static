@@ -10,6 +10,8 @@ author_url: http://albertogrespan.com
 wordpress_id: 3008
 wordpress_url: http://codehero.co/?p=3008
 date: 2014-02-13 00:46:11.000000000 -04:30
+serie: Sinatra desde Cero
+description: Capítulo once de la serie Sinatra desde Cero, donde hablamos sobre caching de recursos de varias maneras, como realizarlo, además hablamos sobre etags.
 categories:
 - Cursos
 - Sinatra
@@ -57,7 +59,8 @@ tags:
 
 <p>Para agregar el encabezado <code>Cache-Control</code> manualmente, creemos el siguiente archivo:</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 before do
   content_type :txt
@@ -68,13 +71,14 @@ get '/' do
           "Expires" => Time.at(Time.now.to_i + (60 * 60)).to_s
   "This page rendered at #{Time.now}."
 end
-</pre>
+```
 
 <p>Cómo siempre debemos tener Sinatra instalado y agregarlo al archivo por medio de un require. Si observamos la ruta <code>'/'</code> podemos apreciar que estamos explícitamente indicándole a Sinatra que agregue un encabezado a la petición llamado <code>Cache-Control</code> que tiene un tiempo de vida <code>max-age</code> de una hora y se debe revalidar en lo que se sirva el archivo y presente el caché expirado. Luego estamos confirmando la fecha en la que debe expirar.</p>
 
 <p>Vamos a hacer la petición mediante un <code>cURL</code> ampliada con <code>-v</code> verbose para ver que está ocurriendo:</p>
 
-<pre>$ curl -v localhost:4567
+```sh
+$ curl -v localhost:4567
 * Adding handle: conn: 0x7f9909803a00
 * Adding handle: send: 0
 * Adding handle: recv: 0
@@ -101,7 +105,7 @@ end
 <
 * Connection #0 to host localhost left intact
 Página cargada a las 2014-02-12 21:15:42 -0430.
-</pre>
+```
 
 <p>Podemos ver que la petición arrojó un código 200 OK y a su vez vemos todo el encabezado de dicha petición. Apreciamos lo siguiente:</p>
 
@@ -116,7 +120,8 @@ Página cargada a las 2014-02-12 21:15:42 -0430.
 
 <p>Para agregar el encabezado mediante el helper <code>expires</code> realizamos lo siguiente:</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 before do
   content_type :txt
@@ -126,13 +131,14 @@ get '/2' do
   expires 3600, :public, :must_revalidate
   "Página cargada a las: #{Time.now}."
 end
-</pre>
+```
 
 <p>Utilizando la etiqueta <code>expires</code> realizamos exactamente lo mismo que hicimos manualmente pero por medio del helper; es decir él agregará las etiquetas de <code>Cache-Control</code> y <code>Expires</code> al encabezado de la petición.</p>
 
 <p>Hagamos la prueba utilizando <code>cURL</code> nuevamente:</p>
 
-<pre>$ curl -i localhost:4567/2
+```sh
+$ curl -i localhost:4567/2
 < HTTP/1.1 200 OK
 < Content-Type: text/plain;charset=utf-8
 < Cache-Control: public, must-revalidate, max-age=3600
@@ -146,7 +152,7 @@ end
 <
 * Connection #0 to host localhost left intact
 Página cargada a las: 2014-02-12 21:18:08 -0430.
-</pre>
+```
 
 <p>Volvemos a apreciar que la petición responde con un código 200 OK y la misma contiene las etiquetas antes descritas y funciona correctamente.</p>
 
@@ -154,7 +160,8 @@ Página cargada a las: 2014-02-12 21:18:08 -0430.
 
 <p>Para agregar el encabezado <code>Last-Modified</code> podemos realizarlo de la siguiente manera:</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 
 before do
   content_type :txt
@@ -164,13 +171,14 @@ get '/hola' do
   @article = '2014-02-12 21:56:25 -0430'
   last_modified @article
 end
-</pre>
+```
 
 <p>Muy sencillo, al igual que <code>Expires</code>, <code>last_modified</code> es un helper el cual acepta como parámetro un identificador de tiempo, tal como un campo <code>updated_at</code> de tipo <code>Date</code> en la base de datos. Por no tener base de datos estamos simulando un objeto @article que representa una fecha y agregando esa información al campo <code>Last-Modified</code> para validar el momento de última modificación.</p>
 
 <p>Si ahora probamos con la herramienta <code>cURL</code> podremos observar que se agregó dicho campo al encabezado.</p>
 
-<pre>$ curl -i localhost:4567/hola
+```ruby
+$ curl -i localhost:4567/hola
 HTTP/1.1 200 OK
 Content-Type: text/plain;charset=utf-8
 Last-Modified: Thu, 13 Feb 2014 02:26:25 GMT
@@ -179,7 +187,7 @@ X-Content-Type-Options: nosniff
 Server: WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22)
 Date: Thu, 13 Feb 2014 02:43:55 GMT
 Connection: Keep-Alive
-</pre>
+```
 
 <p>Podemos apreciar que la etiqueta se encuentra en el encabezado y se recibió un código 200 OK. Un detalle importante no mencionado anteriormente es que si la información que se presenta ya la tiene el usuario en caché el servidor responderá con un código 304 Not modified volviendo a cargar el contenido que se encontraba en caché.</p>
 
@@ -193,7 +201,8 @@ Connection: Keep-Alive
 
 <p>Vamos a agregar el Etag a nuestro encabezado:</p>
 
-<pre>require 'sinatra'
+```ruby
+require 'sinatra'
 require 'digest/sha1'
 
 before do
@@ -206,13 +215,14 @@ get '/etag' do
   etag @article_etag
   "Valor del Etag: #{@article_etag}."
 end
-</pre>
+```
 
 <p>Podemos apreciar que se requiere la librería <code>digest/sha1</code> para poder realizar le el checksum al objeto @article para generar el objeto @article_etag. Luego solo debemos agregar la etiqueta <code>etag</code> y pasarle el objeto <code>@article_etag</code> a la misma.</p>
 
 <p>Si hacemos la petición del URL <code>/etag</code> apreciamos lo siguiente:</p>
 
-<pre>curl -i localhost:4567/etag
+```ruby
+curl -i localhost:4567/etag
 HTTP/1.1 200 OK
 Content-Type: text/plain;charset=utf-8
 Etag: "617f6a40761c57030dabf997bd912abf5c61729f"
@@ -223,7 +233,7 @@ Date: Thu, 13 Feb 2014 04:37:54 GMT
 Connection: Keep-Alive
 
 Valor del Etag: 617f6a40761c57030dabf997bd912abf5c61729f.%
-</pre>
+```
 
 <p>Se generó correctamente dicha etiqueta y es un número que nos permitirá detallar si algo fue modificado en el objeto, sea lo que sea.</p>
 
