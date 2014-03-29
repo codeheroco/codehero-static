@@ -10,6 +10,8 @@ author_url: http://albertogrespan.com
 wordpress_id: 3068
 wordpress_url: http://codehero.co/?p=3068
 date: 2014-02-27 01:41:42.000000000 -04:30
+serie: Ruby on Rails desde Cero
+description: Capítulo número 16 de la serie Ruby on Rails desde Cero, donde hablamos sobre como internacionalizar la aplicación para que funcione en múltiples idiomas.
 categories:
 - Cursos
 - Ruby on Rails
@@ -18,21 +20,22 @@ tags:
 - Ruby on Rails
 - Internacionalización
 ---
-<p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior aprendimos como se generan los controladores para la aplicación, que representan los métodos en nuestros controladores y cómo se leen parámetros ya sean en el URL o enviados por POST dentro de un formulario.</p>
+Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior aprendimos como se generan los controladores para la aplicación, que representan los métodos en nuestros controladores y cómo se leen parámetros ya sean en el URL o enviados por POST dentro de un formulario.
 
-<p>En este nuevo capítulo aprenderemos de manera sencilla como internacionalizar nuestras aplicaciones para que funcionen en múltiples idiomas.</p>
+En este nuevo capítulo aprenderemos de manera sencilla como internacionalizar nuestras aplicaciones para que funcionen en múltiples idiomas.
 
-<hr />
+* * *
 
-<h2>Archivos de Lenguaje</h2>
+## Archivos de Lenguaje
 
-<p>Dentro de todos los proyectos Rails existen archivos y configuraciones que permiten hacer uso de la librería <code>i18n</code> (Internationalization) de Ruby que está contenida dentro de la librería <code>activesupport</code> una de las tantas dependencias de Rails que permite entre tantas cosas realizar aplicaciones en múltiples idiomas. Para poder hacer uso de las propiedades de las librerías antes descritas, debemos hacer uso de unos archivos particulares que se encuentran en una carpeta llamada <code>locales</code> y agregar información a unos archivos con extensión <code>.rb</code> o <code>.yml</code>.</p>
+Dentro de todos los proyectos Rails existen archivos y configuraciones que permiten hacer uso de la librería `i18n` (Internationalization) de Ruby que está contenida dentro de la librería `activesupport` una de las tantas dependencias de Rails que permite entre tantas cosas realizar aplicaciones en múltiples idiomas. Para poder hacer uso de las propiedades de las librerías antes descritas, debemos hacer uso de unos archivos particulares que se encuentran en una carpeta llamada `locales` y agregar información a unos archivos con extensión `.rb` o `.yml`.
 
-<h3>¿Donde se encuentra esta carpeta?</h3>
+### ¿Donde se encuentra esta carpeta?
 
-<p>Nuestra carpeta y archivos para realizar las traducciones se encuentran en la dentro de la carpeta <code>config</code> ubicada en la raíz del proyecto y en la subcarpeta <code>locales</code>.</p>
+Nuestra carpeta y archivos para realizar las traducciones se encuentran en la dentro de la carpeta `config` ubicada en la raíz del proyecto y en la subcarpeta `locales`.
 
-<pre lang="html">.
+```sh
+.
 ├── app
 │   ├── bundle
 │   ├── rails
@@ -59,15 +62,16 @@ tags:
 │   └── routes.rb
 ├── config.ru
 ├── db
-</pre>
+```
 
-<p>Todos los archivos que agreguemos en esa carpeta que tengan extensiones <code>.rb</code> o <code>.yml</code> funcionarán automáticamente.</p>
+Todos los archivos que agreguemos en esa carpeta que tengan extensiones `.rb` o `.yml` funcionarán automáticamente.
 
-<h3>¿Qué contiene el archivo en.yml?</h3>
+### ¿Qué contiene el archivo en.yml?
 
-<p>Este archivo contiene una serie de instrucciones que nos enseña a través de ejemplos como lograr que nuestras traducciones funcionen correctamente utilizando los <em>helpers</em> de Rails.</p>
+Este archivo contiene una serie de instrucciones que nos enseña a través de ejemplos como lograr que nuestras traducciones funcionen correctamente utilizando los *helpers* de Rails.
 
-<pre lang="html"># Files in the config/locales directory are used for internationalization
+```yaml
+# Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
 #
@@ -90,17 +94,18 @@ tags:
 
 en:
   hello: "Hello world"
-</pre>
+```
 
-<p>Sencillo, ¿cierto?, Ahora cambiemos el idioma por defecto de Rails.</p>
+Sencillo, ¿cierto?, Ahora cambiemos el idioma por defecto de Rails.
 
-<h3>¿Cómo cambiar el idioma por defecto?</h3>
+### ¿Cómo cambiar el idioma por defecto?
 
-<p>El idioma por defecto de casi todo lo que existe es el Inglés ya que podríamos decir que es el idioma universal. Para cambiar el idioma por defecto a español debemos realizar lo siguiente:</p>
+El idioma por defecto de casi todo lo que existe es el Inglés ya que podríamos decir que es el idioma universal. Para cambiar el idioma por defecto a español debemos realizar lo siguiente:
 
-<p>Ir a la carpeta <code>config</code> y abrir el archivo <code>application.rb</code>.</p>
+Ir a la carpeta `config` y abrir el archivo `application.rb`.
 
-<pre lang="ruby">require File.expand_path('../boot', __FILE__)
+```ruby
+require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
@@ -123,35 +128,39 @@ module Lolapp
     config.i18n.default_locale = :es
   end
 end
-</pre>
+```
 
-<p>Debemos borrar el carácter <code>#</code> de comentario la última línea del archivo y debemos cambiar el término <code>:de</code> por <code>:es</code> y reiniciar el servidor de Rails si estaba corriendo. Es decir volver a ejecutar <code>rails s</code>.</p>
+Debemos borrar el carácter `#` de comentario la última línea del archivo y debemos cambiar el término `:de` por `:es` y reiniciar el servidor de Rails si estaba corriendo. Es decir volver a ejecutar `rails s`.
 
-<p>Luego de esto podemos copiar el archivo <code>en.yml</code> de la carpeta <code>config/locales</code> y cambiarle el nombre a <code>es.yml</code>, siempre dejando el archivo en inglés.</p>
+Luego de esto podemos copiar el archivo `en.yml` de la carpeta `config/locales` y cambiarle el nombre a `es.yml`, siempre dejando el archivo en inglés.
 
-<pre lang="sh">$ cp config/locales/en.yml config/locales/es.yml
-</pre>
+```sh
+$ cp config/locales/en.yml config/locales/es.yml
+```
 
-<p>Esto nos permitirá tener una base de trabajo para realizar las traducciones en inglés y en español.</p>
+Esto nos permitirá tener una base de trabajo para realizar las traducciones en inglés y en español.
 
-<p>Algo que debemos recordar es que si queremos tener los archivos de idiomas en otra carpeta que no sea la antes descrita, debemos indicarle a Rails cual será esta carpeta y la extensión de los archivos que maneja. Para realizar esto debemos borrar el carácter de comentario <code>#</code> y modificar la penultima línea del mismo archivo application.rb.</p>
+Algo que debemos recordar es que si queremos tener los archivos de idiomas en otra carpeta que no sea la antes descrita, debemos indicarle a Rails cual será esta carpeta y la extensión de los archivos que maneja. Para realizar esto debemos borrar el carácter de comentario `#` y modificar la penultima línea del mismo archivo application.rb.
 
-<pre lang="ruby"># The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+```ruby
+# The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
 config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-</pre>
+```
 
-<p>Ahora para lograr que estos archivos entren en funcionamiento debemos agregarlos a las rutas.</p>
+Ahora para lograr que estos archivos entren en funcionamiento debemos agregarlos a las rutas.
 
-<h3>¿Cómo agregar el idioma a las rutas?</h3>
+### ¿Cómo agregar el idioma a las rutas?
 
-<p>Para agregar el idioma primero, debemos crear un scaffold para tener una ruta o podemos utilizar un proyecto que tengamos. Para esta prueba vamos a crear un scaffold de ventas:</p>
+Para agregar el idioma primero, debemos crear un scaffold para tener una ruta o podemos utilizar un proyecto que tengamos. Para esta prueba vamos a crear un scaffold de ventas:
 
-<pre lang="sh">$ rails g scaffold Sales precio:string nombre:string
-</pre>
+```sh
+$ rails g scaffold Sales precio:string nombre:string
+```
 
-<p>Luego corremos las migraciones <code>bundle exec rake db:migrate</code> una vez que tengamos todo en orden procedemos a agregar al controlador principal de nuestra aplicación <code>application_controller.rb</code> las siguientes líneas:</p>
+Luego corremos las migraciones `bundle exec rake db:migrate` una vez que tengamos todo en orden procedemos a agregar al controlador principal de nuestra aplicación `application_controller.rb` las siguientes líneas:
 
-<pre lang="ruby">before_action :set_locale
+```ruby
+before_action :set_locale
 
 def set_locale
   I18n.locale = params[:locale] || I18n.default_locale
@@ -160,78 +169,81 @@ end
 def default_url_options(options={})
   { locale: I18n.locale }
 end
-</pre>
+```
 
-<p>¿Que hacen estas líneas que agregamos?</p>
+¿Que hacen estas líneas que agregamos?
 
-<p>La primera línea permite entregar antes de cualquier acción que solicitemos a la aplicación asignar o a leer el parámetro <code>locale</code> que viene en el url; esto se hace a través del método <code>set_locale</code>. Las líneas restantes representados en el método <code>default_url_options</code> son las que agregan de manera centralizada el parámetro <code>en</code> o <code>es</code> a nuestro url.</p>
+La primera línea permite entregar antes de cualquier acción que solicitemos a la aplicación asignar o a leer el parámetro `locale` que viene en el url; esto se hace a través del método `set_locale`. Las líneas restantes representados en el método `default_url_options` son las que agregan de manera centralizada el parámetro `en` o `es` a nuestro url.
 
-<p>Una vez que tenemos la base para agregar el idioma al URL debemos elegir como queremos estilar nuestro dicho URL:</p>
+Una vez que tenemos la base para agregar el idioma al URL debemos elegir como queremos estilar nuestro dicho URL:
 
-<ul>
-<li>Queremos que tenga <code>localhost:3000/sales?locale=es</code></li>
-<li>Queremos que sea más limpio, algo cómo <code>localhost:300/es/sales</code></li>
-</ul>
+- Queremos que tenga `localhost:3000/sales?locale=es`
+- Queremos que sea más limpio, algo cómo `localhost:300/es/sales`
 
-<p>Si nos importa la legibilidad del URL aplicamos la segunda opción, y esto lo logramos de la siguiente manera:</p>
+Si nos importa la legibilidad del URL aplicamos la segunda opción, y esto lo logramos de la siguiente manera:
 
-<p>En el archico <code>config/routes.rb</code> vamos a buscar nuestra ruta <code>resources: sales</code> y le vamos a agregar lo siguiente.</p>
+En el archico `config/routes.rb` vamos a buscar nuestra ruta `resources: sales` y le vamos a agregar lo siguiente.
 
-<pre lang="ruby">scope "(:locale)", locale: /es|en/ do
+```ruby
+scope "(:locale)", locale: /es|en/ do
   resources :sales
 end
-</pre>
+```
 
-<p>Esto nos permitirá tener el <code>locale</code> <code>/es/</code> opcional en nuestro URL, si no lo agregamos la ruta funcionará normalmente pero agarrará el el idioma por defecto que es castellano. De igual manera funcionará la ruta si agregamos <code>/es/</code> o cambiará el idioma si agregamos <code>/en/</code>.</p>
+Esto nos permitirá tener el `locale` `/es/` opcional en nuestro URL, si no lo agregamos la ruta funcionará normalmente pero agarrará el el idioma por defecto que es castellano. De igual manera funcionará la ruta si agregamos `/es/` o cambiará el idioma si agregamos `/en/`.
 
-<p>Cómo últimas etapas debemos agregar contenido a nuestros archivos de locales.</p>
+Cómo últimas etapas debemos agregar contenido a nuestros archivos de locales.  
 
-<h3>Lazy Lookup vs Full path</h3>
+### Lazy Lookup vs Full path
 
-<p>Vamos a agregar el contenido a los archivos <code>en.yml</code> y <code>es.yml</code>.</p>
+Vamos a agregar el contenido a los archivos `en.yml` y `es.yml`.
 
-<p>En nuestro archivo <code>es.yml</code>:</p>
+En nuestro archivo `es.yml`:
 
-<pre lang="yml">es:
+```yaml
+es:
   sales:
     index:
       title: "Listado de Ventas"
-</pre>
+```
 
-<p>En nuestro archivo <code>en.yml</code>:</p>
+En nuestro archivo `en.yml`:
 
-<pre lang="yml">en:
+```yaml
+en:
   sales:
     index:
       title: "Listing of Sales"
-</pre>
+```
 
-<p>Lo que estamos diciendo aquí; por una cuestión de orden y a su vez para que funcione el Lazy Lookup es:</p>
+Lo que estamos diciendo aquí; por una cuestión de orden y a su vez para que funcione el Lazy Lookup es:
 
-<p>En la capeta de las vistas <code>app/views/</code> vas a buscar una carpeta llamada <code>sales</code> y luego el archivo <code>index</code> dentro de ese archivo hay un título (<code>title</code>) y va a llevar el siguiente contenido <code>"Listing of Sales"</code> o <code>"Listado de Ventas"</code> dependiendo del idioma.</p>
+En la capeta de las vistas `app/views/` vas a buscar una carpeta llamada `sales` y luego el archivo `index` dentro de ese archivo hay un título (`title`) y va a llevar el siguiente contenido `"Listing of Sales"` o `"Listado de Ventas"` dependiendo del idioma.
 
-<p>Si ahora vamos a la vista antes descrita y agregamos en la primera línea lo siguiente:</p>
+Si ahora vamos a la vista antes descrita y agregamos en la primera línea lo siguiente:
 
-<pre lang="html"><%= t '.title' %>
-</pre>
+```html
+<%= t '.title' %>
+```
 
-<p>Luego podremos observar que al ir al siguiente URL <code>http://localhost:3000/es/sales</code> o <code>http://localhost:3000/en/sales</code> el título cambia de idioma.</p>
+Luego podremos observar que al ir al siguiente URL `http://localhost:3000/es/sales` o `http://localhost:3000/en/sales` el título cambia de idioma.
 
-<p>Lo que estamos realizado con el código en la vista es utilizar el helper <code>t</code> que indica que debe ir a buscar en los archivos de locale la traducción con nombre <code>title</code> que corresponda al archivo <code>views/sales/index.erb.html</code>.</p>
+Lo que estamos realizado con el código en la vista es utilizar el helper `t` que indica que debe ir a buscar en los archivos de locale la traducción con nombre `title` que corresponda al archivo `views/sales/index.erb.html`.
 
-<p>Eso que acabamos de hacer es Lazy Lookup ya que no estamos especificando la ruta completa a la traducción que estamos solicitando y por esta razón es tan importante tener estos archivos muy ordenados.</p>
+Eso que acabamos de hacer es Lazy Lookup ya que no estamos especificando la ruta completa a la traducción que estamos solicitando y por esta razón es tan importante tener estos archivos muy ordenados.
 
-<p>Si quisiéramos poner la traducción con la ruta completa o full path, también pusiésemos realizándolo de la siguiente manera:</p>
+Si quisiéramos poner la traducción con la ruta completa o full path, también pusiésemos realizándolo de la siguiente manera:
 
-<pre lang="ruby"><%= t 'sales.index.title' %>
-</pre>
+```html
+<%= t 'sales.index.title' %>
+```
 
-<p>En caso de querer tener un orden personalizado las rutas completas funcionarían perfectamente.</p>
+En caso de querer tener un orden personalizado las rutas completas funcionarían perfectamente.
 
-<hr />
+* * *
 
-<h2>Conclusión.</h2>
+## Conclusión.
 
-<p>En esta lección aprendimos a utilizar una de las propiedades de <code>activesupport</code> en particular para el uso de i18n o internacionalización de nuestras aplicaciones. En el próximo capítulo estaremos hablando un poco más de las funcionalidad de la librería <code>activesupport</code> de Rails. Siéntanse libres en consultar cualquier duda a través de los comentarios.</p>
+En esta lección aprendimos a utilizar una de las propiedades de `activesupport` en particular para el uso de i18n o internacionalización de nuestras aplicaciones. En el próximo capítulo estaremos hablando un poco más de las funcionalidad de la librería `activesupport` de Rails. Siéntanse libres en consultar cualquier duda a través de los comentarios.
 
-<p>¡Hasta el próximo capítulo!</p>
+¡Hasta el próximo capítulo!
