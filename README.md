@@ -9,7 +9,7 @@ probablemente si usan un manejador de versiones de ruby como (rbenv, chruby o
 rvm) no tengan ninguna dificultad para instalar esta versión (se vale llamarme
 si tienen un peo).
 
-- Ruby 2.0.0-p353
+- Ruby 2.0.0-p451
 - Bundler
 
 Si estan usando rbenv:
@@ -53,14 +53,14 @@ $ rbenv install | xargs cat .ruby-version
 ```
 
 Cuando termine de instalar esa versión de ruby la setean como la versión por
-defecto a utilizar en su maquína. En este caso es la versión `2.0.0-p353`
+defecto a utilizar en su maquína. En este caso es la versión `2.0.0-p451`
 ```sh
-$ rbenv global 2.0.0-p353
+$ rbenv global 2.0.0-p451
 ```
 
 Revisan que sea la versión por defecto y listo.
 ```sh
-$ ruby -v # ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin12.5.0]
+$ ruby -v # ruby 2.0.0p451 (2014-02-24 revision 45167) [x86_64-darwin13.1.0]
 ```
 
 Continuamos con la instalación del aplicativo y no de ruby.

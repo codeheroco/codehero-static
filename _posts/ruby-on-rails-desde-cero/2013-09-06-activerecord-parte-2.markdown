@@ -68,7 +68,7 @@ Usuario.joins(:direccions, :facturas)
 
 ```ruby
 SELECT usuarios.* FROM usuarios
-  INNER JOIN direccions ON usuarios.usuario_id= direccions.id
+  INNER JOIN direccions ON direccions.usuario_id= usuarios.id
   INNER JOIN facturas ON facturas.usuario_id = usuarios.id
 ```
 
@@ -84,7 +84,7 @@ Usuario.joins(direccions: :telefonos)
 
 ```ruby
 SELECT usuarios.* FROM usuarios
-  INNER JOIN direccions ON usuarios.usuario_id= direccions.id
+  INNER JOIN direccions ON direccions.usuario_id= usuarios.id
   INNER JOIN telefonos ON telefonos.direccion_id = direccions.id
 ```
 
