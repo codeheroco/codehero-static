@@ -60,6 +60,8 @@ En ambientes Linux que posean NUMA (Acceso de memoria no uniforme) se debe desac
 
 ***
 
+{% include middle-post-ad.html %}
+
 ## Disponibilidad y Rendimiento
 
 Se recomienda ampliamente utilizar [*replica sets*](http://codehero.co/mongodb-desde-cero-replicacion-parte-i/), esto ayudará a mantener la base de datos siempre disponible sin importar si alguno de sus nodos falla.

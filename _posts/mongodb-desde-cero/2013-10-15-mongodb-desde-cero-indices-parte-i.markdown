@@ -118,6 +118,8 @@ La semana pasada jugamos unas 15 rondas de poker, creamos una colección **puntu
 
 > Ya sabes como se [insertan](http://codehero.co/mongodb-desde-cer-operaciones-basicas/) estos documentos así que no hay excusa ;).
 
+{% include middle-post-ad.html %}
+
 ##Obtener índices
 Como mencionamos anteriormente el campo `_id` es el índice por defecto que crea MongoDB. Podemos comprobarlo de la siguiente manera:
 

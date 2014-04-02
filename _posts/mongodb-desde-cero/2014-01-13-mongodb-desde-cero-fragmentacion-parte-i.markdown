@@ -45,6 +45,9 @@ En MongoDB la unidad de base de datos que se fragmenta son las colecciones. Por 
 > Un único documento nunca estará repartido entre fragmentos. Un documento puede tener un tamaño máximo de 16MB, en caso de necesitar mayor tamaño para un documento se necesitaría implementar la solución de GridFS el cual separa el documento en varios trozos o *chunks*.
 
 ***
+
+{% include middle-post-ad.html %}
+
 ##Arquitectura
 Un *cluster* de fragmentación suele poseer una arquitectura como esta:
 

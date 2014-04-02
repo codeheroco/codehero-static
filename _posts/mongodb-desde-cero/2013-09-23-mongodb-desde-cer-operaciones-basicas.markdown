@@ -153,6 +153,8 @@ En este caso estamos filtrando por aquellos autores que son administradores soci
 
 > `SELECT * FROM autores WHERE socialAdmin = true OR genero = 'M'`
 
+{% include middle-post-ad.html %}
+
 ###Limitar y Ordenar
 Si quisiéramos limitar los resultados a un número máximo especificado de registros es tan fácil como agregar `.limit(#)` al final del comando `.find()`:
 

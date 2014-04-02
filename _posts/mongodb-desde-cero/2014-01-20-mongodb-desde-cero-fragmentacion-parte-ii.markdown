@@ -124,6 +124,8 @@ mongos> sh.status()
     {  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
 ```
 
+{% include middle-post-ad.html %}
+
 ###Habilitar fragmentación
 
 Perfecto tenemos nuestro *cluster* armado, solo nos falta activar la fragmentación, para ello en la misma instancia *router* la habilitaremos para la base de datos `codehero` y fragmentaremos la colección `pruebaFragmentacion` por su campo `_id` de manera *hasheada* lo cual nos permitirá cumplir con las reglas de elección de llaves de fragmentación como vimos en la entrada pasada:

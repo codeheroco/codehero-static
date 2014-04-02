@@ -77,6 +77,8 @@ En este caso especificamos que aquellos documentos que tengan en su campo `fecha
 
 Luego de que hayan pasado 5 minutos si volvemos a buscar los documentos de la colección estos ya no existirán. Ten en cuenta que si un documento no posee el campo `fecha` o si el campo no es de tipo `date` este simplemente no se vencerá.
 
+{% include middle-post-ad.html %}
+
 ###Expiración en hora especifica
 Esta segunda estrategia se basa en la definición especifica en cada documento de cuando este debe vencer, esto nos permitirá establecer un comportamiento dinámico para cada documento y que cada uno pueda tener más o menos vigencia que aquellos que comparten la misma colección.
 

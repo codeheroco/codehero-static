@@ -86,6 +86,9 @@ fantasmas.bson               otrosFantasmas.metadata.json system.users.metadata.
 > Dicha base de datos debería estar presente y con algunas colecciones si le has seguido el paso a la serie.
 
 ***
+
+{% include middle-post-ad.html %}
+
 ##Restauración
 
 El proceso de restauración es bastante similar al de volcado, el comando para dicha acción es `mongorestore`.
