@@ -11,7 +11,6 @@ wordpress_id: 2351
 wordpress_url: http://codehero.co/?p=2351
 date: 2013-10-07 00:05:09.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
 categories:
 - Cursos
 - MongoDB
@@ -382,4 +381,3 @@ En este curso hemos aprendido a modelar los datos que conforman una base de dato
  [2]: http://i.imgur.com/HskW8Ft.png
  [3]: http://i.imgur.com/iMzNTxW.png
  [4]: http://i.imgur.com/n3BbFV2.png
-

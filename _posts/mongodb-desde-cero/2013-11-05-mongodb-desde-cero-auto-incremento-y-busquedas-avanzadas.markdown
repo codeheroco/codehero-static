@@ -11,7 +11,6 @@ wordpress_id: 2541
 wordpress_url: http://codehero.co/?p=2541
 date: 2013-11-05 00:05:16.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
 categories:
 - Cursos
 - MongoDB

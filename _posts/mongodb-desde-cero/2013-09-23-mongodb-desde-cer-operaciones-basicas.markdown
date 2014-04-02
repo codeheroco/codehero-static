@@ -11,7 +11,6 @@ wordpress_id: 2286
 wordpress_url: http://codehero.co/?p=2286
 date: 2013-09-23 00:00:27.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
 categories:
 - Cursos
 - MongoDB
@@ -235,5 +234,3 @@ Ahora que la colección ha quedado vacía deshagamonos de ella:
 ***
 ##Conclusión
 Seguramente te estarás preguntando: ¿Y qué pasó con los `update`?. La modificación de registros involucra  múltiples maneras para que puedas manipular la información a tu gusto, por ello lo dejaremos para la próxima entrada, no desesperes. Estos son los primeros pasos a tomar para que comiences a usar MongoDB, todavía queda un largo camino por delante ya que hay mucho que aprender sobre esta magnifica solución de base de datos.
-
-

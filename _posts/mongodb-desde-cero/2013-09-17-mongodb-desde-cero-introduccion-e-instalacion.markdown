@@ -11,7 +11,6 @@ wordpress_id: 2255
 wordpress_url: http://codehero.co/?p=2255
 date: 2013-09-17 00:00:02.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
 categories:
 - Cursos
 - MongoDB
@@ -195,4 +194,3 @@ Bien ahora ya estamos listos para entrar a la base de datos y comenzar a jugar c
 ***
 ##Conclusión
 Esta semana vimos solo un abreboca de lo que es capaz MongoDB, lo instalamos y vimos algunos detalles sobre su configuración, que la desesperación no te impida llegar a la semana que viene para aprender a utilizarlo. Hasta entonces.
-
