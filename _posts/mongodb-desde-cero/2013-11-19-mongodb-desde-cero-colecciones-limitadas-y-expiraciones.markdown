@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2615
-wordpress_url: http://codehero.co/?p=2615
 date: 2013-11-19 00:05:04.000000000 -04:30
 serie: MongoDB desde Cero
+description: Una base de datos puede crecer rápidamente cuando se desea almacenar información que deja de ser relevante después de un tiempo. Veremos como evitarlo.
+dificultad: Intermedio
+duracion: 20
 categories:
 - Cursos
 - MongoDB

@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2823
-wordpress_url: http://codehero.co/?p=2823
 date: 2013-12-10 00:05:06.000000000 -04:30
 serie: MongoDB desde Cero
+description: La replicación de los datos nos permite asegurar que la información esté siempre disponible y reducir los riesgos de pérdida o corrupción de la misma.
+dificultad: Avanzado
+duracion: 15
 categories:
 - Cursos
 - MongoDB

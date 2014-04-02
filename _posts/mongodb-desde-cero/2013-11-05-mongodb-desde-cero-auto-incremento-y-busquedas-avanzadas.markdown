@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2541
-wordpress_url: http://codehero.co/?p=2541
 date: 2013-11-05 00:05:16.000000000 -04:30
 serie: MongoDB desde Cero
+description: Esta semana hablaremos de como realizar búsquedas avanzadas y lograr reproducir lo que en muchas bases de datos relacionales conocemos como autoincrements.
+dificultad: Aprendiz
+duracion: 15
 categories:
 - Cursos
 - MongoDB

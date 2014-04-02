@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2567
-wordpress_url: http://codehero.co/?p=2567
 date: 2013-11-12 00:05:36.000000000 -04:30
 serie: MongoDB desde Cero
+description: Hablaremos sobre las consideraciones de seguridad a tomar en cuenta al usar MongoDB para que la información que esta contiene no sea robada o alterada.
+dificultad: Aprendiz
+duracion: 15
 categories:
 - Cursos
 - MongoDB

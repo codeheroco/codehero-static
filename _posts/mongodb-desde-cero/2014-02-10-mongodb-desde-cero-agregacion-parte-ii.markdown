@@ -7,9 +7,12 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2999
-wordpress_url: http://codehero.co/?p=2999
 date: 2014-02-10 23:30:38.000000000 -04:30
+serie: MongoDB desde Cero
+description: La semana pasada comenzamos a hablar del Aggregation Framework, seguiremos viendo el resto de las etapas y veremos como utilizarlas juntas en un ejercicio
+dificultad: Heroe
+duracion: 25
+github: https://github.com/codeheroco/mongodb-agregacion
 categories:
 - Cursos
 - MongoDB
@@ -31,25 +34,22 @@ tags:
 - limit
 - skip
 ---
-<p>La semana pasada comenzamos a hablar del <strong><em>Aggregation Framework,</em></strong> iniciamos viendo en qué consiste, las ventajas que ofrece y algunas de las etapas que componen la <strong>tubería de agregación</strong>, esta semana seguiremos viendo el resto de las etapas y veremos como utilizarlas juntas en un ejercicio.</p>
+La semana pasada comenzamos a hablar del ***Aggregation Framework,*** iniciamos viendo en qué consiste, las ventajas que ofrece y algunas de las etapas que componen la **tubería de agregación**, esta semana seguiremos viendo el resto de las etapas y veremos como utilizarlas juntas en un ejercicio.
+***
+## Etapas (continuación)
+Recuerda que puedes acceder al repositorio de esta entrada para obtener algunos datos de prueba en el archivo `ordenes.json` que te ayudarán a practicar y probar en vivo lo que haremos aquí.
 
-<hr />
+### Proyectar (`$project`)
+La etapa de proyección nos permite especificar qué campos estarán en el documento resultante de esta etapa, a su vez también podemos renombrar el campo de ser necesario:
 
-<h2>Etapas (continuación)</h2>
-
-<p>Recuerda que puedes acceder al repositorio de esta entrada para obtener algunos datos de prueba en el archivo <code>ordenes.json</code> que te ayudarán a practicar y probar en vivo lo que haremos aquí.</p>
-
-<h3>Proyectar (<code>$project</code>)</h3>
-
-<p>La etapa de proyección nos permite especificar qué campos estarán en el documento resultante de esta etapa, a su vez también podemos renombrar el campo de ser necesario:</p>
-
-<pre>> db.ordenes.aggregate([
-    {
+```javascript
+> db.ordenes.aggregate([
+	{
         $project : {
             monto: 1,
             cliente: "$id_cliente"
         }
-    }
+	}
 ])
 
 {
@@ -67,19 +67,19 @@ tags:
     ],
     "ok" : 1
 }
-</pre>
+```
 
-<p>Al asignarle al nombre de un campo el valor booleano 1 estaremos indicandole al proceso de agregación que queremos incluir este campo en el documento resultante. En cuanto al campo <code>id_cliente</code> podremos ver que lo que hicimos fue renombrarlo a <code>cliente</code>, esto puede ser muy util para trabajar de manera más facil los documentos en etapas siguientes de la tubería.</p>
+Al asignarle al nombre de un campo el valor booleano 1 estaremos indicandole al proceso de agregación que queremos incluir este campo en el documento resultante. En cuanto al campo `id_cliente` podremos ver que lo que hicimos fue renombrarlo a `cliente`, esto puede ser muy util para trabajar de manera más facil los documentos en etapas siguientes de la tubería.
 
-<p>Probablemente te estarás preguntando: ¿Por qué el campo <code>_id</code> está presente si no especifiqué que lo deseaba como resultado?.</p>
+Probablemente te estarás preguntando: ¿Por qué el campo `_id` está presente si no especifiqué que lo deseaba como resultado?.
 
-<p>El campo <code>_id</code> por defecto es incluido a menos que se especifique lo contrario mediante una exclusión explícita <code>_id : 0</code></p>
+El campo `_id` por defecto es incluido a menos que se especifique lo contrario mediante una exclusión explícita `_id : 0`
 
-<h3>Desenvolver (<code>$unwind</code>)</h3>
+### Desenvolver (`$unwind`)
+La etapa de desenvolvimiento permite tomar un campo de los documentos que sea de tipo arreglo y generar un documento para cada valor del mismo. Esta etapa suele combinarse con la de agrupación cuando la finalidad es realizar algún calculo que involucre a los valores de un campo tipo arreglo.
 
-<p>La etapa de desenvolvimiento permite tomar un campo de los documentos que sea de tipo arreglo y generar un documento para cada valor del mismo. Esta etapa suele combinarse con la de agrupación cuando la finalidad es realizar algún calculo que involucre a los valores de un campo tipo arreglo.</p>
-
-<pre>> db.ordenes.aggregate([
+```javascript
+> db.ordenes.aggregate([
     {
         $unwind : "$articulos"
     }
@@ -111,11 +111,12 @@ tags:
     ],
     "ok" : 1
 }
-</pre>
+```
 
-<p>Como mencionamos, el arreglo resultante de documentos contiene un documeto para cada valor del arreglo. Veamos cómo es inicialmente ese primer documento como referencia:</p>
+Como mencionamos, el arreglo resultante de documentos contiene un documeto para cada valor del arreglo. Veamos cómo es inicialmente ese primer documento como referencia:
 
-<pre>> db.ordenes.find({ _id : 1 }).pretty()
+```javascript
+> db.ordenes.find({ _id : 1 }).pretty()
 {
     "_id" : 1,
     "id_cliente" : 10,
@@ -127,22 +128,23 @@ tags:
         "ketchup"
     ]
 }
-</pre>
+```
 
-<h3>Ordenar, limitar y saltar (<code>$sort</code>, <code>$limit</code>, <code>$skip</code>)</h3>
+### Ordenar, limitar y saltar (`$sort`, `$limit`, `$skip`)
+Estas etapas son quizás las más intuitivas debido a la facilidad de uso y la similitud de su funcionalidad a lo que hemos aprendido desde el inicio.
 
-<p>Estas etapas son quizás las más intuitivas debido a la facilidad de uso y la similitud de su funcionalidad a lo que hemos aprendido desde el inicio.</p>
-
-<pre>> db.ordenes.aggregate([
+```javascript
+> db.ordenes.aggregate([
     {
         $sort: { monto: -1, _id: 1 }
     }
 ])
-</pre>
+```
 
-<p>La etapa de ordenamiento recibirá como parámetro un documento indicando con qué campos se debe ordenar y en que sentido, siendo 1 ascendente y -1 descendente. En este caso se ordenará primero descendentemente por <code>monto</code> y de haber 2 montos iguales se ordenarán los involucrados de manera ascendente por su campo <code>_id</code>. Veamos su comportamiento en la sección inferior de resultados:</p>
+La etapa de ordenamiento recibirá como parámetro un documento indicando con qué campos se debe ordenar y en que sentido, siendo 1 ascendente y -1 descendente. En este caso se ordenará primero descendentemente por `monto` y de haber 2 montos iguales se ordenarán los involucrados de manera ascendente por su campo `_id`. Veamos su comportamiento en la sección inferior de resultados:
 
-<pre>...{
+```javascript
+    ...{
             "_id" : 10,
             "id_cliente" : 1,
             "monto" : 202,
@@ -186,11 +188,12 @@ tags:
                 "papel de baño"
             ]
         },...
-</pre>
+```
 
-<p>De igual manera podemos lograr algo como lo que conocemos desde antes con la limitación y salto de registros; <strong>sin embargo debemos tomar en cuenta que saltar y/o limitar una serie de documentos que no hemos ordenamos primero tendrá resultados impredecibles.</strong></p>
+De igual manera podemos lograr algo como lo que conocemos desde antes con la limitación y salto de registros; **sin embargo debemos tomar en cuenta que saltar y/o limitar una serie de documentos que no hemos ordenamos primero tendrá resultados impredecibles.**
 
-<pre>> db.ordenes.aggregate([
+```javascript
+> db.ordenes.aggregate([
     {
         $sort: { monto: -1, _id: 1 }
     },
@@ -229,15 +232,15 @@ tags:
     ],
     "ok" : 1
 }
-</pre>
+```
 
-<hr />
+***
+## Ejercicio completo
 
-<h2>Ejercicio completo</h2>
+Bien, ahora que conocemos como funciona cada una de las etapas podemos proceder a construir nuestra tubería de agregación con todas las etapas a ver si entendimos correctamente de qué se trata. Veamos primero el comando y luego explicaremos paso a paso lo que sucede.
 
-<p>Bien, ahora que conocemos como funciona cada una de las etapas podemos proceder a construir nuestra tubería de agregación con todas las etapas a ver si entendimos correctamente de qué se trata. Veamos primero el comando y luego explicaremos paso a paso lo que sucede.</p>
-
-<pre>> db.ordenes.aggregate([
+```javascript
+> db.ordenes.aggregate([
     {
         $match: {
             monto : { $gt: 200 }
@@ -264,41 +267,37 @@ tags:
         $limit: 2
     }
 ])
-</pre>
+```
 
-<p>Antes de adelantarte a la respuesta tratemos de analizar lo que hemos hecho:</p>
+Antes de adelantarte a la respuesta tratemos de analizar lo que hemos hecho:
 
-<h3>Filtrar</h3>
+### Filtrar
+En la primera etapa de la tubería obtuvimos las ordenes que tuviesen un monto mayor a 200.
 
-<p>En la primera etapa de la tubería obtuvimos las ordenes que tuviesen un monto mayor a 200.</p>
+### Desenvolver
+Luego desenvolvimos el arreglo de articulos para poder hacer cálculos con ellos.
 
-<h3>Desenvolver</h3>
+### Agrupar
+Posteriormente agrupamos los documentos por articulo
+Sacamos un promedio de su monto.
+Contamos cuantas ordenes existían para dicho artículo.
+Y qué clientes habián comprado dichos articulos.
 
-<p>Luego desenvolvimos el arreglo de articulos para poder hacer cálculos con ellos.</p>
+### Ordenar
+Luego de agrupar procedimos a ordenar nuestro conjunto de documentos por monto promedio y por cantidad de ordenes de manera descendiente.
 
-<h3>Agrupar</h3>
+### Saltar y Limitar
+Finalmente saltamos los 3 primeros documentos y limitamos el resto del resultado a solo 2 documentos.
 
-<p>Posteriormente agrupamos los documentos por articulo Sacamos un promedio de su monto. Contamos cuantas ordenes existían para dicho artículo. Y qué clientes habián comprado dichos articulos.</p>
+### Desgloce
+Ciertamente no fue necesario el uso de la etapa de proyección, esto es común especialmente cuando utilizamos agrupaciones ya que esta última se suele encargar de realizar las tareas que se podrían realizar al proyectar.
 
-<h3>Ordenar</h3>
+Ahora que conocemos lo que hicimos paso a paso podemos llegar a la conclusión de cual podría haber sido el enunciado de un ejercicio como este:
 
-<p>Luego de agrupar procedimos a ordenar nuestro conjunto de documentos por monto promedio y por cantidad de ordenes de manera descendente.</p>
+> Encuentre el 4to y 5to artículo de mayor monto (tomando en cuenta que el monto varía segun el momento de la compra), indicando los compradores involucrados y cantidad de ordenes realizadas.
 
-<h3>Saltar y Limitar</h3>
-
-<p>Finalmente saltamos los 3 primeros documentos y limitamos el resto del resultado a solo 2 documentos.</p>
-
-<h3>Desgloce</h3>
-
-<p>Ciertamente no fue necesario el uso de la etapa de proyección, esto es común especialmente cuando utilizamos agrupaciones ya que esta última se suele encargar de realizar las tareas que se podrían realizar al proyectar.</p>
-
-<p>Ahora que conocemos lo que hicimos paso a paso podemos llegar a la conclusión de cual podría haber sido el enunciado de un ejercicio como este:</p>
-
-<blockquote>
-  <p>Encuentre el 4to y 5to artículo de mayor monto (tomando en cuenta que el monto varía segun el momento de la compra), indicando los compradores involucrados y cantidad de ordenes realizadas.</p>
-</blockquote>
-
-<pre>{
+```javascript
+{
     "result" : [
         {
             "_id" : "carne",
@@ -320,10 +319,8 @@ tags:
     ],
     "ok" : 1
 }
-</pre>
+```
+***
+## Conclusión
 
-<hr />
-
-<h2>Conclusión</h2>
-
-<p>Con lo que hemos visto en los últimos capítulos de la serie podemos realizar tareas avanzadas de cálculos de datos del lado de la base de datos, esto evitará que tu aplicación tenga que realizar varias búsquedas e implementar la lógica para calculo mediante múltiples ciclos y validaciones. Recuerda que las operaciones de agregación pueden realizarse de manera más rápida si haces uso de los <a href="http://codehero.co/mongodb-desde-cero-indices-parte-i/">índices</a>, no dudes en comentarnos tus dificultades en este tema ya que suele tornarse un tanto complejo.</p>
+Con lo que hemos visto en los últimos capítulos de la serie podemos realizar tareas avanzadas de cálculos de datos del lado de la base de datos, esto evitará que tu aplicación tenga que realizar varias búsquedas e implementar la lógica para calculo mediante múltiples ciclos y validaciones. Recuerda que las operaciones de agregación pueden realizarse de manera más rápida si haces uso de los [índices](http://codehero.co/mongodb-desde-cero-indices-parte-i/), no dudes en comentarnos tus dificultades en este tema ya que suele tornarse un tanto complejo.

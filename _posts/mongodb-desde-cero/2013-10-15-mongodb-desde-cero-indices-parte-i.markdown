@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2382
-wordpress_url: http://codehero.co/?p=2382
 date: 2013-10-15 00:05:22.000000000 -04:30
 serie: MongoDB desde Cero
+description: Es común olvidarnos de implementar índices; sin embargo son estos los que ayudan en el rendimiento. Hablemos sobre ellos y cómo implementarlos en MongoDB.
+dificultad: Aprendiz
+duracion: 15
 categories:
 - Cursos
 - MongoDB
@@ -19,6 +20,7 @@ tags:
 - mongodb
 - indices
 - index
+- rendimiento
 ---
 Cuando estamos construyendo nuestro esquema de bases de datos es común olvidarnos de implementar índices y solemos continuar con la siguiente tarea; sin embargo son estos los que ayudan significativamente en el rendimiento de la base de datos, especialmente cuando el volumen de datos va incrementando. En esta entrada hablaremos sobre ellos y cómo implementarlos en MongoDB.
 ***

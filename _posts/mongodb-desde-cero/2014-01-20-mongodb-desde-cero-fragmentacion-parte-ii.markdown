@@ -7,9 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2929
-wordpress_url: http://codehero.co/?p=2929
 date: 2014-01-20 22:55:20.000000000 -04:30
+serie: MongoDB desde Cero
+description: La entrada pasada vimos la parte teórica de la fragmentación en MongoDB, esta semana pondremos en práctica lo aprendido y armaremos nuestro propio cluster.
+dificultad: Avanzado
+duracion: 20
 categories:
 - Cursos
 - MongoDB
@@ -23,68 +25,68 @@ tags:
 - llave
 - cluster
 ---
-<p>La semana pasada comenzamos a hablar sobre la fragmentación de datos en MongoDB, vimos cómo nos ayuda a escalar nuestra solución de almacenamiento y sus diferentes ventajas. Además conocimos gran parte de la materia teórica que esto implica. De seguro estás ansioso por poner todo ello en práctica, por eso está semana nos ponemos en acción para aplicar lo aprendido y armaremos nuestro propio <em>cluster</em> de fragmentación.</p>
+La semana pasada comenzamos a hablar sobre la fragmentación de datos en MongoDB, vimos cómo nos ayuda a escalar nuestra solución de almacenamiento y sus diferentes ventajas. Además conocimos gran parte de la materia teórica que esto implica. De seguro estás ansioso por poner todo ello en práctica, por eso está semana nos ponemos en acción para aplicar lo aprendido y armaremos nuestro propio *cluster* de fragmentación.
 
-<hr />
+***
+##Creando un *cluster* de fragmentación...
 
-<h2>Creando un <em>cluster</em> de fragmentación...</h2>
+Es hora de ponernos a trabajar para crear nuestro primer *cluster* de fragmentación, por razones de facilidad educativa crearemos todo el *cluster* en el mismo equipo, para ello solo deberemos crear cada instancia en un puerto distinto.
 
-<p>Es hora de ponernos a trabajar para crear nuestro primer <em>cluster</em> de fragmentación, por razones de facilidad educativa crearemos todo el <em>cluster</em> en el mismo equipo, para ello solo deberemos crear cada instancia en un puerto distinto.</p>
+###Servidores de configuración
 
-<h3>Servidores de configuración</h3>
+Comencemos creando nuestros servidores de configuración que según vimos deben ser 3:
 
-<p>Comencemos creando nuestros servidores de configuración que según vimos deben ser 3:</p>
-
-<pre>$ mkdir configServer1
+```sh
+$ mkdir configServer1
 $ mkdir configServer2
 $ mkdir configServer3
 
 $ mongod --configsvr --dbpath configServer1 --port 27019 --fork
 $ mongod --configsvr --dbpath configServer2 --port 27020 --fork
 $ mongod --configsvr --dbpath configServer3 --port 27021 --fork
-</pre>
+```
 
-<blockquote>
-  <p>La opción <code>--fork</code> ejecutará en el fondo a la instancia para que el comando regrese al terminal en lugar de quedarse escuchando al servidor.</p>
-</blockquote>
+> La opción `--fork` ejecutará en el fondo a la instancia para que el comando regrese al terminal en lugar de quedarse escuchando al servidor.
 
-<p>Para crear nuestro <em>router</em> debemos pasarle como parámetro los <em>hostnames</em> de cada servidor de configuración, para ello entraremos a cualquiera de los que acabamos de crear y tomaremos nota de él:</p>
+Para crear nuestro *router* debemos pasarle como parámetro los *hostnames* de cada servidor de configuración, para ello entraremos a cualquiera de los que acabamos de crear y tomaremos nota de él:
 
-<pre>$ mongo --port 27019
+```sh
+$ mongo --port 27019
 ...
 configsvr> hostname()
 Mordor.local
-</pre>
+```
 
-<blockquote>
-  <p>Ya que todas las instancias se encuentran en el mismo equipo, los <em>hostnames</em> son todos iguales y lo único que cambia son los puertos.</p>
-</blockquote>
+> Ya que todas las instancias se encuentran en el mismo equipo, los *hostnames* son todos iguales y lo único que cambia son los puertos.
 
-<h3>Routers</h3>
+###Routers
 
-<p>Bien, ahora crearemos nuestro enrutador. Estos a diferencia de todos los otros tipos de componentes, son instancias <code>mongos</code> en lugar de <code>mongod</code>. Le debemos pasar una cadena de caracteres con las direcciones de los servidores de configuración:</p>
+Bien, ahora crearemos nuestro enrutador. Estos a diferencia de todos los otros tipos de componentes, son instancias `mongos` en lugar de `mongod`. Le debemos pasar una cadena de caracteres con las direcciones de los servidores de configuración:
 
-<pre>$ mongos --configdb Mordor.local:27019,Mordor.local:27020,Mordor.local:27021 --port 27030 --fork --logpath routerLog
-</pre>
+```sh
+$ mongos --configdb Mordor.local:27019,Mordor.local:27020,Mordor.local:27021 --port 27030 --fork --logpath routerLog
+```
 
-<p>En ambientes de producción se recomienda que se tengan múltiples instancias enrutadoras, esto evitará que se forme un cuello de botella a nivel de acceso de las aplicaciones. Un buen número para tomar como referencia es uno por fragmento, y distribuidos de manera acorde.</p>
+En ambientes de producción se recomienda que se tengan múltiples instancias enrutadoras, esto evitará que se forme un cuello de botella a nivel de acceso de las aplicaciones. Un buen número para tomar como referencia es uno por fragmento, y distribuidos de manera acorde.
 
-<h3>Fragmentos</h3>
+###Fragmentos
 
-<p>Ahora debemos crear nuestras instancias fragmentos, en ambientes productivos se recomienda ampliamente que cada fragmento sea un <strong>replica set</strong> pero para no hacer esta entrada tan larga y posiblemente confusa utilizaremos una única instancia por fragmento:</p>
+Ahora debemos crear nuestras instancias fragmentos, en ambientes productivos se recomienda ampliamente que cada fragmento sea un **replica set** pero para no hacer esta entrada tan larga y posiblemente confusa utilizaremos una única instancia por fragmento:
 
-<pre>$ mkdir shard1
+```sh
+$ mkdir shard1
 $ mkdir shard2
 $ mkdir shard3
 
 $ mongod --shardsvr --dbpath shard1 --port 27040 --fork
 $ mongod --shardsvr --dbpath shard2 --port 27041 --fork
 $ mongod --shardsvr --dbpath shard3 --port 27042 --fork
-</pre>
+```
 
-<p>Deberíamos a estas alturas tener corriendo 7 procesos de MongoDB, siendo 3 servidores de configuración, 1 <em>router</em> y 3 instancias fragmentos:</p>
+Deberíamos a estas alturas tener corriendo 7 procesos de MongoDB, siendo 3 servidores de configuración, 1 *router* y 3 instancias fragmentos:
 
-<pre>$ ps -ax | grep mongo | grep -v grep
+```sh
+$ ps -ax | grep mongo | grep -v grep
  1844 ??         0:00.65 /usr/local/Cellar/mongodb/2.4.8/mongod --configsvr --dbpath configServer1 --port 27019 --fork --config /usr/local/etc/mongod.conf
  1887 ??         0:00.62 /usr/local/Cellar/mongodb/2.4.8/mongod --configsvr --dbpath configServer2 --port 27020 --fork --config /usr/local/etc/mongod.conf
  1928 ??         0:00.59 /usr/local/Cellar/mongodb/2.4.8/mongod --configsvr --dbpath configServer3 --port 27021 --fork --config /usr/local/etc/mongod.conf
@@ -92,11 +94,12 @@ $ mongod --shardsvr --dbpath shard3 --port 27042 --fork
  2002 ??         0:00.14 /usr/local/Cellar/mongodb/2.4.8/mongod --shardsvr --dbpath shard1 --port 27040 --fork --config /usr/local/etc/mongod.conf
  2043 ??         0:00.12 /usr/local/Cellar/mongodb/2.4.8/mongod --shardsvr --dbpath shard2 --port 27041 --fork --config /usr/local/etc/mongod.conf
  2084 ??         0:00.12 /usr/local/Cellar/mongodb/2.4.8/mongod --shardsvr --dbpath shard3 --port 27042 --fork --config /usr/local/etc/mongod.conf
-</pre>
+```
 
-<p>Bien, ahora agreguemos los fragmentos al <em>cluster</em>, para ello debemos ingresar a la instancia <em>router</em> y agregarlos de la siguiente manera:</p>
+Bien, ahora agreguemos los fragmentos al *cluster*, para ello debemos ingresar a la instancia *router* y agregarlos de la siguiente manera:
 
-<pre>$ mongo --port 27030
+```sh
+$ mongo --port 27030
 ...
 mongos> sh.addShard("Mordor.local:27040")
 { "shardAdded" : "shard0000", "ok" : 1 }
@@ -119,31 +122,34 @@ mongos> sh.status()
     {  "_id" : "shard0002",  "host" : "Mordor.local:27042" }
   databases:
     {  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
-</pre>
+```
 
-<h3>Habilitar fragmentación</h3>
+###Habilitar fragmentación
 
-<p>Perfecto tenemos nuestro <em>cluster</em> armado, solo nos falta activar la fragmentación, para ello en la misma instancia <em>router</em> la habilitaremos para la base de datos <code>codehero</code> y fragmentaremos la colección <code>pruebaFragmentacion</code> por su campo <code>_id</code> de manera <em>hasheada</em> lo cual nos permitirá cumplir con las reglas de elección de llaves de fragmentación como vimos en la entrada pasada:</p>
+Perfecto tenemos nuestro *cluster* armado, solo nos falta activar la fragmentación, para ello en la misma instancia *router* la habilitaremos para la base de datos `codehero` y fragmentaremos la colección `pruebaFragmentacion` por su campo `_id` de manera *hasheada* lo cual nos permitirá cumplir con las reglas de elección de llaves de fragmentación como vimos en la entrada pasada:
 
-<pre>mongos> use codehero
+```sh
+mongos> use codehero
 switched to db codehero
 mongos> sh.enableSharding("codehero")
 { "ok" : 1 }
 mongos> db.pruebaFragmentacion.ensureIndex({ _id : "hashed" })
 mongos> sh.shardCollection("codehero.pruebaFragmentacion", { "_id": "hashed" } )
 { "collectionsharded" : "codehero.pruebaFragmentacion", "ok" : 1 }
-</pre>
+```
 
-<h3>Demo</h3>
+###Demo
 
-<p>Muy bien ya tenemos nuestra colección fragmentada, ahora crearemos un montón de documentos para ver como se distribuyen entre los fragmentos:</p>
+Muy bien ya tenemos nuestra colección fragmentada, ahora crearemos un montón de documentos para ver como se distribuyen entre los fragmentos:
 
-<pre>mongos> for(var i=0; i &lt; 100001; i++) db.pruebaFragmentacion.insert({})
-</pre>
+```sh
+mongos> for(var i=0; i < 100001; i++) db.pruebaFragmentacion.insert({})
+```
 
-<p>Finalmente veamos como se encuentran distribuidos estos documentos en las colecciones:</p>
+Finalmente veamos como se encuentran distribuidos estos documentos en las colecciones:
 
-<pre>mongos> db.pruebaFragmentacion.getShardDistribution()
+```sh
+mongos> db.pruebaFragmentacion.getShardDistribution()
 
 Shard shard0000 at Mordor.local:27040
  data : 687KiB docs : 29350 chunks : 1
@@ -165,13 +171,14 @@ Totals
  Shard shard0000 contains 29.34% data, 29.34% docs in cluster, avg obj size on shard : 24B
  Shard shard0001 contains 41.83% data, 41.83% docs in cluster, avg obj size on shard : 24B
  Shard shard0002 contains 28.81% data, 28.81% docs in cluster, avg obj size on shard : 24B
-</pre>
+```
 
-<p>Veremos que la información se ha distribuido bastante bien entre los distintos fragmentos y que los datos no han sido todos asignados a uno solo, lo cual nos indica que hemos escogido correctamente nuestra llave de fragmentación y hemos logrado obtener el escalamiento de base de datos horizontal que estamos buscando.</p>
+Veremos que la información se ha distribuido bastante bien entre los distintos fragmentos y que los datos no han sido todos asignados a uno solo, lo cual nos indica que hemos escogido correctamente nuestra llave de fragmentación y hemos logrado obtener el escalamiento de base de datos horizontal que estamos buscando.
 
-<p>También podemos ver varios aspectos del <em>cluster</em> al ejecutar el comando <code>sh.status()</code>:</p>
+También podemos ver varios aspectos del *cluster* al ejecutar el comando `sh.status()`:
 
-<pre>mongos> sh.status()
+```sh
+mongos> sh.status()
 --- Sharding Status ---
   sharding version: {
     "_id" : 1,
@@ -196,18 +203,15 @@ Totals
             { "_id" : { "$minKey" : 1 } } -->> { "_id" : NumberLong("-1492793005875893056") } on : shard0001 Timestamp(2, 0)
             { "_id" : NumberLong("-1492793005875893056") } -->> { "_id" : NumberLong("3847987569150422320") } on : shard0002 Timestamp(3, 0)
             { "_id" : NumberLong("3847987569150422320") } -->> { "_id" : { "$maxKey" : 1 } } on : shard0000 Timestamp(3, 1)
-</pre>
 
-<p>Notarás en la parte inferior los rangos que ha tomado cada fragmento sobre la llave de fragmentación <code>_id</code> <em>hasheada</em> para distribuir los documentos.</p>
+```
+Notarás en la parte inferior los rangos que ha tomado cada fragmento sobre la llave de fragmentación `_id` *hasheada* para distribuir los documentos.
 
-<p>De igual manera podremos notar que exiten 3 <em>chunks</em> o trozos, de los cuales existe uno en cada fragmento. Un <em>chunk</em> está delimitado por un rango definido por MongoDB sobre la llave de fragmentación, en este caso cada fragmento posee un único <em>chunk</em>, si este llegara a pasar los 64MB (o lo que se haya especificado en configuraciones avanzadas) se realizará automaticamente una operación de <strong>separación</strong> o <strong><em>splitting</em></strong> la cual dividirá el trozo en 2 para lograr mantener un alto nivel de rendimiento. Es posible también que si un fragmento comienza a tener varios <em>chunks</em> en comparación con sus hermanos, se ejecute una operación de <strong><em>migración</em></strong> de <em>chunks</em>, este moverá <em>chunks</em> en los extremos de su rango a otro fragmento.</p>
+De igual manera podremos notar que exiten 3 *chunks* o trozos, de los cuales existe uno en cada fragmento. Un *chunk* está delimitado por un rango definido por MongoDB sobre la llave de fragmentación, en este caso cada fragmento posee un único *chunk*, si este llegara a pasar los 64MB (o lo que se haya especificado en configuraciones avanzadas) se realizará automaticamente una operación de **separación** o ***splitting*** la cual dividirá el trozo en 2 para lograr mantener un alto nivel de rendimiento. Es posible también que si un fragmento comienza a tener varios *chunks* en comparación con sus hermanos, se ejecute una operación de ***migración*** de *chunks*, este moverá *chunks* en los extremos de su rango a otro fragmento.
 
-<blockquote>
-  <p>Es posible que si pruebas con menor cantidad de documentos no notes que la información se separe en los diferentes fragmentos ni <em>chunks</em>, esto se debe a que la información es todavía muy pequeña para que MongoDB considere separarla, ya que como puedes ver hemos insertado 100.000 documentos y estos solo ocupan un tamaño de 2.28MB debido a la ausencia de complejidad en su estructura.</p>
-</blockquote>
+> Es posible que si pruebas con menor cantidad de documentos no notes que la información se separe en los diferentes fragmentos ni *chunks*, esto se debe a que la información es todavía muy pequeña para que MongoDB considere separarla, ya que como puedes ver hemos insertado 100.000 documentos y estos solo ocupan un tamaño de 2.28MB debido a la ausencia de complejidad en su estructura.
 
-<hr />
+***
+##Conclusión
 
-<h2>Conclusión</h2>
-
-<p>Hemos recorrido un largo camino, hemos llegado a uno de los temas más avanzados de MongoDB, cuando nos encontramos hablando de este tipo de temas en porque nos interesa que una gran infraestructura de base de datos sea lo más escalable y mantenible posible, ciertamente es un tema enfocado más a los DBAs que a los desarrolladores pero es importante para ambos conocer las implicaciones de estas situaciones ya que la cooperación de ambos ayudará a determinar un rendimiento óptimo, especialmente al determinar aspectos críticos como la llave de fragmentación.</p>
+Hemos recorrido un largo camino, hemos llegado a uno de los temas más avanzados de MongoDB, cuando nos encontramos hablando de este tipo de temas en porque nos interesa que una gran infraestructura de base de datos sea lo más escalable y mantenible posible, ciertamente es un tema enfocado más a los DBAs que a los desarrolladores pero es importante para ambos conocer las implicaciones de estas situaciones ya que la cooperación de ambos ayudará a determinar un rendimiento óptimo, especialmente al determinar aspectos críticos como la llave de fragmentación.

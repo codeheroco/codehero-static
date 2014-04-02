@@ -7,20 +7,21 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2255
-wordpress_url: http://codehero.co/?p=2255
 date: 2013-09-17 00:00:02.000000000 -04:30
 serie: MongoDB desde Cero
+description: MongoDB es una base de datos NoSQL enfocada a que los valores de las llaves (llamadas colecciones) son estructuras tipo JSON, es decir, objetos Javascript.
+dificultad: Novato
+duracion: 10
 categories:
 - Cursos
 - MongoDB
 tags:
-- como lo hago
-- howto
 - Base de datos
 - mongo
 - mongodb
 - nosql
+- instalar
+- sql
 ---
 Las bases de datos relacionales están pasando de moda, los desarrolladores optan cada vez más por opciones novedosas de NoSQL debido a sus altos niveles de rendimiento y fácil escalabilidad. Hace unas semanas hablamos de las bondades de [Redis](http://codehero.co/como-instalar-configurar-y-usar-redis/); sin embargo algunos andan temerosos por tener poco tiempo y prefieren una solución con un poco más de reputación, es por esto que esta semana hablaremos de las base de datos NoSQL más utilizada, MongoDB.
 
@@ -70,6 +71,13 @@ $ sudo apt-get update
 $ sudo apt-get install mongodb-10gen
 ...
 ```
+
+> Si estas en una versión de 64 bits de tu sistema operativo Debian deberás indicar un parámetro de configuración indicado que deseas tomar la versión de 64 bits del binario de MongoDB.
+
+> ```sh
+> $ sudo apt-get install -o apt::architecture=amd64 mongodb-10gen
+> ```
+
 
 Para gestionar el servicio de MongoDB basta con ejecutar:
 

@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2351
-wordpress_url: http://codehero.co/?p=2351
 date: 2013-10-07 00:05:09.000000000 -04:30
 serie: MongoDB desde Cero
+description: Aprenderemos como realizar el modelado de datos para lograr transformar un esquema de bases de datos relacionales al enfoque NoSQL de MongoDB.
+dificultad: Aprendiz
+duracion: 15
 categories:
 - Cursos
 - MongoDB

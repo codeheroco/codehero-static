@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2325
-wordpress_url: http://codehero.co/?p=2325
 date: 2013-09-30 00:02:36.000000000 -04:30
 serie: MongoDB desde Cero
+description: Las actualizaciones o updates las dejamos por separado para ser un poco más detallados y puedas dominar con mayor destreza la manipulación de los datos.
+dificultad: Novato
+duracion: 15
 categories:
 - Cursos
 - MongoDB

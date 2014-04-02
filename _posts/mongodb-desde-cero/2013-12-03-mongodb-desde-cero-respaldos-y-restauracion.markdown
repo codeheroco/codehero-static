@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2712
-wordpress_url: http://codehero.co/?p=2712
 date: 2013-12-03 00:06:37.000000000 -04:30
 serie: MongoDB desde Cero
+description: La prevención al desastre por medio de respaldos de información es muy importante en el mantenimiento de una base de datos. Veamos como encargarnos de eso.
+dificultad: Intermedio
+duracion: 20
 categories:
 - Cursos
 - MongoDB

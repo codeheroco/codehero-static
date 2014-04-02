@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2286
-wordpress_url: http://codehero.co/?p=2286
 date: 2013-09-23 00:00:27.000000000 -04:30
 serie: MongoDB desde Cero
+description: Seguramente querrás poner tus habilidades en práctica, comencemos con algunas operaciones básicas para aprender como manipular los datos en MongoDB.
+dificultad: Novato
+duracion: 10
 categories:
 - Cursos
 - MongoDB

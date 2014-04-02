@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2852
-wordpress_url: http://codehero.co/?p=2852
 date: 2013-12-17 00:05:45.000000000 -04:30
 serie: MongoDB desde Cero
+description: La semana pasada aprendimos la teoría de replicación en MongoDB. Ahora estamos listos para tomar esos conocimientos y llevarlos a la práctica.
+dificultad: Avanzado
+duracion: 15
 categories:
 - Cursos
 - MongoDB
