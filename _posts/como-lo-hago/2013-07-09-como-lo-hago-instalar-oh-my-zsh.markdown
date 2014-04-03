@@ -7,17 +7,24 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1282
-wordpress_url: http://codehero.co/?p=1282
 date: 2013-07-09 04:30:30.000000000 -04:30
 thumbnail: http://i.imgur.com/QZ0cnJe.png
+description: Hablaremos de uno de los complementos que a muchos les convierte el manejo cotidiano del terminal en un paseo por el parque. el framework oh-my-zsh.
+dificultad: Novato
+duracion: 10
 categories:
 - Cómo lo hago
 - oh-my-zsh
 tags:
-- oh-myz-zsh
+- howto
+- como lo hago
+- oh-my-zsh
 - zsh
 - terminal
+- consola
+- shell
+- bash
+- sh
 ---
 Esta semana, en ¿Cómo Lo Hago?, hablaremos de uno de los complementos que a muchos les convierte el manejo cotidiano del terminal en un paseo por el parque. el framework oh-my-zsh.
 
@@ -103,6 +110,8 @@ De lo contrario utilizaremos el siguiente comando para manualmente definir el te
 ```sh
 $ chsh -s /bin/zsh
 ```
+
+{% include middle-post-ad.html %}
 
 ###Método manual
 El método manual de instalación requiere que tengamos instalado Git ([ingresa aquí para saber más sobre Git y su instalación](http://codehero.co/git-desde-cero-instalacion-configuracion-y-comandos-basicos/)). Clonaremos el repositorio de Github donde se encuentra alojado oh-my-zsh a nuestro sistema:

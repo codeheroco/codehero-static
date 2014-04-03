@@ -7,17 +7,21 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1969
-wordpress_url: http://codehero.co/?p=1969
 date: 2013-08-13 00:00:11.000000000 -04:30
 thumbnail: http://i.imgur.com/lrn4QBG.png
+description: Redis es una solución de almacenamiento de datos NoSQL tipo Llave-Valor, veloz gracias a su estructura ausente de lógica relacional y residencia en memoria.
+dificultad: Novato
+duracion: 10
 categories:
 - Cómo lo hago
 - Redis
 tags:
 - howto
+- como lo hago
 - instalacion
 - redis
+- nosql
+- base de datos
 ---
 Nos encontramos en una época donde la velocidad en términos tecnológicos es una obligación. Cada día los sistemas se vuelven más poderosos y más capaces, lo cual nos ha acostumbrado a querer resultados lo más pronto posible. Este enfoque también ha abarcado el tema del almacenamiento de datos, este proceso en altos niveles de concurrencia suele ser un poco lento, lo peor es que muchas veces necesitamos bases de datos que no necesariamente tienen que poseer tablas relacionadas sino más bien tablas aisladas y de igual manera terminamos usando un MySQL, esta semana hablaremos de una novedosa solución que se está tomando fuerza rápidamente, la base de datos Redis.
 
@@ -100,6 +104,9 @@ user:1000 =>  usuario    jonathanwiesel
 >Podemos notar en la nomenclatura usada para definir la llave que tratamos de seguir un estándar como si estuviéramos usando una tabla de base de datos común, donde *user* sería la tabla y *1000* el id del usuario, el uso de este tipo de nomenclatura no es obligatorio pero es recomendado para representar una estructura lógica y ordenada que sea fácilmente legible para cualquiera que manipule la base de datos.
 
 ***
+
+{% include middle-post-ad.html %}
+
 ##Instalación
 
 ###*nix
