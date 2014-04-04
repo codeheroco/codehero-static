@@ -89,7 +89,11 @@ post 'publicacion/create' => 'publicacion#create'
 
 <p>En este tipo de definición de rutas tenemos que el primer término (get y post) es el protocolo en que se van a recibir los datos, el segundo componente (<a href="http://localhost:3000/publicacion/new">publicacion/new</a> y <a href="http://localhost:3000/publicacion/create">publicacion/create</a>) son las url y el tercer componte (publicacion#new y publicacion#create) es el controlador seguido del método (<strong>controlador#metodo</strong>) al que esta asociado el url. Esto se puede ver mejor referenciado en el siguiente cuadro:</p>
 
-<p><img src="http://i.imgur.com/ZmgmJon.jpg?1" alt="foto" /></p>
+Dirección Rails | Protocolo | URL | controlador#metodo
+----------------|-----------|-----|-------------------
+publicacion_path | GET | /publicacion(.:format) | publicacion#index
+publicacion_new_path | GET | /publicacion/new(.:format) | publicacion#new
+publicacion_create_path | POST | /publicacion/create(.:format) | publicacion#create
 
 <h3>Vistas</h3>
 
@@ -97,9 +101,9 @@ post 'publicacion/create' => 'publicacion#create'
 
 <p>Para esto debemos ubicarnos en el directorio de las vistas del controlador: 'app/views/publicacion/' y creamos los siguientes archivos:</p>
 
-<p>La primera vista la llamaremos '_form.html.erb' y este contendrá el formulario:</p>
 {% include middle-post-ad.html %}
 
+<p>La primera vista la llamaremos `_form.html.erb` y este contendrá el formulario:</p>
 
 ```html
 <%= form_for :publicacion, url: publicacion_create_path do |f| %>

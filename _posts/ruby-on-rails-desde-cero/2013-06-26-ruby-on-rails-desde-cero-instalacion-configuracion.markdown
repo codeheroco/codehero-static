@@ -74,7 +74,7 @@ $ gem list
 $ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 ```
 
-<p>Luego agregamos la tuta del rbenv al PATH del sistema:</p>
+<p>Luego exportamos la ruta del rbenv al PATH del sistema:</p>
 
 ```sh
 $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
@@ -92,10 +92,10 @@ $ ./install.sh
 $ popd
 ```
 
-<p>El siguiente paso es instalar la versión que queramos de Ruby, para este caso es (ruby 2.0.0p195):</p>
+<p>El siguiente paso es instalar la versión que queramos de Ruby, para este caso es (ruby 2.0.0p451):</p>
 
 ```sh
-$ rbenv install 2.0.0-p353
+$ rbenv install 2.0.0-p451
 $ rbenv rehash
 ```
 

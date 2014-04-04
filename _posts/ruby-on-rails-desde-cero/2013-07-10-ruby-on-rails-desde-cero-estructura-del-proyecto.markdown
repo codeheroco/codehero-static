@@ -33,30 +33,21 @@ tags:
 <p>Esta estructura consta de una serie de carpetas y archivos que nos hacen trabajar de forma ordenada y eficiente. La estructura es la siguiente:</p>
 
 ```sh
-tree .
+tree -L 2
 .
 ├── Gemfile
 ├── Gemfile.lock
+├── README.md
 ├── README.rdoc
 ├── Rakefile
 ├── app
 │   ├── assets
-│   │   ├── images
-│   │   ├── javascripts
-│   │   │   └── application.js
-│   │   └── stylesheets
-│   │       └── application.css
 │   ├── controllers
-│   │   ├── application_controller.rb
-│   │   └── concerns
 │   ├── helpers
-│   │   └── application_helper.rb
 │   ├── mailers
 │   ├── models
-│   │   └── concerns
+│   ├── serializers
 │   └── views
-│       └── layouts
-│           └── application.html.erb
 ├── bin
 │   ├── bundle
 │   ├── rails
@@ -67,31 +58,24 @@ tree .
 │   ├── database.yml
 │   ├── environment.rb
 │   ├── environments
-│   │   ├── development.rb
-│   │   ├── production.rb
-│   │   └── test.rb
 │   ├── initializers
-│   │   ├── backtrace_silencers.rb
-│   │   ├── filter_parameter_logging.rb
-│   │   ├── inflections.rb
-│   │   ├── mime_types.rb
-│   │   ├── secret_token.rb
-│   │   ├── session_store.rb
-│   │   └── wrap_parameters.rb
 │   ├── locales
-│   │   └── en.yml
 │   └── routes.rb
 ├── config.ru
 ├── db
+│   ├── migrate
+│   ├── schema.rb
 │   └── seeds.rb
 ├── lib
 │   ├── assets
 │   └── tasks
 ├── log
+│   └── development.log
 ├── public
 │   ├── 404.html
 │   ├── 422.html
 │   ├── 500.html
+│   ├── codehero.png
 │   ├── favicon.ico
 │   └── robots.txt
 ├── test
@@ -102,15 +86,10 @@ tree .
 │   ├── mailers
 │   ├── models
 │   └── test_helper.rb
-├── tmp
-│   └── cache
-│       └── assets
 └── vendor
     └── assets
-        ├── javascripts
-        └── stylesheets
 
-38 directories, 36 files
+29 directories, 24 files
 ```
 
 <p>Esta estructura la iremos conociendo más a detalle a lo largo del curso, pero me gustaría destacar algunos archivos importantes:</p>

@@ -109,7 +109,7 @@ end
 ```ruby
 class Usuario < ApplicationController
   def serializador
-    @ejemplo1    = Usuario.all
+    @ejemplo1 = Usuario.all
     render json: @ejemplo1
   end
 end
@@ -160,7 +160,7 @@ end
 
 ```ruby
 def serializador
-  @ejemplo1    = Usuario.all
+  @ejemplo1 = Usuario.all
   # meta_key es para cambiarle el nombre a la etiqueta que estamos agregando
   render json: @ejemplo1 , meta: {total: 10}, meta_key: 'meta_object'
 end
@@ -186,7 +186,7 @@ end
 
 ```ruby
 def serializador
-  @ejemplo1    = Usuario.first
+  @ejemplo1 = Usuario.first
   render json: @ejemplo1 , serializer: UsuarioCustomSerializer
 end
 ```
@@ -195,7 +195,7 @@ end
 
 ```ruby
 def serializador
-  @ejemplo1    = Usuario.all
+  @ejemplo1 = Usuario.all
   render json: @ejemplo1 , each_serializer: UsuarioCustomSerializer
 end
 ```

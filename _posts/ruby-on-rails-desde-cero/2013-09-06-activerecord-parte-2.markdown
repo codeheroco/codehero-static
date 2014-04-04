@@ -152,7 +152,7 @@ end
 
 ```ruby
 Usuario.masculino.mayor_que(Time.zone.parse("1988-05-09"))
- ```
+```
 
 <p>Como seguramente ya nos hemos dado cuenta por los dos ejemplos anteriores estos nos trae a todos los Usuarios <strong>masculinos</strong> que nacieron antes del <strong>09 de mayo de 1988</strong>.</p>
 
