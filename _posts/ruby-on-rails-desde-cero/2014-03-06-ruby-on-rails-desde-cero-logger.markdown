@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 3095
-wordpress_url: http://codehero.co/?p=3095
 date: 2014-03-06 04:08:26.000000000 -04:30
 serie: Ruby on Rails desde Cero
 description: Capítulo numero 17 de la serie Ruby on Rails desde cero donde aprendemos a utilizar el log de y hablamos como lo podemos utilizar el logger de activesupport
+dificultad: Aprendiz
+duracion: 20
 categories:
 - Cursos
 - Ruby on Rails
@@ -19,6 +19,8 @@ tags:
 - Ruby
 - Ruby on Rails
 - Logger
+- Log
+- Debug
 ---
 Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior aprendimos como se generan los controladores para la aplicación, que representan los métodos en nuestros controladores y cómo se leen parámetros ya sean en el URL o enviados por POST dentro de un formulario.
 

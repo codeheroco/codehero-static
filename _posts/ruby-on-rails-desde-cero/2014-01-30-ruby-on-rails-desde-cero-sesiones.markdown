@@ -7,16 +7,16 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2959
-wordpress_url: http://codehero.co/?p=2959
 date: 2014-01-30 00:10:00.000000000 -04:30
 serie: Ruby on Rails desde Cero
 description: Capítulo numero 15 de la serie Ruby on Rails desde Cero, donde aprenderemos sobre sesiones, como crearlas y destruirlas para guardar el estado de un usuario
+dificultad: Aprendiz
+duracion: 30
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
+- Ruby
 - Ruby on Rails
 - Sesiones
 ---

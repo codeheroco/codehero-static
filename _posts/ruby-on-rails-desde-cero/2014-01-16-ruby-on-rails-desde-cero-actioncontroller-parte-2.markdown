@@ -7,18 +7,20 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2918
-wordpress_url: http://codehero.co/?p=2918
 date: 2014-01-16 01:08:19.000000000 -04:30
 serie: Ruby on Rails desde Cero
 description: Capítulo 13 de la serie Ruby on Rails desde Cero, donde hablamos sobre strong parameters, filtros y rendering del contenido todo dentro del actioncontroller
+dificultad: Novato
+duracion: 20
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
-- curso
+- Controladores
+- Filtros
+- Rendering
+- Ruby
 ---
 Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior aprendimos como se generan los controladores para la aplicación, que representan los métodos en nuestros controladores y cómo se leen parámetros ya sean en el URL o enviados por POST dentro de un formulario.
 

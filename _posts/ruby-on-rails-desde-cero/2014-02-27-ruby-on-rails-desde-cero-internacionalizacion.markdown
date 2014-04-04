@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 3068
-wordpress_url: http://codehero.co/?p=3068
 date: 2014-02-27 01:41:42.000000000 -04:30
 serie: Ruby on Rails desde Cero
 description: Capítulo número 16 de la serie Ruby on Rails desde Cero, donde hablamos sobre como internacionalizar la aplicación para que funcione en múltiples idiomas.
+dificultad: Intermedio
+duracion: 30
 categories:
 - Cursos
 - Ruby on Rails

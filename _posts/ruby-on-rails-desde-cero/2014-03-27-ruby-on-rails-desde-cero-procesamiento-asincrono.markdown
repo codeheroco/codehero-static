@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 3142
-wordpress_url: http://codehero.co/?p=3142
 date: 2014-03-27 01:05:20.000000000 -04:30
 serie: Ruby on Rails desde Cero
 description: Capítulo 19 de la serie Rails desde cero. Hablamos un poco de procesamiento asíncrono utilizando la librería sucker_punch para enviar correos y otras cosas.
+dificultad: Intermedio
+duracion: 30
 categories:
 - Cursos
 - Ruby on Rails
