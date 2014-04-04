@@ -138,6 +138,8 @@ Codeheroapp::Application.routes.draw do
 end
 ```
 
+{% include middle-post-ad.html %}
+
 ### resource
 
 Un resource o recurso es una colección predefinida de todas las posibles funciones que por defecto que posee un controlador en Ruby, es decir, cuando utilizamos un *scaffold* para crear un controlador, modelo y vistas relacionadas a un recurso tal como *"usuario"*; este creará dentro del controlador todas las funciones conocidas como CRUD, y el resource combina y genera todas las rutas necesarias para poder acceder a dichos recursos.

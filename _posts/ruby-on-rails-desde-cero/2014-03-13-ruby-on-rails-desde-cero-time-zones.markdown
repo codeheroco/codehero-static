@@ -82,6 +82,8 @@ Una vez que hayamos especificado el huso horario de nuestra preferencia vamos a 
 => "2014-03-12 20:55:18 -0430"
 ```
 
+{% include middle-post-ad.html %}
+
 Podemos ver que se ha guardado "Berlin" como el huso horario de preferencia, esto es exactamente igual que utilizar el `config.time_zone`. Luego podemos ver que al utilizar `Time.now.in_time_zone.to_s` nos retorna correctamente la hora en en "Berlin". De igual manera `DateTime.now.in_time_zone.to_s` y `Time.zone.now.to_s`. También podemos apreciar que `DateTime.now.to_s` y `Time.now.to_s` son capaces de leer el huso horario pero en este caso el de mi computadora omitiendo nuestra variable de `Time.zone` y con esto es que debemos tener cuidado. Se puede cometer el error de utilizar estas variables sin ser las que necesitamos y queremos.
 
 ## Diferentes métodos

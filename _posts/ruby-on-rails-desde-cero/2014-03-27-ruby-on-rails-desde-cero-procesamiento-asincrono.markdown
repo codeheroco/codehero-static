@@ -63,6 +63,8 @@ gem 'sucker_punch', '~> 1.0'
 
 Luego hacemos `bundle install`. Cabe destacar que esta libreria no es dependiente de Rails, la podríamos utilizar en una aplicación Sinatra o Padrino.
 
+{% include middle-post-ad.html %}
+
 * * *
 
 ## Empleando la librería

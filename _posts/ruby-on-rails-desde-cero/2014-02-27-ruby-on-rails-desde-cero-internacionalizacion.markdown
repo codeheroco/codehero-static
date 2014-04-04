@@ -159,6 +159,8 @@ $ rails g scaffold Sales precio:string nombre:string
 
 Luego corremos las migraciones `bundle exec rake db:migrate` una vez que tengamos todo en orden procedemos a agregar al controlador principal de nuestra aplicación `application_controller.rb` las siguientes líneas:
 
+{% include middle-post-ad.html %}
+
 ```ruby
 before_action :set_locale
 
