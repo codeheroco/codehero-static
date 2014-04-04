@@ -124,6 +124,8 @@ SELECT * FROM usuarios WHERE nombre = 'Ricardo' and  apellido = 'Sampayo' LIMIT 
 
 <p>Esta función como su nombre nos dice recupera todos los registros de una tabla retornando en un arreglos de objetos. Ejemplo y equivalencia en SQL:</p>
 
+{% include middle-post-ad.html %}
+
 ```ruby
 usuarios = Usuario.all
 ```

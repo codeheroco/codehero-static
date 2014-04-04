@@ -96,6 +96,8 @@ class UsuariosSerializer < ActiveModel::Serializer
 end
 ```
 
+{% include middle-post-ad.html %}
+
 <p>Como ven es una simple clase que extiende de <code>ActiveModel::Serializer</code> con los atributos del modelo que en nuestro caso es <strong>Usuario</strong>.</p>
 
 <blockquote>

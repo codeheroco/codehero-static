@@ -81,6 +81,8 @@ class Usuario < ActiveRecord::Base
 end
 ```
 
+{% include middle-post-ad.html %}
+
 <h4>has_many :through</h4>
 
 <p>Esta asociación se utiliza a menudo para establecer conexiones de  <strong>muchos a muchos</strong> con otro modelo. Esta asociación al igual que "has_many" nos indica que cada objeto de un modelo puede tener muchos objetos asociados, la única diferencia es que para lograr un muchos a muchos debemos agregar un tercer modelo que relacione los anteriores. Entendamos mejor esto con un ejemplo: Si a un cliente lo visitan a su dirección muchos vendedores y un Vendedor visita muchos clientes, esta afirmación se declararía de la siguiente manera:</p>

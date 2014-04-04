@@ -96,6 +96,8 @@ $ rails g controller -h
 
 <p>Debemos recordar del capítulo de <a href="http://codehero.co/ruby-on-rails-desde-cero-vistas-dinamicas/">vistas dinámicas</a> que para acceder a las vistas de la publicación que creamos, tuvimos que utilizar el controlador <code>publicación</code> y tener tres (3) funciones que hacen juego con el nombre de las vistas. En pocas palabras cuando se realiza una petición a nuestra aplicación el enrutador decide a que método del controlador se le delegará dicha petición y ese método en teoría contiene unas acciones que se ejecutarán para regresarle al usuario una vista particular con la información que solicitó.</p>
 
+{% include middle-post-ad.html %}
+
 <p>Cuando vemos como está conformado un Controlador apreciamos lo siguen:</p>
 
 ```ruby

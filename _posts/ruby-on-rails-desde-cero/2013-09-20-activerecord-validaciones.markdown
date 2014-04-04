@@ -56,6 +56,8 @@ tags:
 
 <p>Este tipo de asistente juega con la longitud de los datos suministrados por el usuario, para que se verifique según nuestras necesidades.</p>
 
+{% include middle-post-ad.html %}
+
 <h4>Valor nulo o vacío <code>presence</code></h4>
 
 <p>Este asistente de validación nos verifica si el atributo del modelo puede ser nulo.</p>
