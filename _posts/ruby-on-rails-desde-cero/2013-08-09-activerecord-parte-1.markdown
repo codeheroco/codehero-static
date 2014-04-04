@@ -7,20 +7,22 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1922
-wordpress_url: http://codehero.co/?p=1922
 date: 2013-08-09 00:01:05.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 description: Ruby on Rails desde Cero, serie en la cual aprenderemos Ruby on Rails. Estudiaremos los componentes del ActiveRecord.
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
-- curso
 - ActiveRecord
+- find_by
+- all
+- find
+- first
+- last
+- find_each
+- where
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. Hasta este capítulo ya tenemos suficientes herramientas para comenzar con nuestra aplicación Web, abarcando temas básicos como instalación, estructura y funcionamiento de vistas dinámicas.</p>
 

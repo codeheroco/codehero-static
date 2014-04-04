@@ -7,11 +7,9 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2525
-wordpress_url: http://codehero.co/?p=2525
 date: 2013-11-01 00:21:08.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Ruby on Rails desde cero. Nuevo Capitulo donde aprendemos a enviar correos electrónicos utilizando ActionMailer.
 categories:
 - Cursos
@@ -20,6 +18,8 @@ tags:
 - Ruby on Rails
 - ActionMailer
 - Email
+- Correo
+- Gmail
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan ofrecerte las herramientas básicas necesarias para que puedas desarrollar tus propias aplicaciones Web. En este nivel del curso ya deben tener suficiente información para empezar a desarrollar una aplicación web.</p>
 

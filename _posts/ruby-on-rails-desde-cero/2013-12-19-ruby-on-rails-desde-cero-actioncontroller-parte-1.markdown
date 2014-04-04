@@ -7,18 +7,16 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2874
-wordpress_url: http://codehero.co/?p=2874
 date: 2013-12-19 00:10:26.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
 description: Nuevo capítulo de la serie Ruby on Rails desde Cero, donde aprendemos sobre ActionControllers, como generarlos y como se leen parámetros.
 categories:
 - Ruby on Rails
-tags:
 - Cursos
+tags:
+- Controlador
+- ActionController
 - Ruby on Rails
-- curso
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior aprendimos como hacer pruebas unitarias, porque las debemos usar, como se preparan y como se usan.</p>
 

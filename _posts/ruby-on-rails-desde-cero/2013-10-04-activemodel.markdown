@@ -7,17 +7,14 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2347
-wordpress_url: http://codehero.co/?p=2347
 date: 2013-10-04 00:01:34.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Curso Ruby on Rails desde cero curso ActiveModel modelos sin acceso a base de datos. Mostrando módulos de Validación y Serialización.
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
 - Validaciones
 - Serialización

@@ -7,11 +7,9 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1723
-wordpress_url: http://codehero.co/?p=1723
 date: 2013-07-26 00:01:30.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+github: https://github.com/codeheroco/ruby_on_rails_variables_objetos
 description: Curso en el cual aprenderemos Ruby on Rails desde Cero. En esta clase, estudiaremos como crear vistas dinámicas extrayendo entradas de la base de datos
 categories:
 - Cursos
@@ -19,6 +17,7 @@ categories:
 tags:
 - Ruby on Rails
 - vistas
+- Views
 ---
 <h1>Ruby on Rails desde Cero: Vistas Dinámicas</h1>
 

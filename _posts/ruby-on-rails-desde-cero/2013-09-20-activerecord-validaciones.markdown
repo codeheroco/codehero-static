@@ -7,17 +7,14 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2282
-wordpress_url: http://codehero.co/?p=2282
 date: 2013-09-20 00:01:04.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Ruby On Rails desde Cero curso CodeHero donde mostramos el lenguaje sin previo conocimiento, este capítulo veremos ActiveRecord validaciones.
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
 - ActiveRecord
 - Validaciones

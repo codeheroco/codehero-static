@@ -7,17 +7,14 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2184
-wordpress_url: http://codehero.co/?p=2184
 date: 2013-09-06 00:01:39.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Ruby on Rails desde cero, segunda parte de ActiveRecord donde describimos los Scopes y consultas de tablas asociadas (joins).
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
 - ActiveRecord
 - Scopes
