@@ -6,12 +6,12 @@ title: Registrando cambios.
 author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
-author_url: http://albertogrespan.com
-wordpress_id: 1192
 wordpress_url: http://codehero.co/?p=1192
 date: 2013-06-27 06:30:01.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Novato
+duracion: 30
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 2 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos como instalar, configurar y utilizar Git para nuestros proyectos.
 categories:
 - Cursos

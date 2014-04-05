@@ -7,19 +7,22 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1830
-wordpress_url: http://codehero.co/?p=1830
 date: 2013-08-01 00:09:09.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Intermedio
+duracion: 30
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 7 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el uso del comando rebase y stash.
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Rebase
+- Stash
+- Checkout
+- List
+- Pop
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos de otra forma para realizar la unión de ramas llamada <strong>"rebase"</strong>, de como almacenar cambios sin tener que consolidarlos y cuales son las mejores prácticas a la hora de utilizar estas herramientas. Los comandos a utilizar esta semana serán los siguientes:</p>
 

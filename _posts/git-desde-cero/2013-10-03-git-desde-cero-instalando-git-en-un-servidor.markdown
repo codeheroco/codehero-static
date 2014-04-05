@@ -7,19 +7,21 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2341
-wordpress_url: http://codehero.co/?p=2341
 date: 2013-10-03 00:05:15.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Heroe
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 16 de la serie Git desde Cero, aprenderemos a instalar git en un servidor privado utilizando ssh como protocolo de comunicación.
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Instacion
+- Instalando
+- Servidor
+- Personalizar
 ---
 <p>Bienvenidos a un nuevo y último capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como utilizar git dentro de nuestro servidor privado. Explicaremos los protocolos que existen para realizar esta tarea, crearemos y alojaremos un proyecto en el servidor privado utilizando el protocolo ssh.</p>
 

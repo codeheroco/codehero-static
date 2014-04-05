@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1487
-wordpress_url: http://codehero.co/?p=1487
 date: 2013-07-18 01:26:28.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Aprendiz
+duracion: 30
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 5 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el manejo de ramas para nuestros proyectos.
 categories:
 - Cursos

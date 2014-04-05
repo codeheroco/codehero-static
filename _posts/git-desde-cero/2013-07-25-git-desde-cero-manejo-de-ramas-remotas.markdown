@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1699
-wordpress_url: http://codehero.co/?p=1699
 date: 2013-07-25 00:20:22.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Aprendiz
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 6 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el manejo de ramas remotas para nuestros proyectos.
 categories:
 - Cursos

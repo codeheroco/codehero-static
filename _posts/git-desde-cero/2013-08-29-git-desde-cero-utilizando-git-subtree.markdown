@@ -6,20 +6,22 @@ title: Utilizando Git Subtree.
 author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
-author_url: http://albertogrespan.com
-wordpress_id: 2126
 wordpress_url: http://codehero.co/?p=2126
 date: 2013-08-29 00:03:34.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Aprendiz
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 11 de Git desde Cero, serie en la cual aprenderemos a utilizar subtree (subárboles) dentro de nuestros proyectos, para reutilizar código!
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Subtree
+- Subcarpeta
+- Subproyecto
+- remote
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como agregar, actualizar y utilizar una alternativa a los submódulos de git, llamada <strong><em>subtree</em></strong> en nuestros proyectos. Los comandos a utilizar esta semana serán los siguientes:</p>
 

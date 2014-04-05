@@ -7,19 +7,21 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2175
-wordpress_url: http://codehero.co/?p=2175
 date: 2013-09-05 00:02:01.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Aprendiz
+duracion: 15
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 12 de Git desde Cero, serie en la cual aprenderemos a utilizar git blame y git bisect para realizar "debugging" dentro de nuestros proyectos!
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Debug
+- Blame
+- Bisect
+- Debugging
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como realizar "debugging" utilizando Git, con las herramientas <code>git bisect</code> y <code>git blame</code>. Los comandos a utilizar esta semana serán los siguientes:</p>
 
