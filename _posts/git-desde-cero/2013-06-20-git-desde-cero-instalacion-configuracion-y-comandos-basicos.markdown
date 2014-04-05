@@ -65,6 +65,8 @@ $ brew install git
 
 <p>Si nos encontramos en distribuciones como Fedora, podemos hacer uso del manejador de paquetes de dicha distribución y mediante el siguiente comando instalaremos Git:</p>
 
+{% include middle-post-ad.html %}
+
 ```sh
 $ yum install git-core
 ```

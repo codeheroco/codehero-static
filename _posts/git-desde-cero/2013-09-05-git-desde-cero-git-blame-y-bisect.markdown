@@ -58,6 +58,8 @@ ae36bb76 (Oscar Vicente González Greco 2013-08-25 14:05:52 -0430 15)
 
 <p>Podemos apreciar que lo primero que nos muestra es el <em>"hash"</em> corto, único del <em>"commit"</em>, luego encontramos el nombre de usuario que realizó, la fecha, y la respectiva línea de código.</p>
 
+{% include middle-post-ad.html %}
+
 <p>También podemos filtra el número de <em>"commits"</em> que queremos observar. Por ejemplo: si sabemos que nuestro problema comenzó a ocurrir a partir de un <em>"commit"</em> específico y se refleja hasta "X" <em>"commit"</em> más adelante filtramos estos resultados para encontrar que se modificó en estos <em>"commit"</em>.</p>
 
 ```sh

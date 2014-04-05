@@ -98,6 +98,8 @@ Fast-forward
 
 <p>Pudiésemos también aplicar el rebase a una rama sin necesidad de estar ubicados en ella como por ejemplo, estando parados sobre una nueva rama llamada a-v creada a partir de master. Vamos a rebasar la rama readme-branch a master. hagamos la prueba!</p>
 
+{% include middle-post-ad.html %}
+
 ```sh
 $ git chechout -b a-v
 $ git rebase master readme-branch

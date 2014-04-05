@@ -106,6 +106,8 @@ To git@github.com:codeheroco/tutorial-git.git
    05fe98e..c99705e  duplicada-de-arreglos-varios -> arreglos-varios
 ```
 
+{% include middle-post-ad.html %}
+
 <h3>¿Qué queremos lograr demostrando esto?</h3>
 
 <p>Lo principal es que una rama local no tiene porqué tener el mismo nombre que una rama remota, esto puede ser confuso pero queremos decir que es algo factible. Lo segundo, podemos realizar seguimiento y colaboración sin importar nombres de ramas localmente, ejemplo: "un compañero nuestro está trabajando en una funcionalidad nueva, y nosotros queremos descargar esa funcionalidad en una rama que tenemos creada local con un nombre distinto podríamos hacerle seguimiento y colaborar con él". La tercera es que observando el caso anterior pudiésemos simplemente hacerle seguimiento a la rama remota sin tener una rama local en nuestro equipo.</p>

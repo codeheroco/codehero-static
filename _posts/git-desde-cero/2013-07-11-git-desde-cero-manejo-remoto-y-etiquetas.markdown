@@ -92,6 +92,8 @@ servidor-de-pruebas https://github.com/albertogg/tutorial-git.git (push)
 $ git push origin master
 ```
 
+{% include middle-post-ad.html %}
+
 <hr />
 
 <h2>Fetch</h2>

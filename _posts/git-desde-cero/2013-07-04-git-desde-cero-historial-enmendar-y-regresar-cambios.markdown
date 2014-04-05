@@ -143,6 +143,8 @@ index 0000000..4564504
 
 <p>Por último si lo que queremos es visualizar en el historial de modificaciones en forma gráfica para observar el orden en el que se han almacenado los cambios podemos utilizar un método que abrevia de manera cuantiosa el historial.</p>
 
+{% include middle-post-ad.html %}
+
 ```sh
 $ git log --pretty=format:"%h - %an - %ar - %s" --graph
 

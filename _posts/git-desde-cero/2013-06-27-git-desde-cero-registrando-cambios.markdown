@@ -98,6 +98,8 @@ $ git status
 
 <p>El comando <em>git diff</em> nos identifica todos los cambios de un archivo con respecto a su versión anterior, o mejor dicho nos identifica los cambios de un archivo entre diferentes versiones. Es aquí donde podemos apreciar los cambios realizados que vamos a consolidar en esta nueva versión.</p>
 
+{% include middle-post-ad.html %}
+
 <p>Ahora realizando la continuación de lo que venimos realizando utilicemos el siguiente comando:</p>
 
 ```sh

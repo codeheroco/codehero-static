@@ -69,6 +69,8 @@ $ git status
 
 <p>Podemos observar que toda la información que se encontraba en los "commits" de hash "4f34bfe", "08bddd4" y "926a59c" ahora están en el stage nuevamente. Si llegáramos a realizar otro "commit" en este punto cambiaremos el árbol de nuestro proyecto. Ahora probemos con "mixed".</p>
 
+{% include middle-post-ad.html %}
+
 ```sh
 $ git reset --mixed 2614422d18
 $ git status
