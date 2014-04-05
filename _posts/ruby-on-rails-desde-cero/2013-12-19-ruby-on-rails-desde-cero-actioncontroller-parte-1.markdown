@@ -9,6 +9,8 @@ author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
 date: 2013-12-19 00:10:26.000000000 -04:30
 serie: Ruby on Rails desde Cero
+dificultad: Aprendiz
+duracion: 20
 description: Nuevo capítulo de la serie Ruby on Rails desde Cero, donde aprendemos sobre ActionControllers, como generarlos y como se leen parámetros.
 categories:
 - Ruby on Rails

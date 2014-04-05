@@ -9,6 +9,8 @@ author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
 date: 2013-10-18 00:03:27.000000000 -04:30
 serie: Ruby on Rails desde Cero
+dificultad: Intermedio
+duracion: 30
 github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Curso Ruby on Rails desde Cero, en este capítulo estaremos describiendo e implementando una gema para serializar objetos llamada active_model_serializers.
 categories:

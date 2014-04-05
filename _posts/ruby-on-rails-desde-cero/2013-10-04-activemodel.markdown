@@ -9,6 +9,8 @@ author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
 date: 2013-10-04 00:01:34.000000000 -04:30
 serie: Ruby on Rails desde Cero
+dificultad: Intermedio
+duracion: 30
 github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Curso Ruby on Rails desde cero curso ActiveModel modelos sin acceso a base de datos. Mostrando módulos de Validación y Serialización.
 categories:

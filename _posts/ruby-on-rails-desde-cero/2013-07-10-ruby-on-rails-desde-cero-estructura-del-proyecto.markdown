@@ -9,6 +9,8 @@ author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
 date: 2013-07-10 00:01:25.000000000 -04:30
 serie: Ruby on Rails desde Cero
+dificultad: Novato
+duracion: 20
 description: Curso Ruby on Rails desde cero Estructura de proyecto y configuración de la base de datos en MySQL.
 categories:
 - Cursos

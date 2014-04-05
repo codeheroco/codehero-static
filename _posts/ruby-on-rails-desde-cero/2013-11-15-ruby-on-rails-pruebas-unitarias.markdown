@@ -9,6 +9,8 @@ author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
 date: 2013-11-15 00:01:30.000000000 -04:30
 serie: Ruby on Rails desde Cero
+dificultad: Intermedio
+duracion: 20
 description: Ruby on Rails desde cero te ofrecemos las herramientas necesarias para implementar software de calidad utilizando pruebas unitarias en Rails.
 categories:
 - Cursos

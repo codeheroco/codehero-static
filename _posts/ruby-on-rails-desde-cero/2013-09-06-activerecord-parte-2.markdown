@@ -9,6 +9,8 @@ author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
 date: 2013-09-06 00:01:39.000000000 -04:30
 serie: Ruby on Rails desde Cero
+dificultad: Intermedio
+duracion: 20
 github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Ruby on Rails desde cero, segunda parte de ActiveRecord donde describimos los Scopes y consultas de tablas asociadas (joins).
 categories:

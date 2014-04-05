@@ -9,6 +9,8 @@ author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
 date: 2013-08-09 00:01:05.000000000 -04:30
 serie: Ruby on Rails desde Cero
+dificultad: Aprendiz
+duracion: 30
 description: Ruby on Rails desde Cero, serie en la cual aprenderemos Ruby on Rails. Estudiaremos los componentes del ActiveRecord.
 categories:
 - Cursos

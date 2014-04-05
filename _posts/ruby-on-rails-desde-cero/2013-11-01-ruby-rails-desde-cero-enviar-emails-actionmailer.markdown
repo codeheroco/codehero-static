@@ -9,6 +9,8 @@ author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
 date: 2013-11-01 00:21:08.000000000 -04:30
 serie: Ruby on Rails desde Cero
+dificultad: Intermedio
+duracion: 20
 github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Ruby on Rails desde cero. Nuevo Capitulo donde aprendemos a enviar correos electrónicos utilizando ActionMailer.
 categories:
