@@ -41,7 +41,7 @@ tags:
 $ rails generate model Publicacion titulo:string contenido:text
 ```
 
-<p>Una vez creado el modelo por consola podemos utilizar el comando 'rake' para construir la estructura de datos que tenemos en nuestro proyecto al manejador de base de datos que estemos utilizando. El comando es el siguente:</p>
+Una vez creado el modelo por consola podemos utilizar el comando `rake` para construir la estructura de datos que tenemos en nuestro proyecto al manejador de base de datos que estemos utilizando. El comando es el siguente:
 
 ```sh
 $ bundle exec rake db:migrate
@@ -59,7 +59,7 @@ $ rails generate controller publicacion
 
 <p>Lo primero que vamos a hacer es configurar nuestro controlador para que nos sirva de enlace entre el modelo, la base de datos y nuestras vistas dinámicas. Empezaremos creando métodos dentro del controlador que acabamos de crear de la siguiente forma:</p>
 
-<p>Nos posicionamos dentro del archivo 'publicacion_controller.rb' ubicado dentro del directorio 'app/controller/' y agregamos los métodos 'index', 'new' y 'create', los cuales listan las publicaciones, prepararan el formulario y guardan la información del mismo respectivamente:</p>
+Nos posicionamos dentro del archivo `publicacion_controller.rb` ubicado dentro del directorio `app/controller/` y agregamos los métodos `index`, `new` y `create`, los cuales listan las publicaciones, prepararan el formulario y guardan la información del mismo respectivamente:
 
 ```ruby
 def new
@@ -81,7 +81,7 @@ end
 
 <h3>Rutas</h3>
 
-<p>Una vez que sepamos los métodos a utilizar debemos manipular el archivo de las rutas, para hacerle saber las direcciones que vamos a estar usando. El archivo de rutas se encuentra en el directorio: '/config/routes.rb'. agregaremos las dos rutas necesarias para usar estos métodos del controlador:</p>
+Una vez que sepamos los métodos a utilizar debemos manipular el archivo de las rutas, para hacerle saber las direcciones que vamos a estar usando. El archivo de rutas se encuentra en el directorio: `/config/routes.rb`. agregaremos las dos rutas necesarias para usar estos métodos del controlador:
 
 ```ruby
 get 'publicacion' => 'publicacion#index'
@@ -101,11 +101,11 @@ publicacion_create_path | POST | /publicacion/create(.:format) | publicacion#cre
 
 <p>Una vez desarrollado los métodos del controlador y las rutas procedemos a crear nuestras vistas finales.</p>
 
-<p>Para esto debemos ubicarnos en el directorio de las vistas del controlador: 'app/views/publicacion/' y creamos los siguientes archivos:</p>
+Para esto debemos ubicarnos en el directorio de las vistas del controlador: `app/views/publicacion/` y creamos los siguientes archivos:
 
 {% include middle-post-ad.html %}
 
-<p>La primera vista la llamaremos `_form.html.erb` y este contendrá el formulario:</p>
+La primera vista la llamaremos `_form.html.erb` y este contendrá el formulario:
 
 ```erb
 <%= form_for :publicacion, url: publicacion_create_path do |f| %>
@@ -125,9 +125,9 @@ publicacion_create_path | POST | /publicacion/create(.:format) | publicacion#cre
 <% end %>
 ```
 
-<p>En esta vista encontramos detalles importantes como por ejemplo la dirección a donde se enviará la información del formulario, en este caso colocamos 'publicacion_create_path'. Por otro lado vemos como el formulario tiene los campos de la publicación (titulo y contenido).</p>
+En esta vista encontramos detalles importantes como por ejemplo la dirección a donde se enviará la información del formulario, en este caso colocamos `publicacion_create_path`. Por otro lado vemos como el formulario tiene los campos de la publicación (titulo y contenido).
 
-<p>Luego crearemos una vista llamada 'new.html.erb' que contiene el formulario de la siguiente forma:</p>
+Luego crearemos una vista llamada `new.html.erb` que contiene el formulario de la siguiente forma:
 
 ```erb
 <h1>Nueva publicación</h1>
@@ -195,7 +195,7 @@ Por último la vista principal que lista todas las publicaciones creadas: `index
 $ rails generate scaffold post titulo:string contenido:text
 ```
 
-<p>Con esta línea estamos creando un objeto "post" con dos atributos ('titulo' y 'contenido') al igual que cuando creamos "publicacion" esta linea de comando genera lo siguiente:</p>
+Con esta línea estamos creando un objeto "post" con dos atributos (`titulo` y `contenido`) al igual que cuando creamos "publicacion" esta linea de comando genera lo siguiente:
 
 ```sh
 invoke  active_record
@@ -239,7 +239,7 @@ identical    app/assets/stylesheets/scaffolds.css.scss
 $ rails destroy scaffold post
 ```
 
-<p>Si ejecutaron la línea de comando para generar el Scaffold y ejecutaron el comando para migrar los objetos a la base de datos antes mencionado ('rake db:migrare'), podrán ver como el framework por arte de magia les crea todo el CRUD (crear, leer, modificar y eliminar según sus siglas en ingles) incluso con validaciones y mensajes de error. Si ejecutaron la línea de comando creándolo con el nombre 'post' pueden revisar la magia en <a href="http://localhost:3000/posts">http://localhost:3000/posts</a></p>
+Si ejecutaron la línea de comando para generar el Scaffold y ejecutaron el comando para migrar los objetos a la base de datos antes mencionado (`rake db:migrare`), podrán ver como el framework por arte de magia les crea todo el CRUD (crear, leer, modificar y eliminar según sus siglas en ingles) incluso con validaciones y mensajes de error. Si ejecutaron la línea de comando creándolo con el nombre **post** pueden revisar la magia en [http://localhost:3000/posts](http://localhost:3000/posts)
 
 <hr />
 

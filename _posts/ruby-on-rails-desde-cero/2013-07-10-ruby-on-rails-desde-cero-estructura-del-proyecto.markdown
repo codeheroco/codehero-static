@@ -105,7 +105,7 @@ tree -L 2
 
 <h2>Base de datos.</h2>
 
-<p>Como todo en Ruby on Rails la configuración de la base de datos es bastante simple sólo tenemos que adaptar el archivo 'database.yml' para que este se conecte al manejador de base de datos que estemos usando.</p>
+Como todo en Ruby on Rails la configuración de la base de datos es bastante simple sólo tenemos que adaptar el archivo `database.yml` para que este se conecte al manejador de base de datos que estemos usando.
 
 <blockquote>
   <p>La base de datos que vamos a estar usando en nuestro proyecto va a ser <strong>MySQL</strong>, pero Rails soporta varios tipos como por ejemplo <strong>Postgres</strong>, <strong>SqlLite3</strong>, <strong>MongoDB</strong>, entre otras.</p>
@@ -129,7 +129,7 @@ $ gem 'mysql2'
 $ bundle install
 ```
 
-<p>Por último creamos las bases de datos a utilizar y modificamos el archivo '<em>database.yml</em>' de la siguiente manera:</p>
+Por último creamos las bases de datos a utilizar y modificamos el archivo `database.yml` de la siguiente manera:
 
 ```yaml
 development:
@@ -197,7 +197,7 @@ create  app/controllers/bienvenida_controller.rb
       create      app/assets/stylesheets/bienvenida.css.scss
 ```
 
-<p>Lo más importante de todo lo que crea esta línea de comando en el terminal es sin duda el archivo '<em>app/controllers/bienvenida_controller.rb</em>' que es el controlador en sí y las vistas asociadas a éste, en este caso es una sola '<em>app/views/bienvenida/index.html.erb</em>'. Si todo les funcionó correctamente pueden revisar su obra en <a href="http://127.0.0.1:3000/bienvenida/index">http://localhost:3000/bienvenida/index</a></p>
+Lo más importante de todo lo que crea esta línea de comando en el terminal es sin duda el archivo `app/controllers/bienvenida_controller.rb` que es el controlador en sí y las vistas asociadas a éste, en este caso es una sola `app/views/bienvenida/index.html.erb`. Si todo les funcionó correctamente pueden revisar su obra en [http://127.0.0.1:3000/bienvenida/index](http://localhost:3000/bienvenida/index)
 
 ```sh
 $ curl --request GET http://localhost:3000/bienvenida/index
@@ -245,7 +245,7 @@ invoke  active_record
 
 <p>Al ejecutar la línea de comando le estamos pidiendo a Rails que genere el modelo necesario para manejar una tabla en base de datos llamada '<em>usuario</em>' con tres campos (nombre, apellido y fecha_nacimiento). Estos atributos se agregan automáticamente a la tabla de usuario en la base de datos y se asigna al modelo correspondiente.</p>
 
-<p>Como pueden observar se crea un archivo dentro del directorio '<em>db/migrate/</em> ', en capítulos posteriores hablaremos más de la base de datos pero a grandes rasgos este archivo es la declaración de la tabla de donde se basa Rails para mapearla.</p>
+Como pueden observar se crea un archivo dentro del directorio `db/migrate/`, en capítulos posteriores hablaremos más de la base de datos pero a grandes rasgos este archivo es la declaración de la tabla de donde se basa Rails para mapearla.
 
 <hr />
 

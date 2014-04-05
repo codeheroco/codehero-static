@@ -160,7 +160,7 @@ end
 
 <h2>Condiciones</h2>
 
-<p>ActiveRecord también nos provee métodos que nos permite especificar las condiciones para limitar los registros devueltos, lo que representa el 'WHERE' en sentencias SQL. Estas condiciones bien se pueden especificar de tres formas diferentes.</p>
+ActiveRecord también nos provee métodos que nos permite especificar las condiciones para limitar los registros devueltos, lo que representa el `WHERE` en sentencias SQL. Estas condiciones bien se pueden especificar de tres formas diferentes.
 
 <p>Primero mostraremos un ejemplo estableciendo como condición una cadena de caracteres ('String' es la que menos les recomiendo):</p>
 
@@ -222,7 +222,7 @@ SELECT * FROM usuarios WHERE nombre != 'Ricardo';
 
 <p>Al igual que con las condiciones ActiveRecord también nos permite solicitar una lista registros ordenados por algunos de los campos (El equivalente al ORDER BY en SQL).</p>
 
-<p>Por ejemplo ordenaremos en este caso los usuarios por fecha de última modificación ('updated_at' campos que se crean automáticamente para auditoria) de la siguiere manera:</p>
+Por ejemplo ordenaremos en este caso los usuarios por fecha de última modificación (`updated_at` campos que se crean automáticamente para auditoria) de la siguiere manera:
 
 ```ruby
 ordenando por updated_al de forma ascendente
