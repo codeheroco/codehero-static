@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1989
-wordpress_url: http://codehero.co/?p=1989
 date: 2013-08-15 00:00:59.000000000 -04:30
 thumbnail: http://i.imgur.com/eNLoRqZ.png
+description: El IDF 2013 de Intel tiene muchas sorpresas preparados además de los procesadores Haswell y Xeon Phi, tales como...
 categories:
 - Artículos
 - Notícias

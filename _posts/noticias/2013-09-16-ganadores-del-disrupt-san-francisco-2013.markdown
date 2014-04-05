@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2241
-wordpress_url: http://codehero.co/?p=2241
 date: 2013-09-16 00:00:32.000000000 -04:30
 thumbnail: http://i.imgur.com/4uPy1cw.png
+description: La semana pasada se llevó a cabo el TechCrunch Disrupt, donde se presentan, compiten y premian los mejores startups que aun no han sido revelados al público
 categories:
 - Artículos
 - Notícias

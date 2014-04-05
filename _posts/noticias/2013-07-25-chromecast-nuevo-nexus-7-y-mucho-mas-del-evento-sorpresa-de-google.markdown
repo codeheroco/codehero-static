@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1669
-wordpress_url: http://codehero.co/?p=1669
 date: 2013-07-25 01:00:29.000000000 -04:30
 thumbnail: http://i.imgur.com/PuEl3rH.png
+description: El pasado martes se llevó a cabo un evento sorpresa de Google, en el cual se desvelaron muchas novedades que fueron recibidas gratamente, repasemos algunas
 categories:
 - Artículos
 - Notícias

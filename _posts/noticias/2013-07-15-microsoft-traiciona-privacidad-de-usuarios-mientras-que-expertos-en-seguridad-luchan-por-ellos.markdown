@@ -2,16 +2,14 @@
 layout: post
 status: publish
 published: true
-title: Microsoft traiciona privacidad de usuarios mientras que expertos en seguridad
-  luchan por ellos
+title: Microsoft traiciona privacidad de usuarios mientras que expertos en seguridad luchan por ellos
 author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1416
-wordpress_url: http://codehero.co/?p=1416
 date: 2013-07-15 01:00:35.000000000 -04:30
 thumbnail: http://i.imgur.com/LvXpA51.png
+description: El diario The Guardian ha desvelado nueva información que acusa a Microsoft de violar la privacidad de los usuarios al cooperar con la NSA.
 categories:
 - Artículos
 - Notícias
