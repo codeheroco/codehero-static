@@ -22,8 +22,6 @@ tags:
 - registro
 - cambios
 ---
-<h1>Git desde cero: Registrando cambios.</h1>
-
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este tutorial hablaremos sobre los siguientes comandos:</p>
 
 <ul>

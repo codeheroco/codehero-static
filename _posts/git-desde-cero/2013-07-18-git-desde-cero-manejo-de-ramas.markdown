@@ -177,7 +177,7 @@ CONFLICT (content): Merge conflict in README.md
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-<p>Para resolver este conflicto basta con abrir el archivo con problemas(en nuestro caso README.md) buscar <code><<<<< &gt;&gt;&gt;&gt;&gt;</code> este tipo de flechas y rayas <code>======</code> eliminarlas y ajustar el código o texto adecuadamente.</p>
+<p>Para resolver este conflicto basta con abrir el archivo con problemas(en nuestro caso README.md) buscar <code><<<<< >>>>></code> este tipo de flechas y rayas <code>======</code> eliminarlas y ajustar el código o texto adecuadamente.</p>
 
 <p><img src="http://i.imgur.com/9rKQoqx.png" alt="Conflicto" /></p>
 

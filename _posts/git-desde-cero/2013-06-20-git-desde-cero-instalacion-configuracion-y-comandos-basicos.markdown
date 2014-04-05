@@ -22,8 +22,6 @@ tags:
 - configuracion
 - basico
 ---
-<h1>Git desde cero: Instalación configuración y comandos básicos.</h1>
-
 <p>Bienvenidos a <strong><em>Git desde cero</em></strong>, esta serie de tutoriales tratará explicar y alejar el miedo que algunos de nosotros sentimos cuando comenzamos a utilizar un controlador de versiones por primera vez.</p>
 
 <hr />

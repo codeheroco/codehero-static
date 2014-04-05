@@ -24,8 +24,6 @@ tags:
 - enmendar
 - regresar
 ---
-<h1>Git desde cero: Historial, enmendar y regresar cambios.</h1>
-
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre el historial de los cambios en git, como enmendarlos y como regresar una modificación a su estado anterior utilizando estos comandos:</p>
 
 <ul>
