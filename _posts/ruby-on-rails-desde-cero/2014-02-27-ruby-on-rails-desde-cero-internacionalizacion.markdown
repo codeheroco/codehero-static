@@ -194,7 +194,7 @@ end
 
 Esto nos permitirá tener el `locale` `/es/` opcional en nuestro URL, si no lo agregamos la ruta funcionará normalmente pero agarrará el el idioma por defecto que es castellano. De igual manera funcionará la ruta si agregamos `/es/` o cambiará el idioma si agregamos `/en/`.
 
-Cómo últimas etapas debemos agregar contenido a nuestros archivos de locales.  
+Cómo últimas etapas debemos agregar contenido a nuestros archivos de locales.
 
 ### Lazy Lookup vs Full path
 
@@ -224,7 +224,7 @@ En la capeta de las vistas `app/views/` vas a buscar una carpeta llamada `sales`
 
 Si ahora vamos a la vista antes descrita y agregamos en la primera línea lo siguiente:
 
-```html
+```erb
 <%= t '.title' %>
 ```
 
@@ -236,7 +236,7 @@ Eso que acabamos de hacer es Lazy Lookup ya que no estamos especificando la ruta
 
 Si quisiéramos poner la traducción con la ruta completa o full path, también pusiésemos realizándolo de la siguiente manera:
 
-```html
+```erb
 <%= t 'sales.index.title' %>
 ```
 

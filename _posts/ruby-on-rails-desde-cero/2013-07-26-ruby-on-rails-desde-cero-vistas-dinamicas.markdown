@@ -107,7 +107,7 @@ publicacion_create_path | POST | /publicacion/create(.:format) | publicacion#cre
 
 <p>La primera vista la llamaremos `_form.html.erb` y este contendrá el formulario:</p>
 
-```html
+```erb
 <%= form_for :publicacion, url: publicacion_create_path do |f| %>
   <p>
     <%= f.label :titulo %><br>
@@ -129,14 +129,14 @@ publicacion_create_path | POST | /publicacion/create(.:format) | publicacion#cre
 
 <p>Luego crearemos una vista llamada 'new.html.erb' que contiene el formulario de la siguiente forma:</p>
 
-```html
+```erb
 <h1>Nueva publicación</h1>
 <%= render 'form' %>
 ```
 
 Por último la vista principal que lista todas las publicaciones creadas: `index.html.erb`
 
-```html
+```erb
 <table>
   <thead>
     <tr>

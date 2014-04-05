@@ -125,7 +125,7 @@ end
 
 <p>Por último creamos nuestro formulario donde cargaremos la información.</p>
 
-```html
+```erb
 <%=  form_for :nuevo_usuario, url: validation_create_path  do |f| %>
   <% if @nuevo_usuario.errors.any? %>
     <div id="error_explanation">

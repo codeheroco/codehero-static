@@ -142,7 +142,7 @@ end
 
 <p>Por último creamos nuestra vista de igual manera que en el capítulo anterior, agregando los bloques que detectan los errores del modelo:</p>
 
-```html
+```erb
 <%= form_for @mensaje do |f| %>
   <% if @mensaje.errors.any? %>
     <div id="error_explanation">

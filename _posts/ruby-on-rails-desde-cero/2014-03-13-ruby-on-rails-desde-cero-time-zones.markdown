@@ -173,6 +173,7 @@ irb(main):010:0> s = Sale.where(["created_at < ?", Time.zone.now])
 
 Tambien podemos preguntar si se creó con fechas tentativas:
 
+```ruby
 irb(main):011:0> s = Sale.where(["created_at < ?", 2.weeks.ago.to_s])
   Sale Load (0.2ms)  SELECT "sales".* FROM "sales" WHERE (created_at < '2014-02-27 03:18:38 UTC')
 => #<ActiveRecord::Relation []>
