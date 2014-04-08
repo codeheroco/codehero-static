@@ -184,7 +184,7 @@ Es un metodo de la clase principal
 ++++----++++
 Es un metodo de la clase principal
 y se le agrega este nuevo comportamiento
- ```
+```
 
 <blockquote>
   <p>En conclusión la herencia permite crear una clase que es un perfeccionamiento o especialización de otra clase.</p>

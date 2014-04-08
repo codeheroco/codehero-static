@@ -54,7 +54,7 @@ end
 
 def es_verdadero?                   #método que imprime una variable Booleana
   valor = 3
-  if valor>5
+  if valor > 5
     puts "verdadero"
   else
     puts "falso"
@@ -119,7 +119,7 @@ def sumatoria (valor1,valor2 = 3)       #método que imprime una suma entre dos 
 end
 
 def es_verdadero? (valor)               #método que imprime una variable Booleana
-  if valor>5
+  if valor > 5
     puts "verdadero"
   else
     puts "falso"
@@ -186,7 +186,7 @@ def sumatoria (valor1,valor2 = 3)       #método que imprime una suma entre dos 
 end
 
 def es_verdadero? (valor)               #método que imprime una variable Booleana
-  if valor>5
+  if valor > 5
     return "verdadero"
   else
     return "falso"

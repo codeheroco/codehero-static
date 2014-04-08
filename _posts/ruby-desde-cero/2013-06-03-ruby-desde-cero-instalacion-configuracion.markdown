@@ -80,7 +80,7 @@ $ sudo apt-get install ruby1.9.1
 
 <h3>Ruby en Windows.</h3>
 
-<p>Si eres un usuario Windows la instalación no es tan nativa como para los otros sistemas operativos. Particularmente recomiendo la instalación con ayuda de <a href="http://rubyinstaller.org/">RubyInstaller</a>{:rel=nofollow} este te da todas las herramientas para configurar el entorno de desarrollo completo en Windows</p>
+<p>Si eres un usuario Windows la instalación no es tan nativa como para los otros sistemas operativos. Particularmente recomiendo la instalación con ayuda de <a href="http://rubyinstaller.org/">RubyInstaller</a> este te da todas las herramientas para configurar el entorno de desarrollo completo en Windows</p>
 
 {% include middle-post-ad.html %}
 
