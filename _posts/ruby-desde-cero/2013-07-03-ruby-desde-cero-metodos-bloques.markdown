@@ -171,6 +171,8 @@ def nombre_del_metodo (variable1,variable2, . . .)
 end
 ```
 
+{% include middle-post-ad.html %}
+
 <p>Al igual que los métodos anteriores modificaremos un poco la estructura del ejemplo para que apliquen las funciones y para aumentar la complejidad y utilizar conceptos estudiados anteriormente. Para este caso vamos a usar variables de instancia:</p>
 
 ```ruby

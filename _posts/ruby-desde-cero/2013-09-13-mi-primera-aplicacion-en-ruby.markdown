@@ -177,6 +177,8 @@ end
 
 <p>Una vez tenemos nuestro modelo <strong>Estudiante</strong> con la funcionalidad de agregar y listar sus objetos y todas las funciones que verifican el archivo, plano donde vamos almacenar la información, modificamos nuestro controlador para agregarle funcionalidad <code>launch!</code> y empiece a tomar color nuestra aplicación.</p>
 
+{% include middle-post-ad.html %}
+
 ```ruby
 # launch! este metodo tiene un loop que va a recibir las acciones
 # que tendra la aplicacion para procesarlas

@@ -82,6 +82,8 @@ $ sudo apt-get install ruby1.9.1
 
 <p>Si eres un usuario Windows la instalación no es tan nativa como para los otros sistemas operativos. Particularmente recomiendo la instalación con ayuda de <a href="http://rubyinstaller.org/">RubyInstaller</a>{:rel=nofollow} este te da todas las herramientas para configurar el entorno de desarrollo completo en Windows</p>
 
+{% include middle-post-ad.html %}
+
 <p>Si la razón por la que quieres instalar Ruby es para utilizar el Framwork Rails, podrían utilizar <a href="http://railsinstaller.org/">RailsInstaller</a> que a aparte de instalar el lenguaje agrega las funcionalidades del Framwork y otros atributos como: SQLite o Git (Esta solución funciona para sistemas operativos Windows y Mac OSX. yo la recomiendo solo para usuarios Windows).</p>
 
 <h3>Primeros pasos en Ruby.</h3>

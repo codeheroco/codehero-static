@@ -110,6 +110,8 @@ Inhala y exhala
 
 <p>La programación orientada a objetos existe una característica del lenguaje que permite una una implementación específica de un método que ya está proporcionado por una de sus superclases. Las modificaciones de las subclases reemplazan la implementación de la superclase.</p>
 
+{% include middle-post-ad.html %}
+
 <p>A continuación mostraremos un ejemplo sencillo para entender mejor el concepto:</p>
 
 ```ruby

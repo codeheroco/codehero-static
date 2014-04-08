@@ -59,6 +59,8 @@ end
 
 <p>Con los módulos es posible agrupar una serie de métodos y clases relacionadas de alguna manera en un archivo independiente, de tal manera que podamos utilizar estos métodos como una librería independiente. Un caso típico de un módulo es 'Math': este módulo cuenta con una serie de funciones trigonométricas agrupadas en un sólo paquete.</p>
 
+{% include middle-post-ad.html %}
+
 <p>Los espacios de nombres también evitan el problema de que surja una ambiegüedad en el caso de que haya dos componentes con un mismo nombre. Por ejemplo, podemos tener dentro de un programa varias clases con el nombre “Settings”, pero cada una estará referida a algo concreto. Incluyendo esas clases en distintos módulos, conseguimos que puedan ser identificadas de forma unívoca.</p>
 
 <p>Luego de tanta descripción veamos un ejemplo y así seguramente entenderemos mejor el concepto de namespace:</p>

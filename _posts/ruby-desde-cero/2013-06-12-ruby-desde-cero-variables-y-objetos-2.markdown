@@ -84,6 +84,8 @@ $global_variable
 @@variable
 ```
 
+{% include middle-post-ad.html %}
+
 <h3>Variables locales y de bloques.</h3>
 
 <p>Estas son las variables de menos alcance en el sistema, se definen y utilizan hasta que se termine el método y Ruby limpie la memoria. Estas variables no tienen ningún símbolo predecesor, pero debemos tener cuidado de no utilizar palabras reservadas por Ruby</p>
