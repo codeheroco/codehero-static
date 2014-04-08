@@ -7,11 +7,10 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 812
-wordpress_url: http://www.polarux.com/?p=812
 date: 2013-06-03 03:22:50.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Novato
+duracion: 20
 description: Curso Ruby desde cero Instalación y configuración. Las series de tutoriales Ruby en CodeHero otorgan los conocimientos para desarrollar aplicaciones
 categories:
 - Cursos

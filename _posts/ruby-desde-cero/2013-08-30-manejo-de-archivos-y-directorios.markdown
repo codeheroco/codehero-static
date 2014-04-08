@@ -7,19 +7,18 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2135
-wordpress_url: http://codehero.co/?p=2135
 date: 2013-08-30 00:01:41.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Intermedio
+duracion: 30
 description: Nuevo curso de Ruby desde cero esta vez aprenderemos a manejar archivos y directorios.
 categories:
 - Cursos
 - Ruby
 tags:
 - Ruby
-- Cursos
 - Archivos
+- Directorios
 ---
 <p>Bienvenidos una vez más a Ruby desde cero, curso con el cual aprendemos del lenguaje sin necesidad de tener previo conocimiento en el tema. En el capítulo anterior estuvimos estudiando el concepto de módulos aplicado al lenguaje. En este nuevo capítulo estaremos estudiando el manejo de archivos en Ruby, desde como abrirlo hasta como escribir y leer información del mismo.</p>
 

@@ -7,19 +7,19 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1993
-wordpress_url: http://codehero.co/?p=1993
 date: 2013-08-16 00:01:56.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Intermedio
+duracion: 30
 description: Capítulo de la serie Ruby desde Cero, en el que se estudia el concepto de módulos del lenguaje.
 categories:
 - Cursos
 - Ruby
 tags:
 - Ruby
-- Cursos
 - Módulos
+- Clase
+- mixin
 ---
 <p>Bienvenidos una vez más a Ruby desde Cero. En los últimos capítulos estudiamos las clases y el paradigma orientado a objetos aplicados al lenguaje. Si aún no te has puesto al día con la serie te invito a echarle un vistazo a <a href="[http://codehero.co/series/ruby-desde-cero/]">Ruby desde Cero</a></p>
 
