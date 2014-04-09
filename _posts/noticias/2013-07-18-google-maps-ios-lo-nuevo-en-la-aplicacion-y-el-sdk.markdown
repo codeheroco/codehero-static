@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1479
-wordpress_url: http://codehero.co/?p=1479
 date: 2013-07-18 00:00:07.000000000 -04:30
 thumbnail: http://i.imgur.com/fmmt62W.png
+description: La nueva versión de la aplicación de Google Maps para iOS y el mejorado SDK causan múltiples buenas impresiones. Ve todo lo nuevo...
 categories:
 - Artículos
 - Notícias

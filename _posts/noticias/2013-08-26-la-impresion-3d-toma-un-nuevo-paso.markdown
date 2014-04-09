@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2085
-wordpress_url: http://codehero.co/?p=2085
 date: 2013-08-26 00:00:08.000000000 -04:30
 thumbnail: http://i.imgur.com/X2z1I2Z.png
+description: La tecnología ha evolucionado increíblemente y nuevas técnicas han sido introducidas, logrando llevar la impresión 3D a un nivel económicamente accesible
 categories:
 - Artículos
 - Notícias

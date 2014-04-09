@@ -7,17 +7,18 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2663
-wordpress_url: http://codehero.co/?p=2663
 date: 2013-11-26 00:05:15.000000000 -04:30
 thumbnail: http://i.imgur.com/R2H9UgY.png
+description: Esta semana hablaremos de una de las herramientas de sincronización más poderosas desde hace mucho tiempo, se trata nada más y nada menos que de rsync.
+dificultad: Novato
+duracion: 15
 categories:
 - Cómo lo hago
 - rsync
 tags:
 - como lo hago
 - rsync
-- how to
+- howto
 - sincronizacion
 - transferencia
 - ssh
@@ -156,6 +157,9 @@ La opción `-n` muestra el plan de transferencia sin realizarla en realidad (por
 Si ejecutamos el comando sin la opción `-n` el archivo será transferido.
 
 ***
+
+{% include middle-post-ad.html %}
+
 ##Transferencia entre equipos remotos
 Para transferencias remotas se recomienda que dentro de lo posible utilices el método de transferencia por SSH que explicaremos aquí, esto debido a que el canal de comunicación se encuentra cifrado y aporta un nivel de seguridad muy importante.
 
@@ -233,4 +237,3 @@ prueba1  prueba10  prueba2  prueba3  prueba4  prueba5  prueba6  prueba7  prueba8
 
 ##Conclusión
 Hemos aprendido como transferir y sincronizar archivos y directorios entre los puntos de una red o equipo. Esto es solo el comienzo ya que las posibilidades de implementación de esta solución son muy variadas, como mantener al día tus librerías de iTunes en diferentes lugares por ejemplo. También puedes crear tareas programadas o *cron jobs* que ejecuten el comando de **rsync** periódicamente para que el proceso de sincronización sea automatizado o incluso puedes utilizar herramientas como [inotify](https://github.com/rvoicilas/inotify-tools/wiki) (para Linux) o [fswatch](https://github.com/alandipert/fswatch) (para Mac OS X) los cuales te permiten ejecutar un *script* cuando cambie un archivo dentro de un directorio, tu *script* puede ser tan sencillo como ejecutar el comando **rsync** cada vez que un archivo cambie, esto te dará sincronización automatizada al instante.
-

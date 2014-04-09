@@ -7,11 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2823
-wordpress_url: http://codehero.co/?p=2823
 date: 2013-12-10 00:05:06.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
+description: La replicación de los datos nos permite asegurar que la información esté siempre disponible y reducir los riesgos de pérdida o corrupción de la misma.
+dificultad: Avanzado
+duracion: 15
 categories:
 - Cursos
 - MongoDB
@@ -63,6 +63,9 @@ Son miembros secundarios de tipo prioridad 0 pero que además se les niega la po
 
 También son miembros de prioridad 0 y poseen la cualidad particular de mantener un estado retrasado de la base de datos, suele utilizarse como instancias de respaldo ya que no han sido afectadas por las últimas operaciones que pudiesen estar alterando de manera no deseada la información. Debido al estado retrasado de este miembro se recomienda que también se defina como un miembro escondido.
 ***
+
+{% include middle-post-ad.html %}
+
 ##Elecciones
 
 La arquitectura de los **replica set** dicta que los miembros deben enviar latidos o *pings* entre ellos cada 2 segundos, si en un período de 10 segundos el latido no es devuelto, se marca al miembro en cuestión como inaccesible.

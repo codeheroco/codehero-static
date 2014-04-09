@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2140
-wordpress_url: http://codehero.co/?p=2140
 date: 2013-09-02 00:00:52.000000000 -04:30
 thumbnail: http://i.imgur.com/sMskTV3.png
+description: El CEO de Microsoft anunció que en un año se estaría retirando de la compañía, aseguró que la decisión era totalmente de él. ¿Qué tan cierto será?...
 categories:
 - Artículos
 - Notícias

@@ -7,14 +7,17 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2984
-wordpress_url: http://codehero.co/?p=2984
 date: 2014-02-06 01:21:50.000000000 -04:30
 thumbnail: http://i.imgur.com/aFoOgeD.png
+description: Docker utiliza un archivo llamado Dockerfile en conjunto con su DSL para automatizar el proceso de crear contenedores, nosotros te explicamos como hacerlo!
+dificultad: Aprendiz
+duracion: 30
 categories:
 - Cómo lo hago
 - Docker
 tags:
+- howto
+- como lo hago
 - nginx
 - docker
 - Dockerfile
@@ -111,6 +114,8 @@ RUN dpkg-reconfigure locales
 ```
 
 No quiero entrar mucho en detalles de Sistema Operativo pero, estamos actualizando la paquetería conocida por Ubuntu y luego instalando un paquete de lenguajes en inglés, estoy instalando el de inglés porque casi todo necesita estar en `en_US.UTF-8` lamentablemente, y la codificación es un tema bastante complejo.
+
+{% include middle-post-ad.html %}
 
 Una vez que la actualización de paquetes e instalación culminan estoy estableciendo las variables de ambientes del contenedor referentes al lenguaje del mismo y configurando el contenedor para que las utilice por defecto.
 

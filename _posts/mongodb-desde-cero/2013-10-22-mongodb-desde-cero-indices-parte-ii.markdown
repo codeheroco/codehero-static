@@ -7,11 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2419
-wordpress_url: http://codehero.co/?p=2419
 date: 2013-10-22 00:05:56.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
+description: Seguiremos hablando sobre la importancia de los índices y su implementación en MongoDB, para continuar aprendiendo y cubrir las posibilidades de uso.
+dificultad: Aprendiz
+duracion: 15
 categories:
 - Cursos
 - MongoDB
@@ -201,6 +201,8 @@ Aquí podemos notar un plan de ejecución común donde podemos apreciar varias e
 ```
 
 Notaremos que en este caso las estadísticas son algo diferentes, el cursor es diferente debido a que ahora posee una estructura de tipo BTREE para recorrer los nodos de índices. El número de objetos escaneadas en menor y además nos especifica el campo del índice y sus límites.
+
+{% include middle-post-ad.html %}
 
 ###`hint()`
 Este método nos permite indicarle a una búsqueda qué índice debe utilizar. Probemos con una búsqueda sencilla que obliguemos a utilizar el índice de dinero:

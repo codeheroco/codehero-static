@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1933
-wordpress_url: http://codehero.co/?p=1933
 date: 2013-08-12 00:00:02.000000000 -04:30
 thumbnail: http://i.imgur.com/ZYJmP1x.png
+description: Flickr pasó de estar en la cima a no ser el líder en nada, Bernardo pretende cambiar esto y hacerle frente a gigantes como Instagram y Facebook
 categories:
 - Artículos
 - Notícias

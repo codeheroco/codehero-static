@@ -7,13 +7,18 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 3105
-wordpress_url: http://codehero.co/?p=3105
 date: 2014-03-10 20:30:32.000000000 -04:30
+thumbnail: http://i.imgur.com/jerpEcm.png
+description: Esta semana nos adentraremos en el funcionamiento de RabbitMQ al colocarlo en acción y veremos un poco sobre su interfaz de administración.
+dificultad: Aprendiz
+duracion: 20
+github: https://github.com/codeheroco/rabbitmq
 categories:
 - Cómo lo hago
 - RabbitMQ
 tags:
+- howto
+- como lo hago
 - node
 - admin
 - rabbitmq
@@ -23,62 +28,66 @@ tags:
 - publicador
 - amqp
 ---
-<p><a href="http://codehero.co/como-utilizar-colas-de-mensajes-con-rabbitmq-parte/">La semana pasada</a> comenzamos a ver los conceptos básicos de las colas de mensajes y las ventajas que nos podría traer al utilizar RabbitMQ como nuestra solución, esta vez nos adentraremos en el funcionamiento de RabbitMQ al colocarlo en acción y veremos un poco sobre su interfaz de administración.</p>
+[La semana pasada](http://codehero.co/como-utilizar-colas-de-mensajes-con-rabbitmq-parte/) comenzamos a ver los conceptos básicos de las colas de mensajes y las ventajas que nos podría traer al utilizar RabbitMQ como nuestra solución, esta vez nos adentraremos en el funcionamiento de RabbitMQ al colocarlo en acción y veremos un poco sobre su interfaz de administración.
+***
 
-<hr />
+## Administración
 
-<h2>Administración</h2>
+Esta herramienta nos permitirá realizar una gestión completa de la mayoría de los procesos que están involucrados en las colas de mensajes. Para ello debemos habilitar el *plugin*  y luego iniciar el servicio de RabbitMQ:
 
-<p>Esta herramienta nos permitirá realizar una gestión completa de la mayoría de los procesos que están involucrados en las colas de mensajes. Para ello debemos habilitar el <em>plugin</em> y luego iniciar el servicio de RabbitMQ:</p>
+### Debian
 
-<h3>Debian</h3>
-
-<pre>$ sudo rabbitmq-plugins enable rabbitmq_management
+```sh
+$ sudo rabbitmq-plugins enable rabbitmq_management
 $ sudo service rabbitmq-server start
-</pre>
+```
 
-<h3>Windows</h3>
+### Windows
 
-<p>Nos dirigiremos al directorio de instalación de RabbitMQ y luego al subdirectorio <code>sbin</code> del mismo, algo asi:</p>
+Nos dirigiremos al directorio de instalación de RabbitMQ y luego al subdirectorio `sbin` del mismo, algo asi:
 
-<pre>%PROGRAMFILES%\RabbitMQ Server\rabbitmq_server_2.7.1\sbin\
-</pre>
+```
+%PROGRAMFILES%\RabbitMQ Server\rabbitmq_server_2.7.1\sbin\
+```
 
-<p>Y luego ejecutamos el siguiente comando:</p>
+Y luego ejecutamos el siguiente comando:
 
-<pre>$ rabbitmq-plugins.bat enable rabbitmq_management
-</pre>
+```sh
+$ rabbitmq-plugins.bat enable rabbitmq_management
+```
 
-<p>Debemos reinstalar el servicio de de RabbitMQ para que el plugin funcione por lo que haremos lo siguiente:</p>
+Debemos reinstalar el servicio de de RabbitMQ para que el plugin funcione por lo que haremos lo siguiente:
 
-<pre>$ rabbitmq-service.bat stop
+```sh
+$ rabbitmq-service.bat stop
 $ rabbitmq-service.bat install
 $ rabbitmq-service.bat start
-</pre>
+```
 
-<h3>Mac OS X</h3>
+### Mac OS X
 
-<blockquote>
-  <p>Si instalaste RabbitMQ con <a href="http://codehero.co/como-lo-hago-instalar-homebrew/">Homebrew</a> este plugin viene habilitado por defecto.</p>
-</blockquote>
+> Si instalaste RabbitMQ con [Homebrew](http://codehero.co/como-lo-hago-instalar-homebrew/) este plugin viene habilitado por defecto.
 
-<p>Iniciemos el servicio de RabbitMQ:</p>
+Iniciemos el servicio de RabbitMQ:
 
-<pre>$ brew services start rabbitmq
-</pre>
+```sh
+$ brew services start rabbitmq
+```
 
-<hr />
+***
 
-<h2>Prueba de administración</h2>
+## Prueba de administración
 
-<p>Finalmente probaremos que el servicio está ejecutandose ejecutando:</p>
+Finalmente probaremos que el servicio está ejecutandose ejecutando:
 
-<pre>$ rabbitmqctl status
-</pre>
+```sh
+$ rabbitmqctl status
+```
 
-<p>Y obtendremos una salida de gran parte del estado y configuración del servidor de RabbitMQ como esta:</p>
+Y obtendremos una salida de gran parte del estado y configuración del servidor de RabbitMQ como esta:
 
-<pre>[{pid,10062},
+```
+[{pid,10062},
  {running_applications,
      [{rabbitmq_management_visualiser,"RabbitMQ Visualiser","3.2.3"},
       {rabbitmq_management,"RabbitMQ Management Console","3.2.3"},
@@ -125,37 +134,38 @@ $ rabbitmq-service.bat start
  {run_queue,0},
  {uptime,9}]
 ...done.
-</pre>
+```
 
-<p>Probemos la interfaz gráfica ingresando a nuestro navegador y dirigiendonos a <code>http://localhost:15672/</code>, este es el puerto por defecto del submódulo de administración de RabbitMQ:</p>
+{% include middle-post-ad.html %}
 
-<p><img src="http://i.imgur.com/yfYPIl1.png" alt="Rabbit Login" /></p>
+Probemos la interfaz gráfica ingresando a nuestro navegador y dirigiendonos a `http://localhost:15672/`, este es el puerto por defecto del submódulo de administración de RabbitMQ:
 
-<p>Se nos presentará una pantalla de inicio de sesión (seguridad ante todo). Por ser una instalación nueva, el usuario y clave por defecto es <code>guest</code> para ambos.</p>
+![Rabbit Login](http://i.imgur.com/yfYPIl1.png)
 
-<p>Dentro podremos ver muchos detalles acerca del estado de nuestro sistema de colas, entre ellos podremos apreciar datos importantes como las conexiones existentes, las colas definidas, los intercambiadores, consumidores de mensajes, gestión administrativa del servidor y mucho más.</p>
+Se nos presentará una pantalla de inicio de sesión (seguridad ante todo). Por ser una instalación nueva, el usuario y clave por defecto es `guest` para ambos.
 
-<p><img src="http://i.imgur.com/ZUBA22h.png" alt="Rabbit Home" /></p>
+Dentro podremos ver muchos detalles acerca del estado de nuestro sistema de colas, entre ellos podremos apreciar datos importantes como las conexiones existentes, las colas definidas, los intercambiadores, consumidores de mensajes, gestión administrativa del servidor y mucho más.
 
-<p>No te preocupes si no entiendes mucho de lo que hay aquí, más adelante cuando nos pongamos en acción con algunos ejemplos podrás apreciarlo mejor.</p>
+![Rabbit Home](http://i.imgur.com/ZUBA22h.png)
 
-<hr />
+No te preocupes si no entiendes mucho de lo que hay aquí, más adelante cuando nos pongamos en acción con algunos ejemplos podrás apreciarlo mejor.
 
-<h2>Demo</h2>
+***
 
-<p>Bien, es hora de probar cómo funciona todo esto, que hemos visto.</p>
+## Demo
 
-<p>Para nuestro ejemplo utilizaremos <a href="">node.js</a>, el novedoso framework de javascript, esto con la finalidad de motivarlos a introducirse en el uso de este lenguaje y por su facilidad de lectura y aprendizaje.</p>
+Bien, es hora de probar cómo funciona todo esto, que hemos visto.
 
-<blockquote>
-  <p>No te preocupes, RabbitMQ tiene librerías para <a href="http://www.rabbitmq.com/devtools.html">casi todos los lenguajes</a> para que puedas desarrollar en el lenguaje de tu preferencia.</p>
-  
-  <p>El código que verás aquí se encuentra en el repositorio de Github referenciado al comienzo de esta entrada. En él se encuentran las instrucciones para puedas correr tu mismo los programas y puedas ver en vivo lo que sucede.</p>
-</blockquote>
+Para nuestro ejemplo utilizaremos [node.js](), el novedoso framework de javascript, esto con la finalidad de motivarlos a introducirse en el uso de este lenguaje y por su facilidad de lectura y aprendizaje.
 
-<p>Veamos primero el código de nuestro <strong>publicador</strong> o cliente generador de mensajes:</p>
+> No te preocupes, RabbitMQ tiene librerías para [casi todos los lenguajes](http://www.rabbitmq.com/devtools.html) para que puedas desarrollar en el lenguaje de tu preferencia.
 
-<pre>var amqp = require('amqp');
+> El código que verás aquí se encuentra en el repositorio de Github referenciado al comienzo de esta entrada. En él se encuentran las instrucciones para puedas correr tu mismo los programas y puedas ver en vivo lo que sucede.
+
+Veamos primero el código de nuestro **publicador** o cliente generador de mensajes:
+
+```javascript
+var amqp = require('amqp');
 var helper = require('./amqp-hacks');
 
 var conexion = amqp.createConnection({host: 'localhost'});
@@ -168,28 +178,24 @@ conexion.on('ready', function(){
 
     helper.safeEndConnection(conexion);
 });
-</pre>
+```
 
-<p>Detallemos paso a paso lo que hace cada línea:</p>
+Detallemos paso a paso lo que hace cada línea:
 
-<ul>
-<li>Requerimos el módulo del protocolo AMQP que usaremos para comunicarnos con RabbitMQ.</li>
-<li>Requerimos un <em>script</em> local que nos ayudará a finalizar correctamente la conexión.</li>
-<li>Establecemos la conexión con nuestro servidor de RabbitMQ.</li>
-<li>Cuando la conexión está establecida proseguimos con lo siguiente: 
+* Requerimos el módulo del protocolo AMQP que usaremos para comunicarnos con RabbitMQ.
+* Requerimos un *script* local que nos ayudará a finalizar correctamente la conexión.
+* Establecemos la conexión con nuestro servidor de RabbitMQ.
+* Cuando la conexión está establecida proseguimos con lo siguiente:
+    * Construimos el mensaje.
+    * Enviamos el mensaje indicando la cola `sencilla` a la cual debemos enviarlo.
+    * Finalizamos la conexión.
 
-<ul>
-<li>Construimos el mensaje.</li>
-<li>Enviamos el mensaje indicando la cola <code>sencilla</code> a la cual debemos enviarlo.</li>
-<li>Finalizamos la conexión.</li>
-</ul></li>
-</ul>
+Bastante sencillo ¿no lo crees?
 
-<p>Bastante sencillo ¿no lo crees?</p>
+Observemos ahora el código de nuestro **consumidor** o servidor receptor:
 
-<p>Observemos ahora el código de nuestro <strong>consumidor</strong> o servidor receptor:</p>
-
-<pre>var amqp = require('amqp');
+```javascript
+var amqp = require('amqp');
 
 var conexion = amqp.createConnection({host: 'localhost'});
 
@@ -200,60 +206,51 @@ conexion.on('ready', function(){
         });
     });
 });
-</pre>
+```
 
-<p>Nuevamente detallando cada línea:</p>
+Nuevamente detallando cada línea:
 
-<ul>
-<li>Requerimos el módulo del protocolo AMQP.</li>
-<li>Establecemos la conexión con nuestro servidor de RabbitMQ.</li>
-<li>Cuando la conexión está establecida proseguimos con lo siguiente: 
+* Requerimos el módulo del protocolo AMQP.
+* Establecemos la conexión con nuestro servidor de RabbitMQ.
+* Cuando la conexión está establecida proseguimos con lo siguiente:
+    * Instanciamos la cola `sencilla` indicando la opción para que esta no sea eliminada cuando no existan más mensajes en ella.
+        * Nos suscribimos a la cola (esto producirá que el programa se quede oyendo a la cola).
+            * Imprimimos el mensaje cada vez que la cola recibe y nos envía.
 
-<ul>
-<li>Instanciamos la cola <code>sencilla</code> indicando la opción para que esta no sea eliminada cuando no existan más mensajes en ella. 
 
-<ul>
-<li>Nos suscribimos a la cola (esto producirá que el programa se quede oyendo a la cola). 
+Podemos probar iniciando nuestro **consumidor** e ir enviado mensajes con nuestro **publicador** para observar en la salida como es el flujo de mensajes el cual terminaría siendo algo así:
 
-<ul>
-<li>Imprimimos el mensaje cada vez que la cola recibe y nos envía.</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-
-<p>Podemos probar iniciando nuestro <strong>consumidor</strong> e ir enviado mensajes con nuestro <strong>publicador</strong> para observar en la salida como es el flujo de mensajes el cual terminaría siendo algo así:</p>
-
-<pre>Mensaje recibido -> Hola CODEHERO. Sun Mar 09 2014 01:05:30 GMT-0430 (VET)
+```sh
+Mensaje recibido -> Hola CODEHERO. Sun Mar 09 2014 01:05:30 GMT-0430 (VET)
 Mensaje recibido -> Hola CODEHERO. Sun Mar 09 2014 01:05:31 GMT-0430 (VET)
 Mensaje recibido -> Hola CODEHERO. Sun Mar 09 2014 01:05:34 GMT-0430 (VET)
 Mensaje recibido -> Hola CODEHERO. Sun Mar 09 2014 01:05:35 GMT-0430 (VET)
-</pre>
+```
 
-<h3>Integridad</h3>
+### Integridad
 
-<p>Puedes probar detener el <strong>consumidor</strong> y seguir enviando mensajes. En efecto el mensaje ha sido enviado a la cola y este no se ha perdido, en cuanto vuelvas a iniciar tu <strong>consumidor</strong> verás los mensajes encolados fluir.</p>
+Puedes probar detener el **consumidor** y seguir enviando mensajes. En efecto el mensaje ha sido enviado a la cola y este no se ha perdido, en cuanto vuelvas a iniciar tu **consumidor** verás los mensajes encolados fluir.
 
-<p>Antes de levantar nuevamente el <strong>consumidor</strong> puedes probar entrar a la página administrativa de RabbitMQ para observar aquellos mensajes que se encuentran esperando y el flujo de entrada de ellos al servidor:</p>
+Antes de levantar nuevamente el **consumidor** puedes probar entrar a la página administrativa de RabbitMQ para observar aquellos mensajes que se encuentran esperando y el flujo de entrada de ellos al servidor:
 
-<p><img src="http://i.imgur.com/TuQNi8r.png" alt="Rabbit message flow" /></p>
+![Rabbit message flow](http://i.imgur.com/TuQNi8r.png)
 
-<p>Además de poder echarles un vistazo desde esta misma interfaz ubicada en la parte inferior:</p>
+Además de poder echarles un vistazo desde esta misma interfaz ubicada en la parte inferior:
 
-<p><img src="http://i.imgur.com/PMgb10R.png" alt="Rabbit messages details" /></p>
+![Rabbit messages details](http://i.imgur.com/PMgb10R.png)
 
-<h3>Escalabilidad</h3>
+### Escalabilidad
 
-<p>En caso que tengas un flujo de mensajes muy alto tan solo debes agregar más poder, levanta más consumidores y RabbitMQ se encargará de balancear la carga entre ellos siempre manteniendo un orden lógico en los mensajes y evitando que estos se pierdan o sean procesados más de una vez.</p>
+En caso que tengas un flujo de mensajes muy alto tan solo debes agregar más poder, levanta más consumidores y RabbitMQ se encargará de balancear la carga entre ellos
+siempre manteniendo un orden lógico en los mensajes y evitando que estos se pierdan o sean procesados más de una vez.
 
-<p>Para probar esto en la práctica, levanta varios <strong>consumidores</strong> y en lugar de utilizar el <strong>publicador</strong> que hemos probado hasta ahora, prueba el <strong>publicador agresivo</strong>. De esta manera podrás observar lo fácil que es escalar tu solución para soportar altos volumenes de peticiones.</p>
+Para probar esto en la práctica, levanta varios **consumidores** y en lugar de utilizar el **publicador** que hemos probado hasta ahora, prueba el **publicador agresivo**. De esta manera podrás observar lo fácil que es escalar tu solución para soportar altos volumenes de peticiones.
+***
 
-<hr />
+## Conclusión
 
-<h2>Conclusión</h2>
+Esta semana pudimos arañar la superficie de posibilidades con RabbitMQ, observamos su naturaleza asíncrona y algunas de las ventajas que su funcionamiento nos ofrece.
 
-<p>Esta semana pudimos arañar la superficie de posibilidades con RabbitMQ, observamos su naturaleza asíncrona y algunas de las ventajas que su funcionamiento nos ofrece.</p>
+El enfoque productivo más común es aquel que se basa en suscripciones a contenidos mejor conocido como el modelo Pub/Sub, este por medio de un intercambiador distribuirá el mensaje para ser consumido por múltiples consumidores, algo como los *feeds*.
 
-<p>El enfoque productivo más común es aquel que se basa en suscripciones a contenidos mejor conocido como el modelo Pub/Sub, este por medio de un intercambiador distribuirá el mensaje para ser consumido por múltiples consumidores, algo como los <em>feeds</em>.</p>
-
-<p>Otro enfoque importante es aquel basado en un procedimiento que se compone de varias tareas pesadas las cuales suelen ser síncronas lo cual obliga al usuario a esperar a que una tarea termina para proseguir, aplicaciones comunes son la gestión de imagenes y programación de tareas de corrida prolongada.</p>
+Otro enfoque importante es aquel basado en un procedimiento que se compone de varias tareas pesadas las cuales suelen ser síncronas lo cual obliga al usuario a esperar a que una tarea termina para proseguir, aplicaciones comunes son la gestión de imagenes y programación de tareas de corrida prolongada.

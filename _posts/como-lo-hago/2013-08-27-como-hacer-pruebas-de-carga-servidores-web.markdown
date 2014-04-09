@@ -7,14 +7,17 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2101
-wordpress_url: http://codehero.co/?p=2101
 date: 2013-08-27 00:05:01.000000000 -04:30
 thumbnail: http://i.imgur.com/VuJGkJA.png
+description: Al desarrollar aplicativos web es una buena práctica ponerla bajo pruebas de estrés y pruebas de carga para determinar su capacidad y velocidad de respuesta
+dificultad: Novato
+duracion: 20
 categories:
 - Cómo lo hago
 - Pruebas de Carga
 tags:
+- howto
+- como lo hago
 - pruebas de carga
 - pruebas de estres
 - pruebas de stress
@@ -145,6 +148,8 @@ Percentage of the requests served within a certain time (ms)
  100%   2425 (longest request)
 ```
 
+{% include middle-post-ad.html %}
+
 Podemos apreciar varios datos de interés como:
 
 * Tiempos promedio de peticiones por segundo.
@@ -200,5 +205,3 @@ También podemos especificar con el atributo `-f` la ruta a un archivo donde pue
 ***
 ##Conclusión
 Esta práctica de aplicación de pruebas de carga es de suma utilidad especialmente cuando te encuentras en la parte de ajustes de configuración del servidor y/o aplicación ya que te permite identificar los límites y posibles fallas antes de que ocurran en un ambiente productivo. Inclusive si estás indeciso y no te decides en qué tecnología aplicar para un proyecto particular y cual sería el de mayor aguante, puedes hacer un boceto de cada una y ponerlos a prueba para tomar una decisión más objetiva.
-
-

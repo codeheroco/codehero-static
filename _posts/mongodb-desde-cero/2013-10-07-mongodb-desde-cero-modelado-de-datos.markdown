@@ -7,11 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2351
-wordpress_url: http://codehero.co/?p=2351
 date: 2013-10-07 00:05:09.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
+description: Aprenderemos como realizar el modelado de datos para lograr transformar un esquema de bases de datos relacionales al enfoque NoSQL de MongoDB.
+dificultad: Aprendiz
+duracion: 15
 categories:
 - Cursos
 - MongoDB
@@ -255,6 +255,8 @@ Persona = {
 
 > En caso de utilizar la segunda opción, ¿Cual de los 2 últimos enfoques utilizar?. En este caso debemos tomar en cuenta que tanto puede crecer la lista de direcciones, en caso que la tendencia sea a crecer mucho, para evitar arreglos mutantes y en constante crecimiento el **segundo** enfoque sería el más apropiado.
 
+{% include middle-post-ad.html %}
+
 ### Relaciones \*-\*
 
 Finalmente nos ponemos creativos a decir que, en efecto, varias personas pueden pertenecer a la misma dirección.
@@ -382,4 +384,3 @@ En este curso hemos aprendido a modelar los datos que conforman una base de dato
  [2]: http://i.imgur.com/HskW8Ft.png
  [3]: http://i.imgur.com/iMzNTxW.png
  [4]: http://i.imgur.com/n3BbFV2.png
-
