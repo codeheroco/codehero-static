@@ -7,11 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2712
-wordpress_url: http://codehero.co/?p=2712
 date: 2013-12-03 00:06:37.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
+description: La prevención al desastre por medio de respaldos de información es muy importante en el mantenimiento de una base de datos. Veamos como encargarnos de eso.
+dificultad: Intermedio
+duracion: 20
 categories:
 - Cursos
 - MongoDB
@@ -86,6 +86,9 @@ fantasmas.bson               otrosFantasmas.metadata.json system.users.metadata.
 > Dicha base de datos debería estar presente y con algunas colecciones si le has seguido el paso a la serie.
 
 ***
+
+{% include middle-post-ad.html %}
+
 ##Restauración
 
 El proceso de restauración es bastante similar al de volcado, el comando para dicha acción es `mongorestore`.

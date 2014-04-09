@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1781
-wordpress_url: http://codehero.co/?p=1781
 date: 2013-07-29 00:00:02.000000000 -04:30
 thumbnail: http://i.imgur.com/NKyEqSw.png
+description: Este fin de semana el equipo de Bootstrap, el afamado framework de desarrollo web, ha liberado el primer candidato a versión final (RC1) de Bootstrap 3.
 categories:
 - Artículos
 - Notícias

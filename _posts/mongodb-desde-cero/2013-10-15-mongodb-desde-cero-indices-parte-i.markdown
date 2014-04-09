@@ -7,11 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2382
-wordpress_url: http://codehero.co/?p=2382
 date: 2013-10-15 00:05:22.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
+description: Es común olvidarnos de implementar índices; sin embargo son estos los que ayudan en el rendimiento. Hablemos sobre ellos y cómo implementarlos en MongoDB.
+dificultad: Aprendiz
+duracion: 15
 categories:
 - Cursos
 - MongoDB
@@ -20,6 +20,7 @@ tags:
 - mongodb
 - indices
 - index
+- rendimiento
 ---
 Cuando estamos construyendo nuestro esquema de bases de datos es común olvidarnos de implementar índices y solemos continuar con la siguiente tarea; sin embargo son estos los que ayudan significativamente en el rendimiento de la base de datos, especialmente cuando el volumen de datos va incrementando. En esta entrada hablaremos sobre ellos y cómo implementarlos en MongoDB.
 ***
@@ -116,6 +117,8 @@ La semana pasada jugamos unas 15 rondas de poker, creamos una colección **puntu
 ```
 
 > Ya sabes como se [insertan](http://codehero.co/mongodb-desde-cer-operaciones-basicas/) estos documentos así que no hay excusa ;).
+
+{% include middle-post-ad.html %}
 
 ##Obtener índices
 Como mencionamos anteriormente el campo `_id` es el índice por defecto que crea MongoDB. Podemos comprobarlo de la siguiente manera:

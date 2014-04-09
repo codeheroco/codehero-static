@@ -7,10 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1123
-wordpress_url: http://codehero.co/?p=1123
 date: 2013-07-02 00:00:36.000000000 -04:30
 thumbnail: http://i.imgur.com/w4cWGGz.png
+description: La mejor manera de gestionar piezas de software es mediante el uso de manejadores de paquetes, veamos como hacerlo en Mac OS X con Homebrew.
+dificultad: Novato
+duracion: 5
 categories:
 - Cómo lo hago
 - Homebrew
@@ -18,6 +19,10 @@ tags:
 - como lo hago
 - howto
 - homebrew
+- paquetes
+- manejador
+- mac
+- os x
 ---
 En este ***Cómo lo hago*** se explicará el proceso de instalación de Homebrew, requerimientos del sistema y además hablaremos brevemente sobre él.
 
@@ -89,6 +94,8 @@ Como dijimos antes, los enlaces simbólicos de los paquetes de Hombrew se almace
 
 Es posible que un paquete ya se encuentre instalado en el computador y que nosotros hayamos decidido instalarlo por Homebrew, por ejemplo, Ruby. Podremos notar que tendremos 2 versiones de Ruby, una en ***/usr/bin*** y otra en ***/usr/local/bin*** (instalada por Homebrew).
 
+{% include middle-post-ad.html %}
+
 **¿Cómo saber cual de las 2 se está utilizando?**
 
 Para determinar esto podemos hacer uso del siguiente comando:
@@ -156,5 +163,3 @@ Mucho provecho se le puede sacar a esta herramienta, instalarla es solo el prime
  [2]: http://finkproject.org/
  [3]: http://itunes.apple.com/us/app/xcode/id497799835
  [4]: https://github.com/mistydemeo/tigerbrew
-
-
