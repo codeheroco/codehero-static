@@ -105,6 +105,8 @@ __END__
 {% endraw %}
 ```
 
+{% include middle-post-ad.html %}
+
 <p>Lo primero que debemos observar es que la ruta tiene un tipo de "template" llamado <code>erb</code>. Lo segundo es que el nombre de la vista es de tipo "symbol" (<code>:índex</code>). Lo tercero es que se está delimitando el código de la ruta y la vista con <code>__END__</code> y la cuarta anotación es que la vista se llama con <code>@@index</code>.</p>
 
 <hr />

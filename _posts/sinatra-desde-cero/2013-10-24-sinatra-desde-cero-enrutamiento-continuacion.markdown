@@ -100,6 +100,8 @@ $ curl --request GET localhost:4567/alberto?segundo=jonathan
 Hola, alberto y jonathan%
 ```
 
+{% include middle-post-ad.html %}
+
 <p>Cualquier nombre o palabra que escribamos en el "query string" <code>?segundo=</code> se mostrará en pantalla.</p>
 
 <h3>Wild Cards (Comodines)</h3>
@@ -227,7 +229,7 @@ end
 ```
 
 <blockquote>
-  <p>Todos los ejemplos utilizados en este curso fueron extraídos del libro <a href="http://shop.oreilly.com/product/0636920019664.do?sortby=publicationDate">Sinatra: Up and Running</a></p>
+  <p>Todos los ejemplos utilizados en este curso son similares a los del libro <a href="http://shop.oreilly.com/product/0636920019664.do?sortby=publicationDate">Sinatra: Up and Running</a></p>
 </blockquote>
 
 <hr />

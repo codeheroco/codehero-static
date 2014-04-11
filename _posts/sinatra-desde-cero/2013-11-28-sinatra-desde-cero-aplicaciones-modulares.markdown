@@ -57,6 +57,8 @@ end
 
 <p>Posterior a esto debemos crear otro archivo con el nombre <code>config.ru</code> con el siguiente código.</p>
 
+{% include middle-post-ad.html %}
+
 ```ruby
 require "./server"
 run MyApp

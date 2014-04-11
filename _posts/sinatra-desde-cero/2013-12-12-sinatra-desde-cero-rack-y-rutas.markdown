@@ -59,6 +59,8 @@ run Rack::Cascade.new [ProductsController, UsersController, ApplicationControlle
 
 <p>Muy sencillo creamos un cascade y le entregamos todas nuestras aplicaciones en el orden que deseamos, él se encargará del resto.</p>
 
+{% include middle-post-ad.html %}
+
 <h3>Rack::URLMap</h3>
 
 <p>Rack URLMap aunque no lo sepan lo hemos estado utilizando con el método <em>map</em> que funciona para definir rutas. El método <em>map</em> es un envoltorio a Rack::URLMap y simplifica un poco la sintaxis de este. En el fondo al utilizar <em>map</em> o <em>Rack::URLMap</em> cada ruta o endpoint es como una pila de middleware separada y nos permite configurar y correr muchas aplicaciones bajo el mismo Rack pero cada una de ellas con su URL personal y con su propio middleware interno.</p>

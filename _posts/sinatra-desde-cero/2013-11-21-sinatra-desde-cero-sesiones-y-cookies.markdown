@@ -45,6 +45,8 @@ tags:
 
 <p>Para crear una sesión se realiza por medio de el bloque de configuración (<code>configure block</code>) una vez definido el mismo el objeto de la sesión se encuentra completamente listo para almacenar y recuperar información.</p>
 
+{% include middle-post-ad.html %}
+
 <h4>bloque de configuración</h4>
 
 <p>El bloque de configuración de Sinatra nos permite personalizar el funcionamiento de nuestra aplicación; el mismo puede ser usado basado en ambientes (desarrollo, pruebas, producción).</p>

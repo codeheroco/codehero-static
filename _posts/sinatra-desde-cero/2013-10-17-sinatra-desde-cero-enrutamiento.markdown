@@ -53,6 +53,8 @@ tags:
 
 <p>Se utiliza para borrar el recurso especificado.</p>
 
+{% include middle-post-ad.html %}
+
 <h3>Patch</h3>
 
 <p>PATCH es usado para actualizar una porción de un recurso. A diferencia de PUT o POST se actualizan únicamente ciertos aspectos del mismo y nunca el recurso completo. Por ejemplo cuando tenemos un usuario en base de datos y solo queremos cambiar su primer nombre.</p>
