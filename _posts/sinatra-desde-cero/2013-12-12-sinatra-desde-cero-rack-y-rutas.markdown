@@ -7,19 +7,18 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2847
-wordpress_url: http://codehero.co/?p=2847
 date: 2013-12-12 01:19:13.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Intermedio
+duracion: 25
 description: Noveno capítulo de la serie Sinatra desde Cero, donde hablamos sobre Rack como primera opción para realizar nuestro enrutamiento, middleware y routers.
 categories:
 - Cursos
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
+- Rack
+- Rutas
 ---
 <p>La serie de Sinatra desde Cero, buscará otorgarte el conocimiento necesario para que puedas desarrollar tus propias aplicaciones Web haciendo uso de esta magnifica herramienta.</p>
 

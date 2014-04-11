@@ -7,17 +7,15 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 3045
-wordpress_url: http://codehero.co/?p=3045
 date: 2014-02-20 01:06:08.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Avanzado
+duracion: 30
 description: Doceavo capítulo de la serie Sinatra desde Cero, donde hablamos sobre streaming para hacer una aplicación tipo chat y también sobre archivos adjuntos
 categories:
 - Cursos
 - Sinatra
 tags:
-- curso
 - Sinatra
 - Streaming
 - Attachments

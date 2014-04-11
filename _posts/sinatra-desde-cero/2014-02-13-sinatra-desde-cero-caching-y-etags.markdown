@@ -7,16 +7,15 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 3008
-wordpress_url: http://codehero.co/?p=3008
 date: 2014-02-13 00:46:11.000000000 -04:30
 serie: Sinatra desde Cero
+dificultad: Intermedio
+duracion: 30
 description: Capítulo once de la serie Sinatra desde Cero, donde hablamos sobre caching de recursos de varias maneras, como realizarlo, además hablamos sobre etags.
 categories:
 - Cursos
 - Sinatra
 tags:
-- Cursos
 - Sinatra desde Cero
 - Caching
 - Etags

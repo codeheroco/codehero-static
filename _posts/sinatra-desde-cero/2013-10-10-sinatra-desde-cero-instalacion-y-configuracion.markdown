@@ -7,19 +7,18 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2364
-wordpress_url: http://codehero.co/?p=2364
 date: 2013-10-10 00:02:29.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Novato
+duracion: 30
 description: Capítulo uno de Sinatra desde Cero, donde se enseñan los conceptos básicos, como se realiza su instalación en múltiples SO y realizamos una aplicación.
 categories:
 - Cursos
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
+- Instalacion
+- Configuracion
 ---
 <h1>Instalación y configuración.</h1>
 

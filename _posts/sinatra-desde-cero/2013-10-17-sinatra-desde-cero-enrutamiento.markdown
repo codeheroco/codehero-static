@@ -7,19 +7,19 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2409
-wordpress_url: http://codehero.co/?p=2409
 date: 2013-10-17 00:11:44.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Novato
+duracion: 10
 description: Segundo capítulo de la serie Sinatra desde Cero en donde hablamos sobre enrutamiento y verbos http que representan la estructura principal de la aplicación.
 categories:
 - Sinatra
 - Cursos
 tags:
-- Cursos
-- curso
 - Sinatra
+- Rutas
+- HTTP
+- curl
 ---
 <p>La serie de Sinatra desde Cero, buscará otorgarte el conocimiento necesario para que puedas desarrollar tus propias aplicaciones Web haciendo uso de esta magnifica herramienta.</p>
 
