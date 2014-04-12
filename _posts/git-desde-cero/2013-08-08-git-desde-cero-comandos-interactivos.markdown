@@ -7,19 +7,21 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1910
-wordpress_url: http://codehero.co/?p=1910
 date: 2013-08-08 00:10:44.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Avanzado
+duracion: 30
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 8 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el uso de los comandos interactivos rebase y add.
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Rebase
+- Add
+- Interactivos
+- Interactivo
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como agregar interactivamente archivos al escenario (staging) y continuaremos con <code>git rebase</code> tocando un punto importante sobre como modificar el historial de cambios. Los comandos a utilizar esta semana serán los siguientes:</p>
 
@@ -157,6 +159,8 @@ $ git status
 ```
 
 <p>Podemos observar que todo está listo para realizar el commit que queremos. El commit se realiza normalmente utilizando nuestro conocido comando <code>git commit</code>. Para este caso en particular haremos algo diferente para demostrar el comando <code>git rebase -i</code>. Guardaremos estos cambios en un <em>stash</em>, los llevaremos a una nueva rama y haremos el rebase interactivo.</p>
+
+{% include middle-post-ad.html %}
 
 <p>Previo a realizar un <code>git stash</code> agregamos todos los archivos al escenario antes de cambiar de rama.</p>
 

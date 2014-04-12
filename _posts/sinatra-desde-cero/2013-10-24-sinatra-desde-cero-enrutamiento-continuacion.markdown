@@ -7,18 +7,18 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2443
-wordpress_url: http://codehero.co/?p=2443
 date: 2013-10-24 00:12:27.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Novato
+duracion: 30
 description: Tercer capítulo de la serie Sinatra desde Cero, donde explicamos con casos cotidianos sencillos de enrutamiento (parámetros, halting, regex, redirects, etc)
 categories:
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
+- Rutas
+- Enrutamento
+- Parametros
 ---
 <p>La serie de Sinatra desde Cero, buscará otorgarte el conocimiento necesario para que puedas desarrollar tus propias aplicaciones Web haciendo uso de esta magnifica herramienta.</p>
 
@@ -99,6 +99,8 @@ end
 $ curl --request GET localhost:4567/alberto?segundo=jonathan
 Hola, alberto y jonathan%
 ```
+
+{% include middle-post-ad.html %}
 
 <p>Cualquier nombre o palabra que escribamos en el "query string" <code>?segundo=</code> se mostrará en pantalla.</p>
 
@@ -227,7 +229,7 @@ end
 ```
 
 <blockquote>
-  <p>Todos los ejemplos utilizados en este curso fueron extraídos del libro <a href="http://shop.oreilly.com/product/0636920019664.do?sortby=publicationDate">Sinatra: Up and Running</a></p>
+  <p>Todos los ejemplos utilizados en este curso son similares a los del libro <a href="http://shop.oreilly.com/product/0636920019664.do?sortby=publicationDate">Sinatra: Up and Running</a></p>
 </blockquote>
 
 <hr />

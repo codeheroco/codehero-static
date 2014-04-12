@@ -7,20 +7,22 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2416
-wordpress_url: http://codehero.co/?p=2416
 date: 2013-10-18 00:03:27.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+dificultad: Intermedio
+duracion: 30
+github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Curso Ruby on Rails desde Cero, en este capítulo estaremos describiendo e implementando una gema para serializar objetos llamada active_model_serializers.
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
-- curso
 - active_model_serializers
 - serializador
+- Modelos
+- ActiveModel
+- JSON
+- XML
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En capítulos anteriores hemos aprendido muchas de las ventajas del framework, desde la instalación y la puesta en marcha de nuestras aplicaciones hasta el capítulo anterior, donde estuvimos estudiando ActiveModel y algunas de sus características.</p>
 
@@ -96,6 +98,8 @@ class UsuariosSerializer < ActiveModel::Serializer
 end
 ```
 
+{% include middle-post-ad.html %}
+
 <p>Como ven es una simple clase que extiende de <code>ActiveModel::Serializer</code> con los atributos del modelo que en nuestro caso es <strong>Usuario</strong>.</p>
 
 <blockquote>
@@ -107,7 +111,7 @@ end
 ```ruby
 class Usuario < ApplicationController
   def serializador
-    @ejemplo1    = Usuario.all
+    @ejemplo1 = Usuario.all
     render json: @ejemplo1
   end
 end
@@ -158,7 +162,7 @@ end
 
 ```ruby
 def serializador
-  @ejemplo1    = Usuario.all
+  @ejemplo1 = Usuario.all
   # meta_key es para cambiarle el nombre a la etiqueta que estamos agregando
   render json: @ejemplo1 , meta: {total: 10}, meta_key: 'meta_object'
 end
@@ -184,7 +188,7 @@ end
 
 ```ruby
 def serializador
-  @ejemplo1    = Usuario.first
+  @ejemplo1 = Usuario.first
   render json: @ejemplo1 , serializer: UsuarioCustomSerializer
 end
 ```
@@ -193,7 +197,7 @@ end
 
 ```ruby
 def serializador
-  @ejemplo1    = Usuario.all
+  @ejemplo1 = Usuario.all
   render json: @ejemplo1 , each_serializer: UsuarioCustomSerializer
 end
 ```

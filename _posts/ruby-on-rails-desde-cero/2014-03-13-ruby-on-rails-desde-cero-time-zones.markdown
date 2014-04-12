@@ -7,19 +7,19 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 3118
-wordpress_url: http://codehero.co/?p=3118
 date: 2014-03-13 00:00:51.000000000 -04:30
 serie: Ruby on Rails desde Cero
 description: Capítulo 18 de la serie Ruby on Rails desde Cero, donde hablamos sobre Time Zones y las buenas prácticas al utilizarlo.
+dificultad: Intermedio
+duracion: 20
 categories:
 - Cursos
 - Ruby on Rails
 tags:
 - Ruby
 - Ruby on Rails
-- curso
 - Time Zones
+- ActiveSupport
 ---
 Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior aprendimos como se generan los controladores para la aplicación, que representan los métodos en nuestros controladores y cómo se leen parámetros ya sean en el URL o enviados por POST dentro de un formulario.
 
@@ -81,6 +81,8 @@ Una vez que hayamos especificado el huso horario de nuestra preferencia vamos a 
 [62] pry(main)> Time.now.to_s
 => "2014-03-12 20:55:18 -0430"
 ```
+
+{% include middle-post-ad.html %}
 
 Podemos ver que se ha guardado "Berlin" como el huso horario de preferencia, esto es exactamente igual que utilizar el `config.time_zone`. Luego podemos ver que al utilizar `Time.now.in_time_zone.to_s` nos retorna correctamente la hora en en "Berlin". De igual manera `DateTime.now.in_time_zone.to_s` y `Time.zone.now.to_s`. También podemos apreciar que `DateTime.now.to_s` y `Time.now.to_s` son capaces de leer el huso horario pero en este caso el de mi computadora omitiendo nuestra variable de `Time.zone` y con esto es que debemos tener cuidado. Se puede cometer el error de utilizar estas variables sin ser las que necesitamos y queremos.
 
@@ -171,6 +173,7 @@ irb(main):010:0> s = Sale.where(["created_at < ?", Time.zone.now])
 
 Tambien podemos preguntar si se creó con fechas tentativas:
 
+```ruby
 irb(main):011:0> s = Sale.where(["created_at < ?", 2.weeks.ago.to_s])
   Sale Load (0.2ms)  SELECT "sales".* FROM "sales" WHERE (created_at < '2014-02-27 03:18:38 UTC')
 => #<ActiveRecord::Relation []>

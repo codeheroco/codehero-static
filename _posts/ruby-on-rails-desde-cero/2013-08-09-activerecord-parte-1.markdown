@@ -7,20 +7,24 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1922
-wordpress_url: http://codehero.co/?p=1922
 date: 2013-08-09 00:01:05.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+dificultad: Aprendiz
+duracion: 30
 description: Ruby on Rails desde Cero, serie en la cual aprenderemos Ruby on Rails. Estudiaremos los componentes del ActiveRecord.
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
-- curso
 - ActiveRecord
+- find_by
+- all
+- find
+- first
+- last
+- find_each
+- where
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. Hasta este capítulo ya tenemos suficientes herramientas para comenzar con nuestra aplicación Web, abarcando temas básicos como instalación, estructura y funcionamiento de vistas dinámicas.</p>
 
@@ -124,6 +128,8 @@ SELECT * FROM usuarios WHERE nombre = 'Ricardo' and  apellido = 'Sampayo' LIMIT 
 
 <p>Esta función como su nombre nos dice recupera todos los registros de una tabla retornando en un arreglos de objetos. Ejemplo y equivalencia en SQL:</p>
 
+{% include middle-post-ad.html %}
+
 ```ruby
 usuarios = Usuario.all
 ```
@@ -154,7 +160,7 @@ end
 
 <h2>Condiciones</h2>
 
-<p>ActiveRecord también nos provee métodos que nos permite especificar las condiciones para limitar los registros devueltos, lo que representa el 'WHERE' en sentencias SQL. Estas condiciones bien se pueden especificar de tres formas diferentes.</p>
+ActiveRecord también nos provee métodos que nos permite especificar las condiciones para limitar los registros devueltos, lo que representa el `WHERE` en sentencias SQL. Estas condiciones bien se pueden especificar de tres formas diferentes.
 
 <p>Primero mostraremos un ejemplo estableciendo como condición una cadena de caracteres ('String' es la que menos les recomiendo):</p>
 
@@ -216,7 +222,7 @@ SELECT * FROM usuarios WHERE nombre != 'Ricardo';
 
 <p>Al igual que con las condiciones ActiveRecord también nos permite solicitar una lista registros ordenados por algunos de los campos (El equivalente al ORDER BY en SQL).</p>
 
-<p>Por ejemplo ordenaremos en este caso los usuarios por fecha de última modificación ('updated_at' campos que se crean automáticamente para auditoria) de la siguiere manera:</p>
+Por ejemplo ordenaremos en este caso los usuarios por fecha de última modificación (`updated_at` campos que se crean automáticamente para auditoria) de la siguiere manera:
 
 ```ruby
 ordenando por updated_al de forma ascendente

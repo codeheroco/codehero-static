@@ -7,19 +7,18 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2364
-wordpress_url: http://codehero.co/?p=2364
 date: 2013-10-10 00:02:29.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Novato
+duracion: 30
 description: Capítulo uno de Sinatra desde Cero, donde se enseñan los conceptos básicos, como se realiza su instalación en múltiples SO y realizamos una aplicación.
 categories:
 - Cursos
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
+- Instalacion
+- Configuracion
 ---
 <h1>Instalación y configuración.</h1>
 
@@ -60,6 +59,8 @@ tags:
 <h3>Instalación en OS X</h3>
 
 <p>Si eres usuario Mac OS X te recomendamos instalar Ruby de la siguiente manera, ya que así no tendremos conflicto con la versión que trae pre-instalada el sistema operativo y es algo "bastante" vieja y actualmente se encuentra descontentada. Lo primero que debemos hacer, es instalar <a href="https://github.com/sstephenson/rbenv">rbenv</a> un manejador de versiones para Ruby, utilizando preferiblemente <a href="http://brew.sh/index_es.html">Homebrew</a> que es un manejador de paquetes para mac, algo cómo <code>apt-get</code> o <code>yum</code> en linux.</p>
+
+{% include middle-post-ad.html %}
 
 <blockquote>
   <p>Si en lo personal tienes preferencia con otro manejador de versiones de Ruby y conoces como instalarlo puedes proceder a hacerlo, o puedes revisar <a href="https://github.com/postmodern/chruby">chruby</a> y <a href="https://rvm.io/">rvm</a>.</p>

@@ -7,11 +7,10 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1062
-wordpress_url: http://codehero.co/?p=1062
 date: 2013-06-20 04:33:06.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Novato
+duracion: 30
 description: Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos como instalar, configurar y utilizar Git para nuestros proyectos.
 categories:
 - Cursos
@@ -23,8 +22,6 @@ tags:
 - configuracion
 - basico
 ---
-<h1>Git desde cero: Instalación configuración y comandos básicos.</h1>
-
 <p>Bienvenidos a <strong><em>Git desde cero</em></strong>, esta serie de tutoriales tratará explicar y alejar el miedo que algunos de nosotros sentimos cuando comenzamos a utilizar un controlador de versiones por primera vez.</p>
 
 <hr />
@@ -64,6 +61,8 @@ $ brew install git
 <h3>Linux</h3>
 
 <p>Si nos encontramos en distribuciones como Fedora, podemos hacer uso del manejador de paquetes de dicha distribución y mediante el siguiente comando instalaremos Git:</p>
+
+{% include middle-post-ad.html %}
 
 ```sh
 $ yum install git-core

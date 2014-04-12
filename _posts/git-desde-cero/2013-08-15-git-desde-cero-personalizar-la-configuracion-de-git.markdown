@@ -7,19 +7,20 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1986
-wordpress_url: http://codehero.co/?p=1986
 date: 2013-08-15 00:01:20.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Intermedio
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 9 de Git desde Cero, serie en la cual aprenderemos a personalizar la configuración de git para mostrar colores, alias, entre otros!
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Configuracion
+- Personalizar
+- personalizada
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como personalizar la configuración de git. Pondremos colores en nuestro terminal que funcionan para representar cambios, colores en el log, alias de comandos, entre otros detalles. Por ser un <em>curso</em> un poco distinto no nos enfocaremos en comandos particulares sino más bien en el archivo .gitconfig que se encuentra en el <strong>$HOME</strong> del usuario.</p>
 
@@ -64,6 +65,8 @@ $ git config --global --bool pull.rebase true
 ```
 
 <p>De requerir volver a un simple <em>merge</em> por una ocasión específica se puede emplear el comando <code>git pull --no-rebase</code>y listo.</p>
+
+{% include middle-post-ad.html %}
 
 <hr />
 

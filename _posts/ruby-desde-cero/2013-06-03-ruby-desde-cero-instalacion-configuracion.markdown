@@ -7,11 +7,10 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 812
-wordpress_url: http://www.polarux.com/?p=812
 date: 2013-06-03 03:22:50.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Novato
+duracion: 20
 description: Curso Ruby desde cero Instalación y configuración. Las series de tutoriales Ruby en CodeHero otorgan los conocimientos para desarrollar aplicaciones
 categories:
 - Cursos
@@ -81,7 +80,9 @@ $ sudo apt-get install ruby1.9.1
 
 <h3>Ruby en Windows.</h3>
 
-<p>Si eres un usuario Windows la instalación no es tan nativa como para los otros sistemas operativos. Particularmente recomiendo la instalación con ayuda de <a href="http://rubyinstaller.org/">RubyInstaller</a>{:rel=nofollow} este te da todas las herramientas para configurar el entorno de desarrollo completo en Windows</p>
+<p>Si eres un usuario Windows la instalación no es tan nativa como para los otros sistemas operativos. Particularmente recomiendo la instalación con ayuda de <a href="http://rubyinstaller.org/">RubyInstaller</a> este te da todas las herramientas para configurar el entorno de desarrollo completo en Windows</p>
+
+{% include middle-post-ad.html %}
 
 <p>Si la razón por la que quieres instalar Ruby es para utilizar el Framwork Rails, podrían utilizar <a href="http://railsinstaller.org/">RailsInstaller</a> que a aparte de instalar el lenguaje agrega las funcionalidades del Framwork y otros atributos como: SQLite o Git (Esta solución funciona para sistemas operativos Windows y Mac OSX. yo la recomiendo solo para usuarios Windows).</p>
 

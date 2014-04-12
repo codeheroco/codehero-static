@@ -7,19 +7,19 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2653
-wordpress_url: http://codehero.co/?p=2653
 date: 2013-11-21 01:21:34.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Novato
+duracion: 30
 description: Sexto capítulo de la serie Sinatra desde Cero, donde hablamos sobre sesiones y cookies, componentes fundamentales de una aplicación web.
 categories:
 - Cursos
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
+- Sesiones
+- Cookies
+- Usuarios
 ---
 <p>La serie de Sinatra desde Cero, buscará otorgarte el conocimiento necesario para que puedas desarrollar tus propias aplicaciones Web haciendo uso de esta magnifica herramienta.</p>
 
@@ -44,6 +44,8 @@ tags:
 <h3>Crear una sesión</h3>
 
 <p>Para crear una sesión se realiza por medio de el bloque de configuración (<code>configure block</code>) una vez definido el mismo el objeto de la sesión se encuentra completamente listo para almacenar y recuperar información.</p>
+
+{% include middle-post-ad.html %}
 
 <h4>bloque de configuración</h4>
 
