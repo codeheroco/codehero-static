@@ -7,19 +7,19 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2902
-wordpress_url: http://codehero.co/?p=2902
 date: 2014-01-09 00:10:25.000000000 -04:30
 serie: Sinatra desde Cero
+dificultad: Intermedio
+duracion: 30
 description: Décimo capítulo de la serie Sinatra desde Cero donde aprendemos a instalar y utilizar de manera muy básica DataMapper para el acceso a base de datos.
 categories:
 - Cursos
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
 - DataMapper
+- Datos
+- Acceso
 ---
 <p>La serie de Sinatra desde Cero, buscará otorgarte el conocimiento necesario para que puedas desarrollar tus propias aplicaciones Web haciendo uso de esta magnifica herramienta.</p>
 
@@ -100,6 +100,8 @@ $ gem install dm-sqlite-adapter
 ```sh
 $ irb
 ```
+
+{% include middle-post-ad.html %}
 
 <blockquote>
   <p>Todos los comandos a partir de este momento se ejecutan dentro de <code>irb</code>.</p>

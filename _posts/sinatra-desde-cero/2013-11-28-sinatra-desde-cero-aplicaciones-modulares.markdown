@@ -7,19 +7,17 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2705
-wordpress_url: http://codehero.co/?p=2705
 date: 2013-11-28 00:12:15.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Aprendiz
+duracion: 25
 description: Séptimo capítulo de la serie Sinatra desde Cero, donde hablaremos sobre aplicaciones modulares para construir aplicaciones más desacopladas y ordenadas.
 categories:
 - Cursos
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
+- Modular
 ---
 <p>La serie de Sinatra desde Cero, buscará otorgarte el conocimiento necesario para que puedas desarrollar tus propias aplicaciones Web haciendo uso de esta magnifica herramienta.</p>
 
@@ -58,6 +56,8 @@ end
 <p>Podemos observar que prácticamente es el mismo esqueleto de una aplicación clásica pero utiliza <code>sinatra/base</code> en vez de <code>sinatra</code> y nuestra aplicación se encuentra en una clase llamada <code>MyApp</code> que hereda de <code>Sinatra::Base</code> la cual contiene las rutas de nuestra aplicación.</p>
 
 <p>Posterior a esto debemos crear otro archivo con el nombre <code>config.ru</code> con el siguiente código.</p>
+
+{% include middle-post-ad.html %}
 
 ```ruby
 require "./server"

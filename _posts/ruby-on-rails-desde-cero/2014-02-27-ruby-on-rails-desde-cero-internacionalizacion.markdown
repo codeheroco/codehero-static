@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 3068
-wordpress_url: http://codehero.co/?p=3068
 date: 2014-02-27 01:41:42.000000000 -04:30
 serie: Ruby on Rails desde Cero
 description: Capítulo número 16 de la serie Ruby on Rails desde Cero, donde hablamos sobre como internacionalizar la aplicación para que funcione en múltiples idiomas.
+dificultad: Intermedio
+duracion: 30
 categories:
 - Cursos
 - Ruby on Rails
@@ -159,6 +159,8 @@ $ rails g scaffold Sales precio:string nombre:string
 
 Luego corremos las migraciones `bundle exec rake db:migrate` una vez que tengamos todo en orden procedemos a agregar al controlador principal de nuestra aplicación `application_controller.rb` las siguientes líneas:
 
+{% include middle-post-ad.html %}
+
 ```ruby
 before_action :set_locale
 
@@ -192,7 +194,7 @@ end
 
 Esto nos permitirá tener el `locale` `/es/` opcional en nuestro URL, si no lo agregamos la ruta funcionará normalmente pero agarrará el el idioma por defecto que es castellano. De igual manera funcionará la ruta si agregamos `/es/` o cambiará el idioma si agregamos `/en/`.
 
-Cómo últimas etapas debemos agregar contenido a nuestros archivos de locales.  
+Cómo últimas etapas debemos agregar contenido a nuestros archivos de locales.
 
 ### Lazy Lookup vs Full path
 
@@ -222,7 +224,7 @@ En la capeta de las vistas `app/views/` vas a buscar una carpeta llamada `sales`
 
 Si ahora vamos a la vista antes descrita y agregamos en la primera línea lo siguiente:
 
-```html
+```erb
 <%= t '.title' %>
 ```
 
@@ -234,7 +236,7 @@ Eso que acabamos de hacer es Lazy Lookup ya que no estamos especificando la ruta
 
 Si quisiéramos poner la traducción con la ruta completa o full path, también pusiésemos realizándolo de la siguiente manera:
 
-```html
+```erb
 <%= t 'sales.index.title' %>
 ```
 

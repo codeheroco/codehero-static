@@ -7,16 +7,16 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2959
-wordpress_url: http://codehero.co/?p=2959
 date: 2014-01-30 00:10:00.000000000 -04:30
 serie: Ruby on Rails desde Cero
 description: Capítulo numero 15 de la serie Ruby on Rails desde Cero, donde aprenderemos sobre sesiones, como crearlas y destruirlas para guardar el estado de un usuario
+dificultad: Aprendiz
+duracion: 30
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
+- Ruby
 - Ruby on Rails
 - Sesiones
 ---
@@ -76,6 +76,8 @@ Posterior a lo que hemos realizado debemos crear las rutas para que el usuario p
   get '/signin',  to: 'sessions#new'
   get '/signout', to: 'sessions#destroy'
 ```
+
+{% include middle-post-ad.html %}
 
 Creamos un recurso llamado `:sesions` que tiene únicamente los métodos `new`, `create`, `destroy`. y además un par de rutas particulares de tipo **get** para utilizar los métodos `new` y `destroy` que se encuentran bajo el nombre de `/signin` para iniciar sesión y `signout` para destruir la sesión.
 

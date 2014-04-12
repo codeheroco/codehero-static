@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1699
-wordpress_url: http://codehero.co/?p=1699
 date: 2013-07-25 00:20:22.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Aprendiz
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 6 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el manejo de ramas remotas para nuestros proyectos.
 categories:
 - Cursos
@@ -105,6 +105,8 @@ Total 6 (delta 3), reused 0 (delta 0)
 To git@github.com:codeheroco/tutorial-git.git
    05fe98e..c99705e  duplicada-de-arreglos-varios -> arreglos-varios
 ```
+
+{% include middle-post-ad.html %}
 
 <h3>¿Qué queremos lograr demostrando esto?</h3>
 

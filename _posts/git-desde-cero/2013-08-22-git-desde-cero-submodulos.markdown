@@ -7,19 +7,20 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2063
-wordpress_url: http://codehero.co/?p=2063
 date: 2013-08-22 00:02:33.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Intermedio
+duracion: 10
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 10 de Git desde Cero, serie en la cual aprenderemos a utilizar submódulos dentro de nuestros proyectos!
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Submodulos
+- status
+- Subcarpeta
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como agregar, actualizar y utilizar un submódulo en nuestros proyectos. Los comandos a utilizar esta semana serán los siguientes:</p>
 
@@ -77,6 +78,8 @@ $ cat .gitmodules
 ```
 
 <p>Es importante que este archivo suba al control de versiones y <strong><em>no</em></strong> se agregue en ningún momento al archivo <em>.gitignore</em>.</p>
+
+{% include middle-post-ad.html %}
 
 <p>Si ahora realizamos un <code>git diff --cached</code> sobre nuestro submódulo podemos ver que aunque <em>chef-submodule</em> es una subcarpeta con un repositorio interno independiente de nuestro proyecto, git identifica que se realizaron cambios dentro de la misma, lo que nos indica que se debe realizar un <code>git commit</code> para respaldar el nuevo estado del proyecto principal.</p>
 

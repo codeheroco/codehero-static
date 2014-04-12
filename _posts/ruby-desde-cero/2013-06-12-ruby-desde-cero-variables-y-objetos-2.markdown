@@ -7,11 +7,10 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 993
-wordpress_url: http://codehero.co/?p=993
 date: 2013-06-12 14:09:29.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Novato
+duracion: 20
 description: Capítulo 2 de la serie Ruby desde Cero donde aprenderas sobre las variables nativas y los objetos de Ruby.
 categories:
 - Cursos
@@ -84,6 +83,8 @@ $global_variable
 ```ruby
 @@variable
 ```
+
+{% include middle-post-ad.html %}
 
 <h3>Variables locales y de bloques.</h3>
 

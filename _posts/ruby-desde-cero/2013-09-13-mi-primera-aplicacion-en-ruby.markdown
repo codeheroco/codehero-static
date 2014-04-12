@@ -7,19 +7,21 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2230
-wordpress_url: http://codehero.co/?p=2230
 date: 2013-09-13 00:01:40.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Avanzado
+duracion: 45
 description: Ruby desde Cero curso CodeHero donde mostramos el lenguaje sin previo conocimiento, este capítulo desarrollamos nuestra primera aplicación en Ruby
 categories:
 - Cursos
 - Ruby
 tags:
 - Ruby
-- Cursos
 - Aplicación
+- Cierre
+- Modulo
+- Clase
+- Metodos
 ---
 <p>Bienvenidos una vez más a Ruby desde cero, curso con el cual aprendemos del lenguaje sin necesidad de tener previo conocimiento en el tema. Hasta este capítulo ya abarcamos todos los puntos del curso, lo que nos hace héroes en Ruby desde Cero.</p>
 
@@ -174,6 +176,8 @@ end
 ```
 
 <p>Una vez tenemos nuestro modelo <strong>Estudiante</strong> con la funcionalidad de agregar y listar sus objetos y todas las funciones que verifican el archivo, plano donde vamos almacenar la información, modificamos nuestro controlador para agregarle funcionalidad <code>launch!</code> y empiece a tomar color nuestra aplicación.</p>
+
+{% include middle-post-ad.html %}
 
 ```ruby
 # launch! este metodo tiene un loop que va a recibir las acciones

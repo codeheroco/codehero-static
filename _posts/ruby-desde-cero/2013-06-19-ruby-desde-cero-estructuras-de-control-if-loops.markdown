@@ -7,11 +7,10 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1041
-wordpress_url: http://codehero.co/?p=1041
 date: 2013-06-19 03:35:35.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Novato
+duracion: 30
 description: Ruby desde Cero, serie en la cual aprenderemos Python desde Cero. En esta sesión, estudiaremos las estructuras de control (IF & LOOPS).
 categories:
 - Cursos
@@ -207,6 +206,8 @@ Niñito
 el número esta entre 0 y 2 o 4 y 10
 SI! esto es CodeHero
 ```
+
+{% include middle-post-ad.html %}
 
 <p>En el ejemplo vemos que ejecutamos tres estructuras condicionales donde sacamos conclusiones interesantes de cada una de ellas. En el primero simplemente vemos la sintaxis aplicada en un ejemplo y como utilizamos objetos de rangos para comparar la variable edad. El segundo ejemplo básicamente es lo mismo, pero en ésta observamos cómo separando las condiciones por (,) logramos un (OR). Por último vemos como Ruby en los CASE permite el uso de cadena de caracteres (la mayoría de los lenguajes no aceptan esto).</p>
 
