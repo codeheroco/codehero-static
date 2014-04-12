@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1230
-wordpress_url: http://codehero.co/?p=1230
 date: 2013-07-01 00:00:47.000000000 -04:30
 thumbnail: http://i.imgur.com/v9hB1TT.png
+description: Como fue advertido, el controversial lector de RSS, Google Reader ha dejado de funcionar hoy, 1ero de Julio, y muchos competidores luchan por el puesto...
 categories:
 - Artículos
 - Notícias

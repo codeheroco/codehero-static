@@ -7,18 +7,22 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1623
-wordpress_url: http://codehero.co/?p=1623
 date: 2013-07-23 00:00:29.000000000 -04:30
 thumbnail: http://i.imgur.com/j5VGZcA.png
+description: Esta semana hablaremos de una de las más utilizadas herramientas de automatización y suministro para ambientes reales, virtuales y en la nube, Chef.
+dificultad: Aprendiz
+duracion: 20
+github: https://github.com/codeheroco/chef
 categories:
 - Cómo lo hago
 - Chef
 tags:
 - howto
+- como lo hago
 - vagrant
 - chef
 - suministro
+- receta
 ---
 #Cómo Lo Hago: Instalar y configurar Chef
 
@@ -175,6 +179,8 @@ Para verificar que en efecto se ha instalado la receta de Nginx que especificamo
 
 Notemos que la parte inferior refleja que, en efecto, Nginx v1.2.3 está instalado y está sirviéndonos esta página 404.
 
+{% include middle-post-ad.html %}
+
 ###¿Cuál es la desventaja de este método?
 
 Debido a que el suministro del ambiente se hace en vivo con *knife*, si el ambiente es destruido perderemos la configuración y tendremos que volver a suministrarlo utilizando:
@@ -291,5 +297,3 @@ Debido a que el suministro se hace durante el proceso de levantamiento y que la 
 ##Conclusión
 
 Aprendimos que instalar y configurar software en diferentes ambientes puede ser una tarea menos tediosa de lo que estamos acostumbrados, el truco está en construir correctamente todas las piezas que necesitamos para al suministrar a un ambiente podamos empezar a trabajar de una vez. Muchas otras cosas son posibles con Chef, puedes crear tus propias recetas, crear tus roles completamente personalizados para cuando necesites implementar la misma configuración en varios ambientes, y mucho más.
-
-

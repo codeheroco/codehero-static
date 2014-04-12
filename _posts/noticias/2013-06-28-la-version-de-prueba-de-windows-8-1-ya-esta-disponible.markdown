@@ -7,10 +7,9 @@ author: Oscar González
 author_login: oscar
 author_email: gonzalezgreco@gmail.com
 author_url: http://www.oscarvgg.com
-wordpress_id: 1211
-wordpress_url: http://codehero.co/?p=1211
 date: 2013-06-28 04:30:49.000000000 -04:30
 thumbnail: http://i.imgur.com/GLOeJ0Q.png
+description: La beta de Windows 8.1 ya esta disponible para su descarga. Hablemos brevemente de las novedades que trae esta versión del sistema operativo de Microsoft.
 categories:
 - Artículos
 - Notícias

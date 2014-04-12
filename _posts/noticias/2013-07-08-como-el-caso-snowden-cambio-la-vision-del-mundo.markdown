@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1322
-wordpress_url: http://codehero.co/?p=1322
 date: 2013-07-08 01:00:11.000000000 -04:30
 thumbnail: http://i.imgur.com/OZ7lE0a.png
+description: Ciertamente Edward Snowden ha acaparado los titulares últimamente, pero ¿Qué impacto han tenido realmente sus acciones?
 categories:
 - Artículos
 - Notícias

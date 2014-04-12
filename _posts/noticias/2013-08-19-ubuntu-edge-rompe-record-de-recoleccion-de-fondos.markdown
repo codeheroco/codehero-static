@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2000
-wordpress_url: http://codehero.co/?p=2000
 date: 2013-08-19 00:08:07.000000000 -04:30
 thumbnail: http://i.imgur.com/1jpmhF3.png
+description: Faltan solo un par de días para que culmine la campaña de recolección de fondos para el desarrollo del dispositivo móvil de Canonical, el Ubuntu Edge.
 categories:
 - Artículos
 - Notícias

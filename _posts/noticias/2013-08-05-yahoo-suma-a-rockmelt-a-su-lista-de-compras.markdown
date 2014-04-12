@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1861
-wordpress_url: http://codehero.co/?p=1861
 date: 2013-08-05 00:00:25.000000000 -04:30
 thumbnail: http://i.imgur.com/thJIGvY.png
+description: Yahoo! ha estado este año en una racha de compra de compañías. Su última adquisición fue anunciada el pasado viernes 2 de Agosto por la empresa RockMelt.
 categories:
 - Artículos
 - Notícias
