@@ -79,6 +79,15 @@ i {
 article {
   border-bottom: solid 1px #ddd;
   padding: 8px;
+  color: $article-font-color;
+
+  a {
+    color: $article-title-color;
+
+    &:hover {
+      color: $article-title-hover-color;
+    }
+  }
 
   &:last-child {
     border-bottom: none;
@@ -87,6 +96,11 @@ article {
 
 footer {
   margin-top: 32px;
+}
+
+.author {
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
 // ads section
