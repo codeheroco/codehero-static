@@ -22,7 +22,7 @@
     </h1>
     {% unless page.author_name %}
       <p class="author">
-        Publicado por <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>,
+        Publicado por: <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>,
         El {{ post.date | date_to_string }}, Tiene <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}/"><!-- comments --></a>
         comentarios.
       </p>
