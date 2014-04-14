@@ -138,29 +138,6 @@ footer {
   text-transform: uppercase;
 }
 
-.date {
-  color: $white-codehero;
-  background-color: $orange-codehero;
-  display: block;
-  text-align: center;
-  border-radius: 0.2rem;
-  font-size: $font-size-base * 0.93; //~13px
-
-  i {
-    margin: 0 auto;
-    padding: 0 0 0 2px;
-    color: $white-codehero;
-  }
-
-  a {
-    color: $white-codehero;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
 .navbar-brand {
   font-size: 20px;
   letter-spacing: 4px;
