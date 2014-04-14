@@ -100,7 +100,16 @@ footer {
 
 .author {
   text-transform: uppercase;
+  color: $article-font-color;
   font-size: 13px;
+
+  a {
+    color: $article-title-color !important;
+
+    &:hover {
+      color: rgba($article-title-color, .82) !important;
+    }
+  }
 }
 
 // ads section
