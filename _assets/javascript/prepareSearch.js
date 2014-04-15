@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  var emptySearch = $('.results');
-  $(emptySearch).parent().hide();
   $('.search-field').simpleJekyllSearch({
       searchResultsTitle: '<h4>Resultados de búsqueda</h4>',
       noResults: '<p>No se encontraron resultados</p>',
@@ -19,14 +17,5 @@ $(document).ready(function() {
                        </p>
                      </div>
                   </article>'
-  });
-
-  $('.search-field').keyup(function() {
-    var value = $(this).val();
-    if(value.length == 0){
-      $(emptySearch).parent().hide();
-    }else{
-      $(emptySearch).parent().show();
-    }
   });
 });
