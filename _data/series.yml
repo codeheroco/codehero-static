@@ -55,7 +55,7 @@
   author-url: ramses
 
 - name: MongoDB desde Cero
-  status: (Serie en Progreso)
+  status: (Serie Completada)
   url-series: mongodb-desde-cero
   thumb: http://i.imgur.com/Y1mFWAO.png
   description: MongoDB es la base de datos NoSQL más utilizada actualmente en el mercado, su núcleo está basado en el lenguaje Javascript. Si nunca te has adentrado en el mundo del NoSQL, esta es la mejor oportunidad para hacerlo con Mongo.
@@ -117,4 +117,3 @@
   description: Sinatra es un DSL para construir páginas Web, servicios Web o aplicaciones Web en Ruby. Sinatra está basado en el enfoque minimalista de desarrollo, es decir no existe una estructura ni una manera "correcta" de hacer las cosas, solo una "mejor práctica" de como realizarlo, ofreciendo al desarrollado una manera súper esencial para el manejo del protocolo HTTP.
   author: Alberto Grespan
   author-url: albertogg
-
