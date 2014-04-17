@@ -29,7 +29,8 @@
         </div>
       </div>
       <hr>
-      {% for post in site.posts %}
+      {% assign sorted_pages = site.posts | sort:"name" %}
+      {% for post in sorted_pages %}
         {% if post.categories contains page.post_cat %}
           <div class="col-xs-12 col-sm-6 col-md-3">
             <article class="center-in-div article-series">
