@@ -29,22 +29,41 @@
         </div>
       </div>
       <hr>
+      <div class="row">
       {% assign sorted_pages = site.posts | sort:"name" %}
       {% for post in sorted_pages %}
         {% if post.categories contains page.post_cat %}
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <article class="center-in-div article-series">
-              <img class="img-center-responsive" src="{{ thumb_path }}" alt="thumbnail">
-              <h4>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-              </h4>
-              <p>
-                Por: <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>
-              </p>
-            </article>
-          </div>
+          {% assign num_post = forloop.index0 | modulo:4 %}
+          {% if num_post == 0 %}
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <article class="center-in-div article-series">
+                  <img class="img-center-responsive" src="{{ thumb_path }}" alt="thumbnail">
+                  <h4>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                  </h4>
+                  <p>
+                    Por: <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>
+                  </p>
+                </article>
+              </div>
+          {% else %}
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <article class="center-in-div article-series">
+                <img class="img-center-responsive" src="{{ thumb_path }}" alt="thumbnail">
+                <h4>
+                  <a href="{{ post.url }}">{{ post.title }}</a>
+                </h4>
+                <p>
+                  Por: <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>
+                </p>
+              </article>
+            </div>
+          {% endif %}
         {% endif %}
       {% endfor %}
+      </div>
     </div>
   </div>
 </div>
