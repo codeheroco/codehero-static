@@ -29,11 +29,13 @@
         </div>
       </div>
       <hr>
-      <div class="row">
       {% assign sorted_pages = site.posts | sort:"name" %}
+      <div class="row">
+      {% assign counter = -1 %}
       {% for post in sorted_pages %}
         {% if post.categories contains page.post_cat %}
-          {% assign num_post = forloop.index0 | modulo:4 %}
+          {% assign counter = counter | plus:1 %}
+          {% assign num_post = counter | modulo:4 %}
           {% if num_post == 0 %}
             </div>
             <div class="row">
