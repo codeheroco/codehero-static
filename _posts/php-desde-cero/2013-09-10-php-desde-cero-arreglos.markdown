@@ -61,7 +61,7 @@ echo $arreglo[1];
 
 <h2>Creando un Arreglo Asociativo</h2>
 
-<p>Como vimos anteriormente un arreglo asociativo asigna nombres a cada posición o dato del arreglo. Esto provee una manera mas humana y amigable de acceder a los elementos del arreglo. Igual que la manera anterior para crear un arreglo utilizamos la función <strong>array()</strong>, pero esta vez los datos que le pasaremos tendrán la forma de <code>$llave =&gt; $valor</code>. La llave sera el nombre con el cual tendremos acceso al dato deseado. Vamos a crear un arreglo con la información básica de una persona.</p>
+<p>Como vimos anteriormente un arreglo asociativo asigna nombres a cada posición o dato del arreglo. Esto provee una manera mas humana y amigable de acceder a los elementos del arreglo. Igual que la manera anterior para crear un arreglo utilizamos la función <strong>array()</strong>, pero esta vez los datos que le pasaremos tendrán la forma de <code>$llave => $valor</code>. La llave sera el nombre con el cual tendremos acceso al dato deseado. Vamos a crear un arreglo con la información básica de una persona.</p>
 
 ```php
 <?php
@@ -180,7 +180,7 @@ foreach( $colores as $color){
 ?>
 ```
 
-<p>La segunda forma es para los arreglos asociativos y permite obtener en una variable el valor actual y en otra variable la clave de ese valor con la siguiente sintaxis <code>foreach ($arreglo as $llave =&gt; $elemento)</code>. Veamos un ejemplo de esto:</p>
+<p>La segunda forma es para los arreglos asociativos y permite obtener en una variable el valor actual y en otra variable la clave de ese valor con la siguiente sintaxis <code>foreach ($arreglo as $llave => $elemento)</code>. Veamos un ejemplo de esto:</p>
 
 ```php
 <?php

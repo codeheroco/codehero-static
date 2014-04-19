@@ -85,8 +85,8 @@ $validacion_4 = array(
 <ul>
 <li><strong>alpha</strong>: Esta regla verifica que el dato contenga puros caracteres alfabéticos. </li>
 <li><strong>alpha_num</strong>: Esta regla verifica que el dato contenga solo caracteres alfabéticos o numéricos. </li>
-<li><strong>in</strong>: Sirve para verificar que el campo contenga un valor que se encuentre dentro de una lista. <code>'nombre_campo' =&gt; 'in:rojo,verde,gris'</code></li>
-<li><strong>min</strong>: Verifica que un número sea mayor que el valor que se establece, en caso de ser un String entonces se valida la cantidad de caracteres. <code>'nombre_campo' =&gt; 'min:5'</code></li>
+<li><strong>in</strong>: Sirve para verificar que el campo contenga un valor que se encuentre dentro de una lista. <code>'nombre_campo' =>; 'in:rojo,verde,gris'</code></li>
+<li><strong>min</strong>: Verifica que un número sea mayor que el valor que se establece, en caso de ser un String entonces se valida la cantidad de caracteres. <code>'nombre_campo' => 'min:5'</code></li>
 </ul>
 
 <hr />

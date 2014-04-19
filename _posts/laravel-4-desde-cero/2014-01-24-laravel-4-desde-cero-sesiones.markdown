@@ -22,7 +22,7 @@ tags:
 
 <p>Lo primero que debemos hacer es crear en nuestra base de datos una tabla llamada usuarios con la siguiente estructura. Para mantenerlo sencillo solo registraremos nombre, correo y clave del usuario.</p>
 
-```sql 
+```sql
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
@@ -45,10 +45,10 @@ CREATE TABLE `usuarios` (
 @endif
 
 {{ Form::open(array('url' => 'login')) }}
-    
+
     {{ Form::label('correo', 'Correo'); }}
     {{ Form::text('correo'); }}
-    {{ Form::label('password', 'Clave'); }} 
+    {{ Form::label('password', 'Clave'); }}
     {{ Form::password('password'); }}
     {{ Form::submit('Ingresar'); }}
 
@@ -60,12 +60,12 @@ CREATE TABLE `usuarios` (
 @endif
 
 {{ Form::open(array('url' => 'registro')) }}
-    
+
     {{ Form::label('nombre', 'Nombre'); }}
     {{ Form::text('nombre'); }}
     {{ Form::label('correo', 'Correo'); }}
     {{ Form::text('correo'); }}
-    {{ Form::label('password', 'Clave'); }} 
+    {{ Form::label('password', 'Clave'); }}
     {{ Form::password('password'); }}
     {{ Form::submit('Registrar'); }}
 
@@ -78,11 +78,11 @@ CREATE TABLE `usuarios` (
 
 <p>Ahora vamos a crear el modelo para los usuarios que se registraran en el sistema y le colocamos el nombre <strong>Usuarios.php</strong>. En esta ocasión vamos a implementar una interfaz en el modelo, para que Laravel lo pueda usar para inicio de sesión. La interfaz a implementar sera UserInterface y a continuación podemos observar el código final del modelo.</p>
 
-```php 
-<?php 
+```php
+<?php
 // se debe indicar en donde esta la interfaz a implementar
 use Illuminate\Auth\UserInterface;
- 
+
 Class Usuarios extends Eloquent implements UserInterface{
 
     protected $table = 'usuarios';
@@ -93,56 +93,56 @@ Class Usuarios extends Eloquent implements UserInterface{
     {
         return $this->getKey();
     }
-    
+
     //este metodo se debe implementar por la interfaz
-    // y sirve para obtener la clave al momento de validar el inicio de sesión 
+    // y sirve para obtener la clave al momento de validar el inicio de sesión
     public function getAuthPassword()
     {
         return $this->password;
     }
-    
+
 }
 ?>
 ```
 
 {% include middle-post-ad.html %}
 
-<p>Con <strong>Usuarios.php</strong> creado y el código del mismo listo, vamos a pasar a decirle a Laravel que los usuarios y claves están en este modelo. Para esto debemos entrar al archivo de configuración <code>app/config/auth.php</code> y revisar dos parámetros. El primero sera <code>'driver'=&gt;'eloquent'</code>, lo mas seguro es que ya este así y esto le dice a Laravel que vamos a utilizar un modelo para guardar los usuarios que harán login. El segundo parámetro sera <code>'model'=&gt;'Usuarios'</code>, este le indica a Laravel que el modelo a utilizar es <strong>Usuarios</strong>.</p>
+<p>Con <strong>Usuarios.php</strong> creado y el código del mismo listo, vamos a pasar a decirle a Laravel que los usuarios y claves están en este modelo. Para esto debemos entrar al archivo de configuración <code>app/config/auth.php</code> y revisar dos parámetros. El primero sera <code>'driver'=>'eloquent'</code>, lo mas seguro es que ya este así y esto le dice a Laravel que vamos a utilizar un modelo para guardar los usuarios que harán login. El segundo parámetro sera <code>'model'=>'Usuarios'</code>, este le indica a Laravel que el modelo a utilizar es <strong>Usuarios</strong>.</p>
 
 <p>El último paso que falta es crear las rutas y lógica que controlara todo lo que hemos hecho hasta ahora. Pero primero tenemos que entender que para un sistema con login tenga sentido deben haber rutas para las cuales se necesite haber iniciado sesión y otras que no. Esto en Laravel se hace de manera sencilla con los filtros y ya el framework tiene uno llamado <strong>auth</strong>. Este filtro se puede encontrar en el archivo <code>app/filers.php</code>. No es necesario ningún cambio pero siempre es bueno saber donde esta y para que sirve.</p>
 
 <p>Ahora que tenemos esto claro podemos crear las rutas con la lógica de nuestro ejemplo de login. Para esto vamos a crear la siguientes rutas:</p>
 
-```php 
-<?php 
+```php
+<?php
 // esta sera la ruta principal de nuestra aplicación
 // aquí va a estar el formulario para registrase y para inicio de sesión
 // esta ruta debe ser publica y por lo tanto no debe llegar el filtro auth
 Route::get('login', function(){
-    return View::make('login'); 
+    return View::make('login');
 });
 
-// esta ruta sera para crear al usuario 
+// esta ruta sera para crear al usuario
 Route::post('registro', function(){
 
     $input = Input::all();
-    
+
     // al momento de crear el usuario la clave debe ser encriptada
     // para utilizamos la función estática make de la clase Hash
     // esta función encripta el texto para que sea almacenado de manera segura
     $input['password'] = Hash::make($input['password']);
- 
+
     Usuarios::create($input);
 
     return Redirect::to('login')->with('mensaje_registro', 'Usuario Registrado');
 });
 
-// esta ruta servirá para iniciar la sesión por medio del correo y la clave 
+// esta ruta servirá para iniciar la sesión por medio del correo y la clave
 // para esto utilizamos la función estática attemp de la clase Auth
 // esta función recibe como parámetro un arreglo con el correo y la clave
 Route::post('login', function(){
 
-    // la función attempt se encarga automáticamente se hacer la encriptación de la clave para ser comparada con la que esta en la base de datos. 
+    // la función attempt se encarga automáticamente se hacer la encriptación de la clave para ser comparada con la que esta en la base de datos.
     if (Auth::attempt( array('correo' => Input::get('correo'), 'password' => Input::get('password') ), true )){
         return Redirect::to('inicio');
     }else{
@@ -151,17 +151,17 @@ Route::post('login', function(){
 
 });
 
-// Por ultimo crearemos un grupo con el filtro auth. 
-// Para todas estas rutas el usuario debe haber iniciado sesión. 
-// En caso de que se intente entrar y el usuario haya iniciado session 
+// Por ultimo crearemos un grupo con el filtro auth.
+// Para todas estas rutas el usuario debe haber iniciado sesión.
+// En caso de que se intente entrar y el usuario haya iniciado session
 // entonces sera redirigido a la ruta login
 Route::group(array('before' => 'auth'), function()
 {
-    
+
     Route::get('inicio', function(){
         echo 'Bienvenido ';
-        
-        // Con la función Auth::user() podemos obtener cualquier dato del usuario 
+
+        // Con la función Auth::user() podemos obtener cualquier dato del usuario
         // que este en la sesión, en este caso usamos su correo y su id
         // Esta función esta disponible en cualquier parte del código
         // siempre y cuando haya un usuario con sesión iniciada
