@@ -6,7 +6,7 @@ title: MySQL
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-date: 2013-10-22 00:10:49.000000000 -04:3
+date: 2013-10-22 00:10:49.000000000 -04:30
 serie: PHP desde Cero
 description: Tutorial para aprender como conectar un script php con una base de datos mysql
 dificultad: novato

@@ -25,7 +25,7 @@ tags:
 
 <p><strong>Validator</strong> nos permite validar los datos definiendo ciertas reglas y retornar mensajes de error, veamos un primer ejemplo:</p>
 
-```php 
+```php
 <?php
 $datos = array('nombre' => 'Pedro');
 $validaciones = array('nombre' => array('required', 'min:5'));
@@ -53,7 +53,7 @@ if ( $validator->fails() ){
 
 <p>La llave de cada posición del arreglo es el nombre del campo al cual se le desea aplicar una validación y el valor es la validación que se desea aplicar. El valor también puede ser un arreglo en caso de que se deseen aplicar varias validaciones a un mismo campo. Veamos un ejemplo de como declarar algunas reglas de validación:</p>
 
-```php 
+```php
 <?php
 $validacion_1 = array('nombre'=>'requiered');
 //Una sola validación que se aplica al campo 'nombre' y verifica que no sea nulo
@@ -66,12 +66,12 @@ $validacion_3 = array('nombre'=> array('required', 'min:5') );
 //En este caso hay dos validaciones que aplican al campo 'nombre'
 
 $validacion_4 = array(
-                'nombre'=>array('required', 'min:5') , 
+                'nombre'=>array('required', 'min:5') ,
                 'edad'=>'integer'
                 );
-// en este caso hay varias validaciones que se aplican a dos campos 
+// en este caso hay varias validaciones que se aplican a dos campos
 // el primero es 'nombre' y se verifica que no sea nulo y mínimo 5 caracteres
-// el segundo es 'edad' y se verifica que sea un numero entero 
+// el segundo es 'edad' y se verifica que sea un numero entero
 
 ?>
 ```
@@ -97,11 +97,11 @@ $validacion_4 = array(
 
 <p>Luego de que hemos aplicado las reglas que necesitemos a los campos que debamos verificar, es necesario que sepamos que campos no pasaron las reglas en caso de que tuvieran datos incorrectos. Para esto Laravel tiene mensajes predeterminados por cada regla de validación que se aplica y estos mensajes se guardan en el objeto que devuelve <strong>make</strong>. Veamos un ejemplo de esto y como se utilizan:</p>
 
-```php 
+```php
 <?php
 $datos = array('nombre' => 'Pedr', 'edad'=>'sin edad');
 $validacion = array(
-            'nombre'=>array('required', 'min:5'), 
+            'nombre'=>array('required', 'min:5'),
             'edad'=>'integer'
             );
 
@@ -111,8 +111,8 @@ if ($validator->fails())
 {
     $mensajes = $validator->messages();
     foreach ($mensajes->all() as $mensaje){
-        echo $mensaje.'&lt;/br>';
-    }   
+        echo $mensaje.'</br>';
+    }
 }else{
     echo 'Datos Correctos';
 }
@@ -125,13 +125,13 @@ if ($validator->fails())
 
 <p>También es posible mostrar solo los mensajes de un campo en específico y revisar si el campo tiene mensajes, en este caso vamos a ver un ejemplo con el campo edad:</p>
 
-```php 
+```php
 <?php
 if ($mensajes->has('edad')){
     foreach ($mensajes->get('edad') as $mensaje){
-        echo $mensaje.'&lt;/br>';
+        echo $mensaje.'</br>';
     }
-}   
+}
 ?>
 ```
 
@@ -143,7 +143,7 @@ if ($mensajes->has('edad')){
 
 <p>Pasemos a modificar el archivo <strong>validation.php</strong> de español para que nuestros errores de validación sean entendibles. Como podemos observar tenemos un arreglo con muchos textos en donde las llave del arreglo son nombres de reglas de validación de Laravel. Veamos un ejemplo de como modificar algún mensaje:</p>
 
-```php 
+```php
 <?php
 "integer" => "The :attribute must be an integer."
 
@@ -163,7 +163,7 @@ if ($mensajes->has('edad')){
 
 <p>¿Ahora es mucho mas amigable cierto? Pues todavía nos queda algo mas para modificar y que sea mas fáciles de entender nuestros mensajes. Muchas veces queremos mostrar el mensaje de error pero sin decir el campo como esta declarado, si no alguna otra palabra mas explicativa. Por ejemplo, nuestro campo se puede llamar <strong>correo</strong> en el formulario, pero queremos que el usuario lo vea como <strong>Correo Electrónico</strong>. Para esto tenemos el arreglo <strong>attributes</strong> en el archivo de <strong>validation.php</strong>, veamos como funciona:</p>
 
-```php 
+```php
 <?php
 'attributes' => array(
     'nombre'=>'Primer Nombre',

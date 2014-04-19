@@ -32,7 +32,7 @@ tags:
 
 <p>Para comenzar crearemos los métodos necesarios en el controlador de <strong>UsuariosController.php</strong>. En este caso necesitamos tres métodos nuevos, los cuales servirán para mostrar el formulario, crear un nuevo usuario y mostrar a un usuario. Con esto el controlador debe quedar de la siguiente manera:</p>
 
-```php 
+```php
 <?php
 
 class UsuariosController extends BaseController {
@@ -61,7 +61,7 @@ class UsuariosController extends BaseController {
     {
         Usuario::create(Input::all());
     // el método create nos permite crear un nuevo usuario en la base de datos, este método es proporcionado por Laravel
-    // create recibe como parámetro un arreglo con datos de un modelo y los inserta automáticamente en la base de datos 
+    // create recibe como parámetro un arreglo con datos de un modelo y los inserta automáticamente en la base de datos
     // en este caso el arreglo es la información que viene desde un formulario y la obtenemos con el metido Input::all()
 
         return Redirect::to('usuarios');
@@ -75,12 +75,12 @@ class UsuariosController extends BaseController {
     public function verUsuario($id)
     {
     // en este método podemos observar como se recibe un parámetro llamado id
-    // este es el id del usuario que se desea buscar y se debe declarar en la ruta como un parámetro 
-    
+    // este es el id del usuario que se desea buscar y se debe declarar en la ruta como un parámetro
+
         $usuario = Usuario::find($id);
-        // para buscar al usuario utilizamos el metido find que nos proporciona Laravel 
+        // para buscar al usuario utilizamos el metido find que nos proporciona Laravel
         // este método devuelve un objete con toda la información que contiene un usuario
-    
+
     return View::make('usuarios.ver', array('usuario' => $usuario));
     }
 
@@ -98,8 +98,8 @@ class UsuariosController extends BaseController {
 
 <p>Ya con el controlador listo con todas las acciones que necesitamos vamos a pasar a crear las rutas para acceder a esas acciones, para esto nuestro archivo <strong>routes.php</strong> debe quedar de la siguiente manera:</p>
 
-```php 
-<?php 
+```php
+<?php
 Route::get('/', function()
 {
     return Redirect::to('usuarios');
@@ -110,12 +110,12 @@ Route::get('usuarios', array('uses' => 'UsuariosController@mostrarUsuarios'));
 Route::get('usuarios/nuevo', array('uses' => 'UsuariosController@nuevoUsuario'));
 
 Route::post('usuarios/crear', array('uses' => 'UsuariosController@crearUsuario'));
-// esta ruta es a la cual apunta el formulario donde se introduce la información del usuario 
-// como podemos observar es para recibir peticiones POST 
+// esta ruta es a la cual apunta el formulario donde se introduce la información del usuario
+// como podemos observar es para recibir peticiones POST
 
 Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
-// esta ruta contiene un parámetro llamado {id}, que sirve para indicar el id del usuario que deseamos buscar 
-// este parámetro es pasado al controlador, podemos colocar todos los parámetros que necesitemos 
+// esta ruta contiene un parámetro llamado {id}, que sirve para indicar el id del usuario que deseamos buscar
+// este parámetro es pasado al controlador, podemos colocar todos los parámetros que necesitemos
 // solo hay que tomar en cuenta que los parámetros van entre llaves {}
 // si el parámetro es opcional se colocar un signo de interrogación {parámetro?}
 
@@ -138,7 +138,7 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 <html>
     <body>
         @section('sidebar')
-            Codehero Laravel 4 Gestión de Usuarios - 
+            Codehero Laravel 4 Gestión de Usuarios -
         @show
 
         <div class="container">
@@ -152,7 +152,7 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 ```
 
 
-<p>Como podemos observar esto es la estructura básica HTML de una página web que contiene las etiquetas <code>&lt;html&gt;</code>, <code>&lt;body&gt;</code> y <code>&lt;div&gt;</code>. También podemos observar que hay unas funciones de Blade <strong>@section</strong>, <strong>@show</strong>, <strong>@yield</strong>, estas son las que nos van a ayudar a crear las plantillas mediante herencia y creación se secciones para no tener que repetir código HTML en cada vista que tengamos.</p>
+Como podemos observar esto es la estructura básica HTML de una página web que contiene las etiquetas `{% raw %}<html>{% endraw %}`, `{% raw %}<body>{% endraw %}` y `{% raw %}<div>{% endraw %}`. También podemos observar que hay unas funciones de Blade **@section**,**@show**, **@yield**, estas son las que nos van a ayudar a crear las plantillas mediante herencia y creación se secciones para no tener que repetir código HTML en cada vista que tengamos.
 
 <p>En este archivo es donde debemos crear la estructura básica de nuestra sitio. Por ejemplo, menú, barras laterales, cabecera, pie de página, incluir los archivos javascript o css que siempre se van a usar. Es decir todo lo que siempre vamos a querer mostrar y que no queremos repetir en cada vista que vamos a crear, esto nos deja un gran camino libre a la hora de crear cada vista, ya que solo nos tenemos que concentrar en la parte que cambia.</p>
 
@@ -198,7 +198,7 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 
 <p>Podemos observar que para las dos tipos de secciones la manera de completarlas es la misma. Abrimos la sección con el nombre que corresponda, escribimos el código que queramos incluir y cerramos con <strong>@stop</strong>. Pero si hay una diferencia entre las dos, la función <strong>@parent</strong>. Recordemos que la sección (sidebar) en nuestro archivo <strong>master</strong> tenia ya un contenido adentro, por lo tanto se nos da la opción de heredarlo o no. Esto lo hacemos escribiendo la función <strong>@parent</strong> dentro de la sección. Como podemos ver, todo el código que esta dentro de las dos secciones en esta vista será incluido en donde están las secciones en la vista master.</p>
 
-<p>Lo ultimo que tenemos que tomar en cuenta en esta vista es la función estática <strong>link</strong>, la cual viene de la clase <strong>HTML</strong> de Laravel. Esta función nos permite crear un link <code>&lt;a href=""&gt;&lt;/a&gt;</code> de manera mas sencilla. El primer parámetro es la ruta, el segundo parámetro es el texto que va a contener y se le puede pasar un tercer parámetro con propiedades de html o css.</p>
+<p>Lo ultimo que tenemos que tomar en cuenta en esta vista es la función estática <strong>link</strong>, la cual viene de la clase <strong>HTML</strong> de Laravel. Esta función nos permite crear un link <code><a href=""></a></code> de manera mas sencilla. El primer parámetro es la ruta, el segundo parámetro es el texto que va a contener y se le puede pasar un tercer parámetro con propiedades de html o css.</p>
 
 <h3>Vista crear</h3>
 
@@ -229,13 +229,10 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 
 <p>En esta vista podemos notar que se hace uso de una clase <strong>Form</strong>, la cual nos ayuda a crear los elementos necesarios para utilizar en un formulario. Veamos que realiza cada función:</p>
 
-<ul>
-<li><p><strong>Form::open</strong>: Esta función abre la etiqueta <code>&lt;form&gt;</code> y se le pasa como parámetro la ruta a la cual se enviara el formulario.</p></li>
-<li><p><strong>Form::text</strong>: Esta función crea una etiqueta <code>&lt;input&gt;</code> de tipo <strong>text</strong>, el primer parámetro es el nombre de la etiqueta( propiedad name), el segundo parámetro es el valor que tiene el input(propiedad value), que en este caso es vacío. Por ultimo se le puede pasar un tercer parámetro con propiedades HTML o CSS.</p></li>
-<li><p><strong>Form::label</strong>: Con esta función se crear una etiqueta <code>&lt;label&gt;</code>, el primer parámetro es el nombre del campo al cual pertenece la etiqueta, el segundo es el texto que contiene y un posible tercer parámetro seria para propiedades de HTML o CSS.</p></li>
-<li><p><strong>Form::submit</strong>: Para enviar el formulario es necesario crear un <code>&lt;input&gt;</code> de tipo <strong>submit</strong>, solo recibe dos parámetros, el valor y el segundo opcional son las opciones HTML y CSS.</p></li>
-<li><p><strong>Form::close</strong>: Por ultimo es necesario cerrar la etiqueta <code>&lt;form&gt;</code>, esto se hace con esta función.</p></li>
-</ul>
+- **Form::text**: Esta función crea una etiqueta `{% raw %}<input>{% endraw %}` de tipo **text**, el primer parámetro es el nombre de la etiqueta( propiedad name), el segundo parámetro es el valor que tiene el input(propiedad value), que en este caso es vacío. Por ultimo se le puede pasar un tercer parámetro con propiedades HTML o CSS.
+- **Form::label**: Con esta función se crear una etiqueta `{% raw %}<label>{% endraw %}`, el primer parámetro es el nombre del campo al cual pertenece la etiqueta, el segundo es el texto que contiene y un posible tercer parámetro seria para propiedades de HTML o CSS.
+- **Form::submit**: Para enviar el formulario es necesario crear un `{% raw %}<input>{% endraw %}` de tipo **submit**, solo recibe dos parámetros, el valor y el segundo opcional son las opciones HTML y CSS.
+- **Form::close**: Por ultimo es necesario cerrar la etiqueta `{% raw %}<form>{% endraw %}`, esto se hace con esta función.
 
 <h3>Vista Ver</h3>
 
@@ -252,7 +249,7 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 
 @section('content')
     {{ HTML::link('usuarios', 'Volver'); }}
-    <h1>Usuario {{$usuario->id}}</h1>      
+    <h1>Usuario {{$usuario->id}}</h1>
     {{ $usuario->nombre .' '.$usuario->apellido }}
     <br />
     {{ $usuario->created_at}}

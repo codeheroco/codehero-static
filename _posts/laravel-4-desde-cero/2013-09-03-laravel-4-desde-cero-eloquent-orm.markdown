@@ -40,12 +40,12 @@ tags:
 
 <p>Para poder utilizar esta tabla de carros con Eloquent ORM debemos entonces crear un modelo en cual extienda de Eloquent. La creación del modelo y las variables que estamos creando ya se han visto en los capítulos anteriores, así que si algo no te resulta familiar en este punto te recomiendo que revises las entradas anteriores.</p>
 
-```php 
+```php
 <?php
 Class Carro Extends Eloquent {
-    
+
     protected $table = 'carros';
-    
+
     protected $fillable = array('modelo', 'placa', 'ano');
 
 }
@@ -58,7 +58,7 @@ Class Carro Extends Eloquent {
 
 <p>Para crear un registro tenemos dos maneras. Una de ellas ya la vimos que es haciendo uso de la función estática <strong>create()</strong>, la cual recibe como parámetro un arreglo con los campos del objeto que se va a crear. Este método es común usarlo cuando estamos recibiendo la información desde un formulario.</p>
 
-```php 
+```php
 <?php
 $input = array(
     'modelo' =>'Honda Civic',
@@ -68,15 +68,15 @@ $input = array(
 
 Carro::create($input);
 
-// Equivalente a 
-// INSERT INTO `carros`(`id`, `modelo`, `placa`, `ano`, `created_at`, `updated_at`) 
+// Equivalente a
+// INSERT INTO `carros`(`id`, `modelo`, `placa`, `ano`, `created_at`, `updated_at`)
 // VALUES (NULL, 'Honda Civic','HFU 88J',2010 , NOW(), NOW())
 ?>
 ```
 
 <p>La segunda manera es crear un objeto Carro con la sentencia <strong>new</strong>, llenar las propiedades del objeto una por una y luego guardarlo con el método <strong>save()</strong>.</p>
 
-```php 
+```php
 <?php
 $carro = new Carro;
 
@@ -86,8 +86,8 @@ $carro->ano = 2010;
 
 $carro->save();
 
-// Equivalente a 
-// INSERT INTO `carros`(`id`, `modelo`, `placa`, `ano`, `created_at`, `updated_at`) 
+// Equivalente a
+// INSERT INTO `carros`(`id`, `modelo`, `placa`, `ano`, `created_at`, `updated_at`)
 // VALUES (NULL, 'Honda Civic','HFU 88J',2010 , NOW(), NOW())
 ?>
 ```
@@ -96,7 +96,7 @@ $carro->save();
 
 <p>Cuando necesitemos traer todos los registros de un modelo podemos hacer uso de la función estática <strong>all()</strong>, esta nos devuelve un arreglo con todos las columnas de todas las filas que contenga la tabla que maneja el modelo.</p>
 
-```php 
+```php
 <?php
 $carros = Carro::all( );
 
@@ -104,14 +104,14 @@ foreach( $carros as $carro){
     echo $carro->modelo;
 }
 
-// Equivalente a 
+// Equivalente a
 // SELECT * FROM `carros` WHERE 1
 ?>
 ```
 
 <p>Esta función acepta como parámetro un arreglo con el nombre de los campos que queremos traer, esto en caso de que no queramos obtener todas las filas completas si no solo la 'placa' y el 'modelo' por ejemplo.</p>
 
-```php 
+```php
 <?php
 $carros = Carro::all( array('modelo', 'placa' ));
 
@@ -119,7 +119,7 @@ foreach( $carros as $carro){
     echo $carro->modelo;
 }
 
-// Equivalente a 
+// Equivalente a
 // SELECT modelo, placa FROM `carros` WHERE 1
 ?>
 ```
@@ -130,30 +130,30 @@ foreach( $carros as $carro){
 
 <p>Cuando queramos buscar un registro en especifico con su id entones utilizamos la función estática <strong>find()</strong>, la cual recibe como parámetro el id del objeto que se desee recuperar. Esta función nos devuelve un objeto con todas las propiedades ( campos ) que tenga en la base de datos.</p>
 
-```php 
+```php
 <?php
 $id = 1;
 
 $carro = Carro::find( $id );
 
-echo $carro->placa; 
+echo $carro->placa;
 
-//Equivalente a 
+//Equivalente a
 //SELECT * FROM `carros` WHERE id = 1
 ?>
 ```
 
 <p>Al igual que la función <strong>all()</strong>, podemos pasar un arreglo como parámetro con los campos que queramos obtener de la base de datos.</p>
 
-```php 
+```php
 <?php
 $id = 1;
 
 $carro = Carro::find( $id, array('placa') );
 
-echo $carro->placa; 
+echo $carro->placa;
 
-//Equivalente a 
+//Equivalente a
 //SELECT placa FROM `carros` WHERE id = 1
 ?>
 ```
@@ -162,7 +162,7 @@ echo $carro->placa;
 
 <p>Cuando necesitemos modificar un registro debemos primero buscar el objeto que lo contenga con la función <strong>find()</strong>, modificar las propiedades con los nuevos valores y por últimos llamar al método <strong>save()</strong> del objeto.</p>
 
-```php 
+```php
 <?php
 $id = 1;
 $carro = Carro::find( $id );
@@ -170,7 +170,7 @@ $carro->placa = 'MDY 00J';
 
 $carro->save();
 
-//Equivalente a 
+//Equivalente a
 // SELECT * FROM `carros` WHERE id = 1
 // UPDATE `carros` SET `placa`='MDY 00J', `updated_at`=NOW() WHERE id = 1
 
@@ -181,12 +181,12 @@ $carro->save();
 
 <p>Así como tenemos dos maneras de crear los objetos y guardarlos en la base de datos, para borrarlos también tenemos dos maneras. La primera es utilizando la función <strong>delete()</strong> con el objeto que queremos borrar, de esta manera borramos un solo objeto a la vez.</p>
 
-```php 
+```php
 <?php
 $id = 1;
 $carro = Carro::find( $id );
 $carro->delete();
-//Equivalente a 
+//Equivalente a
 // SELECT * FROM `carros` WHERE id = 1
 // DELETE FROM `carros` WHERE id = 1
 ?>
@@ -194,12 +194,12 @@ $carro->delete();
 
 <p>La segunda forma de borrar registros es haciendo uso de la función estática <strong>destroy</strong>, esta recibe como parámetros un arreglo con los id de los objetos que se deseen borrar de las base de datos. Con esta función si es posible borrar varios registros a la vez.</p>
 
-```php 
+```php
 <?php
-$arreglo = array(2, 3, 4, 7);   
+$arreglo = array(2, 3, 4, 7);
 Carro::destroy($arreglo);
 
-// Equivalente a 
+// Equivalente a
 // DELETE FROM `carros` WHERE id = 2
 // DELETE FROM `carros` WHERE id = 3
 // DELETE FROM `carros` WHERE id = 4

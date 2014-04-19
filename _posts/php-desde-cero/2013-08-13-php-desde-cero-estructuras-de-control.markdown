@@ -224,7 +224,7 @@ for ( inicializador ; expresion condicional ; expresion bucle )
 ?>
 ```
 
-<p>El inicializador es una variable numérica que es puesta con el valor en donde se desea comenzar, normalmente se utiliza <code>$i = 0</code>. La expresión condicional especifica la condición que se debe aprobar para que el ciclo continúe, por ejemplo <code>$i &lt; 1000</code>. Mientras <strong>$i</strong> sea menor que 1000 entonces el ciclo continuara repitiendose. Por ultimo viene la expresión bucle, la cual especifica la acción a realizar con la variable <strong>$i</strong>. Por ejemplo, incrementar en 1 <code>$i++</code>.</p>
+El inicializador es una variable numérica que es puesta con el valor en donde se desea comenzar, normalmente se utiliza `$i = 0`. La expresión condicional especifica la condición que se debe aprobar para que el ciclo continúe, por ejemplo `$i < 1000`. Mientras **$i** sea menor que 1000 entonces el ciclo continuara repitiendose. Por ultimo viene la expresión bucle, la cual especifica la acción a realizar con la variable **$i**. Por ejemplo, incrementar en 1 **$i++**.
 
 <p>Cuando juntamos todo esto podemos crear un bucle <strong>for</strong></p>
 
