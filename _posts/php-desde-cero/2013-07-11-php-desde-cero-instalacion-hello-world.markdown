@@ -85,7 +85,7 @@ tags:
 
 <p>Ahora lo vamos a guardar en la carpeta del servidor que hemos instalado(en nuestro caso htdocs), el archivo debe estar guardado con extensión <strong>.php</strong>, vamos a llamarlo <strong>codehero.php</strong>. Por último vamos a probar desde el navegador lo que hemos creado, para esto escribimos en la barra de direcciones <code>http://localhost/codehero.php</code>. Si todo ha salido bien deberíamos ver la pantalla del explorador en blanco con el mensaje <strong>"Hola Mundo!"</strong>. Listo ya hemos creado y probado nuestro primer script de PHP.</p>
 
-<p><a href="http://imgur.com/6oH8krz.png"><img src="http://imgur.com/6oH8krz" alt="codehero_php_1" class="aligncenter size-full wp-image-1371" /></a></p>
+<p><a href="http://imgur.com/6oH8krz.png"><img src="http://imgur.com/6oH8krz.png" alt="codehero_php_1" class="aligncenter size-full wp-image-1371" /></a></p>
 
 <p>Ahora veamos poco a poco que significa todo esto:</p>
 
