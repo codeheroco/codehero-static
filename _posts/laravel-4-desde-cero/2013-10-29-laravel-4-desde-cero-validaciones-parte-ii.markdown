@@ -6,9 +6,11 @@ title: Validaciones Parte II
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2476
-wordpress_url: http://codehero.co/?p=2476
 date: 2013-10-29 00:15:10.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Tutorial para aprender las carateristicas y usos de la clase Validator en Laravel 4 que tiene como proposito crear validaciones de manera sencilla.
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -29,30 +31,39 @@ tags:
 <li><strong>after</strong> (Fecha) - <strong>before</strong> (Fecha) : Las reglas <strong>after</strong> y <strong>before</strong> sirven para validar que un campo tenga una fecha mayor o menor que una fecha establecida. </li>
 </ul>
 
-<pre>array(
+```php 
+<?php
+array(
  'campo' => 'before:12/12/13'
 );
-</pre>
+?>
+```
 
 <ul>
 <li><p><strong>alpha_dash</strong> : Esta regla verifica que el dato a validar contenga solo caracteres alfabéticos, numéricos, guiones (-) o guiones bajos (_).</p></li>
 <li><p><strong>between</strong> : Esta regla verifica que el campo a validar esta dentro de los rangos de dos valores que tiene como parámetros. Si es un campo numérico entonces verifica el valor. Si el campo a validar es un archivo o cadena de caracteres verifica el peso o la longitud respectivamente.</p></li>
 </ul>
 
-<pre>array(
+```php 
+<?php
+array(
  'campo' => 'between:5,7'
 );
-</pre>
+?>
+```
 
 <ul>
 <li><p><strong>date</strong> : Esta regla verifica que el dato en el campo sea una fecha, esto se hace mediante el método <strong>strtotime()</strong>.</p></li>
 <li><p><strong>date_format</strong> : Al igual que la regla <strong>date</strong>, <strong>date_format</strong> verifica que el campo contenga una fecha pero con un formato específico que esta establecido en el parámetro.</p></li>
 </ul>
 
-<pre>array(
+```php 
+<?php
+array(
  'campo' => 'date_format:d/m/y'
 );
-</pre>
+?>
+```
 
 <ul>
 <li><p><strong>email</strong> : Esta regla verifica que el campo contenga una dirección de correo con formato valido.</p></li>
@@ -60,60 +71,78 @@ tags:
 <li><p><strong>mimes</strong> : Esta regla verifica que el formato de un archivo sea alguno de los que se pasa como parámetro.</p></li>
 </ul>
 
-<pre>array(
+```php 
+<?php
+array(
  'campo' => 'mimes:pdf,doc,docx'
 );
-</pre>
+?>
+```
 
 <ul>
 <li><p><strong>numeric</strong> : Esta regla verifica que el campo contenga un valor numerico.</p></li>
 <li><p><strong>regex</strong> : Esta regla verifica que el campo cumpla con la expresión regular que se pasa como parámetro.</p></li>
 </ul>
 
-<pre>array(
+```php 
+<?php
+array(
  'campo' => 'regex:[a-z]'
 );
-</pre>
+?>
+```
 
 <ul>
 <li><strong>same</strong> - <strong>different</strong> : Sirven para verificar que un campo es igual o diferente que otro campo que se pasa el nombre como parámetro. </li>
 </ul>
 
-<pre>array(
+```php 
+<?php
+array(
  'campo' => 'same:campo1'
 );
-</pre>
+?>
+```
 
 <ul>
 <li><strong>size</strong> : Esta regla acepta un número como parámetro y verifica que el valor del campo sea igual. Si el campo es un número entonces hace la comparación matemática, si es una cadena de caracteres hace la comparación con la longitud y si es un archivo entonces hace la comparación con el tamaño. </li>
 </ul>
 
-<pre>array(
+```php 
+<?php
+array(
  'campo' => 'size:8'
 );
-</pre>
+?>
+```
 
 <ul>
 <li><strong>exists</strong> : Esta regla verifica que el campo que el valor del campo que se esta validando exista en una tabla de la base de datos. La tabla a consultar se pasa como primer parámetro y el campo a consultar en la tabla se pasa como segundo parámetro. </li>
 </ul>
 
-<pre>array(
+```php 
+<?php
+array(
     'campo' => 'exists:tabla,campo_tabla'
 );
-</pre>
+?>
+```
 
 <ul>
 <li><strong>unique</strong> : Esta regla verifica que el valor del campo que se esta validando no exista en la base de datos. La tabla a revisar se pasa como primer parámetro y el campo de la tabla se pasa como segundo parámetro. Si se desean hacer excepción con algún valor entonces se pasan como parámetros los ids después del nombre del campo. </li>
 </ul>
 
-<pre>array(
+```php 
+<?php
+array(
     'campo' => 'unique:tabla,campo_tabla'
 );
 
 array(
     'campo' => 'unique:tabla,campo_tabla,4,3,2,1'
 );
-</pre>
+?>
+```
 
 <hr />
 
@@ -123,68 +152,51 @@ array(
 
 <p>Primero vamos a crear un formulario con algunos campos ( No vamos a crear modelo, ni base de datos. Solo vamos a ver como validar y mostrar errores).</p>
 
-<pre>{{ Form::open(array('url' => 'validar')) }}
-
-    <h1>
-  Formulario
-</h1>
-
-    
+```html
+{% raw %}
+{{ Form::open(array('url' => 'validar')) }}
+<h1>Formulario</h1>
 
 <div>
   {{ Form::label('nombre', 'Nombre: ')}}<br />
-          {{ Form::text('nombre', '')}}
-      
+  {{ Form::text('nombre', '')}}    
 </div>
-
-    
 
 <div>
   {{ Form::label('usuario', 'Usuario: ')}}<br />
-          {{ Form::text('usuario', '')}}
-      
+  {{ Form::text('usuario', '')}}    
 </div>
-
-    
 
 <div>
   {{ Form::label('correo', 'Correo: ')}}<br />
-          {{ Form::text('correo', '')}}
-      
+  {{ Form::text('correo', '')}}    
 </div>
-
-    
 
 <div>
   {{ Form::label('edad', 'Edad: ')}}<br />
-          {{ Form::text('edad', '' )}}
-      
+  {{ Form::text('edad', '' )}}      
 </div>
-
-    
 
 <div>
   {{ Form::label('sexo', 'Sexo: ')}}<br />
-          {{ Form::text('sexo', '')}}
-      
+  {{ Form::text('sexo', '')}}      
 </div>
 
-    
-
 <div>
-  {{ Form::submit('Enviar')}}
-      
+  {{ Form::submit('Enviar')}}      
 </div>
 
 {{ Form::close()}}
-
-</pre>
+{%endraw%}
+```
 
 <p>Ahora que tenemos el formulario necesitamos dos rutas. La primera para mostrar el formulario y la segunda para procesar la información que envía el formulario.</p>
 
 <p>En esta parte vamos a aprender dos funciones nuevas <strong>withErrors()</strong> y <strong>withInput()</strong> que vienen con la clase <strong>RedirectResponse</strong>. La primera sirve para pasar por Session a la siguiente vista (que será la vista anterior con el formulario) los errores que ocurrieron a la hora de validar el formulario, a esta función hay que pasarle como parámetro el objeto que devuelve <strong>Validator</strong>. La segunda función devuelve a la vista los valores de los campos que se enviaron en el formulario, para así volverlos a mostrar al usuario. Para entender mejor estas funciones vamos a revisar los códigos.</p>
 
-<pre>Route::get('/', function(){
+```php 
+<?php
+Route::get('/', function(){
     
     // esta ruta solo servirá para llamar a la vista que contiene el formulario 
     return View::make('validaciones.formulario');
@@ -228,7 +240,10 @@ Route::post('validar', function(){
     }
 }); 
 
-</pre>
+?>
+```
+
+{% include middle-post-ad.html %}
 
 <p>Ya hemos verificado si los campos son correctos o incorrectos. ¿Pero ahora como le mostramos al usuario en que se equivoco? Para esto vamos a volver a nuestro formulario y vamos a editarlo un poco. Vamos a agregar funciones que reciban si hay error en cada campo y si es así entonces mostramos el mensajes de error. También vamos a mostrar los datos antiguos para que el formulario quede igual a como estaba antes de que el usuario lo enviara al servidor.</p>
 
@@ -238,41 +253,31 @@ Route::post('validar', function(){
 
 <p>Estas variables y funciones se pueden utilizar sin ningún problema aunque el formulario no tenga datos antiguo que manejar.</p>
 
-<pre>{{ Form::open(array('url' => 'validar')) }}
-<h1>
-  Formulario
-</h1>
-
-
+```html 
+{% raw %}
+{{ Form::open(array('url' => 'validar')) }}
+<h1>Formulario</h1>
 
 <div>
   {{ Form::label('nombre', 'Nombre: ')}}<br />
    <!-- Con Input::old('nombre') podemos obtener y establecer el valor que puso el usuario en nombre -->
    {{ Form::text('nombre', Input::old('nombre'))}}
-          
-   
-  
+    
   <!-- con $errors->has('nombre') podemos verificar si hubo error en el campo nombre -->
    @if( $errors->has('nombre') )
      
-  
   <!-- Aquí se puede agregar algún html para dar estilo -->            
-     
   
   <!-- con $erros->get('nombre') obtenemos todos los errores que tenga nombre --> 
      @foreach($errors->get('nombre') as $error )
         
-  
   <!-- Aquí mostramos los errores de nombre --> 
         
-  
   <br />* {{ $error }}
      @endforeach
    @endif
   
 </div>
-
-        
 
 <div>
   {{ Form::label('usuario', 'Usuario: ')}}<br />
@@ -281,11 +286,8 @@ Route::post('validar', function(){
               @foreach($errors->get('usuario') as $error )
                   <br />* {{ $error }}
               @endforeach
-          @endif
-      
-</div>
-
-    
+          @endif     
+</div>   
 
 <div>
   {{ Form::label('correo', 'Correo: ')}}<br />
@@ -294,11 +296,8 @@ Route::post('validar', function(){
               @foreach($errors->get('correo') as $error )
                   <br />* {{ $error }}
               @endforeach
-          @endif
-      
+          @endif 
 </div>
-
-    
 
 <div>
   {{ Form::label('edad', 'Edad: ')}}<br />
@@ -307,11 +306,8 @@ Route::post('validar', function(){
               @foreach($errors->get('edad') as $error )
                   <br />* {{ $error }}
               @endforeach
-          @endif
-      
+          @endif      
 </div>
-
-    
 
 <div>
   {{ Form::label('sexo', 'Sexo (M o F): ')}}<br />
@@ -320,19 +316,16 @@ Route::post('validar', function(){
               @foreach($errors->get('sexo') as $error )
                   <br />* {{ $error }}
               @endforeach
-          @endif
-      
+          @endif     
 </div>
 
-    
-
 <div>
-  {{ Form::submit('Enviar')}}
-      
+  {{ Form::submit('Enviar')}}    
 </div>
 
 {{ Form::close()}}
-</pre>
+{% esndraw %}
+```
 
 <p>Ahora queda de parte de cada quien cambiar los mensajes a español como lo explicamos en el capítulo anterior y ponerle el estilo con CSS que cada quien desee a los errores para que se vean mas presentables.</p>
 

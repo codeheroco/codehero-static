@@ -6,9 +6,11 @@ title: Include & Require
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2538
-wordpress_url: http://codehero.co/?p=2538
 date: 2013-11-05 00:07:28.000000000 -04:30
+serie: PHP desde Cero
+description: Tutorial para aprender los propositos y diferencias entre las funciones de PHP require e include.
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -35,40 +37,55 @@ tags:
 
 <p>Los lenguajes de programación permiten escribir códigos en diferentes archivos y luego importarlos o llamarlos en el archivo que sea necesario. Para esto PHP tiene las dos funciones que ya mencionamos, include y require. Veamos un ejemplo general de como funciona esto:</p>
 
-<pre>$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
-if($db->connect_errno > 0){
-    die('Imposible conectar [' . $db->connect_error . ']');
-}
-
-$sql = "SELECT lenguaje FROM lenguajes";
-
-if(!$resultado = $db->query($sql)){
-    die('Ocurrio un error ejecutando el query [' . $db->error . ']');
-}
-
-while($fila = $resultado->fetch_assoc()){
-    echo $fila['lenguaje'] . '<br />';
-}
-
-</pre>
-
-<p>Este código no tiene ningún problema. Pero si tenemos muchas páginas con consultas de base de datos, entonces vamos a repetir la parte de la conexión muchas veces y eso es poco eficiente. también un caso muy malo seria que cambiara la clave o el usuario de la base de datos, lo cual nos obligaría a cambiar ese texto en todos los archivos. Veamos como seria una manera mas eficiente de lograr lo anterior.</p>
-
-<pre>// archivo conexión.php
+```php
+<?php
 
 $db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
 if($db->connect_errno > 0){
     die('Imposible conectar [' . $db->connect_error . ']');
 }
 
-</pre>
+$sql = "SELECT lenguaje FROM lenguajes";
 
-<pre>// archivo index.php
+if(!$resultado = $db->query($sql)){
+    die('Ocurrio un error ejecutando el query [' . $db->error . ']');
+}
+
+while($fila = $resultado->fetch_assoc()){
+    echo $fila['lenguaje'] . '<br />';
+}
+
+?>
+```
+
+
+
+<p>Este código no tiene ningún problema. Pero si tenemos muchas páginas con consultas de base de datos, entonces vamos a repetir la parte de la conexión muchas veces y eso es poco eficiente. también un caso muy malo seria que cambiara la clave o el usuario de la base de datos, lo cual nos obligaría a cambiar ese texto en todos los archivos. Veamos como seria una manera mas eficiente de lograr lo anterior.</p>
+
+```php
+<?php
+
+// archivo conexión.php
+
+$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
+if($db->connect_errno > 0){
+    die('Imposible conectar [' . $db->connect_error . ']');
+}
+
+?>
+```
+
+
+
+```php
+<?php
+
+// archivo index.php
 
 require 'conexión.php';
 // esta función simplemente toma el contenido de conexion.php y lo coloca en esta posición
-// al final el interprete de php usara el código completo 
-// pero para nosotros esta separado y organizado 
+// al final el interprete de php usara el código completo
+// pero para nosotros esta separado y organizado
 
 $sql = "SELECT lenguaje FROM lenguajes";
 
@@ -81,11 +98,16 @@ while($fila = $resultado->fetch_assoc()){
 }
 
 
-</pre>
+?>
+```
+
+
 
 <p>Podemos observar como tenemos un archivo que solo contiene las líneas de código necesarias para establecer la conexión a la base de datos y luego ese archivo es invocado o incluido en el código que necesitamos utilizar la base de datos. Ahora solo tenemos repetir la línea que incluye la conexión en donde sea necesario y cualquier cambio que se deba hacer al código de la conexión se hace en un solo archivo.</p>
 
 <hr />
+
+{% include middle-post-ad.html %}
 
 <h2>Include o Require</h2>
 

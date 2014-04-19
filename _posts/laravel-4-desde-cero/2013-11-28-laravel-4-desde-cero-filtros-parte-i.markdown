@@ -6,9 +6,11 @@ title: Filtros Parte I
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2708
-wordpress_url: http://codehero.co/?p=2708
 date: 2013-11-28 00:03:07.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Tutorial para aprender los aspectos básicos de los filtros en Laravel 4
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -25,7 +27,10 @@ tags:
 
 <p>Vamos a crear un filtro para entender mejor de que manera funcionan. Los filtros se pueden crean en cualquier parte del archivo <code>app/filters.php</code>, así que vamos a agregar el siguiente código.</p>
 
-<pre>Route::filter('filtro_antes',function(){
+```php 
+<?php
+
+Route::filter('filtro_antes',function(){
     $numero = rand(1, 3 );
     echo 'Imprimiendo en el filtro antes '.$numero.' <br />';
     if ( $numero == 2){
@@ -37,7 +42,8 @@ Route::filter('filtro_despues',function(){
     echo 'Imprimiendo en el filtro despues<br />';
 });
 
-</pre>
+?>
+```
 
 <p>Aquí tenemos nuestros primeros dos filtros, como podemos ver los filtros se declaran con la función <strong>filter()</strong> de la clase <strong>Route</strong>. Esta función recibe dos parámetros, el primero es el nombre del filtro y el segundo es la función que ejecutará el filtro cuando sea llamado. En este caso hemos llamado a los filtros filtro_antes y filtro_despues.</p>
 
@@ -49,7 +55,9 @@ Route::filter('filtro_despues',function(){
 
 <p>Para que un filtro sea util debemos aplicarlo a una ruta y decirle si el filtro se debe aplicar antes o después de que la acción de la ruta sea ejecutada. Veamos un ejemplo de como se aplica un filtro a una ruta.</p>
 
-<pre>// archivo routes.php
+```php 
+<?php
+// archivo routes.php
 
 Route::get('/', 
             array(  
@@ -62,7 +70,8 @@ Route::get('/',
                     }
                  )
           );
-</pre>
+?>
+```
 
 <p>Como podemos observar para aplicar un filtro a una ruta solo debemos colocar un array asociativo en el que irán los filtros que se deseen aplicar y la acción a ejecutarse en la ruta.</p>
 
@@ -74,7 +83,10 @@ Route::get('/',
 
 <p>Para aplicar diferentes filtros a una misma ruta solo se colocan los nombres de los filtros en un array asociativo luego del tipo de filtro (before o after) que se desee aplicar. Veamos un sencillo ejemplo de esto.</p>
 
-<pre>Route::get('/', 
+```php 
+<?php
+
+Route::get('/', 
             array(  
                     'before'=>array('filtro_1', 'filtro_2', 'filtro_3'),
                     function(){
@@ -82,16 +94,20 @@ Route::get('/',
                     }
                  )
           );
-
-</pre>
+?>
+```
 
 <hr />
+{% include middle-post-ad.html %}
 
 <h2>Filtros Globales</h2>
 
 <p>Laravel también posee dos filtros globales que siempre se ejecutan sin importar que ruta sea solicitada, uno se ejecuta antes y el otro después de la ejecución de la ruta. Estos dos filtros también se encuentran en <code>app/filters.php</code> y ya vienen declarados por Laravel. Incluso el primero se ejecuta antes que todos los filtros <strong>before</strong> y el segundo después que todos los filtros <strong>after</strong>. Son útiles para llevar acciones que siempre sean necesarias ejecutar en todos los métodos de nuestra aplicación, como por ejemplo la actualización de un log de peticiones al servidor.</p>
 
-<pre>App::before(function($request)
+```php 
+<?php
+
+App::before(function($request)
 {
   /*
      Código que se ejecuta siempre antes de cualquier ruta y 
@@ -119,7 +135,8 @@ App::after(function($request, $response)
    */
 
 });
-</pre>
+?>
+```
 
 <hr />
 

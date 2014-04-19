@@ -6,9 +6,11 @@ title: Rutas & Blade
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2013
-wordpress_url: http://codehero.co/?p=2013
 date: 2013-08-20 00:00:47.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Tutorial para el aprendizaje de las rutas en Laravel 4 y la utilizacion de la libreria de plantillas Blade
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -30,7 +32,8 @@ tags:
 
 <p>Para comenzar crearemos los métodos necesarios en el controlador de <strong>UsuariosController.php</strong>. En este caso necesitamos tres métodos nuevos, los cuales servirán para mostrar el formulario, crear un nuevo usuario y mostrar a un usuario. Con esto el controlador debe quedar de la siguiente manera:</p>
 
-<pre><?php 
+```php 
+<?php
 
 class UsuariosController extends BaseController {
 
@@ -43,7 +46,6 @@ class UsuariosController extends BaseController {
         return View::make('usuarios.lista', array('usuarios' => $usuarios));
     }
 
-
     /**
      * Muestra formulario para crear Usuario
      */
@@ -51,7 +53,6 @@ class UsuariosController extends BaseController {
     {
         return View::make('usuarios.crear');
     }
-
 
     /**
      * Crear el usuario nuevo
@@ -68,7 +69,7 @@ class UsuariosController extends BaseController {
 
     }
 
-     /**
+    /**
      * Ver usuario con id
      */
     public function verUsuario($id)
@@ -85,7 +86,7 @@ class UsuariosController extends BaseController {
 
 }
 ?>
-</pre>
+```
 
 <p>Cuando utilizamos el método <strong>create</strong> estamos haciendo asignación en masa y por medidas de seguridad Laravel nos pide que le especifiquemos cuales son los campos en cada modelo que se puede asignar o insertar de esa manera. Es se hace colocando un arreglo con los campos que se necesiten en la variable <strong>$fillable</strong> en los modelos que queramos utilizar.</p>
 
@@ -97,7 +98,8 @@ class UsuariosController extends BaseController {
 
 <p>Ya con el controlador listo con todas las acciones que necesitamos vamos a pasar a crear las rutas para acceder a esas acciones, para esto nuestro archivo <strong>routes.php</strong> debe quedar de la siguiente manera:</p>
 
-<pre><?php 
+```php 
+<?php 
 Route::get('/', function()
 {
     return Redirect::to('usuarios');
@@ -117,9 +119,8 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 // solo hay que tomar en cuenta que los parámetros van entre llaves {}
 // si el parámetro es opcional se colocar un signo de interrogación {parámetro?}
 
-
 ?>
-</pre>
+```
 
 <hr />
 
@@ -131,7 +132,25 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 
 <p>Primero crearemos la carpeta <strong>layouts</strong> dentro de la carpeta <strong>views</strong>, luego dentro de esta crearemos nuestro <strong>master.blade.php</strong> con el siguiente código.</p>
 
-<p><a href="http://i.imgur.com/k5jRfG0.png"><img src="http://i.imgur.com/k5jRfG0.png" alt="master blade" class="aligncenter size-full wp-image-2038" /></a></p>
+```html
+{% raw %}
+
+<html>
+    <body>
+        @section('sidebar')
+            Codehero Laravel 4 Gestión de Usuarios - 
+        @show
+
+        <div class="container">
+            @yield('content')
+        </div>
+
+    </body>
+</html>
+
+{% endraw %}
+```
+
 
 <p>Como podemos observar esto es la estructura básica HTML de una página web que contiene las etiquetas <code>&lt;html&gt;</code>, <code>&lt;body&gt;</code> y <code>&lt;div&gt;</code>. También podemos observar que hay unas funciones de Blade <strong>@section</strong>, <strong>@show</strong>, <strong>@yield</strong>, estas son las que nos van a ayudar a crear las plantillas mediante herencia y creación se secciones para no tener que repetir código HTML en cada vista que tengamos.</p>
 
@@ -143,11 +162,16 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 
 <p>Podemos pensar en estas secciones como en una especie de variable que podemos llenar desde nuestras vistas con mas HTML.</p>
 
+{% include middle-post-ad.html %}
+
+
 <h3>Vista listar</h3>
 
 <p>Ahora vamos a nuestra vista <strong>listar.blade.php</strong> y vamos a modificarla un poco para quede de esta manera:</p>
 
-<pre>@extends('layouts.master')
+```html
+{% raw %}
+@extends('layouts.master')
 
 @section('sidebar')
      @parent
@@ -155,25 +179,18 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 @stop
 
 @section('content')
-        <h1>
-  Usuarios
-      
-    
-  
-</h1>
+        <h1>Usuarios</h1>
         {{ HTML::link('usuarios/nuevo', 'Crear Usuario'); }}
 
 <ul>
   @foreach($usuarios as $usuario)
-           <li>
-    {{ HTML::link( 'usuarios/'.$usuario->id , $usuario->nombre.' '.$usuario->apellido ) }}
-      
-  </li>
-          @endforeach
-  </ul>
+        <li>{{ HTML::link( 'usuarios/'.$usuario->id , $usuario->nombre.' '.$usuario->apellido ) }}</li>
+    @endforeach
+</ul>
 @stop
 
-</pre>
+{% endraw %}
+```
 
 <p>Ahora podemos ver una función llamada <strong>@extends()</strong>, esta sirve para llamar a nuestra plantilla general llamada <strong>master.blade.php</strong>, como podemos ver no es necesario colocar las extensiones de los archivos ya que Blade buscara solo los archivos con extensión blade.php. Solo es necesario colocar las carpetas separándolas con punto(<strong>.</strong>).</p>
 
@@ -187,7 +204,9 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 
 <p>Para crear el usuario necesitamos un formulario el cual vamos a colocar en la vista <strong>crear.blade.php</strong>, esta vista la vamos a crear en nuestra carpeta <strong>views/usuarios/</strong> y escribiremos el siguiente código.</p>
 
-<pre>@extends('layouts.master')
+```html
+{% raw %}
+@extends('layouts.master')
 
 @section('sidebar')
      @parent
@@ -196,12 +215,7 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 
 @section('content')
         {{ HTML::link('usuarios', 'volver'); }}
-        <h1>
-  Crear Usuario
-      
-    
-  
-</h1>
+        <h1>Crear Usuario</h1>
         {{ Form::open(array('url' => 'usuarios/crear')) }}
             {{Form::label('nombre', 'Nombre')}}
             {{Form::text('nombre', '')}}
@@ -210,7 +224,8 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
             {{Form::submit('Guardar')}}
         {{ Form::close() }}
 @stop
-</pre>
+{% endraw %}
+```
 
 <p>En esta vista podemos notar que se hace uso de una clase <strong>Form</strong>, la cual nos ayuda a crear los elementos necesarios para utilizar en un formulario. Veamos que realiza cada función:</p>
 
@@ -226,7 +241,9 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 
 <p>La ultima vista que vamos a crear será para ver la información se un usuario. En este caso será el nombre, apellido y la fecha en la que se creo. Para esto vamos a crear la vista <strong>ver.blade.php</strong> en <strong>views/usuarios/</strong> con el siguiente código.</p>
 
-<pre>@extends('layouts.master')
+```html
+{% raw %}
+@extends('layouts.master')
 
 @section('sidebar')
      @parent
@@ -234,19 +251,15 @@ Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
 @stop
 
 @section('content')
-        {{ HTML::link('usuarios', 'Volver'); }}
-        <h1>
-  Usuario {{$usuario->id}}
-      
-</h1>
-        
-        {{ $usuario->nombre .' '.$usuario->apellido }}
-        
-<br />
-        {{ $usuario->created_at}}
+    {{ HTML::link('usuarios', 'Volver'); }}
+    <h1>Usuario {{$usuario->id}}</h1>      
+    {{ $usuario->nombre .' '.$usuario->apellido }}
+    <br />
+    {{ $usuario->created_at}}
 @stop
 
-</pre>
+{% endraw %}
+```
 
 <hr />
 

@@ -6,9 +6,11 @@ title: Estructura del Proyecto
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 1885
-wordpress_url: http://codehero.co/?p=1885
 date: 2013-08-06 00:10:02.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Tutorial para entender la estructura de un proyecto en laravel 4 y la utilizacion del patron MVC
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -43,7 +45,10 @@ tags:
 
 <p>Ahora que sabemos como esta estructurado el framework vamos a configurar nuestra base datos. Para esto vamos a crear una base datos con el nombre de <strong>codehero-laravel</strong> en MySQL. Luego que tengamos la base de datos creada tenemos que editar el archivo de configuración en Laravel para que se puede realizar la conexión. Abrimos el archivo <code>/app/config/database.php</code> y editamos los campos de la conexión MySQL.</p>
 
-<pre>'connections' => array(
+```php 
+<?php
+
+'connections' => array(
     'mysql' => array(
         'driver'    => 'mysql',
         'host'      => 'localhost',
@@ -55,11 +60,14 @@ tags:
         'prefix'    => '',
     )
 )
-</pre>
+
+?>
+```
 
 <p>Luego crearemos la tabla usuarios con la siguiente estructura.</p>
 
-<pre>--
+```sql 
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -71,7 +79,8 @@ CREATE TABLE `usuarios` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-</pre>
+
+```
 
 <p>Ya que en este tutorial solo vamos a cubrir el método para mostrar la lista de usuarios, entonces tenemos que tenerlos creados en la base datos. Para este tutorial he insertado 4 usuarios.</p>
 
@@ -83,12 +92,13 @@ CREATE TABLE `usuarios` (
 
 <p>Para crear nuestro modelo de usuario debemos crear un archivo llamado <code>usuario.php</code> en la carpeta <code>/app/models</code> con el siguiente código.</p>
 
-<pre><?php 
+```php 
+<?php 
 class Usuario extends Eloquent { //Todos los modelos deben extender la clase Eloquent
     protected $table = 'usuarios';
 }
 ?>
-</pre>
+```
 
 <p>En Laravel los modelos utilizan el <strong>Eloquent ORM</strong>, que proporciona una manera elegante y fácil de interactuar con la base de datos. Para esto cada tabla en la base datos debe tener su correspondiente modelo.</p>
 
@@ -98,13 +108,15 @@ class Usuario extends Eloquent { //Todos los modelos deben extender la clase Elo
 
 <hr />
 
+{% include middle-post-ad.html %}
+
 <h2>Vista</h2>
 
 <p>La primera vista que vamos a crear será <code>lista.blade.php</code> en <code>/app/views/usuarios/</code>. Para esto primero vamos a crear la carpeta de usuario dentro de <code>/app/views</code>, luego dentro de usuario creamos el archivo <code>lista.blade.php</code> con el siguiente código.</p>
 
-<pre><h1>
-  Usuarios
-</h1>
+```html
+{% raw %}
+<h1>Usuarios</h1>
 <ul>
   @foreach($usuarios as $usuario)
   <!-- Equivalente en Blade a <?php foreach ($usuarios as $usuario) ?> -->
@@ -113,7 +125,8 @@ class Usuario extends Eloquent { //Todos los modelos deben extender la clase Elo
      <!-- Equivalente en Blade a <?php echo $usuario->nombre.' '.$usuario->apellido ?> -->
   @endforeach 
 </ul>
-</pre>
+{% endraw %}
+```
 
 <p>Este archivo contiene el html que mostrara la lista de los usuarios. La extensión es <strong>blade.php</strong>, esto quiere decir que el archivo puede usar el sistema de plantillas <strong>Blade</strong> y las sentencias <strong>PHP</strong>.</p>
 
@@ -125,7 +138,8 @@ class Usuario extends Eloquent { //Todos los modelos deben extender la clase Elo
 
 <p>Para unir el modelo y la vista creamos el tercer componente de MVC, el controlador. Para esto en la carpeta de <code>/app/controllers</code> creamos el archivo <code>UsuariosController.php</code> con el siguiente código.</p>
 
-<pre><?php 
+```php 
+<?php 
 class UsuariosController extends BaseController {
 
     /**
@@ -147,7 +161,7 @@ class UsuariosController extends BaseController {
 
 }
 ?>
-</pre>
+```
 
 <p>Todos los controladores deben extender de <strong>BaseController</strong>. El nombre de la clase debe terminar en <strong>Controller</strong> y debe ser igual al nombre del archivo.</p>
 
@@ -157,8 +171,11 @@ class UsuariosController extends BaseController {
 
 <p>Por ultimo debemos crear una ruta, esta es la manera que el framework nos brinda para poder llegar hasta la acción y el controlador que queramos. Para crear la ruta abrimos el archivo <code>/app/routes.php</code> y agregamos al final la siguiente linea de código.</p>
 
-<pre>Route::get('usuarios', array('uses' => 'UsuariosController@mostrarUsuarios'));
-</pre>
+```php 
+<?php
+Route::get('usuarios', array('uses' => 'UsuariosController@mostrarUsuarios'));
+?>
+```
 
 <p>Este código lo que hace es declarar que cuando se haga una petición tipo <strong>GET</strong> o <strong>POST</strong> a la ruta descrita <strong>'usuarios'</strong>, entonces la petición pasara a ser atendida por el controlador <strong>UsuariosController</strong> con la acción <strong>mostrarUsuarios</strong>.</p>
 

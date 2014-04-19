@@ -6,9 +6,11 @@ title: Clases & Objetos Parte IV
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2922
-wordpress_url: http://codehero.co/?p=2922
 date: 2014-01-17 12:04:30.000000000 -04:30
+serie: PHP desde Cero
+description: Tutorial para aprender a implementar las interfaces y las clases abstractas
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -24,7 +26,9 @@ tags:
 
 <p>Las clases abstractas son clases con capacidades especiales, ya que sus propiedades y métodos pueden ser implementados o no. Esto dependerá de la necesidad que tengan a la hora de programar esta clase. Las clases abstractas sirven para ser heredades y no pueden ser instanciadas directamente. Solo se puede heredar una clase Abstracta a la vez, como cualquier otra clase, y son una descripción de que debe tener y como debe funcionar la clase hijo para que sea util y funcional. Para entender mejor esto veamos unos ejemplo</p>
 
-<pre>
+```php
+<?php
+
 class Fruta {
     private $color;
 
@@ -51,24 +55,27 @@ $naranja->comer();
 $fruta = new Fruta();
 $fruta->comer();
 
-</pre>
+?>
+```
+
 
 <p>Vamos a analizar el ejemplo anterior, primero creamos una Naranja que extiende de Fruta y la comemos. Al crear la Naranja le estamos dando mas sentido a la clase de Fruta. En las ultimas lineas estamos creando una Fruta y la comemos también ¿pero a que sabe una Fruta? En este punto estamos haciendo algo que no tienen sentido y aquí es donde entran las clases y métodos abstractos. Veamos este ejemplo de nuevo pero Fruta sera una clase abstracta.</p>
 
-<pre>
+```php
+<?php
 
 // podemos observar que nuestra clase ahora es abstracta, por lo tanto podrá tener métodos y propiedades abstractos y no podrá ser instanciada directamente
 
 // Para declarar una clase abstracta debemos utilizar la palabra reservada abstract antes de la declaración de la clase
 absctract class Fruta {
     private $color;
-    
+
     // nuestro método comer ahora es abstracto y debe ser implementado por la clase que herede Fruta
-    // Para declarar un método abstracto debemos utilizar la palabra reservada abstract antes de la declaración normal del método y en vez de utilizar llaves para colocar el código utilizamos un punto y coma (;) ya que no vamos a tener código en la función. 
+    // Para declarar un método abstracto debemos utilizar la palabra reservada abstract antes de la declaración normal del método y en vez de utilizar llaves para colocar el código utilizamos un punto y coma (;) ya que no vamos a tener código en la función.
     abstract public function comer();
 }
 
-// para extender una clase abstracta usamos la misma nomenclatura que para extender una clase normal. 
+// para extender una clase abstracta usamos la misma nomenclatura que para extender una clase normal.
 
 class Naranja extends Fruta {
     public function comer() {
@@ -89,9 +96,13 @@ $naranja->comer();
 $fruta = new Fruta();
 $fruta->comer();
 
-</pre>
+?>
+```
+
 
 <p>Podemos ver como ahora tiene un poco mas de sentido el concepto de Fruta. Es una clase que solo puede ser extendida ya que una Fruta como tal no significa nada. Haciéndola una clase abstracta estamos obligados a extenderla y no instanciarla directamente.</p>
+
+{% include middle-post-ad.html %}
 
 <hr />
 
@@ -101,11 +112,12 @@ $fruta->comer();
 
 <p>Esto quiere decir que varias clases que son muy diferentes entre si, pueden funcionar y ejecutarse en el mismo fragmento de código solo por tener la misma interfaz implementada. Esto se debe a que tendrán los métodos mínimos que la interfaz les proporciona. Hay que tener en cuenta que una clase puede implementar todas las interfaces que sean necesarias.  Veamos un ejemplo de interfaces para entender toda esta información.</p>
 
-<pre>
+```php
+<?php
 
 // para declarar una interfaz se utiliza la palabra reservada interface en vez de la palabra class
 interface Interaccion {
-    
+
     // los métodos de la interface se declaran como en una clase normal pero sin implementación
     public function encender();
     public function apagar();
@@ -116,10 +128,10 @@ interface Direccion {
     public function girarIzquierda();
 }
 
-// para hacer uso de una interfaz se deben declarar después de el nombre de la clase y anteponiendo la palabra implements. 
+// para hacer uso de una interfaz se deben declarar después de el nombre de la clase y anteponiendo la palabra implements.
 // si se tienen varias interfaces entonces se separan con coma (,)
 class Televisor implements Interaccion {
-    
+
     public function encender() {
         // este metodo es heredado desde la interfaz
     }
@@ -130,7 +142,7 @@ class Televisor implements Interaccion {
 }
 
 class Carro implements Interaccion, Direccion {
-    
+
     public function encender() {
         // este metodo es heredado desde la interfaz Interaccion
     }
@@ -138,7 +150,7 @@ class Carro implements Interaccion, Direccion {
     public function apagar() {
         // este metodo es heredado desde la interfaz Interaccion
     }
-    
+
     public function girarDerecha(){
         // este método es heredado desde la interfaz Direccion
     }
@@ -147,7 +159,9 @@ class Carro implements Interaccion, Direccion {
     }
 }
 
-</pre>
+?>
+```
+
 
 <hr />
 

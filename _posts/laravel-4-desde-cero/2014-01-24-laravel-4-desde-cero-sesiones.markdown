@@ -6,9 +6,11 @@ title: Sesiones
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2940
-wordpress_url: http://codehero.co/?p=2940
 date: 2014-01-24 00:00:39.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Tutorial para la creación de un registro e inicio de sesión con Laravel 4
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -20,7 +22,8 @@ tags:
 
 <p>Lo primero que debemos hacer es crear en nuestra base de datos una tabla llamada usuarios con la siguiente estructura. Para mantenerlo sencillo solo registraremos nombre, correo y clave del usuario.</p>
 
-<pre>CREATE TABLE `usuarios` (
+```sql 
+CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
   `correo` varchar(255) NOT NULL,
@@ -29,13 +32,13 @@ tags:
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-</pre>
+```
 
 <p>Con nuestra tabla creada en la base de datos vamos a pasar a crear la vista que estaremos usando para este tutorial, para esto creamos el archivo <code>login.blade.php</code> en la carpeta de <strong>views</strong>.</p>
 
-<pre><h2>
-  Ingresar
- </h2>
+```html
+{% raw %}
+<h2>Ingresar</h2>
 
 @if (Session::has('mensaje_login'))
 <span>{{ Session::get('mensaje_login') }}</span>
@@ -51,9 +54,7 @@ tags:
 
 {{ Form::close() }}
 
-<h2>
-  Registro
-</h2>
+<h2>Registro</h2>
 @if (Session::has('mensaje_registro'))
 <span>{{ Session::get('mensaje_registro') }}</span>
 @endif
@@ -69,14 +70,17 @@ tags:
     {{ Form::submit('Registrar'); }}
 
 {{ Form::close() }}
+{% endraw %}
 
-</pre>
+```
 
 <p>Como podemos observar en la misma vista tenemos el formulario de login y el formulario de registro, de esta manera nos ahorramos un poco de trabajo para este tutorial.</p>
 
 <p>Ahora vamos a crear el modelo para los usuarios que se registraran en el sistema y le colocamos el nombre <strong>Usuarios.php</strong>. En esta ocasión vamos a implementar una interfaz en el modelo, para que Laravel lo pueda usar para inicio de sesión. La interfaz a implementar sera UserInterface y a continuación podemos observar el código final del modelo.</p>
 
-<pre>// se debe indicar en donde esta la interfaz a implementar
+```php 
+<?php 
+// se debe indicar en donde esta la interfaz a implementar
 use Illuminate\Auth\UserInterface;
  
 Class Usuarios extends Eloquent implements UserInterface{
@@ -98,8 +102,10 @@ Class Usuarios extends Eloquent implements UserInterface{
     }
     
 }
+?>
+```
 
-</pre>
+{% include middle-post-ad.html %}
 
 <p>Con <strong>Usuarios.php</strong> creado y el código del mismo listo, vamos a pasar a decirle a Laravel que los usuarios y claves están en este modelo. Para esto debemos entrar al archivo de configuración <code>app/config/auth.php</code> y revisar dos parámetros. El primero sera <code>'driver'=&gt;'eloquent'</code>, lo mas seguro es que ya este así y esto le dice a Laravel que vamos a utilizar un modelo para guardar los usuarios que harán login. El segundo parámetro sera <code>'model'=&gt;'Usuarios'</code>, este le indica a Laravel que el modelo a utilizar es <strong>Usuarios</strong>.</p>
 
@@ -107,7 +113,9 @@ Class Usuarios extends Eloquent implements UserInterface{
 
 <p>Ahora que tenemos esto claro podemos crear las rutas con la lógica de nuestro ejemplo de login. Para esto vamos a crear la siguientes rutas:</p>
 
-<pre>// esta sera la ruta principal de nuestra aplicación
+```php 
+<?php 
+// esta sera la ruta principal de nuestra aplicación
 // aquí va a estar el formulario para registrase y para inicio de sesión
 // esta ruta debe ser publica y por lo tanto no debe llegar el filtro auth
 Route::get('login', function(){
@@ -161,7 +169,8 @@ Route::group(array('before' => 'auth'), function()
     });
 });
 
-</pre>
+?>
+```
 
 <p>Ahora podemos probar nuestro código entrando a la ruta <strong>login</strong> y registrar usuarios para que luego inicien sesión.</p>
 

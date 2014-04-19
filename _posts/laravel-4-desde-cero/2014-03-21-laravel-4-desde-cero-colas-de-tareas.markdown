@@ -3,12 +3,14 @@ layout: post
 status: publish
 published: true
 title: Colas de Tareas
+serie: Laravel 4 desde Cero
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 3128
-wordpress_url: http://codehero.co/?p=3128
 date: 2014-03-21 00:38:55.000000000 -04:30
+dificultad: novato
+description: Tutorial para obtener conocimiento sobre como encolar tareas con Laravel 4 y Redis
+duracion: 15
 categories:
 - Cursos
 - Laravel
@@ -35,8 +37,9 @@ tags:
 
 <p>Encolar las taras en muy sencillo y es una cosa de una sola linea. Hay diferentes parámetros que se pueden enviar al ahora de encolar una tarea, pero primero vamos a ver lo mas sencillo. Para realizar esta operación utilizamos el método <strong>Queue::push()</strong>. Veamos un ejemplo de como utilizarlo:</p>
 
-<pre>
+```php
 
+<?php
 // Código que se ejecuto antes de encolar la tarea
 
 // El primer parámetro es el nombre de la clase o modelo que ejecutara la tarea
@@ -44,26 +47,33 @@ tags:
 Queue::push('Correos', array('titulo'=>'Titulo para el correo', 'contenido'=>'contenido del correo'));
 
 // Código que se ejecuta después de encolar la tarea, pero como se esta insertando en una cola entonces no se pierde tiempo comparado con el envío de un correo
-</pre>
+?>
+
+```
 
 <p>Si necesitamos ejecutar una tarea pero con un tiempo de retraso podemos utilizar el método <strong>Queue::later()</strong>.</p>
 
-<pre>
+```php
 
+<?php
 // El primero parámetro es el número de segundos que se retrasara la ejecución de la tarea en la cola 
 // El segundo parámetro es la clase que ejecuta la tarea
 // El tercer parámetro es la información que se envía
 Queue::later(600, 'Correos', array('titulo'=>'Titulo para el correo', 'contenido'=>'contenido del correo'));
+?>
 
-</pre>
+```
 
+{% include middle-post-ad.html %} 
 <hr />
 
 <h2>Manejador de Tareas</h2>
 
 <p>Cada tarea que se inserta en la cola tiene un manejador (clase que se encargara de ejecutar la tarea). Esta clase debe tener un método llamada <strong>fire</strong>, el cual recibirá por defecto la ejecución de la tarea. <strong>Fire</strong> recibirá dos parámetros, el primero es un objeto con la información general de la tarea y el segundo es un array con los parámetros que se enviaron al encolarla. Al final del código de la tarea debemos borrarla permanentemente.</p>
 
-<pre>
+```php
+
+<?php
 class Correos {
 
     public function fire($tarea, $datos){
@@ -74,7 +84,9 @@ class Correos {
     }
 
 }
-</pre>
+?>
+
+```
 
 <p>En caso de que necesitemos utilizar otro método que no sea <strong>fire</strong>, entonces debemos establecerlo al momento de insertar la tarea. Para hacer esto colocamos el nombre de la clase y el nombre del método separados con arroba <strong>(@)</strong> <code>Correos@enviar_correo</code>. Estos métodos también deberán tener dos parámetros como <strong>fire</strong>.</p>
 
@@ -84,10 +96,10 @@ class Correos {
 
 <p>Para ejecutar las tareas Laravel incluye una funcionalidad con Artisan, la cual busca tareas nuevas las desencola y las ejecuta. Para comenzar a esperar tareas debemos ejecutar el comando <strong>queue:listen</strong> en la consola. Si ya habían tareas encoladas al momento que se active, entonces serán desencoladas y ejecutadas.</p>
 
-<pre>
+```sh
 // este comando quedara abierto esperando por tareas nuevas que procesar
-php artisan queue:listen
-</pre>
+$ php artisan queue:listen
+```
 
 <hr />
 
