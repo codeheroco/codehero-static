@@ -135,7 +135,7 @@ if ($mensajes->has('edad')){
 ?>
 ```
 
-<p>Ahora vamos a crear nuestros mensajes en español, primero vamos a cambiar el idioma general de la aplicación en la configuración del proyecto. Para esto tenemos que ir al archivo de configuración <strong>app.php</strong> que se encuentra en la carpeta <code>app/config/</code>. En este archivo debemos buscar la propiedad <code>'locale' =&gt; 'en'</code> y ponerla en español <code>'locale' =&gt; 'es'</code></p>
+<p>Ahora vamos a crear nuestros mensajes en español, primero vamos a cambiar el idioma general de la aplicación en la configuración del proyecto. Para esto tenemos que ir al archivo de configuración <strong>app.php</strong> que se encuentra en la carpeta <code>app/config/</code>. En este archivo debemos buscar la propiedad <code>'locale' => 'en'</code> y ponerla en español <code>'locale' => 'es'</code></p>
 
 <p>De ahora en adelante nuestra aplicación buscara los mensajes y los textos en la carpeta de textos de español, pero estos textos no existen porque Laravel 4 esta todo en ingles, así que vamos a crear estos textos. Para esto vamos a la carpeta <code>app/lang</code> y creamos otra carpeta que se llame <strong>es</strong>. En otro tutorial nos enfocaremos en explicar bien esta parte de internacionalización, pero por ahora veremos lo básico para tener nuestros mensajes de validación en español.</p>
 
