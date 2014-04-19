@@ -31,7 +31,14 @@ tags:
 
 <p>Este tipo de operadores sirven para realizar operaciones matemáticas.</p>
 
-<p><a href="http://imgur.com/PxPQAZI.png"><img src="http://imgur.com/PxPQAZI.png" alt="operadores aritméticos en php" class="aligncenter size-full wp-image-1802" /></a></p>
+
+Operador   | Tipo           | Descripción				                        | Ejemplo
+-----------| -------------  | ------------		                           | ---------------
++          | Suma           | Calcula la suma de dos operandos	         | $total = 10 + 20;
+-          | Resta          | Calcula la diferencia entre dos operandos  |  $total = 10 - 20;
+*          | Multiplicación | Multiplica dos operandos      		         |  $total = 10 * 20;
+/          | División       | Divide dos operandos                       |  $total = 10 / 20;
+%          | Modulo         | Calcula el residuo de una división         |  $total = 10 % 20;
 
 <p>Los operadores aritméticos siempre necesitan dos operandos, uno de cada lado del operador. Veamos unos ejemplos:</p>
 
@@ -55,7 +62,16 @@ $num = 1 % 2;
 
 <p>Los operadores de comparación son usados con dos operandos, uno de cada lado del operador. En la siguiente tabla se ven todos los operadores con un ejemplo.</p>
 
-<p><a href="http://imgur.com/Q9kPAF5.png"><img src="http://imgur.com/Q9kPAF5.png" alt="operadores de comparación en php" class="aligncenter size-full wp-image-1803" /></a></p>
+Operador   | Tipo              | Descripción			                                                                   | Ejemplo
+-----------| -------------     | ------------		                                                                    | ---------------
+==         | Igual a           | Retorna True si el primer operando es igual al segundo                              | $var = 1 == 1; // el valor de $var será True
+!=  o <>   | Diferente a       | Retornan True si el primer operando es diferente al segundo                         | $var = 1 != 1; // el valor de $var sera False
+===        | Igual a           | Retorna True si el primer operando es igual al segundo en valor y tipo de dato      | $var = 1=== 1; // el valor de $var será True
+!==        | Igual a           | Retorna True si el primer operando no es igual al segundo en valor y tipo de dato   | $var = 1 !== '1'; // el valor de $var será False
+<          | Menor que         | Retorna True si el primer operando es menor que el segundo                          | $var = 1 < 2; // el valor de $var será True
+>          | Mayor que         | Retorna True si el primer operando es mayor que el segundo                          | $var = 1 > 2; // el valor de $var será False
+<=         | Menor o igual que | Retorna True si el primer operando es menor o igual que el segundo                  | $var = 1 <= 1; // el valor de $var será True
+>=         | Mayor o igual que | Retorna True si el primer operando es mayor o igual que el segundo                  | $var = 1 >= 2; // el valor de $var será False
 
 <hr />
 
@@ -63,7 +79,12 @@ $num = 1 % 2;
 
 <p>Los operadores lógicos sirven para evaluar partes de expresiones devolviendo True o False, ayudan a tomar decisiones de como el script debe ejecutarse. Los operadores lógicos de PHP son los siguientes:</p>
 
-<p><a href="http://imgur.com/kMVTYmS.png"><img src="http://imgur.com/kMVTYmS.png" alt="php_operadores_logicos" class="aligncenter size-full wp-image-1805" /></a></p>
+Operador   | Tipo | Descripción			                                           | Ejemplo
+-----------| -----| ------------		                                            | ---------------
+ &&        | AND  | Realiza una operación lógica "AND"                          | $var = True && True; // $var tendrá valor True $var = True && False; // $var tendrá valor False
+ ||        | OR   | Realiza una operación lógica "OR"                           | $var = True || True; // $var tendrá valor True $var = True || False; // $var tendrá valor True
+ xor       | XOR  | Realiza una operación lógica "XOR" ( OR exclusivo)          | $var = True xor True; // $var tendrá valor False $var = True && False; // $var tendrá valor True
+ !         | NOT  | Realiza una negación de la operación a la cual se anteponga | $var = ! True ; // $var tendrá valor False $var = ! False; // $var tendrá valor True
 
 <p>Estos operadores se entenderán de manera mas clara cuando se unan con las estructuras de control, pero por ahora debemos saber cuales son y que hace cada uno.</p>
 
@@ -131,7 +152,15 @@ echo "Me gusta el numero " . $numero; // el resultado es -> Me gusta el numero 9
 
 <p>A continuación veremos todos los operadores de asignación:</p>
 
-<p><a href="http://imgur.com/LjG7GCk.png"><img src="http://imgur.com/LjG7GCk.png" alt="operadores de asignación en php" class="aligncenter size-full wp-image-1804" /></a></p>
+Operador | Tipo                      | Descripción			                                                                                             | Ejemplo
+---------| -------------             | ------------		                                                                                              | ---------------
+ =       | Asignación                | Realiza la asignación de un valor que este a la derecha a una variable que este a la izquierda del operador   | $var = 10 ;
+ +=      | Suma-Asignación           | Suma el valor de la derecha al valor de la variable a la izquierda y lo asigna en la variable                 | $var = 10; $var += 5; // $var será 15
+ -=      | Resta-Asignación          | Resta el valor de la derecha al valor de la variable a la izquierda y lo  asigna en la variable               | $var = 10; $var -= 5; // $var será 5
+ *=      | Multiplicación-Asignación | Multiplica el valor de la derecha y el valor de la variable a la izquierda y lo asigna en la variable         | $var = 10; $var *= 5; // $var será 50
+ /=      | División-Asignación       | Divide el valor de la derecha y el valor de la variable a la izquierda y lo asigna en la variable             | $var = 10; $var /= 5; // $var será 2
+ %=      | Módulo-Asignación         | Calcula el módulo del valor de la derecha y el valor de la variable a la izquierda y lo asigna en la variable | $var = 10; $var %= 5; // $var será 0
+ .=      | Concatena-Asignación      | Concatena el valor de la derecha y el valor de la variable a la izquierda y lo asigna en la variable          | $var = 'code'; $var .= 'hero'; // $var será codehero
 
 <hr />
 
