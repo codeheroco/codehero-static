@@ -36,7 +36,7 @@ layout: default
           <div class="col-xs-6 col-sm-6 col-md-6">
             <h4>Detalles del Curso:</h4>
             {% if page.dificultad %}
-              <p><b>Dificultad:</b> {{ page.dificultad }}</p>
+              <p><b>Dificultad:</b> {{ page.dificultad | capitalize }}</p>
             {% endif %}
             {% if page.duracion %}
               <p><b>Duración:</b> {{ page.duracion }} min</p>
