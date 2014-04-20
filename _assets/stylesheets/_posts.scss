@@ -20,6 +20,16 @@
     border: 1px solid #ddd;
   }
 
+  table {
+    @extend .table;
+    width: 100%;
+    table-layout: fixed;
+    overflow:auto;
+    word-wrap: break-word;
+    @extend .table-striped;
+    @extend .table-bordered;
+  }
+
   img {
     @include img-responsive();
     margin: 0 auto;
