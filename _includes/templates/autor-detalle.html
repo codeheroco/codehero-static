@@ -5,7 +5,7 @@
         {% for autor in site.data.autores %}
           {% if autor.name == page.author_name %}
             <div class="col-xs-3 col-sm-4 col-md-3">
-              <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+              <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}?s=400" alt="gravatar">
             </div>
             <div class="col-xs-9 col-sm-8 col-md-9">
               <h1 class="underline-title">{{ autor.name }}</h1>

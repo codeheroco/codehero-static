@@ -12,7 +12,7 @@ description: Ficha personal de todos los escritores del Codehero.co
         {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
         {% if thecycle == 'odd' %}
           <div class="col-xs-3 col-sm-4 col-md-3" >
-            <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+            <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}?s=400" alt="gravatar">
           </div>
           <div class="col-xs-9 col-sm-8 col-md-9">
               <h1 class="underline-title"><a href="/author/{{ autor.namelink }}.html">{{ autor.name }}</a></h1>
@@ -21,7 +21,7 @@ description: Ficha personal de todos los escritores del Codehero.co
           </div>
         {% else %}
           <div class="col-xs-3 col-sm-4 col-md-3 col-xs-push-9 col-sm-push-8 col-md-push-9" >
-            <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+            <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}?s=400" alt="gravatar">
           </div>
           <div class="col-xs-9 col-sm-8 col-md-9 col-xs-pull-3 col-sm-pull-4 col-md-pull-3">
               <h1 class="underline-title"><a href="/author/{{ autor.namelink }}.html">{{ autor.name }}</a></h1>
