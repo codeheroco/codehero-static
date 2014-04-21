@@ -6,9 +6,11 @@ title: Eloquent ORM II
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2330
-wordpress_url: http://codehero.co/?p=2330
 date: 2013-10-01 00:00:59.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Tutorial con información sobre declaración y uso de relaciones en Laravel 4 con Eloquent ORM
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -23,7 +25,8 @@ tags:
 
 <p>Veamos rápidamente un ejemplo para luego explicar con detalle como es todo el proceso.</p>
 
-<pre>
+```php
+<?php
 Class Articulo extends Eloquent{
 
     public function comentarios(){
@@ -31,9 +34,11 @@ Class Articulo extends Eloquent{
     }
 
 }
-</pre>
+?>
+```
 
-<pre>
+```php
+<?php
 Class Comentario extends Eloquent{
 
     public function articulo(){
@@ -41,7 +46,8 @@ Class Comentario extends Eloquent{
     }
 
 }
-</pre>
+?>
+```
 
 <p>Como podemos observar aquí se establece una relación entre Articulo y Comentario, en donde un Articulo tiene varios comentarios y un Comentario pertenece a un Articulo. Ahora vamos a ver como mas detalle como definir y utilizar todos los tipos de relaciones que Eloquent ORM nos proporciona.</p>
 
@@ -53,28 +59,32 @@ Class Comentario extends Eloquent{
 
 <p>Supongamos que tenemos un modelo Persona y otro modelo Pasaporte, lo cual nos da una relación <strong>Uno a Uno</strong>(Asumiendo que solo puedes tener un pasaporte). Primero debemos declarar la relación en el modelo Usuario.</p>
 
-<pre>
+```php
+<?php
 Class Persona extends Eloquent{
 
     public function pasaporte(){
         return $this->hasOne('Pasaporte', 'persona_id');
         // Para declarar una relación uno a uno se utiliza la función hasOne().
-        // Esta función recibe como primer parámetro el modelo con el cual queremos hacer la relación 
+        // Esta función recibe como primer parámetro el modelo con el cual queremos hacer la relación
         // en este caso es Pasaporte.
-        // El segundo parámetro es el campo id con el cual se relación el modelo. 
-        // En este caso Eloquent busca el pasaporte que tenga persona_id igual al 
+        // El segundo parámetro es el campo id con el cual se relación el modelo.
+        // En este caso Eloquent busca el pasaporte que tenga persona_id igual al
         // id de la Persona
     }
 
 }
-</pre>
+?>
+```
 
 <p>Ahora que ya hemos declarado la relación, es momento de aprender como utilizarla. Para esto simplemente llamamos a la función con un objeto Persona, veamos el siguiente ejemplo:</p>
 
-<pre>
+```php
+<?php
     $persona = Persona::find(1);
     $pasaporte = $persona->pasaporte;
-</pre>
+?>
+```
 
 <p><strong>$pasaporte</strong> contiene un objeto con todos los datos del pasaporte de la persona.</p>
 
@@ -82,7 +92,9 @@ Class Persona extends Eloquent{
 
 <p>Para explicar Uno a Muchos vamos a suponer que tenemos un modelo Asignatura y otro Temas, donde existe una relación de una Asignatura tiene muchos Temas. Con esto en mente podemos pasar a declarar la relación en Asignatura.</p>
 
-<pre>
+```php
+<?php
+
 Class Asignatura extends Eloquent{
 
     public function temas(){
@@ -92,14 +104,14 @@ Class Asignatura extends Eloquent{
         // El primero es el modelo al cual se desea asociar
         // El segundo es el id con el que se van a relacionar los modelos.
     }
-
 }
-</pre>
+?>
+```
 
 <p>Con la relación declarada pasemos a aprender como hacer uso de ella y como filtrar los datos que retorna.</p>
 
-<pre>
-
+```php
+<?php
 $asignatura = Asignatura::find(1);
 
 $temas = $asignatura->temas;
@@ -109,45 +121,56 @@ $temas_obligatorios = $asignatura->temas()->where('obligatorio', '=', '1')->get(
 // También se pueden agregar filtros, en este caso solo retorna los temas en los que
 // el campo obligatorio sea igual a 1
 
-</pre>
+?>
+```
+
+{% include middle-post-ad.html %}
 
 <h3>Muchos a Muchos</h3>
 
 <p>Muchos a muchos a veces es muy tedioso de manejar, pero con Laravel es muy sencillo. Para enteder esta relación vamos a suponer que tenemos tres tablas <strong>profesores</strong>, <strong>asignaturas</strong> y <strong>profesor_asignatura</strong>, las cuales son manejadas por dos modelos Profesor y Asignatura. Estas tienen una relación de muchos a muchos donde un profesor puede dictar muchas asignaturas y una asignatura puede ser dictada por muchos profesores. Vamos a ver como se declara la relación en este caso:</p>
 
-<pre>
+```php
+<?php
 Class Profesor extends Eloquent{
 
     public function asignaturas(){
         return $this->belongsToMany('Asignatura', 'profesor_asignatura', 'profesor_id', 'asignatura_id');
     }
 }
-</pre>
+?>
+```
 
-<pre>
+```php
+<?php
 Class Asignatura extends Eloquent{
 
     public function profesores(){
         return $this->belongsToMany('Profesor', 'profesor_asignatura', 'asignatura_id', 'profesor_id');
     }
 }
-</pre>
+?>
+```
 
 <p>En este caso hemos declarado la relación de los dos lados, para muchos a muchos se utiliza la función <strong>belongsToMany</strong> que recibe 4 parametros. El primero es el otro módelo cual el cual se quiere hacer relación, el segundo es la tabla que contiene los ids de los dos modelos y hace la unión. El tercer y cuarto parámetro son los nombres de los id que Laravel debe buscar en la tabla intermedia para hacer la relación.</p>
 
 <p>Para hacer uso de esta relación es igual que las anteriores, veamos un ejemplo:</p>
 
-<pre>
+```php
+<?php
+
 $profesores = Asignatura::find(1)->profesores;
 // $profesores va a contener un arreglo con todos los profesores que tiene la asignatura 1
 
 $asignaturas = Profesor::find(1)->asignaturas;
 // $asignaturas va a contener un arreglo con todas las asignaturas que da el profesor 1
-</pre>
+?>
+```
 
 <p>¿Pero que sucede si necesitamos utilizar o guardar alguna información en la tabla intermedia ? Pues se declara los campos que sean necesarios en la relación, veamos un ejemplo de esto. Vamos a asumir que la tabla <strong>profesore_asignatura</strong> tiene los campos salon y hora.</p>
 
-<pre>
+```php
+<?php
 Class Profesor extends Eloquent{
 
     public function asignaturas(){
@@ -155,28 +178,34 @@ Class Profesor extends Eloquent{
                         ->withPivot('salon', 'hora');
     }
 }
-</pre>
+?>
+```
 
-<p>Como podemos observar los campos se agregan con la función <strong>withPivot</strong>, pasando como parametro el nombre del campo de la tabla intermedia que se desea utilizar. Ahora cuando hagamos uso de <code>$profesores = Asignatura::find(1)-&gt;profesores;</code>, <strong>$profesores</strong> tambien va a tener los campos de la tabla intermedia.</p>
+<p>Como podemos observar los campos se agregan con la función <strong>withPivot</strong>, pasando como parametro el nombre del campo de la tabla intermedia que se desea utilizar. Ahora cuando hagamos uso de <code>$profesores = Asignatura::find(1)->profesores;</code>, <strong>$profesores</strong> tambien va a tener los campos de la tabla intermedia.</p>
 
 <p>Para utilizar los campos que se encuentran en la tabla del medio se debe utilizar la propieda <strong>pivot</strong>, veamos un ejemplo:</p>
 
-<pre>
+```php
+<?php
+
 $profesor = Profesor::find(1);
 $asignaturas = $profesor->asignaturas;
 
 foreach( $asignaturas as $asignatura ){
     echo $asignatura->nombre;
     // las propiedades de una asignatura se utilizan directamente con el objeto
-    
+
     echo $asignatura->pivot->salon;
     // pero las de la tabla intermedia se deben utilizar anteponiendo primero 'pivot'
 }
-</pre>
+?>
+```
 
 <p>Vamos a ver como podemos insertar y eliminar datos utilizando la relacion de muchos a muchos.</p>
 
-<pre>
+```php
+<?php
+
 $profesor = Profesor::find(1);
 $profesor->asignaturas()->attach(5);
 // Aqui estamos guardando en $profesor el Profesor numero 1
@@ -190,15 +219,17 @@ $profesor->asignaturas()->attach(5, array('salon'=>'P14', 'hora'=>'5:00 PM'));
 
 $profesor->asignaturas()->detach(5);
 // para borrar una relacion se utiliza la función detach()
-// en este caso borrara la relacion que tiene el profesor 1 
+// en este caso borrara la relacion que tiene el profesor 1
 // con la asignatura 5
-</pre>
+?>
+```
 
 <h3>Pertenece a</h3>
 
 <p>La última relación que vamos a ver es la de Pertenece a. Cuando declaramos una relación de Uno a Uno o de Uno a Muchos, tambien ncesitamos una relación inversa y para esto tenemos a Pertenece a. Volvamos un momento a nuestra relación de una Asignatura tiene muchos Temas. Ya tenemos una relacion para buscar todos los temas de una asignatura, pero ahora necesitamos buscar la Asignatura a la cual un Tema en especifico pertenece.</p>
 
-<pre>
+```php
+<?php
 Class Tema extends Eloquent {
     public function asignatura()
     {
@@ -207,16 +238,19 @@ Class Tema extends Eloquent {
         // esta acepta dos parámetros
         // El primero es la tabla a donde pertecene la relación
         // El segundo es el id de la tabla padre en la tabla actual
-        // En este caso seria el id de Asignatura en tema 
+        // En este caso seria el id de Asignatura en tema
     }
 }
-</pre>
+?>
+```
 
 <p>La manera de hacer uso de esta relación es igual a todas las anteriores.</p>
 
-<pre>
+```php
+<?php
 $asignatura = Tema::find(1)->asignatura;
-</pre>
+?>
+```
 
 <p><strong>$asignatura</strong> contiene el registro al cual el tema 1 pertence.</p>
 

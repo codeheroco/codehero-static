@@ -6,9 +6,11 @@ title: Instalación & Hello World
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 1370
-wordpress_url: http://codehero.co/?p=1370
 date: 2013-07-11 00:00:41.000000000 -04:30
+serie: PHP desde Cero
+description: PHP desde Cero - Instalación y configuración de servidor local, características de lenguaje PHP. Primeros pasos con el lenguaje.
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -66,21 +68,24 @@ tags:
 
 <p>Una vez comprobado el funcionamiento del servidor tenemos que buscar la carpeta <strong>htdocs</strong>, en esta guardaremos todos los scripts PHP que queramos probar. Todo lo que esté en esta carpeta es accesible desde el navegador web a través del servidor web.</p>
 
+{% include middle-post-ad.html %}
+
 <hr />
 
 <h2>Nuestro Primer Script PHP</h2>
 
 <p>En este primer capítulo aprenderemos PHP puro,es decir sin nada de HTML. Primero abrimos nuestro editor de texto favorito y escribimos el siguiente código.</p>
 
-<pre><?php
+```php
+<?php
    //comentario
-   echo "Hola Mundo!"; 
+   echo "Hola Mundo!";
 ?>
-</pre>
+```
 
 <p>Ahora lo vamos a guardar en la carpeta del servidor que hemos instalado(en nuestro caso htdocs), el archivo debe estar guardado con extensión <strong>.php</strong>, vamos a llamarlo <strong>codehero.php</strong>. Por último vamos a probar desde el navegador lo que hemos creado, para esto escribimos en la barra de direcciones <code>http://localhost/codehero.php</code>. Si todo ha salido bien deberíamos ver la pantalla del explorador en blanco con el mensaje <strong>"Hola Mundo!"</strong>. Listo ya hemos creado y probado nuestro primer script de PHP.</p>
 
-<p><a href="http://imgur.com/6oH8krz.png"><img src="http://imgur.com/6oH8krz" alt="codehero_php_1" class="aligncenter size-full wp-image-1371" /></a></p>
+<p><a href="http://imgur.com/6oH8krz.png"><img src="http://imgur.com/6oH8krz.png" alt="codehero_php_1" class="aligncenter size-full wp-image-1371" /></a></p>
 
 <p>Ahora veamos poco a poco que significa todo esto:</p>
 
@@ -107,15 +112,16 @@ tags:
 
 <p>Veamos un ejemplo de algo más útil que podemos hacer con PHP.</p>
 
-<pre><?php
+```php
+<?php
    $edad = 19;
    if( $edad >= 19){
       echo "Eres mayor de edad!";
    }else{
       echo "Eres menor de edad!";
    }
-?> 
-</pre>
+?>
+```
 
 <p>Te invito a que intentes deducir lo que realiza este código. Quizás no lo entiendas todo en este momento pero conforme avance el curso iremos explicando todo lo que ves en este ejemplo.</p>
 

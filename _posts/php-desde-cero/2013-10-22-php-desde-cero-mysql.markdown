@@ -6,9 +6,11 @@ title: MySQL
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2427
-wordpress_url: http://codehero.co/?p=2427
 date: 2013-10-22 00:10:49.000000000 -04:30
+serie: PHP desde Cero
+description: Tutorial para aprender como conectar un script php con una base de datos mysql
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -32,25 +34,30 @@ tags:
 
 <p>Lo primero que se debe hacer siempre que se quiera usar MySQL en PHP es conectarse a la base de datos, sin una conexión no hay manera de realizar una consulta o manipular los datos. Para realizar la conexión se crea un objeto que contenga la información de la base de datos con <strong>new mysqli()</strong>. Esta conexión sirve para todas las operaciones que se deseen realizar en el mismo script PHP.</p>
 
-<pre>$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
+```php
+<?php
+
+$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
 // El primer parámetro es el host en donde se encuentra la base de datos
 // El segundo parámetro es el usuario con el que se desea conectar
-// El tercer parámetro es la clave del usuario 
+// El tercer parámetro es la clave del usuario
 // El cuarto es la base de datos que se desea utilizar
 
 
-// Por ultimo se debe revisar si la conexión se realizo sin ningún problema 
-// para esto se hace uso de la propiedad 'connect_errno' sobre el objeto 
+// Por ultimo se debe revisar si la conexión se realizo sin ningún problema
+// para esto se hace uso de la propiedad 'connect_errno' sobre el objeto
 // de la conexión a la base de datos
 if($db->connect_errno > 0){
     die('Imposible conectar [' . $db->connect_error . ']');
     // Si se consiguió algún error entonces se muestra cual fue
 }else{
     echo 'Conectado';
-    // Si no se consigue algún error entonces la conexión se realizo correctamente 
+    // Si no se consigue algún error entonces la conexión se realizo correctamente
 }
 
-</pre>
+?>
+```
+
 
 <hr />
 
@@ -62,7 +69,10 @@ if($db->connect_errno > 0){
 
 <p>El primer paso es ejecutar la consulta mediante la función <strong>query</strong>, esta devuelve un objeto con la información del resultado de la consulta en caso de haberse ejecutado correctamente. Si hubo algún error durante la ejecución de la consulta entonces se devuelve FALSE.</p>
 
-<pre>$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
+```php
+<?php
+
+$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
 if($db->connect_errno > 0){
     die('Imposible conectar [' . $db->connect_error . ']');
 }
@@ -72,11 +82,16 @@ $sql = "SELECT lenguaje FROM lenguajes";
 if(!$resultado = $db->query($sql)){
     die('Ocurrio un error ejecutando el query [' . $db->error . ']');
 }
-</pre>
+?>
+```
+
 
 <p>El segundo paso es recorrer el resultado para obtener todas las filas que nos devolvió la consulta ejecutada, para esto se hace uso de la función <strong>fecth_assoc()</strong>. Esta función va haciendo una especie de vacío a la consulta y va pasando cada fila a la variable para poder obtener los datos. El ciclo while va a terminar cuando la consulta se haya vaciado completamente.</p>
 
-<pre>$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
+```php
+<?php
+
+$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
 if($db->connect_errno > 0){
     die('Imposible conectar [' . $db->connect_error . ']');
 }
@@ -88,16 +103,21 @@ if(!$resultado = $db->query($sql)){
 }
 
 while($fila = $resultado->fetch_assoc()){
-    
+
     // $fila es un arreglo asociativo con todos los campos que se pusieron en el select
-    
+
     echo $fila['lenguaje'] . '<br />';
 }
-</pre>
+?>
+```
+
 
 <p>Si queremos conocer el número de filas que devolvió la consulta tenemos que utilizar la propiedad <strong>num_rows</strong> del objeto resultante de la consulta a la base de datos, veamos un ejemplo.</p>
 
-<pre>$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
+```php
+<?php
+
+$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
 if($db->connect_errno > 0){
     die('Imposible conectar [' . $db->connect_error . ']');
 }
@@ -110,11 +130,18 @@ if(!$resultado = $db->query($sql)){
 
 echo 'Cantidad de filas: ' . $resultado->num_rows;
 
-</pre>
+?>
+```
+
+
+{% include middle-post-ad.html %}
 
 <p>Por último, siempre es una buena practica cerrar la conexión al final del script con la función <strong>close()</strong>.</p>
 
-<pre>$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
+```php
+<?php
+
+$db = new mysqli('localhost', 'usuario', 'clave', 'nombre_base_datos');
 if($db->connect_errno > 0){
     die('Imposible conectar [' . $db->connect_error . ']');
 }
@@ -127,7 +154,9 @@ if(!$resultado = $db->query($sql)){
 
 $db->close();
 
-</pre>
+?>
+```
+
 
 <hr />
 
@@ -141,38 +170,53 @@ $db->close();
 
 <p>Para insertar un registro se corre la sentencia SQL de <strong>INSERT</strong> con la función <strong>query()</strong>.</p>
 
-<pre>$sql = "INSERT INTO lenguajes (id, lenguaje, descripcion) VALUES(NULL, 'C++', 'Sin Descripcion')";
+```php
+<?php
+
+$sql = "INSERT INTO lenguajes (id, lenguaje, descripcion) VALUES(NULL, 'C++', 'Sin Descripcion')";
 
 if(! $db->query($sql)){
      die('Ocurrio un error ejecutando el query [' . $db->error . ']');
 }
 
 echo 'Filas Insertadas: '.$db->affected_rows;
-</pre>
+?>
+```
+
 
 <h3>Modificar</h3>
 
 <p>Para modificar uno o varios registros se corre la sentencia SQL de <strong>UPDATE</strong> con la función <strong>query()</strong>.</p>
 
-<pre>$sql = "UPDATE lenguajes SET  descripcion =  'Lenguaje C++' WHERE  id =5;";
+```php
+<?php
+
+$sql = "UPDATE lenguajes SET  descripcion =  'Lenguaje C++' WHERE  id =5;";
 if(! $db->query($sql) ){
      die('Ocurrio un error ejecutando el query [' . $db->error . ']');
 }
 
 echo 'Filas Modificadas: '.$db->affected_rows;
-</pre>
+?>
+```
+
 
 <h3>Eliminar</h3>
 
 <p>Para eliminar uno o varios registros se corre la sentencia SQL de <strong>DELETE</strong> con la función <strong>query()</strong>.</p>
 
-<pre>$sql = "DELETE FROM lenguajes WHERE  id = 5;";
+```php
+<?php
+
+$sql = "DELETE FROM lenguajes WHERE  id = 5;";
 if(! $db->query($sql) ){
      die('Ocurrio un error ejecutando el query [' . $db->error . ']');
 }
 
 echo 'Filas Eliminadas: '.$db->affected_rows;
-</pre>
+?>
+```
+
 
 <h2>Conclusión</h2>
 

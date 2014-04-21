@@ -6,9 +6,11 @@ title: Archivos
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 3013
-wordpress_url: http://codehero.co/?p=3013
 date: 2014-02-14 01:04:16.000000000 -04:30
+serie: PHP desde Cero
+description: Tutorial con información sobre las funciones para manipulación de archivos en PHP
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -36,11 +38,15 @@ tags:
 
 <p>Ahora vamos a observar un ejemplo para entender como se utiliza la función <strong>fopen()</strong>.</p>
 
-<pre>$identificador = fopen('archivo.txt', 'r');
+```php
+<?php
+$identificador = fopen('archivo.txt', 'r');
 // se abre el archivo solo para lectura y se comienza a leer desde el principio
 // esto se establece con el tipo de apertura r
 
-</pre>
+?>
+```
+
 
 <hr />
 
@@ -48,16 +54,22 @@ tags:
 
 <p>Luego de abrir y manipular el contenido del archivo, lo cual veremos más adelante, se debe cerrar el archivo. Esto se logra con la función <strong>fclose()</strong> y se pasa como parámetro el identificador del archivo. Veamos el ejemplo de esto:</p>
 
-<pre>$identificador = fopen('archivo.txt', 'r');
+```php
+<?php
+$identificador = fopen('archivo.txt', 'r');
 
 // se lleva acabo la manipulación y edición del archivo
 
 // por último se cierra
 fclose($identificador);
 
-</pre>
+?>
+```
+
 
 <hr />
+
+{% include middle-post-ad.html %}
 
 <h2>Leer un Archivo</h2>
 
@@ -65,7 +77,9 @@ fclose($identificador);
 
 <p>Hay que recordar que debemos colocar en <strong>fopen()</strong> un modo que permita leer el archivo, como por ejemplo 'r'.</p>
 
-<pre>// abrimos el archivo
+```php
+<?php
+// abrimos el archivo
 $identificador = fopen("archivo.txt", "r");
 
 // dentro de un while vamos preguntando si hemos llegado al final del archivo
@@ -81,10 +95,13 @@ while( !feof($identificador) ){
 
 fclose($identificador);
 
+?>
+```
 
-</pre>
 
-<pre>// abrimos el archivo
+```php
+<?php
+// abrimos el archivo
 $identificador = fopen("archivo.txt", "r");
 
 // dentro de un while vamos preguntando si hemos llegado al final del archivo
@@ -100,8 +117,9 @@ while( !feof($identificador) ){
 
 fclose($identificador);
 
+?>
+```
 
-</pre>
 
 <hr />
 
@@ -109,7 +127,9 @@ fclose($identificador);
 
 <p>Por últimos vamos a ver como podemos escribir información en un archivo, para esto hacemos uso de la función <strong>fwrite()</strong>. Esta función recibe como parámetros el identificador del archivo en el cual deseamos escribir y el texto o contenido a escribir. Como respuesta devuelve el número de bytes escritos o False si se produjo un error al escribir. Veamos un ejemplo:</p>
 
-<pre>$identificador = fopen('archivo.txt', 'a');
+```php
+<?php
+$identificador = fopen('archivo.txt', 'a');
 
 // write escribe de manera continua en el archivo y no hace brinco de linea por si solo
 fwrite($identificador, 'Primeras palabras ');
@@ -121,7 +141,9 @@ fwrite($identificador, 'Nueva linea');
 
 fclose($identificador);
 
-</pre>
+?>
+```
+
 
 <hr />
 

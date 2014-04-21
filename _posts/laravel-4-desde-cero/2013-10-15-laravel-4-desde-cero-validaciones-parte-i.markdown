@@ -6,9 +6,11 @@ title: Validaciones Parte I
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2400
-wordpress_url: http://codehero.co/?p=2400
 date: 2013-10-15 00:00:04.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Tutorial para aprender las carateristicas y usos de la clase Validator en Laravel 4 que tiene como proposito crear validaciones de manera sencilla.
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -23,7 +25,9 @@ tags:
 
 <p><strong>Validator</strong> nos permite validar los datos definiendo ciertas reglas y retornar mensajes de error, veamos un primer ejemplo:</p>
 
-<pre>$datos = array('nombre' => 'Pedro');
+```php
+<?php
+$datos = array('nombre' => 'Pedro');
 $validaciones = array('nombre' => array('required', 'min:5'));
 
 $validator = Validator::make($datos, $validaciones);
@@ -34,7 +38,8 @@ if ( $validator->fails() ){
     echo 'Datos Validos!';
 }
 
-</pre>
+?>
+```
 
 <p>Vamos a tratar de entender de que trata este ejemplo, en el que se valido que el dato <strong>nombre</strong> sea requerido y tenga mínimo 5 letras. Primero que nada tenemos dos arreglos, el primero es un arreglo con datos (que serian datos de un formulario) y el segundo tiene un arreglo con validaciones que van a ser aplicadas a los datos del primer arreglo. Cuando queramos aplicar las validaciones hacemos uso de la función estática <strong>make</strong> de la clase <strong>Validator</strong>, esta función toma como primer parámetro el arreglo con datos y como segundo el arreglo con validaciones. El método <strong>make</strong> devuelve un objeto que contiene toda la información que necesitamos para evaluar de los campos que no hayan pasado las validaciones. Por último utilizando la función <strong>fails</strong> que nos proporciona el objeto que tenemos, podemos saber si la validación fallo o no. En caso de que falle ya veremos como obtener información de interés.</p>
 
@@ -48,7 +53,9 @@ if ( $validator->fails() ){
 
 <p>La llave de cada posición del arreglo es el nombre del campo al cual se le desea aplicar una validación y el valor es la validación que se desea aplicar. El valor también puede ser un arreglo en caso de que se deseen aplicar varias validaciones a un mismo campo. Veamos un ejemplo de como declarar algunas reglas de validación:</p>
 
-<pre>$validacion_1 = array('nombre'=>'requiered');
+```php
+<?php
+$validacion_1 = array('nombre'=>'requiered');
 //Una sola validación que se aplica al campo 'nombre' y verifica que no sea nulo
 
 $validacion_2 = array('nombre'=>'min:5');
@@ -59,14 +66,15 @@ $validacion_3 = array('nombre'=> array('required', 'min:5') );
 //En este caso hay dos validaciones que aplican al campo 'nombre'
 
 $validacion_4 = array(
-                'nombre'=>array('required', 'min:5') , 
+                'nombre'=>array('required', 'min:5') ,
                 'edad'=>'integer'
                 );
-// en este caso hay varias validaciones que se aplican a dos campos 
+// en este caso hay varias validaciones que se aplican a dos campos
 // el primero es 'nombre' y se verifica que no sea nulo y mínimo 5 caracteres
-// el segundo es 'edad' y se verifica que sea un numero entero 
+// el segundo es 'edad' y se verifica que sea un numero entero
 
-</pre>
+?>
+```
 
 <p>Esto nos da una idea de como se deben agrupar todas las validaciones dependiendo de los campos que manejemos, mas adelante conoceremos las reglas mas importantes que tiene Laravel.</p>
 
@@ -77,19 +85,23 @@ $validacion_4 = array(
 <ul>
 <li><strong>alpha</strong>: Esta regla verifica que el dato contenga puros caracteres alfabéticos. </li>
 <li><strong>alpha_num</strong>: Esta regla verifica que el dato contenga solo caracteres alfabéticos o numéricos. </li>
-<li><strong>in</strong>: Sirve para verificar que el campo contenga un valor que se encuentre dentro de una lista. <code>'nombre_campo' =&gt; 'in:rojo,verde,gris'</code></li>
-<li><strong>min</strong>: Verifica que un número sea mayor que el valor que se establece, en caso de ser un String entonces se valida la cantidad de caracteres. <code>'nombre_campo' =&gt; 'min:5'</code></li>
+<li><strong>in</strong>: Sirve para verificar que el campo contenga un valor que se encuentre dentro de una lista. <code>'nombre_campo' =>; 'in:rojo,verde,gris'</code></li>
+<li><strong>min</strong>: Verifica que un número sea mayor que el valor que se establece, en caso de ser un String entonces se valida la cantidad de caracteres. <code>'nombre_campo' => 'min:5'</code></li>
 </ul>
 
 <hr />
+
+{% include middle-post-ad.html %}
 
 <h2>Mensajes de Validaciones</h2>
 
 <p>Luego de que hemos aplicado las reglas que necesitemos a los campos que debamos verificar, es necesario que sepamos que campos no pasaron las reglas en caso de que tuvieran datos incorrectos. Para esto Laravel tiene mensajes predeterminados por cada regla de validación que se aplica y estos mensajes se guardan en el objeto que devuelve <strong>make</strong>. Veamos un ejemplo de esto y como se utilizan:</p>
 
-<pre>$datos = array('nombre' => 'Pedr', 'edad'=>'sin edad');
+```php
+<?php
+$datos = array('nombre' => 'Pedr', 'edad'=>'sin edad');
 $validacion = array(
-            'nombre'=>array('required', 'min:5'), 
+            'nombre'=>array('required', 'min:5'),
             'edad'=>'integer'
             );
 
@@ -99,12 +111,13 @@ if ($validator->fails())
 {
     $mensajes = $validator->messages();
     foreach ($mensajes->all() as $mensaje){
-        echo $mensaje.'&lt;/br>';
-    }   
+        echo $mensaje.'</br>';
+    }
 }else{
     echo 'Datos Correctos';
 }
-</pre>
+?>
+```
 
 <p>Lo primero que vamos a notar es que los mensajes están en ingles, lo cual vamos a cambiar a continuación, pero veamos que sucede en este código.</p>
 
@@ -112,14 +125,17 @@ if ($validator->fails())
 
 <p>También es posible mostrar solo los mensajes de un campo en específico y revisar si el campo tiene mensajes, en este caso vamos a ver un ejemplo con el campo edad:</p>
 
-<pre>if ($mensajes->has('edad')){
+```php
+<?php
+if ($mensajes->has('edad')){
     foreach ($mensajes->get('edad') as $mensaje){
-        echo $mensaje.'&lt;/br>';
+        echo $mensaje.'</br>';
     }
-}   
-</pre>
+}
+?>
+```
 
-<p>Ahora vamos a crear nuestros mensajes en español, primero vamos a cambiar el idioma general de la aplicación en la configuración del proyecto. Para esto tenemos que ir al archivo de configuración <strong>app.php</strong> que se encuentra en la carpeta <code>app/config/</code>. En este archivo debemos buscar la propiedad <code>'locale' =&gt; 'en'</code> y ponerla en español <code>'locale' =&gt; 'es'</code></p>
+<p>Ahora vamos a crear nuestros mensajes en español, primero vamos a cambiar el idioma general de la aplicación en la configuración del proyecto. Para esto tenemos que ir al archivo de configuración <strong>app.php</strong> que se encuentra en la carpeta <code>app/config/</code>. En este archivo debemos buscar la propiedad <code>'locale' => 'en'</code> y ponerla en español <code>'locale' => 'es'</code></p>
 
 <p>De ahora en adelante nuestra aplicación buscara los mensajes y los textos en la carpeta de textos de español, pero estos textos no existen porque Laravel 4 esta todo en ingles, así que vamos a crear estos textos. Para esto vamos a la carpeta <code>app/lang</code> y creamos otra carpeta que se llame <strong>es</strong>. En otro tutorial nos enfocaremos en explicar bien esta parte de internacionalización, pero por ahora veremos lo básico para tener nuestros mensajes de validación en español.</p>
 
@@ -127,7 +143,9 @@ if ($validator->fails())
 
 <p>Pasemos a modificar el archivo <strong>validation.php</strong> de español para que nuestros errores de validación sean entendibles. Como podemos observar tenemos un arreglo con muchos textos en donde las llave del arreglo son nombres de reglas de validación de Laravel. Veamos un ejemplo de como modificar algún mensaje:</p>
 
-<pre>"integer" => "The :attribute must be an integer."
+```php
+<?php
+"integer" => "The :attribute must be an integer."
 
 //Si tenemos un campo 'edad' y le aplicamos la regla integer el mensajes seria
 //The edad must be an integener
@@ -140,16 +158,20 @@ if ($validator->fails())
 //Con este mensajes Laravel nos mostraría el siguiente texto
 //El campo edad debe ser un número entero
 
-</pre>
+?>
+```
 
 <p>¿Ahora es mucho mas amigable cierto? Pues todavía nos queda algo mas para modificar y que sea mas fáciles de entender nuestros mensajes. Muchas veces queremos mostrar el mensaje de error pero sin decir el campo como esta declarado, si no alguna otra palabra mas explicativa. Por ejemplo, nuestro campo se puede llamar <strong>correo</strong> en el formulario, pero queremos que el usuario lo vea como <strong>Correo Electrónico</strong>. Para esto tenemos el arreglo <strong>attributes</strong> en el archivo de <strong>validation.php</strong>, veamos como funciona:</p>
 
-<pre>'attributes' => array(
+```php
+<?php
+'attributes' => array(
     'nombre'=>'Primer Nombre',
     'correo'=>'Correo Electrónico',
     'direccion_casa'=> 'Dirección de Casa'
 )
-</pre>
+?>
+```
 
 <p>Laravel siempre cambiara el atributo con el nombre que se le y así los mensajes serán mas explicativos y elegantes.</p>
 
