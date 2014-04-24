@@ -4,14 +4,7 @@
       <div class="row">
         {% for autor in site.data.autores %}
           {% if autor.name == page.author_name %}
-            <div class="col-xs-3 col-sm-4 col-md-3">
-              <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
-            </div>
-            <div class="col-xs-9 col-sm-8 col-md-9">
-              <h1 class="underline-title">{{ autor.name }}</h1>
-              {% include templates/autor-redes-sociales.html %}
-              <p>{{ autor.description }}</p>
-            </div>
+            {% include templates/autor-description.html %}
           {% endif %}
         {% endfor %}
       </div>

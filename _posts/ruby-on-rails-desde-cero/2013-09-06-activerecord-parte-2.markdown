@@ -7,17 +7,16 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2184
-wordpress_url: http://codehero.co/?p=2184
 date: 2013-09-06 00:01:39.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+dificultad: Intermedio
+duracion: 20
+github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Ruby on Rails desde cero, segunda parte de ActiveRecord donde describimos los Scopes y consultas de tablas asociadas (joins).
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
 - ActiveRecord
 - Scopes
@@ -73,6 +72,8 @@ SELECT usuarios.* FROM usuarios
 ```
 
 <p>Por último desarrollaremos un ejemplo un poco más complejo, con el cual se muestra una consulta con asociaciones anidadas, es decir, objetos asociados al objeto principal y estos a su vez con mas asociaciones. Veamos los ejemplos de una vez.</p>
+
+{% include middle-post-ad.html %}
 
 <p>En este ejemplo haremos una consulta de usuarios que tengan al menos una dirección y que estas direcciones les pertenezcan al menos un teléfono (suponiendo que son tres objetos diferentes asociados de alguna de las maneras estudiadas en capítulos anteriores), veamos esto en código:</p>
 
@@ -153,7 +154,7 @@ end
 
 ```ruby
 Usuario.masculino.mayor_que(Time.zone.parse("1988-05-09"))
- ```
+```
 
 <p>Como seguramente ya nos hemos dado cuenta por los dos ejemplos anteriores estos nos trae a todos los Usuarios <strong>masculinos</strong> que nacieron antes del <strong>09 de mayo de 1988</strong>.</p>
 

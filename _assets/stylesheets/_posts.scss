@@ -61,19 +61,8 @@
   }
 
   .post-header {
-    a {
-      color: rgba(85, 85, 85, 1);
-      @include transition(all 0.3s ease-in-out);
-
-      &:hover {
-        color: rgba(128, 128, 128, 1);
-      }
-    }
-
-    p {
-      font-size: 13px;
-      color: #999999;
-      text-transform: uppercase;
+    h1 {
+      color: $article-title-color;
     }
   }
 

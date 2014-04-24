@@ -24,7 +24,7 @@ layout: default
           {% else %}
             <h1>{{ page.title }}</h1>
           {% endif %}
-          <p class="meta">Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a> el {{ page.date | date_to_string }}</p>
+          <p class="author">Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date_to_string }}</p>
           {% unless page.dificultad or page.duracion %}
             {% include share-buttons.html %}
           {% endunless %}
@@ -36,7 +36,7 @@ layout: default
           <div class="col-xs-6 col-sm-6 col-md-6">
             <h4>Detalles del Curso:</h4>
             {% if page.dificultad %}
-              <p><b>Dificultad:</b> {{ page.dificultad }}</p>
+              <p><b>Dificultad:</b> {{ page.dificultad | capitalize }}</p>
             {% endif %}
             {% if page.duracion %}
               <p><b>Duración:</b> {{ page.duracion }} min</p>

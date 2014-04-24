@@ -7,17 +7,15 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 3045
-wordpress_url: http://codehero.co/?p=3045
 date: 2014-02-20 01:06:08.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Avanzado
+duracion: 30
 description: Doceavo capítulo de la serie Sinatra desde Cero, donde hablamos sobre streaming para hacer una aplicación tipo chat y también sobre archivos adjuntos
 categories:
 - Cursos
 - Sinatra
 tags:
-- curso
 - Sinatra
 - Streaming
 - Attachments
@@ -83,6 +81,8 @@ end
 <p>Luego debemos crear dos rutas para nuestra aplicación, la primera se llama <code>/chat</code> y funciona como elemento central a donde llegan todos los mensajes. La segunda ruta es referente a la ruta encargada de enviar los mensajes <code>/enviar/:mensaje</code>.</p>
 
 <p>Dentro de la ruta <code>/chat</code> encontramos un método que se llama <code>stream</code> y que tiene como parámetro <code>:keep_open</code> que se encarga de mantener la conexión abierta en todo momento hasta que el usuario se salga de dicha ruta. Dentro del <code>stream</code> vemos que hay una conexión que recibe las salidas o impresiones que realizamos y a su vez tenemos el método que cierra la conexión hacia el usuario cuando el mismo se sale de la ventana.</p>
+
+{% include middle-post-ad.html %}
 
 <p>Por otra parte en la ruta <code>/enviar/:mensaje</code> vemos que hay el método que guarda relación con las conexiones y se le asigna a <code>out</code> los mensajes que vamos enviando y este los pasa hacia el "chat".</p>
 

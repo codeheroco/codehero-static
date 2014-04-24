@@ -7,11 +7,10 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1265
-wordpress_url: http://codehero.co/?p=1265
 date: 2013-07-03 00:00:02.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Novato
+duracion: 20
 description: Ruby desde cero, cursos de los métodos y bloques de Ruby, Detallando para cada una de ellas la sintaxis y demostración.
 categories:
 - Cursos
@@ -55,7 +54,7 @@ end
 
 def es_verdadero?                   #método que imprime una variable Booleana
   valor = 3
-  if valor>5
+  if valor > 5
     puts "verdadero"
   else
     puts "falso"
@@ -120,7 +119,7 @@ def sumatoria (valor1,valor2 = 3)       #método que imprime una suma entre dos 
 end
 
 def es_verdadero? (valor)               #método que imprime una variable Booleana
-  if valor>5
+  if valor > 5
     puts "verdadero"
   else
     puts "falso"
@@ -172,6 +171,8 @@ def nombre_del_metodo (variable1,variable2, . . .)
 end
 ```
 
+{% include middle-post-ad.html %}
+
 <p>Al igual que los métodos anteriores modificaremos un poco la estructura del ejemplo para que apliquen las funciones y para aumentar la complejidad y utilizar conceptos estudiados anteriormente. Para este caso vamos a usar variables de instancia:</p>
 
 ```ruby
@@ -185,7 +186,7 @@ def sumatoria (valor1,valor2 = 3)       #método que imprime una suma entre dos 
 end
 
 def es_verdadero? (valor)               #método que imprime una variable Booleana
-  if valor>5
+  if valor > 5
     return "verdadero"
   else
     return "falso"

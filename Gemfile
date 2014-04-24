@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'jekyll', '~> 1.4.0'
 gem 'bootstrap-sass', '~> 3.0.3.0', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'sass', '~> 3.2.12'

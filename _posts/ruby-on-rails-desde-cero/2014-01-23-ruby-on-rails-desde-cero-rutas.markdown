@@ -7,19 +7,20 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2936
-wordpress_url: http://codehero.co/?p=2936
 date: 2014-01-23 00:10:40.000000000 -04:30
 serie: Ruby on Rails desde Cero
 description: Capítulo número 14 de la serie de Ruby on Rails desde Cero, donde hablamos sobre Rutas y enrutamiento, haciendo uso de resources anidados y namespaces.
+dificultad: Aprendiz
+duracion: 35
 categories:
 - Ruby on Rails
+- Cursos
 tags:
 - Ruby
-- Cursos
 - Ruby on Rails
-- curso
 - rutas
+- Routes
+- Nested
 ---
 Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior aprendimos como se generan los controladores para la aplicación, que representan los métodos en nuestros controladores y cómo se leen parámetros ya sean en el URL o enviados por POST dentro de un formulario.
 
@@ -137,6 +138,8 @@ Codeheroapp::Application.routes.draw do
   post '/productos', to: 'productos#create'
 end
 ```
+
+{% include middle-post-ad.html %}
 
 ### resource
 

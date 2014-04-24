@@ -1,8 +1,4 @@
 @media (max-width: $screen-xs-min) {
-  .date {
-    max-width: 100%;
-  }
-
   .post {
     .video-center-responsive {
       margin-top: 12px !important;
@@ -13,16 +9,6 @@
 }
 
 @media (max-width: $screen-sm-min) {
-  .date {
-    margin: 0 auto;
-    border-radius: 0.2rem 0.2rem 0 0;
-    width: $ancho-thumbnail-de-series;
-
-    i {
-      font-size: $font-size-base * 0.93; //~13px
-    }
-  }
-
   .author-list {
     padding-bottom: 10px;
 
@@ -93,17 +79,5 @@
         display: block;
       }
     }
-  }
-}
-
-@media (min-width: $screen-md-max) {
-  .date {
-    padding: 6px 8px 4px 8px;
-    border-radius: 0.4rem;
-  }
-
-  .remove-column-padding {
-    padding-left: 7px;
-    padding-right: 7px;
   }
 }

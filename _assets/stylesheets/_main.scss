@@ -79,6 +79,15 @@ i {
 article {
   border-bottom: solid 1px #ddd;
   padding: 8px;
+  color: $article-font-color;
+
+  a {
+    color: $article-title-color;
+
+    &:hover {
+      color: $article-title-hover-color;
+    }
+  }
 
   &:last-child {
     border-bottom: none;
@@ -87,6 +96,20 @@ article {
 
 footer {
   margin-top: 32px;
+}
+
+.author {
+  text-transform: uppercase;
+  color: $article-font-color;
+  font-size: 13px;
+
+  a {
+    color: $article-title-color !important;
+
+    &:hover {
+      color: rgba($article-title-color, .82) !important;
+    }
+  }
 }
 
 // ads section
@@ -122,29 +145,6 @@ footer {
 
 .navbar {
   text-transform: uppercase;
-}
-
-.date {
-  color: $white-codehero;
-  background-color: $orange-codehero;
-  display: block;
-  text-align: center;
-  border-radius: 0.2rem;
-  font-size: $font-size-base * 0.93; //~13px
-
-  i {
-    margin: 0 auto;
-    padding: 0 0 0 2px;
-    color: $white-codehero;
-  }
-
-  a {
-    color: $white-codehero;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
 }
 
 .navbar-brand {
