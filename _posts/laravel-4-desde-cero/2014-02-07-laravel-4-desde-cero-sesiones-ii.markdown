@@ -6,9 +6,11 @@ title: Sesiones II
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2989
-wordpress_url: http://codehero.co/?p=2989
 date: 2014-02-07 00:10:54.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Segunda parte del tutorial para la creación de un registro e inicio de sesión con Laravel 4
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -24,14 +26,15 @@ tags:
 
 <p>Esta función estática de la clase Auth permite verificar si un usuario ha iniciado sesión. En caso de que un usuario este en la sesión entonces devolverá True, en caso contrario retornara False.</p>
 
-<pre>
+```php 
+<?php 
 if (Auth::check()){
     // usuario con sesión iniciada
 }else{
     // no hay usuario 
 }
-
-</pre>
+?> 
+```
 
 <hr />
 
@@ -39,13 +42,15 @@ if (Auth::check()){
 
 <p>Esta función estática de la clase Hash permite verificar una clave encriptada sin tener que hacer inicio de sesión. Si la clave es correcta se retornara True, en caso contrario False.</p>
 
-<pre>
+```php 
+<?php 
 if (Hash::check('clave', $claveEncriptada)){
     // clave correcta
 }else{
     // clave incorrecta
 }
-</pre>
+?> 
+```
 
 <hr />
 
@@ -53,23 +58,29 @@ if (Hash::check('clave', $claveEncriptada)){
 
 <p>En el pasado tutorial vimos el método attempt y que con el verificábamos el usuario y la clave de la persona que intentara ingresar. Ahora le podemos agregar una condición al arreglo en donde se encuentran el usuario y la clave. Laravel verifica que esta condición sea un campo en la base de datos y que su valor sea igual al valor que estamos pasando. Veamos un ejemplo para entenderlo mejor.</p>
 
-<pre>
+```php 
+<?php 
 if (Auth::attempt(array('correo' => $correo, 'password' => $password, 'activo' => 1))){
     // El usuario y su clave están correctos, pero también esta activo. 
 }else{
     // El usuario no pudo iniciar sesión. 
 }
-</pre>
+?> 
+```
 
 <hr />
+
+{% include middle-post-ad.html %}
 
 <h2>Auth::loginUsingId</h2>
 
 <p>Esta función sirve para iniciar la sesión de algún usuario sin tener que validar contraseña y usuario. Se indica como parámetro el Id del usuario que se desea utilizar y Laravel crea su sesión.</p>
 
-<pre>
+```php 
+<?php 
 Auth::loginUsingId(1);
-</pre>
+?> 
+```
 
 <hr />
 
@@ -77,11 +88,13 @@ Auth::loginUsingId(1);
 
 <p>Esta función sirve para que el usuario inicie sesión en una sola petición. Es decir ingreso su clave y su usuario, se ejecute el código que se debe ejecutar con la información del usuario y se descarta la sesión. Si se desea hacer otra petición con el mismo usuario entonces debe volver a introducir sus datos.</p>
 
-<pre>
+```php 
+<?php 
 if (Auth::once( array('correo' => $correo, 'password' => $password )  )){
     //Inicio sesión correctamente y valida por una sola petición 
 }
-</pre>
+?> 
+```
 
 <hr />
 
@@ -89,11 +102,13 @@ if (Auth::once( array('correo' => $correo, 'password' => $password )  )){
 
 <p>Laravel nos presenta una función que sirve solo para validar que un usuario exista y que su clave sea valida. Con esta función no se inicia ninguna sesión, solo se verifica que las credenciales que se introdujeron sean correctas.</p>
 
-<pre>
+```php 
+<?php 
 if (Auth::validate(array('correo' => $correo, 'password' => $password ))){
     // Los datos introducidos son validos
 }
-</pre>
+?> 
+```
 
 <hr />
 
@@ -101,9 +116,11 @@ if (Auth::validate(array('correo' => $correo, 'password' => $password ))){
 
 <p>Ya hemos aprendido como iniciar sesión con las funciones que Laravel nos presenta, pero todavía no sabemos como salir de la sesión. Para esto existe la función estática <strong>logout</strong>, esta destruye la sesión y el usuario ya no podrá volver a entrar al menos que ingrese sus datos de nuevo.</p>
 
-<pre>
+```php 
+<?php 
 Auth::logout();
-</pre>
+?> 
+```
 
 <hr />
 
@@ -115,22 +132,24 @@ Auth::logout();
 
 <p>Entonces lo primero que se debe hacer es crear el token en el formulario. Si estamos utilizando la función <code>Form::open()</code> para crear nuestro formulario entonces Laravel ya nos esta creado el campo con el Token automáticamente. En caso de que no utilicemos esta función para crear nuestros formularios entonces debemos crear el Token manual. Veamos un ejemplo de como se debe crear:</p>
 
-<pre>
+```php 
 <!-- Este input debe ir dentro de el formulario que vayamos a enviar-->
 <!-- El nombre siempre debe ser _token -->
 <!-- El valor de debe llenar con la función csrf_token(); -->
 
 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-</pre>
+```
 
 <p>El segundo y ultimo paso de esta validación es colocar el filtro csrf en las rutas Post como un filtro before, para que Laravel verifique el Token antes de ejecutar cualquier operación.</p>
 
-<pre>
+```php 
+<?php 
 Route::post('formulario', array('before' => 'csrf', function()
 {
     return 'El token es valido';
 }));
-</pre>
+?> 
+```
 
 <hr />
 

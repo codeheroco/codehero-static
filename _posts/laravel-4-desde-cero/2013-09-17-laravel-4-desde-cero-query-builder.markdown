@@ -6,9 +6,11 @@ title: Query Builder
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2250
-wordpress_url: http://codehero.co/?p=2250
 date: 2013-09-17 00:00:47.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Capitulo para el estudio y revision de la principales funciones de la libreria de laravel 4 para SQL Query Builder
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -31,14 +33,18 @@ tags:
 
 <p>Para la realización de un SELECT hacemos uso de la función estática <strong>select</strong>, esta regresara un arreglo con objetos. Cada objeto es cada tupla que la consulta regresa. La función puede recibir dos parámetros, el primero es obligatorio y es el texto con al consulta. El segundo parámetro es opcional y consiste en un arreglo con las variables que se le quieran pasar a la consulta, para esto se coloca en la consulta un sigo de interrogación en donde se quiere sustituir alguna variable. Veamos un ejemplo de esto:</p>
 
-<pre>$resultado = DB::select('SELECT * FROM carros WHERE color = ?', array('blanco'));
+```php 
+<?php
+$resultado = DB::select('SELECT * FROM carros WHERE color = ?', array('blanco'));
 // En este caso ? será remplazado por blanco 
 // SELECT * FROM carros WHERE color = 'Blanco'
-</pre>
+?>
+```
 
 <p>Esta consulta retorna el siguiente arreglo:</p>
 
-<pre>array(1) {
+```
+array(1) {
   [0]=>
   array(2) {
     [0]=>
@@ -74,7 +80,7 @@ tags:
   }
 }
 
-</pre>
+```
 
 <p>Podemos observar que es un arreglo con objetos. En donde cada objeto es una fila de la consulta que se realizo a la base de datos.</p>
 
@@ -82,23 +88,32 @@ tags:
 
 <p>Para insertar en la base de datos sin utilizar los modelos utilizamos la función estática <strong>insert</strong>. Esta función no retorna nada y al igual que la función <strong>select</strong>, recibe dos parámetros. El primero es la sentencia y el segundo es el arreglo con los valores a insertar.</p>
 
-<pre>DB::insert("INSERT INTO carros (id, modelo, color, placa) VALUES (NULL, ?, ?, ?)", array('QQ', 'Verde', 'GFT 888') );
+```php 
+<?php
+DB::insert("INSERT INTO carros (id, modelo, color, placa) VALUES (NULL, ?, ?, ?)", array('QQ', 'Verde', 'GFT 888') );
 // Podemos observar como se sustituyen los valores en las posiciones de los ? 
-</pre>
+?>
+```
 
 <h3>Update</h3>
 
 <p>Para realizar un UPDATE utilizamos la función estática <strong>update</strong>, igual que las anteriores, esta recibe dos parámetros. El primero es la sentencia SQL y el segundo es el arreglo con los paramtros. Esta función devuelve un número entero con la cantidad de filas que fueron editadas cuando se ejecuto el UPDATE.</p>
 
-<pre>$filas_editadas = DB::update('UPDATE carros SET placa = ? WHERE id = ? ', array( 'JUH 111', 2));
-</pre>
+```php 
+<?php
+$filas_editadas = DB::update('UPDATE carros SET placa = ? WHERE id = ? ', array( 'JUH 111', 2));
+?>
+```
 
 <h3>Delete</h3>
 
 <p>Por ultimo veremos como hacer uso de la sentencia DELETE con la función estática <strong>delete</strong>. Al igual que <strong>update</strong>, recibe dos parametros y retorna un entero con la cantidad de filas borradas.</p>
 
-<pre>$cantidad_borradas = DB::delete('DELETE FROM carros WHERE id = ? ', array(6) );
-</pre>
+```php 
+<?php
+$cantidad_borradas = DB::delete('DELETE FROM carros WHERE id = ? ', array(6) );
+?>
+```
 
 <hr />
 
@@ -106,18 +121,24 @@ tags:
 
 <p>Laravel 4 cuenta con una librería para crear las sentencias SQL con POO ( Programación Orientada a Objetos), de esta manera nos evitamos escribir SQL directamente. Utilizando esta librería para hacer las consultas, nos evitamos inyección de SQL y nuestras consultas funcionaran en todas las base datos sin ningún problema, ya que Laravel será quien escriba la sentencia. Por último debemos saber que esta librería funciona mediante encadenamiento de métodos, sobre lo cual veremos un ejemplo a continuación.</p>
 
-<pre>Class::creador()->cadena()->cadena()->cadena()->disparador();
+```php 
+<?php
+Class::creador()->cadena()->cadena()->cadena()->disparador();
 
 // Primero se debe poner un creador que es quien instancia la clase. 
 // Luego se le pueden pasar métodos opcionales que modifican la instancia
 // Por ultimo se debe usar un disparador que es quien retorna el resultado
-</pre>
+?>
+```
 
 <p>Ahora veamos un ejemplo con métodos reales:</p>
 
-<pre>$usuarios = DB::table('usuarios')->where('sexo', '=', 'M')->get();
+```php 
+<?php
+$usuarios = DB::table('usuarios')->where('sexo', '=', 'M')->get();
 // SELECT * FROM usuarios WHERE sexo = 'M'
-</pre>
+?>
+```
 
 <p>Esta consulta retorna un arreglo de objeto con todos los resultados obtenidos de la base de datos. <strong>table('usuarios')</strong> crea el objeto para ser usado con la tabla de usuarios, <strong>where()</strong> es el modificador encadenado y <strong>get()</strong> es el disparador que retorna el arreglo de objetos.</p>
 
@@ -133,6 +154,8 @@ tags:
 <li><strong>max()</strong>: Recibe como parámetro un campo de la tabla, el cual evalúa para buscar y retornar su máximo valor. </li>
 <li><strong>min()</strong>: Recibe como parámetro un campo de la tabla, el cual evalúa para buscar y retornar su mínimo valor. </li>
 </ul>
+
+{% include middle-post-ad.html %}
 
 <h3>Modificadores</h3>
 
@@ -153,7 +176,9 @@ tags:
 
 <p>Veamos unos ejemplos para entender todo esto mas claro. Tengamos en cuenta que se pueden tener tantos modificadores como sea necesario y disparadores debe ser uno solo.</p>
 
-<pre>$resultado = DB::table('carros')->get();
+```php 
+<?php
+$resultado = DB::table('carros')->get();
 
 $resultado = DB::table('carros')->count();
 
@@ -183,19 +208,23 @@ $resultado = DB::table('carros')->groupBy('color')->get(array('color'));
 
 $resultado = DB::table('carros')->take(4)->skip(3)->get();
 
-</pre>
+?>
+```
 
 <h3>Query Builder y Modelos</h3>
 
 <p>Por último debemos saber que todas las consultas que hacemos con el Query Builder las podemos hacer de igual manera con los modelos. El modelo actuaría como el creador de la consulta, ya que cada modelo tiene una tabla asociada.</p>
 
-<pre>// Si asumimos que tenemos un modelo llamado Carros, el cual utiliza la tabla carros en la base datos
+```php 
+<?php
+// Si asumimos que tenemos un modelo llamado Carros, el cual utiliza la tabla carros en la base datos
 // entonces los dos códigos serian equivalentes. 
 
 $resultado = DB::table('carros')->where('color', '=', 'Verde')->get(array('id', 'modelo', 'color'));
 
 $resultado = Carros::where('color', '=', 'Verde')->get(array('id', 'modelo', 'color'));
-</pre>
+?>
+```
 
 <hr />
 

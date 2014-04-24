@@ -6,10 +6,11 @@ title: Clases & Objetos Parte III
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2880
-wordpress_url: http://codehero.co/?p=2880
 date: 2013-12-20 00:14:48.000000000 -04:30
 serie: PHP desde Cero
+description: Tutorial para obtener primeros conocimientos acerca de la herencia en PHP 5 y como aplicarla.
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -38,7 +39,11 @@ tags:
 
 <p>Veamos ahora como es la sintaxis en PHP para definir la herencia en una clase. Hacer que una clase herede de otra en PHP es muy sencillo y se hace colocando la palabra reservada <strong>extends</strong> después del nombre de la clase que estamos creando y luego la clase de la cual queremos heredar. Veamos un ejemplo de esto:</p>
 
-<pre>class Vehiculo{
+{% include middle-post-ad.html %}
+
+```php
+<?php
+class Vehiculo{
 
     public $matricula;
     private $color;
@@ -127,7 +132,8 @@ Autobus apagado
 Vehiculo apagado
 */
 
-</pre>
+?>
+```
 
 <p>Podemos observar como hemos declarado tres clases Vehículo, Camión y Autobús. En este caso la clase Vehículo es la clase padre y las clases Camión y Autobús son las clases hijo que heredan de Vehículo. Por lo tanto al crear un objeto que sea Camión o Autobús también estamos agregando automáticamente todas las propiedades y métodos, siempre y cuando sean public o protected, de Vehículo a esos objeto.</p>
 
