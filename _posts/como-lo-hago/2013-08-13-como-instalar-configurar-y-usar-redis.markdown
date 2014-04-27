@@ -8,7 +8,7 @@ author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 date: 2013-08-13 00:00:11.000000000 -04:30
-thumbnail: http://i.imgur.com/lrn4QBG.png
+thumbnail: http://i.imgur.com/JF2dfqq.png
 description: Redis es una solución de almacenamiento de datos NoSQL tipo Llave-Valor, veloz gracias a su estructura ausente de lógica relacional y residencia en memoria.
 dificultad: Novato
 duracion: 10

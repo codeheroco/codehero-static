@@ -8,7 +8,7 @@ author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
 date: 2014-02-06 01:21:50.000000000 -04:30
-thumbnail: http://i.imgur.com/aFoOgeD.png
+thumbnail: http://i.imgur.com/lWvUxzn.png
 description: Docker utiliza un archivo llamado Dockerfile en conjunto con su DSL para automatizar el proceso de crear contenedores, nosotros te explicamos como hacerlo!
 dificultad: Aprendiz
 duracion: 30
