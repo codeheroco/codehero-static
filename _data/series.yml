@@ -62,7 +62,7 @@
   author: Jonathan Wiesel
   author-url: jonathan
 
-- name: Node.js desde Cero
+- name: Node.js y Express
   status: (Serie en Progreso)
   url-series: node-y-express
   thumb: http://i.imgur.com/prDhefI.png
@@ -70,7 +70,7 @@
   author: Oscar González
   author-url: oscar
 
-- name: Objectice-C desde Cero
+- name: Objective-C desde Cero
   status: (Serie Completada)
   url-series: objective-c-desde-cero
   thumb: http://i.imgur.com/Orc7gRR.png?1
