@@ -12,7 +12,7 @@ wordpress_url: http://codehero.co/?p=2454
 date: 2013-10-25 00:39:08.000000000 -04:30
 categories:
 - Cursos
-- iOS
+- iOS 7 decodificado
 tags:
 - iOS7
 - Interfaz gráfica
@@ -101,7 +101,7 @@ tags:
         CGRectGetHeight(self.view.frame)
             - self.topLayoutGuide.length
             - self.bottomLayoutGuide.length
-    ); 
+    );
 }
 </pre>
 
@@ -152,9 +152,9 @@ tags:
     self.contentSubview.frame = CGRectMake(
                             0,
                             0,
-                            CGRectGetWidth(self.view.frame), 
+                            CGRectGetWidth(self.view.frame),
                             CGRectGetHeight(self.view.frame)
-    ); 
+    );
 }
 </pre>
 
