@@ -12,7 +12,7 @@ wordpress_url: http://codehero.co/?p=2658
 date: 2013-11-22 00:22:57.000000000 -04:30
 categories:
 - Cursos
-- iOS
+- iOS 7 decodificado
 tags:
 - curso
 - iOS7
@@ -68,7 +68,7 @@ tags:
 
 <h4>1. Especifica que la presentación debe utilizar una transición personalizada</h4>
 
-<p>En este paso solo debemos decirle al controlador que queremos implementar el 
+<p>En este paso solo debemos decirle al controlador que queremos implementar el
 delegado para las transiciones entre controladores, esto puede ser algo así:</p>
 
 <pre>
@@ -76,7 +76,7 @@ delegado para las transiciones entre controladores, esto puede ser algo así:</p
 {
     UIViewController *vc = [[UIViewController alloc] init];
     vc.modalPresentationStyle = UIModalPresentationCustom;
-    
+
     // indicamos que queremos implementar los métodos del delegado
     // de la transición
     vc.transitioningDelegate = self;
@@ -115,7 +115,7 @@ delegado para las transiciones entre controladores, esto puede ser algo así:</p
 <pre>
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-   
+
 }
 </pre>
 
@@ -158,7 +158,7 @@ delegado para las transiciones entre controladores, esto puede ser algo así:</p
 
 <pre>
 - (id < UIViewControllerAnimatedTransitioning>) animationControllerForPresentedController:(UIViewController *)presented  presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
- 
+
     BouncyTransition *transition = [[BouncyTransition alloc] init];
     return transition;
 
@@ -198,24 +198,24 @@ CGFloat height = CGRectGetHeight(fullFrame);
 
 toVC.view.frame = CGRectMake(
                               fullFrame.origin.x,
-                              height + 16, 
+                              height + 16,
                               CGRectGetWidth(fullFrame),
                               height
 );
-    
-[UIView animateWithDuration:[self transitionDuration:transitionContext] 
-        delay:0 usingSpringWithDamping:0.5f 
-        initialSpringVelocity:0.6f 
-        options:UIViewAnimationOptionCurveEaseInOut 
+
+[UIView animateWithDuration:[self transitionDuration:transitionContext]
+        delay:0 usingSpringWithDamping:0.5f
+        initialSpringVelocity:0.6f
+        options:UIViewAnimationOptionCurveEaseInOut
         animations:^{
-     
+
         toVC.view.frame = CGRectMake(20, 20, CGRectGetWidth(fullFrame) - 40, height - 40 );
-        
+
     } completion:^(BOOL finished) {
-    
+
         [transitionContext completeTransition:YES];
-        
-    }]; 
+
+    }];
 }
 </pre>
 

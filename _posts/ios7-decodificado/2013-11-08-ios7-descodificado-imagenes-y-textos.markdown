@@ -12,7 +12,7 @@ wordpress_url: http://codehero.co/?p=2564
 date: 2013-11-08 00:05:02.000000000 -04:30
 categories:
 - Cursos
-- iOS
+- iOS 7 decodificado
 tags:
 - iOS7
 - fuentes
@@ -67,11 +67,11 @@ tags:
     [UIFontDescriptor fontDescriptorWithFontAttributes:
         @{UIFontDescriptorFamilyAttribute:@"Helvetica Neue"}];
 
-        
-UIFontDescriptor *cursiva = 
+
+UIFontDescriptor *cursiva =
     [fuenteBase fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitItalic];
 
-    
+
 UIFont *fuente = [UIFont fontWithDescriptor:cursiva size:18];
 
 self.label.font = font;
@@ -167,9 +167,9 @@ self.label.font = labelFont;
 
 <pre>- (void)viewDidLoad
 {
-    [[NSNotificationCenter defaultCenter] 
+    [[NSNotificationCenter defaultCenter]
         addObserver:self selector:@selector(contentSizeChanged:)
-        name:@"UIContentSizeCategoryDidChangeNotification" 
+        name:@"UIContentSizeCategoryDidChangeNotification"
      object:nil];
 
   }

@@ -12,7 +12,7 @@ wordpress_url: http://codehero.co/?p=2820
 date: 2013-12-06 00:04:44.000000000 -04:30
 categories:
 - Cursos
-- iOS
+- iOS 7 decodificado
 tags: []
 ---
 <p>Bienvenidos a iOS 7 Descodificado, una nueva serie que hemos creado para mostrarte las nuevas herramientas que Apple a introducido en su nueva actualización de iOS. En capítulos anteriores vimos algunos nuevos cambios a nivel de interfaz que Apple introdujo en esta nueva actualización, como también algunos cambios en el manejo de imágenes y campos de textos.</p>
@@ -89,11 +89,11 @@ tags: []
 {
     // ubicamos la vista que vamos a mover
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    
-    
+
+
     // Ubicamos el tamanio del contexto
     __block CGRect presentedFrame = [transitionContext initialFrameForViewController:fromVC];
-    
+
     //Arrancamos con nuestra animación
     [UIView animateKeyframesWithDuration:1.0f delay:0.0 options:0 animations:^{
         //Separamos la animación en dos
@@ -107,7 +107,7 @@ tags: []
                                            );}];
         // la última parte que la deje caer haciéndola rotar unos grados
         [UIView  addKeyframeWithRelativeStartTime:0.8 relativeDuration:0.2 animations:^{
-            
+
             presentedFrame.origin.y += CGRectGetHeight(presentedFrame) + 20;
             fromVC.view.frame = presentedFrame;
             fromVC.view.transform = CGAffineTransformMakeRotation(0.2);
@@ -116,7 +116,7 @@ tags: []
         //Finalizamos la transición
         [transitionContext completeTransition:YES];
     }];
-    
+
 }
 </pre>
 
@@ -162,20 +162,20 @@ tags: []
             break;
         }
         case UIGestureRecognizerStateChanged:{
-        
+
             break;
         }
         case UIGestureRecognizerStateEnded:{
-            
+
             break;
         }
         case UIGestureRecognizerStateCancelled:
         {
-            
+
             break;
         }
         default:
-        
+
             break;
     }
 }
@@ -196,7 +196,7 @@ tags: []
 - (id <UIViewControllerInteractiveTransitioning>) interactionControllerForDismissal:(id< UIViewControllerAnimatedTransitioning >)animator
 {
     if (self.interactive) {
-        
+
         self.myInteractiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
         return self.myInteractiveTransition;
     }
@@ -221,9 +221,9 @@ tags: []
             // Inndicamos al sistema que empiece a despedir el view
             [self dismissViewControllerAnimated:YES completion:^{
                 //Una vez finalizado la despedida indicamos al sistema que se termino la iteración
-                self.interactive = NO; 
+                self.interactive = NO;
                 }];
-            
+
             break;
         }
         // Cambios del gesture
@@ -235,19 +235,19 @@ tags: []
             UIView *view = gesture.view.superview;
             CGPoint translation = [gesture translationInView:view];
             CGFloat percentTransitioned = (translation.y / (CGRectGetWidth(view.frame)));
-            
+
             // Modificamos la transición con el porcentaje antes obtenido
             [self.myInteractiveTransition updateInteractiveTransition:-percentTransitioned];
             break;
         }
         case UIGestureRecognizerStateEnded:{
-            
+
             break;
         }
         case UIGestureRecognizerStateCancelled:
         {
             [ cancelInteractiveTransition];
-            
+
             break;
         }
         default:
@@ -274,19 +274,19 @@ tags: []
         case UIGestureRecognizerStateBegan: {...}
         case UIGestureRecognizerStateChanged:{...}
         case UIGestureRecognizerStateEnded:{
-            
+
             if (self.myInteractiveTransition.percentComplete > 0.25) {
                 [self.myInteractiveTransition finishInteractiveTransition];
             }else{
                 [self.myInteractiveTransition cancelInteractiveTransition];
             }
-            
+
             break;
         }
         case UIGestureRecognizerStateCancelled:
         {
             [self.myInteractiveTransition cancelInteractiveTransition];
-            
+
             break;
         }
         default:
