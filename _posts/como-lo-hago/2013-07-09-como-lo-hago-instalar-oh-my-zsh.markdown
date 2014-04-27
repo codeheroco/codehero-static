@@ -8,7 +8,7 @@ author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 date: 2013-07-09 04:30:30.000000000 -04:30
-thumbnail: http://i.imgur.com/QZ0cnJe.png
+thumbnail: http://i.imgur.com/Xks5pPE.png
 description: Hablaremos de uno de los complementos que a muchos les convierte el manejo cotidiano del terminal en un paseo por el parque. el framework oh-my-zsh.
 dificultad: Novato
 duracion: 10

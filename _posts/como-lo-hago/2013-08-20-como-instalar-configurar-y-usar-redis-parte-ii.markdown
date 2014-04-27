@@ -8,7 +8,7 @@ author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 date: 2013-08-20 00:00:05.000000000 -04:30
-thumbnail: http://i.imgur.com/lrn4QBG.png
+thumbnail: http://i.imgur.com/JF2dfqq.png
 description: Retomaremos el tema de Redis y hablaremos de la configuración, comandos básicos, detalles que expanden sus capacidades y algunos consejos a tomar en cuenta.
 dificultad: Aprendiz
 duracion: 15

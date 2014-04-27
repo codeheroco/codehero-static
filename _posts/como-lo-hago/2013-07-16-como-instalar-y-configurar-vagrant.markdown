@@ -8,7 +8,7 @@ author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 date: 2013-07-16 00:00:02.000000000 -04:30
-thumbnail: http://i.imgur.com/SOCox1I.png
+thumbnail: http://i.imgur.com/730GOjs.png
 description: En este ¿Cómo lo hago?, daremos solución a los problemas de virtualización mediante el uso de una herramienta de construcción de ambientes, Vagrant.
 dificultad: Aprendiz
 duracion: 20

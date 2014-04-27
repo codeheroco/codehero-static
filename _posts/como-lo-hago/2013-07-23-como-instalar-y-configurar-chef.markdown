@@ -8,7 +8,7 @@ author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 date: 2013-07-23 00:00:29.000000000 -04:30
-thumbnail: http://i.imgur.com/j5VGZcA.png
+thumbnail: http://i.imgur.com/HCBdFu6.png
 description: Esta semana hablaremos de una de las más utilizadas herramientas de automatización y suministro para ambientes reales, virtuales y en la nube, Chef.
 dificultad: Aprendiz
 duracion: 20

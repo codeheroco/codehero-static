@@ -8,7 +8,7 @@ author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 date: 2013-07-02 00:00:36.000000000 -04:30
-thumbnail: http://i.imgur.com/w4cWGGz.png
+thumbnail: http://i.imgur.com/4NCqc4B.png
 description: La mejor manera de gestionar piezas de software es mediante el uso de manejadores de paquetes, veamos como hacerlo en Mac OS X con Homebrew.
 dificultad: Novato
 duracion: 5

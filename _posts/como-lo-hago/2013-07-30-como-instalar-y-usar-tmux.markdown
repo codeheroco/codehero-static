@@ -8,7 +8,7 @@ author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 date: 2013-07-30 00:00:47.000000000 -04:30
-thumbnail: http://i.imgur.com/Tiw1ii6.png
+thumbnail: http://i.imgur.com/Xks5pPE.png
 description: Para aquellos que gustan de usar el terminal pero deben abrir varias ventanas y sesiones, Tmux es la herramienta que se estaban perdiendo.
 dificultad: Novato
 duracion: 10

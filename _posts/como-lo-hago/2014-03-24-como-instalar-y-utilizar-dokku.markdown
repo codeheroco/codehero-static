@@ -8,7 +8,7 @@ author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
 date: 2014-03-24 20:33:39.000000000 -04:30
-thumbnail: http://i.imgur.com/fQ2ECUO.png
+thumbnail: http://i.imgur.com/HDWaNUg.png
 description: Encapsular aplicaciones y el control de versiones son buena combinación al momento de optimizar y automatizar depliegues, por eso esta semana traemos Dokku.
 dificultad: Intermedio
 duracion: 20
