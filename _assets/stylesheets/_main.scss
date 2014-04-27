@@ -177,6 +177,7 @@ footer {
 .img-center-responsive {
   @include img-responsive();
   margin: 0 auto;
+  border-radius: 1rem;
 }
 
 .center-in-div {
