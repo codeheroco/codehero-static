@@ -177,7 +177,7 @@ footer {
 .img-center-responsive {
   @include img-responsive();
   margin: 0 auto;
-  border-radius: 0.75rem;
+  border-radius: $thumbnail-border-radius;
 }
 
 .center-in-div {
