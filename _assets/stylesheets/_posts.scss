@@ -45,6 +45,10 @@
     display: block;
     list-style: none;
 
+    li.fb-like.fb_iframe_widget span {
+      vertical-align: baseline !important;
+    }
+
     li {
       display: inline;
     }
