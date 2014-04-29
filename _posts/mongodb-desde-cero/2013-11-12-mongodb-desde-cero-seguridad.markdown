@@ -51,6 +51,8 @@ Ahora creemos nuestro nuevo usuario administrador:
 > db.addUser('jonathan','c0d3h3r0')
 ```
 
+> En la versión 2.6 el método `addUser` ha quedado desaprobado o *deprecado*, se debe usar `createUser` en su lugar (Fuente: [Documentación de MongoDB](http://docs.mongodb.org/manual/reference/method/db.addUser/)).
+
 Bien, ahora en el archivo de configuración de la instancia habilitaremos la autenticación:
 
 ```
