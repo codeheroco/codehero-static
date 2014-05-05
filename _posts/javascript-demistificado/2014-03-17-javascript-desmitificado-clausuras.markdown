@@ -10,6 +10,7 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 3121
 wordpress_url: http://codehero.co/?p=3121
 date: 2014-03-17 00:00:42.000000000 -04:30
+serie: Javascript Desmitificado
 dificultad: Heroe
 duracion: 10
 description: En este capítulo de la serie explicaré lo que son las clausuras en Javascript y como su uso puede mejorar la calidad del código que escribimos
