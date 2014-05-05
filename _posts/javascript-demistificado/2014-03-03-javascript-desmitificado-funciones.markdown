@@ -7,8 +7,6 @@ author: Oscar González
 author_login: oscar
 author_email: gonzalezgreco@gmail.com
 author_url: http://www.oscarvgg.com
-wordpress_id: 3080
-wordpress_url: http://codehero.co/?p=3080
 date: 2014-03-03 00:03:46.000000000 -04:30
 serie: Javascript Desmitificado
 dificultad: Heroe
