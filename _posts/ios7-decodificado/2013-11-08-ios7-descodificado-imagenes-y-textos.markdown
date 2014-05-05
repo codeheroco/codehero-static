@@ -10,8 +10,10 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2564
 wordpress_url: http://codehero.co/?p=2564
 date: 2013-11-08 00:05:02.000000000 -04:30
+serie: iOS 7 descodificado
 dificultad: Novato
 duracion: 15
+description: iOS 7 decodificado: Para este capítulo mostramos como manejar fuentes, campos de textos y la nueva administración de imágenes en los proyectos
 categories:
 - Cursos
 - iOS 7 decodificado

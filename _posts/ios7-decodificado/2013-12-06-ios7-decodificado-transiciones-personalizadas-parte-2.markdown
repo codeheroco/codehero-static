@@ -10,9 +10,11 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2820
 wordpress_url: http://codehero.co/?p=2820
 date: 2013-12-06 00:04:44.000000000 -04:30
+serie: iOS 7 descodificado
 dificultad: Aprendiz
-duracion: 20
+duracion: 30
 github: https://github.com/sampayo/transiciones_animadas_basica_ios7
+description: iOS7 Decodificado: curso donde te mostramos como hacer transiciones personalizadas e interactivas entre UIViewControllers
 categories:
 - Cursos
 - iOS 7 decodificado
