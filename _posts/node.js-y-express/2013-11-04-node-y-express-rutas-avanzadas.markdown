@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2533
 wordpress_url: http://codehero.co/?p=2533
 date: 2013-11-04 00:11:34.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 10
+description: Rutas avanzadas: En este capitulo de Node.js y Express veremos que hay muchas cosas más que podemos hacer con las rutas de las que ya hemos aprendido.
 categories:
 - Cursos
 tags:
@@ -31,12 +35,12 @@ tags:
 <p>Pudiéramos pedir los autores que están comprendidos en un rango según su posición en el Array:</p>
 
 <pre>app.get('/authors/:from-:to', function (request, response) {
-    
+
     var from = parseInt(request.params.from, 10),
          to   = parseInt(request.params.to, 10);
-    
+
     response.json(authors.slice(from, to + 1));
-    
+
 });
 </pre>
 
@@ -73,9 +77,9 @@ tags:
 <p>Y ahora en la función de nuestra ruta solo tenemos que hacer lo siguiente:</p>
 
 <pre>app.get('/authors/:from-:to', function (request, response) {
-    
+
     response.json(authors.slice(request.from, request.to + 1));
-    
+
 });
 </pre>
 

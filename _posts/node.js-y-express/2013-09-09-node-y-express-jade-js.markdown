@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2198
 wordpress_url: http://codehero.co/?p=2198
 date: 2013-09-09 00:03:06.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 20
+description: En este capitulo de Node.js y Express voy a hablarte de un tópico que tocamos muy por encima en el capítulo anterior, Jade.js.
 categories:
 - Cursos
 - Node.js
@@ -73,7 +77,7 @@ ul#lenguajes.lista
 <pre>p un texto corto
 
 p
-    | un 
+    | un
     | texto
     | muy
     |largo

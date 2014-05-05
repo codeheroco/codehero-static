@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2630
 wordpress_url: http://codehero.co/?p=2630
 date: 2013-11-18 00:00:01.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 10
+description: En este capitulo hablaré de como hacer uso de cookies y sesiones con Node.js y Express
 categories:
 - Cursos
 - Node.js
@@ -37,7 +41,7 @@ tags:
   .cookie('name', req.params.name)
   .send('<p>
   Vea el valor del cookie <a href="/name">aquí</a>
-  
+
 </p>');
 
 });
@@ -95,7 +99,7 @@ tags:
   res
   .send('<p>
   Vea el valor de esta sesión <a href="/name">aquí</a>
-  
+
 </p>');
 
 });

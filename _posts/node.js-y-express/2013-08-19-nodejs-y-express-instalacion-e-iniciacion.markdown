@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2003
 wordpress_url: http://codehero.co/?p=2003
 date: 2013-08-19 01:38:11.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 10
+description: En este tutorial vamos a aprender como instalar y correr nuestra primera aplicación haciendo uso de Node.js y el framework Express.
 categories:
 - Cursos
 - Node.js

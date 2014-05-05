@@ -10,6 +10,11 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2970
 wordpress_url: http://codehero.co/?p=2970
 date: 2014-02-03 00:01:09.000000000 -04:30
+serie: Node.js y Express
+dificultad: Heroe
+duracion: 20
+github: https://github.com/codeheroco/express-proyecto-modular/tree/parte2
+description: En el presente tutorial voy a mostrar como desarrollar las funciones que faltan del CRUD: "retreave/read", "update" y "delete/destroy".
 categories:
 - Cursos
 - Node.js

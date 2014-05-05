@@ -10,6 +10,11 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2078
 wordpress_url: http://codehero.co/?p=2078
 date: 2013-08-26 00:01:50.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 20
+github: https://github.com/codeheroco/nodejs-y-express-rutas
+description: Para este tutorial vamos a escribir una aplicación desde cero y a definir sus rutas
 categories:
 - Cursos
 - Node.js

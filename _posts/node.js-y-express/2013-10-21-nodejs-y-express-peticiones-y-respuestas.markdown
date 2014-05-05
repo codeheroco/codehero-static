@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2425
 wordpress_url: http://codehero.co/?p=2425
 date: 2013-10-21 01:58:47.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 10
+description: En este capítulo voy a profundizar en las peticiones y respuestas mostrarte lo importantes o útiles que pueden ser para el desarrollo de nuestras apps.
 categories:
 - Cursos
 - Node.js
@@ -33,7 +37,7 @@ tags: []
 app.get("/", function(request, response) {
 
     response.send(request.get('user-agent'));
-    
+
 });
 </pre>
 
@@ -49,7 +53,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like G
 app.get("/", function(request, response) {
 
     response.send(request.accepted);
-    
+
 });
 </pre>
 
@@ -98,7 +102,7 @@ app.get("/", function(request, response) {
 app.get("/", function(request, response) {
 
     response.send(request.acceptedCharsets);
-    
+
 });
 </pre>
 
@@ -108,7 +112,7 @@ app.get("/", function(request, response) {
 app.get("/", function(request, response) {
 
   response.send(request.acceptsCharset('utf-8') ? 'yes' : 'no');
-  
+
 });
 </pre>
 
@@ -120,7 +124,7 @@ app.get("/", function(request, response) {
 app.get("/", function(request, response) {
 
   response.send(request.acceptedLanguages);
-  
+
 });
 </pre>
 
@@ -132,7 +136,7 @@ app.get("/", function(request, response) {
 app.get("/a", function(request, response) {
 
   response.send(request.acceptsLanguage('es') ? 'yes' : 'no');
-  
+
 });
 </pre>
 
@@ -146,7 +150,7 @@ app.get("/a", function(request, response) {
 app.get("/name/:name", function(request, response) {
 
   response.send("Hola, " + request.params.name);
-  
+
 });
 </pre>
 
@@ -156,7 +160,7 @@ app.get("/name/:name", function(request, response) {
 app.get("/name/:name?", function(request, response) {
 
   response.send("Hola, " + request.params.name);
-  
+
 });
 </pre>
 
@@ -166,7 +170,7 @@ app.get("/name/:name?", function(request, response) {
 app.get("/name/:name?", function(request, response) {
 
   response.send(request.param('name', 'valor default'));
-  
+
 });
 </pre>
 
@@ -202,7 +206,7 @@ app.get("/name/:name?", function(request, response) {
 app.get("/a", function(request, response) {
 
   response.send(403, 'prohibido el acceso :P');
-  
+
 });
 </pre>
 
@@ -218,7 +222,7 @@ app.get("/a", function(request, response) {
 app.get("/", function(request, response) {
 
   response.json({ message: '¡hola!'});
-  
+
 });
 </pre>
 
@@ -232,7 +236,7 @@ app.get("/", function(request, response) {
 app.get("/", function(request, response) {
 
   response.type('image/png').send('esto es una imagen');
-  
+
 });
 </pre>
 
@@ -248,7 +252,7 @@ app.get("/", function(request, response) {
     json: function() { response.json({ message: "Hola" }) },
     text: function() { response.send("hola") },
   });
-  
+
 });
 </pre>
 
@@ -272,7 +276,7 @@ hola
 app.get("/", function(request, response) {
 
   response.redirect('/name');
-  
+
 });
 </pre>
 

@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2788
 wordpress_url: http://codehero.co/?p=2788
 date: 2013-12-02 00:10:36.000000000 -04:30
+serie: Node.js y Express
+dificultad: Aprendiz
+duracion: 10
+description: En este capítulo les voy a hablar sobre como crear sus propios módulos de Node.js. Este tutorial no tiene que ver con Express sino con Node directamente.
 categories:
 - Node.js
 tags:
@@ -54,11 +58,11 @@ http.createServer(app).listen(app.get('port'), function(){ // 2
     this.miAtributo;
 
     this.unMetodo = function () {
-    
+
         // hacer algo
-    
+
     }
-    
+
     return this;
 }
 
@@ -85,9 +89,9 @@ module.exports = miClase; //2
 var health = 10;
 
 var getHit = function (amount) {
-    
+
     health -= amount;
-    
+
 }
 
 module.exports.health = health; // 1
@@ -128,13 +132,13 @@ $Fuiste atacado, tus vidas disminuyeron a: 9
 var HealthComponent = function (initialHealth) {
 
     this.health = initialHealth;
-    
+
     this.getHit = function (amount) {
-        
+
         this.health -= amount;
-        
+
     }
-    
+
     return this;
 }
 

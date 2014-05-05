@@ -10,6 +10,11 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2144
 wordpress_url: http://codehero.co/?p=2144
 date: 2013-09-02 00:02:53.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 30
+github: https://github.com/codeheroco/node-y-express-vistas
+description: En el capitulo de hoy estaremos hablando de como hacer vistas en node.js y express utilizando Jade.js
 categories:
 - Cursos
 - Node.js
@@ -54,7 +59,7 @@ h1 ¡Hola, Express!
 <p>Abrimos <em>"app.js"</em> y buscamos el código donde esta la configuración de la aplicación:</p>
 
 <pre>
-// app.js 
+// app.js
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.bodyParser());

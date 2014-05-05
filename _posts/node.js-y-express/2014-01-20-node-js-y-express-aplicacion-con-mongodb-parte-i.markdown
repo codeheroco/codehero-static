@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2925
 wordpress_url: http://codehero.co/?p=2925
 date: 2014-01-20 00:01:09.000000000 -04:30
+serie: Node.js y Express
+dificultad: Heroe
+duracion: 10
+description: En el siguiente tutorial voy unir varios temas que tocamos durante la serie para desarrollar una simple aplicación de Express que conecta con MongoDB
 categories:
 - Cursos
 - Node.js
@@ -223,7 +227,7 @@ form(method="POST", action="/user")
 
   var u = req.body;
 
-  // podemos acceder a DB sin hacer 
+  // podemos acceder a DB sin hacer
   // require porque es global
   var newUser = new db.User({
     name: u.name,
@@ -234,20 +238,20 @@ form(method="POST", action="/user")
   // también podía hacer `new db.User(u)`
   // porque los campos del formulario
   // tienen el mismo nombre del las
-  // propiedades del modelo. Para 
+  // propiedades del modelo. Para
   // efectos demostrativos aquí cree
   // un objeto con las mismas propiedades
   // y les asigné los valores que vienen
   // del formulario.
 
   newUser.save(function(error, user) {
-    
+
     if (error) response.json(error);
 
     response.redirect('/user');
 
   }
-  
+
 });
 </pre>
 

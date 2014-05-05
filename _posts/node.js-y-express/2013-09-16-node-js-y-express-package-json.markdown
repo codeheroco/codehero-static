@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2237
 wordpress_url: http://codehero.co/?p=2237
 date: 2013-09-16 00:00:17.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 10
+description: En este capítulo te mostraré la funcion del archivo package.json en una aplicación Node.js
 categories:
 - Node.js
 tags:
@@ -148,7 +152,7 @@ tags:
 
 <p>Se puede controlar incluso en que versión de Node o NPM debe correrse el proyecto:</p>
 
-<pre>"engines": { 
+<pre>"engines": {
     "node": ">=0.10.3 &lt;0.12",
     "npm": "~1.0.20"
 }
