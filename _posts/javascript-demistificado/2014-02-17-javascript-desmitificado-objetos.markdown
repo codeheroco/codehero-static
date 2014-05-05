@@ -22,7 +22,7 @@ tags:
 - metodos
 - herencia
 ---
-<p>Creo que no tengo que empezar esta serie definiedo JavaScript, porque en realidad cualquier persona interesada en el mundo del software "sabe" o programa javascript. Y hago mal uso gramatical de las comillas para decir "sabe", porque este lenguaje es tan usado mundialmente que cualquier persona puede agregar en su curriculum que programa JavaScript. Lo cierto es que es muy fácil creer que Javascript es solo para manipular documentos HTML, yo lo creía, hasta que decidí tomármelo en serio.</p>
+<p>Creo que no tengo que empezar esta serie definiedo JavaScript, porque en realidad cualquier persona interesada en el mundo del software "sabe" o programa javascript. Y hago mal uso gramatical de las comillas para decir "sabe", porque este lenguaje es tan usado mundialmente que cualquier persona puede agregar en su curriculum que programa JavaScript. Lo cierto es que es muy f�cil creer que Javascript es solo para manipular documentos HTML, yo lo cre�a, hasta que decid� tom�rmelo en serio.</p>
 
 <p>Antes de empezar veamos un poco de background.</p>
 
@@ -30,17 +30,17 @@ tags:
 
 <h2>Historia</h2>
 
-<p>Javascript apareció por primera vez al público como parte del explorador Netscape Navigator 2.0 en 1996. Y luego, al año siguiente, fue estandarizado por ECMA International llamándolo ECMAScript.</p>
+<p>Javascript apareci� por primera vez al p�blico como parte del explorador Netscape Navigator 2.0 en 1996. Y luego, al a�o siguiente, fue estandarizado por ECMA International llam�ndolo ECMAScript.</p>
 
-<p>Lo que conocemos como JavaScript hoy en día es una implementación de la especificación de lenguaje ECMAScript, de la cual cambien derivan lenguajes como ActionScript,  JScript, TypeScript, etc.</p>
+<p>Lo que conocemos como JavaScript hoy en d�a es una implementaci�n de la especificaci�n de lenguaje ECMAScript, de la cual cambien derivan lenguajes como ActionScript,  JScript, TypeScript, etc.</p>
 
-<p>La especificación de ECMAScript cambia con el tiempo, introduciendo soluciones a viejos problemas y soporte para nuevas tecnologías.</p>
+<p>La especificaci�n de ECMAScript cambia con el tiempo, introduciendo soluciones a viejos problemas y soporte para nuevas tecnolog�as.</p>
 
 <p>Javascript es un lenguaje de scripting y a la vez orientado a objetos, que aunque su nombre incluye "Java" no tiene nada o poco que ver con el lenguaje Java, de hecho, inicialmente iba a llamarse LifeScript, pero tras los acuerdos entre Sun Microsystems y Netscape decidieron llamarlo JavaScript para mercadearlo como un complemento de scripting del lenguaje Java.</p>
 
 <p>A pesar de que inicialmente fue pensado como un lenguaje de scripting para exploradores hoy podemos ver JavaScript del lado del servidor con Node.js</p>
 
-<p>Entonces, como todo el mundo "sabe" JavaScript no voy a empezar esta serie explicando cosas básicas como crear variables, operaciones, condicionales o ciclos. Vamos directo a lo que nos interesa.</p>
+<p>Entonces, como todo el mundo "sabe" JavaScript no voy a empezar esta serie explicando cosas b�sicas como crear variables, operaciones, condicionales o ciclos. Vamos directo a lo que nos interesa.</p>
 
 <hr />
 
@@ -51,16 +51,16 @@ tags:
 <p>Existen tres maneras de hacer una instancia de un objeto en javascript:</p>
 
 <ul>
-<li>La forma literal: <code>var x = {};</code>. Con esto creamos un objeto vacío.</li>
+<li>La forma literal: <code>var x = {};</code>. Con esto creamos un objeto vac�o.</li>
 <li>Utilizando el operador new: <code>var x = new Object();</code>.</li>
-<li>Utilizando la función create: <code>baz = Object.create(null);</code>.</li>
+<li>Utilizando la funci�n create: <code>baz = Object.create(null);</code>.</li>
 </ul>
 
-<p>A continuación explico las diferencias de crear objetos con estas tres formas diferentes.</p>
+<p>A continuaci�n explico las diferencias de crear objetos con estas tres formas diferentes.</p>
 
 <h3>Objetos literales</h3>
 
-<p>La forma literal es permite describir objetos de manera clara y compacta. Puedes describir objetos entre llaves con propiedades separadas por comas. Esta forma no es invocada explícitamente, es solo un atajo para usar el método <code>Object.create()</code>.</p>
+<p>La forma literal es permite describir objetos de manera clara y compacta. Puedes describir objetos entre llaves con propiedades separadas por comas. Esta forma no es invocada expl�citamente, es solo un atajo para usar el m�todo <code>Object.create()</code>.</p>
 
 <pre lang="javascript">
 var card = {
@@ -76,7 +76,7 @@ console.log(card.bar); // -> Oscar
 console.log(card2.bar); // -> Oscar
 </pre>
 
-<p>Por ser tan simple la forma literal es que el constructor del objeto no puede ser redefinido, de modo que no se puede definir un objeto cuyo prototipo sea diferente al por defecto. Ya explicaré lo que es el prototipo más adelante.</p>
+<p>Por ser tan simple la forma literal es que el constructor del objeto no puede ser redefinido, de modo que no se puede definir un objeto cuyo prototipo sea diferente al por defecto. Ya explicar� lo que es el prototipo m�s adelante.</p>
 
 <h3>Objetos con operador new</h3>
 
@@ -91,25 +91,25 @@ var sinNombre = new Person();
 var oscar = new Person('Oscar');
 </pre>
 
-<p>Veamos lo que hace intrínsecamente este operador (new):</p>
+<p>Veamos lo que hace intr�nsecamente este operador (new):</p>
 
 <ol>
 <li>Se crea el objeto nuevo.</li>
-<li>Se conecta el constructor del nuevo objeto a la función Person.</li>
+<li>Se conecta el constructor del nuevo objeto a la funci�n Person.</li>
 <li>Se conecta el prototipo del objeto Object con Person.prototype.</li>
-<li>Se asigna cualquier argumento pasado a la función al objeto creado.</li>
+<li>Se asigna cualquier argumento pasado a la funci�n al objeto creado.</li>
 </ol>
 
 <p>Este enfoque le da al lenguaje un estilo de "clases" que confunde a mucha gente, porque realmente no existen las clases en Javascript como las conocemos en otros lenguajes como Java, C#, Objective-C. En Javascript hay solo objetos que pueden ser extendidos.</p>
 
 <h3>Objetos con Object.create()</h3>
 
-<p>Esta forma fue introducida en ECMAScript 5. Basicamente hace lo mismo que la forma con el operador <code>new</code>, solo que esta tiene sintaxis más consistente con el resto del lenguaje, ademas de facilitar la herencia por prototipo.</p>
+<p>Esta forma fue introducida en ECMAScript 5. Basicamente hace lo mismo que la forma con el operador <code>new</code>, solo que esta tiene sintaxis m�s consistente con el resto del lenguaje, ademas de facilitar la herencia por prototipo.</p>
 
 <pre lang="javascript">
 var Person = {
   introduce: function(age) {
-        console.log( 'Hola, mi nombre es ' + this.name + ' y tengo ' + age + ' años de edad');
+        console.log( 'Hola, mi nombre es ' + this.name + ' y tengo ' + age + ' a�os de edad');
    }
 };
 
@@ -129,7 +129,7 @@ oscar.introduce(26);
 
 <h3>Extendiendo objetos</h3>
 
-<p>JavaScript es un lenguaje muy flexible. Permite agregar funciones y propiedades a objetos de manera dinámica sin mucho esfuerzo.</p>
+<p>JavaScript es un lenguaje muy flexible. Permite agregar funciones y propiedades a objetos de manera din�mica sin mucho esfuerzo.</p>
 
 <pre>
 var Person = function (name) {
@@ -145,21 +145,21 @@ var Person = function (name) {
 var oscar = new Person('Oscar');
 
 // Agregando atributo nuevo
-oscar.lastname = 'González';
+oscar.lastname = 'Gonz�lez';
 
-// Agregando una función nueva
+// Agregando una funci�n nueva
 oscar.introduceFull = function () {
   return this.introduce() + ' ' + this.lastname;
 };
 
-console.log(oscar.introduceFull()); // -> "Hola, mi nombre es Oscar González"
+console.log(oscar.introduceFull()); // -> "Hola, mi nombre es Oscar Gonz�lez"
 </pre>
 
-<p>Esta es una manera de expresar herencia de objetos. Un tanto extraño porque estamos acostumbrados a herencia de clases.</p>
+<p>Esta es una manera de expresar herencia de objetos. Un tanto extra�o porque estamos acostumbrados a herencia de clases.</p>
 
 <h3>Prototipos</h3>
 
-<p>Los prototipos permiten conectar entre si a los objetos. JavaScript usa una cadena de prototipos, de manera que, cuando intentas hacer una referencia una propiedad, se viaja a través de la cadena hasta alcanzar la en la conexión correcta. Se puede acceder al prototipo de un objeto de la siguiente manera:</p>
+<p>Los prototipos permiten conectar entre si a los objetos. JavaScript usa una cadena de prototipos, de manera que, cuando intentas hacer una referencia una propiedad, se viaja a trav�s de la cadena hasta alcanzar la en la conexi�n correcta. Se puede acceder al prototipo de un objeto de la siguiente manera:</p>
 
 <ul>
 <li>Person.prototype define el prototipo para un objeto instanciado con el operador <code>new</code></li>
@@ -175,7 +175,7 @@ var Person = function (name) {
 var oscar = new Person('Oscar');
 var pepe = new Person('Pepe');
 
-// Definiendo una función por el prototipo afecta todas las instancias de un objeto
+// Definiendo una funci�n por el prototipo afecta todas las instancias de un objeto
 Person.prototype.introduce = function() {
   return 'Hola, mi nombre es ' + this.name;
 };
@@ -183,7 +183,7 @@ Person.prototype.introduce = function() {
 console.log(oscar.introduce());
 console.log(pepe.introduce());
 
-// Definir una función con el mismo nombre solo afecta al objeto localmente
+// Definir una funci�n con el mismo nombre solo afecta al objeto localmente
 oscar.introduce = function() {
   return 'Hola, mi nombre alreves es ' + this.name.split("").reverse().join("");
 };
@@ -198,28 +198,28 @@ console.log(oscar.introduce());
 console.log(pepe.introduce());
 </pre>
 
-<h3>Propiedades y métodos privados</h3>
+<h3>Propiedades y m�todos privados</h3>
 
-<p>En ejemplos anteriores hemos visto como se crean propiedades y métodos públicos. Veamos ahora los privados.</p>
+<p>En ejemplos anteriores hemos visto como se crean propiedades y m�todos p�blicos. Veamos ahora los privados.</p>
 
 <pre>
 var Person = function (name) {
 
-  // propiedad pública
+  // propiedad p�blica
   this.name = name || '';
 
   // propiedad privada
-  var lastname = 'González';
+  var lastname = 'Gonz�lez';
 
   // propiedad privada
   var myName = this.name;
 
-  // método privado
+  // m�todo privado
   var fullName = function () {
     return myName + ' ' + lastname;
   }
 
-  // método público
+  // m�todo p�blico
   this.introduce = function() {
     return 'Hola, mi nombre es ' + fullName();
   };
@@ -229,19 +229,19 @@ var Person = function (name) {
 var oscar = new Person('Oscar');
 
 console.log(oscar.name); // -> "Oscar"
-console.log(oscar.introduce());// -> "Hola, mi nombre es Oscar González"
+console.log(oscar.introduce());// -> "Hola, mi nombre es Oscar Gonz�lez"
 console.log(oscar.lastname); // -> undefined
 console.log(oscar.fullName()); // Error: -> "Object [object Object] has no method 'fullName'"
 </pre>
 
 <hr />
 
-<h2>Conclusión</h2>
+<h2>Conclusi�n</h2>
 
-<p>En este tutorial he presentado los fundamentos de los objetos en JavaScript. Por supuesto que todavía se puede decir mucho más sobre el tema, pero pasaríamos días hablando. Con esto es mas que suficiente para estar, como dicen, "up and running" con el paradigma POO en JavaScript.</p>
+<p>En este tutorial he presentado los fundamentos de los objetos en JavaScript. Por supuesto que todav�a se puede decir mucho m�s sobre el tema, pero pasar�amos d�as hablando. Con esto es mas que suficiente para estar, como dicen, "up and running" con el paradigma POO en JavaScript.</p>
 
-<p>Dudas o comentarios pueden ser dejados en la sección correspondiente más abajo.</p>
+<p>Dudas o comentarios pueden ser dejados en la secci�n correspondiente m�s abajo.</p>
 
-<p>Si te ha gustado esta publicación, ayudamos compartiéndola en tus redes sociales favoritas.</p>
+<p>Si te ha gustado esta publicaci�n, ayudamos comparti�ndola en tus redes sociales favoritas.</p>
 
 <p>Saludos.</p>
