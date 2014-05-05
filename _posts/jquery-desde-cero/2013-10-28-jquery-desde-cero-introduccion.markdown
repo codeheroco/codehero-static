@@ -10,6 +10,8 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2456
 wordpress_url: http://codehero.co/?p=2456
 date: 2013-10-28 00:05:33.000000000 -04:30
+dificultad: Novato
+duracion: 10
 categories:
 - jQuery
 tags:

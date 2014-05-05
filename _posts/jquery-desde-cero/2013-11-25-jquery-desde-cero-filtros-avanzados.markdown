@@ -10,6 +10,8 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2669
 wordpress_url: http://codehero.co/?p=2669
 date: 2013-11-25 00:09:53.000000000 -04:30
+dificultad: Heroe
+duracion: 15
 categories:
 - Cursos
 - jQuery

@@ -10,6 +10,8 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2950
 wordpress_url: http://codehero.co/?p=2950
 date: 2014-01-27 01:31:58.000000000 -04:30
+dificultad: Novato
+duracion: 10
 categories:
 - Cursos
 - jQuery
