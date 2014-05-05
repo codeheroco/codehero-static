@@ -10,6 +10,8 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2564
 wordpress_url: http://codehero.co/?p=2564
 date: 2013-11-08 00:05:02.000000000 -04:30
+dificultad: Novato
+duracion: 15
 categories:
 - Cursos
 - iOS 7 decodificado

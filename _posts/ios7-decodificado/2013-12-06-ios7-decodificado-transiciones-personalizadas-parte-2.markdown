@@ -10,6 +10,9 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2820
 wordpress_url: http://codehero.co/?p=2820
 date: 2013-12-06 00:04:44.000000000 -04:30
+dificultad: Aprendiz
+duracion: 20
+github: https://github.com/sampayo/transiciones_animadas_basica_ios7
 categories:
 - Cursos
 - iOS 7 decodificado
