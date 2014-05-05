@@ -10,6 +10,9 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 3121
 wordpress_url: http://codehero.co/?p=3121
 date: 2014-03-17 00:00:42.000000000 -04:30
+dificultad: Heroe
+duracion: 10
+description: En este capítulo de la serie explicaré lo que son las clausuras en Javascript y como su uso puede mejorar la calidad del código que escribimos
 categories:
 - Cursos
 - JavaScript
@@ -80,11 +83,11 @@ console.log(notFree); // => ReferenceError: notFree is not defined
         name: name,
         introduce: introduce
       };
-    }()); 
+    }());
   }
-  
+
   user = userFactory('Oscar');
-  
+
   console.log(user.introduce()); // => Hola mi nombre es Oscar
 </pre>
 
@@ -97,55 +100,55 @@ console.log(notFree); // => ReferenceError: notFree is not defined
 <p>El siguiente código puede encontrarse <a href="http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascrip">aquí</a></p>
 
 <pre lang="javascript">var mySingleton = (function () {
- 
+
   // Instance stores a reference to the Singleton
   var instance;
- 
+
   function init() {
- 
+
     // Singleton
- 
+
     // Private methods and variables
     function privateMethod(){
         console.log( "I am private" );
     }
- 
+
     var privateVariable = "Im also private";
- 
+
     var privateRandomNumber = Math.random();
- 
+
     return {
- 
+
       // Public methods and variables
       publicMethod: function () {
         console.log( "The public can see me!" );
       },
- 
+
       publicProperty: "I am also public",
- 
+
       getRandomNumber: function() {
         return privateRandomNumber;
       }
- 
+
     };
- 
+
   };
- 
+
   return {
- 
+
     // Get the Singleton instance if one exists
     // or create one if it doesn't
     getInstance: function () {
- 
+
       if ( !instance ) {
         instance = init();
       }
- 
+
       return instance;
     }
- 
+
   };
- 
+
 })();
 
 </pre>

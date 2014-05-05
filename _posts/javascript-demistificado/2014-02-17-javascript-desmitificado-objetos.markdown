@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 3036
 wordpress_url: http://codehero.co/?p=3036
 date: 2014-02-17 00:31:43.000000000 -04:30
+serie: Javascript Desmitificado
+dificultad: Aprendiz
+duracion: 30
+description: El enfoque orientado a objetos de JavaScript es un poco diferente al que podemos ver en otros lenguajes. Hay objetos, pero no clases. veamos a profundo.
 categories:
 - Cursos
 - JavaScript
@@ -131,9 +135,9 @@ oscar.introduce(26);
 
 <pre>
 var Person = function (name) {
-  
+
   this.name = name || '';
-  
+
   this.introduce = function() {
     return 'Hola, mi nombre es ' + this.name;
   };
@@ -166,7 +170,7 @@ console.log(oscar.introduceFull()); // -> "Hola, mi nombre es Oscar González"
 
 <pre lang="javascript">
 var Person = function (name) {
-  
+
   this.name = name || '';
 };
 
@@ -202,26 +206,26 @@ console.log(pepe.introduce());
 
 <pre>
 var Person = function (name) {
-  
+
   // propiedad pública
   this.name = name || '';
-  
+
   // propiedad privada
   var lastname = 'González';
-  
+
   // propiedad privada
   var myName = this.name;
-  
+
   // método privado
   var fullName = function () {
     return myName + ' ' + lastname;
   }
-  
+
   // método público
   this.introduce = function() {
     return 'Hola, mi nombre es ' + fullName();
   };
-  
+
 };
 
 var oscar = new Person('Oscar');

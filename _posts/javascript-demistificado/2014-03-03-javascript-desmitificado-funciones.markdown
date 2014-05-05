@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 3080
 wordpress_url: http://codehero.co/?p=3080
 date: 2014-03-03 00:03:46.000000000 -04:30
+serie: Javascript Desmitificado
+dificultad: Heroe
+duracion: 10
+description: En el capítulo anterior hablamos de objetos en Javascript. Casi todo es un objeto en este lenguaje, y las funciones no son la excepción.
 categories:
 - Cursos
 - JavaScript
@@ -89,7 +93,7 @@ sheep = {
 ;!function(obj) {
 
     obj.count --;
-    
+
 }(sheep);
 
 console.log(sheep.count); // => 9, si se modificó el objeto
@@ -101,17 +105,17 @@ console.log(sheep.count); // => 9, si se modificó el objeto
 <p>Todas las funciones en Javascript tienen un objeto llamado <code>arguments</code>, éste actúa como un comodín para acceder a cualquier cantidad de argumentos suplidos a la función.</p>
 
 <pre lang="javascript">// esta función no recibe explícitamente ningún argumento
-var sum = function () { 
+var sum = function () {
 
   var length = arguments.length,
       total = 0;
-      
+
   for (var i = 0; i &lt; length; i++) {
-      
+
       // se suman todos los argumentos
       total += arguments[i];
   }
-  
+
   return total;
 };
 
@@ -194,7 +198,7 @@ console.log(expresion())); // => Soy función por expresión
 
 // las funciones tienen su propio alcance
 ;!function() {
-  
+
   var a = "asdfg5447jmk212bfd";
 
   console.log(a); // => asdfg5447jmk212bfd
@@ -203,7 +207,7 @@ console.log(expresion())); // => Soy función por expresión
 
 console.log(a); //=> 100
 
-// los bloques 
+// los bloques
 if (a &lt; 50) {
   userId += 30;
 }
