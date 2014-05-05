@@ -10,6 +10,8 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1592
 wordpress_url: http://codehero.co/?p=1592
 date: 2013-07-22 00:36:47.000000000 -04:30
+dificultad: Novato
+duracion: 20
 categories:
 - Cursos
 - iOS

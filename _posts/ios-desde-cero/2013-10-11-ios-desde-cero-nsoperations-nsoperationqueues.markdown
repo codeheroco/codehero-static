@@ -10,6 +10,11 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2379
 wordpress_url: http://codehero.co/?p=2379
 date: 2013-10-11 00:24:05.000000000 -04:30
+serie: iOS desde Cero
+dificultad: Novato
+duracion: 20
+github: https://github.com/codeheroco/iOS_queue
+description: iOS desde Cero
 categories:
 - Cursos
 - iOS

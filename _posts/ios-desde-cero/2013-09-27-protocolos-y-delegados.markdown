@@ -10,6 +10,10 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2321
 wordpress_url: http://codehero.co/?p=2321
 date: 2013-09-27 00:35:04.000000000 -04:30
+serie: iOS desde Cero
+dificultad: Novato
+duracion: 20
+github: https://github.com/codeheroco/iOS_protocol
 categories:
 - Cursos
 - iOS
