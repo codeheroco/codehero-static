@@ -10,8 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 3053
 wordpress_url: http://codehero.co/?p=3053
 date: 2014-02-24 00:10:09.000000000 -04:30
+serie: jQuery desde Cero
 dificultad: Aprendiz
 duracion: 10
+description: En este capítulo aprenderemos a usar un conjunto de funciones para aplicar animaciones y efectos en nuestras páginas y aplicaciones web.
 categories:
 - Cursos
 - jQuery
@@ -86,7 +88,7 @@ tags:
 <p>Si ninguna de las animaciones anteriores se ajusta a tus necesidades, puedes crear tus propias animaciones. Tu imaginación es el límite, literalmente.</p>
 
 <ul>
-<li><code>animate(parámetros, duración, easing, callback)</code>: realiza una animación de los parámetros especificados. 
+<li><code>animate(parámetros, duración, easing, callback)</code>: realiza una animación de los parámetros especificados.
 
 <ul>
 <li>Parametros: propiedades de los elementos a animar ("with", "height", "padding", etc).</li>

@@ -10,8 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2827
 wordpress_url: http://codehero.co/?p=2827
 date: 2013-12-09 01:12:17.000000000 -04:30
+serie: jQuery desde Cero
 dificultad: Novato
 duracion: 20
+description: En este capítulo hablaremos de como iterar sobre elementos del documento.
 categories:
 - Cursos
 - jQuery
@@ -88,7 +90,7 @@ tags:
 <p>Debemos obtener:</p>
 
 <pre lang="javascript">
-> Lista: 
+> Lista:
 [object HTMLLIElement],[object HTMLLIElement],[object HTMLLIElement],[object HTMLLIElement]
 </pre>
 
@@ -202,7 +204,7 @@ tags:
 > El texto del elemento 0 es: item 1
 > El texto del elemento 1 es: item 2
 > El texto del elemento 2 es: item 3
-> El texto del elemento 3 es: item 4 
+> El texto del elemento 3 es: item 4
 </pre>
 
 <hr />

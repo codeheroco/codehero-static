@@ -10,8 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2950
 wordpress_url: http://codehero.co/?p=2950
 date: 2014-01-27 01:31:58.000000000 -04:30
+serie: jQuery desde Cero
 dificultad: Novato
 duracion: 10
+description: Veamos ahora otro grupo de operaciones que nos permiten envolver, copiar y reemplazar contenido, además de algunas otras que involucran css.
 categories:
 - Cursos
 - jQuery
@@ -45,24 +47,24 @@ tags:
     <head>
       <meta charset="UTF-8">
       <title>jQuery desde Cero</title>
-      
+
       <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-      
+
     </head>
     <body>
-    
+
       <ul class="avengers">
         <li>Ironman</li>
         <li>Thor</li>
         <li>Captain America</li>
         <li>Hulk</li>
       </ul>
-      
+
       <p>texto de prueba</p>
       <p>texto de prueba 2</p>
       <p>texto de prueba 3</p>
       <p>texto de prueba 4</p>
-      
+
     </body>
 </html>
 </pre>

@@ -10,8 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2669
 wordpress_url: http://codehero.co/?p=2669
 date: 2013-11-25 00:09:53.000000000 -04:30
+serie: jQuery desde Cero
 dificultad: Heroe
 duracion: 15
+description: En este capítulo vamos a estudiar otro grupo de filtros que llevan un paso más adelante el refinamiento de nuestra selección de elementos del documento.
 categories:
 - Cursos
 - jQuery
@@ -49,7 +51,7 @@ tags:
 <p>Realizaremos las siguientes consultas:</p>
 
 <pre><script type="text/javascript">
-    
+
     $("document").ready(function() {
 
       // seleccionar todos los párrafos que tengan el atributo class
@@ -65,7 +67,7 @@ tags:
       $('p[id^=para][align*=center]');
 
     });
-    
+
 </script>
 </pre>
 
@@ -94,7 +96,7 @@ $('p:contains(Luigi)');
 
 <pre>// Seleccionar todos los párrafos que contienen al menos un hijo (incluyendo texto)
     $('p:parent');
-    
+
     // Seleccionar todos los ul que contengan li con la clase "a"
     $('ul:has(li[class=a])');
 </pre>
@@ -130,13 +132,13 @@ $('p:contains(Luigi)');
 
 <pre>// Seleccionar el elemento li que este de segundo en un elemento ul
     $('ul li:nth-child(2)');
-    
+
     // Seleccionar el elemento li que este de último en un elemento ul
     $('ul li:last-child');
-    
+
     // Seleccionar el elemento li que esté en una posición 2n en un elemento ul
     $('ul li:nth-child(2n)');
-    
+
     // Seleccionar el elemento li que esté en una posición 2n en un elemento ul
     $('ul li:nth-child(2n)');
 

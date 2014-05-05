@@ -10,8 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2571
 wordpress_url: http://codehero.co/?p=2571
 date: 2013-11-11 00:51:54.000000000 -04:30
+serie: jQuery desde Cero
 dificultad: Novato
 duracion: 10
+description: En este capítulo de jQuery desde cero voy a hablarles de los Selectores y los filtros que podemos aplicar a un documento html.
 categories:
 - Cursos
 - jQuery

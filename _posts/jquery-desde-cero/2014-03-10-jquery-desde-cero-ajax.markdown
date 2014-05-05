@@ -10,8 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 3108
 wordpress_url: http://codehero.co/?p=3108
 date: 2014-03-10 00:00:13.000000000 -04:30
+serie: jQuery desde Cero
 dificultad: Aprendiz
 duracion: 10
+description: Con jQuery hacer uso de AJAX es muy sencillo. Esta tecnología nos permite comunicarnos con un servicio web sin tener que recargar la página.
 categories:
 - Cursos
 - jQuery

@@ -10,8 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2910
 wordpress_url: http://codehero.co/?p=2910
 date: 2014-01-13 00:01:45.000000000 -04:30
+serie: jQuery desde Cero
 dificultad: Novato
 duracion: 15
+description: En el capítulo anterior estudiamos varias funciones para obtener contenido del documento, veamos ahora como podemos manipular el contenido obtenido.
 categories:
 - Cursos
 - jQuery
@@ -40,8 +42,8 @@ tags:
 
 <pre lang="javascript">var p = $('<p>
   Nuevo Párrafo
-    
-  
+
+
 </p>');
 
 // igualmente se puede
@@ -53,8 +55,8 @@ var htmlString = '
 
 <p>
   Nuevo Párrafo
-    
-  
+
+
 </p>';
 var p = $(htmlString);
 
@@ -75,45 +77,45 @@ var p = $(htmlString);
 
 <pre lang="html">&lt;!doctype html>
 
-    
-    
-    
+
+
+
       <ul class="avengers">
   <li>
     Ironman
-          
-      
+
+
   </li>
-              
-      
-    
+
+
+
   <li>
     Thor
-          
-      
+
+
   </li>
-              
-      
-    
+
+
+
   <li>
     Captain America
-          
-      
+
+
   </li>
-              
-      
-    
+
+
+
   <li>
     Hulk
-          
-      
+
+
   </li>
-            
-    
-  
+
+
+
 </ul>
-      
-    
+
+
 
 </pre>
 
@@ -122,13 +124,13 @@ var p = $(htmlString);
 <pre lang="javascript"><script type="text/javascript">
 
    $('document').ready(function() {
-  
+
      $('.avengers').html('<li>
   Black Widow
-    
-  
+
+
 </li>');
-  
+
    });
 
  </script>
@@ -141,15 +143,15 @@ var p = $(htmlString);
 <pre lang="javascript"><script type="text/javascript">
 
    $('document').ready(function() {
-  
+
      var blackWidow = $('<li>
   Black Widow
-    
-  
+
+
 </li>');
-   
+
      $('.avengers').html(blackWidow.html());
-  
+
    });
 
  </script>
@@ -177,11 +179,11 @@ var p = $(htmlString);
 
   <h1>
   The Avengers
-    
-  
+
+
 </h1>
 
-  
+
 
 
 
@@ -269,25 +271,25 @@ var p = $(htmlString);
   The Avengers
 </h1>
 
-  
+
 
 <ul class="avengers">
   <li>
     Ironman
   </li>
-      
+
   <li>
     Thor
   </li>
-      
+
   <li>
     Captain America
   </li>
-      
+
   <li>
     Hulk
   </li>
-    
+
 </ul>
 
 
@@ -302,8 +304,8 @@ var p = $(htmlString);
 
     $('.avengers').append('<li>
   Black Widow
-    
-  
+
+
 </li>');
 
   });
@@ -319,8 +321,8 @@ var p = $(htmlString);
 
     $('.avengers').prepend('<li>
   Black Widow
-    
-  
+
+
 </li>');
 
   });
