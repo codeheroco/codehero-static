@@ -10,6 +10,11 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1399
 wordpress_url: http://codehero.co/?p=1399
 date: 2013-07-15 00:00:58.000000000 -04:30
+serie: Objective-C desde Cero
+dificultad: Novato
+duracion: 20
+github: https://github.com/codeheroco/objective-c-orientacion-a-objetos-2
+description: En este capítulo de orientación a objetos, hablaremos de como agregar atributos y propiedades, como crear protocolos y como extender una clase mediante el uso de categorías.
 categories:
 - Cursos
 - Objective-C
@@ -29,7 +34,7 @@ tags:
   <h4>
     ¡Alerta!
   </h4>
-  
+
   <span>En este capítulo seguiremos trabajando sobre el proyecto del capítulo anterior. Si no venías siguiendo la serie, puedes clonarlo del siguiente <a href="https://github.com/codeheroco/objective-c-orientacion-a-objetos" target="blank">repo de GitHub</a>. Si quieres leer en capitulo anterior, puedes visitarlo <a href="http://codehero.co/objective-c-desde-cero-orientacion-a-objetos/" target="blank">aquí</a></span>
 </div>
 
@@ -72,13 +77,13 @@ tags:
 <pre>@interface Person : NSObject
 {
     NSString *name;
-    
+
     @public
     NSDate *birthDate;
-    
+
     @private
     float height;
-    
+
     @protected
     float weight;
 }
@@ -95,13 +100,13 @@ tags:
 <pre>@interface Person : NSObject
 {
     NSString *name;
-    
+
     @public
     NSDate *birthDate;
-    
+
     @private
     float height;
-    
+
     @protected
     float weight;
 }
@@ -166,24 +171,24 @@ tags:
 <pre>- (id)init
 {
     self = [super init];
-    
+
     if (self)
     {
         // asignando a una variable por su nombre
         name = @"Oscar";
-        
+
         // asignando por propiedad con metodo de acceso
         [self setName:@"Oscar"];
         [self setBusinessPerson:YES];
-        
+
         // asignando por propiedad sin metodo de acceso
         _name = @"Oscar";
         _businessPerson = YES;
-        
+
         // asignando por propiedad con sintaxys de punto
         self.name = @"Oscar";
         self.businessPerson = YES;
-        
+
         // Accediendo a una variable por su metodo personalizado
         if ([self isBusinessPerson])
         {
@@ -191,12 +196,12 @@ tags:
             NSLog(@"%@ es una persona de negocios", self.name);
             NSLog(@"%@ es una persona de negocios", [self name]);
             NSLog(@"%@ es una persona de negocios", _name);
-            
+
             // estos tres últimos hacen lo mismo.
         }
-    
+
     }
-    
+
     return self;
 }
 </pre>
@@ -269,7 +274,7 @@ tags:
 - (void)generateIdentifier
 {
     self.identifier = 123545;
-    
+
     NSLog(@"Mi identificador es: %i", self.identifier);
 }
 …
@@ -336,20 +341,20 @@ int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        
+
         Person *oscar = [[Person alloc] init]; // ahora este utiliza el nuevo init que escribimos
-        
+
         [oscar walk];
-        
+
         [oscar jumpHeight:107.3f];
-        
+
         [oscar runDistance:10.5f withSpeed:8.0f];
-        
+
         [Person age];
-        
+
         // Método del protocolo
         [oscar generateIdentifier];
-        
+
         // Método de la categoria
         [oscar run];
     }

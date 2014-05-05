@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1022
 wordpress_url: http://codehero.co/?p=1022
 date: 2013-06-17 03:30:24.000000000 -04:30
+serie: Objective-C desde Cero
+dificultad: Novato
+duracion: 10
+description: Serie para aprender Objective-C el lenguaje para desarrollar para iOS y Mac OS X
 categories:
 - Cursos
 - Objective-C
@@ -50,8 +54,8 @@ tags:
 <div class="alert alert-info">
   <h4>
     ¡Alerta!
-  </h4> Los siguientes ejemplos son Objective-C puro, no son específicos del desarrollo iOS ni de Mac OS X, sino del lenguaje. Para información básica sobre Xcode y como usarlo puedes revisar el primer capítulo de la serie 
-  
+  </h4> Los siguientes ejemplos son Objective-C puro, no son específicos del desarrollo iOS ni de Mac OS X, sino del lenguaje. Para información básica sobre Xcode y como usarlo puedes revisar el primer capítulo de la serie
+
   <a href="http://codehero.co/ios-sdk-desde-cero-introduccion/">"iOS desde Cero"</a>.
 </div>
 
@@ -63,7 +67,7 @@ tags:
 
 <blockquote>
   <p><strong>"Foundation"</strong> es un framework de Apple que facilita el manejo de estructuras básicas como colecciones, strings, fechas, entre otros.</p>
-  
+
   <p><strong>"Automatic Reference Counting"</strong> (ARC) en un manejador de memoria (no recolector de basura como el de Java o C#) que nos ahorrará tener que hacer release (similar a delete o free en C++). ARC lleva el conteo de referencias (punteros) a direcciones de memoria y es capaz de hacer la liberación del espacio automáticamente por nosotros cuando el conteo llega a cero. En otras palabras, cuando creas un objeto, este es alocado en memoria y apuntado por una variable que llamamos "apuntador", cuando esta variable deja de existir (Ej: Terminó la ejecución de la función donde fue creado), el espacio de memoria no es apuntado por nadie, por lo tanto ARC lo borra.</p>
 </blockquote>
 
@@ -87,10 +91,10 @@ int main(int argc, const char * argv[]) //2
 {
 
     @autoreleasepool {                  //3
-        
+
         // insert code here...          //4
         NSLog(@"Hello, World!");        //5
-        
+
     }
     return 0;                           //6
 }
@@ -107,11 +111,11 @@ int main(int argc, const char * argv[]) //2
 
 <blockquote>
   <p>Objective-C es un lenguaje case sensitive, esto significa que <em>main</em> es diferente de <em>Main</em>.</p>
-  
+
   <p>Por otro lado, no es sensible a espacios en blanco por lo que la función <em>main</em> se podría declarar también de la siguiente manera:</p>
 </blockquote>
 
-<pre>int main(int argc, 
+<pre>int main(int argc,
          const char * argv[])
 ...
 </pre>
@@ -175,7 +179,7 @@ else {
     case 2:
         // other something
         break;
-        
+
     default:
         // none of the above
         break;

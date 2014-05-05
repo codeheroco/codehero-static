@@ -10,6 +10,11 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1786
 wordpress_url: http://codehero.co/?p=1786
 date: 2013-07-29 00:00:05.000000000 -04:30
+serie: Objective-C desde Cero
+dificultad: Novato
+duracion: 20
+github: https://github.com/codeheroco/Strings-Numeros-y-Collecciones
+description: En este capitulo hablaremos de NSStrings (strings), NSNumber (números), y Collecciones: NSArray, NSDiccionary, NSMutableArray y NSMutableDiccionary
 categories:
 - Cursos
 - Objective-C
@@ -68,7 +73,7 @@ tags:
 <p>Existen muchos constructores y métodos estáticos que inicializan la clase NSString. Con ellos podemos incluir otros tipos de datos y hacerlos formar parte del texto que queramos formar.</p>
 
 <pre>int anInteger = 48;
-        
+
 NSString *test3 = [NSString stringWithFormat:@"El numero es: %i", anInteger];
 </pre>
 
@@ -80,7 +85,7 @@ NSString *test3 = [NSString stringWithFormat:@"El numero es: %i", anInteger];
 
 <pre>NSMutableString *test4 = [NSMutableString stringWithFormat:@"Hola "];
 [test4 appendString:@"mundo"];
-        
+
 NSLog(@"test4 contiene: %@", test4);
 </pre>
 

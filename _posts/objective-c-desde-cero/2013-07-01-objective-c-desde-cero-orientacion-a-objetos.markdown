@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1245
 wordpress_url: http://codehero.co/?p=1245
 date: 2013-07-01 00:00:44.000000000 -04:30
+serie: Objective-C desde Cero
+dificultad: Novato
+duracion: 20
+description: En este capítulo de Objective-C desde Cero hablaremos de como este lenguaje implementa clases, objetos, métodos y apuntadores
 categories:
 - Cursos
 - Objective-C
@@ -30,8 +34,8 @@ tags:
 <div class="alert alert-info">
   <h4>
     ¡Alerta!
-  </h4> Para esta demostración vamos a abrir Xcode y vamos crear un proyecto nuevo de tipo "Command Line Tool" exactamente igual al del capitulo anterior, esta vez yo lo voy a llamar "Ejemplo - Objetos". Si no sabes como hacerlo, revisa: 
-  
+  </h4> Para esta demostración vamos a abrir Xcode y vamos crear un proyecto nuevo de tipo "Command Line Tool" exactamente igual al del capitulo anterior, esta vez yo lo voy a llamar "Ejemplo - Objetos". Si no sabes como hacerlo, revisa:
+
   <a href="">Objective-C desde Cero - Conceptos Básicos</a>
 </div>
 
@@ -92,10 +96,10 @@ int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        
+
         // insert code here...
         NSLog(@"Hello, World!");
-        
+
     }
     return 0;
 }
@@ -122,9 +126,9 @@ int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        
+
         Person *oscar = [[Person alloc] init];
-        
+
     }
     return 0;
 }
@@ -281,13 +285,13 @@ return myAge;
 
 <p>Ahora vamos a main.m a llamar a estos metodos, Esto lo hacemos de la siguiente manera:</p>
 
-<pre>[oscar walk];   
-        
+<pre>[oscar walk];
+
 [oscar jumpHeight:107.3f];  
-        
+
 [oscar runDistance:10.5f withSpeed:8.0f];
-        
-[Person age];   
+
+[Person age];
 </pre>
 
 <p>¿Ahora ves por qué se llaman mensajes?, es como si le hablaras a la clase/objeto para que haga algo.</p>
@@ -308,17 +312,17 @@ int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        
+
         Person *oscar = [[Person alloc] init];
-        
+
         [oscar walk];
-        
+
         [oscar jumpHeight:107.3f];
-        
+
         [oscar runDistance:10.5f withSpeed:8.0f];
-        
+
         [Person age];
-        
+
     }
     return 0;
 }
