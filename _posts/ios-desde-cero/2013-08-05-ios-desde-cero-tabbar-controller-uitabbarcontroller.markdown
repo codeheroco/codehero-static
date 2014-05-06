@@ -10,6 +10,9 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1868
 wordpress_url: http://codehero.co/?p=1868
 date: 2013-08-05 00:57:15.000000000 -04:30
+serie: iOS desde Cero
+dificultad: Novato
+duracion: 20
 categories:
 - Cursos
 - iOS
