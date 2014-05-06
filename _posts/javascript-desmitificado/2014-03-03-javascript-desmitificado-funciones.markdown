@@ -8,7 +8,7 @@ author_login: oscar
 author_email: gonzalezgreco@gmail.com
 author_url: http://www.oscarvgg.com
 date: 2014-03-03 00:03:46.000000000 -04:30
-serie: Javascript Desmitificado
+serie: JavaScript Desmitificado
 dificultad: Heroe
 duracion: 10
 description: En el capítulo anterior hablamos de objetos en Javascript. Casi todo es un objeto en este lenguaje, y las funciones no son la excepción.

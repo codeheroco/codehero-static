@@ -8,7 +8,7 @@ author_login: oscar
 author_email: gonzalezgreco@gmail.com
 author_url: http://www.oscarvgg.com
 date: 2014-04-21 00:00:00.000000000 -04:30
-serie: Javascript Desmitificado
+serie: JavaScript Desmitificado
 dificultad: Heroe
 duracion: 10
 description: Continuemos con más de coerción. En esta oportunidad voy a presentar su parte más confusa y compleja.

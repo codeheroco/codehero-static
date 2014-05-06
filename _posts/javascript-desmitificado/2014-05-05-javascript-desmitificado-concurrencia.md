@@ -7,7 +7,7 @@ author_login: oscar
 author_email: gonzalezgreco@gmail.com
 author_url: http://www.oscarvgg.com
 date: 2014-05-05 00:00:00.000000000 -04:30
-serie: Javascript Desmitificado
+serie: JavaScript Desmitificado
 dificultad: Heroe
 duracion: 10
 description: Javascript corre sobre un solo hilo (es single-threaded), no existe concurrencia real. Veamos como podemos emularla.

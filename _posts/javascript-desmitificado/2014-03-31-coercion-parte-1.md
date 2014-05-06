@@ -8,7 +8,7 @@ author_login: oscar
 author_email: gonzalezgreco@gmail.com
 author_url: http://www.oscarvgg.com
 date: 2014-03-31 00:00:00.000000000 -04:30
-serie: Javascript Desmitificado
+serie: JavaScript Desmitificado
 dificultad: Heroe
 duracion: 10
 description: Hoy les voy a hablar de uno de los temas más profundos y menos comentados de Javascript, la coerción.

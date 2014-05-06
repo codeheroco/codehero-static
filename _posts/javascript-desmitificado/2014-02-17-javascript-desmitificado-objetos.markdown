@@ -8,7 +8,7 @@ author_login: oscar
 author_email: gonzalezgreco@gmail.com
 author_url: http://www.oscarvgg.com
 date: 2014-02-17 00:31:43.000000000 -04:30
-serie: Javascript Desmitificado
+serie: JavaScript Desmitificado
 dificultad: Aprendiz
 duracion: 30
 description: El enfoque orientado a objetos de JavaScript es un poco diferente al que podemos ver en otros lenguajes. Hay objetos, pero no clases. veamos a profundo.
