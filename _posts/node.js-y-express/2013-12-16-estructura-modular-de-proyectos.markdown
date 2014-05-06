@@ -13,7 +13,7 @@ date: 2013-12-16 00:10:53.000000000 -04:30
 serie: Node.js y Express
 dificultad: Aprendiz
 duracion: 30
-github:https://github.com/codeheroco/express-proyecto-modular
+github: https://github.com/codeheroco/express-proyecto-modular
 description: En este capítulo te enseñaré como utilizar tus propios módulos para crear una estructura de proyecto mucho más fácil de mantener y extender.
 categories:
 - Node.js
