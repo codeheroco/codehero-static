@@ -46,7 +46,7 @@ En MongoDB la unidad de base de datos que se fragmenta son las colecciones. Por 
 
 ***
 
-{% include middle-post-ad.html %}
+
 
 ##Arquitectura
 Un *cluster* de fragmentación suele poseer una arquitectura como esta:

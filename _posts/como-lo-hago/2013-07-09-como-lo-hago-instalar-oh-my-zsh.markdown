@@ -111,7 +111,7 @@ De lo contrario utilizaremos el siguiente comando para manualmente definir el te
 $ chsh -s /bin/zsh
 ```
 
-{% include middle-post-ad.html %}
+
 
 ###Método manual
 El método manual de instalación requiere que tengamos instalado Git ([ingresa aquí para saber más sobre Git y su instalación](http://codehero.co/git-desde-cero-instalacion-configuracion-y-comandos-basicos/)). Clonaremos el repositorio de Github donde se encuentra alojado oh-my-zsh a nuestro sistema:

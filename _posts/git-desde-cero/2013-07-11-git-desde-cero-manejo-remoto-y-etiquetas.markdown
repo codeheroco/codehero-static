@@ -90,7 +90,7 @@ Una vez que hemos conectado el repositorio remoto con el local y tenemos cambios
 $ git push origin master
 ```
 
-{% include middle-post-ad.html %}
+
 
 <hr />
 

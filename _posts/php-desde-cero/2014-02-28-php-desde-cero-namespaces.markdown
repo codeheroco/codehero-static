@@ -105,7 +105,7 @@ Proyecto\Librerias\LibreriaGraficas
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Usar Namespaces</h2>
 

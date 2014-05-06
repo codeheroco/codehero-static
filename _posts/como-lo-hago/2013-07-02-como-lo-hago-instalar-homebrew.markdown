@@ -94,7 +94,7 @@ Como dijimos antes, los enlaces simbólicos de los paquetes de Hombrew se almace
 
 Es posible que un paquete ya se encuentre instalado en el computador y que nosotros hayamos decidido instalarlo por Homebrew, por ejemplo, Ruby. Podremos notar que tendremos 2 versiones de Ruby, una en ***/usr/bin*** y otra en ***/usr/local/bin*** (instalada por Homebrew).
 
-{% include middle-post-ad.html %}
+
 
 **¿Cómo saber cual de las 2 se está utilizando?**
 

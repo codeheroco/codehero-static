@@ -162,7 +162,7 @@ Los que trabajamos en Codehero somos todos amigos así que no es necesario guard
 
 > El valor que le "asignes" al campo a eliminar no tendrá ningun efecto, pero es necesario escribirlo por motivos de sintaxis.
 
-{% include middle-post-ad.html %}
+
 
 Pasemos ahora a la parte de modificación de arreglos, agreguemosle algunas secciones extra a nuestro autor:
 

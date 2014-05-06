@@ -124,7 +124,7 @@ foreach( $carros as $carro){
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <h3>Buscar un Registro</h3>
 

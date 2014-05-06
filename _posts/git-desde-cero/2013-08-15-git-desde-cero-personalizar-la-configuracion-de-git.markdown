@@ -66,7 +66,7 @@ $ git config --global --bool pull.rebase true
 
 <p>De requerir volver a un simple <em>merge</em> por una ocasión específica se puede emplear el comando <code>git pull --no-rebase</code>y listo.</p>
 
-{% include middle-post-ad.html %}
+
 
 <hr />
 

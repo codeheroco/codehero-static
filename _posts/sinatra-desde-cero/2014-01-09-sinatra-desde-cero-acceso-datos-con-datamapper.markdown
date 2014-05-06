@@ -101,7 +101,7 @@ $ gem install dm-sqlite-adapter
 $ irb
 ```
 
-{% include middle-post-ad.html %}
+
 
 <blockquote>
   <p>Todos los comandos a partir de este momento se ejecutan dentro de <code>irb</code>.</p>

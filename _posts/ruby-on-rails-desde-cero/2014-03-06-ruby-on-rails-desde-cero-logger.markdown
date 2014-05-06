@@ -81,7 +81,7 @@ end
 
 Podemos apreciar que fácilmente hemos agregado una línea referente a el logger y además la información que contiene en el objeto que fue creado en base de datos en conjunto con un *String* con referencia a esa información. De esta misma manera podemos emplear cualquier tipo de logging.
 
-{% include middle-post-ad.html %}
+
 
 #### ¿Cómo se ve en el log?
 

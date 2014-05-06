@@ -93,7 +93,7 @@ La moto esta frenando . . .
 
 <p>Para mostrar estos ejemplos utilizaremos algunos de los tipos de variables que estudiamos en el <a href="http://codehero.co/ruby-desde-cero-variables-y-objetos-2/">Capítulo 2: Variables y Objetos</a>.</p>
 
-{% include middle-post-ad.html %}
+
 
 ```ruby
 class Vehiculo

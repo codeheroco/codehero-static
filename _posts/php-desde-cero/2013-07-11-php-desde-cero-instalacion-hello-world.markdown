@@ -68,7 +68,7 @@ tags:
 
 <p>Una vez comprobado el funcionamiento del servidor tenemos que buscar la carpeta <strong>htdocs</strong>, en esta guardaremos todos los scripts PHP que queramos probar. Todo lo que esté en esta carpeta es accesible desde el navegador web a través del servidor web.</p>
 
-{% include middle-post-ad.html %}
+
 
 <hr />
 

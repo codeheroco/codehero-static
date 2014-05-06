@@ -243,7 +243,7 @@ Route::post('validar', function(){
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <p>Ya hemos verificado si los campos son correctos o incorrectos. ¿Pero ahora como le mostramos al usuario en que se equivoco? Para esto vamos a volver a nuestro formulario y vamos a editarlo un poco. Vamos a agregar funciones que reciban si hay error en cada campo y si es así entonces mostramos el mensajes de error. También vamos a mostrar los datos antiguos para que el formulario quede igual a como estaba antes de que el usuario lo enviara al servidor.</p>
 

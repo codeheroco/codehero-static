@@ -111,7 +111,7 @@ $_er-t      // invalido - contiene un guión -
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <h3>Tipo de variable Float</h3>
 

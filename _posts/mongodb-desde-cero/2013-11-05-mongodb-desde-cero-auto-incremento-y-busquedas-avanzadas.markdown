@@ -141,7 +141,7 @@ El operador `$ne` (distino de...) como podrás adivinar puede utilizarse para ca
 
 > En SQL sería algo como `SELECT * FROM autoresAutoIncrement WHERE nombre in ('Alberto', 'Ricardo', 'Oscar')`
 
-{% include middle-post-ad.html %}
+
 
 ###Lógicos
 

@@ -240,7 +240,7 @@ Si quisiéramos agregar un árbitro ejecutaríamos en lugar de `rs.add(..)`, el 
 
 ***
 
-{% include middle-post-ad.html %}
+
 
 ##Configuración de miembros
 Como vimos la semana pasada existen varios tipos de miembros secundarios además de algunas consideraciones especiales que se pueden especificar para los miembros del **replica set**, si recordamos bien, delimitar estas funcionalidades se basan en una sencilla configuración del miembro para el fin especifico.

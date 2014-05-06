@@ -75,7 +75,7 @@ Added dir 'node_express_subtree'
 
 <p>Con este comando hemos creado una capeta llamada <em>node_express_subtree</em> donde estamos guardando la información del repositorio <a href="https://github.com/codeheroco/nodejs-y-express-rutas">node y express rutas</a> que se encuentra en la rama <code>master</code> y además solo estamos almacenando localmente el último <em>commit</em> en nuestro ordenador al usar la bandera <code>--squash</code>.</p>
 
-{% include middle-post-ad.html %}
+
 
 <p>Si observamos el <em>log</em>, podemos apreciar lo que se describió en el párrafo anterior.</p>
 

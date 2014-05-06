@@ -155,7 +155,7 @@ $usuarios = DB::table('usuarios')->where('sexo', '=', 'M')->get();
 <li><strong>min()</strong>: Recibe como parámetro un campo de la tabla, el cual evalúa para buscar y retornar su mínimo valor. </li>
 </ul>
 
-{% include middle-post-ad.html %}
+
 
 <h3>Modificadores</h3>
 

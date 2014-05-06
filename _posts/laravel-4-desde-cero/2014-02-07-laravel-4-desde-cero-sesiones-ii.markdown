@@ -70,7 +70,7 @@ if (Auth::attempt(array('correo' => $correo, 'password' => $password, 'activo' =
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Auth::loginUsingId</h2>
 

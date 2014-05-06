@@ -82,7 +82,7 @@ end
 
 <p>Dentro de la ruta <code>/chat</code> encontramos un método que se llama <code>stream</code> y que tiene como parámetro <code>:keep_open</code> que se encarga de mantener la conexión abierta en todo momento hasta que el usuario se salga de dicha ruta. Dentro del <code>stream</code> vemos que hay una conexión que recibe las salidas o impresiones que realizamos y a su vez tenemos el método que cierra la conexión hacia el usuario cuando el mismo se sale de la ventana.</p>
 
-{% include middle-post-ad.html %}
+
 
 <p>Por otra parte en la ruta <code>/enviar/:mensaje</code> vemos que hay el método que guarda relación con las conexiones y se le asigna a <code>out</code> los mensajes que vamos enviando y este los pasa hacia el "chat".</p>
 

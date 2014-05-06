@@ -73,7 +73,7 @@ SELECT usuarios.* FROM usuarios
 
 <p>Por último desarrollaremos un ejemplo un poco más complejo, con el cual se muestra una consulta con asociaciones anidadas, es decir, objetos asociados al objeto principal y estos a su vez con mas asociaciones. Veamos los ejemplos de una vez.</p>
 
-{% include middle-post-ad.html %}
+
 
 <p>En este ejemplo haremos una consulta de usuarios que tengan al menos una dirección y que estas direcciones les pertenezcan al menos un teléfono (suponiendo que son tres objetos diferentes asociados de alguna de las maneras estudiadas en capítulos anteriores), veamos esto en código:</p>
 

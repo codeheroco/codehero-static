@@ -158,7 +158,7 @@ Si ejecutamos el comando sin la opción `-n` el archivo será transferido.
 
 ***
 
-{% include middle-post-ad.html %}
+
 
 ##Transferencia entre equipos remotos
 Para transferencias remotas se recomienda que dentro de lo posible utilices el método de transferencia por SSH que explicaremos aquí, esto debido a que el canal de comunicación se encuentra cifrado y aporta un nivel de seguridad muy importante.

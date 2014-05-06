@@ -114,7 +114,7 @@ Cuando estamos creando los usuarios sobre una base de datos es común que queram
 * `dbAdmin` - permite realizar diversas tareas administrativas de una BD.
 * `userAdmin` - ofrece acceso de lectura y escrituro a la colección de usuarios de una BD.
 
-{% include middle-post-ad.html %}
+
 
 ###Múltiples bases de datos
 Estos roles permiten realizar las operaciones que se indicaron anteriormente pero para cualquier base de datos, por lo tanto deben ser definidas en la base de datos `admin`.

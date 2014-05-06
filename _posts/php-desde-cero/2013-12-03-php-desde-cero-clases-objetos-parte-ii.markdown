@@ -157,7 +157,7 @@ $objT->pubPrivDo();
 ```
 
 
-{% include middle-post-ad.html %}
+
 
 <h3>Protected</h3>
 

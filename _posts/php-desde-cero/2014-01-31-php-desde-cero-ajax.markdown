@@ -201,7 +201,7 @@ if($db->connect_errno > 0){
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Agregar y Eliminar</h2>
 

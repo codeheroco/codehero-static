@@ -108,7 +108,7 @@ class Usuario extends Eloquent { //Todos los modelos deben extender la clase Elo
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Vista</h2>
 

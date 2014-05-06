@@ -72,7 +72,7 @@ $ composer
 
 <p><a href="http://i.imgur.com/OvO1TZ3.png"><img src="http://i.imgur.com/OvO1TZ3.png" alt="Composer Instalacion Exitosa Mac" class="aligncenter size-full wp-image-1616" /></a></p>
 
-{% include middle-post-ad.html %}
+
 
 <h3>Instalación de Composer en Windows</h3>
 
