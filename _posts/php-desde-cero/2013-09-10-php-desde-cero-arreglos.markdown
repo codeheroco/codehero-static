@@ -160,7 +160,7 @@ array_shift($posiciones);
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Recorrer Arreglos</h2>
 

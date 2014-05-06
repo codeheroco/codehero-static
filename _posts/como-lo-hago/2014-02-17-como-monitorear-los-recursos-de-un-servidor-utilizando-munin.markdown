@@ -94,7 +94,7 @@ Por último veremos también en la parte inferior del archivo la configuración 
     use_node_name yes
 ```
 
-{% include middle-post-ad.html %}
+
 
 Cambiemoslo a algo más a nuestro estilo:
 

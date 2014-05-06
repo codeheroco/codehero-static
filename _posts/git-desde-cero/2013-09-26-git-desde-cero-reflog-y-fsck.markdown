@@ -74,7 +74,7 @@ Switched to a new branch 'prueba-reflog'
 
 <p>Y por último a ir a ese estado particular.</p>
 
-{% include middle-post-ad.html %}
+
 
 ```sh
 $ git reset --hard de13f1b

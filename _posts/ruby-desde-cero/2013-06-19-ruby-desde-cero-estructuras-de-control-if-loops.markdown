@@ -207,7 +207,7 @@ el número esta entre 0 y 2 o 4 y 10
 SI! esto es CodeHero
 ```
 
-{% include middle-post-ad.html %}
+
 
 <p>En el ejemplo vemos que ejecutamos tres estructuras condicionales donde sacamos conclusiones interesantes de cada una de ellas. En el primero simplemente vemos la sintaxis aplicada en un ejemplo y como utilizamos objetos de rangos para comparar la variable edad. El segundo ejemplo básicamente es lo mismo, pero en ésta observamos cómo separando las condiciones por (,) logramos un (OR). Por último vemos como Ruby en los CASE permite el uso de cadena de caracteres (la mayoría de los lenguajes no aceptan esto).</p>
 

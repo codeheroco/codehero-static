@@ -73,7 +73,7 @@ Existen algunas alternativas a RabbitMQ muy interesantes en el ámbito *cloud* o
 
 ***
 
-{% include middle-post-ad.html %}
+
 
 ## Instalación
 

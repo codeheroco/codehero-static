@@ -230,7 +230,7 @@ class ProductoController extends BaseController {
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Rutas</h2>
 

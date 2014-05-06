@@ -130,7 +130,7 @@ Como mencionamos, el arreglo resultante de documentos contiene un documeto para 
 }
 ```
 
-{% include middle-post-ad.html %}
+
 
 ### Ordenar, limitar y saltar (`$sort`, `$limit`, `$skip`)
 Estas etapas son quizás las más intuitivas debido a la facilidad de uso y la similitud de su funcionalidad a lo que hemos aprendido desde el inicio.

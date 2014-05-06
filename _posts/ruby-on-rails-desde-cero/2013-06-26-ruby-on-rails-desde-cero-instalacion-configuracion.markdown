@@ -50,7 +50,7 @@ $ brew install ruby
 
 <p>Luego de esto instalamos rbenv es un paquete que proporciona apoyo para instalación y manipulación de diferentes versiones de Ruby y las herramientas necesarias para configurar tu framework. Luego instalamos ruby-build para compilar diferentes versiones de Ruby. el comando para instalar estos paquetes es el siguiente:</p>
 
-{% include middle-post-ad.html %}
+
 
 ```sh
 $ brew install rbenv ruby-build

@@ -67,7 +67,7 @@ Si llegase a ocurrir que se están asignado más parámetros de los que ya está
 
 Esta funcionalidad viene incluida por defecto en las versiones de Rails mayores o iguales a la versión 4.0, pero se puede activar en todas las versiones 3.x mediante el uso de la gema [strong_parameters](https://github.com/rails/strong_parameters).
 
-{% include middle-post-ad.html %}
+
 
 * * *
 

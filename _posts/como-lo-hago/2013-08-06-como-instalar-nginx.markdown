@@ -137,7 +137,7 @@ Bien, ahora que sabemos que nuestro servidor funciona hagamos algunas modificaci
 /etc/nginx/sites-available/default
 ```
 
-{% include middle-post-ad.html %}
+
 
 ###Windows
 ```sh

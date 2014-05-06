@@ -69,7 +69,7 @@ fclose($identificador);
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Leer un Archivo</h2>
 

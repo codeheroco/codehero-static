@@ -94,7 +94,7 @@ Route::filter('filtro_con_parametro_before',function($route,$request,$parametro1
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <p>En el caso que sean muchos parámetros entonces separamos los valores con una coma (<strong>,</strong>) al momento de llamar al filtro, siempre después de los dos puntos que van al final del nombre del filtro.</p>
 

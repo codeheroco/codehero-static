@@ -103,7 +103,7 @@ publicacion_create_path | POST | /publicacion/create(.:format) | publicacion#cre
 
 Para esto debemos ubicarnos en el directorio de las vistas del controlador: `app/views/publicacion/` y creamos los siguientes archivos:
 
-{% include middle-post-ad.html %}
+
 
 La primera vista la llamaremos `_form.html.erb` y este contendrá el formulario:
 

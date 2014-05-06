@@ -137,7 +137,7 @@ Ahora supondremos que tenemos nuestro script llamado `prueba-grunt.js`, descarga
 
 > Cualquier parecido con jQuery es pura coincidencia ;).
 
-{% include middle-post-ad.html %}
+
 
 ### Grunt y plugin
 

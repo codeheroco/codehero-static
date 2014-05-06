@@ -255,7 +255,7 @@ Persona = {
 
 > En caso de utilizar la segunda opción, ¿Cual de los 2 últimos enfoques utilizar?. En este caso debemos tomar en cuenta que tanto puede crecer la lista de direcciones, en caso que la tendencia sea a crecer mucho, para evitar arreglos mutantes y en constante crecimiento el **segundo** enfoque sería el más apropiado.
 
-{% include middle-post-ad.html %}
+
 
 ### Relaciones \*-\*
 

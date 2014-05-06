@@ -168,7 +168,7 @@ production:
 
 <p>Los Controladores en Rails tienen como propósito mantener separada la lógica de negocios de la aplicación (modelos) de las vistas. Los controladores son los que reciben peticiones, las procesan y muestran la información en un formato legible para los usuarios en las vistas.</p>
 
-{% include middle-post-ad.html %}
+
 
 <p>En Rails crear un Controlador es bastante fácil, lo podemos hacer con una simple línea de comando que crea los archivos dentro de la estructura antes mencionada. Para demostrarlo crearemos un controlador sencillo, con la siguiente línea de comando en el directorio de la aplicación:</p>
 

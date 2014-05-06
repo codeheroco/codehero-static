@@ -121,7 +121,7 @@ En el informe podemos notar algunos detalles del equipo, como la cantidad y tipo
 
 En los resultados observemos que para cada tipo de prueba se tiene un valor base, el valor resultante de la prueba y la calificación otorgada. Finalmente observamos la calificación final otorgada por la herramienta (155.6).
 
-{% include middle-post-ad.html %}
+
 
 Hagamoslo en otro sistema para comparar, en un Linode Basico obtenemos algo así:
 

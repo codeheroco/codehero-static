@@ -111,7 +111,7 @@ $ irb
 
 <p>Para acceder a los archivos debemos pasarle un segundo valor por parámetros que nos indica como vamos abrir el archivo. Veamos los parámetros para abrir y crear un archivo:</p>
 
-{% include middle-post-ad.html %}
+
 
 <ul>
 <li><strong>r</strong>: (sólo lectura) <strong>Modo por defecto</strong>.</li>

@@ -136,7 +136,7 @@ Y obtendremos una salida de gran parte del estado y configuración del servidor 
 ...done.
 ```
 
-{% include middle-post-ad.html %}
+
 
 Probemos la interfaz gráfica ingresando a nuestro navegador y dirigiendonos a `http://localhost:15672/`, este es el puerto por defecto del submódulo de administración de RabbitMQ:
 

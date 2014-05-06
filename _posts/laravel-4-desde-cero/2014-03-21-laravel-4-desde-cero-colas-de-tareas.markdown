@@ -64,7 +64,7 @@ Queue::later(600, 'Correos', array('titulo'=>'Titulo para el correo', 'contenido
 
 ```
 
-{% include middle-post-ad.html %} 
+ 
 <hr />
 
 <h2>Manejador de Tareas</h2>

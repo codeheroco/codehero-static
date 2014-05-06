@@ -101,7 +101,7 @@ two:
 
 <p>Ejecutar pruebas en Rails es bastante sencillo sólo debemos ejecutar unas líneas de comando y ver qué resultados nos arroja. Primero debemos asegurarnos de que la base de datos de prueba esté creada con éxito, si no debemos ejecutar los comandos ya estudiados para generarla. (Recuerde que la configuración de las bases de datos está en el archivo database.yml).</p>
 
-{% include middle-post-ad.html %}
+
 
 ```sh
 $ bundle exec rake db:migrate

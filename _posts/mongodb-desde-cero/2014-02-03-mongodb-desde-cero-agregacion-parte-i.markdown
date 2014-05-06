@@ -117,7 +117,7 @@ Si quisiéramos obtener las órdenes que realizó el cliente de ID = 2 lo haría
 }
 ```
 
-{% include middle-post-ad.html %}
+
 
 ### Agrupar (`$group`)
 La agrupación es quizás la etapa más utilizada en el proceso de agregación ya que es la que permite agrupar y realizar cálculos sobre los documentos. Esta suele ser la etapa más complicada de entender, así que trataremos de explicarla paso a paso.

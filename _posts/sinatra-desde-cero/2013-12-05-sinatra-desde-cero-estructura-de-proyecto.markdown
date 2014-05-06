@@ -72,7 +72,7 @@ $ tree .
 
 <p>Echemos un vistazo al contenido de dichos archivos.</p>
 
-{% include middle-post-ad.html %}
+
 
 ```ruby
 # application_helper.rb

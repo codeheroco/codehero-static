@@ -157,7 +157,7 @@ $ net [ start | stop ] MongoDB
 
 ***
 
-{% include middle-post-ad.html %}
+
 
 ##¿Cómo lo configuro?
 Buscaremos y editaremos el archivo de configuración.

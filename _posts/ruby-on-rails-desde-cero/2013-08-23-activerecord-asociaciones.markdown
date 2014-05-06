@@ -83,7 +83,7 @@ class Usuario < ActiveRecord::Base
 end
 ```
 
-{% include middle-post-ad.html %}
+
 
 <h4>has_many :through</h4>
 
