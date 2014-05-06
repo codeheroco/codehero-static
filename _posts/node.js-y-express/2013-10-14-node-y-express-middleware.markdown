@@ -13,7 +13,7 @@ date: 2013-10-14 00:00:54.000000000 -04:30
 serie: Node.js y Express
 dificultad: Novato
 duracion: 10
-description: Middleware: En Node.js el Middleware es todo lo que ocurre desde que sale una solicitud en lado del cliente hasta que llega a nuestra lógica de la ruta en el servidor
+description: "Middleware: En Node.js el Middleware es todo lo que ocurre desde que sale una solicitud en lado del cliente hasta que llega a nuestra lógica de la ruta en el servidor"
 categories:
 - Cursos
 - Node.js

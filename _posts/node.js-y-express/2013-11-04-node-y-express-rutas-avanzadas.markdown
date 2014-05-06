@@ -13,7 +13,7 @@ date: 2013-11-04 00:11:34.000000000 -04:30
 serie: Node.js y Express
 dificultad: Novato
 duracion: 10
-description: Rutas avanzadas: En este capitulo de Node.js y Express veremos que hay muchas cosas más que podemos hacer con las rutas de las que ya hemos aprendido.
+description: "Rutas avanzadas: En este capitulo de Node.js y Express veremos que hay muchas cosas más que podemos hacer con las rutas de las que ya hemos aprendido."
 categories:
 - Cursos
 tags:

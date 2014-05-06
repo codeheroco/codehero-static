@@ -14,7 +14,7 @@ serie: Node.js y Express
 dificultad: Heroe
 duracion: 20
 github: https://github.com/codeheroco/express-proyecto-modular/tree/parte2
-description: En el presente tutorial voy a mostrar como desarrollar las funciones que faltan del CRUD: "retreave/read", "update" y "delete/destroy".
+description: "En el presente tutorial voy a mostrar como desarrollar las funciones que faltan del CRUD: 'retreave/read', 'update' y 'delete/destroy'."
 categories:
 - Cursos
 - Node.js

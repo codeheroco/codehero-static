@@ -13,7 +13,7 @@ date: 2013-11-08 00:05:02.000000000 -04:30
 serie: iOS 7 descodificado
 dificultad: Novato
 duracion: 15
-description: iOS 7 decodificado: Para este capítulo mostramos como manejar fuentes, campos de textos y la nueva administración de imágenes en los proyectos
+description: "iOS 7 decodificado: Para este capítulo mostramos como manejar fuentes, campos de textos y la nueva administración de imágenes en los proyectos"
 categories:
 - Cursos
 - iOS 7 decodificado

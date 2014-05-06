@@ -14,7 +14,7 @@ serie: Objective-C desde Cero
 dificultad: Novato
 duracion: 20
 github: https://github.com/codeheroco/Strings-Numeros-y-Collecciones
-description: En este capitulo hablaremos de NSStrings (strings), NSNumber (números), y Collecciones: NSArray, NSDiccionary, NSMutableArray y NSMutableDiccionary
+description: "En este capitulo hablaremos de NSStrings (strings), NSNumber (números), y Collecciones: NSArray, NSDiccionary, NSMutableArray y NSMutableDiccionary"
 categories:
 - Cursos
 - Objective-C

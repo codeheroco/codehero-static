@@ -12,7 +12,7 @@ wordpress_url: http://codehero.co/?p=2456
 date: 2013-10-28 00:05:33.000000000 -04:30
 serie: jQuery desde Cero
 dificultad: Novato
-description: jQuery desde Cero: Introducción. En esta serie voy a enseñarte como usar jQuery para desarrollar páginas web modernas, flexibles y multi-explorador.
+description: "jQuery desde Cero: Introducción. En esta serie voy a enseñarte como usar jQuery para desarrollar páginas web modernas, flexibles y multi-explorador."
 duracion: 10
 categories:
 - jQuery

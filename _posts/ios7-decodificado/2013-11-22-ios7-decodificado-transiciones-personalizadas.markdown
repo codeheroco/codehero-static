@@ -14,7 +14,7 @@ serie: iOS 7 descodificado
 dificultad: Aprendiz
 duracion: 20
 github: https://github.com/sampayo/transiciones_animadas_basica_ios7
-description: iOS 7 Decodificado: Este capítulo busca otorgarte las herramientas necesarias para que puedas hacer tus transiciones personalizadas entre UIViewController
+description: "iOS 7 Decodificado: Este capítulo busca otorgarte las herramientas necesarias para que puedas hacer tus transiciones personalizadas entre UIViewController"
 categories:
 - Cursos
 - iOS 7 decodificado
