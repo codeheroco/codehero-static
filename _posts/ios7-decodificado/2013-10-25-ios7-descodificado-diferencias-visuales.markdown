@@ -10,7 +10,7 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2454
 wordpress_url: http://codehero.co/?p=2454
 date: 2013-10-25 00:39:08.000000000 -04:30
-serie: iOS 7 descodificado
+serie: iOS 7 Decodificado
 dificultad: Aprendiz
 duracion: 20
 description: Curso que busca darte las herramientas para desarrollar tus app en iOS7. Este capítulo una introducción y las diferencia básicas a nivel de interfaz gráfica
