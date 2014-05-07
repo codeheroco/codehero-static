@@ -91,7 +91,7 @@ $validacion_4 = array(
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Mensajes de Validaciones</h2>
 

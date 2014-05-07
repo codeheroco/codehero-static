@@ -106,7 +106,7 @@ To git@github.com:codeheroco/tutorial-git.git
    05fe98e..c99705e  duplicada-de-arreglos-varios -> arreglos-varios
 ```
 
-{% include middle-post-ad.html %}
+
 
 <h3>¿Qué queremos lograr demostrando esto?</h3>
 

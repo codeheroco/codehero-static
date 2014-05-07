@@ -99,7 +99,7 @@ end
 
 <p>Una vez creado el método agregamos un archivo a la carpeta de las vistas que se creo en el paso anterior, donde vamos a desarrollar el contenido del correo electrónico. Este archivo lo llamaremos igual que el método del Mailer <strong>bienvenido_email.html.erb</strong> (como se dieron cuenta, aplica la misma teoría que un controlador normal). La ruta y el contenido del correo electrónico es el siguiente.</p>
 
-{% include middle-post-ad.html %}
+
 
 <em>/views/action_correo/bienvenido_email.html.erb</em>
 

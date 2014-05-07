@@ -98,7 +98,7 @@ Route::get('/',
 ```
 
 <hr />
-{% include middle-post-ad.html %}
+
 
 <h2>Filtros Globales</h2>
 

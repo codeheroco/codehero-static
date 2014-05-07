@@ -139,7 +139,7 @@ Codeheroapp::Application.routes.draw do
 end
 ```
 
-{% include middle-post-ad.html %}
+
 
 ### resource
 

@@ -112,7 +112,7 @@ Docker version 0.6.1, build 5105263
 ```
 ***
 
-{% include middle-post-ad.html %}
+
 
 ##¿Cómo lo uso?
 Antes que nada, se recomienda *demonizar* Docker, para esto solo debemos ejecutar:

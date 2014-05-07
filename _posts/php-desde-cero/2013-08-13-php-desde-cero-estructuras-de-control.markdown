@@ -186,7 +186,7 @@ switch ($carro)
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Sentencias de Bucles</h2>
 

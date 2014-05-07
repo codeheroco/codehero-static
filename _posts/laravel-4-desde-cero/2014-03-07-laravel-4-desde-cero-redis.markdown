@@ -95,7 +95,7 @@ dd($valor);
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <h2>Comandos básicos</h2>
 

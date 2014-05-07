@@ -107,7 +107,7 @@ Esto reanudará nuestra sesión tal cual como la dejamos.
 
 >Debemos tener en cuenta que si el computador en el que estamos trabajando es apagado las sesiones se perderán.
 
-{% include middle-post-ad.html %}
+
 
 ###Programación en pareja
 

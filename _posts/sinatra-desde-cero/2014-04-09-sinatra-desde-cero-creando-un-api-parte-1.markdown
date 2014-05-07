@@ -138,7 +138,7 @@ Aquí podemos observar lo siguiente:
 
 Para poder conocer un poco más sobre el proyecto debemos revisar que "gemas" estamos utilizando y explicaré para que utilizamos cada una de ellas.
 
-{% include middle-post-ad.html %}
+
 
 ```sh
 $ cat Gemfile

@@ -97,7 +97,7 @@ servidordokku.com
 
 > En caso de no existir el archivo, lo creamos y le escribimos manualmente el *host* .
 
-{% include middle-post-ad.html %}
+
 
 Ahora desde nuestro computador de trabajo pasamos nuestras llaves SSH a la instancia asociadas al usuario:
 

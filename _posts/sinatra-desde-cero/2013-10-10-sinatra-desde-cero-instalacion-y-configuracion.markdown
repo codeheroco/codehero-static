@@ -60,7 +60,7 @@ tags:
 
 <p>Si eres usuario Mac OS X te recomendamos instalar Ruby de la siguiente manera, ya que así no tendremos conflicto con la versión que trae pre-instalada el sistema operativo y es algo "bastante" vieja y actualmente se encuentra descontentada. Lo primero que debemos hacer, es instalar <a href="https://github.com/sstephenson/rbenv">rbenv</a> un manejador de versiones para Ruby, utilizando preferiblemente <a href="http://brew.sh/index_es.html">Homebrew</a> que es un manejador de paquetes para mac, algo cómo <code>apt-get</code> o <code>yum</code> en linux.</p>
 
-{% include middle-post-ad.html %}
+
 
 <blockquote>
   <p>Si en lo personal tienes preferencia con otro manejador de versiones de Ruby y conoces como instalarlo puedes proceder a hacerlo, o puedes revisar <a href="https://github.com/postmodern/chruby">chruby</a> y <a href="https://rvm.io/">rvm</a>.</p>

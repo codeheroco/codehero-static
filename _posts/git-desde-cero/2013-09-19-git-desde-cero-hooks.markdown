@@ -55,7 +55,7 @@ tags:
 
 <p>Esta información fue tomada de <a href="https://www.kernel.org/pub/software/scm/git/docs/githooks.html">kernel.org</a>.</p>
 
-{% include middle-post-ad.html %}
+
 
 <hr />
 

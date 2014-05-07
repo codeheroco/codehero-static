@@ -113,7 +113,7 @@ echo $variable4;
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <hr />
 

@@ -125,7 +125,7 @@ Lo cambiaremos para especificar el nombre de la caja que usaremos:
 config.vm.box = "mi_caja_ubuntu_precise_32"
 ```
 
-{% include middle-post-ad.html %}
+
 
 ###Levantar el ambiente
 

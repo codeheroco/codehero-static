@@ -193,7 +193,7 @@ Podremos ver varios datos importantes de esta librería como:
 * Versiones disponibles.
 
 
-{% include middle-post-ad.html %}
+
 
 ***
 

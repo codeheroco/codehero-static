@@ -87,7 +87,7 @@ fantasmas.bson               otrosFantasmas.metadata.json system.users.metadata.
 
 ***
 
-{% include middle-post-ad.html %}
+
 
 ##Restauración
 

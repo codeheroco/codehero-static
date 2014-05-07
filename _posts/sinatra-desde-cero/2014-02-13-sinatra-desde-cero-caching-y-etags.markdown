@@ -106,7 +106,7 @@ $ curl -v localhost:4567
 Página cargada a las 2014-02-12 21:15:42 -0430.
 ```
 
-{% include middle-post-ad.html %}
+
 
 <p>Podemos ver que la petición arrojó un código 200 OK y a su vez vemos todo el encabezado de dicha petición. Apreciamos lo siguiente:</p>
 

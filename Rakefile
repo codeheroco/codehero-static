@@ -215,9 +215,6 @@ namespace :draft do
         file.puts "tags:"
       end
       file.puts "---"
-      file.puts "Aquí se escribe una mitad del post"
-      file.puts "{% include middle-post-ad.html %}"
-      file.puts "Aquí se escribe la otra mitad del post"
     end
   end
 

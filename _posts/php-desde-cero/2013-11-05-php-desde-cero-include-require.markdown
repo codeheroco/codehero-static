@@ -107,7 +107,7 @@ while($fila = $resultado->fetch_assoc()){
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Include o Require</h2>
 

@@ -53,7 +53,7 @@ tags:
 
 <p>Se utiliza para borrar el recurso especificado.</p>
 
-{% include middle-post-ad.html %}
+
 
 <h3>Patch</h3>
 

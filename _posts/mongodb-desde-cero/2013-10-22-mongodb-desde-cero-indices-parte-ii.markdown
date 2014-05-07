@@ -202,7 +202,7 @@ Aquí podemos notar un plan de ejecución común donde podemos apreciar varias e
 
 Notaremos que en este caso las estadísticas son algo diferentes, el cursor es diferente debido a que ahora posee una estructura de tipo BTREE para recorrer los nodos de índices. El número de objetos escaneadas en menor y además nos especifica el campo del índice y sus límites.
 
-{% include middle-post-ad.html %}
+
 
 ###`hint()`
 Este método nos permite indicarle a una búsqueda qué índice debe utilizar. Probemos con una búsqueda sencilla que obliguemos a utilizar el índice de dinero:

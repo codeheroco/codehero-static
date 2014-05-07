@@ -122,7 +122,7 @@ echo "Usuario " . $usuario . " y clave ". $clave;
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Files</h2>
 

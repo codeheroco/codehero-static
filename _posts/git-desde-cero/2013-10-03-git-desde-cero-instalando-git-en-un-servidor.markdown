@@ -86,7 +86,7 @@ tags:
 
 <p>Para realizar toda la instalación vamos a utilizar un Sistema Operativo Ubuntu 13.04 de 64 bits. Aparte debemos tener instalado el <a href="http://codehero.co/git-desde-cero-instalacion-configuracion-y-comandos-basicos/">paquete git-core</a> y además debemos tener creado o saber crear el par de <a href="https://help.github.com/articles/generating-ssh-keys">llaves de ssh</a>. De ser posible para facilitar un poco la cosa instalar <code>ssh-copy-id</code> en la máquina personal.</p>
 
-{% include middle-post-ad.html %}
+
 
 <p>Lo primero es tener acceso al servidor. Una vez dentro de servidor vamos a crear un usuario llamado <code>git</code>. Luego copiar la llave ssh del usuario, crear un repositorio y por último subirle contenido al mismo.</p>
 
