@@ -36,16 +36,19 @@ type: post
 <h2>Callbacks</h2>
 <p>Cuando una función no puede retornar un valor de inmediato, se puede confiar en los callback. Los callbacks vienen a ser funciones pasadas como argumento a otras funciones para ejecutarse cuando la actual termine su tarea de larga duración.</p>
 <p>Un ejemplo de una tarea de larga duración es ejecutar un query de base de datos y retornar los resultados.</p>
-<pre>bd.runQuery('SELECT * FROM user', function(error, rows, fields) {
+```javascript
+bd.runQuery('SELECT * FROM user', function(error, rows, fields) {
 
   if (error) throw error;
 
   console.log('The solution is: ', rows[0].solution);
 });
-</pre>
+```
+
 <p>Mientras la función <code>runQuery</code> manda a ejecutar una búsqueda en base de datos, javascript puede ir atendiendo otras llamadas. Cuando los resultados son obtenidos, el ciclo de eventos llama a la función del callback evitando así bloquear la aplicación.</p>
 <p>El problema de los callbacks, es que se pueden anidar infinitamente, haciendo el código muy difícil de leer y mantener.</p>
-<pre>connection.query('CREATE DATABASE IF NOT EXISTS test', function (err) {
+```javascript
+connection.query('CREATE DATABASE IF NOT EXISTS test', function (err) {
   if (err) throw err;
 
   connection.query('USE test', function (err) {
@@ -78,13 +81,15 @@ type: post
     });
   });
 });
-</pre>
+```
+
 <p>Algunos programadores llaman a esta estructura "la piramide de la muerte" o "el infierno de los callback", debido a que el texto se extiende hacia la derecha más rápido que hacia abajo. Además promueve la propagación de errores y dificulta el manejo de excepciones.</p>
 <hr />
 <h2>Promesas (promises)</h2>
 <p>Las promesas atacan el problema de la concurrencia de una manera más fácil de leer. Retornan un valor de inmediato en lugar de pasar el estado de ejecución como un argumento a otra función. Estas son básicamente un objeto que representa el valor futuro o excepción de una función que no ha sido retornada.</p>
 <p>Por ejemplo, la función del primer ejemplo de callbacks se vería así usando promises:</p>
-<pre>var getAllUsers = bd.runQuery('SELECT * FROM user'),
+```javascript
+var getAllUsers = bd.runQuery('SELECT * FROM user'),
     users = null;
 
 getAllUsers.then(function (result) {
@@ -97,7 +102,8 @@ function (error) {
 
   // manejar el error;
 });
-</pre>
+```
+
 <p>Todas las promesas deben tener un metodo <code>then</code> que debe aceptar dos argumentos: el primero para el caso en que todo salga bien, y otro para el caso en que ocurra algún error. <code>promise.then(onFulfilled, onRejected)</code></p>
 <p>Para más información sobre promesas, puedes revisar las siguientes direcciones:</p>
 <ul>

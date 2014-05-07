@@ -36,7 +36,8 @@ tags:
 
 <p>Abrimos <strong>controllers/user/index.js</strong> y agregamos un control adore para la ruta "get /user", este se encargará de encontrar todos los usuarios que existan en la base de datos y mostrarlos en una vista:</p>
 
-<pre lang="javascript">app.get('/user', function(request, response) {
+```javascript
+app.get('/user', function(request, response) {
 
   db
   .User
@@ -52,18 +53,19 @@ tags:
   });
 
 });
-</pre>
+```
 
 <p>Ahora procedemos a crear la vista. En el directorio <strong>views</strong> del mismo módulo. Agregamos index.jade. aquí vamos a desplegar una lista de usuarios:</p>
 
-<pre>h1 Usuarios
+```javascript
+h1 Usuarios
 
 ol
   each user, i in users
     li
       span #{user.name}
 
-</pre>
+```
 
 <p>Luego de esto reinicidamos el servidor en la consola y navegamos a "localhost:3000/user" y veremos nuestra lista de ususarios.</p>
 
@@ -73,7 +75,8 @@ ol
 
 <p>Creemos primero el controlador para mostrar el formulario:</p>
 
-<pre lang="javascript">app.get('/user/edit/:id', function(request, response) {
+```javascript
+app.get('/user/edit/:id', function(request, response) {
 
   var userId = request.params.id;
 
@@ -88,11 +91,12 @@ ol
   });
 
 });
-</pre>
+```
 
 <p>Ahora el controlador para guardar en base de datos:</p>
 
-<pre lang="javascript">app.put('/user/:id', function(request, response) {
+```javascript
+app.put('/user/:id', function(request, response) {
 
   var user = request.body,
       userId = request.params.id;
@@ -111,13 +115,14 @@ ol
   });
 
 });
-</pre>
+```
 
 <p>Eliminamos el id del objeto "user" que llegó al controlador ya que este no debería poder ser modificado.</p>
 
 <p>Ahora creamos la vista en el directorio <strong>views</strong></p>
 
-<pre>h1 Editar Usuario
+```javascript
+h1 Editar Usuario
 
 form(method="POST", action="/user/" + _id)
 
@@ -134,7 +139,7 @@ form(method="POST", action="/user/" + _id)
 
   p
     button(type="submit") Enviar
-</pre>
+```
 
 <p>En este formulario agregamos los valores en los campos para ser editados, estos valores vienen directo desde el controlador.</p>
 
@@ -142,19 +147,21 @@ form(method="POST", action="/user/" + _id)
 
 <p>La experiencia de usuario es uno de los propósitos más importantes del desarrollo de software. Dicho esto, la mejor manera de seleccionar un usuario para editar sus datos es agregar un link al lado de cada uno en la lista que creamos anteriormente para que nos direcciones a la vista de editar. La lista debe lucir ahora de la siguiente manera:</p>
 
-<pre>h1 Usuarios
+```javascript
+h1 Usuarios
 
 ol
   each user, i in users
     li #{user.name} -
       a(href="/user/edit/"+user.id)  editar
-</pre>
+```
 
 <h3>Eliminando usuarios (Delete/Destroy)</h3>
 
 <p>Este es probablemente el más sencillo de todos. Igual que el "editar", la mejor opción es agregar un link a cada usuario en la lista que permita direccionarnos a una ruta que elimine el usuario. La lista ahora cambia de la siguiente manera:</p>
 
-<pre>h1 Usuarios
+```javascript
+h1 Usuarios
 
 ol
   each user, i in users
@@ -162,11 +169,12 @@ ol
       a(href="/user/edit/"+user.id)  editar
       |  -
       a(href="/user/delete/"+user.id)  eliminar
-</pre>
+```
 
 <p>Para terminar agregamos el controlador para eliminar:</p>
 
-<pre lang="javascript">app.get('/user/delete/:id', function(request, response) {
+```javascript
+app.get('/user/delete/:id', function(request, response) {
 
   var userId = request.params.id;
 
@@ -181,7 +189,7 @@ ol
   });
 
 });
-</pre>
+```
 
 <h2>Conclusión</h2>
 

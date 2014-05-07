@@ -88,21 +88,25 @@ tags:
 
 <p>Abrimos <strong>MainViewController.m</strong> e importamos el segundo view controller en el primero antes de la implementación:</p>
 
-<pre>#import "NextViewController.h"
-</pre>
+```obj-c
+#import "NextViewController.h"
+```
+
 
 <p>Ahora vamos al método de la acción del botón que creamos, <em>goToNextView:</em> y escribimos:</p>
 
-<pre>- (IBAction)goToNextView:(UIButton *)sender {
-    
+```obj-c
+- (IBAction)goToNextView:(UIButton *)sender {
+
     NextViewController *nextView = [[NextViewController alloc] initWithNibName:nil
-                                                                        bundle:nil];      // 1 
-    
-    
+                                                                        bundle:nil];      // 1
+
+
     [self.navigationController pushViewController:nextView
                                          animated:YES];             // 2
 }
-</pre>
+```
+
 
 <ol>
 <li>Creamos uns instancia de <em>NextViewController</em> llamada <em>nextView</em>. Con indicarle <em>initWithNibName:nil bundle:nil</em> el objeto asume que el xib se llama igual que la clase.</li>
@@ -119,12 +123,15 @@ tags:
 
 <p>Primero importamos <em>MainViewController</em>:</p>
 
-<pre>#import "MainViewController.h"
-</pre>
+```obj-c
+#import "MainViewController.h"
+```
+
 
 <p>Inicialmente <em>application:didFinishLaunchingWithOptions:</em> debería lucir así:</p>
 
-<pre>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```obj-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -132,29 +139,32 @@ tags:
     [self.window makeKeyAndVisible];
     return YES;
 }
-</pre>
+```
+
 
 <p>Nosotros vamos a modificarlo para que luzca así:</p>
 
-<pre>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```obj-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+
     // 1
     MainViewController *mainView = [[MainViewController alloc] initWithNibName:nil
                                                                         bundle:nil];
-    
+
     // 2
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainView];
-    
+
     // 3
     [self.window setRootViewController:navigationController];
-    
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
-</pre>
+```
+
 
 <ol>
 <li>Creamos una instancia de <em>MainViewController</em> llamada <em>mainView</em>.</li>
@@ -182,37 +192,45 @@ tags:
 
 <p>Vamos a <strong>NextViewController.h</strong> y agregamos una propiedad que retenga el texto que vamos a asignar al label:</p>
 
-<pre>@property (nonatomic, strong) NSString *text;
-</pre>
+```obj-c
+@property (nonatomic, strong) NSString *text;
+```
+
 
 <p>Ahora en <strong>NextViewController.m</strong> ubicamos <em>viewDidLoad</em> y asignamos el texto al label:</p>
 
-<pre>- (void)viewDidLoad
+```obj-c
+- (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [_label setText:_text];
 }
-</pre>
+```
+
 
 <p>Volvemos a <strong>MainViewController.m</strong> y nos posicionamos sobre el método que se dispara cuando se presiona el botón, <em>goToNextView:</em>, y le agregamos el siguiente código antes de hacer "push" a la siguiente vista.</p>
 
-<pre>[nextView setText:@"Hola desde la vista anterior"];
-</pre>
+```obj-c
+[nextView setText:@"Hola desde la vista anterior"];
+```
+
 
 <p>Mediante propiedades o métodos podemos pasar objetos o parámetros de una clase a otra. En este caso estoy asignando el valor del label de <em>NextViewController</em> desde <em>MainViewController</em>. <em>goToNextView:</em> debería lucir así ahora:</p>
 
-<pre>- (IBAction)goToNextView:(UIButton *)sender {
-    
+```obj-c
+- (IBAction)goToNextView:(UIButton *)sender {
+
     NextViewController *nextView = [[NextViewController alloc] initWithNibName:nil
                                                                         bundle:nil];
-    
+
     [nextView setText:@"Hola desde la vista anterior"];
-    
+
     [self.navigationController pushViewController:nextView
                                          animated:YES];
 }
-</pre>
+```
+
 
 <p>¿Por qué no asignar el texto directamente al label?. Porque los outlets no se inicializan antes de <em>ViewDidLoad</em> ser llamado. <em>ViewDidLoad</em> es llamado luego de que la vista carga, y la vista carga cuando la app va a mostrarla por pantalla, por lo tanto cuando la asignamos por código antes de esta ser mostrada, el label aun no existe, por eso debemos pasar el texto primero y luego este es asignado al label.</p>
 

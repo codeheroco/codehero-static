@@ -46,11 +46,38 @@ tags:
 
 <p>Veamos algunos ejemplos dado el siguiente html:</p>
 
-<p><img src="http://i.imgur.com/AIfY8ri.png" alt="enter image description here" /></p>
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba Selectores</title>
+
+  <script type="text/javascript" src="javascript/jquery-2.0.3.min.js"></script>
+
+</head>
+<body>
+
+  <ul id="list1">
+    <li class="a">Item 1</li>
+    <li class="b">Item 2</li>
+    <li class="a">Item 3</li>
+    <li class="b">Item 4</li>
+  </ul>
+
+  <p class="class1">Mario</p>
+  <p class="paragraph1">Luigi</p>
+  <p class="class2">Toad</p>
+  <p class="paragraph2">Bowser</p>
+
+</body>
+</html>
+```
 
 <p>Realizaremos las siguientes consultas:</p>
 
-<pre><script type="text/javascript">
+```javascript
+<script type="text/javascript">
 
     $("document").ready(function() {
 
@@ -69,7 +96,8 @@ tags:
     });
 
 </script>
-</pre>
+```
+
 
 <hr />
 
@@ -86,31 +114,38 @@ tags:
 
 <p>Utilizando el mismo HTML anterior veamos los siguientes filtros:</p>
 
-<pre>// seleccionar todos los párrafos que contengan la palabra "Luigi"
+```javascript
+// seleccionar todos los párrafos que contengan la palabra "Luigi"
 $('p:contains(Luigi)');
-</pre>
+```
 
-<p>Ahora si probáramos con <code>$(':contains(a)');</code>, estaríamos seleccionando todos los elementos que contengas una letra "a" sin importar de que tipo sean. Entonces nos retornaría: <code>p, p, body</code>, ¿Por qué body?, porque como los padres contienen a los hijos entonces su contenido es considerado como propio. Tendriamos que hacer una búsqueda un poco mas especifica si quisiéramos solo los <code>&lt;p&gt;</code>.</p>
+
+<p>Ahora si probáramos con <code>$(':contains(a)');</code>, estaríamos seleccionando todos los elementos que contengas una letra "a" sin importar de que tipo sean. Entonces nos retornaría: <code>p, p, body</code>, ¿Por qué body?, porque como los padres contienen a los hijos entonces su contenido es considerado como propio. Tendriamos que hacer una búsqueda un poco mas especifica si quisiéramos solo los <code><p></code>.</p>
 
 <p>Sigamos:</p>
 
-<pre>// Seleccionar todos los párrafos que contienen al menos un hijo (incluyendo texto)
-    $('p:parent');
+```javascript
+// Seleccionar todos los párrafos que contienen al menos un hijo (incluyendo texto)
+$('p:parent');
 
-    // Seleccionar todos los ul que contengan li con la clase "a"
-    $('ul:has(li[class=a])');
-</pre>
+// Seleccionar todos los ul que contengan li con la clase "a"
+$('ul:has(li[class=a])');
+```
+
 
 <h2>Filtros de Visibilidad</h2>
 
 <p>Seleccionan los elementos que sean visibles o no.</p>
 
-<ol>
-<li><code>:visible</code>: Incluye todos los elementos visibles;</li>
-<li><code>:hidden</code>: Incluye solo los elementos que estén ocultos.</li>
+1. **visible:** Incluye todos los elementos visibles;
+2. **hidden:** Incluye solo los elementos que estén ocultos.
 </ol>
 
-<p></pre> // Seleccionar todos los ul que estén visibles $('ul:visible'); </pre></p>
+
+```javascript
+// Seleccionar todos los ul que estén visibles
+$('ul:visible');
+```
 
 <hr />
 
@@ -130,19 +165,21 @@ $('p:contains(Luigi)');
 
 <p>Vamos los ejemplos a continuación:</p>
 
-<pre>// Seleccionar el elemento li que este de segundo en un elemento ul
-    $('ul li:nth-child(2)');
+```javascript
+// Seleccionar el elemento li que este de segundo en un elemento ul
+$('ul li:nth-child(2)');
 
-    // Seleccionar el elemento li que este de último en un elemento ul
-    $('ul li:last-child');
+// Seleccionar el elemento li que este de último en un elemento ul
+$('ul li:last-child');
 
-    // Seleccionar el elemento li que esté en una posición 2n en un elemento ul
-    $('ul li:nth-child(2n)');
+// Seleccionar el elemento li que esté en una posición 2n en un elemento ul
+$('ul li:nth-child(2n)');
 
-    // Seleccionar el elemento li que esté en una posición 2n en un elemento ul
-    $('ul li:nth-child(2n)');
+// Seleccionar el elemento li que esté en una posición 2n en un elemento ul
+$('ul li:nth-child(2n)');
 
-</pre>
+```
+
 
 <h2>Filtros de Formulario</h2>
 

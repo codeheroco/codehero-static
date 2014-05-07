@@ -44,11 +44,12 @@ tags:
 
 <p>Entonces para crear nuestra primera vista abrimos el archivo <em>"index.jade"</em> y empezamos a escribir:</p>
 
-<pre>
+```javascript
 // index.js
 
 h1 ¡Hola, Express!
-</pre>
+```
+
 
 <p>Esto simplemente genera una etiqueta h1 con el el texto "¡Hola, Express!". Por ahora vamos a dejar esta vista así y vayamos al archivo <em>"app.js"</em> para configurar la app para soportar estas vistas.</p>
 
@@ -58,16 +59,17 @@ h1 ¡Hola, Express!
 
 <p>Abrimos <em>"app.js"</em> y buscamos el código donde esta la configuración de la aplicación:</p>
 
-<pre>
+```javascript
 // app.js
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.bodyParser());
-</pre>
+```
+
 
 <p>Por razones estéticas voy a agregar el código de configuración para soporte de vistas debajo de <code>app.set('port', process.env.PORT || 3000);</code>.</p>
 
-<pre>
+```javascript
 // app.js
 
 app.set('port', process.env.PORT || 3000);
@@ -75,13 +77,14 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser());
-</pre>
+```
+
 
 <p>Con esto decimos que nuestras vistas están en el mismo directorio del archivo actual + <em>"/views"</em> y que el motor de vistas es Jade.</p>
 
 <p>Ahora vamos a la primera ruta que definimos en el capítulo anterior, "/":</p>
 
-<pre>
+```javascript
 // app.js
 
 app.get('/', function(request, response) {
@@ -89,11 +92,12 @@ app.get('/', function(request, response) {
     response.send('¡Hola, Express!');
 
 });
-</pre>
+```
+
 
 <p>Y la vamos a modificar para que en lugar de enviar un mensaje, envíe una vista:</p>
 
-<pre>
+```javascript
 // app.js
 
 app.get('/', function(request, response) {
@@ -101,7 +105,8 @@ app.get('/', function(request, response) {
     response.render('index');
 
 });
-</pre>
+```
+
 
 <p>Solo hay que cambiar send por render y el nombre de la vista.</p>
 
@@ -109,7 +114,7 @@ app.get('/', function(request, response) {
 
 <p>Abrimos nuestro archivo package.json y agregamos jade a las dependencias:</p>
 
-<pre>
+```javascript
 // package.json
 
 {
@@ -120,22 +125,25 @@ app.get('/', function(request, response) {
     "jade": "0.35.0"
   }
 }
-</pre>
+```
+
 
 <p>Se agregó Jade, versión 0.35.0.</p>
 
 <p>Ahora en la consola instalamos el paquete:</p>
 
-<pre>
+```javascript
 $ cd { directorio del proyecto }
 $ npm install
-</pre>
+```
+
 
 <p>Y ya podemos correr el proyecto:</p>
 
-<pre>
+```javascript
 node app.js
-</pre>
+```
+
 
 <p>Ahora si vamos al <code>http;//localhost:3000/</code> veremos el mensaje "¡Hola, Express!" en una etiqueta h1.</p>
 
@@ -145,7 +153,7 @@ node app.js
 
 <p>Realmente el poder de las vistas reside en pasarle parámetros desde el controlador. Busquemos el código de la ruta "/":</p>
 
-<pre>
+```javascript
 app.js
 
 app.get('/', function(request, response) {
@@ -153,11 +161,12 @@ app.get('/', function(request, response) {
     response.render('index');
 
 });
-</pre>
+```
+
 
 <p>Para pasar parámetros, solo tenemos que enviar un objeto en el response:</p>
 
-<pre>
+```javascript
 // app.js
 
 app.get('/', function(request, response) {
@@ -171,15 +180,17 @@ app.get('/', function(request, response) {
     });
 
 });
-</pre>
+```
+
 
 <p>Vamos ahora a la vista a menejar estos parámetros:</p>
 
-<pre>
+```javascript
 h1= title
 
 span Tu nombre usuario es: #{username}
-</pre>
+```
+
 
 <p>Al la etiqueta h1 le asignamos el contenido de title y luego en un "span" escribimos un mensaje más el contenido el parámetro username.</p>
 
@@ -191,7 +202,7 @@ span Tu nombre usuario es: #{username}
 
 <p>Vamos al directorio de las vistas, <em>"./views"</em>, y creamos un archivo llamado <em>"layout.jade"</em>:</p>
 
-<pre>
+```javascript
 // layout.jade
 
 doctype 5
@@ -201,7 +212,8 @@ html
   body
     #content
       block content
-</pre>
+```
+
 
 <ol>
 <li>El title de la página viene dado por la ruta como un parámetro, igual que como hicimos en la vista index.js</li>
@@ -213,7 +225,7 @@ html
 
 <p>Ahora, vamos a index.js y modificamos esta vista para se el bloque que extiende el layout.</p>
 
-<pre>
+```javascript
 // index.jade
 
 extends layout
@@ -222,7 +234,8 @@ block content
     h1= title
 
     span Tu nombre usuario es: #{username}
-</pre>
+```
+
 
 <ol>
 <li>Se extiende layout</li>

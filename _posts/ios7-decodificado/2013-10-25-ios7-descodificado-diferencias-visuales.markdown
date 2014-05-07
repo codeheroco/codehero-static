@@ -60,12 +60,15 @@ tags:
 
 <p>A nivel de programación podemos obtener el espacio que esta ocupando nuestro <strong>statusBar</strong> con la siguiente propiedad.</p>
 
-<pre>self.topLayoutGuide.length
-</pre>
+```obj-c
+self.topLayoutGuide.length
+```
+
 
 <p>Veamos en un ejemplo: Suponiendo que debemos agregar una sub-vista del tamaño de la pantalla de nuestra aplicación, pero sin agarrar el espacio que ocupa la barra superior, resolveríamos de la siguiente manera::</p>
 
-<pre>- (void)viewWillLayoutSubviews
+```obj-c
+- (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
 ￼    self.vistaContenedora.frame = CGRectMake(
@@ -75,7 +78,8 @@ tags:
         CGRectGetHeight(self.view.frame) - self.topLayoutGuide.length
     );
 }
-</pre>
+```
+
 
 <p>Este código simplemente modifica el tamaño y la posición de la vista, restando a la misma el espacio que cubriría la barra superior en caso de existir. En caso de existir un Status bar estos serían los valores.</p>
 
@@ -90,12 +94,15 @@ tags:
 
 <p>Esto es básicamente lo mismo que el punto anterior pero aplica a las barras que están en la parte inferior. En el caso de la aplicación que estamos usando de ejemplo seria un tap Bar. La propiedad creada para saber este tamaño es:</p>
 
-<pre>self.bottomLayoutGuide.length
-</pre>
+```obj-c
+self.bottomLayoutGuide.length
+```
+
 
 <p>Y lo pudiéramos aplicar para crear una vista contenedora a la que le agregamos los objetos necesarios para construir una aplicación:</p>
 
-<pre>- (void)viewWillLayoutSubviews
+```obj-c
+- (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
     self.contentSubview.frame = CGRectMake(
@@ -107,7 +114,8 @@ tags:
             - self.bottomLayoutGuide.length
     );
 }
-</pre>
+```
+
 
 <p>Creando una vista posiblemente con los siguientes valores:</p>
 
@@ -122,11 +130,13 @@ tags:
 
 <p>iOS 7 también nos ofrece un método para esconder el StatusBar, éste consiste de un método que retorna un valor booleano que le indica al sistema si mostrar o no el componente.</p>
 
-<pre>- (BOOL)prefersStatusBarHidden
+```obj-c
+- (BOOL)prefersStatusBarHidden
 {
     return YES;
 }
-</pre>
+```
+
 
 <h3>Márgenes a las vistas</h3>
 
@@ -136,12 +146,15 @@ tags:
 
 <p>Si creamos esta estructura, tal y como vemos en la imagen, tendremos el label pegado completamente a la parte superior de la aplicación por debajo del navigation bar. Tenemos dos opciones para solucionar este problema: La primera solución es la mencionada anteriormente, agregando una vista a la vista principal respetando los tamaños de la barra superior e inferior; y segunda opción es agregándole márgenes manualmente a la vista. La propiedad que nos ofrece Apple para esto es la siguiente:</p>
 
-<pre>self.automaticallyAdjustsScrollViewInsets
-</pre>
+```obj-c
+self.automaticallyAdjustsScrollViewInsets
+```
+
 
 <p>y en este caso se lo podemos aplicar para agregarle márgenes a nuestro ScrolView de la siguiente forma:</p>
 
-<pre>- (void)loadView
+```obj-c
+- (void)loadView
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
@@ -160,7 +173,8 @@ tags:
                             CGRectGetHeight(self.view.frame)
     );
 }
-</pre>
+```
+
 
 <p>Como vemos en el ejemplo modificamos la propiedad en negativo y manualmente agregamos los márgenes (contentInset y contentOffset) al contentSubview (en este caso es el Scroll view). Esto hace que lo que agreguemos en él se dibuje dentro de los márgenes ya predefinidos.</p>
 
@@ -176,13 +190,17 @@ tags:
 
 <p>El <code>tintColor</code> modifica todos los componentes dentro de la vista, por ejemplo pudiéramos agregar la siguiente línea de código en el <code>appDelegate.m</code> ...</p>
 
-<pre>self.window.tintColor = [UIColor greenColor];
-</pre>
+```obj-c
+self.window.tintColor = [UIColor greenColor];
+```
+
 
 <p>Para decirle a nuestra aplicación que todos sus componentes son de color verde, hasta que se le diga lo contrario en una vista especifica:</p>
 
-<pre>self.view.tintColor = [UIColor yellowColor];
-</pre>
+```obj-c
+self.view.tintColor = [UIColor yellowColor];
+```
+
 
 <p>Por último para terminar con este punto, Apple nos da tres nuevas opciones para jugar con la apariencia de nuestros navigation bar</p>
 

@@ -50,7 +50,8 @@ tags:
 
 <p>A continuación vemos un ejemplo de como quedaría el encabezado de nuestra clase <strong><em>person</em></strong> luego de agregarle atributos.</p>
 
-<pre>@interface Person : NSObject
+```obj-c
+@interface Person : NSObject
 {
     NSString *name;
     NSDate *birthDate;
@@ -64,7 +65,7 @@ tags:
 + (int)age;
 
 @end
-</pre>
+```
 
 <p>En este ejemplo le dimos un nombre, fecha de nacimiento, altura y peso a la persona.</p>
 
@@ -74,7 +75,8 @@ tags:
 
 <p>Para los efectos de este ejemplo aplicaremos estos modificadores de la siguiente manera:</p>
 
-<pre>@interface Person : NSObject
+```obj-c
+@interface Person : NSObject
 {
     NSString *name;
 
@@ -87,7 +89,7 @@ tags:
     @protected
     float weight;
 }
-</pre>
+```
 
 <p><strong><em>Name</em></strong> por defecto es protected.</p>
 
@@ -97,7 +99,8 @@ tags:
 
 <p>Nuestra clase quedaría de la siguiente manera:</p>
 
-<pre>@interface Person : NSObject
+```obj-c
+@interface Person : NSObject
 {
     NSString *name;
 
@@ -124,7 +127,7 @@ tags:
 + (int)age;
 
 @end
-</pre>
+```
 
 <p>Las propiedades no tienen que estar siempre respaldadas por una variable de instancia (ivar). Por ejemplo, las propiedades <em>lastName</em> y <em>businessPerson</em> no tienen ivars que las respalden.</p>
 
@@ -136,8 +139,9 @@ tags:
 
 <p>También se pueden declarar metodos de acceso personalizado como tenemos en la propiedad <em>businessPerson</em>:</p>
 
-<pre>@property (nonatomic, assign, getter = isBusinessPerson) BOOL businessPerson;
-</pre>
+```obj-c
+@property (nonatomic, assign, getter = isBusinessPerson) BOOL businessPerson;
+```
 
 <p>En este caso el compilador generará un método get llamado <em>isBusinessPerson</em> y no businessPerson.</p>
 
@@ -159,8 +163,9 @@ tags:
 
 <p>Todas la propiedades deben ser sintetizadas en el archivo de implementación de una clase. Hoy en día el compilador puede auto-sintetizar las propiedades, sin embargo aún puedes hacerlo a mano.</p>
 
-<pre>@synthesize name, birthDate …
-</pre>
+```obj-c
+@synthesize name, birthDate …
+```
 
 <p>Si dejamos las propiedades auto-sintetizadas, se acceden a ellas con su mismo nombre y agregándole "&#95;" al comienzo. Por ejemplo, la propiedad &#42;name&#42;, en el archivo .m se llama &#95;name.</p>
 
@@ -168,7 +173,8 @@ tags:
 
 <p>Vamos a sobreescribir el constructor de la clase person para asignar unos valores por defecto. En el archivo .m escribimos el siguiente método.</p>
 
-<pre>- (id)init
+```obj-c
+- (id)init
 {
     self = [super init];
 
@@ -204,7 +210,7 @@ tags:
 
     return self;
 }
-</pre>
+```
 
 <p>Como puedes ver hay muchas maneras de hacer las cosas.</p>
 
@@ -226,51 +232,56 @@ tags:
 
 <p>Ahora simplemente agregamos las propiedades o métodos que queramos.</p>
 
-<pre>@protocol Entity &lt;NSObject>
+```obj-c
+@protocol Entity <NSObject>
 
 @property (nonatomic, assign) int identifier;
 
 - (void)generateIdentifier;
 
 @end
-</pre>
+```
 
 <p>Ahora hacemos que nuestra clase Person implemente estos métodos.</p>
 
 <p>Person .h:</p>
 
-<pre>#import "Entity.h"
+```obj-c
+#import "Entity.h"
 
-#import &lt;Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
-@interface Person : NSObject &lt;Entity>
+@interface Person : NSObject <Entity>
 
 ...
-</pre>
+```
 
 <p>Es importante recordar que hay que importar <em>Entity.h</em></p>
 
 <p>Person .m:</p>
 
-<pre>…
+```obj-c
+…
 @synthesize identifier;
 …
-</pre>
+```
 
 <p>Hay que sintetizar <em>identifier</em> porque viene de un protocolo.</p>
 
 <p>Person .m:</p>
 
-<pre>…
+```obj-c
+…
 @synthesize identifier;
 …
-</pre>
+```
 
 <p>Implementamos el método generateIdentifier":</p>
 
 <p>Person .m:</p>
 
-<pre>…
+```obj-c
+…
 - (void)generateIdentifier
 {
     self.identifier = 123545;
@@ -278,7 +289,7 @@ tags:
     NSLog(@"Mi identificador es: %i", self.identifier);
 }
 …
-</pre>
+```
 
 <hr />
 
@@ -302,18 +313,20 @@ tags:
 
 <p>Person+Runner.h</p>
 
-<pre>#import "Person.h"
+```obj-c
+#import "Person.h"
 
 @interface Person (Runner)
 
 - (void)run;
 
 @end
-</pre>
+```
 
 <p>Person+Runner.m</p>
 
-<pre>#import "Person+Runner.h"
+```obj-c
+#import "Person+Runner.h"
 
 @implementation Person (Runner)
 
@@ -323,7 +336,7 @@ tags:
 }
 
 @end
-</pre>
+```
 
 <hr />
 
@@ -333,9 +346,10 @@ tags:
 
 <p>main.m</p>
 
-<pre>#import "Person+Runner.h" // cambiamos Person.h por la categoria ya que esta ya la incluye
+```obj-c
+#import "Person+Runner.h" // cambiamos Person.h por la categoria ya que esta ya la incluye
 
-#import &lt;Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
 int main(int argc, const char * argv[])
 {
@@ -360,7 +374,7 @@ int main(int argc, const char * argv[])
     }
     return 0;
 }
-</pre>
+```
 
 <hr />
 

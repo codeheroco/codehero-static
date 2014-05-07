@@ -27,7 +27,8 @@ tags: []
 
 <p>Las funciones en Javascript son bloques de código identificados por un nombre que se pueden invocar cuando sea necesario.</p>
 
-<pre lang="javascript">// utilizando  ;! invocamos una función inmediatamente
+```javascript
+// utilizando  ;! invocamos una función inmediatamente
 ;!function() {
 
   var lives = 10;
@@ -54,7 +55,8 @@ tags: []
 
 }();
 
-</pre>
+```
+
 
 <hr />
 
@@ -68,7 +70,8 @@ tags: []
 
 <p>Veamos un ejemplo de paso por valor.</p>
 
-<pre lang="javascript">// variable numérica
+```javascript
+// variable numérica
 var sheepCount = 10;
 
 ;!function(val) {
@@ -79,11 +82,13 @@ var sheepCount = 10;
 
 console.log(sheepCount); // => 10, no se modificó
 
-</pre>
+```
+
 
 <p>Ahora veamos paso por referencia.</p>
 
-<pre lang="javascript">// objeto a pasar a función
+```javascript
+// objeto a pasar a función
 sheep = {
   count: 10
 }
@@ -96,19 +101,21 @@ sheep = {
 
 console.log(sheep.count); // => 9, si se modificó el objeto
 
-</pre>
+```
+
 
 <h3>Pasando un numero indeterminado de argumentos</h3>
 
 <p>Todas las funciones en Javascript tienen un objeto llamado <code>arguments</code>, éste actúa como un comodín para acceder a cualquier cantidad de argumentos suplidos a la función.</p>
 
-<pre lang="javascript">// esta función no recibe explícitamente ningún argumento
+```javascript
+// esta función no recibe explícitamente ningún argumento
 var sum = function () {
 
   var length = arguments.length,
       total = 0;
 
-  for (var i = 0; i &lt; length; i++) {
+  for (var i = 0; i < length; i++) {
 
       // se suman todos los argumentos
       total += arguments[i];
@@ -119,20 +126,23 @@ var sum = function () {
 
 console.log(sum(20, 30, 50)); // => 100
 
-</pre>
+```
+
 
 <h3>Parámetros por defecto (Solo ECMAScript 6)</h3>
 
 <p>En ECMAScript 6 las funciones van a poder recibir parámetros con valores por defecto como se muestra a continuación:</p>
 
-<pre lang="javascript">var sum = function (a = 10, b = 2) {
+```javascript
+var sum = function (a = 10, b = 2) {
     return a + b;
 };
 
 console.log(sum()); // => 12
 console.log(sum(3, 2)); // => 5
 
-</pre>
+```
+
 
 <hr />
 
@@ -144,31 +154,36 @@ console.log(sum(3, 2)); // => 5
 
 <p>A las funciones declaradas el interprete accede en el momento en que son leídas.</p>
 
-<pre lang="javascript">console.log(sum(10, 20));
+```javascript
+console.log(sum(10, 20));
 
 function sum(a, b) {
     return a + b;
 };
 
-</pre>
+```
+
 
 <h3>Funciones por expresión</h3>
 
 <p>Las funciones por expresión son parte de una asignación, por lo tanto no pueden ser evaluadas hasta que el programa no haga la asignación.</p>
 
-<pre lang="javascript">var sum = function (a, b) {
+```javascript
+var sum = function (a, b) {
     return a + b;
 };
 
 console.log(sum(10, 20));
 
-</pre>
+```
+
 
 <h3>Comparación</h3>
 
 <p>A continuación pongo en contraste estos dos tipos de funciones:</p>
 
-<pre lang="javascript">console.log(declaracion())); // => Soy función por declaración
+```javascript
+console.log(declaracion())); // => Soy función por declaración
 
 function declaracion() {
     console.log("Soy función por declaración");
@@ -184,7 +199,8 @@ var expresion = function expresion() {
 
 console.log(expresion())); // => Soy función por expresión
 
-</pre>
+```
+
 
 <hr />
 
@@ -192,7 +208,8 @@ console.log(expresion())); // => Soy función por expresión
 
 <p>En javascript el alcance de una variable es el largo de una función. Esto puede sonar un poco confuso o incomprensible, tranquilo/a, como en repetidas veces, se entenderá mejor con un ejemplo</p>
 
-<pre>var a = 100;
+```javascript
+var a = 100;
 
 // las funciones tienen su propio alcance
 ;!function() {
@@ -206,7 +223,7 @@ console.log(expresion())); // => Soy función por expresión
 console.log(a); //=> 100
 
 // los bloques
-if (a &lt; 50) {
+if (a > 50) {
   userId += 30;
 }
 else {
@@ -215,7 +232,8 @@ else {
 
 console.log(a); // => 80
 
-</pre>
+```
+
 
 <hr />
 

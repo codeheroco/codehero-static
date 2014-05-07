@@ -40,27 +40,14 @@ tags:
 
 <p>Por ejemplo:</p>
 
-<pre lang="javascript">var p = $('<p>
-  Nuevo Párrafo
-
-
-</p>');
+```javascript
+var p = $('<p>Nuevo Párrafo</p>');
 
 // igualmente se puede
-var htmlString = '
-
-
-
-
-
-<p>
-  Nuevo Párrafo
-
-
-</p>';
+var htmlString = '<p>Nuevo Párrafo</p>';
 var p = $(htmlString);
 
-</pre>
+```
 
 <p>Adicionalmente podemos usar los métodos html() y text() para obtener y asignar contenido:</p>
 
@@ -75,87 +62,58 @@ var p = $(htmlString);
 
 <p>Por ejemplo, partiendo del siguiente HTML:</p>
 
-<pre lang="html">&lt;!doctype html>
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba jQuery</title>
 
+  <script type="text/javascript" src="javascript/jquery-2.0.3.min.js"></script>
 
-
-
-      <ul class="avengers">
-  <li>
-    Ironman
-
-
-  </li>
-
-
-
-  <li>
-    Thor
-
-
-  </li>
-
-
-
-  <li>
-    Captain America
-
-
-  </li>
-
-
-
-  <li>
-    Hulk
-
-
-  </li>
-
-
-
-</ul>
-
-
-
-</pre>
+</head>
+<body>
+  <ul class="avengers">
+    <li>Ironman</li>
+    <li>Thor</li>
+    <li>Captain America</li>
+    <li>Hulk</li>
+  </ul>
+</body>
+</html>
+```
 
 <p>Apliquemos el siguiente javascript:</p>
 
-<pre lang="javascript"><script type="text/javascript">
+```javascript
+<script type="text/javascript">
 
    $('document').ready(function() {
 
-     $('.avengers').html('<li>
-  Black Widow
-
-
-</li>');
+     $('.avengers').html('<li>Black Widow</li>');
 
    });
 
- </script>
-</pre>
+</script>
+```
 
-<p>Este código selecciona el elemento con la clase "avengers", y reemplaza su contenido HTML por <code>&lt;li&gt;Black Widow&lt;/li&gt;</code>.</p>
+<p>Este código selecciona el elemento con la clase "avengers", y reemplaza su contenido HTML por <code><li>Black Widow</li></code>.</p>
 
 <p>Podemos también crear un elementos primero y luego asignarlo:</p>
 
-<pre lang="javascript"><script type="text/javascript">
+```javascript
+<script type="text/javascript">
 
    $('document').ready(function() {
 
-     var blackWidow = $('<li>
-  Black Widow
-
-
-</li>');
+     var blackWidow = $('<li>Black Widow</li>');
 
      $('.avengers').html(blackWidow.html());
 
    });
 
- </script>
-</pre>
+</script>
+```
 
 <hr />
 
@@ -172,34 +130,31 @@ var p = $(htmlString);
 
 <p>Veamos un ejemplo partiendo del siguiente HTML:</p>
 
-<pre lang="html">&lt;!doctype html>
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba jQuery</title>
 
+  <script type="text/javascript" src="javascript/jquery-2.0.3.min.js"></script>
 
+</head>
+<body>
+  <h1>The Avengers</h1>
 
+  <img src="http://upload.wikimedia.org/wikipedia/en/0/0f/Avs38.jpg"></img>
 
-  <h1>
-  The Avengers
-
-
-</h1>
-
-
-
-
-
-
-
-<img src="http://upload.wikimedia.org/wikipedia/en/0/0f/Avs38.jpg" />&lt;/img>
-
-  &lt;/br>
+  </br>
 
   <a href="#">Ver en Wikipedia</a>
 
+</body>
+</html>
+```
 
-
-</pre>
-
-<pre lang="javascript"><script type="text/javascript">
+```javascript
+<script type="text/javascript">
 
   $('document').ready(function() {
 
@@ -208,11 +163,12 @@ var p = $(htmlString);
   });
 
 </script>
-</pre>
+```
 
 <p>Con esto asignamos una dirección al link en la página.</p>
 
-<pre lang="javascript"><script type="text/javascript">
+```javascript
+<script type="text/javascript">
 
   $('document').ready(function() {
 
@@ -221,11 +177,12 @@ var p = $(htmlString);
   });
 
 </script>
-</pre>
+```
 
 <p>Ahora aquí agregamos un <code>alt</code> a la imagen.</p>
 
-<pre lang="javascript"><script type="text/javascript">
+```javascript
+<script type="text/javascript">
 
   $('document').ready(function() {
 
@@ -239,7 +196,7 @@ var p = $(htmlString);
   });
 
 </script>
-</pre>
+```
 
 <p>Asignamos un nuevo <code>source</code> y <code>alt</code> a la imagen, y eliminamos el <code>href</code> del link.</p>
 
@@ -262,77 +219,60 @@ var p = $(htmlString);
 
 <p>Entonces, partiendo del siguiente HTML:</p>
 
-<pre lang="html">&lt;!doctype html>
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba jQuery</title>
 
+  <script type="text/javascript" src="javascript/jquery-2.0.3.min.js"></script>
 
-
-
-  <h1>
-  The Avengers
-</h1>
-
-
-
-<ul class="avengers">
-  <li>
-    Ironman
-  </li>
-
-  <li>
-    Thor
-  </li>
-
-  <li>
-    Captain America
-  </li>
-
-  <li>
-    Hulk
-  </li>
-
-</ul>
-
-
-
-</pre>
+</head>
+<body>
+  <h1>The Avengers</h1>
+  <ul class="avengers">
+    <li>Ironman</li>
+    <li>Thor</li>
+    <li>Captain America</li>
+    <li>Hulk</li>
+  </ul>
+</body>
+</html>
+```
 
 <p>Ejecutemos algunos ejemplos:</p>
 
-<pre lang="javascript"><script type="text/javascript">
+```javascript
+<script type="text/javascript">
 
   $('document').ready(function() {
 
-    $('.avengers').append('<li>
-  Black Widow
-
-
-</li>');
+    $('.avengers').append('<li>Black Widow</li>');
 
   });
 
 </script>
-</pre>
+```
 
 <p>Aquí agregamos un elemento al final la lista.</p>
 
-<pre lang="javascript"><script type="text/javascript">
+```javascript
+<script type="text/javascript">
 
   $('document').ready(function() {
 
-    $('.avengers').prepend('<li>
-  Black Widow
-
-
-</li>');
+    $('.avengers').prepend('<li>Black Widow</li>');
 
   });
 
 </script>
-</pre>
+```
 
 <p>Se agrega al principio de la lista.</p>
 
-<pre lang="javascript"><script type="text/javascript">
+```javascript
+<script type="text/javascript">
 
   $('document').ready(function() {
 
@@ -341,7 +281,7 @@ var p = $(htmlString);
   });
 
 </script>
-</pre>
+```
 
 <p>Agregamos el titulo de lao página (h1) al primer elemento de la lista.</p>
 

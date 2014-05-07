@@ -25,38 +25,41 @@ tags:
 <hr />
 <h2>Coerción a String</h2>
 <p>Para concatenar strings usamos el operador unitario (+, -, *, /), incluso lo usamos para concatenar strings con variables numéricas o números explícitos para formar mensajes más complejos.</p>
-<pre lang="javascript">
+```javascript
 console.log('Tengo ' + 10 + ' elefantes'); // => Tengo 10 elefantes
-</pre>
+```
+
 <p>En este caso Javascript forza al 10 a actuar como un string. Esto suena muy simple dicho de esta manera, el funcionamiento interno es el siguiente: Javascript llama a la función <code>toString()</code>. Esta función es parte de todos los objetos en Javascript ya que es heredada de Object. Si <code>toString()</code> no es capaz de retornar una representación primitiva (en este caso string), difiere la llamada a la función <code>valueOf()</code>, también heredada de Object. Si esta tampoco es capaz de retornar una representación primitiva, entonces lanza una "TypeError Exception".</p>
 <hr />
 <h2>Coerción a Numero</h2>
 <p>Seguimos con más aplicaciones mágicas del operador unario. El trabajo de este operador es convertir a numero el operando que le sigue.</p>
-<pre lang="javascript">
+```javascript
 console.log(+'50'); // => 50
 console.log(3 * '10'); // => 30
 console.log(5 - '10'); // => -5
-</pre>
+```
+
 <p>Y al igual que la conversión de string se basa en la interacción con los métodos toString() o valueOf(), sin embargo en este caso los llama al revés, primero a <code>valueOf</code> y luego a <code>toString()</code>.</p>
 <hr />
 <h2>Coerción de acuerdo al contexto</h2>
 <p>Algunos objetos en javascript pueden ser forzados a trabajar con operadores unarios.</p>
 <p>Utilizando los métodos <code>valueOf()</code> y <code>toString()</code> el objeto siendo forzado retorna un valor que tenga sentido según sea su aplicación.</p>
 <p>El ejemplo más famoso es el del objeto <code>Date</code>.</p>
-<pre lang="javascript">
+```javascript
 console.log(+new Date()); // => 1396200768041
 console.log(20 + +new Date()); // => 1396200768061
-</pre>
+```
+
 <p>Este caso puede ser util para realizar operaciones, sin embargo hay ocasiones en las que es más util una representación en string.</p>
-<pre lang="javascript">
+```javascript
 console.log('La fecha de hoy es: ' + new Date()); // => 'La fecha de hoy es: Sun Mar 30 2014 13:09:26 GMT-0430 (VET)'
-</pre>
+```
+
 <p>Entonces, los objetos forzados tienen la capacidad de retornar un valor según el contexto en el que se encuentren. En este caso, un valor numérico cuando utiliza en operaciones numéricas, y una representación en string para concatenación con strings.</p>
 <hr />
 <h2>Coercion de objetos propios</h2>
 <p>Tal cual como se forza el objeto Date, se debería poder hacer con los objetos creados por uno mismo. Resulta no ser tan fácil.</p>
-<pre lang="javascript">
-
+```javascript
 var Song = function (name, duration) {
   this.name = name;
   this.duration = duration;
@@ -82,16 +85,15 @@ Song.prototype.valueOf = function () {
 console.log(+mySong); // => 202
 console.log(mySong + ''); // => 202
 console.log([mySong] + ''); // 'R U Mine'
+```
 
-</pre>
 <p>¿Por qué <code>mySong + ''</code> retorna el resultado de <code>typeOf()</code> en lugar del resultado de <code>toString()</code>?.</p>
 <p>Javascript tiene problemas para poder determinar el valor por defecto de un objeto, necesita un indicio para poder decantar por un tipo, si no, asume que necesitas un numero. Es por eso que colocándolo entre corchetes (indicio) lo forza a string.</p>
 <hr />
 <h2>Comparación de tipos con coerción</h2>
 <p>El operador igual (=) también puede forzar los objetos a tipos primitivos mediante la prueba de equidad.</p>
 <p>El presente ejemplo es extraído del libro "Expert Javascript" de Mark Daggett.</p>
-<pre lang="javascript">
-
+```javascript
 console.log([1] == 1); // => true
 
 console.log([1] == "1"); // => true
@@ -111,8 +113,8 @@ console.log([{
     return 1;
   }
 }] === "1"); // => false
+```
 
-</pre>
 <hr />
 <h2>Cierre</h2>
 <p>En la próxima parte veremos otros tipos más complejos de coercion, por ahora me despido con lo que tenemos hasta aquí.</p>

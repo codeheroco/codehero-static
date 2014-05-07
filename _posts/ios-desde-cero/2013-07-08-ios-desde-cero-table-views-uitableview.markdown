@@ -42,14 +42,17 @@ tags:
 
 <p>Ya tenemos el table view conectado al código, ahora vamos a agregar un array como un atributo de la clase para guardar lógicamente el contenido de nuestra tabla.</p>
 
-<pre>{
+```obj-c
+{
     NSArray *content;
 }
-</pre>
+```
+
 
 <p><em>NSArray</em> es la clase incluida por Apple en el Foundation Framework, para manejar arrays. Luego de incluirlo nuestra clase debería lucir de la siguiente manera:</p>
 
-<pre>#import &lt;UIKit/UIKit.h>
+```obj-c
+#import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
 {
@@ -60,7 +63,8 @@ tags:
 
 @end
 
-</pre>
+```
+
 
 <p>Ahora vamos a introducir un concepto del cual no habíamos hablado, los protocolos.</p>
 
@@ -70,20 +74,24 @@ tags:
 
 <p>Objective-C las interfaces son llamadas protocolos. En nuestra clase ViewController necesitamos implementar dos de estos para poder llenar de contenido la tabla y recibir los eventos que se generen en la vista:</p>
 
-<pre>&lt;UITableViewDataSource, UITableViewDelegate>
-</pre>
+```obj-c
+<UITableViewDataSource, UITableViewDelegate>
+```
+
 
 <p>Esto lo colocamos justo al lado del nombre de la clase de la cual heredamos en el encabezado. Luego, nuestra clase debe lucir de la siguiente manera:</p>
 
-<pre>#import &lt;UIKit/UIKit.h>
+```obj-c
+#import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController &lt;UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
-</pre>
+```
+
 
 <ul>
 <li><strong>UITableViewDataSource:</strong> Los data source se encargan de cargar cargar los datos que va a mostrar la tabla en sus celdas.</li>
@@ -92,14 +100,16 @@ tags:
 
 <p>Vamos ahora al método <em>viewDidLoad</em> en la implementación de nuestra clase (archivo .m). Aquí tenemos que decirle a nuestro table view que su fuente de datos y su delegado son esta clase.</p>
 
-<pre>- (void)viewDidLoad
+```obj-c
+- (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
 }
-</pre>
+```
+
 
 <p>Llamando a los metodos <em>setDataSource:</em> y <em>setDelegate:</em> de UITableView, asignamos como fuente de datos y delegado de la tabla a nuestra clase.</p>
 
@@ -111,13 +121,14 @@ tags:
 
 <p>Pero primero lo primero. Tenemos que llenar el array con algo para poder mostrar en la tabla. Yo lo voy a llenar de nombres de ciudades del mundo:</p>
 
-<pre>- (void)viewDidLoad
+```obj-c
+- (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
-    
+
     content = @[@"Caracas",
                 @"Los Angeles",
                 @"Nueva York",
@@ -130,7 +141,8 @@ tags:
                 @"Tokio",
                 @"Melbourne"];
 }
-</pre>
+```
+
 
 <p>Esta es la forma literal de declarar un <em>NSArray</em>, también podrías hacerlos mediante el constructor <em>[[NSArray alloc] initWithObjects:…]</em> pero sería más largo.</p>
 
@@ -140,49 +152,55 @@ tags:
 
 <p>En <em>tableView:numberOfRowsInSection:</em> retornamos el número de filas que queremos en la tabla, en este caso es la cantidad de ciudades en el array:</p>
 
-<pre>- (NSInteger)tableView:(UITableView *)tableView
+```obj-c
+- (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
     return [content count];
 }
-</pre>
+```
+
 
 <p>En <em>tableView:cellForRowAtIndexPath:</em> retornamos la celda que va en el indice dado. La diferencia es que este método tiene un formato recomendado en su estructura:</p>
 
-<pre>- (UITableViewCell *)tableView:(UITableView *)tableView
+```obj-c
+- (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
-    
+
     if (!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:@"myCell"];
     }
 }
-</pre>
+```
+
 
 <p>Este método debería tener siempre esta estructura. Cuando desplazamos la tabla, vamos dejando celdas fuera de la pantalla, estas celdas las podemos reutilizar para aprovechar memoria. Con este código extraemos una celda que ya no sea visible y la reutilizamos, es por esto también que tienen un identificador de reuso (reuse identifier), para saber que tipo de celda es y saber si la puede reutilizar para el próximo indice a mostrar.</p>
 
 <p>Luego de este bloque podemos agregar el contenido y estilizar la celda como queramos, por ahora yo solo voy a mostrar el nombre de la ciudad que guardo en el array. En la propiedad "Etiqueta de texto" de las celdas, voy a asignar el nombre de la ciudad que esta en el indice dado:</p>
 
-<pre>- (UITableViewCell *)tableView:(UITableView *)tableView
+```obj-c
+- (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
-    
+
     if (!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:@"myCell"];
     }
-    
+
     NSString *cityName = [content objectAtIndex:indexPath.row];
     [cell.textLabel setText:cityName];
-    
+
     return cell;
 }
-</pre>
+```
+
 
 <p>Ahora si corremos la aplicación deberíamos ver la tabla llena con los nombres de las ciudades.</p>
 
@@ -192,12 +210,14 @@ tags:
 
 <p>En el delegado no hay métodos requeridos para ser implementados. Dependiendo de nuestra necesidad podemos implementar el que mejor se ajuste al requerimiento. Yo voy a implementar el más común en mis proyectos, <em>tableView:didSelectRowAtIndexPath:</em>, este es invocado cuando el usuario selecciona una celda de la tabla:</p>
 
-<pre>- (void)tableView:(UITableView *)tableView
+```obj-c
+- (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Seleccionaste el indice: %i", indexPath.row);
 }
-</pre>
+```
+
 
 <p>Aquí imprimí por consola el indice seleccionado.</p>
 

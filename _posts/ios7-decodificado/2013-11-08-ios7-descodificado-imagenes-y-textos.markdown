@@ -60,14 +60,17 @@ tags:
 
 <p>En iOS 7 cambiaron la forma de asignarle una fuente a un campo de texto, recordemos cual era la sintaxis antes de esta nueva versión.</p>
 
-<pre>UIFont *fuente = [UIFont fontWithName:@"HelveticaNeue-Italic" size:18];
-</pre>
+```obj-c
+UIFont *fuente = [UIFont fontWithName:@"HelveticaNeue-Italic" size:18];
+```
+
 
 <p>Ahora en esta nueva versión del sistema operativo incorporaron un nuevo elemento que nos permite describir una fuente, para luego ser utilizada mas adelante. Con este nuevo objeto podemos guardar primero la familia de la fuente y luego crear nuevos objetos a partir de el, con nuevas características (negrita, cursiva, ligera, regular, etc.).</p>
 
 <p>Veamos un ejemplo para generar un tipo de letra <code>HelveticaNeue</code> y cursiva:</p>
 
-<pre>UIFontDescriptor *fuenteBase =
+```obj-c
+UIFontDescriptor *fuenteBase =
     [UIFontDescriptor fontDescriptorWithFontAttributes:
         @{UIFontDescriptorFamilyAttribute:@"Helvetica Neue"}];
 
@@ -79,7 +82,8 @@ UIFontDescriptor *cursiva =
 UIFont *fuente = [UIFont fontWithDescriptor:cursiva size:18];
 
 self.label.font = font;
-</pre>
+```
+
 
 <p>Como ven primero declaramos una descripción con la fuente base, luego, partiendo de esa, creamos nuestra letra cursiva para posteriormente crear la fuente que asignaremos a nuestro objeto de texto.</p>
 
@@ -87,20 +91,24 @@ self.label.font = font;
 
 <p>Este es otro de los métodos que fueron cambiados para iOS 7, este método nos permite saber el tamaño que necesita un campo de texto para mostrar un texto. Veamos como se hacia antes:</p>
 
-<pre>CGSize tamanioLabel = [@"Bienvenidos a nuestros cursos en CodeHero" sizeWithFont:self.label.font];
+```obj-c
+CGSize tamanioLabel = [@"Bienvenidos a nuestros cursos en CodeHero" sizeWithFont:self.label.font];
 
 self.label.frame = CGRectMake(0, 0, tamanioLabel.width, tamanioLabel.height);
-</pre>
+```
+
 
 <p>En iOS 7 descubrir el tamaño que requiero un texto para poder ser visto completo en un label se calcula de la siguiente manera:</p>
 
-<pre>CGSize tamanioLabel = [@"Bienvenidos a nuestros cursos en CodeHero" sizeWithAttributes:
+```obj-c
+CGSize tamanioLabel = [@"Bienvenidos a nuestros cursos en CodeHero" sizeWithAttributes:
     @{NSFontAttributeName: fuente,
       UIFontDescriptorTraitsAttribute: @(UIFontDescriptorTraitBold)};
 ];
 
 self.label.frame = CGRectMake(0, 0, labelSize.width, labelSize.height);
-</pre>
+```
+
 
 <p>Como ven el nuevo método es bastante sencillo, contiene nuevos elementos y se le puede asignar un diccionario de atributos para mejorar la precisión en que este detecta el tamaño, para este caso le hemos dicho la fuente que estamos utilizando.</p>
 
@@ -140,18 +148,21 @@ self.label.frame = CGRectMake(0, 0, labelSize.width, labelSize.height);
 
 <p>Al usar estos componentes como nuestras fuentes aumentara y disminuirá el tamaño según la configuración que el usuario final tenga en su dispositivo. La forma de agregar estos atributos a un campo de texto es la siguiente:</p>
 
-<pre>UIFontDescriptor *body = [UIFontDescriptor
+```obj-c
+UIFontDescriptor *body = [UIFontDescriptor
 preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
 ￼
 
 UIFont *fuente = [UIFont fontWithDescriptor:body size:0];
-</pre>
+```
+
 
 <p>En este ejemplo vemos como se crea una fuente utilizando estos atributos que por defecto son para párrafos y contenido.</p>
 
 <p>Llegado a este punto probablemente te estés preguntando cómo ponerle estilo propio a estas fuentes dinámicas. Pues es bastante fácil y lo vamos a ver con un ejemplo sencillo.</p>
 
-<pre>// Primero declaramos nuestro descriptor con la fuente dinámica que prefieran
+```obj-c
+// Primero declaramos nuestro descriptor con la fuente dinámica que prefieran
 UIFontDescriptor *baseFont =[UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
 
 // Luego le agregamos estilo a la fuente (negrita en este caso)
@@ -163,13 +174,15 @@ UIFont *labelFont = [UIFont fontWithDescriptor:boldBase size:0];
 self.label.font = labelFont;
 
 [self.view setNeedsLayout];
-</pre>
+```
+
 
 <p>En este ejemplo tenemos que destacar un par de novedades importantes, primero nos damos cuento que lo que hacemos es añadirle estilos extra a una fuente dinámica ya existente y segundo y más importante el tamaño de la fuente debe ser <code>0</code> para que este se adapte al sistema.</p>
 
 <p>Luego de asignar nuestra fuente, debemos agregar un observador que escuche la petición del sistema de hacer crecer o decrecer las fuentes de la aplicación. Esto lo pudiéramos hacer en el método <code>viewDidLoad</code> y es algo así:</p>
 
-<pre>- (void)viewDidLoad
+```obj-c
+- (void)viewDidLoad
 {
     [[NSNotificationCenter defaultCenter]
         addObserver:self selector:@selector(contentSizeChanged:)
@@ -177,7 +190,8 @@ self.label.font = labelFont;
      object:nil];
 
   }
-</pre>
+```
+
 
 <p>Por último para terminar con este punto veamos donde se cambia la configuración del tamaño de letra en nuestros dispositivos. Tendremos que acceder a <em>Settings > General > Text Size</em> y ahí veremos que tenemos un slider que configuramos a nuestro gusto.</p>
 

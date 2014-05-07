@@ -31,7 +31,8 @@ tags:
 
 <p>El alcance de una variable en Javacript llega tan lejos como se extienda el contexto de una función, es decir, si declaro un variable dentro de una función solo será visible dentro de la misma, incluyendo todos los bloques que estén dentro de ella, esto quiere decir que serán visibles dentro de los condicionales (if), ciclos (for, while, do, etc) y otras funciones encerradas en el mismo ámbito.</p>
 
-<pre lang="javascript">var free = "soy libre";
+```javascript
+var free = "soy libre";
 
 function myFunction() {
 
@@ -42,7 +43,8 @@ function myFunction() {
 
 console.log(notFree); // => ReferenceError: notFree is not defined
 
-</pre>
+```
+
 
 <p>En este código, la variable <code>free</code> es accesible en la función <code>myFunction</code> porqué su alcance es todo lo largo del archivo. El alcance de la variable <code>notFree</code> es solo dentro de la función <code>myFunction</code>, por eso obtenemos un error al imprimirla fuera de dicha función. Este es el ejemplo más simple de una clausura.</p>
 
@@ -68,7 +70,8 @@ console.log(notFree); // => ReferenceError: notFree is not defined
 
 <p>Las fabricas son objetos cuya única función es crear otros objetos, esto con el fin de simplificar la tarea de generar nuevas instancias. Esta idea en conocida por ser unos de los patrones de diseño presentados por un grupo de programadores conocidos como "The Gang of Four" en su libro "Design Patterns: Elements of Reusable Object-Oriented Software"</p>
 
-<pre lang="javascript">var user;
+```javascript
+var user;
 
   function userFactory(name) {
 
@@ -88,7 +91,8 @@ console.log(notFree); // => ReferenceError: notFree is not defined
   user = userFactory('Oscar');
 
   console.log(user.introduce()); // => Hola mi nombre es Oscar
-</pre>
+```
+
 
 <h3>Singleton</h3>
 
@@ -98,7 +102,8 @@ console.log(notFree); // => ReferenceError: notFree is not defined
 
 <p>El siguiente código puede encontrarse <a href="http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascrip">aquí</a></p>
 
-<pre lang="javascript">var mySingleton = (function () {
+```javascript
+var mySingleton = (function () {
 
   // Instance stores a reference to the Singleton
   var instance;
@@ -150,7 +155,8 @@ console.log(notFree); // => ReferenceError: notFree is not defined
 
 })();
 
-</pre>
+```
+
 
 <hr />
 

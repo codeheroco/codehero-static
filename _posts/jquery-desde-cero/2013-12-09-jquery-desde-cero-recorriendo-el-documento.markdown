@@ -42,13 +42,39 @@ tags:
 
 <p>Veamos unos ejemplos usando el documento HTML que utilizamos en el tutorial anterior:</p>
 
-<p><img src="http://i.imgur.com/AIfY8ri.png" alt="enter image description here" /></p>
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba Filtros avanzados</title>
+
+  <script type="text/javascript" src="javascript/jquery-2.0.3.min.js"></script>
+
+</head>
+<body>
+
+  <ul id="list-1">
+    <li class="a">Item 1</li>
+    <li class="b">Item 2</li>
+    <li class="a">Item 3</li>
+    <li class="b">Item 4</li>
+  </ul>
+
+  <p class="class1">Mario</p>
+  <p class="paragraph1">Luigi</p>
+  <p class="class2">Toad</p>
+  <p class="paragraph2">Bowser</p>
+
+</body>
+</html>
+```
 
 <hr />
 
 <h2>Size() y length</h2>
 
-<p>Probemos el funcionamiento de size y length imprimiendo por consola cuantos elementos <code>&lt;p&gt;</code> hay en el documento:</p>
+<p>Probemos el funcionamiento de size y length imprimiendo por consola cuantos elementos <code><p></code> hay en el documento:</p>
 
 <pre>
 <script type="text/javascript">
@@ -134,7 +160,7 @@ tags:
 </script>
 </pre>
 
-<p>Podemos ver como el <code>&lt;p&gt;</code> que contiene el texto "Mario" se le pinta el borde de rojo. Con la función "css" le aplicamos una regla de css.</p>
+<p>Podemos ver como el <code><p></code> que contiene el texto "Mario" se le pinta el borde de rojo. Con la función "css" le aplicamos una regla de css.</p>
 
 <p>También podemos usar filtros para encontrar elementos:</p>
 
@@ -178,7 +204,7 @@ tags:
 
 <p>En este caso imprimo el texto interno de cada uno de los elementos seleccionados.</p>
 
-<p>Los parámetros del callback son opcionales, podemos prescindir de cualquiera de los dos o de los dos a la vez. Si no incluyéramos el parámetro "ítem", pudiéramos usar <code>this</code>, este refiere al elemento que está en el contexto de la función, en este caso el <code>&lt;li&gt;</code> de cada iteración.</p>
+<p>Los parámetros del callback son opcionales, podemos prescindir de cualquiera de los dos o de los dos a la vez. Si no incluyéramos el parámetro "ítem", pudiéramos usar <code>this</code>, este refiere al elemento que está en el contexto de la función, en este caso el <code><li></code> de cada iteración.</p>
 
 <pre>
 <script type="text/javascript">

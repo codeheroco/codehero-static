@@ -37,9 +37,11 @@ tags:
 
 <p>Ahora si vamos al terminal (consola), podemos comprobar que tenemos node instalado.</p>
 
-<pre>$ node --version
+```javascript
+$ node --version
 v0.10.16
-</pre>
+```
+
 
 <p>Aquí podemos ver que yo tengo la versión 0.10.15 instalada.</p>
 
@@ -49,9 +51,11 @@ v0.10.16
 
 <p>NPM signifier Node Package Manager, es bastante similar a las gemas de Ruby, con npm instalamos los módulos y paquetes de node que están disponibles en la web. Comprobemos nuestra instalación de NPM:</p>
 
-<pre>$ npm ---version
+```javascript
+$ npm ---version
 1.3.8
-</pre>
+```
+
 
 <p>Yo tengo instalada la versión 1.3.8.</p>
 
@@ -61,16 +65,20 @@ v0.10.16
 
 <p>Express es un módulo de node, así que lo instalamos con npm:</p>
 
-<pre>$ sudo npm install -g express
-</pre>
+```javascript
+$ sudo npm install -g express
+```
+
 
 <p>-g para instalarlo globalmente (para todo el sistema).</p>
 
 <p>Ahora comprobamos nuestra instalación:</p>
 
-<pre>$ express --verion
+```javascript
+$ express --verion
 3.3.5
-</pre>
+```
+
 
 <p>Y vemos que tengo instalada la versión 3.3.5</p>
 
@@ -80,12 +88,15 @@ v0.10.16
 
 <p>Primero vamos al directorio donde vamos a generar nuestra aplicación. Yo la voy a crear en el escritorio:</p>
 
-<pre>$ cd /Users/{nombre de usuario}/Desktop
-</pre>
+```javascript
+$ cd /Users/{nombre de usuario}/Desktop
+```
+
 
 <p>Y escribimos el siguiente comando en la consola para generar nuestra primera aplicación en express:</p>
 
-<pre>$ express helloWorldExpress
+```javascript
+$ express helloWorldExpress
 
    create : helloWorldExpress
    create : helloWorldExpress/package.json
@@ -107,27 +118,32 @@ v0.10.16
 
    run the app:
      $ node app
-</pre>
+```
+
 
 <p>Y observamos como enseguida se generan un conjunto de archivos y carpetas.</p>
 
 <p>Ahora que tenemos este directorio generado, nos situamos en su contenido e instalamos las dependencias del proyecto.</p>
 
-<pre>$ cd helloWorldExpress/
+```javascript
+$ cd helloWorldExpress/
 $ npm install
-</pre>
+```
+
 
 <p>Esto instalará las librerías (módulos) y las dependencias de estas, necesarias para correr nuestro proyecto.</p>
 
 <p>Ahora si vamos al directorio generado (helloWorldExpress), vamos a encontrar una serie de archivos y directorios dentro.</p>
 
-<pre>app.js
+```javascript
+app.js
 node_modules
 package.json
 public
 routes
 views
-</pre>
+```
+
 
 <ol>
 <li>Tenemos el archivo app.js, que es donde inicia toda nuestra aplicación. Ya hablaremos de este archivo a lo largo de esta serie.</li>
@@ -144,9 +160,11 @@ views
 
 <p>Vamos a la consola y escribimos:</p>
 
-<pre>$ node app.js
+```javascript
+$ node app.js
 Express server listening on port 3000
-</pre>
+```
+
 
 <p>Y node arranca el servidor en el puerto 3000.</p>
 
@@ -156,9 +174,11 @@ Express server listening on port 3000
 
 <p>Si volvemos a la consola podemos apreciar como nos indica las rutas que fueron solicitadas para mostrar esta página.</p>
 
-<pre>GET / 200 225ms - 170b
+```javascript
+GET / 200 225ms - 170b
 GET /stylesheets/style.css 200 6ms - 110b
-</pre>
+```
+
 
 <hr />
 

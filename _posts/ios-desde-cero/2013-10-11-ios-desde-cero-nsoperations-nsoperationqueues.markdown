@@ -50,13 +50,16 @@ tags:
 
 <p>Luego creamos una clase que hereda de <strong>UITableViewCell</strong>, para nuestro caso llamaremos RSCell y en la cual declaramos los componente ya graficados en la celda del UItableView en el StoryBoard de la siguiente manera:</p>
 
-<pre>@property (nonatomic,weak) IBOutlet UIImageView *imageCell;
+```obj-c
+@property (nonatomic,weak) IBOutlet UIImageView *imageCell;
 @property (nonatomic,weak) IBOutlet UILabel *labelDescription;
-</pre>
+```
+
 
 <p>Una vez creada la clase de la celda y hechas las asociaciones correspondientes a los componentes del StoryBoard vamos de una vez a armar nuestro DataSource con los requisitos mínimos para su funcionamiento, y de la forma más básica sin aún hacer uso de nuestra clase NSOperations y NSOperationQueues, obteniendo como resultado la siguiente implementación del DataSource:</p>
 
-<pre>#pragma mark dataSource
+```obj-c
+#pragma mark dataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _datasource.count;
@@ -65,21 +68,22 @@ tags:
 {
     NSString *identificador =@"myCell";
     RSCell *cell = [tableView dequeueReusableCellWithIdentifier:identificador];
-    
+
     if (!cell)
     {
         cell = [[RSCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:identificador];
     }
     cell.labelDescription.text = [NSString stringWithFormat:@"position %i",indexPath.row];
-    
+
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [_datasource objectAtIndex:indexPath.row]]];
 
     UIImage *image = [UIImage imageWithData:imageData];
     [cell.imageCell setImage:image];
     return cell;
 }
-</pre>
+```
+
 
 <p>Si están siguiendo los pasos de manera ordenada ya pueden correr la aplicación y darse cuenta que el performance de la misma es horrible, es prácticamente imposible mover el UITableview para ver el resto de las celdas, debido a que se están cargando las imágenes cada vez que se aproxima una celda al rango de visibilidad.</p>
 
@@ -95,11 +99,12 @@ tags:
 
 <p>implementaremos nuestra clase de la siguiente forma:</p>
 
-<pre>-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+```obj-c
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identificador =@"myCell";
     RSCell *cell = [tableView dequeueReusableCellWithIdentifier:identificador];
-    
+
     if (!cell)
     {
         cell = [[RSCell alloc] initWithStyle:UITableViewCellStyleDefault
@@ -107,29 +112,30 @@ tags:
     }
     [cell.imageCell setImage:nil];
     cell.labelDescription.text = [NSString stringWithFormat:@"position %i",indexPath.row];
-    
+
     // Creamos nuesta Queue
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue setName:@"Carga de imagenes"];
-    
+
     // Agregamos bloques de operaciones a nuestro Queue
     [queue addOperationWithBlock:^{
         NSData * imageData = [[NSData alloc] initWithContentsOfURL:
                               [NSURL URLWithString: [_datasource objectAtIndex:indexPath.row]]];
         UIImage *image = [UIImage imageWithData:imageData];
-        
+
         // Retornamos al mainQueue la imagen para ser agregada a la celda
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [cell.imageCell setImage:image];
-            
+
         }];
-        
+
     }];
-    
-    
+
+
     return cell;
 }
-</pre>
+```
+
 
 <p>Finalmente ya podemos correr nuestra aplicación y darnos cuenta del gran cambio que hacen estas clases a una aplicación para mejorar el performance y la experiencia del usuario. Si todo salió bien pudiéramos tener una aplicación como esta:</p>
 
