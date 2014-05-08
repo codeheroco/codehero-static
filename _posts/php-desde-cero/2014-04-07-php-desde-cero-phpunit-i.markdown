@@ -103,7 +103,7 @@ Estos métodos de prueba no serán llamados por nosotros así que no nos preocup
 
 Por último, hay que tener presente que todas las clases en donde vayamos a crear funciones de prueba deben extender de la clase **PHPUnit_Framework_TestCase** o de alguna clase de extienda de esta.
 
-{% include middle-post-ad.html %}
+
 
 * * *
 

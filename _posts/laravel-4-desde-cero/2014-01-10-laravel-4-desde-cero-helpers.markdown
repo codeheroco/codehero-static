@@ -143,7 +143,7 @@ echo $texto;
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <h3>ends_with</h3>
 

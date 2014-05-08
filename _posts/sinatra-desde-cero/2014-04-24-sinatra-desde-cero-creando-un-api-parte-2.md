@@ -101,7 +101,7 @@ El directorio `db` al igual que en Ruby on Rails contiene todo lo relacionado a 
 │   └── shortened_development.sqlite3
 ```
 
-{% include middle-post-ad.html %}
+
 
 Para crear el directorio `db` utilizamos el siguiente comando `bundle exec rake db:create_migration NAME=create_links`. Creamos una migración llamada `create_links` y la misma creó todo el directorio `db`, con exepción del archivo `seeds.rb` el cual fue creado manualmente.
 

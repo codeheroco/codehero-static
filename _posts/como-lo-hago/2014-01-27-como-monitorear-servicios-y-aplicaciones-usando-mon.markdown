@@ -107,7 +107,7 @@ Es hora de ponernos en acción y ver como utilizar *mon(1)*.
 
 > **Los recursos para este curso los podrás encontrar en el repositorio de GitHub en la parte superior de la entrada.**
 
-{% include middle-post-ad.html %}
+
 
 ###Corrida breve
 

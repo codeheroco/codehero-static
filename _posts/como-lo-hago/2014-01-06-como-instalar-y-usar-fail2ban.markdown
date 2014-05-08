@@ -179,7 +179,7 @@ iptables-multiport.conf             sendmail.conf
 iptables-new.conf                   shorewall.conf
 ```
 
-{% include middle-post-ad.html %}
+
 
 Si entramos a alguna de ellas notaremos los siguientes parámetros en la sección de `[DEFINITION]`:
 

@@ -103,7 +103,7 @@ setCookie('nombreUsuario', '', time() - 1000);
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Sessions</h2>
 

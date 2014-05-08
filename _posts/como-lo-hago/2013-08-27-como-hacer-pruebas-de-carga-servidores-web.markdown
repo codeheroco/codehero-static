@@ -148,7 +148,7 @@ Percentage of the requests served within a certain time (ms)
  100%   2425 (longest request)
 ```
 
-{% include middle-post-ad.html %}
+
 
 Podemos apreciar varios datos de interés como:
 

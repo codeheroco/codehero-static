@@ -105,7 +105,7 @@ Class Usuarios extends Eloquent implements UserInterface{
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <p>Con <strong>Usuarios.php</strong> creado y el código del mismo listo, vamos a pasar a decirle a Laravel que los usuarios y claves están en este modelo. Para esto debemos entrar al archivo de configuración <code>app/config/auth.php</code> y revisar dos parámetros. El primero sera <code>'driver'=>'eloquent'</code>, lo mas seguro es que ya este así y esto le dice a Laravel que vamos a utilizar un modelo para guardar los usuarios que harán login. El segundo parámetro sera <code>'model'=>'Usuarios'</code>, este le indica a Laravel que el modelo a utilizar es <strong>Usuarios</strong>.</p>
 

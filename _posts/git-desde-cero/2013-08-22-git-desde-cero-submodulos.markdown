@@ -79,7 +79,7 @@ $ cat .gitmodules
 
 <p>Es importante que este archivo suba al control de versiones y <strong><em>no</em></strong> se agregue en ningún momento al archivo <em>.gitignore</em>.</p>
 
-{% include middle-post-ad.html %}
+
 
 <p>Si ahora realizamos un <code>git diff --cached</code> sobre nuestro submódulo podemos ver que aunque <em>chef-submodule</em> es una subcarpeta con un repositorio interno independiente de nuestro proyecto, git identifica que se realizaron cambios dentro de la misma, lo que nos indica que se debe realizar un <code>git commit</code> para respaldar el nuevo estado del proyecto principal.</p>
 

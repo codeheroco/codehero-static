@@ -181,7 +181,7 @@ OK
 
 >Podemos colocar un tiempo de vencimiento de la llave para que sea eliminada después del tiempo especificado, el comando `TTL` nos arroja el tiempo de vida que le queda a la llave (Time To Live), si la llave es *seteada* nuevamente, el tiempo de expiración será eliminado.
 
-{% include middle-post-ad.html %}
+
 
 * Juegos
 

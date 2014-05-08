@@ -124,7 +124,7 @@ $temas_obligatorios = $asignatura->temas()->where('obligatorio', '=', '1')->get(
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <h3>Muchos a Muchos</h3>
 

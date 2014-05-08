@@ -64,7 +64,7 @@ Son miembros secundarios de tipo prioridad 0 pero que además se les niega la po
 También son miembros de prioridad 0 y poseen la cualidad particular de mantener un estado retrasado de la base de datos, suele utilizarse como instancias de respaldo ya que no han sido afectadas por las últimas operaciones que pudiesen estar alterando de manera no deseada la información. Debido al estado retrasado de este miembro se recomienda que también se defina como un miembro escondido.
 ***
 
-{% include middle-post-ad.html %}
+
 
 ##Elecciones
 

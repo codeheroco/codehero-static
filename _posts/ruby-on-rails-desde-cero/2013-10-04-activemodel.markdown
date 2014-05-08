@@ -65,7 +65,7 @@ end
 
 <p>Como ven en el ejemplo es una clase normal pero en ésta incluimos <code>ActiveModel::Validations</code> para utilizar el módulo de validaciones de ActiveRecord que estudiamos en el <a href="http://codehero.co/activerecord-validaciones/">capítulo anterior</a>.</p>
 
-{% include middle-post-ad.html %}
+
 
 <hr />
 

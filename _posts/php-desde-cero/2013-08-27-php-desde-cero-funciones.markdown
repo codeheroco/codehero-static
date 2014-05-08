@@ -157,7 +157,7 @@ echo "Después param1 = ".$param1.", param2 = ".$param1."<br />";
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Alcance o Ambito de Variables</h2>
 

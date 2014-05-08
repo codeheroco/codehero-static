@@ -60,7 +60,7 @@ En ambientes Linux que posean NUMA (Acceso de memoria no uniforme) se debe desac
 
 ***
 
-{% include middle-post-ad.html %}
+
 
 ## Disponibilidad y Rendimiento
 

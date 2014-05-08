@@ -80,7 +80,14 @@ layout: default
           </ol>
         </div>
       {% endif %}
-      {{ content }}
+      {% assign paragraphs = content | split:'</p>' %}
+      {% for paragraph in paragraphs %}
+        {{ paragraph }}
+        {% assign forlength = forloop.length | divided_by:2 %}
+        {% if forloop.index == forlength %}
+          {% include middle-post-ad.html %}
+        {% endif %}
+      {% endfor %}
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="center-in-div">

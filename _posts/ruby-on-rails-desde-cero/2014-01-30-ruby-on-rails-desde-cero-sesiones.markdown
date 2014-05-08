@@ -77,7 +77,7 @@ Posterior a lo que hemos realizado debemos crear las rutas para que el usuario p
   get '/signout', to: 'sessions#destroy'
 ```
 
-{% include middle-post-ad.html %}
+
 
 Creamos un recurso llamado `:sesions` que tiene únicamente los métodos `new`, `create`, `destroy`. y además un par de rutas particulares de tipo **get** para utilizar los métodos `new` y `destroy` que se encuentran bajo el nombre de `/signin` para iniciar sesión y `signout` para destruir la sesión.
 

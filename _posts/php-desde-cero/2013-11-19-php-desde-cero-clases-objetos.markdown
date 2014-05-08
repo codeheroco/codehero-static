@@ -91,7 +91,7 @@ class Carro {
 ?>
 ```
 
-{% include middle-post-ad.html %}
+
 
 <p>Ahora que tenemos la clase declarada, podemos crear uno o varios objetos de esta. La acción de crear un objeto es instanciar. Para aprender como hacer esto utilizaremos la clase que creamos de Carro. Crear un objeto en PHP es muy sencillo y se hace utilizando la palabra reservada <strong>new</strong>. Los objetos se deben guardar en variables, por lo tanto para crear un objeto escribiríamos la siguiente linea <code>$carro = new Carro();</code>. Ahora veamos como se hace en un código completo.</p>
 

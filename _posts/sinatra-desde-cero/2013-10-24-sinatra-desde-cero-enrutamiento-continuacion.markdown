@@ -100,7 +100,7 @@ $ curl --request GET localhost:4567/alberto?segundo=jonathan
 Hola, alberto y jonathan%
 ```
 
-{% include middle-post-ad.html %}
+
 
 <p>Cualquier nombre o palabra que escribamos en el "query string" <code>?segundo=</code> se mostrará en pantalla.</p>
 

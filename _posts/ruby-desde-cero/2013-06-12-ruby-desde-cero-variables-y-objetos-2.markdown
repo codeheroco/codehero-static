@@ -84,7 +84,7 @@ $global_variable
 @@variable
 ```
 
-{% include middle-post-ad.html %}
+
 
 <h3>Variables locales y de bloques.</h3>
 

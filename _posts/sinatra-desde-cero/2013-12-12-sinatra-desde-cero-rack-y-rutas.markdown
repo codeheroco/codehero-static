@@ -59,7 +59,7 @@ run Rack::Cascade.new [ProductsController, UsersController, ApplicationControlle
 
 <p>Muy sencillo creamos un cascade y le entregamos todas nuestras aplicaciones en el orden que deseamos, él se encargará del resto.</p>
 
-{% include middle-post-ad.html %}
+
 
 <h3>Rack::URLMap</h3>
 

@@ -179,7 +179,7 @@ Para verificar que en efecto se ha instalado la receta de Nginx que especificamo
 
 Notemos que la parte inferior refleja que, en efecto, Nginx v1.2.3 está instalado y está sirviéndonos esta página 404.
 
-{% include middle-post-ad.html %}
+
 
 ###¿Cuál es la desventaja de este método?
 

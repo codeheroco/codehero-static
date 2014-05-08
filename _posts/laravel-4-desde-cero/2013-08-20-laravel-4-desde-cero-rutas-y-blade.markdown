@@ -162,7 +162,7 @@ Como podemos observar esto es la estructura básica HTML de una página web que 
 
 <p>Podemos pensar en estas secciones como en una especie de variable que podemos llenar desde nuestras vistas con mas HTML.</p>
 
-{% include middle-post-ad.html %}
+
 
 
 <h3>Vista listar</h3>

@@ -123,7 +123,7 @@ $ git commit -m "Agregar modificación al archivo README"
 
 <p>En este momento el árbol comienza a presentar una ramificación debido a que existen dos ramas en la cabeza del árbol. Donde solo una de ellas se encuentra de manera "lineal".</p>
 
-{% include middle-post-ad.html %}
+
 
 <hr />
 

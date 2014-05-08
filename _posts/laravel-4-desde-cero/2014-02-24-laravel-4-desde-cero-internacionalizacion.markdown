@@ -119,7 +119,7 @@ App::setLocale('en');
 
 <hr />
 
-{% include middle-post-ad.html %}
+
 
 <h2>Textos con Parámetros</h2>
 

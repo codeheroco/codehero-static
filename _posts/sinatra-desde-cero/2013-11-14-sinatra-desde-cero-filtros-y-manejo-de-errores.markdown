@@ -40,7 +40,7 @@ tags:
 
 <p>En el siguiente ejemplo se creará un <strong>"Before filter"</strong> el cual le dará un valor a una variable que será mostrada en pantalla.</p>
 
-{% include middle-post-ad.html %}
+
 
 ```ruby
 require 'sinatra'

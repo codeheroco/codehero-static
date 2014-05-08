@@ -115,7 +115,7 @@ RUN dpkg-reconfigure locales
 
 No quiero entrar mucho en detalles de Sistema Operativo pero, estamos actualizando la paquetería conocida por Ubuntu y luego instalando un paquete de lenguajes en inglés, estoy instalando el de inglés porque casi todo necesita estar en `en_US.UTF-8` lamentablemente, y la codificación es un tema bastante complejo.
 
-{% include middle-post-ad.html %}
+
 
 Una vez que la actualización de paquetes e instalación culminan estoy estableciendo las variables de ambientes del contenedor referentes al lenguaje del mismo y configurando el contenedor para que las utilice por defecto.
 

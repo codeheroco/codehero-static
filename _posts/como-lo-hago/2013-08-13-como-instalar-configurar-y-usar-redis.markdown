@@ -105,7 +105,7 @@ user:1000 =>  usuario    jonathanwiesel
 
 ***
 
-{% include middle-post-ad.html %}
+
 
 ##Instalación
 

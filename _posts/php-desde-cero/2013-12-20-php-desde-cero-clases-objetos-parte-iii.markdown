@@ -39,7 +39,7 @@ tags:
 
 <p>Veamos ahora como es la sintaxis en PHP para definir la herencia en una clase. Hacer que una clase herede de otra en PHP es muy sencillo y se hace colocando la palabra reservada <strong>extends</strong> después del nombre de la clase que estamos creando y luego la clase de la cual queremos heredar. Veamos un ejemplo de esto:</p>
 
-{% include middle-post-ad.html %}
+
 
 ```php
 <?php

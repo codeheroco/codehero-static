@@ -124,7 +124,7 @@ mongos> sh.status()
     {  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
 ```
 
-{% include middle-post-ad.html %}
+
 
 ###Habilitar fragmentación
 

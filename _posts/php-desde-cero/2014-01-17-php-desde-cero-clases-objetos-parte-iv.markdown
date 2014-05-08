@@ -102,7 +102,7 @@ $fruta->comer();
 
 <p>Podemos ver como ahora tiene un poco mas de sentido el concepto de Fruta. Es una clase que solo puede ser extendida ya que una Fruta como tal no significa nada. Haciéndola una clase abstracta estamos obligados a extenderla y no instanciarla directamente.</p>
 
-{% include middle-post-ad.html %}
+
 
 <hr />
 

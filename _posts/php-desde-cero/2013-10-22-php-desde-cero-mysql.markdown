@@ -134,7 +134,7 @@ echo 'Cantidad de filas: ' . $resultado->num_rows;
 ```
 
 
-{% include middle-post-ad.html %}
+
 
 <p>Por último, siempre es una buena practica cerrar la conexión al final del script con la función <strong>close()</strong>.</p>
 
