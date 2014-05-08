@@ -150,8 +150,14 @@ footer {
 
 .navbar-brand {
   font-size: 20px;
-  letter-spacing: 4px;
+  letter-spacing: .25em;
+  font-weight: 500;
   @include transition(all 0.3s ease-in-out);
+}
+
+.navbar>.container .navbar-brand {
+  margin-left: -28px;
+  color: white;
 }
 
 // Centrar todos los thumbnails en series/index.html
