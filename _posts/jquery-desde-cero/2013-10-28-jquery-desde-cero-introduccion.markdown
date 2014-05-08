@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2456
 wordpress_url: http://codehero.co/?p=2456
 date: 2013-10-28 00:05:33.000000000 -04:30
+serie: jQuery desde Cero
+dificultad: Novato
+description: "jQuery desde Cero: Introducción. En esta serie voy a enseñarte como usar jQuery para desarrollar páginas web modernas, flexibles y multi-explorador."
+duracion: 10
 categories:
 - jQuery
 tags:
@@ -59,25 +63,29 @@ tags:
 
 <p>Normalmente, usando javascript, cuando queremos ejecutar código que corre cuando la página ya ha cargado lo hacermos de la siguiente manera:</p>
 
-<pre><code>function pageLoaded() {
+```javascript
+function pageLoaded() {
 
     alert("¡La página acaba de cargar!");
 
 }
 
 window.onLoad = pageLoaded;
-</code></pre>
+```
+
 
 <p>El problema de esto es que el evento "onLoad" solo se dispara cuando todo el contenido de la página se ha cargado, incluyendo imágenes. Es decir, si tienes imágenes muy pesadas el código va a tardar en ejecutarse. Podrías detectar cuando carga el DOM (el código HTML de la página, basicamente), pero la manera de acerlo es distinta entre browsers.</p>
 
 <p>jQuery provee una manera de correr código cuando el DOM de una página ya fue descargado y esta listo para ser utilizado, éste es el evento document.ready, y así es como se escribe el manejador para este evento:</p>
 
-<pre><code>$("document").ready(function () {
+```javascript
+$("document").ready(function () {
 
     alert("¡La página acaba de cargar!");
 
 });
-</code></pre>
+```
+
 
 <p>El símbolo "$" indica que este es una sentencia de jQuery, puede ser reemplazada por la palabra "jQuery" pero lo común es usar el símbolo de dólar ya que es lo más corto.</p>
 
@@ -85,15 +93,65 @@ window.onLoad = pageLoaded;
 
 <p>Ahora veamos como se integra esto en una página web. Abrimos nuestro editor de texto favorito (yo recomiendo <a href="http://www.sublimetext.com/">Sublime Text</a>) y creamos un archivo que yo voy a llamar "index.html" y lo guardamos en la carpeta "tutorial_jquery_1". Escribamos el siguiente código en el documento:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/10/Screen-Shot-2013-10-27-at-8.29.04-PM.png"><img src="http://i.imgur.com/DsfeEmc.png" alt="codigo html5 basico" class="aligncenter size-full wp-image-2466" /></a></p>
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba jQuery</title>
+
+</head>
+<body>
+
+</body>
+</html>
+```
 
 <p>Ésta es una típica plantilla html5. ahora en el Head incluimos la libreria:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/10/Screen-Shot-2013-10-27-at-8.28.48-PM.png"><img src="http://i.imgur.com/6mSllAj.png" alt="Incluyendo jquery en la pagina" class="aligncenter size-full wp-image-2467" /></a></p>
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba jQuery</title>
+
+  <script type="text/javascript" src="javascript/jquery-2.0.3.min.js"></script>
+
+</head>
+<body>
+
+</body>
+</html>
+```
 
 <p>Ahora solo tenemos que agregar la función document.ready:</p>
 
-<p><a href="http://codehero.co/oc-content/uploads/2013/10/Screen-Shot-2013-10-27-at-8.28.21-PM.png"><img src="http://i.imgur.com/fjys2GC.png" alt="document ready en una pagina con jquery" class="aligncenter size-full wp-image-2468" /></a></p>
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba jQuery</title>
+
+  <script type="text/javascript" src="javascript/jquery-2.0.3.min.js"></script>
+
+  <script type="text/javascript">
+
+    $('document').ready(function () {
+
+      alert("¡La página acaba de cargar");
+
+    });
+
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>
+```
 
 <p>Si abrimos este archivo en nuestro explorador de preferencia veremos como nos lanza una alerta con el mensaje "¡La página acaba de cargar!".</p>
 

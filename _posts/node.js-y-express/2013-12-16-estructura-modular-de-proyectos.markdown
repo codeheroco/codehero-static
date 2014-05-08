@@ -10,6 +10,11 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2854
 wordpress_url: http://codehero.co/?p=2854
 date: 2013-12-16 00:10:53.000000000 -04:30
+serie: Node.js y Express
+dificultad: Aprendiz
+duracion: 30
+github: https://github.com/codeheroco/express-proyecto-modular
+description: En este capítulo te enseñaré como utilizar tus propios módulos para crear una estructura de proyecto mucho más fácil de mantener y extender.
 categories:
 - Node.js
 tags:
@@ -37,7 +42,8 @@ tags:
 
 <p>Primero que nada creamos un proyecto de Express desde la consola:</p>
 
-<pre>$ express mudular-test
+```javascript
+$ express mudular-test
 
    create : mudular-test
    create : mudular-test/package.json
@@ -59,7 +65,7 @@ tags:
 
    run the app:
      $ node app
-</pre>
+```
 
 <p>Para esta estructura no vamos a necesitar la carpeta "routes", tampoco vamos a necesitar el archivo "index.jade" de la carpeta "views", <strong>los eliminamos a ambos</strong>.</p>
 
@@ -71,14 +77,16 @@ tags:
 
 <p>Vamos a crear una carpeta llamada controllers y dentro creamos otra carpeta llamada home.</p>
 
-<pre>/controller/home
-</pre>
+```javascript
+/controller/home
+```
 
 <p>Y dentro de 'home' creamos un archivo llamado index.js. Esto es lo que llamamos un "Controlador", aquí vamos a atender todas las rutas que consideremos que pertenecen al grupo home.</p>
 
 <p>Ahora dentro del archivo <code>controllers/home/index.js</code> vamos a escribir el siguiente código:</p>
 
-<pre lang="javascript">var express = require('express');           // 1
+```javascript
+var express = require('express');           // 1
 var app = module.exports = express();   // 2
 
 app.get('/', function(request, response) {
@@ -86,7 +94,7 @@ app.get('/', function(request, response) {
 // 3
 
 });
-</pre>
+```
 
 <ol>
 <li>importamos Express</li>
@@ -100,40 +108,45 @@ app.get('/', function(request, response) {
 
 <p>TJ Holowaychuk propone crear las vistas en el mismo directorio del controlador, por ejemplo:</p>
 
-<pre>/controllers
+```javascript
+/controllers
     /home
         index.js
         home.jade
-</pre>
+```
 
 <p>Yo soy fanático del orden, y creo que esto podría volverse un poco complicado si tenemos varias vistas para este módulo, por eso yo propongo colocarlas en una carpeta aparte:</p>
 
-<pre>/controllers
+```javascript
+/controllers
     /home
         index.js
         /views
             home.jade
-</pre>
+```
 
 <p>Entonces en el controlador home agregamos el siguiente código en el método de la ruta:</p>
 
-<pre lang="javascript">app.get('/', function(request, response) {
+```javascript
+app.get('/', function(request, response) {
 
   response.render('home', {
     title: 'Hola, desde el controlador de home'
   });
 
 });
-</pre>
+```
 
 <p>Ahora vamos a necesitar un asignar la siguiente propiedad para que el framework pueda encontrar las vistas:</p>
 
-<pre lang="javascript">app.set('views', __dirname + '/views');
-</pre>
+```javascript
+app.set('views', __dirname + '/views');
+```
 
 <p>Entonces nuestro controlador debe lucir de la siguiente manera:</p>
 
-<pre lang="javascript">var express = require('express');
+```javascript
+var express = require('express');
 var app = module.exports = express();
 
 app.set('views', __dirname + '/views');
@@ -145,16 +158,17 @@ app.get('/', function(request, response) {
   });
 
 });
-</pre>
+```
 
 <p>Ahora necesitamos crear la vista home.jade:</p>
 
-<pre lang="javascript">extends ../../../views/layout
+```javascript
+extends ../../../views/layout
 
 block content
   h1= title
   p Welcome to #{title}
-</pre>
+```
 
 <p>Guardamos en <code>/controllers/home/views/</code>.</p>
 
@@ -166,17 +180,20 @@ block content
 
 <p>Agregamos esto junto a la declaración de todos los módulos ya existentes:</p>
 
-<pre lang="javascript">var home = require('./controllers/home');
-</pre>
+```javascript
+var home = require('./controllers/home');
+```
 
 <p>Y más abajo, luego de toda la configuración declaramos asignamos los módulos para su uso:</p>
 
-<pre lang="javascript">app.use(home);
-</pre>
+```javascript
+app.use(home);
+```
 
 <p>Entonces ahora nuestro archivo <code>app.js</code> debe lucir similar al siguiente:</p>
 
-<pre lang="javascript">//app.js
+```javascript
+//app.js
 
 var express = require('express');
 var routes = require('./routes');
@@ -212,7 +229,7 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-</pre>
+```
 
 <hr />
 

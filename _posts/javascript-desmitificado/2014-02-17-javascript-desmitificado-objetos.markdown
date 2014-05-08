@@ -7,9 +7,11 @@ author: Oscar González
 author_login: oscar
 author_email: gonzalezgreco@gmail.com
 author_url: http://www.oscarvgg.com
-wordpress_id: 3036
-wordpress_url: http://codehero.co/?p=3036
 date: 2014-02-17 00:31:43.000000000 -04:30
+serie: JavaScript Desmitificado
+dificultad: Aprendiz
+duracion: 30
+description: El enfoque orientado a objetos de JavaScript es un poco diferente al que podemos ver en otros lenguajes. Hay objetos, pero no clases. veamos a profundo.
 categories:
 - Cursos
 - JavaScript
@@ -60,7 +62,7 @@ tags:
 
 <p>La forma literal es permite describir objetos de manera clara y compacta. Puedes describir objetos entre llaves con propiedades separadas por comas. Esta forma no es invocada explícitamente, es solo un atajo para usar el método <code>Object.create()</code>.</p>
 
-<pre lang="javascript">
+```javascript
 var card = {
     name: 'Oscar'
 };
@@ -72,7 +74,7 @@ var card2 = Object.create(Object.prototype, {
 console.log(card.bar); // -> Oscar
 
 console.log(card2.bar); // -> Oscar
-</pre>
+```
 
 <p>Por ser tan simple la forma literal es que el constructor del objeto no puede ser redefinido, de modo que no se puede definir un objeto cuyo prototipo sea diferente al por defecto. Ya explicaré lo que es el prototipo más adelante.</p>
 
@@ -80,14 +82,14 @@ console.log(card2.bar); // -> Oscar
 
 <p>El operador <code>new</code> crea una instancia de un objeto. Este acepta un constructor y una serie de argumentos opcionales.</p>
 
-<pre lang="javascript">
+```javascript
 var Person = function (name) {
     this.name = name || '';
 };
 
 var sinNombre = new Person();
 var oscar = new Person('Oscar');
-</pre>
+```
 
 <p>Veamos lo que hace intrínsecamente este operador (new):</p>
 
@@ -102,9 +104,11 @@ var oscar = new Person('Oscar');
 
 <h3>Objetos con Object.create()</h3>
 
-<p>Esta forma fue introducida en ECMAScript 5. Basicamente hace lo mismo que la forma con el operador <code>new</code>, solo que esta tiene sintaxis más consistente con el resto del lenguaje, ademas de facilitar la herencia por prototipo.</p>
 
-<pre lang="javascript">
+<p>Esta forma fue introducida en ECMAScript 5. Basicamente hace lo mismo que la forma con el operador **new**, solo que esta tiene sintaxis más consistente con el resto del lenguaje, ademas de facilitar la herencia por prototipo.</p>
+
+
+```javascript
 var Person = {
   introduce: function(age) {
         console.log( 'Hola, mi nombre es ' + this.name + ' y tengo ' + age + ' años de edad');
@@ -119,7 +123,7 @@ var oscar = Object.create(Person, {
 
 
 oscar.introduce(26);
-</pre>
+```
 
 <blockquote>
   <p>realmente no existen las clases en Javascript como las conocemos en otros lenguajes (...) hay solo objetos que pueden ser extendidos</p>
@@ -129,11 +133,11 @@ oscar.introduce(26);
 
 <p>JavaScript es un lenguaje muy flexible. Permite agregar funciones y propiedades a objetos de manera dinámica sin mucho esfuerzo.</p>
 
-<pre>
+```javascript
 var Person = function (name) {
-  
+
   this.name = name || '';
-  
+
   this.introduce = function() {
     return 'Hola, mi nombre es ' + this.name;
   };
@@ -150,8 +154,9 @@ oscar.introduceFull = function () {
   return this.introduce() + ' ' + this.lastname;
 };
 
-console.log(oscar.introduceFull()); // -> "Hola, mi nombre es Oscar González"
-</pre>
+console.log(oscar.introduceFull()); // -> "Hola, mi nombre es Oscar Gonz�lez"
+```
+
 
 <p>Esta es una manera de expresar herencia de objetos. Un tanto extraño porque estamos acostumbrados a herencia de clases.</p>
 
@@ -164,9 +169,9 @@ console.log(oscar.introduceFull()); // -> "Hola, mi nombre es Oscar González"
 <li>Object.getPrototypeOf(oscar) retorna el prototipo de un objeto</li>
 </ul>
 
-<pre lang="javascript">
+```javascript
 var Person = function (name) {
-  
+
   this.name = name || '';
 };
 
@@ -194,34 +199,34 @@ Person.prototype.name = 'Jose';
 
 console.log(oscar.introduce());
 console.log(pepe.introduce());
-</pre>
+```
 
 <h3>Propiedades y métodos privados</h3>
 
 <p>En ejemplos anteriores hemos visto como se crean propiedades y métodos públicos. Veamos ahora los privados.</p>
 
-<pre>
+```javascript
 var Person = function (name) {
-  
+
   // propiedad pública
   this.name = name || '';
-  
+
   // propiedad privada
   var lastname = 'González';
-  
+
   // propiedad privada
   var myName = this.name;
-  
+
   // método privado
   var fullName = function () {
     return myName + ' ' + lastname;
   }
-  
+
   // método público
   this.introduce = function() {
     return 'Hola, mi nombre es ' + fullName();
   };
-  
+
 };
 
 var oscar = new Person('Oscar');
@@ -230,7 +235,7 @@ console.log(oscar.name); // -> "Oscar"
 console.log(oscar.introduce());// -> "Hola, mi nombre es Oscar González"
 console.log(oscar.lastname); // -> undefined
 console.log(oscar.fullName()); // Error: -> "Object [object Object] has no method 'fullName'"
-</pre>
+```
 
 <hr />
 

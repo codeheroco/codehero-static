@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2950
 wordpress_url: http://codehero.co/?p=2950
 date: 2014-01-27 01:31:58.000000000 -04:30
+serie: jQuery desde Cero
+dificultad: Novato
+duracion: 10
+description: Veamos ahora otro grupo de operaciones que nos permiten envolver, copiar y reemplazar contenido, además de algunas otras que involucran css.
 categories:
 - Cursos
 - jQuery
@@ -37,53 +41,53 @@ tags:
 
 <p>Hagamos unas pruebas dado el siguiente html:</p>
 
-<pre>
+```javascript
 <!doctype html>
 <html lang="en">
     <head>
       <meta charset="UTF-8">
       <title>jQuery desde Cero</title>
-      
+
       <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-      
+
     </head>
     <body>
-    
+
       <ul class="avengers">
         <li>Ironman</li>
         <li>Thor</li>
         <li>Captain America</li>
         <li>Hulk</li>
       </ul>
-      
+
       <p>texto de prueba</p>
       <p>texto de prueba 2</p>
       <p>texto de prueba 3</p>
       <p>texto de prueba 4</p>
-      
+
     </body>
 </html>
-</pre>
+```
 
 <p>En este ejemplo envolvemos todos los elementos "p" (párrafo) y los envolvemos en un "div" con borde de color rojo.</p>
 
-<pre>
+```javascript
 $('document').ready(function() {
 
   $('p').wrapAll('<div style="border:3px solid red"></div>');
 
 });
-</pre>
+```
 
 <p>También podemos seleccionar el elemento que tenga la clase de css "avengers" y envolverla con el mismo "div".</p>
 
-<pre>
+```javascript
 $('document').ready(function() {
 
   $('.avengers').wrap('<div style="border:3px solid red"></div>');
 
 });
-</pre>
+```
 
 <h2>Reemplazando contenido</h2>
 
@@ -96,23 +100,23 @@ $('document').ready(function() {
 
 <p>Por ejemplo, Seleccionaré el primer "li" del "ul" de clase "avengers" y lo reemplazaré por otro:</p>
 
-<pre>
+```javascript
 $('document').ready(function() {
 
   $('.avengers li').first().replaceWith('<li>Ironman reemplazado por Oscar</li>');
 
 });
-</pre>
+```
 
 <p>Ahora voy a reemplazar los elementos seleccionados con los buscados.</p>
 
-<pre>
+```javascript
 $('document').ready(function() {
 
   $('<p>nadie</p>').replaceAll('.avengers li');
 
 });
-</pre>
+```
 
 <h2>Vaciando y removiendo elementos</h2>
 
@@ -120,25 +124,25 @@ $('document').ready(function() {
 
 <p>Eliminemos el primer "li" del "ul":</p>
 
-<pre>
+```javascript
 $('document').ready(function() {
 
   // debería desaparecer "ironman"
   $('.avengers li').first().remove();
 
 });
-</pre>
+```
 
 <p>Vaciemos el "ul" con la clase "avengers":</p>
 
-<pre>
+```javascript
 $('document').ready(function() {
 
   // debería eliminar todos los avengers de la lista
   $('.avengers').empty();
 
 });
-</pre>
+```
 
 <h2>Clonando elementos</h2>
 
@@ -146,14 +150,14 @@ $('document').ready(function() {
 
 <p>Clonemos a "ironman" en la lista con clase "avengers":</p>
 
-<pre>
+```javascript
 $('document').ready(function() {
 
   // debería haber 2 ironmans
   $('.avengers li').first().clone().prependTo(.avengers);
 
 });
-</pre>
+```
 
 <p>En este ejemplo encadené toda la sentencia. De modo que cloné y agregué en un solo paso.</p>
 
@@ -167,7 +171,7 @@ $('document').ready(function() {
 <li><code>css(propiedad, valor)</code>: Asigna "valor" la "propiedad" del elemento seleccionado.</li>
 </ul>
 
-<pre>
+```javascript
 $('document').ready(function() {
 
   $('p').first().css({
@@ -176,7 +180,7 @@ $('document').ready(function() {
   });
 
 });
-</pre>
+```
 
 <p>También tenemos funciones para gestionar clases de css:</p>
 
@@ -188,14 +192,14 @@ $('document').ready(function() {
 <li><code>toggleClass('clase')</code>: Agrega la "clase" si no esta presente en el elemento o la elimina en caso de estar presente.</li>
 </ul>
 
-<pre>
+```javascript
 $('document').ready(function() {
 
   // debería quitarle la clase avengers al elemento "ul"
   $('ul').toggleClass('avengers');
 
 });
-</pre>
+```
 
 <h2>Conclusión</h2>
 

@@ -10,6 +10,9 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1940
 wordpress_url: http://codehero.co/?p=1940
 date: 2013-08-12 01:31:42.000000000 -04:30
+serie: iOS desde Cero
+dificultad: Novato
+duracion: 25
 categories:
 - Cursos
 - iOS
@@ -104,7 +107,8 @@ tags:
 
 <p>Después de esto nuestro código debería lucir de la siguiente manera:</p>
 
-<pre>@interface LabelViewController : UIViewController
+```obj-c
+@interface LabelViewController : UIViewController
 
 
 @property (nonatomic, strong) NSString *labelValue;
@@ -112,17 +116,20 @@ tags:
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
-</pre>
+```
+
 
 <p>Ahora en la implementación de la clase asignamos el valor del labelValue a label cuando cargue la vista (recuerda que antes de que este evento se dispare los outlets no existen).</p>
 
-<pre>- (void)viewDidLoad
+```obj-c
+- (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [_label setText:_labelValue];
 }
-</pre>
+```
+
 
 <p>Ahora debemos crear otra clase para el table view controller, de modo que podamos pasar los datos de una a la otra. Repetimos el mismo procedimiento para crear una clase solo que ahora vamos a heredar de UITableViewController.</p>
 
@@ -130,24 +137,23 @@ tags:
 
 <p>Asignamos la clase a la escena.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-12.23.46-AM.png" alt="asignar clase a table view controller" class="aligncenter size-full wp-image-1958" /></p>
-
-<p>Conectamos con un segue las escenas.</p>
-
 <p><img src="http://i.imgur.com/0QssMcq.png" alt="crear segue de table view controller a otro controller" class="aligncenter size-full wp-image-1959" /></p>
 
 <p>Para pasar un valor de una vista a otra se debe sobre escribir el método prepareForSegue:sender: en el controlador de partida, por lo tanto en TableViewController debemos implementarlo. (recuerda importar labelViewController en TableViewController)</p>
 
-<pre>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+```obj-c
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     LabelViewController *nextViewController = [segue destinationViewController];
     nextViewController.labelValue = @"Hola desde el Table View";
 }
-</pre>
+```
+
 
 <p>Y debemos configurar nuestro table view.</p>
 
-<pre>- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+```obj-c
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
@@ -165,15 +171,16 @@ tags:
 {
     static NSString *CellIdentifier = @"myCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
     }
-    
+
     return cell;
 }
-</pre>
+```
+
 
 <p>Ahora si corremos el proyecto y navegamos hasta el tercer view controller, podremos ver como el último view controller muestra un mensaje que dice "Hola desde el Table View" en un label.</p>
 

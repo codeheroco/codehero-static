@@ -10,6 +10,9 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1868
 wordpress_url: http://codehero.co/?p=1868
 date: 2013-08-05 00:57:15.000000000 -04:30
+serie: iOS desde Cero
+dificultad: Novato
+duracion: 20
 categories:
 - Cursos
 - iOS
@@ -59,30 +62,32 @@ tags:
 
 <p>Abramos <strong>AppDelegate.m</strong>. Como podemos ver todo el código que instancia el tab bar está en el método <em>application:didFinishLaunchingWithOptions</em>.</p>
 
-<pre>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```obj-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // 1
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+
     // 2
     UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
     UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
-    
+
     //3
     self.tabBarController = [[UITabBarController alloc] init];
-    
+
     //4
     self.tabBarController.viewControllers = @[viewController1, viewController2];
-    
+
     //5
     self.window.rootViewController = self.tabBarController;
-    
+
     //6
     [self.window makeKeyAndVisible];
-    
+
     return YES;
 }
-</pre>
+```
+
 
 <p>Veamos que está pasando:</p>
 
@@ -117,25 +122,32 @@ tags:
 
 <p>Para agregarlo como un tercer tab, simplente tenemos que ir a <strong>AppDelegate.m</strong> e importar <em>ThirdViewController.h</em>:</p>
 
-<pre>#import "ThirdViewController.h"
-</pre>
+```obj-c
+#import "ThirdViewController.h"
+```
+
 
 <p>Instanciar el view controller en application:didFinishLaunchingWithOptions:</p>
 
-<pre>UIViewController *viewController3 = [[ThirdViewController alloc] initWithNibName:@"ThirdViewController"
+```obj-c
+UIViewController *viewController3 = [[ThirdViewController alloc] initWithNibName:@"ThirdViewController"
                                                                               bundle:nil];
-</pre>
+```
+
 
 <p>Y asignarlo al tabbar:</p>
 
-<pre>self.tabBarController.viewControllers = @[viewController1,
+```obj-c
+self.tabBarController.viewControllers = @[viewController1,
                                               viewController2,
                                               viewController3];
-</pre>
+```
+
 
 <p>El método ahora debe lucir de la siguiente manera:</p>
 
-<pre>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```obj-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -151,13 +163,14 @@ tags:
     self.tabBarController.viewControllers = @[viewController1,
                                               viewController2,
                                               viewController3];
-    
+
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
-    
+
     return YES;
 }
-</pre>
+```
+
 
 <p>Si corremos la aplicación vemos que el view controller aparece como una tercera vista, pero aún no tiene ninguna imagen ni texto en el botón</p>
 
@@ -169,7 +182,8 @@ tags:
 
 <p>Si vamos a la implementación de <em>FirstViewController</em> y <em>SecondViewController</em>, vemos que el método <em>initWithNibName:bundle</em> asigna un titulo con un localizedString (estos se usan usar traducciones, pero en este ejemplo podría utilizar un simple NSString) y una imagen:</p>
 
-<pre>- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+```obj-c
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -178,21 +192,25 @@ tags:
     }
     return self;
 }
-</pre>
+```
+
 
 <p>Para el caso de <em>ThirdViewController</em> no vamos a hacerlo de esta manera porque quiero enseñarles como utilizar los botones que vienen integrados con el framework.</p>
 
 <p>Abrimos <strong>ThirdViewController.m</strong> y nos vamos al método <em>initWithNibName:bundle</em> y dentro del if colocamos:</p>
 
-<pre>self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites
+```obj-c
+self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites
                                                              tag:99];
-</pre>
+```
+
 
 <p>Analicemos esta línea de código.</p>
 
 <p>En la parte <em>initWithTabBarSystemItem:</em> pasamos como parámetro <em>UITabBarSystemItemFavorites</em>, este valor hace que se muestre la imagen de la estrella con el título "Favorites". Este valor es parte de un enum que contiene otros valores como:</p>
 
-<pre>UITabBarSystemItemMore
+```obj-c
+UITabBarSystemItemMore
 UITabBarSystemItemFavorites
 UITabBarSystemItemFeatured
 UITabBarSystemItemTopRated
@@ -204,7 +222,8 @@ UITabBarSystemItemSearch
 UITabBarSystemItemDownloads
 UITabBarSystemItemMostRecent
 UITabBarSystemItemMostViewed
-</pre>
+```
+
 
 <p>En la parte <em>tag:</em> podemos asignar cualquier valor, esto es simplemente un identificador. Yo usé 99.</p>
 

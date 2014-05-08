@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2788
 wordpress_url: http://codehero.co/?p=2788
 date: 2013-12-02 00:10:36.000000000 -04:30
+serie: Node.js y Express
+dificultad: Aprendiz
+duracion: 10
+description: En este capítulo les voy a hablar sobre como crear sus propios módulos de Node.js. Este tutorial no tiene que ver con Express sino con Node directamente.
 categories:
 - Node.js
 tags:
@@ -35,12 +39,13 @@ tags:
 
 <p>Cuando creamos un proyecto con Express encontramos el en app.js el siguiente código entre otras sentencias:</p>
 
-<pre>var http = require('http'); // 1
+```javascript
+var http = require('http'); // 1
 
 http.createServer(app).listen(app.get('port'), function(){ // 2
   console.log('Express server listening on port ' + app.get('port'));
 });
-</pre>
+```
 
 <ol>
 <li>Creamos primero una referencia al módulo http;</li>
@@ -49,21 +54,22 @@ http.createServer(app).listen(app.get('port'), function(){ // 2
 
 <p>Ahora para exportar un módulo hacemos lo siguiente:</p>
 
-<pre>var miClase = function () { // 1
+```javascript
+var miClase = function () { // 1
 
     this.miAtributo;
 
     this.unMetodo = function () {
-    
+
         // hacer algo
-    
+
     }
-    
+
     return this;
 }
 
 module.exports = miClase; //2
-</pre>
+```
 
 <ol>
 <li>Definimos la clase;</li>
@@ -80,20 +86,21 @@ module.exports = miClase; //2
 
 <p>Primero necesitamos crear un archivo que contenga al módulo.</p>
 
-<pre>// HealthComponent.js
+```javascript
+// HealthComponent.js
 
 var health = 10;
 
 var getHit = function (amount) {
-    
+
     health -= amount;
-    
+
 }
 
 module.exports.health = health; // 1
 module.exports.getHit = getHit;
 
-</pre>
+```
 
 <ol>
 <li>Para exponer los módulos usé el mismo nombre de la variable o método por convención. Podia haber usado cualquier nombre.</li>
@@ -103,19 +110,21 @@ module.exports.getHit = getHit;
 
 <p>Ahora vamos a otro archivo a importar nuestro módulo y utilizarlo.</p>
 
-<pre>// app.js
+```javascript
+// app.js
 
 var myHealthComponent = require('./HealthComponent.js');
 
 console.log('Vida actual: ', myHealthComponent.health);
 console.log('Fuiste atacado, tus vidas disminuyeron a: ' + myHealthComponent.getHit(1));
-</pre>
+```
 
 <p>Esto debería imprimir por consola:</p>
 
-<pre>$ Vida actual: 10
+```javascript
+$ Vida actual: 10
 $Fuiste atacado, tus vidas disminuyeron a: 9
-</pre>
+```
 
 <hr />
 
@@ -123,35 +132,38 @@ $Fuiste atacado, tus vidas disminuyeron a: 9
 
 <p>Si convirtiéramos "HealthComponent.js" en una clase se exportaría de la siguiente manera:</p>
 
-<pre>// HealthComponent.js
+```javascript
+// HealthComponent.js
 
 var HealthComponent = function (initialHealth) {
 
     this.health = initialHealth;
-    
+
     this.getHit = function (amount) {
-        
+
         this.health -= amount;
-        
+
     }
-    
+
     return this;
 }
 
 module.exports = HealthComponent;
-</pre>
+```
 
 <p>Ahora podría requerirla de dos maneras distintas:</p>
 
-<pre>var HealthComponent = require('./HealthComponent.js');
+```javascript
+var HealthComponent = require('./HealthComponent.js');
 
 var myHealthComponent = new HealthComponent(10);
-</pre>
+```
 
 <p>En esta varsión importo la clase primero y luego la instáncio con un valor de vida inicial de 10.</p>
 
-<pre>var myHealthComponent = require('./HealthComponent.js')(10);
-</pre>
+```javascript
+var myHealthComponent = require('./HealthComponent.js')(10);
+```
 
 <p>Y en esta la importo y creo la instancia en una sola línea.</p>
 
@@ -161,8 +173,9 @@ var myHealthComponent = new HealthComponent(10);
 
 <p>También podemos requerir módulos por su dirección absoluta:</p>
 
-<pre>var modulo = require('home/components/HealthComponent.js');
-</pre>
+```javascript
+var modulo = require('home/components/HealthComponent.js');
+```
 
 <p>Si quisiéramos requerirlo solo por el nombre <code>var health = require("HealthComponent");</code> tendríamos que colocarlo en la carpeta de módulos de node (node_modules).</p>
 
@@ -182,29 +195,32 @@ var myHealthComponent = new HealthComponent(10);
 
 <p>Supongamos que queremos separar los controladores en varias carpetas en nuestro proyecto, algo así:</p>
 
-<pre>Project
+```javascript
+Project
 --Controllers
 ----home
 ------index.js
 ------other.js
 ----login
 ----users
-</pre>
+```
 
 <p>En la carpeta home podríamos tener un archivo index.js. Esto le dice a Node que este archivo debe correrse primero. También podría tener la extensión .node (index.node). Y este luego requerir a otro módulo dentro de la misma carpeta.</p>
 
-<pre>// index.js
+```javascript
+// index.js
 
 var o = require("./other.js");
-</pre>
+```
 
 <p>Incluso podríamos reemplazar index.js con un archivo package.json que cumple la misma función, éste contendría el siguiente código:</p>
 
-<pre>{
+```javascript
+{
   "name": "Home",
   "main": "other.js"
 }
-</pre>
+```
 
 <hr />
 

@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2992
 wordpress_url: http://codehero.co/?p=2992
 date: 2014-02-10 00:00:10.000000000 -04:30
+serie: jQuery desde Cero
+dificultad: Novato
+duracion: 10
+description: jQuery provee mecanismos para trabajar con eventos de una manera simple, abstrayendo las diferencias entre exploradores de internet.
 categories:
 - Cursos
 - jQuery

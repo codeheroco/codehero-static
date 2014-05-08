@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2391
 wordpress_url: http://codehero.co/?p=2391
 date: 2013-10-14 00:00:54.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 10
+description: "Middleware: En Node.js el Middleware es todo lo que ocurre desde que sale una solicitud en lado del cliente hasta que llega a nuestra lógica de la ruta en el servidor"
 categories:
 - Cursos
 - Node.js
@@ -25,24 +29,27 @@ tags: []
 
 <p>Algunos comandos de configuración que podemos usar que hasta ahora no se han mencionado son los siguientes:</p>
 
-<pre>// app.js
+```javascript
+// app.js
 
 app.set('view cache', true);
-</pre>
+```
 
 <p>Este comando habilita el cacheo de las vistas, esto no nos convendría en un habiente de desarrollo si en uno de producción.</p>
 
 <p>Cuando estas variables de configuración solo aceptan valores "true" o "false" podemos hacer uso del método <code>enable</code> o <code>disable</code>.</p>
 
-<pre>app.enable('view cache');
-</pre>
+```javascript
+app.enable('view cache');
+```
 
 <p>Y esto sería exactamente igual al bloque de código anterior.</p>
 
 <p>Hasta ahora solo hemos utilizado propiedades que son propias de Express, pero también podemos usar <code>set</code> para asignar cualquier propiedad inventada por nosotros:</p>
 
-<pre>app.set('color themes', true);
-</pre>
+```javascript
+app.set('color themes', true);
+```
 
 <p>Esta propiedad que acabo de inventar podría ser para mostrar distintos colores en mi interfaz dependiendo de la fecha actual, por ejemplo.</p>
 
@@ -64,19 +71,21 @@ app.set('view cache', true);
 
 <p>Nuestro formulario debe tener un campo como este:</p>
 
-<pre><code>// form.html
+```javascript
+// form.html
 
-&lt;form action='/updateUser'&gt; ...
-  &lt;input type="hidden" name="_method" value="put" /&gt;
-&lt;/form&gt;
-</code></pre>
+<form action='/updateUser'> ...
+  <input type="hidden" name="_method" value="put" />
+</form>
+```
 
 <p>Para que pueda ser llamada la siguiente ruta en el servidor:</p>
 
-<pre>app.put('/updateUser', function (req, res, next) {
+```javascript
+app.put('/updateUser', function (req, res, next) {
   // Codigo aqui
 });
-</pre>
+```
 
 <h3>static</h3>
 
