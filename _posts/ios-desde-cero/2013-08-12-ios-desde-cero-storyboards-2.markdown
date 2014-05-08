@@ -137,10 +137,6 @@ tags:
 
 <p>Asignamos la clase a la escena.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-12.23.46-AM.png" alt="asignar clase a table view controller" class="aligncenter size-full wp-image-1958" /></p>
-
-<p>Conectamos con un segue las escenas.</p>
-
 <p><img src="http://i.imgur.com/0QssMcq.png" alt="crear segue de table view controller a otro controller" class="aligncenter size-full wp-image-1959" /></p>
 
 <p>Para pasar un valor de una vista a otra se debe sobre escribir el método prepareForSegue:sender: en el controlador de partida, por lo tanto en TableViewController debemos implementarlo. (recuerda importar labelViewController en TableViewController)</p>
