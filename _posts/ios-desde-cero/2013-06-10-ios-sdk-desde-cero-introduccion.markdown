@@ -75,7 +75,7 @@ tags:
 
 <p>Ahora tenemos ante nosotros la ventana principal del proyecto. Te explicaré la función de cada parte.</p>
 
-<p><img src="http://codehero.co/oc-content/uploads/2013/06/Screen-Shot-2013-06-09-at-11.39.09-PM.jpg" alt="Ventana principal de Xcode" class="aligncenter size-full wp-image-967" /></p>
+<p><img src="https://i.imgur.com/7J0eM2t.jpg" alt="Ventana principal de Xcode" class="aligncenter size-full wp-image-967" /></p>
 
 <ol>
 <li>Del lado izquierdo tenemos el navegador de archivos, este consta con una lista de archivos y grupos que conforman el proyecto. Los grupos se ven como carpetas en la lista, pero no necesariamente son directorios reales en la carpeta del proyecto;</li>
