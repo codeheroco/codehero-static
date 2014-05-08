@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2925
 wordpress_url: http://codehero.co/?p=2925
 date: 2014-01-20 00:01:09.000000000 -04:30
+serie: Node.js y Express
+dificultad: Heroe
+duracion: 10
+description: En el siguiente tutorial voy unir varios temas que tocamos durante la serie para desarrollar una simple aplicación de Express que conecta con MongoDB
 categories:
 - Cursos
 - Node.js
@@ -29,14 +33,16 @@ tags:
 
 <p>Para este proyecto vamos a utilizar la estructura modular que aprendimos en el tutorial <a href="http://codehero.co/estructura-modular-de-proyectos/">Estructura modular de proyectos</a>. Para esto vamos a clonar el proyecto del repositorio de este tutroial:</p>
 
-<pre lang="javascript">// No olvides hacer cd del directorio donde queremos colocar el proyecto. Luego haces el clone...
+```javascript
+// No olvides hacer cd del directorio donde queremos colocar el proyecto. Luego haces el clone...
 $ git clone https://github.com/codeheroco/express-proyecto-modular.git
-</pre>
+```
 
 <p>Si quieres puedes cambiar el nombre del proyecto al que quieras. Yo se lo voy a cambiar a express-mongo:</p>
 
-<pre lang="javascript">$ mv express-proyecto-modular express-mongo
-</pre>
+```javascript
+$ mv express-proyecto-modular express-mongo
+```
 
 <hr />
 
@@ -44,20 +50,23 @@ $ git clone https://github.com/codeheroco/express-proyecto-modular.git
 
 <p>Primero tenemos que acceder al directorio de nuestro proyecto:</p>
 
-<pre lang="javascript">$ cd express-mongo
-</pre>
+```javascript
+$ cd express-mongo
+```
 
 <p>Y ahora instalamos las dependencias:</p>
 
-<pre lang="javascript">$ npm install
-</pre>
+```javascript
+$ npm install
+```
 
 <p>Esto instalará Express y Jade en el proyecto.</p>
 
 <p>Para trabajar con MongoDB vamos a utilizar la librería Mongoose. Ésta es un ORM que nos permitirá asociar los registros de la base de datos a objetos dentro de nuestra aplicación.</p>
 
-<pre lang="javascript">$ npm install --save mongoose
-</pre>
+```javascript
+$ npm install --save mongoose
+```
 
 <p>El parámetro <code>--save</code> permite agregar instantaneamente la dependencia al archivo <strong>package.json</strong>.</p>
 
@@ -73,13 +82,15 @@ $ git clone https://github.com/codeheroco/express-proyecto-modular.git
 
 <p>En la consola escribimos:</p>
 
-<pre lang="javascript">// recuerda estar siempre apuntando al directorio de la aplicación
+```javascript
+// recuerda estar siempre apuntando al directorio de la aplicación
 $ mkdir models
-</pre>
+```
 
 <p>Ya tenemos el directorio ahora creemos un modelo (User.js).</p>
 
-<pre lang="javascript">// models/User.js
+```javascript
+// models/User.js
 
 module.exports = function(mongoose) {
 
@@ -107,7 +118,7 @@ module.exports = function(mongoose) {
 
   return mongoose.model('User', UserSchema);
 }
-</pre>
+```
 
 <p>Esto es un modelo de Mongoose.</p>
 
@@ -117,7 +128,8 @@ module.exports = function(mongoose) {
 
 <p>Dentro de la misma carpeta models vamos a crear un archivo llamado index.js. Este se encargará de conectar con la base de datos y cargar todos los modelos.</p>
 
-<pre lang="javascript">// models/index.js
+```javascript
+// models/index.js
 if (!global.hasOwnProperty('db')) {
 
   var mongoose = require('mongoose');
@@ -141,7 +153,7 @@ if (!global.hasOwnProperty('db')) {
 }
 
 module.exports = global.db;
-</pre>
+```
 
 <p>El objeto <code>global</code>, se encuentra disponible globalmente, como su nombre lo dice. A este objeto se le pueden agregar propiedades como lo hemos hecho en este ejemplo, le agregamos una llamada <code>db</code>, ésta se encargará de llevar una instancia del objeto Mongoose y los modelos de nuestra app.</p>
 
@@ -161,26 +173,29 @@ module.exports = global.db;
 
 <p>En <strong>controllers/users/index.js</strong> agregamos nuestro codigo usual de todos los controladores:</p>
 
-<pre lang="javascript">// controllers/user/index.js
+```javascript
+// controllers/user/index.js
 
 var express = require('express');
 var app = module.exports = express();
 
 app.set('views', __dirname + '/views');
-</pre>
+```
 
 <p>Luego procedemos a crear una ruta que muestre un formulario para crear un usuario:</p>
 
-<pre lang="javascript">app.get('/user/new', function(request, response) {
+```javascript
+app.get('/user/new', function(request, response) {
 
   response.render('new');
 
 });
-</pre>
+```
 
 <p>Ahora tenemos que hacer esa vista. En el directorio <em>views</em> del mismo módulo, creamos un archivo llamado <strong>new.jade</strong></p>
 
-<pre lang="javascript">// controllers/user/views/index.js
+```javascript
+// controllers/user/views/index.js
 
 h1 Nuevo Usuario
 
@@ -197,7 +212,7 @@ form(method="POST", action="/user")
 
   p
     button(type="submit") Enviar
-</pre>
+```
 
 <p>Antes de poder probar que se muestre la página tenemos que cargar el módulo en el archivo <strong>app.js</strong>.</p>
 
@@ -205,13 +220,15 @@ form(method="POST", action="/user")
 
 <p>Ahora en la consola corremos mongo y luego nuestra app:</p>
 
-<pre lang="javascript">$ mongod &
-</pre>
+```javascript
+$ mongod &
+```
 
 <p>Y luego:</p>
 
-<pre lang="javascript">$ node app.js
-</pre>
+```javascript
+$ node app.js
+```
 
 <p>Ahora si navegamos a <code>localhost:3000/user/new</code> en un explorador, veremos nuestra página:</p>
 
@@ -219,11 +236,12 @@ form(method="POST", action="/user")
 
 <p>Para poder realmente crear un usuario debemos ahora agregar otra ruta a nuestro controlador de usuarios:</p>
 
-<pre lang="javascript">app.post('/user', function(request, response) {
+```javascript
+app.post('/user', function(request, response) {
 
   var u = req.body;
 
-  // podemos acceder a DB sin hacer 
+  // podemos acceder a DB sin hacer
   // require porque es global
   var newUser = new db.User({
     name: u.name,
@@ -234,22 +252,22 @@ form(method="POST", action="/user")
   // también podía hacer `new db.User(u)`
   // porque los campos del formulario
   // tienen el mismo nombre del las
-  // propiedades del modelo. Para 
+  // propiedades del modelo. Para
   // efectos demostrativos aquí cree
   // un objeto con las mismas propiedades
   // y les asigné los valores que vienen
   // del formulario.
 
   newUser.save(function(error, user) {
-    
+
     if (error) response.json(error);
 
     response.redirect('/user');
 
   }
-  
+
 });
-</pre>
+```
 
 <p>Si llenamos el formulario y hacemos click en enviar, nuestra ruta se encargará de insertar el usurio</p>
 
@@ -257,7 +275,8 @@ form(method="POST", action="/user")
 
 <p>Para verificar si se insertó, podemos averiguarlo revisando la consola de mongo:</p>
 
-<pre lang="javascript">$ mongo
+```javascript
+$ mongo
 
 > use expressTest
 > db.users.find().pretty();
@@ -268,7 +287,7 @@ form(method="POST", action="/user")
     "_id" : ObjectId("52dc6e7b1c85c043100fb37a"),
     "__v" : 0
 }
-</pre>
+```
 
 <hr />
 

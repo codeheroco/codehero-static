@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2827
 wordpress_url: http://codehero.co/?p=2827
 date: 2013-12-09 01:12:17.000000000 -04:30
+serie: jQuery desde Cero
+dificultad: Novato
+duracion: 20
+description: En este capítulo hablaremos de como iterar sobre elementos del documento.
 categories:
 - Cursos
 - jQuery
@@ -38,15 +42,41 @@ tags:
 
 <p>Veamos unos ejemplos usando el documento HTML que utilizamos en el tutorial anterior:</p>
 
-<p><img src="http://i.imgur.com/AIfY8ri.png" alt="enter image description here" /></p>
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba Filtros avanzados</title>
+
+  <script type="text/javascript" src="javascript/jquery-2.0.3.min.js"></script>
+
+</head>
+<body>
+
+  <ul id="list-1">
+    <li class="a">Item 1</li>
+    <li class="b">Item 2</li>
+    <li class="a">Item 3</li>
+    <li class="b">Item 4</li>
+  </ul>
+
+  <p class="class1">Mario</p>
+  <p class="paragraph1">Luigi</p>
+  <p class="class2">Toad</p>
+  <p class="paragraph2">Bowser</p>
+
+</body>
+</html>
+```
 
 <hr />
 
 <h2>Size() y length</h2>
 
-<p>Probemos el funcionamiento de size y length imprimiendo por consola cuantos elementos <code>&lt;p&gt;</code> hay en el documento:</p>
+<p>Probemos el funcionamiento de size y length imprimiendo por consola cuantos elementos <code><p></code> hay en el documento:</p>
 
-<pre>
+```javascript
 <script type="text/javascript">
 
     $("document").ready(function() {
@@ -57,13 +87,13 @@ tags:
     });
 
 </script>
-</pre>
+```
 
 <p>Esto debe imprimir en la consola de javascript del browser:</p>
 
-<pre lang="javascript">
+```javascript
 > Hay 4 elementos <p> en el documento
-</pre>
+```
 
 <hr />
 
@@ -71,7 +101,7 @@ tags:
 
 <p>Probemos imprimir el resutado de get():</p>
 
-<pre>
+```javascript
 <script type="text/javascript">
 
     $("document").ready(function() {
@@ -81,18 +111,18 @@ tags:
     });
 
 </script>
-</pre>
+```
 
 <p>Debemos obtener:</p>
 
-<pre lang="javascript">
-> Lista: 
+```javascript
+> Lista:
 [object HTMLLIElement],[object HTMLLIElement],[object HTMLLIElement],[object HTMLLIElement]
-</pre>
+```
 
 <p>Nótese que obtenemos varios elementos <code>[object HTMLLIElement]</code> esto significa que son objetos DOM; ahora si quisiéramos pudiéramos objetener alguna de sus propiedades:</p>
 
-<pre>
+```javascript
 <script type="text/javascript">
 
     $("document").ready(function() {
@@ -104,13 +134,13 @@ tags:
     });
 
 </script>
-</pre>
+```
 
 <p>Para una mejor lectura del código, coloqué el valor del texto que contiene el elemento en la posición "0" (cero) de todos los `<li> del documento en una variable y lo imprimí por consola.</p>
 
-<pre lang="javascript">
+```javascript
 > Texto en <li> posicion cero: item 1
-</pre>
+```
 
 <hr />
 
@@ -118,7 +148,7 @@ tags:
 
 <p>Usemos ahora find() para encontrar elementos:</p>
 
-<pre>
+```javascript
 <script type="text/javascript">
 
     $("document").ready(function() {
@@ -128,13 +158,13 @@ tags:
     });
 
 </script>
-</pre>
+```
 
-<p>Podemos ver como el <code>&lt;p&gt;</code> que contiene el texto "Mario" se le pinta el borde de rojo. Con la función "css" le aplicamos una regla de css.</p>
+<p>Podemos ver como el <code><p></code> que contiene el texto "Mario" se le pinta el borde de rojo. Con la función "css" le aplicamos una regla de css.</p>
 
 <p>También podemos usar filtros para encontrar elementos:</p>
 
-<pre>
+```javascript
 <script type="text/javascript">
 
     $("document").ready(function() {
@@ -144,7 +174,7 @@ tags:
     });
 
 </script>
-</pre>
+```
 
 <p>Con esto veremos que todos los elementos que contengan una letra "i" se les pintará el borde de rojo.</p>
 
@@ -154,7 +184,7 @@ tags:
 
 <p>Vamos a iterar sobre los elementos seleccionados con each() para mostrar alguna de sus propiedades:</p>
 
-<pre>
+```javascript
 <script type="text/javascript">
 
     $("document").ready(function() {
@@ -170,13 +200,13 @@ tags:
     });
 
 </script>
-</pre>
+```
 
 <p>En este caso imprimo el texto interno de cada uno de los elementos seleccionados.</p>
 
-<p>Los parámetros del callback son opcionales, podemos prescindir de cualquiera de los dos o de los dos a la vez. Si no incluyéramos el parámetro "ítem", pudiéramos usar <code>this</code>, este refiere al elemento que está en el contexto de la función, en este caso el <code>&lt;li&gt;</code> de cada iteración.</p>
+<p>Los parámetros del callback son opcionales, podemos prescindir de cualquiera de los dos o de los dos a la vez. Si no incluyéramos el parámetro "ítem", pudiéramos usar <code>this</code>, este refiere al elemento que está en el contexto de la función, en este caso el <code><li></code> de cada iteración.</p>
 
-<pre>
+```javascript
 <script type="text/javascript">
 
     $("document").ready(function() {
@@ -192,16 +222,16 @@ tags:
     });
 
 </script>
-</pre>
+```
 
 <p>De cualquiera de las dos maneras obtenemos el mismo resultado:</p>
 
-<pre lang="javascript">
+```javascript
 > El texto del elemento 0 es: item 1
 > El texto del elemento 1 es: item 2
 > El texto del elemento 2 es: item 3
-> El texto del elemento 3 es: item 4 
-</pre>
+> El texto del elemento 3 es: item 4
+```
 
 <hr />
 

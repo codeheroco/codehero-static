@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1245
 wordpress_url: http://codehero.co/?p=1245
 date: 2013-07-01 00:00:44.000000000 -04:30
+serie: Objective-C desde Cero
+dificultad: Novato
+duracion: 20
+description: En este capítulo de Objective-C desde Cero hablaremos de como este lenguaje implementa clases, objetos, métodos y apuntadores
 categories:
 - Cursos
 - Objective-C
@@ -30,8 +34,8 @@ tags:
 <div class="alert alert-info">
   <h4>
     ¡Alerta!
-  </h4> Para esta demostración vamos a abrir Xcode y vamos crear un proyecto nuevo de tipo "Command Line Tool" exactamente igual al del capitulo anterior, esta vez yo lo voy a llamar "Ejemplo - Objetos". Si no sabes como hacerlo, revisa: 
-  
+  </h4> Para esta demostración vamos a abrir Xcode y vamos crear un proyecto nuevo de tipo "Command Line Tool" exactamente igual al del capitulo anterior, esta vez yo lo voy a llamar "Ejemplo - Objetos". Si no sabes como hacerlo, revisa:
+
   <a href="">Objective-C desde Cero - Conceptos Básicos</a>
 </div>
 
@@ -53,12 +57,13 @@ tags:
 
 <p>Debería contener lo siguiente:</p>
 
-<pre>#import &lt;Foundation/Foundation.h>
+```obj-c
+#import <Foundation/Foundation.h>
 
 @interface Person : NSObject
 
 @end
-</pre>
+```
 
 <blockquote>
   <p>En los archivos .h de las clases anunciamos los atributos y métodos que serán públicos.</p>
@@ -66,13 +71,14 @@ tags:
 
 <p>Si vamos al .m (implementación), encontraremos el siguiente código:</p>
 
-<pre>#import "Person.h"
+```obj-c
+#import "Person.h"
 
 @implementation Person
 
 @end
 
-</pre>
+```
 
 <blockquote>
   <p>Todo lo que coloquemos en el .m de una clase y no esté declarado en el .h, será privado.</p>
@@ -84,27 +90,29 @@ tags:
 
 <p>Los apuntadores son variables que hacen referencia a objetos. Estudiemos la estructura de un apuntador. Vamos al archivo main.m e importamos nuestra clase <strong><em>Person</em></strong> (en cualquier lugar antes de la función main). Debe lucir así:</p>
 
-<pre>#import "Person.h"
+```obj-c
+#import "Person.h"
 
-#import &lt;Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        
+
         // insert code here...
         NSLog(@"Hello, World!");
-        
+
     }
     return 0;
 }
-</pre>
+```
 
 <p>Ahora borramos todo lo que esté dentro del bloque <strong><em>@autoreleasepool</em></strong> ya que no lo vamos a necesitar y agregamos el siguiente código:</p>
 
-<pre>Person *oscar = [[Person alloc] init];
-</pre>
+```obj-c
+Person *oscar = [[Person alloc] init];
+```
 
 <ol>
 <li>Person es nuestro tipo de dato, queremos guardar en la variable una referencia a un objeto de tipo Person.</li>
@@ -114,21 +122,22 @@ int main(int argc, const char * argv[])
 
 <p>El archivo main.m debe lucir así ahora:</p>
 
-<pre>#import "Person.h"
+```obj-c
+#import "Person.h"
 
-#import &lt;Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        
+
         Person *oscar = [[Person alloc] init];
-        
+
     }
     return 0;
 }
-</pre>
+```
 
 <hr />
 
@@ -142,8 +151,9 @@ int main(int argc, const char * argv[])
 <li>El primero será walk (caminar)</li>
 </ul>
 
-<pre>- (void)walk;
-</pre>
+```obj-c
+- (void)walk;
+```
 
 <p>Revisemos la estructura del metodo:</p>
 
@@ -157,8 +167,9 @@ int main(int argc, const char * argv[])
 <li>Seguimos con saltar y le pasamos una altura:</li>
 </ul>
 
-<pre>- (void)jumpHeight:(float)centimeters;
-</pre>
+```obj-c
+- (void)jumpHeight:(float)centimeters;
+```
 
 <ol>
 <li>Aquí todo es similar hasta que llegamos a los dos puntos ":", estos indican que viene un parámetro.</li>
@@ -170,8 +181,9 @@ int main(int argc, const char * argv[])
 <li>Ahora correr una distancia con una velocidad:</li>
 </ul>
 
-<pre>- (void)runDistance:(float)meters withSpeed:(float)speed;
-</pre>
+```obj-c
+- (void)runDistance:(float)meters withSpeed:(float)speed;
+```
 
 <ol>
 <li>Este método recibe dos parámetros: centimeters y speed; ambos de tipo float. El nombre completo del método es "runDistance:withSpeed:", y aquí es donde muchos se confunden, en Objective-C los nombres de los métodos deberían anunciar o dar una idea de que tipo son los parámetros que reciben, por eso "runDistance:{parámetro distancia} withSpeed:{parámetro velocidad}". Esto una genialidad, ya que el código se hace más "mantenible" al facilitar la identificación de los parámetros que reciben los métodos, y esto se hace más evidente cuando llamamos a los métodos, ya vamos a ver.</li>
@@ -181,8 +193,9 @@ int main(int argc, const char * argv[])
 <li>Por último agregaremos el método estático "edad":</li>
 </ul>
 
-<pre>+ (int)age;
-</pre>
+```obj-c
++ (int)age;
+```
 
 <ol>
 <li>En este caso vemos que empieza con "+" porque es un método estático (puede ser invocado sin hacer una instancia de la clase).</li>
@@ -192,7 +205,8 @@ int main(int argc, const char * argv[])
 
 <p>Nuestro encabezado debería verse así:</p>
 
-<pre>#import &lt;Foundation/Foundation.h>
+```obj-c
+#import <Foundation/Foundation.h>
 
 @interface Person : NSObject
 
@@ -202,35 +216,39 @@ int main(int argc, const char * argv[])
 + (int)age;
 
 @end
-</pre>
+```
 
 <p>Ahora en el archivo de implementación (.m) vamos a escribir lo que hacen cada unos de estos métodos.</p>
 
-<pre>- (void)walk
+```obj-c
+- (void)walk
 {
     NSLog(@"Caminando");
 }
-</pre>
+```
 
 <p>En walk vamos a imprimir por consola "Caminando". Los string en Objective-C se declaran empezando por "@" y luego entre comillas el mensaje.</p>
 
-<pre>- (void)jumpHeight:(float)centimeters
+```obj-c
+- (void)jumpHeight:(float)centimeters
 {
     NSLog(@"Saltando %f centímetros", centimeters);
 }
-</pre>
+```
 
 <p>En el mensaje vamos a incluir la altura que le pasamos. %f será reemplazado por el valor de tipo <em>float</em> que le pasamos.</p>
 
-<pre>- (void)runDistance:(float)meters withSpeed:(float)speed
+```obj-c
+- (void)runDistance:(float)meters withSpeed:(float)speed
 {
     NSLog(@"Corriendo %f metros a %f m/h", meters, speed);
 }
-</pre>
+```
 
 <p>Aquí imprimimos los dos parámetros.</p>
 
-<pre>+(int)age
+```obj-c
++(int)age
 {
 int myAge = 24
 
@@ -238,13 +256,14 @@ NSLog(@"mi edad es %i años", myAge);
 
 return myAge;
 }
-</pre>
+```
 
 <p>En este imprimimos un simple mensaje de solo texto.</p>
 
 <p>Person.m debería lucir de la siguiente manera:</p>
 
-<pre>#import "Person.h"
+```obj-c
+#import "Person.h"
 
 @implementation Person
 
@@ -277,18 +296,19 @@ return myAge;
 
 @end
 
-</pre>
+```
 
 <p>Ahora vamos a main.m a llamar a estos metodos, Esto lo hacemos de la siguiente manera:</p>
 
-<pre>[oscar walk];   
-        
-[oscar jumpHeight:107.3f];  
-        
+```obj-c
+[oscar walk];
+
+[oscar jumpHeight:107.3f];
+
 [oscar runDistance:10.5f withSpeed:8.0f];
-        
-[Person age];   
-</pre>
+
+[Person age];
+```
 
 <p>¿Ahora ves por qué se llaman mensajes?, es como si le hablaras a la clase/objeto para que haga algo.</p>
 
@@ -300,37 +320,39 @@ return myAge;
 
 <p>El archivo main.m debe lucir de la siguiente manera:</p>
 
-<pre>#import "Person.h"
+```obj-c
+#import "Person.h"
 
-#import &lt;Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        
+
         Person *oscar = [[Person alloc] init];
-        
+
         [oscar walk];
-        
+
         [oscar jumpHeight:107.3f];
-        
+
         [oscar runDistance:10.5f withSpeed:8.0f];
-        
+
         [Person age];
-        
+
     }
     return 0;
 }
-</pre>
+```
 
 <p>Si corremos este programa en Xcode, debería imprimir lo siguiente en la consola:</p>
 
-<pre>Caminando
+```obj-c
+Caminando
 Saltando 107.300003 centímetros
 Corriendo 10.500000 metros a 8.000000 m/h
 Mi edad es 25 años
-</pre>
+```
 
 <hr />
 

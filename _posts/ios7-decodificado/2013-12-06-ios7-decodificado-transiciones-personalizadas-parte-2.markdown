@@ -10,6 +10,11 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2820
 wordpress_url: http://codehero.co/?p=2820
 date: 2013-12-06 00:04:44.000000000 -04:30
+serie: iOS 7 Decodificado
+dificultad: Aprendiz
+duracion: 30
+github: https://github.com/sampayo/transiciones_animadas_basica_ios7
+description: "iOS7 Decodificado: curso donde te mostramos como hacer transiciones personalizadas e interactivas entre UIViewControllers"
 categories:
 - Cursos
 - iOS 7 decodificado
@@ -27,12 +32,12 @@ tags: []
 
 <p>Lo primero que debemos saber es que el UIViewController que presenta al controlador es el encargado tanto de la animación al mostrarlo como al despedirlo. Para realizar la animación de despedida de una vista de forma animada, nos ubicamos en el Controlador encargado de manejar la animación y agregamos el siguiente método del delegate <code>UIViewControllerTransitioningDelegate</code></p>
 
-<pre>
+```obj-c
 - (id < UIViewControllerAnimatedTransitioning >)animationControllerForDismissedController:(UIViewController *)dismissed
 {
 // retornamos el metodo UIViewControllerAnimatedTransitioning
 }
-</pre>
+```
 
 <p>Luego de esto prácticamente seguimos los pasos de la animaciones estudiados en el capítulo anterior.</p>
 
@@ -44,16 +49,16 @@ tags: []
 <li>DismissTransition.h</li>
 </ul>
 
-<pre>
+```obj-c
 @interface DismissTransition : NSObject <UIViewControllerAnimatedTransitioning>
 @end
-</pre>
+```
 
 <ul>
 <li>DismissTransition.m</li>
 </ul>
 
-<pre>
+```obj-c
 #import "DismissTransition.h"
 
 @implementation DismissTransition
@@ -66,25 +71,25 @@ tags: []
     // Esta implementación la vamos a dejar para mas adelante
 }
 @end
-</pre>
+```
 
 <h3>Implementar el delegado de la transición</h3>
 
 <p>En esta etapa solo instanciamos nuestra transición en el método que implementamos en el paso número dos. Es básicamente algo así:</p>
 
-<pre>
+```obj-c
 - (id < UIViewControllerAnimatedTransitioning >)  animationControllerForDismissedController:(UIViewController *)dismissed
 {
     DismissTransition *transition = [[DismissTransition alloc] init];
     return transition;
 }
-</pre>
+```
 
 <h3>Implementar la animación en la clase de transición</h3>
 
 <p>Como ya vimos en el capítulo anterior esta es la etapa más difícil ya que debemos desarrollar el código de la animación. Para este curso haremos que la vista se eleve un poco y luego baje dandole un efecto de caída sobre su lado derecho. Veamos el código mejor:</p>
 
-<pre>
+```obj-c
 - (void) animateTransition:(id)transitionContext
 {
     // ubicamos la vista que vamos a mover
@@ -118,7 +123,7 @@ tags: []
     }];
 
 }
-</pre>
+```
 
 <p>Con estos pequeños pasos producimos un efecto como éste, al despedir nuestros UIViewController:</p>
 
@@ -142,18 +147,18 @@ tags: []
 
 <p>Para iniciar y adaptar la transición interactiva, lo primero que debemos hacer es crear un objeto <code>UIPanGestureRecognizer</code> y agregarla a la vista del controlador una vez presentado. Esto lo hacemos con las siguientes líneas de comando:</p>
 
-<pre>
-    [self presentViewController:vc animated:YES completion:^{
-        UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
-        [vc.view addGestureRecognizer:gesture];
-    }];
-</pre>
+```obj-c
+[self presentViewController:vc animated:YES completion:^{
+  UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+  [vc.view addGestureRecognizer:gesture];
+}];
+```
 
 <p>En este ejemplo estaremos agarrando el mismo ejemplo anterior y una vez culminada la presentación del controlador le agregamos el gesto.</p>
 
 <p>Luego creamos el método que llama el selector del UIGestureReconize que posteriormente codificaremos.</p>
 
-<pre>
+```obj-c
 - (void) handleGesture: (UIPanGestureRecognizer *)gesture
 {
     switch (gesture.state) {
@@ -179,20 +184,20 @@ tags: []
             break;
     }
 }
-</pre>
+```
 
 <p>Por último vamos a necesitar a necesitar unas variables que vamos agregar en el <code>.h</code> del controlador y luego implementar un protocolo de transición en nuestra clase</p>
 
 <p>-<code>.h</code></p>
 
-<pre>
+```obj-c
 @property (strong, nonatomic) UIPercentDrivenInteractiveTransition *myInteractiveTransition;
 @property (assign, nonatomic) BOOL interactive;
-</pre>
+```
 
 <p>-Implementación del protocolo</p>
 
-<pre>
+```obj-c
 - (id <UIViewControllerInteractiveTransitioning>) interactionControllerForDismissal:(id< UIViewControllerAnimatedTransitioning >)animator
 {
     if (self.interactive) {
@@ -202,7 +207,7 @@ tags: []
     }
     return nil;
 }
-</pre>
+```
 
 <p>¡Listo!. ya finalizamos esta etapa donde simplemente preparamos el camino para desarrollar la interacción con las transiciones de la aplicación.</p>
 
@@ -210,7 +215,7 @@ tags: []
 
 <p>En esta etapa vamos a ir evaluando y modificando la posición de la transición para que este se mueva según sea el caso. Veamos como lo hicimos:</p>
 
-<pre>
+```obj-c
 - (void) handleGesture: (UIPanGestureRecognizer *)gesture
 {
     switch (gesture.state) {
@@ -254,7 +259,7 @@ tags: []
             break;
     }
 }
-</pre>
+```
 
 <p>En esta etapa nos ubicamos en el método del selector de nuestro gestureReconizer para empezar a codificarlo.</p>
 
@@ -266,7 +271,7 @@ tags: []
 
 <p>Para finalizar y cancelar la animación nos vemos en dos casos, cuando el usuario termina el movimiento para despedir la vista o simplemente cuando se arrepiente y deja la vista como estaba. Esto lo resolvemos estableciendo un punto en el porcentaje para decidir la mejor solución. vemos como lo resolvimos:</p>
 
-<pre>
+```obj-c
 - (void) handleGesture: (UIPanGestureRecognizer *)gesture
 {
     switch (gesture.state) {
@@ -293,21 +298,21 @@ tags: []
             break;
     }
 }
-</pre>
+```
 
 <p>Como ven esto es bastante simple, solo le indicamos a la transición, que cuando el movimiento sobrepase el 25% entonces finalizamos si no cancelamos la transición.</p>
 
 <p>Aun nos queda un pequeño detalle que resolver, y es en la transición de la vista a la que estamos realizándole cambios. En nuestro caso es <code>DismissTransition</code> y lo resolvemos cambiando:</p>
 
-<pre>
+```obj-c
 [transitionContext completeTransition:YES];
-</pre>
+```
 
 <p>por:</p>
 
-<pre>
+```obj-c
 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-</pre>
+```
 
 <p>Finalmente hemos finalizado nuestra transición personalizada e interactiva. ¿Bastante fácil verdad? queda de su parte poner en practica estos conceptos.</p>
 
