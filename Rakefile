@@ -225,7 +225,10 @@ namespace :draft do
   copiar el draft:
     pub
     @copy_dir = STDIN.gets.chomp
-    @post_date = Time.now.strftime("%F")
+    puts "¿Número de días que restan para que salga el post? E.j: 2"
+    @dias = STDIN.gets.chomp
+    @post_date = Time.now + @dias.to_i.days
+    @post_date = @post_date.strftime("%F")
     FileUtils.mv("_drafts/#{@publish}", "_posts/#{@copy_dir}/#{@post_date}-#{@publish}")
     puts "Publicando artículo... moviendo draft a la carpeta de _posts/#{@copy_dir}"
   end
