@@ -137,30 +137,11 @@ namespace :draft do
     puts "El post está contenido en una serie? [y/n]"
     @pertenece = STDIN.gets.chomp
     if @pertenece == 'y'
-      print <<-series
+      puts "Seleccione el nombre de la serie a la que pertenece el post:"
 
-  Seleccione el nombre de la serie a la que pertenece el post:
-
-      "#{print_series}"
-      series
-      case STDIN.gets.chomp
-      when "1"
-        @serie = "Sinatra desde Cero"
-      when "2"
-        @serie = "Ruby on Rails desde Cero"
-      when "3"
-        @serie = "MongoDB desde Cero"
-      when "4"
-        @serie = "jQuery desde Cero"
-      when "5"
-        @serie = "PHP desde Cero"
-      when "6"
-        @serie = "Laravel 4 desde Cero"
-      when "7"
-        @serie = "Node.js desde Cero"
-      else
-        @serie = "Otra serie"
-      end
+      series_in_progress
+      belong_to_serie = STDIN.gets.chomp
+      @serie = SERIES.fetch(belong_to_serie.to_i - 1)
     end
 
     print <<-dificultad
