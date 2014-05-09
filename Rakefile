@@ -36,19 +36,19 @@ def abort_with(message = nil)
 end
 
 def series_in_progress
-    unless SERIES.any?
-      YAML::load(File.open("_data/series.yml")).each do |serie|
-        if serie['status'] == '(Serie en Progreso)'
-            SERIES.push(serie['name'])
-        end
+  unless SERIES.any?
+    YAML::load(File.open("_data/series.yml")).each do |serie|
+      if serie['status'] == '(Serie en Progreso)'
+        SERIES.push(serie['name'])
       end
     end
-    
-    i = 1
-    SERIES.each do |name|
-        puts "#{i}) #{name}"
-        i += 1
-    end
+  end
+
+  i = 1
+  SERIES.each do |name|
+    puts "#{i}) #{name}"
+    i += 1
+  end
 end
 
 namespace :upgrade do
