@@ -99,10 +99,6 @@ namespace :draft do
     puts "Cual es el nombre del post que desea redactar? E.j: Rebase y Stash"
     @name = STDIN.gets.chomp
 
-    puts "¿Número de días que restan para que salga el post? E.j: 2"
-    @dias = STDIN.gets.chomp
-    @fecha_relativa = Time.now + @dias.to_i.days
-    @fecha_relativa = @fecha_relativa.strftime("%F")
     print <<-eos
 
   Seleccione el nombre del Autor marcando el número que lo representa:
@@ -181,15 +177,13 @@ namespace :draft do
     @slug = "#{@serie} #{@name}"
     @slug = @slug.tr('ÁáÉéÍíÓóÚú', 'AaEeIiOoUu')
     @slug = @slug.downcase.strip.gsub(' ', '-')
-    FileUtils.touch("_drafts/#{@fecha_relativa}-#{@slug}.md")
-    open("_drafts/#{@fecha_relativa}-#{@slug}.md", 'a' ) do |file|
+    File.open("_drafts/#{@slug}.md", 'a' ) do |file|
       file.puts "---"
       file.puts "layout: post"
       file.puts "status: publish"
       file.puts "title: #{@name}"
       file.puts "author: #{@autor}"
       file.puts "author_login: #{@handle}"
-      file.puts "date: #{@fecha_relativa}"
       file.puts "description: Escribir una descripción menor a 155 caracteres aquí."
       file.puts "dificultad: #{@dificultad}"
       file.puts "duracion: #{@duracion}"
@@ -231,7 +225,8 @@ namespace :draft do
   copiar el draft:
     pub
     @copy_dir = STDIN.gets.chomp
-    FileUtils.mv("_drafts/#{@publish}", "_posts/#{@copy_dir}")
+    @post_date = Time.now.strftime("%F")
+    FileUtils.mv("_drafts/#{@publish}", "_posts/#{@copy_dir}/#{@post_date}-#{@publish}")
     puts "Publicando artículo... moviendo draft a la carpeta de _posts/#{@copy_dir}"
   end
 end
