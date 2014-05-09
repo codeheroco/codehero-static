@@ -4,6 +4,9 @@ require 'dotenv/tasks'
 require 'fileutils'
 require 'colorator'
 require 'active_support/core_ext'
+require 'yaml'
+
+SERIES = Array.new
 
 # Rubygems compile rake task.
 desc "compile and run the site"
@@ -30,6 +33,22 @@ end
 def abort_with(message = nil)
   $stdout.puts message.red
   abort
+end
+
+def series_in_progress
+    unless SERIES.any?
+      YAML::load(File.open("_data/series.yml")).each do |serie|
+        if serie['status'] == '(Serie en Progreso)'
+            SERIES.push(serie['name'])
+        end
+      end
+    end
+    
+    i = 1
+    SERIES.each do |name|
+        puts "#{i}) #{name}"
+        i += 1
+    end
 end
 
 namespace :upgrade do
@@ -122,13 +141,7 @@ namespace :draft do
 
   Seleccione el nombre de la serie a la que pertenece el post:
 
-    1) Sinatra desde Cero
-    2) Ruby on Rails desde Cero
-    3) MongoDB desde Cero
-    4) jQuery desde Cero
-    5) PHP desde Cero
-    6) Laravel 4 desde Cero
-    7) Node.js desde Cero
+      "#{print_series}"
       series
       case STDIN.gets.chomp
       when "1"
