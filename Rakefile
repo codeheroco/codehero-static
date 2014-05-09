@@ -7,6 +7,8 @@ require 'active_support/core_ext'
 require 'yaml'
 
 SERIES = Array.new
+DRAFTS = Array.new
+POST_DIRECTORIES = Array.new
 
 # Rubygems compile rake task.
 desc "compile and run the site"
@@ -46,6 +48,36 @@ def series_in_progress
 
   i = 1
   SERIES.each do |name|
+    puts "#{i}) #{name}"
+    i += 1
+  end
+end
+
+def current_drafts
+  unless DRAFTS.any?
+    Dir.foreach("_drafts") do |fname|
+      next if fname == '.' or fname == '..' or fname == '.keep'
+      DRAFTS.push(fname)
+    end
+  end
+
+  i = 1
+  DRAFTS.each do |name|
+    puts "#{i}) #{name}"
+    i += 1
+  end
+end
+
+def post_directories
+  unless POST_DIRECTORIES.any?
+    Dir.foreach("_posts") do |fname|
+      next if fname == '.' or fname == '..'
+      POST_DIRECTORIES.push(fname)
+    end
+  end
+
+  i = 1
+  POST_DIRECTORIES.each do |name|
     puts "#{i}) #{name}"
     i += 1
   end
@@ -209,22 +241,15 @@ namespace :draft do
   desc "This task will guide you on the process of copying the draft to the posts folder"
   task :ready do
     puts "Nombres de posts que se encuentran en la carpeta drafts"
-    Dir.foreach("_drafts") do |fname|
-      next if fname == '.' or fname == '..' or fname == '.keep'
-      puts fname
-    end
-    puts "Introduzca el nombre del archivo a Publicar:"
-    @publish = STDIN.gets.chomp
+    current_drafts
+    puts "Seleccione el archivo a publicar:"
+    selected_draft = STDIN.gets.chomp
+    @publish = DRAFTS.fetch(selected_draft.to_i - 1)
     puts "Listado de directorios (series) donde es posible publicar el draft:"
-    Dir.foreach("_posts") do |fname|
-      next if fname == '.' or fname == '..'
-      puts fname
-    end
-    puts <<-pub
-  Introduzca el nombre del directorio (de la lista antes mostrada) a donde desea
-  copiar el draft:
-    pub
-    @copy_dir = STDIN.gets.chomp
+    post_directories
+    puts "Introduzca el nombre del directorio (de la lista antes mostrada) a donde desea copiar el draft:"
+    selected_directory = STDIN.gets.chomp
+    @copy_dir = POST_DIRECTORIES.fetch(selected_directory.to_i - 1)
     puts "¿Número de días que restan para que salga el post? E.j: 2"
     @dias = STDIN.gets.chomp
     @post_date = Time.now + @dias.to_i.days
