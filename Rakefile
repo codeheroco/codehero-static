@@ -4,6 +4,11 @@ require 'dotenv/tasks'
 require 'fileutils'
 require 'colorator'
 require 'active_support/core_ext'
+require 'yaml'
+
+SERIES = Array.new
+DRAFTS = Array.new
+POST_DIRECTORIES = Array.new
 
 # Rubygems compile rake task.
 desc "compile and run the site"
@@ -30,6 +35,29 @@ end
 def abort_with(message = nil)
   $stdout.puts message.red
   abort
+end
+
+YAML::load(File.open("_data/series.yml")).each do |serie|
+  if serie['status'] == '(Serie en Progreso)'
+    SERIES << serie['name']
+  end
+end
+
+def dir_directories(array, dir)
+  unless array.any?
+    Dir.foreach(dir) do |fname|
+      next if fname == '.' or fname == '..' or fname == '.keep'
+      array.push(fname)
+    end
+  end
+end
+
+def print_array(array)
+  i = 1
+  array.each do |name|
+    puts "#{i}) #{name}"
+    i += 1
+  end
 end
 
 namespace :upgrade do
@@ -80,10 +108,6 @@ namespace :draft do
     puts "Cual es el nombre del post que desea redactar? E.j: Rebase y Stash"
     @name = STDIN.gets.chomp
 
-    puts "¿Número de días que restan para que salga el post? E.j: 2"
-    @dias = STDIN.gets.chomp
-    @fecha_relativa = Time.now + @dias.to_i.days
-    @fecha_relativa = @fecha_relativa.strftime("%F")
     print <<-eos
 
   Seleccione el nombre del Autor marcando el número que lo representa:
@@ -118,36 +142,11 @@ namespace :draft do
     puts "El post está contenido en una serie? [y/n]"
     @pertenece = STDIN.gets.chomp
     if @pertenece == 'y'
-      print <<-series
+      puts "Seleccione el nombre de la serie a la que pertenece el post:"
 
-  Seleccione el nombre de la serie a la que pertenece el post:
-
-    1) Sinatra desde Cero
-    2) Ruby on Rails desde Cero
-    3) MongoDB desde Cero
-    4) jQuery desde Cero
-    5) PHP desde Cero
-    6) Laravel 4 desde Cero
-    7) Node.js desde Cero
-      series
-      case STDIN.gets.chomp
-      when "1"
-        @serie = "Sinatra desde Cero"
-      when "2"
-        @serie = "Ruby on Rails desde Cero"
-      when "3"
-        @serie = "MongoDB desde Cero"
-      when "4"
-        @serie = "jQuery desde Cero"
-      when "5"
-        @serie = "PHP desde Cero"
-      when "6"
-        @serie = "Laravel 4 desde Cero"
-      when "7"
-        @serie = "Node.js desde Cero"
-      else
-        @serie = "Otra serie"
-      end
+      print_array(SERIES)
+      belong_to_serie = STDIN.gets.chomp
+      @serie = SERIES.fetch(belong_to_serie.to_i - 1)
     end
 
     print <<-dificultad
@@ -187,15 +186,13 @@ namespace :draft do
     @slug = "#{@serie} #{@name}"
     @slug = @slug.tr('ÁáÉéÍíÓóÚú', 'AaEeIiOoUu')
     @slug = @slug.downcase.strip.gsub(' ', '-')
-    FileUtils.touch("_drafts/#{@fecha_relativa}-#{@slug}.md")
-    open("_drafts/#{@fecha_relativa}-#{@slug}.md", 'a' ) do |file|
+    File.open("_drafts/#{@slug}.md", 'a' ) do |file|
       file.puts "---"
       file.puts "layout: post"
       file.puts "status: publish"
       file.puts "title: #{@name}"
       file.puts "author: #{@autor}"
       file.puts "author_login: #{@handle}"
-      file.puts "date: #{@fecha_relativa}"
       file.puts "description: Escribir una descripción menor a 155 caracteres aquí."
       file.puts "dificultad: #{@dificultad}"
       file.puts "duracion: #{@duracion}"
@@ -221,23 +218,22 @@ namespace :draft do
   desc "This task will guide you on the process of copying the draft to the posts folder"
   task :ready do
     puts "Nombres de posts que se encuentran en la carpeta drafts"
-    Dir.foreach("_drafts") do |fname|
-      next if fname == '.' or fname == '..' or fname == '.keep'
-      puts fname
-    end
-    puts "Introduzca el nombre del archivo a Publicar:"
-    @publish = STDIN.gets.chomp
+    dir_directories(DRAFTS, "_drafts")
+    print_array(DRAFTS)
+    puts "Seleccione el archivo a publicar:"
+    selected_draft = STDIN.gets.chomp
+    @publish = DRAFTS.fetch(selected_draft.to_i - 1)
     puts "Listado de directorios (series) donde es posible publicar el draft:"
-    Dir.foreach("_posts") do |fname|
-      next if fname == '.' or fname == '..'
-      puts fname
-    end
-    puts <<-pub
-  Introduzca el nombre del directorio (de la lista antes mostrada) a donde desea
-  copiar el draft:
-    pub
-    @copy_dir = STDIN.gets.chomp
-    FileUtils.mv("_drafts/#{@publish}", "_posts/#{@copy_dir}")
+    dir_directories(POST_DIRECTORIES, "_posts")
+    print_array(POST_DIRECTORIES)
+    puts "Introduzca el nombre del directorio (de la lista antes mostrada) a donde desea copiar el draft:"
+    selected_directory = STDIN.gets.chomp
+    @copy_dir = POST_DIRECTORIES.fetch(selected_directory.to_i - 1)
+    puts "¿Número de días que restan para que salga el post? E.j: 2"
+    @dias = STDIN.gets.chomp
+    @post_date = Time.now + @dias.to_i.days
+    @post_date = @post_date.strftime("%F")
+    FileUtils.mv("_drafts/#{@publish}", "_posts/#{@copy_dir}/#{@post_date}-#{@publish}")
     puts "Publicando artículo... moviendo draft a la carpeta de _posts/#{@copy_dir}"
   end
 end
