@@ -37,47 +37,24 @@ def abort_with(message = nil)
   abort
 end
 
-def series_in_progress
-  unless SERIES.any?
-    YAML::load(File.open("_data/series.yml")).each do |serie|
-      if serie['status'] == '(Serie en Progreso)'
-        SERIES.push(serie['name'])
-      end
-    end
-  end
-
-  i = 1
-  SERIES.each do |name|
-    puts "#{i}) #{name}"
-    i += 1
+YAML::load(File.open("_data/series.yml")).each do |serie|
+  if serie['status'] == '(Serie en Progreso)'
+    SERIES << serie['name']
   end
 end
 
-def current_drafts
-  unless DRAFTS.any?
-    Dir.foreach("_drafts") do |fname|
+def dir_directories(array, dir)
+  unless array.any?
+    Dir.foreach(dir) do |fname|
       next if fname == '.' or fname == '..' or fname == '.keep'
-      DRAFTS.push(fname)
+      array.push(fname)
     end
-  end
-
-  i = 1
-  DRAFTS.each do |name|
-    puts "#{i}) #{name}"
-    i += 1
   end
 end
 
-def post_directories
-  unless POST_DIRECTORIES.any?
-    Dir.foreach("_posts") do |fname|
-      next if fname == '.' or fname == '..'
-      POST_DIRECTORIES.push(fname)
-    end
-  end
-
+def print_array(array)
   i = 1
-  POST_DIRECTORIES.each do |name|
+  array.each do |name|
     puts "#{i}) #{name}"
     i += 1
   end
@@ -167,7 +144,7 @@ namespace :draft do
     if @pertenece == 'y'
       puts "Seleccione el nombre de la serie a la que pertenece el post:"
 
-      series_in_progress
+      print_array(SERIES)
       belong_to_serie = STDIN.gets.chomp
       @serie = SERIES.fetch(belong_to_serie.to_i - 1)
     end
@@ -241,12 +218,14 @@ namespace :draft do
   desc "This task will guide you on the process of copying the draft to the posts folder"
   task :ready do
     puts "Nombres de posts que se encuentran en la carpeta drafts"
-    current_drafts
+    dir_directories(DRAFTS, "_drafts")
+    print_array(DRAFTS)
     puts "Seleccione el archivo a publicar:"
     selected_draft = STDIN.gets.chomp
     @publish = DRAFTS.fetch(selected_draft.to_i - 1)
     puts "Listado de directorios (series) donde es posible publicar el draft:"
-    post_directories
+    dir_directories(POST_DIRECTORIES, "_posts")
+    print_array(POST_DIRECTORIES)
     puts "Introduzca el nombre del directorio (de la lista antes mostrada) a donde desea copiar el draft:"
     selected_directory = STDIN.gets.chomp
     @copy_dir = POST_DIRECTORIES.fetch(selected_directory.to_i - 1)
