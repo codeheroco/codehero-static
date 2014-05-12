@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2661
 wordpress_url: http://codehero.co/?p=2661
 date: 2013-11-22 03:17:12.000000000 -04:30
+serie: Ember.js desde Cero
+dificultad: Aprendiz
+duracion: 10
+description: Curso en el cual aprenderemos Ember.js desde Cero. Estudiaremos como crear nuestro primer modelo en Ember.js
 categories:
 - Cursos
 - Ember.js
@@ -31,24 +35,24 @@ Lo primero que necesitamos hacer para crear un modelo en Ember.js es generar una
 
 <p>Naveguemos a <a href="http://emberjs.com/builds/#/canary/latest">Ember Data</a> y descarguemos la ultima version del archivo <code>ember-data.js</code>. Una vez que lo hayamos descargado debemos moverlo a la carpeta <code>libs</code> dentro de nuestra aplicación y asociarlo en el archivo <code>index.html</code> de la app agregando la siguiente linea:</p>
 
-<pre>
+```javascript
   <script src="js/libs/ember-data.js"></script>
-</pre>
+```
 
 <p>Luego debemos definir el store dentro del archivo <code>app.js</code> de nuestra aplicación. Veamos como hacerlo:</p>
 
 <p>Agregamos el siguiente código:</p>
 
-<pre>
+```javascript
 App.Store = DS.Store.extend({
     revision: 11,
     adapter: "DS.FixtureAdapter"
 });
-</pre>
+```
 
 <blockquote>
   <p>Observemos lo siguiente:</p>
-  
+
   <ul>
   <li>Con <code>App.Store = DS.Store.extend</code> generamos la variable <strong>store</strong> con la que la app va estar trabajando. Esta extiende de <em>Ember Data</em>.</li>
   <li>Debemos estar pendiente de la versión que queremos usar en mis caso y para el tiempo de este tutorial es la <code>revision: 11</code>.</li>
@@ -58,14 +62,14 @@ App.Store = DS.Store.extend({
 
 <p>El archivo <code>app.js</code> debería lucir así:</p>
 
-<pre>
+```javascript
 window.App = Ember.Application.create();
 
 App.Store = DS.Store.extend({
     revision: 11,
     adapter: "DS.FixtureAdapter"
 });
-</pre>
+```
 
 <p>Una vez que ya hemos creado nuestra variable <strong>store</strong> es hora de generar nuestro modelo. En mi opinión cada modelo de Ember.js debería ser manejado por un archivo diferente, es por esto que si seguimos el ejemplo que veníamos usando hasta el tutorial anterior debemos crear un modelo denominado <strong>marcapagina</strong>.</p>
 
@@ -73,18 +77,18 @@ App.Store = DS.Store.extend({
 
 <p>Una vez que hayamos creado nuestro archivo debemos definir el modelo como tal para eso vamos a agregar el siguiente código:</p>
 
-<pre>
+```javascript
 App.Marcapagina = DS.Model.extend({
     nombre: DS.attr('string'),
     url: DS.attr('string')
 });
-</pre>
+```
 
 <blockquote>
   <p>Observemos que con <code>App.Marcapagina = DS.Model.extend</code> creamos una variable <strong>Marcapagina</strong> dentro de nuestra app la cual va a ser un modelo ya que extiende de <code>DS.Model</code>.</p>
-  
+
   <p>Aparte, le agregamos dos atributos el primero un <strong>nombre</strong> el cual va a ser de tipo <em>string</em> (<code>nombre: DS.attr('string')</code>) y el segundo <strong>url</strong> que va ser de tipo <em>string</em> (<code>url: DS.attr('string')</code>).</p>
-  
+
   <p>Es importante destacar que Ember.js te permite tener 4 tipos de datos para atributos: string o cadena de caracteres, date o fecha, number o numero y boolean o booleano.</p>
 </blockquote>
 
@@ -92,7 +96,7 @@ App.Marcapagina = DS.Model.extend({
 
 <p>En el mismo archivo vamos a agregar lo siguiente:</p>
 
-<pre>
+```javascript
 App.Marcapagina.FIXTURES = [
     {
         id: 1,
@@ -105,7 +109,7 @@ App.Marcapagina.FIXTURES = [
         url: "https://twitter.com/CarlosPicca"
     }
 ];
-</pre>
+```
 
 <blockquote>
   <p>Observemos que debemos decir que modelo vamos a llenar con <code>App.Marcapagina.FIXTURES</code>.
@@ -114,7 +118,7 @@ App.Marcapagina.FIXTURES = [
 
 <p>El archivo <code>marcapagina.js</code> debería lucir así:</p>
 
-<pre>
+```javascript
 App.Marcapagina = DS.Model.extend({
     nombre: DS.attr('string'),
     url: DS.attr('string')
@@ -132,7 +136,7 @@ App.Marcapagina.FIXTURES = [
         url: "https://twitter.com/CarlosPicca"
     }
 ];
-</pre>
+```
 
 <blockquote>
   <p>Hasta que nos veamos los controladores y las vistas no vamos a poder probar la app en su totalidad (visualmente) por lo que los invito a esperar la salida de los siguientes tutoriales!</p>

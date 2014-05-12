@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2603
 wordpress_url: http://codehero.co/?p=2603
 date: 2013-11-14 02:17:50.000000000 -04:30
+serie: Ember.js desde Cero
+dificultad: Aprendiz
+duracion: 10
+description: Curso en el cual aprenderemos Ember.js desde Cero. Estudiaremos como generar nuestra estructura de proyecto.
 categories:
 - Cursos
 - Ember.js

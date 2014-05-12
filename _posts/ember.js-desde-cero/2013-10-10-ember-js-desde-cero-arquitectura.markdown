@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2370
 wordpress_url: http://codehero.co/?p=2370
 date: 2013-10-10 05:46:04.000000000 -04:30
+serie: Ember.js desde Cero
+dificultad: Novato
+duracion: 10
+description: Curso en el cual aprenderemos Django desde Cero. Estudiaremos todo lo relacionado con la arquitectura que necesitamos para desarrollar una app en Ember.js.
 categories:
 - Cursos
 - Ember.js
