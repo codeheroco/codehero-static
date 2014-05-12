@@ -63,14 +63,14 @@ tags:
 
 <p>Para poder instalar la última versión de Python (2.7.5) en el sistema operativo debemos tener previamente instalado <a href="http://mxcl.github.io/homebrew/">Homebrew</a>. Utilizaremos el siguiente comando para iniciar la instalación:</p>
 
-```python
+```bash
 $ brew install python --framework
 ```
 
 <p>Este paso instalará todos los componentes necesarios y tardará unos minutos, una vez que culmine debemos exportar está ruta al <em>PATH</em> del usuario.</p>
 
-```python
-export PATH=/usr/local/share/python:$PATH
+```bash
+$ export PATH=/usr/local/share/python:$PATH
 ```
 
 <p>La bandera <strong><em>--framework</em></strong> le indica a Homebrew que debe compilar Python en estilo Framework. Esto se realiza porque la versión de Python que venía con <em>Snow Leopard</em> se encontraba compilada de esta manera, y se sigue utilizando solo por prevención de errors en instalaciones futuras.</p>
@@ -79,7 +79,7 @@ export PATH=/usr/local/share/python:$PATH
 
 <p><strong><em>Nota:</em></strong> Si por el contrario desean instalar la versión 3 de Python lo pueden hacer de la misma manera utilizando el siguiente comando:</p>
 
-```python
+```bash
 $ brew install python3 --framework
 ```
 
@@ -91,7 +91,7 @@ $ brew install python3 --framework
 
 <p>Si se encuentran en una distribución basada en Debian y quieren instalar una versión de Python distinta a la que viene con el Sistema Operativo. Existe un PPA (Paquete Personal de Archivo) que nos facilita la tarea de instalación.</p>
 
-```python
+```bash
 $ sudo add-apt-repository ppa:fkrull/deadsnakes
 $ sudo apt-get update
 $ sudo apt-get install python2.7
@@ -125,7 +125,7 @@ $ sudo apt-get install python2.7
 
 <p>Si nos aparece lo siguiente, accedimos satisfactoriamente al Shell de Python:</p>
 
-```python
+```bash
 Python 2.7.5 (v2.7.3:70274d53c1dd, Apr  9 2012, 20:52:43)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
@@ -150,7 +150,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <p>Guardamos el documento (<em>en mi caso</em> <code>Ctrl + S</code>) y lo vamos a llamar <strong>tutorial.py</strong>. Ahora para correrlo desde el <strong>IDLE</strong> lo único que tenemos que hacer es presionar la tecla <code>F5</code> y el programa automáticamente se ejecutará.</p>
 
-```python
+```bash
 Python 2.7.5 (v3.3.0:bd8afb90ebf2, Apr  9 2012, 21:52:43)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
 Type "copyright", "credits" or "license()" for more information.
@@ -187,10 +187,10 @@ Hola Mundo!
 
 <p>Navegamos hasta el directorio donde se encuentra ubicado <strong>tutorial.py</strong> (<em>En mi caso esta en la carpeta ~/Documents/Tutoriales/Python/capitulo1/</em>) y luego usamos el comando <strong><em>“python + el nombre del archivo”</em></strong> para ejecutarlo, veamos como sería ese código:</p>
 
-```python
-cd ~/Documents/Tutoriales/Python/capitulo1/
-python tutorial.py
-Hola Mundo!
+```bash
+$ cd ~/Documents/Tutoriales/Python/capitulo1/
+$ python tutorial.py
+$ Hola Mundo!
 ```
 
 <p>Una vez ejecutado el script nos imprime el <code>Hola mundo!</code> al igual como lo hizo cuando lo corrimos desde IDLE de Python.</p>
@@ -212,19 +212,19 @@ print “Hola Mundo!”
 
 <p>Lo segundo, tendríamos que darle permisología de ejecución a <strong>tutorial.py</strong> con la siguiente instrucción en el terminal</p>
 
-```python
-chmod 755 tutorial.py
+```bash
+$ chmod 755 tutorial.py
 ```
 
 <p>Por último ejecutaríamos el archivo desde el terminal de la siguiente manera</p>
 
-```python
-./tutorial.py
+```bash
+$ ./tutorial.py
 ```
 
 <p>Si todo esta correcto debería imprimir lo siguiente:</p>
 
-```python
+```bash
 Hola Mundo!
 ```
 

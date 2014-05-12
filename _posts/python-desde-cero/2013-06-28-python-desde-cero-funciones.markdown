@@ -56,7 +56,7 @@ totalizarCompra()
 
 <p>Si ejecutamos el script podemos observar que nos retorna <strong>35</strong>, lo que es correcto.</p>
 
-```python
+```bash
 $ python2.7 carritoCompra.py
 $ 35
 ```
@@ -98,7 +98,7 @@ totalizarCompra(articulo1, articulo2)
 
 <p>Suficiente explicaciones, ahora ejecutemos el script y veamos que nos devuelve:</p>
 
-```python
+```bash
 $ python2.7 carritoCompra.py
 $ 50
 ```
@@ -120,7 +120,7 @@ totalizarCompra(articulo3, articulo4)
 
 <p>Si ejecutamos el script podemos observar que exitosamente imprime <strong>30</strong>, la suma del <code>articulos3</code> y del <code>articulo4</code>, ya que esos fueron los argumentos que les pasamos.</p>
 
-```python
+```bash
 $ python2.7 carritoCompra.py
 $ 30
 ```
@@ -154,7 +154,7 @@ print total2
 
 <p>Si ejecutamos el script observamos:</p>
 
-```python
+```bash
 $ python2.7 carritoCompra.py
 $ 50
 $ 30
@@ -188,7 +188,7 @@ print 'El número es ' + str(numero)
 
 <p>Ahora si ejecutamos este trozo de código, observamos que nos imprime la cadena de caracteres sin ningún problema:</p>
 
-```python
+```bash
 $ El número es 10
 ```
 
@@ -210,7 +210,7 @@ print len(string)
 
 <p>Si ejecutamos el código vemos que imprime 14, que es el número de caracteres que posee ese <code>Hola Codehero!</code>.</p>
 
-```python
+```bash
 $ 14
 ```
 

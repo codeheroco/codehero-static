@@ -82,13 +82,13 @@ ImportError: No module named MySQLdb
 
 <p>Existen dos formas para instalar el módulo de <strong>MySQLdb</strong>, la manera sencilla, ejecutando el siguiente comando:</p>
 
-```python
-pip install MySQL-python
+```bash
+$ pip install MySQL-python
 ```
 
 <p>y la manera engorrosa, donde debemos descargar de <a href="http://sourceforge.net/projects/mysql-python/">Descargas MySQLdb</a> el módulo, y una vez descargado ejecutamos los siguientes comandos:</p>
 
-```python
+```bash
 $ gunzip MySQL-python-1.2.2.tar.gz
 $ tar -xvf MySQL-python-1.2.2.tar
 $ cd MySQL-python-1.2.2
@@ -167,7 +167,7 @@ cursor = bd.cursor()
 sql = "CREATE TABLE EMPLEADO (
          NOMBRE  CHAR(20) NOT NULL,
          APELLIDO  CHAR(20),
-         EDAD INT,  
+         EDAD INT,
          SEXO CHAR(1),
          SALARIO FLOAT )"
 
