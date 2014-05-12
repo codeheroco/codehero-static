@@ -43,6 +43,14 @@ tags:
 <p>Generemos el archivo <code>agregar_comentario.html</code> dentro de la carpeta de <code>templates</code> (la carpeta <em>templates</em> esta ubicada dentro de la app <strong>blog</strong> que creamos anteriormente) y agreguemos el siguiente código:</p>
 
 ```python
+{% raw %}
+<form action="/articulos/agregar_comentario/{{ articulo.id }}/" method="post">{% csrf_token %}
+<ul>
+{{ form.as_ul }}
+</ul>
+{% endraw %}
+<input type="submit" name="submit" value="Agregar">
+</form>
 ```
 
 <blockquote>
@@ -71,13 +79,9 @@ tags:
 </h2>
 {% raw %}
 {% for c in articulo.comentario_set.all %}
-
-
-<p>
   {{ c.nombre}}: {{c.cuerpo}}
-</p>
 {% endfor %}
-{% raw %}
+{% endraw %}
 ```
 
 <blockquote>
@@ -89,9 +93,9 @@ tags:
 <p>Debemos agregar el siguiente código al archivo <code>agregar_comentario.html</code>:</p>
 
 ```python
-<p>
+{% raw %}
   <a href="/articulos/agregar_comentario/{{ articulo.id }}">Agregar Comentario</a>
-</p>
+{% endraw %}
 ```
 
 <blockquote>

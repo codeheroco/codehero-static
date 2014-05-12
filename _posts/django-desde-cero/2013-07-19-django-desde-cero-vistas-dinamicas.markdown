@@ -66,7 +66,7 @@ def home(request):
 <p>Segundo, creamos un archivo <code>index.html</code> dentro de la carpeta <code>templates</code> con el siguiente contenido HTML:</p>
 
 ```html
-{% raw %}
+<div class="container">
   <h1>
     Primer Blog
   </h1>
@@ -80,7 +80,6 @@ def home(request):
   <p>
     Contenido
   </p>
-{% endraw %}
 </div>
 ```
 
