@@ -225,8 +225,17 @@ def crear(request):
 
 <p>Debemos crear el archivo <code>crear_articulo.html</code> dentro de la carpeta <strong>templates</strong> en la app <strong>blog</strong> y agregarle el siguiente código:</p>
 
-<p><img src="http://i.imgur.com/40rgqdn.png" alt="django-forms-html" /></p>
+```html
+<form action="/crear/" method="post">{% raw %}{% csrf_token %}{% endraw %}
+<ul>
+{% raw %}
+{{ form.as_ul }}
+{% endraw %}
+</ul>
 
+<input type="submit" name="submit" value="Crear Articulo">
+</form>
+```
 <blockquote>
   <p>Observemos que dentro de esta plantilla es donde renderizamos el form que creamos anteriormente con el método <code>form.as_ul</code>, a su vez es donde especificamos la dirección de la ruta que Django tiene que buscar para poder procesar el form, en nuestro caso <code>/crear/</code>.</p>
 </blockquote>
