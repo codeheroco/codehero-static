@@ -75,7 +75,7 @@ import MySQLdb
 
 ```python
 Traceback (most recent call last):
-  File "prueba.py", line 3, in &lt;module>
+  File "prueba.py", line 3, in <module>
     import MySQLdb
 ImportError: No module named MySQLdb
 ```

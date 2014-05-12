@@ -285,7 +285,7 @@ if esActivo:
 <p>Valida si una variable es menor a otra.</p>
 
 ```python
-if 2 &lt; 3:
+if 2 < 3:
    print ‘Dos es menor que tres’
 ```
 
@@ -330,7 +330,7 @@ if 2 >= 3:
 <p>Valida si una variable es diferente a otra.</p>
 
 ```python
-if 2 &lt;= 3:
+if 2 <= 3:
    print ‘Dos es menor o igual que tres’
 ```
 
@@ -348,7 +348,7 @@ else:
 
 ```python
 a = 15
-if a &lt; 3:
+if a < 3:
    print ‘Es menor que tres’
 elif a == 5:
    print ‘Es igual a cinco’
@@ -388,7 +388,7 @@ for a in miLista:
 ```python
 a,b = 0,5
 
-while a &lt; b:
+while a < b:
    print a
    a += 1 
 ```
