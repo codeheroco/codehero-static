@@ -111,7 +111,7 @@ tags:
 ```java
 public class HolaMundo {
 
-   /* This is my first java program.  
+   /* This is my first java program.
     * This will print 'Hello World' as the output
     */
 
@@ -135,8 +135,8 @@ public class HolaMundo {
 <li>Tipeamos lo siguiente para compilar:</li>
 </ul>
 
-```java
-javac HolaMundo.java
+```bash
+$ javac HolaMundo.java
 ```
 
 <h2>¿Cómo ejecutar?</h2>
@@ -145,8 +145,8 @@ javac HolaMundo.java
 
 <p>Abre una consola y tipea:</p>
 
-```java
-java HolaMundo
+```bash
+$ java HolaMundo
 ```
 
 <p>Debería aparecerte <strong>”Hola Mundo”</strong> en la pantalla.</p>
