@@ -35,8 +35,8 @@ Lo primero que necesitamos hacer para crear un modelo en Ember.js es generar una
 
 <p>Naveguemos a <a href="http://emberjs.com/builds/#/canary/latest">Ember Data</a> y descarguemos la ultima version del archivo <code>ember-data.js</code>. Una vez que lo hayamos descargado debemos moverlo a la carpeta <code>libs</code> dentro de nuestra aplicación y asociarlo en el archivo <code>index.html</code> de la app agregando la siguiente linea:</p>
 
-```javascript
-  <script src="js/libs/ember-data.js"></script>
+```html
+<script src="js/libs/ember-data.js"></script>
 ```
 
 <p>Luego debemos definir el store dentro del archivo <code>app.js</code> de nuestra aplicación. Veamos como hacerlo:</p>

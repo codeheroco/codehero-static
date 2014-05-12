@@ -105,15 +105,14 @@ tags:
 		<meta charset="utf-8" />
 		<title>Aprendamos Ember.js en Codehero!</title>
 	</head>
-<body>
-
-</body>
+  <body>
+  </body>
 </html>
 ```
 
 <p>Ahora a este código debemos agregarle las dependencias que descargamos anteriormente. Veamos cómo:</p>
 
-```javascript
+```html
 <script src="jquery.min.js"></script>
 <script src="handlebars.js"></script>
 <script src="ember.js"></script>
@@ -135,9 +134,8 @@ tags:
 		<script src="handlebars.js"></script>
 		<script src="ember.js"></script>
 	</head>
-<body>
-
-</body>
+  <body>
+  </body>
 </html>
 ```
 
@@ -157,7 +155,7 @@ tags:
 
 <p>Con esa nueva línea hemos creado nuestra aplicación:</p>
 
-```javascript
+```html
 <script>
     window.App = Ember.Application.create();
 </script>
@@ -178,9 +176,8 @@ tags:
 			window.App = Ember.Application.create();
 		</script>
 	</head>
-<body>
-
-</body>
+  <body>
+  </body>
 </html>
 ```
 
@@ -202,14 +199,11 @@ tags:
 
 <p>Agreguemos al archivo <code>index.html</code> el siguiente código entre los tags <em>body</em>:</p>
 
-```javascript
+```html
 <script type="text/x-handlebars" data-template-name="index">
-    <h1>
-  Bienvenido a Ember.js!
-
-
-
-</h1>
+  <h1>
+    Bienvenido a Ember.js!
+  </h1>
 </script>
 ```
 

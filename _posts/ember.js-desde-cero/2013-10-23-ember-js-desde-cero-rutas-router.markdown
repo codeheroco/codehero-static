@@ -65,23 +65,18 @@ App.Router.map(function() {
 
 <p>Para esto vamos a agregar al archivo <code>index.html</code> lo siguiente:</p>
 
-```javascript
+```html
 <script type="text/x-handlebars" data-template-name="nosotros">
-        <h1>
-  La pagina de nosotros!
-
-</h1>
-    </script>
-
-
-
+  <h1>
+    La pagina de nosotros!
+  </h1>
+</script>
 
 <script type="text/x-handlebars" data-template-name="contacto">
-        <h1>
-  La pagina de contacto!
-
-</h1>
-    </script>
+  <h1>
+    La pagina de contacto!
+  </h1>
+</script>
 ```
 
 <blockquote>
@@ -193,23 +188,21 @@ App.Router.map(function() {
 
 ```javascript
 <script type="text/x-handlebars" data-template-name="nosotros/equipo">
-        <h2>
-  Unete al equipo!
-
-</h2>
-    </script>
+  <h2>
+    Unete al equipo!
+  </h2>
+</script>
 ```
 
 <p>Para que el template o plantilla se muestre en el explorador debemos crear un <strong>outlet</strong> dentro del template de <strong>”nosotros”</strong> (no te preocupes si no entiendes que es un outlet, lo vamos a estar cubriendo en los próximos capítulos de la serie, por los momentos imagina que es un contenedor para el contenido de rutas anidadas). Para esto debemos modificar el template de de <strong>”nosotros”</strong> veamos como:</p>
 
-```javascript
+```html
 <script type="text/x-handlebars" data-template-name="nosotros">
-        <h1>
-  La pagina de nosotros!
-
-</h1>
-        {{outlet}}
-    </script>
+  <h1>
+    La pagina de nosotros!
+  </h1>
+  {% raw %}{{outlet}}{% endraw %}
+</script>
 ```
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
@@ -268,7 +261,7 @@ App.Router.map(function() {
 	</script>
     <script type="text/x-handlebars" data-template-name="nosotros">
         <h1>La pagina de nosotros!</h1>
-        {{outlet}}
+        {% raw %}{{outlet}}{% endraw %}
     </script>
     <script type="text/x-handlebars" data-template-name="contacto">
         <h1>La pagina de contacto!</h1>

@@ -61,8 +61,8 @@ tags:
 <p>En el archivo <code>router.js</code> agregamos la siguiente linea:</p>
 
 ```javascript
- this.resource(“marcapaginas”);
- ```
+this.resource(“marcapaginas”);
+```
 
 <blockquote>
   <p>Si no sabes como o manejar recursos te recomiendo que le eches un vistazo a <a href="http://codehero.co/ember-js-desde-cero-rutas-router/">Router</a>.</p>
@@ -70,9 +70,9 @@ tags:
 
 <p>Por último, debemos incluir la referencia de nuestro controlador en el archivo <code>index.html</code>.</p>
 
-<p>Agreguemos lo siguiente dentro de los <code>&lt;head&gt;</code> tags:</p>
+Agreguemos lo siguiente dentro de los `{% raw %} <head> {% endraw %}` tags:
 
-```javascript
+```html
 <script src=“js/app/controllers/marcapaginas_controller.js”></script>
 ```
 
@@ -85,8 +85,8 @@ tags:
 <p>Una vez que hayamos creado el archivo agregamos el siguiente código:</p>
 
 ```javascript
- App.MarcapaginaController = Ember.ObjectController.extend();
- ```
+App.MarcapaginaController = Ember.ObjectController.extend();
+```
 
 <blockquote>
   <p>Observemos que lo que estamos haciendo es declarar dentro de nuestro app un controlador denominado <code>Marcapagina</code>, el cual extiende de <code>Ember.ObjectController</code>, y nos va renderizar el objeto de tipo marcapagina (No te preocupes, las vistas las vamos a ver mas adelante y así podrás entender los controladores en su totalidad).</p>
@@ -99,8 +99,8 @@ tags:
 <p>En el archivo <code>router.js</code> agregamos la siguiente linea:</p>
 
 ```javascript
- this.resource(“marcapagina”, {path: “/marcapaginas/:marcapagina_id”});
- ```
+this.resource(“marcapagina”, {path: “/marcapaginas/:marcapagina_id”});
+```
 
 <blockquote>
   <p>Observemos que hemos añadido la propiedad <code>path</code>, esta es usada para que cada vez que llamemos al recurso <strong>marcapagina</strong> nos redireccione a la url que nosotros queramos, en este caso necesitamos que <strong>“/marcapaginas/:marcapagina_id”</strong>. El porque de hacer esto, es para mantener lo mayor posible el estilo REST dentro de nuestra app.</p>
@@ -110,9 +110,9 @@ tags:
 
 <p>Por último, debemos incluir la referencia de nuestro controlador en el archivo <code>index.html</code>.</p>
 
-<p>Agreguemos lo siguiente dentro de los <code>&lt;head&gt;</code> tags:</p>
+Agreguemos lo siguiente dentro de los`{% raw %} <head> {% endraw %}` tags:
 
-```javascript
+```html
 <script src=“js/app/controllers/marcapagina_controller.js”></script>
 ```
 
