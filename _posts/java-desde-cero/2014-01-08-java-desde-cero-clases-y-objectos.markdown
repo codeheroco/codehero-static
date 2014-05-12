@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2896
 wordpress_url: http://codehero.co/?p=2896
 date: 2014-01-08 08:37:13.000000000 -04:30
+serie: Java desde Cero
+dificultad: Novato
+duracion: 15
+description: Curso en el cual aprenderemos Java desde Cero. Estudiaremos todo lo relacionado al manejo de objetos y clases dentro de Java.
 categories:
 - Cursos
 - Java
@@ -31,7 +35,7 @@ tags:
 
 <p>A continuación vamos a ver un ejemplo de una clase en Java:</p>
 
-<pre lang=“java”>
+```java
 public class Carro{
    String marca;
    int kilometraje;
@@ -39,14 +43,14 @@ public class Carro{
 
    void encender(){
    }
-   
+
    void acelerar(){
    }
-   
+
    void apagar(){
    }
 }
-</pre>
+```
 
 <p>Una clase puede contener cualquiera de los siguientes tipos de variables:</p>
 
@@ -70,7 +74,7 @@ public class Carro{
 
 <p>Vemos un ejemplo:</p>
 
-<pre lang=“java”>
+```java
 public class Carro{
    public carro(){
    }
@@ -79,7 +83,7 @@ public class Carro{
       // El constructor tiene solo un parametro, en este caso marca
    }
 }
-</pre>
+```
 
 <blockquote>
   <p>Observemos que en el ejemplo anterior tenemos dos constructores el primero que es un con constructor sencillo en el cual podemos inicializar variables de la clase con los valores que nosotros queramos y el segundo es un constructor el cual acepta un parámetro, es decir, para poder instanciar un objeto de esta clase con este constructor siempre vamos a tener que pasarle el nombre de la marca.</p>
@@ -101,29 +105,31 @@ public class Carro{
 
 <p>Si seguimos el modelo del ejemplo anterior:</p>
 
-<pre lang=“java”>
+```java
 public class Carro{
 
    public carro(String marca){
       // El constructor tiene solo un parametro, en este caso marca
-      System.out.println(“La marca es : " + marca ); 
+      System.out.println(“La marca es : " + marca );
    }
    public static void main(String []args){
       // Creamos la variable carro
       Carro miCarro = new Carro( "Ford" );
    }
 }
-</pre>
+```
 
 <blockquote>
   <p>Observemos que poseemos un constructor el cual recibe un parametro, en este caso la marca del carro, el cual va a imprimir el nombre de la marca cada vez que inicializemos un objeto de la clase carro.</p>
-  
+
   <p>A su vez con <code>Carro miCarro = new Carro( "Ford" )</code> estamos cumpliendo los pasos que explicamos anteriormente ya que declaramos una variable llamada <code>miCarro</code> de la clase <code>Carro</code>, la instanciamos al hacerle <strong>new</strong> y la inicializamos al llamar al constructor con <code>Carro( "Ford" )</code>.</p>
 </blockquote>
 
 <p>Si compilamos el condigo anterior obtenemos:</p>
 
-<pre>La marca es : Ford</pre>
+```java
+La marca es : Ford
+```
 
 <hr />
 
@@ -133,7 +139,7 @@ public class Carro{
 
 <p>Para acceder a la instancia de una variable la ruta de acceso completa debe ser el siguiente:</p>
 
-<pre lang=“java”>
+```java
 /* Primero creamos un objeto */
 Objeto = new Constructor();
 
@@ -142,7 +148,7 @@ Objeto.nombreDeLaVariable;
 
 /* También podemos acceder al método de la clase */
 Objeto.nombreDelMetodo();
-</pre>
+```
 
 <hr />
 
@@ -150,9 +156,9 @@ Objeto.nombreDelMetodo();
 
 <p>Veamos un ejemplo que recopile todo lo que vimos hasta ahora:</p>
 
-<pre lang=“java”>
+```java
 public class Carro{
-   
+
    int kilometraje;
 
    public Carro(String marca){
@@ -164,7 +170,7 @@ public class Carro{
    }
 
    public int getKilometraje( ){
-       System.out.println(“El kilometraje es : " + kilometraje ); 
+       System.out.println(“El kilometraje es : " + kilometraje );
        return this.kilometraje;
    }
    public static void main(String []args){
@@ -178,10 +184,10 @@ public class Carro{
       miCarro.getKilometraje( );
 
       /* También podemos acceder a la variable de la clase */
-      System.out.println(“Valor variable : " + miCarro.kilometraje ); 
+      System.out.println(“Valor variable : " + miCarro.kilometraje );
    }
 }
-</pre>
+```
 
 <blockquote>
   <p>Observemos lo siguiente: tenemos una clase llamada <strong>Carro</strong>, la cual posee un constructor, dos métodos para modificar los valores de las variables de la clase(<code>getKilometraje</code> y <code>setKilometraje</code>). Y por ultimo tenemos un programa el cual instancia una variable de la clase Carro, le asigna el kilometraje de 2000 a ese objeto y luego lo imprime en la consola.</p>
@@ -189,11 +195,11 @@ public class Carro{
 
 <p>Si compilamos el ejemplo obtenemos:</p>
 
-<pre>
+```java
 La marca es : Ford
 El kilometraje es : 2000
 Valor variable : 2000
-</pre>
+```
 
 <hr />
 

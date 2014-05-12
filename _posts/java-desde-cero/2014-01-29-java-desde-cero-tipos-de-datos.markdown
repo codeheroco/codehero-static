@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2955
 wordpress_url: http://codehero.co/?p=2955
 date: 2014-01-29 10:02:08.000000000 -04:30
+serie: Java desde Cero
+dificultad: Novato
+duracion: 10
+description: Curso en el cual aprenderemos Java desde Cero. Estudiaremos todo lo relacionado a los tipos de datos usados en Java.
 categories:
 - Cursos
 - Java
