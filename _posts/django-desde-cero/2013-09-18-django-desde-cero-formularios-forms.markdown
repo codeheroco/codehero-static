@@ -248,7 +248,7 @@ def crear(request):
 
 <p>Primero que nada es encender el servidor:</p>
 
-```python
+```bash
 $ python manage.py runserver
 ```
 

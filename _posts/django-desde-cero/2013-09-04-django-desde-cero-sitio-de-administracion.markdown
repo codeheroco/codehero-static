@@ -85,14 +85,14 @@ urlpatterns = patterns('',
 
 <p>Para sincronizar la base de datos hacemos uso de <code>syncdb</code>:</p>
 
-```python
-python2.7 manage.py syncdb
+```bash
+$ python2.7 manage.py syncdb
 ```
 
 <p>Una vez que el proceso haya terminado encendemos el servidor:</p>
 
-```python
-python2.7 manage.py runserver
+```bash
+$ python2.7 manage.py runserver
 ```
 
 <p>Una vez que hayamos completado estos pasos ya deberíamos tener activo el módulo de administrador en nuestra aplicación.</p>
@@ -150,8 +150,8 @@ CONTROL-C
 
 <p>Lo volvemos a encender:</p>
 
-```python
-python2.7 manage.py runserver
+```bash
+$ python2.7 manage.py runserver
 ```
 
 <p>Ahora podemos observar que dentro del módulo de administrador podemos manejar nuestro propio modelo.</p>

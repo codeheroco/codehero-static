@@ -35,8 +35,8 @@ tags:
 
 <p>Lo primero que necesitamos hacer es decirle a nuestro <code>django-admin.py</code> que nos cree un proyecto en Django. Veamos como:</p>
 
-```python
-django-admin.py startproject PrimerBlog
+```bash
+$ django-admin.py startproject PrimerBlog
 ```
 
 <p>Observemos que el único parámetro que necesitamos pasarle es el nombre del proyecto, en este caso <code>PrimerBlog</code>. Ese comando creará una serie de archivos que nos ayudarán a manejar nuestro sitio. Veamos los más importantes:</p>
@@ -65,8 +65,8 @@ django-admin.py startproject PrimerBlog
 
 <p>Veamos como creamos una app en la que podamos empezar a escribir las funcionalidades que va a contener nuestro blog:</p>
 
-```python
-python2.7 mangage.py startapp blog
+```bash
+$ python2.7 mangage.py startapp blog
 ```
 
 <p>Como podemos observar, se ha creado una carpeta con el nombre de <strong>blog</strong> en la cual vamos a generar la funcionalidades del blog. Lo primero que necesitamos es entender como registrar y obtener la información con la cual nuestro sitio se va a nutrir, para eso es necesario echarle un ojo a los modelos.</p>
@@ -85,7 +85,7 @@ python2.7 mangage.py startapp blog
 
 <p>Dentro de <code>models.py</code>:</p>
 
-```python
+```bash
 from django.db import models
  
 class Articulos(models.Model):
@@ -120,14 +120,14 @@ DATABASES = {
 
 <p>Una vez que terminemos de modificar el archivo <code>settings.py</code>, debemos instalar el conector <strong>MySQLdb</strong>, el cual permitirá que Django (Python) se comunique con MySql sin ningún problema. Veamos como hacerlo:</p>
 
-```python
-pip install MySQL-python
+```bash
+$ pip install MySQL-python
 ```
 
 <p>Lo último que nos queda por hacer, es sincronizar dicha base de datos para que Django generé las tablas por nosotros. Veamos como hacerlo:</p>
 
-```python
-python2.7 manage.py syncdb
+```bash
+$ python2.7 manage.py syncdb
 ```
 
 <blockquote>

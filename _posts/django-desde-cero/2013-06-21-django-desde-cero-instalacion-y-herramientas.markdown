@@ -61,7 +61,7 @@ tags:
 
 <p>La herramienta que descargamos anteriormente nos facilitará el proceso de instalación. Solo debemos tipear la siguiente línea:</p>
 
-```python
+```bash
 $ easy_install pip
 ```
 
@@ -69,7 +69,7 @@ $ easy_install pip
 
 <p>La herramienta que descargamos anteriormente nos facilitará el proceso de instalación. Solo debemos tipear la siguiente línea:</p>
 
-```python
+```bash
 c:\Python27\Scripts\easy_install.exe pip
 ```
 
@@ -83,13 +83,13 @@ c:\Python27\Scripts\easy_install.exe pip
 
 <h5>Mac y Linux</h5>
 
-```python
+```bash
 $ pip install virtualenv
 ```
 
 <h5>Windows</h5>
 
-```python
+```bash
 c:\Python27\Scripts\pip.exe install virtualenv
 ```
 
@@ -103,7 +103,7 @@ c:\Python27\Scripts\pip.exe install virtualenv
   <p>De ahora en adelante, todas las instrucciones del curso estarán basadas en formatos <strong>Mac</strong> y <strong>Linux</strong>. De estar usando <strong>Windows</strong> les recomiendo restructurar las líneas de comando ya que existen algunas diferencias para ese sistema operativo en particular.</p>
 </blockquote>
 
-```python
+```bash
 $ virtualenv --no-site-packages AMBIENTE-CODEHERO
 ```
 
@@ -113,7 +113,7 @@ $ virtualenv --no-site-packages AMBIENTE-CODEHERO
   <p>Virtualenv instala por nosotros las herramientas que instalamos con anterioridad (easy_install y pip).</p>
 </blockquote>
 
-```python
+```bash
 New python executable in AMBIENTE-CODEHERO/bin/python
 Installing setuptools............done.
 Installing pip...............done.
@@ -121,7 +121,7 @@ Installing pip...............done.
 
 <p>Es acá donde observamos la funcionalidad principal de virtualenv ya que si listamos el contenido de la carpeta que contiene el ambiente virtual podemos observar que se instaló un nuevo Shell, el cual podemos hacer uso de él para así no dañar el de nuestro propio sistema.</p>
 
-```python
+```bash
 $ ls -l
 total 0
 drwxr-xr-x  13 root  staff  442 Jun 21 02:52 bin
@@ -131,7 +131,7 @@ drwxr-xr-x   3 root  staff  102 Jun 21 02:52 lib
 
 <p>Lo segundo que debemos hacer, es activar nuestro nuevo ambiente de desarrollo virtual. Veamos como lo podemos hacer:</p>
 
-```python
+```bash
 $ source AMBIENTE-CODEHERO/bin/activate
 ```
 
@@ -141,7 +141,7 @@ $ source AMBIENTE-CODEHERO/bin/activate
   <p>Importante destacar que todos los paquetes que instalemos de ahora en adelante se instalarán sobre este Shell o contexto virtual y no afectará nuestro sistema base (<em>siempre y cuando el ambiente virtual este activo</em>).</p>
 </blockquote>
 
-```python
+```bash
 $ (AMBIENTE-CODEHERO) ...
 ```
 
@@ -149,13 +149,13 @@ $ (AMBIENTE-CODEHERO) ...
 
 <p>Tercero, una vez que tengamos listo nuestro ambiente virtual, podemos proceder e instalar Django de la siguiente manera:</p>
 
-```python
+```bash
 $ pip install django
 ```
 
 <p>Podemos observar que la ultima versión disponible hasta el momento de este curso es la <code>1.5.1</code>.</p>
 
-```python
+```bash
 Searching for django
 Reading http://pypi.python.org/simple/django/
 Best match: Django 1.5.1
@@ -168,7 +168,7 @@ Processing Django-1.5.1.tar.gz
 
 <p>Para saber si instalamos correctamente Django tipeamos lo siguiente:</p>
 
-```python
+```bash
 $ python
 >>> from django import get_version
 >>>  get_version()
@@ -184,7 +184,7 @@ $ python
 
 <p>Lo primero que necesitamos hacer es crear un nuevo proyecto, para ello vamos a usar la siguiente línea de comando:</p>
 
-```python
+```bash
 django-admin.py startproject codehero_web
 ```
 
@@ -192,7 +192,7 @@ django-admin.py startproject codehero_web
 
 <p>Si listamos la carpeta en donde estamos trabajando con <code>ls -l</code> podemos observar que ahora encontramos una carpeta con el nombre dl proyecto.</p>
 
-```python
+```bash
 $ ls -l
 total 0
 drwxr-xr-x  14 root  staff  476 Jun 21 02:57 bin
@@ -203,7 +203,7 @@ drwxr-xr-x   3 root  staff  102 Jun 21 02:52 lib
 
 <p>Naveguemos dentro de <code>codehero_web</code> y listemos su contenido de la siguiente forma:</p>
 
-```python
+```bash
 cd codehero_web/ && ls -l
 total 8
 drwxr-xr-x  6 root  staff  204 Jun 21 03:02 codehero_web
@@ -214,11 +214,11 @@ drwxr-xr-x  6 root  staff  204 Jun 21 03:02 codehero_web
 
 <p>Ahora necesitamos correr el servidor para comprobar que nuestro proyecto se pueda navegar en un explorador. Lo hacemos con el siguiente comando 'runserver':</p>
 
-```python
+```bash
 $ python manage.py runserver
 ```
 
-```python
+```bash
 Validating models...
 
 0 errors found
@@ -238,7 +238,7 @@ Quit the server with CONTROL-C.
 
 <p>Por último, veamos como desactivar el ambiente virtual de desarrollo. Para detener o desactivar el ambiente lo único que tenemos que hacer es tipear el siguiente comando:</p>
 
-```python
+```bash
 $ deactivate
 ```
 

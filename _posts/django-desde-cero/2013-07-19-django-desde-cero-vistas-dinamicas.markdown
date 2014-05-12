@@ -123,7 +123,7 @@ url(r'^$', 'blog.views.home', name='home')
 <p>Ahora llego el momento de probar nuestro proyecto!, para probarlo solo tenemos que correr el servidor y para eso debemos ejecutar en el terminal el siguiente comando:</p>
 
 ```python
-python manage.py runserver
+$ python manage.py runserver
 ```
 
 <p>Si navegamos a la dirección http://127.0.0.1:8000 y nos retorna lo siguiente, entonces hemos configurado con éxito nuestra primera vista!</p>
@@ -161,7 +161,7 @@ python manage.py runserver
 </div>
 ```
 
-<p>La manera de pasarle contenido dinámico a una plantilla o template es creando en el mismo template lo que se denomina contenedores de información. Esos contenedores van a estar entre ** {{ nombre_del_contendor }}** y van a tener un nombre clave.</p>
+La manera de pasarle contenido dinámico a una plantilla o template es creando en el mismo template lo que se denomina contenedores de información. Esos contenedores van a estar entre `{% raw %} {{ nombre_del_contendor }} {% endraw %}` y van a tener un nombre clave.
 
 <p>Segundo, modificamos el archivo <code>views.py</code> para poder decirle a la función <strong>home</strong> que ahora aparte de retornar ese HTML del <code>index.html</code> va a pasarle un contenido dinámico en este caso, solo por prueba, se lo vamos a colocar nosotros (más adelante veremos la manera de como automatizar esos contenidos). Veamos como:</p>
 
