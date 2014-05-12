@@ -51,14 +51,14 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'^todos/$', 'blog.views.articulos'),
-    url(r'^obtener/(?P&lt;articulo_id>\d+)/$', 'blog.views.articulo'),
+    url(r'^obtener/(?P<articulo_id>\d+)/$', 'blog.views.articulo'),
 )
 ```
 
 <blockquote>
   <p>Observemos que prácticamente estamos recreando el archivo <code>urls.py</code> general de nuestro sitio web, pero ahora lo vamos a adaptar para que solo maneje lo que tiene que ver con nuestra app <strong>blog</strong>, para que así si tenemos muchas aplicaciones no nos confundamos a la hora de generar el contenido.</p>
 
-  <p>Como se puede ver hemos definido dos direcciones la primera <code>url(r'^todos/$', 'blog.views.articulos')</code> la cual nos va a llevar a la vista donde despleguemos todos los artículos y la segunda <code>url(r'^obtener/(?P&lt;articulo_id&gt;\d+)/$', 'blog.views.articulo')</code> donde mostramos un solo articulo dependiendo del id que le pasemos en el <em>url</em>. Con <code>(?P&lt;articulo_id&gt;\d+)</code> estamos permitiendo a Django obtener el id del articulo que esta escrito en la dirección como tal.</p>
+  <p>Como se puede ver hemos definido dos direcciones la primera <code>url(r'^todos/$', 'blog.views.articulos')</code> la cual nos va a llevar a la vista donde despleguemos todos los artículos y la segunda <code>url(r'^obtener/(?P<articulo_id>\d+)/$', 'blog.views.articulo')</code> donde mostramos un solo articulo dependiendo del id que le pasemos en el <em>url</em>. Con <code>(?P<articulo_id>\d+)</code> estamos permitiendo a Django obtener el id del articulo que esta escrito en la dirección como tal.</p>
 
   <p>Cabe destacar que puedes generar direcciones con el nombre que tu desees y redireccionarlas a la vista que tu prefieras. Todo depende de lo que tu sitio web necesite.</p>
 </blockquote>

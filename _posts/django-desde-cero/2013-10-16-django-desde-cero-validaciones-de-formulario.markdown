@@ -54,10 +54,10 @@ def clean_autor(self):
 
       autor = diccionario_limpio.get('autor')
 
-      if len(autor) &lt; 3:
+      if len(autor) < 3:
          raise forms.ValidationError("El autor debe contener mas de tres caracteres")
 
-      return autor  
+      return autor
 ```
 
 <p>Observemos lo siguiente:</p>
@@ -66,7 +66,7 @@ def clean_autor(self):
 <li>Por convención debemos denominar nuestro método con el prefijo <strong>clean</strong> seguido del nombre del campo. En nuestro caso seria <code>clean_autor</code>.</li>
 <li>Siempre debemos obtener el diccionario de data que proviene del formulario de manera limpia, para eso utilizamos la siguiente instrucción <code>diccionario_limpio = self.cleaned_data</code>.</li>
 <li>Una vez que obtengamos el diccionario debemos obtener el campo que queremos validar. Eso lo hacemos con la siguiente instrucción <code>autor = diccionario_limpio.get('autor')</code>. En nuestro caso debemos retornar autor.</li>
-<li>Seguido, generamos la validación, si queremos validar que el autor no puede tener menos de 3 letras usamos <code>if len(autor) &lt; 3:</code>. Si el campo posee mas de 3 caracteres levantamos un <strong>ValidationError</strong> a través de <code>raise forms.ValidationError("El autor debe contener mas de tres caracteres")</code>.</li>
+<li>Seguido, generamos la validación, si queremos validar que el autor no puede tener menos de 3 letras usamos <code>if len(autor) < 3:</code>. Si el campo posee mas de 3 caracteres levantamos un <strong>ValidationError</strong> a través de <code>raise forms.ValidationError("El autor debe contener mas de tres caracteres")</code>.</li>
 <li>Por último, necesitamos retornar el campo validado como tal.</li>
 </ul>
 
@@ -90,7 +90,7 @@ class ArticuloForm(forms.ModelForm):
 
       autor = diccionario_limpio.get('autor')
 
-      if len(autor) &lt; 3:
+      if len(autor) < 3:
          raise forms.ValidationError("El autor debe contener mas de tres caracteres")
 
       return autor
@@ -126,10 +126,10 @@ class ArticuloForm(forms.ModelForm):
       #Obtenemos la fecha actual
       fecha_actual = timezone.now()
 
-      if fecha_actual &lt; fecha_articulo:
+      if fecha_actual < fecha_articulo:
          raise forms.ValidationError("El fecha no debe ser mayor al dia de hoy")
 
-      return fecha_articulo  
+      return fecha_articulo
 ```
 
 <hr />
