@@ -242,7 +242,7 @@ app.get("/", function(request, response) {
 
 <h3>Formato</h3>
 
-<p>El método <code>formar</code> retorna el tipo de respuesta que el cliente pueda aceptar:</p>
+<p>El método <code>format</code> retorna el tipo de respuesta que el cliente pueda aceptar:</p>
 
 ```javascript
 app.get("/", function(request, response) {
