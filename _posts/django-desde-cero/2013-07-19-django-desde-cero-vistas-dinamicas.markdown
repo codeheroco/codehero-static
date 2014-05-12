@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 1508
 wordpress_url: http://codehero.co/?p=1508
 date: 2013-07-19 08:06:17.000000000 -04:30
+serie: Django desde Cero
+dificultad: Novato
+duracion: 30
+description: Curso en el cual aprenderemos Django desde Cero. En esta clase, estudiaremos como crear vistas dinámicas extrayendo entradas de la base de datos
 categories:
 - Cursos
 - Django
@@ -42,11 +46,12 @@ tags:
 
 <p>Lo primero que tenemos que hacer es modificar el archivo <code>views.py</code> dentro de nuestro proyecto y definir una función que va a actuar como nuestra vista. Veamos como:</p>
 
-<pre>from django.shortcuts import render_to_response
+```python
+from django.shortcuts import render_to_response
   
 def home(request):
     return render_to_response('index.html')
-</pre>
+```
 
 <p>Revisemos el código, primero nos encontramos con lo siguiente ‘from django.shortcuts import render_to_response’, lo que estamos haciendo es pidiendo a Django que importe un método denominado <strong>render_to_response</strong> para así facilitarnos la vida a la hora de retornar un web response. Segundo, definimos una función <code>def home(request):</code>, la cual va a actuar como nuestra vista principal. Si detallamos las instrucciones de esta función, podemos percatarnos que lo único que realiza es devolver o retornar un archivo o plantilla (template) denominado <code>index.html</code>.</p>
 
@@ -91,13 +96,14 @@ def home(request):
 
 <p>Vamos a tener que modificar la linea 105 del archivo con lo siguiente:</p>
 
-<pre>TEMPLATE_DIRS = (
+```python
+TEMPLATE_DIRS = (
     "../blog/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
-</pre>
+```
 
 <h3>3. Conectar los urls con las vistas</h3>
 
@@ -105,8 +111,9 @@ def home(request):
 
 <p>Agregamos la siguiente línea en el archivo <code>urls.py</code>:</p>
 
-<pre>url(r'^$', 'blog.views.home', name='home')
-</pre>
+```python
+url(r'^$', 'blog.views.home', name='home')
+```
 
 <p>Si revisamos el código, lo único que agregamos fue <code>url(r'^$', 'blog.views.home', name='home')</code>, cuya función es hacer que todas las peticiones hacia la página principal de nuestro sitio, por ejemplo http://codehero.co/, se redirija al método <strong>home</strong> dentro de la app <code>blog</code> y vista <code>views.home</code>.</p>
 
@@ -116,8 +123,9 @@ def home(request):
 
 <p>Ahora llego el momento de probar nuestro proyecto!, para probarlo solo tenemos que correr el servidor y para eso debemos ejecutar en el terminal el siguiente comando:</p>
 
-<pre>python manage.py runserver
-</pre>
+```python
+python manage.py runserver
+```
 
 <p>Si navegamos a la dirección http://127.0.0.1:8000 y nos retorna lo siguiente, entonces hemos configurado con éxito nuestra primera vista!</p>
 
@@ -135,7 +143,8 @@ def home(request):
 
 <p>Primero modifiquemos el archivo <code>index.html</code> dentro de <code>../blog/templates</code> con:</p>
 
-<pre><div class="container">
+```python
+<div class="container">
 {% raw %}
   <h1>
     Primer Blog
@@ -151,7 +160,7 @@ def home(request):
   </p>
 {% endraw %}
 </div>
-</pre>
+```
 
 <p>La manera de pasarle contenido dinámico a una plantilla o template es creando en el mismo template lo que se denomina contenedores de información. Esos contenedores van a estar entre ** {{ nombre_del_contendor }}** y van a tener un nombre clave.</p>
 
@@ -161,7 +170,8 @@ def home(request):
   <p>Los contenedores funcionan como un diccionario, es decir, que por cada palabra clave existe un valor asociado a ella.</p>
 </blockquote>
 
-<pre>from django.shortcuts import render_to_response
+```python
+from django.shortcuts import render_to_response
   
 def home(request):
     contenido = {
@@ -171,7 +181,7 @@ def home(request):
         'contenido' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus tempus dui, ut vulputate nisl eleifend eget. Aenean justo felis, dapibus quis vulputate at, porta et dolor. Praesent enim libero, malesuada nec vestibulum vitae, fermentum nec ligula. Etiam eget convallis turpis. Donec non sem justo.',
     }
     return render_to_response('index.html', contenido)
-</pre>
+```
 
 <p>Observemos, que lo que hicimos fue crear un diccionario que contiene los contenedores que queremos que cambien en nuestro HTML y luego se lo pasamos como variable al template o plantilla.</p>
 
@@ -187,7 +197,8 @@ def home(request):
 
 <p>Lo primero que tenemos que hacer es modificar nuestro archivo <code>settings.py</code> para hacerle saber a Django que vamos a estar utilizando nuestra app <strong>blog</strong>. Debemos agregar a ** INSTALLED_APPS** el nombre de nuestra app <code>‘blog’,</code>. Veamos como:</p>
 
-<pre>INSTALLED_APPS = (
+```python
+INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -200,18 +211,19 @@ def home(request):
     # 'django.contrib.admindocs',
     'blog',
 )
-</pre>
+```
 
 <p>Lo segundo es modificar la función <strong>home</strong> en nuestro archivo <code>views.py</code> para que podamos obtener todas las entradas de la base de datos y así desplegarlos en el HTML. Veamos como:</p>
 
-<pre>from django.shortcuts import render_to_response
+```python
+from django.shortcuts import render_to_response
  
 from blog.models import Articulos
  
 def home(request):
     entradas = Articulos.objects.all()[:10]
     return render_to_response('index.html', {'articulos' : entradas})
-</pre>
+```
 
 <blockquote>
   <p>Revisemos el código, observemos que agregamos <code>from blog.models import Articulos</code> lo cual nos permite hacer uso del modelo que creamos en el capítulo anterior. Además, agregamos <code>entradas = Articulos.objects.all()[:10]</code> dentro de la definición del <strong>home</strong> para poder extraer las primeras 10 entradas de artículos de la base de datos. Por último, modificamos <code>render_to_response('index.html', {'articulos' : entradas})</code> para que cuando cree en el response sea agregado todas las entradas de la base de datos.</p>
@@ -219,7 +231,8 @@ def home(request):
 
 <p>Por último, vamos a modificar el template o plantilla <code>index.html</code> para que no solo despliegue un entrada de la base de datos sino que si poseemos múltiples datos pueda mostrarlos todos. Vemos como:</p>
 
-<pre><div class="container">
+```python
+<div class="container">
 {% raw %}
   <h1>
     Mi primer blog
@@ -242,7 +255,7 @@ def home(request):
   {% endfor %}
 {% endraw %}
 </div>
-</pre>
+```
 
 <blockquote>
   <p>Observemos que dado a que <code>articulos</code> es un diccionario debemos extraer los valores existentes dentro de él, es por eso que utilizamos el siguiente comando <code>{% raw %}{% for articulo in articulos %}{% endraw %}</code>. Además, ya que cada diccionario posee unas variables claves o contenedores la manera de acceder a ellas es la siguiente <code>nombre_variable.nombre_contenedor</code> en nuestro caso <code>articulo.titulo</code>.</p>
