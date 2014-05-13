@@ -280,6 +280,8 @@ También puedes implementar tu registro propio de Bower, tan solo debes configur
 
 ***
 
+## Conclusión
+
 Ahora que conocemos Bower mucho mejor ya podemos ponernos a trabajar más cómodamente en nuestros proyectos web. Siempre este tipo de
 herramientas nos facilitarán el trabajo siempre y cuando las utilicemos de la manera correcta.
 
