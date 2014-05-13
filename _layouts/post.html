@@ -85,7 +85,9 @@ layout: default
         {{ paragraph }}
         {% assign forlength = forloop.length | divided_by:2 %}
         {% if forloop.index == forlength %}
-          {% include middle-post-ad.html %}
+          {% unless page.categories contains 'notícias' %}
+            {% include middle-post-ad.html %}
+          {% endunless %}
         {% endif %}
       {% endfor %}
       <div class="row">
