@@ -301,6 +301,10 @@ footer {
   border-radius: 0.50rem;
 }
 
+.author-bio {
+  padding: 30px;
+}
+
 .gravatar-img {
   @include img-responsive();
   width: 150px;

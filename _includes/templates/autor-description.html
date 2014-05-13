@@ -1,8 +1,10 @@
-<div class="col-xs-3 col-sm-4 col-md-3" >
-  <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}?s=400" alt="gravatar">
-</div>
-<div class="col-xs-9 col-sm-8 col-md-9">
-  <h1 class="underline-title"><a href="/author/{{ autor.namelink }}.html">{{ autor.name }}</a></h1>
-    {% include templates/autor-redes-sociales.html %}
-  <p>{{ autor.description }}</p>
+<div class="author-bio">
+  <div class="col-xs-3 col-sm-4 col-md-3" >
+    <img class="gravatar-img" src="http://www.gravatar.com/avatar/{{ autor.thumb }}?s=400" alt="gravatar">
+  </div>
+  <div class="col-xs-9 col-sm-8 col-md-9">
+    <h1 class="underline-title"><a href="/author/{{ autor.namelink }}.html">{{ autor.name }}</a></h1>
+      {% include templates/autor-redes-sociales.html %}
+    <p>{{ autor.description }}</p>
+  </div>
 </div>
