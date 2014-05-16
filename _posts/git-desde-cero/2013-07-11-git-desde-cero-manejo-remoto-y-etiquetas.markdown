@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1387
-wordpress_url: http://codehero.co/?p=1387
 date: 2013-07-11 00:38:22.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Aprendiz
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 4 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el manejo remoto y etiquetas de nuestros proyectos.
 categories:
 - Cursos
@@ -22,8 +22,6 @@ tags:
 - remoto
 - etiquetas
 ---
-<h1>Git desde Cero: Manejo remoto y etiquetas.</h1>
-
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como manejar un repositorio remoto de git y como crear tags (etiquetas) para enumerar versiones finales también llamados lanzamientos. Los comandos de esta semana serán los siguientes:</p>
 
 <ul>
@@ -86,11 +84,13 @@ servidor-de-pruebas https://github.com/albertogg/tutorial-git.git (push)
 
 <h2>Push</h2>
 
-<p>Una vez que hemos conectado el repositorio remoto con el local y tenemos cambios consolidados en nuestro computador (local) que deseamos compartir, utilizamos el comando <em>git push &#91;seudónimo&#93; &#91;ramificación&#93;</em> o en nuestro caso:</p>
+Una vez que hemos conectado el repositorio remoto con el local y tenemos cambios consolidados en nuestro computador (local) que deseamos compartir, utilizamos el comando *git push [seudónimo] [ramificación]* o en nuestro caso:
 
 ```sh
 $ git push origin master
 ```
+
+
 
 <hr />
 

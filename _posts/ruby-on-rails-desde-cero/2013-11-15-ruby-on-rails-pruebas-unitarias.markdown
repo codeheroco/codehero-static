@@ -7,20 +7,21 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2611
-wordpress_url: http://codehero.co/?p=2611
 date: 2013-11-15 00:01:30.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+dificultad: Intermedio
+duracion: 20
 description: Ruby on Rails desde cero te ofrecemos las herramientas necesarias para implementar software de calidad utilizando pruebas unitarias en Rails.
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
 - pruebas unitarias
 - pruebas
+- Tests
+- Seeds
+- Modelos
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan ofrecerte las herramientas básicas necesarias para que puedas desarrollar tus propias aplicaciones Web. En este nivel del curso ya deben tener suficiente información para empezar a desarrollar una aplicación web.</p>
 
@@ -99,6 +100,8 @@ two:
 <h2>¿Cómo ejecutar pruebas?</h2>
 
 <p>Ejecutar pruebas en Rails es bastante sencillo sólo debemos ejecutar unas líneas de comando y ver qué resultados nos arroja. Primero debemos asegurarnos de que la base de datos de prueba esté creada con éxito, si no debemos ejecutar los comandos ya estudiados para generarla. (Recuerde que la configuración de las bases de datos está en el archivo database.yml).</p>
+
+
 
 ```sh
 $ bundle exec rake db:migrate

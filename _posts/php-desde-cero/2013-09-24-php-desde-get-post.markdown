@@ -6,9 +6,11 @@ title: Get & Post
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2292
-wordpress_url: http://codehero.co/?p=2292
 date: 2013-09-24 00:00:30.000000000 -04:30
+serie: PHP desde Cero
+description: Tutorial sobre el manejo de envio de datos por medio de get y post en PHP
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -32,20 +34,24 @@ tags:
 
 <p>Cuando enviamos datos con el método GET, estos son enviados en el URL y cuando la página que solicitamos termine de cargar estos datos serán visibles para el usuario. Veamos un ejemplo de esto:</p>
 
-<pre><a href="http://localhost/pagina.php?categoria=ropa&producto=3">ver</a>
-</pre>
+```html
+<a href="http://localhost/pagina.php?categoria=ropa&producto=3">ver</a>
+```
 
 <p>Observemos el URL, estamos llamando al PHP pagina.php y luego tenemos una serie de datos. Estos son los datos que estamos enviando al servidor por medio del método GET, esto se hace mediante un esquema nombre/valor. Todo lo que vaya después del signo de interrogación <strong>?</strong> serán datos que se están enviando al servidor y para enviar varios los separamos con un signo <strong>&amp;</strong>.</p>
 
 <p>¿ Ahora como podemos obtener estos datos en nuestro escript PHP ? Pues con la variable global <strong>$_GET</strong>. PHP recibe estos datos y los convierte en un arreglo asociativo almacenado en <strong>$_GET</strong>.</p>
 
-<pre>$categoria = $_GET['categoria'];
+```php
+<?php
+$categoria = $_GET['categoria'];
 $producto = $_GET['producto'];
 
 echo "Selecciono el producto " . $producto . " de la categoría ". $categoria;
 
 // Estos nos imprimirá en el navegador -> Selecciono el producto 3 de la categoría ropa
-</pre>
+?>
+```
 
 <p>Ahora vemos algunas características del método GET:</p>
 
@@ -59,18 +65,19 @@ echo "Selecciono el producto " . $producto . " de la categoría ". $categoria;
 
 <p>También podemos enviar información por el método GET a través de un formulario HTML.</p>
 
-<pre><form action="pagina.php" method="GET" >
+```html
+<form action="pagina.php" method="GET" >
   Categoria: <input type="text" name="name" />
-      Producto: 
+      Producto:
           <select name="producto" >
               <option value="1"> Polo </option>
               <option value="2"> Quiksilver </option>
               <option value="3"> Tommy </option>
           </select >
   <input type="submit" value="Enviar" />
-  
+
 </form >
-</pre>
+```
 
 <p>La variable $_GET tomara como clave para guardar los valores el nombre que se le de al dato con el parametro <strong>name</strong> en el HTML.</p>
 
@@ -82,22 +89,26 @@ echo "Selecciono el producto " . $producto . " de la categoría ". $categoria;
 
 <p>Primero creamos el formulario indicando que el método es POST.</p>
 
-<pre><form action="pagina.php" method="POST" >
+```html
+<form action="pagina.php" method="POST" >
   Usuario: <input type="text" name="usuario" />
       Clave: <input type="password" name="clave" />
       <input type="submit" value="Enviar" />
-  
+
 </form >
-</pre>
+```
 
 <p>Como podemos ver hay un campo contraseña, el cual seria muy inseguro pasar por GET y que alguien lo lograra ver en el URL.</p>
 
 <p>Ahora creamos el script de PHP para recibir estos datos que introduce el usuario.</p>
 
-<pre>$usuario = $_POST['usuario'];
+```php
+<?php
+$usuario = $_POST['usuario'];
 $clave = $_POST['clave'];
 echo "Usuario " . $usuario . " y clave ". $clave;
-</pre>
+?>
+```
 
 <p>Como podemos ver obtenemos los datos de la misma manera que con el método GET, solo que ahora la variable se llama $_POST.</p>
 
@@ -111,22 +122,28 @@ echo "Usuario " . $usuario . " y clave ". $clave;
 
 <hr />
 
+
+
 <h2>Files</h2>
 
 <p>Para realizar el envío de datos binario como documentos o imágenes se hace mediante un formulario con el método POST, pero hay que especificarle al formulario que va a enviar datos binarios.</p>
 
 <p>Veamos un ejemplo de esto :</p>
 
-<pre><form enctype="multipart/form-data" action="pagina.php" method="POST" >
+```html
+<form enctype="multipart/form-data" action="pagina.php" method="POST" >
   Archivo: <input name="archivo" type="file" />
       <input type="submit" value="Enviar" />
-  
+
 </form >
-</pre>
+
+```
 
 <p>Como podemos ver ahora en la etiqueta del <strong>form</strong> también agregamos <code>enctype="multipart/form-data"</code>, lo cual dice al formulario que también va a enviar datos binarios. Podemos observar que de igual manera se utilizar POST, pero en el PHP que procesa los datos en vez de utilizar la variable $&#95;POST se utiliza $&#95;FILE. Todos los archivos con su información (ruta temporal, nombre, tamaño y tipo de archivo) se acceden mediante el arreglo asociativo $_FILE.</p>
 
-<pre>if ($_FILES["archivo"]["error"] > 0)
+```php
+<?php
+if ($_FILES["archivo"]["error"] > 0)
   {
   echo "Error: " . $_FILES["archivo"]["error"] . "<br />";
   }
@@ -137,7 +154,8 @@ else
   echo "Tamaño: ". $_FILES["archivo"]["size"]  . "<br />";
   echo "Ruta: " . $_FILES["archivo"]["tmp_name"];
   }
-</pre>
+?>
+```
 
 <hr />
 

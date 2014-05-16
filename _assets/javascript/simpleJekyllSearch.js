@@ -14,6 +14,7 @@
             searchResults = $(settings.searchResults);
 
         var matches = [];
+        var noSearch = $(settings.searchResults).children('#no-search');
 
         if(settings.jsonFile.length && searchResults.length){
             $.ajax({
@@ -47,6 +48,7 @@
                     writeMatches( performSearch($(this).val()) );
                 }else{
                     clearSearchResults();
+                    $(settings.searchResults).append(noSearch);
                 }
             });
         }

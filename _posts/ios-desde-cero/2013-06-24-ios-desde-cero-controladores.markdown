@@ -10,6 +10,9 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1097
 wordpress_url: http://codehero.co/?p=1097
 date: 2013-06-24 04:35:15.000000000 -04:30
+serie: iOS desde Cero
+dificultad: Novato
+duracion: 20
 categories:
 - Cursos
 - iOS
@@ -123,7 +126,8 @@ tags:
 
 <p>Ahora, si todo salió bien, tu código debería lucir así:</p>
 
-<pre>#import &lt;UIKit/UIKit.h>
+```obj-c
+#import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
 
@@ -134,7 +138,7 @@ tags:
 - (IBAction)buttonSelected;
 
 @end
-</pre>
+```
 
 <p>Y del lado izquierdo del editor del código, deberías ver unos pequeños círculos rellenos, al lado de tus outlets. Esto significa que han sido conectados correctamente.</p>
 
@@ -156,14 +160,15 @@ tags:
 <div class="alert alert-info">
   <h4>
     ¡Alerta!
-  </h4> Más sobre orientación a objetos será explicado con mayor detalle en el curso 
-  
+  </h4> Más sobre orientación a objetos será explicado con mayor detalle en el curso
+
   <a href="http://codehero.co/objective-c-desde-cero/">Objective-C desde Cero</a>.
 </div>
 
 <p>Entonces si abres el .m deberías ver el siguiente código:</p>
 
-<pre>#import "ViewController.h"
+```obj-c
+#import "ViewController.h"
 
 @interface ViewController ()
 
@@ -188,7 +193,7 @@ tags:
 
 
 @end
-</pre>
+```
 
 <p>Nos encontramos con 3 métodos que Xcode ha generado para nosotros.</p>
 
@@ -202,25 +207,28 @@ tags:
 
 <p>Primero creamos un <em>string</em> con el mensaje y el nombre que aparece en el <em>text field</em>:</p>
 
-<pre>NSString *message = [NSString stringWithFormat:@"Hola, %@", self.nameField.text];
-</pre>
+```obj-c
+NSString *message = [NSString stringWithFormat:@"Hola, %@", self.nameField.text];
+```
 
 <p><em>NSString</em> es la clase de apple para manejar strings, stringWithFormat es un metodo estático de la clase que retorna un objeto del mismo tipo. En Objective-C, los strings se representan con el carácter "@" como prefijo. "%@" es el formato para representar un objeto dentro de un string (%f representa float, %i un int, %c un char, etc), en este caso el objeto es otro string (esta es una manera de concatenar).</p>
 
 <p>Luego, asignamos el mensaje al label:</p>
 
-<pre>[self.messageLabel setText:message];
-</pre>
+```obj-c
+[self.messageLabel setText:message];
+```
 
 <p>Todo el código junto del método debería verse así:</p>
 
-<pre>- (IBAction)buttonSelected {
-    
+```obj-c
+- (IBAction)buttonSelected {
+
     NSString *message = [NSString stringWithFormat:@"Hola, %@", self.nameField.text];
-    
+
     [self.messageLabel setText:message];
 }
-</pre>
+```
 
 <p>Tal vez te preguntes. Si hablo español, ¿Por qué programo en inglés?. Bueno, esto es una cuestión de estilo, yo prefiero programar en ingles porque la mayoría de las palabras son más cortas y requieren menos conectivos.</p>
 

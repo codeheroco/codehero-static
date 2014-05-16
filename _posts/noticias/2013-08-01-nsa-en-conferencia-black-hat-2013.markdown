@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1825
-wordpress_url: http://codehero.co/?p=1825
 date: 2013-08-01 00:00:43.000000000 -04:30
 thumbnail: http://i.imgur.com/JTFkBpU.png
+description: El director de la NSA, el General Keith Alexander, se pronunció en la conferencia Black Hat 2013 USA con respecto a los programas de espionaje.
 categories:
 - Artículos
 - Notícias

@@ -7,19 +7,20 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2275
-wordpress_url: http://codehero.co/?p=2275
 date: 2013-09-19 00:02:03.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Heroe
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 14 de la serie Git desde Cero, donde hablamos de una de las más importantes funcionalidades de git llamados hooks y muchos no la conocen.
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Hooks
+- Pre-commit
+- Post-commit
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre algunos de los <em>"hooks"</em> (ganchos) más populares que tiene git.</p>
 
@@ -53,6 +54,8 @@ tags:
 </ul>
 
 <p>Esta información fue tomada de <a href="https://www.kernel.org/pub/software/scm/git/docs/githooks.html">kernel.org</a>.</p>
+
+
 
 <hr />
 

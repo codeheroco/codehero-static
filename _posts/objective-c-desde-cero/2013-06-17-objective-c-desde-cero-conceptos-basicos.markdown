@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 1022
 wordpress_url: http://codehero.co/?p=1022
 date: 2013-06-17 03:30:24.000000000 -04:30
+serie: Objective-C desde Cero
+dificultad: Novato
+duracion: 10
+description: Serie para aprender Objective-C el lenguaje para desarrollar para iOS y Mac OS X
 categories:
 - Cursos
 - Objective-C
@@ -50,8 +54,8 @@ tags:
 <div class="alert alert-info">
   <h4>
     ¡Alerta!
-  </h4> Los siguientes ejemplos son Objective-C puro, no son específicos del desarrollo iOS ni de Mac OS X, sino del lenguaje. Para información básica sobre Xcode y como usarlo puedes revisar el primer capítulo de la serie 
-  
+  </h4> Los siguientes ejemplos son Objective-C puro, no son específicos del desarrollo iOS ni de Mac OS X, sino del lenguaje. Para información básica sobre Xcode y como usarlo puedes revisar el primer capítulo de la serie
+
   <a href="http://codehero.co/ios-sdk-desde-cero-introduccion/">"iOS desde Cero"</a>.
 </div>
 
@@ -63,7 +67,7 @@ tags:
 
 <blockquote>
   <p><strong>"Foundation"</strong> es un framework de Apple que facilita el manejo de estructuras básicas como colecciones, strings, fechas, entre otros.</p>
-  
+
   <p><strong>"Automatic Reference Counting"</strong> (ARC) en un manejador de memoria (no recolector de basura como el de Java o C#) que nos ahorrará tener que hacer release (similar a delete o free en C++). ARC lleva el conteo de referencias (punteros) a direcciones de memoria y es capaz de hacer la liberación del espacio automáticamente por nosotros cuando el conteo llega a cero. En otras palabras, cuando creas un objeto, este es alocado en memoria y apuntado por una variable que llamamos "apuntador", cuando esta variable deja de existir (Ej: Terminó la ejecución de la función donde fue creado), el espacio de memoria no es apuntado por nadie, por lo tanto ARC lo borra.</p>
 </blockquote>
 
@@ -73,7 +77,8 @@ tags:
 
 <p>Si todo salió bien, deberíamos ver un archivo llamado main.m con el siguiente código:</p>
 
-<pre>//
+```obj-c
+//
 //  main.m
 //  Ejemplo 1 - Objective-C
 //
@@ -81,20 +86,20 @@ tags:
 //  Copyright (c) 2013 Codehero. All rights reserved.
 //
 
-#import &lt;Foundation/Foundation.h>       //1
+#import <Foundation/Foundation.h>       //1
 
 int main(int argc, const char * argv[]) //2
 {
 
     @autoreleasepool {                  //3
-        
+
         // insert code here...          //4
         NSLog(@"Hello, World!");        //5
-        
+
     }
     return 0;                           //6
 }
-</pre>
+```
 
 <ol>
 <li>En esta línea importamos el foundation framework. De esta menear le dijimos a la aplicación que vamos a utilizarlo.</li>
@@ -107,14 +112,15 @@ int main(int argc, const char * argv[]) //2
 
 <blockquote>
   <p>Objective-C es un lenguaje case sensitive, esto significa que <em>main</em> es diferente de <em>Main</em>.</p>
-  
+
   <p>Por otro lado, no es sensible a espacios en blanco por lo que la función <em>main</em> se podría declarar también de la siguiente manera:</p>
 </blockquote>
 
-<pre>int main(int argc, 
+```obj-c
+int main(int argc,
          const char * argv[])
 ...
-</pre>
+```
 
 <h3>Corriendo la aplicación</h3>
 
@@ -130,8 +136,9 @@ int main(int argc, const char * argv[]) //2
 
 <p>Luego de correr la aplicación debería decir:</p>
 
-<pre>> Ejemplo 1 - Objective-C[3812:303] Hello, World!
-</pre>
+```obj-c
+> Ejemplo 1 - Objective-C[3812:303] Hello, World!
+```
 
 <p>Este es el mensaje que mandamos a imprimir con NSLog.</p>
 
@@ -139,8 +146,9 @@ int main(int argc, const char * argv[]) //2
 
 <p>Todas las variables en Objective-C se declaran igual que en C. La estructura de la definición es la siguiente:</p>
 
-<pre>int myVariable = 10;
-</pre>
+```obj-c
+int myVariable = 10;
+```
 
 <div class="alert alert-success">
   tipoDeDato NombreDeVariable = Valor;
@@ -160,53 +168,59 @@ int main(int argc, const char * argv[]) //2
 
 <p>Los condicionales también son idénticos a los de C:</p>
 
-<pre>if (a == b) {
+```obj-c
+if (a == b) {
     // this...
 }
 else {
     // that...
 }
-</pre>
+```
 
-<pre>switch (numbers) {
+```obj-c
+switch (numbers) {
     case 1:
         // something
         break;
     case 2:
         // other something
         break;
-        
+
     default:
         // none of the above
         break;
 }
-</pre>
+```
 
 <h3>Ciclos</h3>
 
 <p>Igualmente los mismo de C:</p>
 
-<pre>do {
+```obj-c
+do {
    // something
 } while (a > b);
-</pre>
+```
 
-<pre>while (a > b) {
+```obj-c
+while (a > b) {
     // loop
 }
-</pre>
+```
 
-<pre>for (int i = 0; i &lt; 10; i++) {
+```obj-c
+for (int i = 0; i < 10; i++) {
     // loop
 }
-</pre>
+```
 
 <p>Incluimos uno más que es el <em>"For In"</em> o <em>"For each"</em>:</p>
 
-<pre>for (NSString *name in users) {
+```obj-c
+for (NSString *name in users) {
     // do something with the user
 }
-</pre>
+```
 
 <p>Este es para recorrer colecciones de objetos, más adelante los explicaré con detalle.</p>
 

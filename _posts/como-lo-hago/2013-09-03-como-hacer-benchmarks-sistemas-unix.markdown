@@ -7,14 +7,17 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2147
-wordpress_url: http://codehero.co/?p=2147
 date: 2013-09-03 00:00:40.000000000 -04:30
 thumbnail: http://i.imgur.com/VuJGkJA.png
+description: Las herramientas de benchmark están compuestas de una serie de pruebas que consisten en aplicar a un sistema diferentes algoritmos conocidos.
+dificultad: Novato
+duracion: 5
 categories:
 - Cómo lo hago
 - Pruebas de Carga
 tags:
+- howto
+- como lo hago
 - pruebas de carga
 - pruebas de estres
 - pruebas de stress
@@ -117,6 +120,8 @@ System Benchmarks Index Score                                         155.6
 En el informe podemos notar algunos detalles del equipo, como la cantidad y tipo de unidades de procesamiento.
 
 En los resultados observemos que para cada tipo de prueba se tiene un valor base, el valor resultante de la prueba y la calificación otorgada. Finalmente observamos la calificación final otorgada por la herramienta (155.6).
+
+
 
 Hagamoslo en otro sistema para comparar, en un Linode Basico obtenemos algo así:
 
@@ -225,5 +230,3 @@ La instancia básica de Linode especifica que en efecto se otorgan 8 unidades de
 ***
 ##Conclusión
 [La semana pasada aprendimos a poner bajo prueba las capacidades de un servidor web](http://codehero.co/como-hacer-pruebas-de-carga-servidores-web/), ahora también sabemos como determinar las capacidades de un sistema. Recuerda que no debes basar tu criterio únicamente en los resultados que obtengas, debes tomar en cuenta el objetivo para el cual esta destinado tu sistema, quizás necesites un sistema con bajo poder de procesamiento pero con mucha memoria (como para bases de datos grandes de [Redis](http://codehero.co/como-instalar-configurar-y-usar-redis/)) o con accesos veloces a disco (alta persistencia de datos), **el poder de procesamiento no lo es todo**. Estas practicas nos permiten hacer elecciones objetivas cuando nos vemos en la necesidad de optimizar los procesos o buscar alguna solución que se adapte mejor a nuestros objetivos.
-
-

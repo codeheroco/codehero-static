@@ -6,9 +6,11 @@ title: Instalación & Configuración
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 1615
-wordpress_url: http://codehero.co/?p=1615
 date: 2013-07-23 00:17:45.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Curso en el cual aprenderemos Laravel desde Cero. En este curso, estudiaremos las características y herramientas necesarias para usar Laravel 4.
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -53,20 +55,24 @@ tags:
 
 <p>Instalar Composer es muy sencillo por linea de comandos. En mi caso lo estoy haciendo en el sistema operativo OS X, pero los pasos son los mismos para cualquier sistema operativo *nix.</p>
 
-<pre>$ curl -sS https://getcomposer.org/installer | /Applications/XAMPP/xamppfiles/bin/php-5.4.16 
+```sh
+$ curl -sS https://getcomposer.org/installer | /Applications/XAMPP/xamppfiles/bin/php-5.4.16 
 $ sudo mv composer.phar /usr/local/bin/composer
-</pre>
+```
 
 <p>El primer comando descarga el archivo <strong>composer.phar</strong> en nuestras computadoras (<strong>.phar</strong> es una extensión para aplicaciones PHP comprimidas), la ruta de PHP puede cambiar dependiendo de donde este instalado en la computadora (Lo importante es que la versión que se utilice sea mayor a 5.2). El segundo comando mueve el archivo descargado a la carpeta bin para que Composer pueda ser ejecutado globalmente.</p>
 
 <p>Por último verificamos la instalación con el siguiente comando.</p>
 
-<pre>$ composer
-</pre>
+```sh
+$ composer
+```
 
 <p>Si la instalación ha terminado correctamente, entonces nos debe aparece una lista de los comandos y opciones que tiene Composer.</p>
 
 <p><a href="http://i.imgur.com/OvO1TZ3.png"><img src="http://i.imgur.com/OvO1TZ3.png" alt="Composer Instalacion Exitosa Mac" class="aligncenter size-full wp-image-1616" /></a></p>
+
+
 
 <h3>Instalación de Composer en Windows</h3>
 
@@ -76,8 +82,9 @@ $ sudo mv composer.phar /usr/local/bin/composer
 
 <p>El instalador se encargara de modificar la variable <strong>PATH</strong> para que podamos hacer uso de Composer desde cualquier lugar en la consola. Para probar que la instalación se llevo acabo correctamente ejecutamos el siguiente comando y nos debería aparecer una lista con todos los posibles comando que acepta Composer.</p>
 
-<pre>C:\>composer 
-</pre>
+```sh
+C:\>composer 
+```
 
 <p><a href="http://i.imgur.com/3xxeyrQ.png"><img src="http://i.imgur.com/3xxeyrQ.png" alt="Composer Instalacion Exitosa Windows" class="aligncenter size-full wp-image-1617" /></a></p>
 
@@ -85,8 +92,9 @@ $ sudo mv composer.phar /usr/local/bin/composer
 
 <p>Una vez que tengamos Composer funcionando en nuestra computadora podemos descargar una copia de Laravel 4 para crear nuestro primer proyecto. Para esto simplemente abrimos nuestro terminal, vamos a la carpeta que utilice nuestro servidor( htdocs o www ) y ejecutamos el siguiente comando (Aplica para cualquier sistema operativo).</p>
 
-<pre>$ composer create-project laravel/laravel codehero-laravel --prefer-dist
-</pre>
+```sh
+$ composer create-project laravel/laravel codehero-laravel --prefer-dist
+```
 
 <blockquote>
   <p>Si se presenta algún error de permisos, ejecutar de nuevo pero con sudo.</p>

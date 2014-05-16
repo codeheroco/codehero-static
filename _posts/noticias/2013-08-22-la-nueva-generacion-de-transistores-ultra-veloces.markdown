@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2068
-wordpress_url: http://codehero.co/?p=2068
 date: 2013-08-22 00:00:52.000000000 -04:30
 thumbnail: http://i.imgur.com/Orin5xi.png
+description: La nueva generación de transistores construidos a base de grafeno capaz de alcanzar velocidad de hasta 467GHz encuentra solución a problemas de concepto...
 categories:
 - Artículos
 - Notícias

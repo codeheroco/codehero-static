@@ -1,3 +1,15 @@
+- name: Oscar González
+  github: oscarvgg
+  facebook: oscarvgg
+  twitter: oscarvgg
+  gplus: u/0/115443918407662355306
+  linkedin: oscarvgg
+  web: oscarvgg.com
+  email: oscar@codehero.co
+  description: Oscar Vicente González Greco es un ingeniero informático de Caracas, Venezuela. Su pasion es el desarrollo de software, principalmente las aplicaciones para dispositivos móviles. Su sed de conocimiento le ha permitido aprender multiples tecnologías tanto móviles como web. En 2013 fundó Codehero junto a sus amigos más cercanos de la universidad, y desde entonces transmite sus conocimientos con tutorías de calidad, aparte de seguir desarrollando el software que siempre ha amado para ayudar a la gente.
+  thumb: e5ba00202c1353d9ac0782a25270ed42.png
+  namelink: oscar
+
 - name: Alberto Grespan
   github: albertogg
   facebook: alberto.grespan
@@ -9,12 +21,44 @@
   thumb: 006ef14fba8fadd40053ecda5039deb2.png
   namelink: albertogg
 
+- name: Carlos Picca
+  github: carlospicca
+  facebook: carlos.cerqueirascipione
+  twitter: CarlosPicca
+  linkedin: carlospicca
+  email: carlos@codehero.co
+  description: Ingeniero informático de Caracas, Venezuela. Su pasión es el desarrollo de software. Su sed de conocimiento le ha permitido aprender múltiples tecnologías tanto móviles como web. En 2013 fundó Codehero junto a sus amigos más cercanos de la universidad, y desde entonces transmite sus conocimientos con tutorías de calidad, aparte de seguir desarrollando el software que siempre ha amado.
+  thumb: ad516503a11cd5ca435acc9bb6523536.png
+  namelink: carlos
+
+- name: Ricardo Sampayo
+  github: sampayo
+  facebook: RicardoSampayoS
+  twitter: ricardosampayo_
+  linkedin: ricardosampayo
+  gplus: u/0/114977158609433108968
+  web: ricardosampayo.com
+  email: ricardo@codehero.co
+  description: Ingeniero informático, egresado de la Universidad Católica Andrés Bello (2013).
+  thumb: 6352c71a03d5b247726deda291af1539.png
+  namelink: ricardo
+
+- name: Ramses Velasquez
+  github: cotufa9
+  facebook: cotu9
+  twitter: cotufa9
+  gplus: u/0/102943042721850153724
+  email: ramses@codehero.co
+  description: Ingeniero Informático, fan hasta la muerte del FC Barcelona y apasionado por la programación.
+  thumb: 2f232fb350c301dc7582295486015cc6.png
+  namelink: ramses
+
 - name: Jonathan Wiesel
   github: jonathanwiesel
   facebook: jonathan.wiesel
   twitter: Enf_4eva
   gplus: u/0/102516760563802041976
-  linkedin: 137647989
+  linkedin: jonathanwiesel
   web: jonathanwiesel.com
   email: jonathan@codehero.co
   description: Adicto a la tecnología y amante de los video-juegos.

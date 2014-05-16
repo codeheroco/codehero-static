@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1295
-wordpress_url: http://codehero.co/?p=1295
 date: 2013-07-04 01:12:52.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Novato
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 3 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el historial, enmendar y a regresar cambios en nuestros proyectos.
 categories:
 - Cursos
@@ -24,8 +24,6 @@ tags:
 - enmendar
 - regresar
 ---
-<h1>Git desde cero: Historial, enmendar y regresar cambios.</h1>
-
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre el historial de los cambios en git, como enmendarlos y como regresar una modificación a su estado anterior utilizando estos comandos:</p>
 
 <ul>
@@ -142,6 +140,8 @@ index 0000000..4564504
 <p>Podemos ver que al hacer cambio de nombre del archivo los cambios se marcan como si se hubiese eliminado el primer archivo y se creó otro, etiquetando la información sobre el <em>Archivo2.txt</em> como eliminada o borrada y la del <em>Archivo2_cambio_de_nombre.txt</em> como agregada, siendo esta la misma.</p>
 
 <p>Por último si lo que queremos es visualizar en el historial de modificaciones en forma gráfica para observar el orden en el que se han almacenado los cambios podemos utilizar un método que abrevia de manera cuantiosa el historial.</p>
+
+
 
 ```sh
 $ git log --pretty=format:"%h - %an - %ar - %s" --graph

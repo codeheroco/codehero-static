@@ -4,12 +4,9 @@ Se supone que es Codehero 2.0, más rápido, mejor y más económico.
 
 ## Dependencias.
 
-Actualmente hay un archivo llamado `.ruby-version` en el repositorio,
-probablemente si usan un manejador de versiones de ruby como (rbenv, chruby o
-rvm) no tengan ninguna dificultad para instalar esta versión (se vale llamarme
-si tienen un peo).
+Actualmente la versión de Ruby está dictada por lo que se encuentra en el `Gemfile`. Aquí está descrito explicitamente que la versión tiene que ser `2.0.0` sin importar la versión de parche. De igual forma este archivo README siempre estará actualizado con la última versión de Ruby y parche que se esté utilizando.
 
-- Ruby 2.0.0-p353
+- Ruby 2.0.0-p451
 - Bundler
 
 Si estan usando rbenv:
@@ -42,25 +39,21 @@ o simplemente lean [toda la instalación](https://github.com/sstephenson/rbenv#i
 
 ## Instalación
 
-Primero que nada hacen un clone del proyecto. Todas las dependencias del proyecto
-se encuentran en el archivo `Gemfile`, por lo tanto instalalar es cosa de bundler.
-
-Luego instalan la versión de ruby del archivo `.ruby-version`. ***Este archivo
-estará disponible una vez que hayan clonado el repositorio en su maquina.***
+Primero que nada hacen un clone del proyecto. Todas las dependencias del proyecto se encuentran en el archivo llamado `Gemfile`, por lo tanto necesitamos instalar una gema o librería llamada bundler que también nos pedirá la versión de ruby que este contenga.
 
 ```sh
-$ rbenv install | xargs cat .ruby-version
+$ rbenv install 2.0.0-p451
 ```
 
 Cuando termine de instalar esa versión de ruby la setean como la versión por
-defecto a utilizar en su maquína. En este caso es la versión `2.0.0-p353`
+defecto a utilizar en su maquína. En este caso es la versión `2.0.0-p451`
 ```sh
-$ rbenv global 2.0.0-p353
+$ rbenv global 2.0.0-p451
 ```
 
 Revisan que sea la versión por defecto y listo.
 ```sh
-$ ruby -v # ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin12.5.0]
+$ ruby -v # ruby 2.0.0p451 (2014-02-24 revision 45167) [x86_64-darwin13.1.0]
 ```
 
 Continuamos con la instalación del aplicativo y no de ruby.
@@ -130,4 +123,3 @@ Se pueden ir a la puta madre, si:
 - hacen un `git push -f` para subir un commit de manera forzada.
 - Si no utilizan `git pull --rebase` para descargar el remote.
 - Suben archivos con trailing whitespaces.
-

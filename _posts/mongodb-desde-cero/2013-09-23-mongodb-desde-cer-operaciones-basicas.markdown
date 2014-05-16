@@ -7,11 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2286
-wordpress_url: http://codehero.co/?p=2286
 date: 2013-09-23 00:00:27.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
+description: Seguramente querrás poner tus habilidades en práctica, comencemos con algunas operaciones básicas para aprender como manipular los datos en MongoDB.
+dificultad: Novato
+duracion: 10
 categories:
 - Cursos
 - MongoDB
@@ -153,6 +153,8 @@ En este caso estamos filtrando por aquellos autores que son administradores soci
 
 > `SELECT * FROM autores WHERE socialAdmin = true OR genero = 'M'`
 
+
+
 ###Limitar y Ordenar
 Si quisiéramos limitar los resultados a un número máximo especificado de registros es tan fácil como agregar `.limit(#)` al final del comando `.find()`:
 
@@ -235,5 +237,3 @@ Ahora que la colección ha quedado vacía deshagamonos de ella:
 ***
 ##Conclusión
 Seguramente te estarás preguntando: ¿Y qué pasó con los `update`?. La modificación de registros involucra  múltiples maneras para que puedas manipular la información a tu gusto, por ello lo dejaremos para la próxima entrada, no desesperes. Estos son los primeros pasos a tomar para que comiences a usar MongoDB, todavía queda un largo camino por delante ya que hay mucho que aprender sobre esta magnifica solución de base de datos.
-
-

@@ -10,9 +10,14 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2658
 wordpress_url: http://codehero.co/?p=2658
 date: 2013-11-22 00:22:57.000000000 -04:30
+serie: iOS 7 Decodificado
+dificultad: Aprendiz
+duracion: 20
+github: https://github.com/sampayo/transiciones_animadas_basica_ios7
+description: "iOS 7 Decodificado: Este capítulo busca otorgarte las herramientas necesarias para que puedas hacer tus transiciones personalizadas entre UIViewController"
 categories:
 - Cursos
-- iOS
+- iOS 7 decodificado
 tags:
 - curso
 - iOS7
@@ -28,10 +33,10 @@ tags:
 
 <p>Como bien deben saber las transiciones entre <code>UIViewController</code> son bastante simples, básicamente solo van apareciendo hasta ser mostradas por completa. Las formas comunes para presentar un viewController es:</p>
 
-<pre>
+```obj-c
 [self.navigationController pushViewController:vc animated:YES];
 [self presentViewController:vc animated:YES completion:nil];
-</pre>
+```
 
 <p>Son dos simples comandos, el primero es para mostrar el UIViewController y agregarlo a la lista de controladores que lleva el UINavigationController, el cual nos permite devolvernos o avanzar en linea. El segundo comando no requiere del UINavigationController y simplemente muestra el nuevo controlador de abajo hacia arriba.</p>
 
@@ -68,30 +73,30 @@ tags:
 
 <h4>1. Especifica que la presentación debe utilizar una transición personalizada</h4>
 
-<p>En este paso solo debemos decirle al controlador que queremos implementar el 
+<p>En este paso solo debemos decirle al controlador que queremos implementar el
 delegado para las transiciones entre controladores, esto puede ser algo así:</p>
 
-<pre>
+```obj-c
 - (IBAction) activarTransicion:(id)sender
 {
     UIViewController *vc = [[UIViewController alloc] init];
     vc.modalPresentationStyle = UIModalPresentationCustom;
-    
+
     // indicamos que queremos implementar los métodos del delegado
     // de la transición
     vc.transitioningDelegate = self;
 
     [self presentViewController:vc animated:YES completion:nil];
 }
-</pre>
+```
 
 <p>Como ven con el metido <code>vc.transitioningDelegate</code> especificamos quien se hada cargo de implementar los metodos del delegado. Finalmente para terminar con este paso debemos indicarle en nuestro controlador que vamos a implementar el delegado</p>
 
-<pre>
+```obj-c
 #import < UIKit/UIKit.h>
 
 @interface viewController : UIViewController < UIViewControllerTransitioningDelegate>
-</pre>
+```
 
 <p>¿Bastante simple no? sigamos que el resto también es bastante sencillo.</p>
 
@@ -99,7 +104,7 @@ delegado para las transiciones entre controladores, esto puede ser algo así:</p
 
 <p>En este paso debemos adoptar el delegado de la transición, aunque ya le dijimos a nuestro controlador que vamos hacer uso de el, debemos implementar los métodos del delegado, estos son:</p>
 
-<pre>
+```obj-c
 @optional
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source;
 
@@ -108,16 +113,16 @@ delegado para las transiciones entre controladores, esto puede ser algo así:</p
 - (id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator;
 
 - (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator;
-</pre>
+```
 
 <p>Para nuestro ejemplo solo haremos uso de uno, ya que todos son opcionales:</p>
 
-<pre>
+```obj-c
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-   
+
 }
-</pre>
+```
 
 <h4>3. Crear una clase de transición animada que controlará el movimiento de los controladores</h4>
 
@@ -129,17 +134,17 @@ delegado para las transiciones entre controladores, esto puede ser algo así:</p
 <li>BouncyTransition.h</li>
 </ul>
 
-<pre>
+```obj-c
 #import < Foundation/Foundation.h>
 @interface BouncyTransition : NSObject <UIViewControllerAnimatedTransitioning>
 @end
-</pre>
+```
 
 <ul>
 <li>BouncyTransition.m</li>
 </ul>
 
-<pre>
+```obj-c
 @implementation BouncyTransition
 - (NSTimeInterval) transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
@@ -150,20 +155,20 @@ delegado para las transiciones entre controladores, esto puede ser algo así:</p
 // TODO
 }
 @end
-</pre>
+```
 
 <h4>4. Implementar el delegado de la transición</h4>
 
 <p>En esta etapa solo instanciamos nuestra transición en el método que implementamos  en el paso número dos. Es básicamente algo así:</p>
 
-<pre>
+```obj-c
 - (id < UIViewControllerAnimatedTransitioning>) animationControllerForPresentedController:(UIViewController *)presented  presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
- 
+
     BouncyTransition *transition = [[BouncyTransition alloc] init];
     return transition;
 
 }
-</pre>
+```
 
 <p>Como ven simplemente le estamos diciendo a nuestro delegado que vamos a utilizar la transición <code>BouncyTransition</code> que acabamos de crear para mostrar el UIViewController.</p>
 
@@ -177,47 +182,47 @@ delegado para las transiciones entre controladores, esto puede ser algo así:</p
 
 <p>Lo primero que debemos saber en esta etapa es identificar los controladores, tanto el que presenta como el presentado. Veamos:</p>
 
-<pre>
+```obj-c
 UIViewController *presentado = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
 UIViewController *presentador = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-</pre>
+```
 
 <p>Una vez identificado nuestros controladores agregamos al <code>containerView</code> de la transición el controlador que vamos a mostrar:</p>
 
-<pre>
+```obj-c
 [[transitionContext containerView] addSubview:presentado.view];
-</pre>
+```
 
 <p>listo! finalmente luego de hacer esto, jugamos con el tamaño y las animaciones para hacer que nuestra transición quede como lo estamos esperando. Veamos aquí la animación:</p>
 
-<pre>
+```obj-c
 
 CGRect fullFrame = [transitionContext initialFrameForViewController:fromVC];
 CGFloat height = CGRectGetHeight(fullFrame);
 
 toVC.view.frame = CGRectMake(
                               fullFrame.origin.x,
-                              height + 16, 
+                              height + 16,
                               CGRectGetWidth(fullFrame),
                               height
 );
-    
-[UIView animateWithDuration:[self transitionDuration:transitionContext] 
-        delay:0 usingSpringWithDamping:0.5f 
-        initialSpringVelocity:0.6f 
-        options:UIViewAnimationOptionCurveEaseInOut 
+
+[UIView animateWithDuration:[self transitionDuration:transitionContext]
+        delay:0 usingSpringWithDamping:0.5f
+        initialSpringVelocity:0.6f
+        options:UIViewAnimationOptionCurveEaseInOut
         animations:^{
-     
+
         toVC.view.frame = CGRectMake(20, 20, CGRectGetWidth(fullFrame) - 40, height - 40 );
-        
+
     } completion:^(BOOL finished) {
-    
+
         [transitionContext completeTransition:YES];
-        
-    }]; 
+
+    }];
 }
-</pre>
+```
 
 <p>Una vez realizados estos cinco sencillos pasos, obtendremos una animación como esta:</p>
 

@@ -7,19 +7,19 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2806
-wordpress_url: http://codehero.co/?p=2806
 date: 2013-12-05 00:39:30.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Aprendiz
+duracion: 30
 description: Octavo capítulo de la serie Sinatra desde Cero donde aprenderemos a como hacer una aplicación con estructura similar a la de una aplicación de Ruby on Rails
 categories:
 - Cursos
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
+- Estructura
+- Modular
+- Modularidad
 ---
 <p>La serie de Sinatra desde Cero, buscará otorgarte el conocimiento necesario para que puedas desarrollar tus propias aplicaciones Web haciendo uso de esta magnifica herramienta.</p>
 
@@ -71,6 +71,8 @@ $ tree .
 </ul>
 
 <p>Echemos un vistazo al contenido de dichos archivos.</p>
+
+
 
 ```ruby
 # application_helper.rb

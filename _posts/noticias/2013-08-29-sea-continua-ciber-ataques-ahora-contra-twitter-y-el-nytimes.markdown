@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2123
-wordpress_url: http://codehero.co/?p=2123
 date: 2013-08-29 00:00:01.000000000 -04:30
 thumbnail: http://i.imgur.com/2j8hqpv.png
+description: El SEA logró afectar temporalmente el dominio web principal de Twitter y del New York Times a través de registros de su proveedor de DNS, MelbourneIT.
 categories:
 - Artículos
 - Notícias

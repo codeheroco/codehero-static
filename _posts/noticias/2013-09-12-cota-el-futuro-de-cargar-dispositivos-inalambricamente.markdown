@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2224
-wordpress_url: http://codehero.co/?p=2224
 date: 2013-09-12 00:00:58.000000000 -04:30
 thumbnail: http://i.imgur.com/GbWk3ok.png
+description: Cota pretende cargar los dispositivos de manera inalámbrica hasta 9 metros de distancia, sin necesidad de linea directa de visión
 categories:
 - Artículos
 - Notícias

@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2237
 wordpress_url: http://codehero.co/?p=2237
 date: 2013-09-16 00:00:17.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 10
+description: En este capítulo te mostraré la funcion del archivo package.json en una aplicación Node.js
 categories:
 - Node.js
 tags:
@@ -25,14 +29,16 @@ tags:
 
 <p>Vamos a abrir el proyecto que veníamos desarrollando en los capítulos anteriores y abrimos el archivo package.json. Actualmente debería lucir así:</p>
 
-<pre>{
+```javascript
+{
   "name": "Ejemplo",
   "version": "0.0.1",
   "dependencies": {
     "express": "3.3.5"
   }
 }
-</pre>
+```
+
 
 <p>Como habíamos dicho esta configuración dice que nuestro proyecto se llama “Ejemplo”, está en la versión 0.0.1 y su única dependencia es Express.</p>
 
@@ -48,8 +54,10 @@ tags:
 
 <p>En este miembro se define el autor de la aplicación:</p>
 
-<pre>"author": "oscar gonzález"
-</pre>
+```javascript
+"author": "oscar gonzález"
+```
+
 
 <hr />
 
@@ -57,17 +65,21 @@ tags:
 
 <p>Ahora podemos continuar agregando <code>"scripts": {}</code>, este es bastante similar a rake en ruby, en "scripts" podemos agregar cualquier código que deba ser ejecutado vía npm. El script más común a ejecutar es "start", este corre cuando se inicia la aplicación.</p>
 
-<pre>"scripts": {
+```javascript
+"scripts": {
     "start": "node app.js"
 }
-</pre>
+```
+
 
 <p>Con este script podemos correr nuestro servidor ejecutando <code>npm start</code> a través de la linea de comandos, estando situados en el directorio del proyecto.</p>
 
 <p>Incluso puedes definir tus propios scripts con nombres custom, como por ejemplo:</p>
 
-<pre>"build": "./scripts/build.js"
-</pre>
+```javascript
+"build": "./scripts/build.js"
+```
+
 
 <p>Entonces cuando corramos <code>npm build</code>, se ejecutará el contenido del archivo build.js.</p>
 
@@ -81,27 +93,33 @@ tags:
 
 <p>Aquí pudiéramos agregar más dependencias. Supongamos que queremos agregar jade, simplemente se debe agregar debajo:</p>
 
-<pre>"dependencies": {
+```javascript
+"dependencies": {
     "express": "3.3.5",
     "jade": "*"
 }
-</pre>
+```
+
 
 <p>Nótese que como versión he utilizado un asterisco ("*"), esto significa que no me importa versión que esté instalada, puedo utilizar cualquiera.</p>
 
 <p>También pudiera colocar "x" si no me importa alguna versión menor:</p>
 
-<pre>"dependencies": {
+```javascript
+"dependencies": {
     "express": "3.3.x"
 }
-</pre>
+```
 
-<p>También pudiera usar operadores como ">", "&lt;", ">=", "&lt;=":</p>
 
-<pre>"dependencies": {
+<p>También pudiera usar operadores como ">", "<", ">=", "<=":</p>
+
+```javascript
+"dependencies": {
     "express": ">=3.3.5"
 }
-</pre>
+```
+
 
 <p>En el <a href="http://blog.nodejitsu.com/package-dependencies-done-right">blog de nodejitsu</a> hay un artículo sobre las mejores prácticas al momento de definir dependencias.</p>
 
@@ -113,10 +131,12 @@ tags:
 
 <p>Seguramente has notado que cuando desarrollamos en Node, cada vez que hacemos algún cambio en el proyecto tenemos que detener y volver a iniciar el servidor. "Nodemon" observa los archivos de nuestro proyecto y reinicia el servidor cada vez que detecta cambios en alguno de ellos. Esta seria una dependencia muy útil mientras estamos desarrollado y que no es necesaria en producción:</p>
 
-<pre>"devDependencies": {
+```javascript
+"devDependencies": {
     "nodemon": "*"
 }
-</pre>
+```
+
 
 <p>Entonces si ahora corremos <code>npm install</code> en el directorio del proyecto se instalará localmente (solo para el uso del proyecto), si hiciéramos <code>sudo npm install -g nodemon</code> se instalaría globalmente.</p>
 
@@ -124,10 +144,12 @@ tags:
 
 <p>Si lo instaláramos solo localmente como lo es el caso de declararlo en "devDependencies", pudiéramos ir al atributo scripts y cambiar el valor del script "start":</p>
 
-<pre>"scripts": {
+```javascript
+"scripts": {
     "start": "nodemon app.js"
 }
-</pre>
+```
+
 
 <p>Ahora cuando corramos <code>npm start</code> en el directorio del proyecto iniciaríamos nodemon de una vez.</p>
 
@@ -137,8 +159,10 @@ tags:
 
 <p>// .nodemonignore</p>
 
-<pre>./public/*
-</pre>
+```javascript
+./public/*
+```
+
 
 <p>Ahora cuando corramos nodemon no se reiniciará el servidor cuando modifiquemos algún archivo dentro del directorio "/public".</p>
 
@@ -148,11 +172,13 @@ tags:
 
 <p>Se puede controlar incluso en que versión de Node o NPM debe correrse el proyecto:</p>
 
-<pre>"engines": { 
-    "node": ">=0.10.3 &lt;0.12",
+```javascript
+"engines": {
+    "node": ">=0.10.3 <0.12",
     "npm": "~1.0.20"
 }
-</pre>
+```
+
 
 <hr />
 

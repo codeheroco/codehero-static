@@ -7,16 +7,24 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1428
-wordpress_url: http://codehero.co/?p=1428
 date: 2013-07-16 00:00:02.000000000 -04:30
-thumbnail: http://i.imgur.com/SOCox1I.png
+thumbnail: http://i.imgur.com/730GOjs.png
+description: En este ¿Cómo lo hago?, daremos solución a los problemas de virtualización mediante el uso de una herramienta de construcción de ambientes, Vagrant.
+dificultad: Aprendiz
+duracion: 20
 categories:
 - Cómo lo hago
 - Vagrant
 tags:
+- howto
+- como lo hago
 - vagrant
 - virtual
+- maquina virtual
+- provision
+- cajas
+- ubuntu
+- linux
 ---
 Es posible que en múltiples ocasiones te hayas encontrado en necesidad de un ambiente virtual de desarrollo. Quizás muchas veces lo necesitaste para hacerte la vida más fácil y no lo sabías. En este ¿Cómo lo hago?, daremos solución a estos problemas mediante el uso de una herramienta de construcción de ambientes, Vagrant.
 
@@ -116,6 +124,8 @@ Lo cambiaremos para especificar el nombre de la caja que usaremos:
 ```sh
 config.vm.box = "mi_caja_ubuntu_precise_32"
 ```
+
+
 
 ###Levantar el ambiente
 
@@ -255,4 +265,3 @@ Y si todo ha salido bien veremos algo como esto:
 En este tutorial dimos los primeros pasos con Vagrant para instalar y configurar un ambiente virtual en tiempo record, como hemos podido observar, la magia del funcionamiento de la herramienta reside en la facilidad y automatización de configuración e instalación de software. Lo que vimos aquí es solo un abreboca de las posibilidades que existen, no te pierdas la próxima semana cuando hablemos de la herramienta **Chef** y sus recetas y ver de lo que es capaz la cooperación entre estas herramientas.
 
 > **Actualización:** [¿Cómo lo hago? Instalar y configurar Chef](http://codehero.co/como-instalar-y-configurar-chef/), ya está al aire.
-

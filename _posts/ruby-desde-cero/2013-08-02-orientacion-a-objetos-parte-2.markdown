@@ -7,19 +7,19 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1843
-wordpress_url: http://codehero.co/?p=1843
 date: 2013-08-02 00:01:12.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Aprendiz
+duracion: 30
 description: Ruby desde cero, curso de Orientación a Objetos - Parte 2, Estudiaremos detallando para cada una de ellas la sintaxis y realizaremos una demostración.
 categories:
 - Cursos
 - Ruby
 tags:
 - Ruby
-- Cursos
 - Objetos
+- Clase
+- Herencia
 ---
 <p>Bienvenidos una vez más a Ruby desde Cero. En el capítulo anterior estudiamos la primera parte del paradigma orientado a objetos aplicado al lenguaje.</p>
 
@@ -110,6 +110,8 @@ Inhala y exhala
 
 <p>La programación orientada a objetos existe una característica del lenguaje que permite una una implementación específica de un método que ya está proporcionado por una de sus superclases. Las modificaciones de las subclases reemplazan la implementación de la superclase.</p>
 
+
+
 <p>A continuación mostraremos un ejemplo sencillo para entender mejor el concepto:</p>
 
 ```ruby
@@ -182,7 +184,7 @@ Es un metodo de la clase principal
 ++++----++++
 Es un metodo de la clase principal
 y se le agrega este nuevo comportamiento
- ```
+```
 
 <blockquote>
   <p>En conclusión la herencia permite crear una clase que es un perfeccionamiento o especialización de otra clase.</p>

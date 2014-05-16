@@ -10,6 +10,10 @@ author_url: http://www.ricardosampayo.com
 wordpress_id: 2321
 wordpress_url: http://codehero.co/?p=2321
 date: 2013-09-27 00:35:04.000000000 -04:30
+serie: iOS desde Cero
+dificultad: Novato
+duracion: 20
+github: https://github.com/codeheroco/iOS_protocol
 categories:
 - Cursos
 - iOS
@@ -37,7 +41,8 @@ tags:
 
 <p>Para empezar debemos recordar que los protocolos no tienen una implementación de los métodos que ahí están declarados, por lo tanto su declaración sólo es necesaria en los archivos <code>.h</code>. Veamos la sintaxis de un protocolo sencillo:</p>
 
-<pre>@protocol ProtocolName
+```obj-c
+@protocol ProtocolName
 
 @optional
 // Lista de métodos opcionales
@@ -45,11 +50,13 @@ tags:
 // Lista de métodos requeridos y obligatorios
 
 @end
-</pre>
+```
+
 
 <p>Un ejemplo que probablemente conocemos, si hemos seguido la serie de tutoriales iOS, son los <strong>UITableView</strong> ya que los métodos que implementamos para configurar, cargar con información nuestra tabla y manejar los eventos que éste lance son parte de los protocolos <strong>UITableViewDataSource</strong> y <strong>UITableViewDelegate</strong>. Algunos de estos métodos son los siguientes:</p>
 
-<pre>// Delegate
+```obj-c
+// Delegate
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath;
 
 // DataSource Requeridos
@@ -58,7 +65,8 @@ tags:
 
 // DataSource Opcionales
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
-</pre>
+```
+
 
 <hr />
 
@@ -70,10 +78,12 @@ tags:
 
 <p>Definiremos un delegate en este curso de la siguiente manera, y asociado a un protocolo que después la clase que lo invoque deberá implementar.</p>
 
-<pre>@interface ViewController ()&lt; ProtocolName >{
-    id &lt; ProtocolName> delegate;
+```obj-c
+@interface ViewController ()<ProtocolName >{
+    id <ProtocolName> delegate;
 }
-</pre>
+```
+
 
 <hr />
 
@@ -91,7 +101,8 @@ tags:
 
 <p>Como se dan cuenta sólo se crea un archivo <code>.h</code> y en este agregamos todos los métodos que vamos a utilizar tanto en la clase que descarga el archivo como en la que lo invoca.</p>
 
-<pre>// Método que se ejecuta una vez descargado y almacenado el archivo
+```obj-c
+// Método que se ejecuta una vez descargado y almacenado el archivo
 -(void)dowloadFinishLoading:(NSString *)filePath andName:(NSString *)name;
 
 // Método que se ejecuta cuando termina la descarga
@@ -105,25 +116,31 @@ tags:
 
 // Método que se ejecuta al iniciar la descarga
 - (void)dowloadInitLoading:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
-</pre>
+```
+
 
 <p>Luego agregamos a nuestra clase el delegate.</p>
 
-<pre>// No olviden importar el protocolo en el encabezado de la clase
+```obj-c
+// No olviden importar el protocolo en el encabezado de la clase
 @property (nonatomic,strong) id&lt; FileDataAccessDelegate >delegate;
-</pre>
+```
+
 
 <p>Por último invocamos los métodos del protocolo en los puntos claves de la clase por ejemplo; cuando se esté descargando agregamos las siguiente líneas:</p>
 
-<pre>if ([self.delegate respondsToSelector:@selector(dowloadInitLoading:didReceiveResponse:)]) 
+```obj-c
+if ([self.delegate respondsToSelector:@selector(dowloadInitLoading:didReceiveResponse:)])
 {
     [self.delegate dowloadInitLoading:connection didReceiveResponse:response];
 }
-</pre>
+```
+
 
 <p>Listo!, ya tenemos nuestra clase para descargar un archivo con el protocolo y el delegate implementado, ahora solo nos queda algo de carpintería para invocar esta clase, descargar el archivo a nuestros dispositivos y hacer uso de los métodos del protocolo para ir actualizando la vista.</p>
 
-<pre>(IBAction)descargar:(id)sender{
+```obj-c
+(IBAction)descargar:(id)sender{
     FileDataAccess *file = [[FileDataAccess alloc] init];
     [file descargarArchivo:@"http://codehero.co/oc-content/uploads/2013/08/Screen-Shot-2013-08-12-at-1.04.36-AM.png" nombre:@"imagen.png"];
     file.delegate=self;
@@ -146,7 +163,8 @@ tags:
 - (void)dowloadInitLoading:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     NSLog(@"inicia de descargar");
 }
-</pre>
+```
+
 
 <p>Construímos un poco la interfaz y probablemente tengamos como resultado algo así:</p>
 

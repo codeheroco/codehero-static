@@ -7,18 +7,16 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1153
-wordpress_url: http://codehero.co/?p=1153
 date: 2013-06-26 06:04:25.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+dificultad: Novato
+duracion: 30
 description: Curso Ruby on Rails desde cero Instalación y configuración. Las series de tutoriales Ruby on Rails en CodeHero otorgan los conocimientos para desarrollar aplicaciones web
 categories:
 - Cursos
 - Ruby on Rails
 tags:
 - Ruby
-- Cursos
 - Ruby on Rails
 - desde cero
 - instalacion
@@ -52,6 +50,8 @@ $ brew install ruby
 
 <p>Luego de esto instalamos rbenv es un paquete que proporciona apoyo para instalación y manipulación de diferentes versiones de Ruby y las herramientas necesarias para configurar tu framework. Luego instalamos ruby-build para compilar diferentes versiones de Ruby. el comando para instalar estos paquetes es el siguiente:</p>
 
+
+
 ```sh
 $ brew install rbenv ruby-build
 ```
@@ -76,7 +76,7 @@ $ gem list
 $ git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 ```
 
-<p>Luego agregamos la tuta del rbenv al PATH del sistema:</p>
+<p>Luego exportamos la ruta del rbenv al PATH del sistema:</p>
 
 ```sh
 $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> .bash_profile
@@ -94,10 +94,10 @@ $ ./install.sh
 $ popd
 ```
 
-<p>El siguiente paso es instalar la versión que queramos de Ruby, para este caso es (ruby 2.0.0p195):</p>
+<p>El siguiente paso es instalar la versión que queramos de Ruby, para este caso es (ruby 2.0.0p451):</p>
 
 ```sh
-$ rbenv install 2.0.0-p353
+$ rbenv install 2.0.0-p451
 $ rbenv rehash
 ```
 

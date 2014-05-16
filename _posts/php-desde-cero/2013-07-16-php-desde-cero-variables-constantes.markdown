@@ -6,9 +6,11 @@ title: Variables & Constantes
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 1441
-wordpress_url: http://codehero.co/?p=1441
 date: 2013-07-16 00:00:20.000000000 -04:30
+serie: PHP desde Cero
+description: En este capítulo aprenderemos a manejar las variables y las constantes en PHP y veremos cuales son los principales tipos de datos que se utilizan.
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -30,14 +32,17 @@ tags:
 
 <p>Aquí están unos ejemplos de nombres validos e inválidos para variables:</p>
 
-<pre>$_miNombre  // valido
+```php
+<?php
+$_miNombre  // valido
 $miNombre   // valido
 $__variable // valido
 $variable21 // valido
 $_1Grande   // invalido - carácter de subrayado debe estar seguido de una letra al principio
 $1Grande    // invalido - se debe empezar con letra o carácter de subrayado
-$_er-t      // invalido - contiene un guión - 
-</pre>
+$_er-t      // invalido - contiene un guión -
+?>
+```
 
 <p>Hay que tener en cuenta que PHP distingue las mayúsculas y las minúsculas en los nombres de las variables, por lo tanto <code>$variable</code> es diferente a <code>$Variable</code>.</p>
 
@@ -49,17 +54,18 @@ $_er-t      // invalido - contiene un guión -
 
 <p>Veamos varios ejemplos de asignación de variables:</p>
 
-<pre><?php
+```php
+<?php
     // creando variable nueva y asignando cadena de texto
     $codeHero = "tutoriales";
-    
+
     // creando variable nueva y asignando un entero
-    $numero = 21; 
-    
+    $numero = 21;
+
     // resignado valor de $numero en $codeHero, ahora las dos variables tienen el valor de 21
     $codeHero = $numero;
 ?>
-</pre>
+```
 
 <hr />
 
@@ -69,17 +75,19 @@ $_er-t      // invalido - contiene un guión -
 
 <p>Por ejemplo, si queremos imprimir en pantalla el valor asignado en una variable llamada <code>$cantidad</code> simplemente escribimos el nombre de la variable a la derecha del comando <strong>echo</strong>.</p>
 
-<pre><?php
+```php
+<?php
     echo $cantidad;
 ?>
-</pre>
+```
 
 <p>Otra opción es imprimir el valor de la variable dentro de una cadena de caracteres. Para esto simplemente colocamos la cadena de texto con comillas dobles y dentro el nombre de la variable, igual que antes utilizando el comando <strong>echo</strong>.</p>
 
-<pre><?php
+```php
+<?php
     echo "La cantidad es: $cantidad";
 ?>
-</pre>
+```
 
 <hr />
 
@@ -95,12 +103,15 @@ $_er-t      // invalido - contiene un guión -
 
 <p>Ejemplos de asignación de enteros:</p>
 
-<pre><?php
+```php
+<?php
     $entero = 10;
 
     $enteroNegativo = -13457231;
 ?>
-</pre>
+```
+
+
 
 <h3>Tipo de variable Float</h3>
 
@@ -108,25 +119,25 @@ $_er-t      // invalido - contiene un guión -
 
 <p>Ejemplos de asignación de float:</p>
 
-<pre><?php
+```php
+<?php
     $coma_flotante = 9234.98;
 
     $coma_flotante_mas_preciso = 9547894367.987483701
 ?>
-</pre>
+```
 
 <h3>Tipo de Variable Booleana</h3>
 
 <p>Este tipo de variable sirve solo para tomar los valores de verdadero (<strong>True</strong>) o falso (<strong>False</strong>). Estas variables se usan normalmente como banderas para comprobar si una condición se cumplió o no. Es bueno saber que PHP interpreta estos valores internamente como 1 y 0, aunque no sean lo mismo un booleano True que un entero 1.</p>
 
-<pre><?php  
-
+```php
+<?php  
     $ejecutar = True;
-    
-    $terminar_programa = False;
 
+    $terminar_programa = False;
 ?>
-</pre>
+```
 
 <h3>Tipo de Variable String</h3>
 
@@ -134,7 +145,8 @@ $_er-t      // invalido - contiene un guión -
 
 <p>Para asignar un String encerramos el texto entre comillas simples (<strong>'</strong>) o comillas dobles (<strong>"</strong>). Si el texto que se desea guardar contiene comillas dobles o simples, entonces se utilizan las comillas contrarias para encerrar el texto.</p>
 
-<pre><?php
+```php
+<?php
 
     $cadena = "Una cadena de caracteres";
 
@@ -145,18 +157,18 @@ $_er-t      // invalido - contiene un guión -
     $cadena4 = 'Y esta otra contiene "comillas dobles"';
 
 ?>
-</pre>
+```
 
 <p>También se puede escapar las comillas utilizando (****) antes de la comillas. Este caracter le dice al interprete PHP que lea la comilla como un caracter que se quiere mostrar y no como un delimitador.</p>
 
-<pre><?php
+```php
+<?php
 
     $cadena5 = 'Esta cadena contiene \'comillas simples\'';
 
     $cadena6 = "Y esta otra contiene \"comillas dobles\" y \'comillas simples\'";
-
 ?>
-</pre>
+```
 
 <hr />
 
@@ -172,14 +184,15 @@ $_er-t      // invalido - contiene un guión -
 
 <p>En PHP las constantes se manejan un poco diferente a las variables. Para la asignación de su valor no se utiliza el signo (<strong>=</strong>), si no que se hace uso de la función <code>define('NOMBRE','VALOR')</code> aceptando como primer parámetro el nombre de la constante y como segundo parámetro el dato a asignar. El nombre de la constante no lleva un (<strong>$</strong>) como prefijo y normalmente por convención va todo en mayúsculas.</p>
 
-<pre><?php 
+```php
+<?php
 
     define('URL', 'codehero.co');
 
     define('FECHA_CREACION', 2013);
 
 ?>
-</pre>
+```
 
 <hr />
 
@@ -187,13 +200,14 @@ $_er-t      // invalido - contiene un guión -
 
 <p>Para acceder al valor de una constante simplemente hacemos referencia a su nombre en donde necesitemos su valor, igual que como lo hacemos con las variables solo que en este caso no aplica el signo (<strong>$</strong>).</p>
 
-<pre><?php
-    
+```php
+<?php
+
     echo URL;
 
     echo FECHA_CREACION;
 ?>
-</pre>
+```
 
 <hr />
 

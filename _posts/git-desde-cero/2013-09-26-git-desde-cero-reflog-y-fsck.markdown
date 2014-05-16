@@ -7,19 +7,21 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2315
-wordpress_url: http://codehero.co/?p=2315
 date: 2013-09-26 00:02:52.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Heroe
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 15 de la serie Git desde Cero, en este curso hablaremos sobre como recuperar commits perdidos utilizando las herramientas reflog y fsck.
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Reflog
+- Log
+- Cambios
+- Reset
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como recuperar algún <em>"commit"</em> que pudo perderse o ser borrado sin querer cuando modificamos el historial o borramos una rama. Para esto utilizaremos <code>git reflog</code> y como alternativa extrema si por algún motivo no podemos recuperarlo utilizaremos <code>git fsck</code>.</p>
 
@@ -71,6 +73,8 @@ Switched to a new branch 'prueba-reflog'
 ```
 
 <p>Y por último a ir a ese estado particular.</p>
+
+
 
 ```sh
 $ git reset --hard de13f1b

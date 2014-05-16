@@ -2,16 +2,14 @@
 layout: post
 status: publish
 published: true
-title: Nuevos servicios de Dropbox llevarán la sincronización multiplataforma a otro
-  nivel
+title: Nuevos servicios de Dropbox llevarán la sincronización multiplataforma a otro nivel
 author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1361
-wordpress_url: http://codehero.co/?p=1361
 date: 2013-07-11 00:00:33.000000000 -04:30
 thumbnail: http://i.imgur.com/qxlJdlG.png
+description: En la primera conferencia de desarrolladores de Dropbox fueron presentados un par de servicios muy interesante, el Datastore API y los Drop-Ins.
 categories:
 - Artículos
 - Notícias

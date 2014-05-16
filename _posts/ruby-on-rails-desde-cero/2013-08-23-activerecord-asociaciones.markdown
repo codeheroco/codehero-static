@@ -7,19 +7,21 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2074
-wordpress_url: http://codehero.co/?p=2074
 date: 2013-08-23 00:01:03.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+dificultad: Aprendiz
+duracion: 30
 description: Ruby on Rails desde Cero, serie en la cual aprenderemos del framework, aprendiendo en este capítulo de las asociaciones con ActiveRecord.
 categories:
+- Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
 - ActiveRecord
 - Asociaciones
+- has_many
+- belongs_to
+- has_one
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior estudiamos conceptos básicos de ActiveRecord, pero aún nos quedan conceptos de este tema.</p>
 
@@ -80,6 +82,8 @@ class Usuario < ActiveRecord::Base
   has_many :direccions
 end
 ```
+
+
 
 <h4>has_many :through</h4>
 

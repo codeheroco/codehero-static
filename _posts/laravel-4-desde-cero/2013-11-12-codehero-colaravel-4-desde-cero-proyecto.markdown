@@ -6,9 +6,11 @@ title: Proyecto
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2583
-wordpress_url: http://codehero.co/?p=2583
 date: 2013-11-12 10:16:59.000000000 -04:30
+serie: Laravel 4 desde Cero
+description: Tutorial para ver todas las funciones que hemos aprendiendo en la creacion de un mini proyecto con Laravel 4
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - Laravel
@@ -33,7 +35,8 @@ tags:
 
 <p>Para crear el proyecto primero debemos crear las tablas en la base de datos. Son dos tablas muy sencillas que nos servirán para guardar los vendedores y los productos.</p>
 
-<pre>CREATE TABLE  `codehero-laravel`.`vendedor` (
+```sql 
+CREATE TABLE  `codehero-laravel`.`vendedor` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `nombre` VARCHAR( 100 ) NOT NULL ,
 `apellido` VARCHAR( 100 ) NOT NULL ,
@@ -49,7 +52,8 @@ CREATE TABLE  `codehero-laravel`.`producto` (
 `created_at` TIMESTAMP NOT NULL ,
 `updated_at` TIMESTAMP NOT NULL
 ) ENGINE = INNODB;
-</pre>
+
+```
 
 <p>Ahora que tenemos las dos tablas creadas en nuestra base datos procedemos a crear el proyecto de Laravel. Para hacer esto vamos a utilizar <strong>Composer</strong> con su comando <code>composer create-project laravel/laravel sistema --prefer-dist</code> como ya lo hemos visto en el primer capítulo de la serie. Cuando tengamos el proyecto creado debemos configurar la conexión a la base de datos como ya lo hemos hecho anteriormente.</p>
 
@@ -71,7 +75,9 @@ CREATE TABLE  `codehero-laravel`.`producto` (
 
 <p>El primer modelo que vamos a crear es <strong>Vendedor.php</strong>, este modelo tendrá una relación con el modelo de Producto que vamos a crear mas adelante y una función para agregar los vendedores siguiendo unas regla de validación.</p>
 
-<pre>class Vendedor extends Eloquent  {
+```php 
+<?php
+class Vendedor extends Eloquent  {
 
     protected $table = 'vendedor';
     // declaramos la tabla que usa el modelo 
@@ -117,11 +123,14 @@ CREATE TABLE  `codehero-laravel`.`producto` (
   }
 }
 
-</pre>
+?>
+```
 
 <p>El segundo modelo que tendrá nuestro proyecto sera <strong>Producto.php</strong> y va a contar con una función que sirve para crear los productos tomando en cuenta ciertas reglas de validación.</p>
 
-<pre>class Producto extends Eloquent  {
+```php 
+<?php
+class Producto extends Eloquent  {
 
     protected $table = 'producto';
     protected $fillable = array('descripcion', 'precio', 'vendedor_id');
@@ -153,7 +162,8 @@ CREATE TABLE  `codehero-laravel`.`producto` (
         return $respuesta; 
     }
 }
-</pre>
+?>
+```
 
 <hr />
 
@@ -161,7 +171,9 @@ CREATE TABLE  `codehero-laravel`.`producto` (
 
 <p>Ahora es el turno de crear los controladores, que van en la carpeta <code>app/controllers</code>. El primero que vamos a crear sera <strong>VendedorController.php</strong>, el cual tiene un método para ver los vendedores y otro para crear un vendedor.</p>
 
-<pre>class VendedorController extends BaseController {
+```php 
+<?php
+class VendedorController extends BaseController {
 
     public function mostrarVendedores(){
         $vendedores = Vendedor::all();
@@ -184,11 +196,14 @@ CREATE TABLE  `codehero-laravel`.`producto` (
         }
     }
 }
-</pre>
+?>
+```
 
 <p>El otro controlador que vamos a crear es <strong>ProductoController.php</strong>. Este controlador también tiene un método para listar los productos y otro para crear un producto.</p>
 
-<pre>class ProductoController extends BaseController {
+```php 
+<?php
+class ProductoController extends BaseController {
 
     public function mostrarProductos(){
 
@@ -210,15 +225,20 @@ CREATE TABLE  `codehero-laravel`.`producto` (
     }
 }
 
-</pre>
+?>
+```
 
 <hr />
+
+
 
 <h2>Rutas</h2>
 
 <p>Con los controladores y modelos creados, vamos a pasar a crear las rutas que utilizara nuestro proyecto en el archivo <strong>routes.php</strong>. Se pueden observar 5 rutas, una para el inicio y las otras para ver las listas y crear los vendedores y productos.</p>
 
-<pre>Route::get('/', function()
+```php 
+<?php
+Route::get('/', function()
 {   
     // Con la funcion with() podemos traer todos los vendedores 
     // con sus respectivos productos. Esta funcion recibe como parametro 
@@ -235,7 +255,8 @@ Route::post('vendedor', 'VendedorController@crearVendedor');
 Route::get('producto', 'ProductoController@mostrarProductos');
 
 Route::post('producto', 'ProductoController@crearProducto');
-</pre>
+?>
+```
 
 <hr />
 
@@ -243,19 +264,213 @@ Route::post('producto', 'ProductoController@crearProducto');
 
 <p>Ya hemos creado las rutas, los modelos y los controladores, ahora solo nos faltan las vistas en <code>app/views</code> para tener nuestro proyecto listo. La primera lista que vamos a crear sera <strong>plantilla.blade.php</strong> y tendrá el esqueleto HTML de nuestro proyecto. En esta vista colocamos la función <strong>@yield()</strong> que ya vimos anteriormente y que nos permite incrustar HTML en nuestra plantilla.</p>
 
-<p><a href="http://i.imgur.com/CyAxdVd.png"><img src="http://i.imgur.com/CyAxdVd.png" alt="laravel - vista de plantilla" class="aligncenter size-full wp-image-2585" /></a></p>
+```html
+{% raw %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tienda</title>
+    <!--Incluimos el CSS de bootstrap y el CSS de la plantilla
+    que usamos con los helpers de Laravel-->
+    {{HTML::style('css/bootstrap.min.css')}}
+    {{HTML::style('css/jumbotron-narrow.css')}}
+
+    </head>
+    <body>
+
+    <div class="container">
+      <div class="header">
+
+        <ul class="nav nav-pills pull-right">
+          <li>{{HTML::link('/', 'Inicio')}}</li>
+          <li>{{HTML::link('vendedor', 'Vendedores')}}</li>
+          <li>{{HTML::link('producto', 'Productos')}}</li>
+        </ul>
+
+        <h3 class="text-muted">Tienda</h3>
+      </div>
+
+      @yield('contenido')
+      <!-- Aqui se incluiran los codigos de las vistas que 
+      use cada metodo de los controladores --> 
+
+      <div class="footer">
+        <p>&copy; Codehero 2013</p>
+      </div>
+
+    </div> 
+
+    <!-- Incluimos la libreria jQuery  -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Incluimos el JS de bootstrap con el Helper de Laravel -->
+    {{HTML::script('js/bootstrap.min.js')}}
+  </body>
+</html>
+{%endraw%}
+```
 
 <p>La segunda vista que vamos a crear es <strong>inicio.blade.php</strong> y contiene un título y la lista de vendedores con sus productos.</p>
 
-<p><a href="http://i.imgur.com/riGL0Zq.png"><img src="http://i.imgur.com/riGL0Zq.png" alt="laravel - vista de inicio" class="aligncenter size-full wp-image-2589" /></a></p>
+```html
+{% raw %}
+
+@extends('plantilla')
+
+@section('contenido') 
+
+<div class="jumbotron">
+  <h1>Tienda</h1>
+  <p class="lead">Se pueden crear vendedores y productos en sus secciones<p>
+</div>
+
+<div class="row marketing">
+
+  <!-- Aquí listamos todos los vendedores -->
+  @foreach($vendedores as $vendedor)
+    <div class="panel panel-primary">
+        
+        <div class="panel-heading">{{ $vendedor->nombre.' '.$vendedor->apellido}}</div>
+       
+        
+        <ul class="list-group">
+          <!-- Aquí listamos todos los productos de un vendedor -->
+          @foreach($vendedor->productos as $producto)
+            <li class="list-group-item">{{ $producto->descripcion .' '. $producto->precio}}</li>
+          @endforeach
+        </ul>
+
+    </div>
+  @endforeach
+
+</div>
+
+@stop
+
+{%endraw%}
+```
 
 <p>La tercera vista va a ir en <code>app/views/vendedor</code> y se llama <strong>lista.blade.php</strong>. Contiene un formulario para crear un vendedor y la lista de los vendedores existentes. Esta vista también tiene unas funciones que sirve para mostrar un mensaje de éxito o los errores que puedan ocurrir al crear un vendedor.</p>
 
-<p><a href="http://i.imgur.com/jFRYeAa.png"><img src="http://i.imgur.com/jFRYeAa.png" alt="laravel - vista de crear vendedor" class="aligncenter size-full wp-image-2591" /></a></p>
+```html
+{% raw %}
+
+@extends('plantilla')
+@section('contenido') 
+<div class="row marketing">
+    <h3>Crear Vendedor</h3>
+
+    {{ Form::open(array('url' => 'vendedor')) }}    
+    <!-- El mensaje que se envía por el redirect en el controlador lo podemos obtener
+    con la función get de la clase Session -->
+        @if (Session::get('mensaje') )
+          <!-- Si hay un mensaje, entonces lo imprimimos y le damos estilo con bootstrap -->
+          <div class="alert alert-success">{{Session::get('mensaje')}}</div>
+        @endif
+        <div class="form-group">
+          {{Form::label('nombre', 'Nombre')}}
+          {{Form::text('nombre', Input::old('nombre'), array('class'=>'form-control', 'placeholder'=>'nombre vendedor', 'autocomplete'=>'off'))}}
+        </div>
+          <!-- Verificamos si hubo algún error en el campo --> 
+          @if( $errors->has('nombre') )          
+              <!-- En caso de que haya un error, entonces los imprimos y utilizamos algún estilo de bootstrap -->
+              <div class="alert alert-danger">
+              @foreach($errors->get('nombre') as $error )   
+                  * {{ $error }}</br>
+              @endforeach
+              </div>
+          @endif
+        <div class="form-group">
+          {{Form::label('apellido', 'Apellido')}}
+          {{Form::text('apellido', Input::old('apellido'), array('class'=>'form-control', 'placeholder'=>'apellido vendedor', 'autocomplete'=>'off'))}}
+        </div>
+          @if( $errors->has('apellido') )
+                <div class="alert alert-danger">
+                @foreach($errors->get('apellido') as $error )
+                    * {{ $error }}</br>
+                @endforeach
+                </div>
+          @endif
+        {{Form::submit('Guardar', array('class'=>'btn btn-success'))}}
+        {{Form::reset('Resetear', array('class'=>'btn btn-default'))}}
+
+    {{ Form::close() }}
+</div>
+<h3>Vendedores</h3>
+<div class="list-group">
+    @foreach($vendedores as $vendedor)
+      <a href="#" class="list-group-item">{{$vendedor->nombre.' '.$vendedor->apellido}}</a>
+    @endforeach 
+</div>
+@stop
+
+{%endraw%}
+```
 
 <p>La cuarta vista va a ir en <code>app/views/producto</code> y se llama <strong>lista.blade.php</strong>. Contiene un formulario para crear un producto y la lista de los productos existentes. Al igual que la vista anterior, esta vista también tiene funciones para mostrar los mensajes de éxito o error.</p>
 
-<p><a href="http://i.imgur.com/CvdqgM8.png"><img src="http://i.imgur.com/CvdqgM8.png" alt="laravel - vista de crear producto" class="aligncenter size-full wp-image-2590" /></a></p>
+```html
+{% raw %}
+
+@extends('plantilla')
+@section('contenido')
+<div class="row marketing">
+    <h3>Crear Producto</h3>
+    {{ Form::open(array('url' => 'producto')) }}
+        @if (Session::get('mensaje') )
+          <div class="alert alert-success">{{Session::get('mensaje')}}</div>
+        @endif
+        <div class="form-group">
+          {{Form::label('descripcion', 'Descripcion')}}
+          {{Form::text('descripcion', Input::old('descripcion'), array('class'=>'form-control', 'placeholder'=>'descripcion del producto', 'autocomplete'=>'off'))}}
+        </div>     
+        @if( $errors->has('descripcion') )
+              <div class="alert alert-danger">
+              @foreach($errors->get('descripcion') as $error )   
+                  * {{ $error }}</br>
+              @endforeach
+              </div>
+        @endif
+        <div class="form-group">
+          {{Form::label('precio', 'Precio')}}
+          {{Form::text('precio', Input::old('precio'), array('class'=>'form-control', 'placeholder'=>'precio del producto', 'autocomplete'=>'off'))}}
+        </div>
+        @if( $errors->has('precio') )
+              <div class="alert alert-danger">
+              @foreach($errors->get('precio') as $error )   
+                  * {{ $error }}</br>
+              @endforeach
+              </div>
+        @endif
+        <div class="form-group"><!-- Creamos un select para escoger cual vendedor es dueño del producto -->
+          {{Form::label('vendedor_id', 'Vendedor')}}
+          <select class="form-control" name="vendedor_id">
+            @foreach($vendedores as $vendedor)
+              <option value="{{$vendedor->id}}">{{$vendedor->nombre.' '.$vendedor->apellido}}</option>
+            @endforeach 
+          </select>
+        </div>
+        @if( $errors->has('vendedor_id') )
+              <div class="alert alert-danger">
+              @foreach($errors->get('vendedor_id') as $error )   
+                  * {{ $error }}</br>
+              @endforeach
+              </div>
+        @endif
+        {{Form::submit('Guardar', array('class'=>'btn btn-success'))}}
+        {{Form::reset('Resetear', array('class'=>'btn btn-default'))}}
+    {{ Form::close() }}
+</div>
+<h3>Productos</h3>
+<div class="list-group">
+    @foreach($productos as $producto)
+      <a href="#" class="list-group-item">{{$producto->descripcion.' '.$producto->precio}}</a>
+    @endforeach 
+</div>
+@stop
+
+{% endraw %}
+```
+
 
 <hr />
 

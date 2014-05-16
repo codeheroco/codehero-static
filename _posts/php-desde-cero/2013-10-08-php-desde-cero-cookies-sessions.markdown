@@ -6,9 +6,11 @@ title: Cookies & Sessions
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2358
-wordpress_url: http://codehero.co/?p=2358
 date: 2013-10-08 00:59:27.000000000 -04:30
+serie: PHP desde Cero
+description: Tutorial con las características y usos de Cookies y Sessions en PHP.
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -37,8 +39,11 @@ tags:
 
 <p>Los datos en una <strong>Cookie</strong> se almacenan con la estructura de nombre/valor. Por ejemplo, si queremos almacenar el nombre de un usuario usaríamos <strong>usuario=Pedro</strong>. Una <strong>Cookie</strong> también contiene información adicional como la fecha de expiración y el dominio.</p>
 
-<pre>usuario=Pedro; expires=FechaConFormato; domain=dominio.com
-</pre>
+```
+usuario=Pedro; expires=FechaConFormato; domain=dominio.com
+
+```
+
 
 <h4>Nombre/Valor</h4>
 
@@ -64,9 +69,11 @@ tags:
 
 <p>Las Cookies se crean utilizando la función <strong>setcookie()</strong>. Los argumentos que esta función acepta son para establecer los parámetros que explicamos anteriormente, empezando por el nombre de la Cookie y su valor. Veamos un ejemplo de como se crea una Cookie:</p>
 
-<pre>setcookie('nombreUsuario', 'Pedro', time() + 4800);
-
-</pre>
+```php
+<?php
+setcookie('nombreUsuario', 'Pedro', time() + 4800);
+?>
+```
 
 <p>Esta función crea una Cookie en la computadora de quien abra la página(asumiendo que tiene las Cookie habilitadas), la cual se llama <strong>nombreUsuario</strong>, contiene el valor <strong>Pedro</strong> y expira (se mantiene activa) 4800 segundos después de su creación.</p>
 
@@ -74,21 +81,29 @@ tags:
 
 <p>Como los explicamos anteriormente, las Cookies se almacenan en el disco duro del usuario y cuando se hace una petición a la pagina donde se creo estas son enviadas al servidor. PHP guarda las Cokies en un arreglo global asociativo con el nombre de <strong>$_COOKIE</strong>, veamos un ejemplo de como acceder a la Cookie nombreUsuario:</p>
 
-<pre>if (isset($_COOKIE['nombreUsuario'])){
+```php
+<?php
+if (isset($_COOKIE['nombreUsuario'])){
     echo 'Valor de la Cookie '. $_COOKIE['nombreUsuario'];
 }else{
     echo 'No hay Cookies';
 }
-</pre>
+?>
+```
 
 <h3>Borrar una Cookie</h3>
 
 <p>Para borrar una Cookie utilizamos la misma función que para crearla, pero con el parámetro de valor vacío y con el tiempo negativo.</p>
 
-<pre>setCookie('nombreUsuario', '', time() - 1000);
-</pre>
+```php
+<?php
+setCookie('nombreUsuario', '', time() - 1000);
+?>
+```
 
 <hr />
+
+
 
 <h2>Sessions</h2>
 
@@ -98,12 +113,16 @@ tags:
 
 <p>Para crear una Session se debe utilizar la función <strong>session_start()</strong>, la cual obtiene la información que tenga almacenada del usuario y rellena el arreglo asociativo llamado <strong>$_SESSION</strong>. En comparación con las Cookies, las Sessions son mas sencillas de usar, ya que una vez que la iniciaste solo debes llenar o leer el arreglo <strong>$_SESSION</strong>.</p>
 
-<pre>session_start();
+```php
+<?php
+session_start();
 
 $_SESSION['nombre'] = 'Pedro';
 $_SESSION['apellido'] = 'Garcia';
 
-</pre>
+?>
+```
+
 
 <p>Hemos iniciado una Session y declaro un nombre y un apellido en ella. Ahora esta información estará disponible en todas las paginas que el usuario visite y se inicie la Session.</p>
 
@@ -111,15 +130,18 @@ $_SESSION['apellido'] = 'Garcia';
 
 <p>Para leer algún dato almacenado en Sessions se debe inicializar con <strong>session_start()</strong> y luego se accede al dato que se necesite.</p>
 
-<pre>session_start();
+```php
+<?php
+session_start();
 
 if (isset($_SESSION['nombre'])){
-    echo $_SESSION['nombre']; 
+    echo $_SESSION['nombre'];
 }else{
     echo 'No existe nombre en $_SESSION';
 }
 
-</pre>
+?>
+```
 
 <p>Como podemos observar, el uso de las Sessions es muy sencillo en comparación a las Cookies.</p>
 

@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1904
-wordpress_url: http://codehero.co/?p=1904
 date: 2013-08-08 00:00:36.000000000 -04:30
 thumbnail: http://i.imgur.com/xQXfZEn.png
+description: Demostraron que se podía extraer información de respuestas a solicitudes HTTP estando bajo protocolo SSL, si se cumple los siguiente...
 categories:
 - Artículos
 - Notícias

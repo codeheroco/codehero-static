@@ -7,16 +7,21 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1768
-wordpress_url: http://codehero.co/?p=1768
 date: 2013-07-30 00:00:47.000000000 -04:30
-thumbnail: http://i.imgur.com/Tiw1ii6.png
+thumbnail: http://i.imgur.com/Xks5pPE.png
+description: Para aquellos que gustan de usar el terminal pero deben abrir varias ventanas y sesiones, Tmux es la herramienta que se estaban perdiendo.
+dificultad: Novato
+duracion: 10
 categories:
 - Cómo lo hago
 - tmux
 tags:
 - howto
+- como lo hago
 - tmux
+- terminal
+- consola
+- multiplexor
 ---
 Para aquellos que gustan de usar el terminal para llevar a cabo las tareas en su día a día pero deben abrir varias ventanas y sesiones para lograr llevar a cabo simultáneos procedimientos, **Tmux** es quizás la herramienta que se estaban perdiendo, esta semana hablaremos sobre cómo puede ayudarte a trabajar en el terminal de una manera más cómoda y eficiente.
 
@@ -50,6 +55,7 @@ En su defecto también puedes dirigirte a la [página oficial de tmux](http://tm
 ##¿Cómo lo uso?
 
 Para comenzar creemos una sesión nueva:
+
 ```sh
 $ tmux new -s primera_sesion
 ```
@@ -101,6 +107,8 @@ Esto reanudará nuestra sesión tal cual como la dejamos.
 
 >Debemos tener en cuenta que si el computador en el que estamos trabajando es apagado las sesiones se perderán.
 
+
+
 ###Programación en pareja
 
 Otro de los usos más interesantes que se le da a Tmux es la programación remota en pareja.
@@ -108,6 +116,7 @@ Otro de los usos más interesantes que se le da a Tmux es la programación remot
 Para esto se recomienda construir una sesión de usuario aparte de la que usamos convencionalmente en el computador ya que no queremos que alguien acceda a nuestra información. En este caso lo haremos con nuestro usuario normal para la demostración.
 
 Debemos crear la sesión especificando el *socket* que usará, lo cual permitirá compartirla entre varios usuarios, para dar acceso a otros usuarios al *socket* debemos otorgarle los permisos necesarios:
+
 ```sh
 $ tmux -S /tmp/emparejado
 $ chmod 755 /tmp/emparejado
@@ -172,6 +181,3 @@ Este archivo de configuración debe llamarse *.tmux.conf* y debe estar almacenad
 ##Conclusión
 
 Esta herramienta es de las mejores compañeras si realizas múltiples tareas en el terminal, aprendimos un poco sobre sus ventajas, funcionalidades y usos, solo queda que te pongas a experimentar por tu cuenta. Te invitamos que nos relates tu experiencia y otros usos que le has podido dar.
-
-
-

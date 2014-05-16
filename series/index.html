@@ -15,11 +15,13 @@ description: Página de series de Codehero, aquí encontrarás fácilmente todos
           </div>
           <div class="col-xs-12 col-sm-6 col-md-8">
             <h1><a href="/series/{{ series.url-series }}.html">{{ series.name }}</a></h1>
-            <p>{{ series.status }}</p>
-            <p>Autor: <a href="/author/{{ series.author-url }}.html">{{ series.author }}</a></p>
+            <div class="author">
+              <p>{{ series.status }}</p>
+            </div>
           </div>
         </div>
       </article>
     {% endfor %}
   </div>
+  {% include ads-section.html %}
 </div>

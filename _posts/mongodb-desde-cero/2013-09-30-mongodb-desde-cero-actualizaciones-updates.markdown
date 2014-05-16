@@ -7,11 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2325
-wordpress_url: http://codehero.co/?p=2325
 date: 2013-09-30 00:02:36.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
+description: Las actualizaciones o updates las dejamos por separado para ser un poco más detallados y puedas dominar con mayor destreza la manipulación de los datos.
+dificultad: Novato
+duracion: 15
 categories:
 - Cursos
 - MongoDB
@@ -161,6 +161,8 @@ Los que trabajamos en Codehero somos todos amigos así que no es necesario guard
 ```
 
 > El valor que le "asignes" al campo a eliminar no tendrá ningun efecto, pero es necesario escribirlo por motivos de sintaxis.
+
+
 
 Pasemos ahora a la parte de modificación de arreglos, agreguemosle algunas secciones extra a nuestro autor:
 

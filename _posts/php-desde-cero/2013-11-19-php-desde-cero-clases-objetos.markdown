@@ -6,9 +6,11 @@ title: Clases & Objetos
 author: Ramses Velasquez
 author_login: ramses
 author_email: cotufa9@gmail.com
-wordpress_id: 2644
-wordpress_url: http://codehero.co/?p=2644
 date: 2013-11-19 00:03:02.000000000 -04:30
+serie: PHP desde Cero
+description: Tutorial para iniciar en el aprendizaje de los fundamentos de la Programacion Orientada a Objetos en PHP
+dificultad: novato
+duracion: 20
 categories:
 - Cursos
 - PHP
@@ -66,13 +68,16 @@ tags:
 
 <p>Lo primero que necesitamos es una clase, sin estas no existirían los objetos. Para declarar una clase utilizamos la palabra reservada <strong>class</strong> seguido por el nombre de la clase y dentro de paréntesis todas sus propiedades y métodos.</p>
 
-<pre>class Carro {
+```php
+<?php
+
+class Carro {
 
     var $color;
     var $numero_puertas;
     var $marca;
     var $gasolina;
-    
+
     function llenarTanque($gasolina_nueva){
         $this->gasolina = $this->gasolina + $gasolina_nueva;
     }
@@ -83,17 +88,23 @@ tags:
     }
 }
 
-</pre>
+?>
+```
+
+
 
 <p>Ahora que tenemos la clase declarada, podemos crear uno o varios objetos de esta. La acción de crear un objeto es instanciar. Para aprender como hacer esto utilizaremos la clase que creamos de Carro. Crear un objeto en PHP es muy sencillo y se hace utilizando la palabra reservada <strong>new</strong>. Los objetos se deben guardar en variables, por lo tanto para crear un objeto escribiríamos la siguiente linea <code>$carro = new Carro();</code>. Ahora veamos como se hace en un código completo.</p>
 
-<pre>class Carro {
+```php
+<?php
+
+class Carro {
 
     var $color;
     var $numero_puertas;
     var $marca;
     var $gasolina = 0;
-    
+
     function llenarTanque($gasolina_nueva){
         $this->gasolina = $this->gasolina + $gasolina_nueva;
     }
@@ -115,7 +126,10 @@ $carro->acelerar();
 $carro->acelerar();
 $carro->acelerar();
 
-</pre>
+?>
+```
+
+
 
 <p>Como podemos observar para hacer uso de las propiedades o métodos de un objeto lo hacemos con <strong>-></strong> indicando que propiedad o método deseamos ejecutar.</p>
 

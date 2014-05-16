@@ -7,19 +7,23 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1996
-wordpress_url: http://codehero.co/?p=1996
 date: 2013-08-20 00:00:05.000000000 -04:30
-thumbnail: http://i.imgur.com/lrn4QBG.png
+thumbnail: http://i.imgur.com/JF2dfqq.png
+description: Retomaremos el tema de Redis y hablaremos de la configuración, comandos básicos, detalles que expanden sus capacidades y algunos consejos a tomar en cuenta.
+dificultad: Aprendiz
+duracion: 15
 categories:
 - Cómo lo hago
 - Redis
 tags:
+- howto
+- como lo hago
 - redis
 - configurar
 - instalar
 - comandos
 - consejos
+- nosql
 ---
 La semana pasada [estuvimos conociendo Redis](http://codehero.co/como-instalar-configurar-y-usar-redis/), vimos algunos detalles sobre las ventajas que ofrece, lo instalamos, aprendimos sobre su estructura y tipos de datos. Hoy continuaremos el tema y hablaremos de la configuración de la instancia y lo que esto implica, además conoceremos varios comandos básicos para que puedas empezar a sacarle provecho a tu nueva base de datos, también hablaremos de otros detalles que expanden las capacidades de Redis y algunos consejos a tomar en cuenta.
 
@@ -176,6 +180,8 @@ OK
 ```
 
 >Podemos colocar un tiempo de vencimiento de la llave para que sea eliminada después del tiempo especificado, el comando `TTL` nos arroja el tiempo de vida que le queda a la llave (Time To Live), si la llave es *seteada* nuevamente, el tiempo de expiración será eliminado.
+
+
 
 * Juegos
 

@@ -7,18 +7,18 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2874
-wordpress_url: http://codehero.co/?p=2874
 date: 2013-12-19 00:10:26.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+dificultad: Aprendiz
+duracion: 20
 description: Nuevo capítulo de la serie Ruby on Rails desde Cero, donde aprendemos sobre ActionControllers, como generarlos y como se leen parámetros.
 categories:
 - Ruby on Rails
-tags:
 - Cursos
+tags:
+- Controlador
+- ActionController
 - Ruby on Rails
-- curso
 ---
 <p>Las series de cursos Ruby on Rails en CodeHero buscan otorgarte los conocimientos necesarios, para que puedas desarrollar tus propias aplicaciones Web. En el capítulo anterior aprendimos como hacer pruebas unitarias, porque las debemos usar, como se preparan y como se usan.</p>
 
@@ -93,6 +93,8 @@ $ rails g controller -h
 <h3>Métodos y acciones</h3>
 
 <p>Debemos recordar del capítulo de <a href="http://codehero.co/ruby-on-rails-desde-cero-vistas-dinamicas/">vistas dinámicas</a> que para acceder a las vistas de la publicación que creamos, tuvimos que utilizar el controlador <code>publicación</code> y tener tres (3) funciones que hacen juego con el nombre de las vistas. En pocas palabras cuando se realiza una petición a nuestra aplicación el enrutador decide a que método del controlador se le delegará dicha petición y ese método en teoría contiene unas acciones que se ejecutarán para regresarle al usuario una vista particular con la información que solicitó.</p>
+
+
 
 <p>Cuando vemos como está conformado un Controlador apreciamos lo siguen:</p>
 

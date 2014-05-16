@@ -7,11 +7,10 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1460
-wordpress_url: http://codehero.co/?p=1460
 date: 2013-07-17 00:01:30.000000000 -04:30
 serie: Ruby desde Cero
-thumbnail: http://i.imgur.com/lBeuRS1.png
+dificultad: Novato
+duracion: 30
 description: Ruby desde cero, curso de Orientación a Objetos - Parte 1, Estudiaremos detallando para cada una de ellas la sintaxis y realizaremos una demostración.
 categories:
 - Cursos
@@ -93,6 +92,8 @@ La moto esta frenando . . .
 <p>Los atributos en una clases son las características que definen el objeto, en el caso del vehículo los atributos pueden ser cantidad de ruedas, caballos de fuerza, cantidad de gasolina, etc. Las clases no tienen limites de atributos, así que no sean tímidos con los atributos.</p>
 
 <p>Para mostrar estos ejemplos utilizaremos algunos de los tipos de variables que estudiamos en el <a href="http://codehero.co/ruby-desde-cero-variables-y-objetos-2/">Capítulo 2: Variables y Objetos</a>.</p>
+
+
 
 ```ruby
 class Vehiculo

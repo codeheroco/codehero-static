@@ -7,11 +7,11 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2615
-wordpress_url: http://codehero.co/?p=2615
 date: 2013-11-19 00:05:04.000000000 -04:30
 serie: MongoDB desde Cero
-thumbnail: http://i.imgur.com/Y1mFWAO.png
+description: Una base de datos puede crecer rápidamente cuando se desea almacenar información que deja de ser relevante después de un tiempo. Veremos como evitarlo.
+dificultad: Intermedio
+duracion: 20
 categories:
 - Cursos
 - MongoDB
@@ -76,6 +76,8 @@ Bien, ahora crearemos el índice TTL y especificaremos la duración de vigencia 
 En este caso especificamos que aquellos documentos que tengan en su campo `fecha` un valor mayor a 300 segundos (5 minutos) de antigüedad deben ser eliminados.
 
 Luego de que hayan pasado 5 minutos si volvemos a buscar los documentos de la colección estos ya no existirán. Ten en cuenta que si un documento no posee el campo `fecha` o si el campo no es de tipo `date` este simplemente no se vencerá.
+
+
 
 ###Expiración en hora especifica
 Esta segunda estrategia se basa en la definición especifica en cada documento de cuando este debe vencer, esto nos permitirá establecer un comportamiento dinámico para cada documento y que cada uno pueda tener más o menos vigencia que aquellos que comparten la misma colección.

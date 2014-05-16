@@ -7,19 +7,18 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2607
-wordpress_url: http://codehero.co/?p=2607
 date: 2013-11-14 02:08:31.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Novato
+duracion: 30
 description: Quinto capítulo de la serie Sinatra desde Cero donde aprendemos a utilizar los filtros before y after como también a manejar errores como el 404 y el 500.
 categories:
 - Cursos
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
+- Filtros
+- Errores
 ---
 <p>La serie de Sinatra desde Cero, buscará otorgarte el conocimiento necesario para que puedas desarrollar tus propias aplicaciones Web haciendo uso de esta magnifica herramienta.</p>
 
@@ -40,6 +39,8 @@ tags:
 <p>Estos filtros son llamados en inglés <strong>"Before filter"</strong> y son aplicados justo cuando se recibe una petición, es decir: si quisiéramos realizar una comprobación de un usuario para ver si el mismo está en sesión en nuestra aplicación se puede realizar un método que compruebe esto y no permita al usuario realizar la petición que intentaba de no estarlo. Este tipo de filtros es sumamente útil para realizar este tipo de validaciones de seguridad y de comprobación de rol de usuarios.</p>
 
 <p>En el siguiente ejemplo se creará un <strong>"Before filter"</strong> el cual le dará un valor a una variable que será mostrada en pantalla.</p>
+
+
 
 ```ruby
 require 'sinatra'

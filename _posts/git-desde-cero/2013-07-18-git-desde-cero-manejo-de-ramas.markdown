@@ -7,11 +7,11 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 1487
-wordpress_url: http://codehero.co/?p=1487
 date: 2013-07-18 01:26:28.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Aprendiz
+duracion: 30
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 5 de Git desde Cero, serie en la cual aprenderemos Git desde Cero. Estudiaremos el manejo de ramas para nuestros proyectos.
 categories:
 - Cursos
@@ -123,6 +123,8 @@ $ git commit -m "Agregar modificación al archivo README"
 
 <p>En este momento el árbol comienza a presentar una ramificación debido a que existen dos ramas en la cabeza del árbol. Donde solo una de ellas se encuentra de manera "lineal".</p>
 
+
+
 <hr />
 
 <h2>Merge</h2>
@@ -175,7 +177,7 @@ CONFLICT (content): Merge conflict in README.md
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-<p>Para resolver este conflicto basta con abrir el archivo con problemas(en nuestro caso README.md) buscar <code><<<<< &gt;&gt;&gt;&gt;&gt;</code> este tipo de flechas y rayas <code>======</code> eliminarlas y ajustar el código o texto adecuadamente.</p>
+<p>Para resolver este conflicto basta con abrir el archivo con problemas(en nuestro caso README.md) buscar <code><<<<< >>>>></code> este tipo de flechas y rayas <code>======</code> eliminarlas y ajustar el código o texto adecuadamente.</p>
 
 <p><img src="http://i.imgur.com/9rKQoqx.png" alt="Conflicto" /></p>
 

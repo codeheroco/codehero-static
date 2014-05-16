@@ -79,6 +79,15 @@ i {
 article {
   border-bottom: solid 1px #ddd;
   padding: 8px;
+  color: $article-font-color;
+
+  a {
+    color: $article-title-color;
+
+    &:hover {
+      color: $article-title-hover-color;
+    }
+  }
 
   &:last-child {
     border-bottom: none;
@@ -87,6 +96,29 @@ article {
 
 footer {
   margin-top: 32px;
+}
+
+.author {
+  text-transform: uppercase;
+  color: $article-font-color;
+  font-size: 13px;
+
+  a {
+    color: $article-title-color !important;
+
+    &:hover {
+      color: rgba($article-title-color, .82) !important;
+    }
+  }
+}
+
+// ads section
+// ---------------------
+
+.ads-border {
+  margin-bottom: 16px;
+  padding-top: 2px;
+  padding-bottom: 4px;
 }
 
 // .wrapper and .push classes are used for the sticky footer
@@ -113,29 +145,6 @@ footer {
 
 .navbar {
   text-transform: uppercase;
-}
-
-.date {
-  color: $white-codehero;
-  background-color: $orange-codehero;
-  display: block;
-  text-align: center;
-  border-radius: 0.2rem;
-  font-size: $font-size-base * 0.93; //~13px
-
-  i {
-    margin: 0 auto;
-    padding: 0 0 0 2px;
-    color: $white-codehero;
-  }
-
-  a {
-    color: $white-codehero;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
 }
 
 .navbar-brand {
@@ -168,6 +177,7 @@ footer {
 .img-center-responsive {
   @include img-responsive();
   margin: 0 auto;
+  border-radius: $thumbnail-border-radius;
 }
 
 .center-in-div {
@@ -194,6 +204,10 @@ footer {
   padding-top: 24px;
   display: block;
   list-style: none;
+
+  li.fb-like.fb_iframe_widget span {
+    vertical-align: baseline !important;
+  }
 
   li {
     display: inline;

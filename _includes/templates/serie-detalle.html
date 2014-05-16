@@ -29,21 +29,43 @@
         </div>
       </div>
       <hr>
-      {% for post in site.posts %}
+      {% assign sorted_pages = site.posts | sort:"name" %}
+      <div class="row">
+      {% assign counter = -1 %}
+      {% for post in sorted_pages %}
         {% if post.categories contains page.post_cat %}
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <article class="center-in-div article-series">
-              <img class="img-center-responsive" src="{{ thumb_path }}" alt="thumbnail">
-              <h5>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-              </h5>
-              <p class="author">
-                Por <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>
-              </p>
-            </article>
-          </div>
+          {% assign counter = counter | plus:1 %}
+          {% assign num_post = counter | modulo:4 %}
+          {% if num_post == 0 %}
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <article class="center-in-div article-series">
+                  <img class="img-center-responsive" src="{{ thumb_path }}" alt="thumbnail">
+                  <h4>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                  </h4>
+                  <p>
+                    Por: <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>
+                  </p>
+                </article>
+              </div>
+          {% else %}
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <article class="center-in-div article-series">
+                <img class="img-center-responsive" src="{{ thumb_path }}" alt="thumbnail">
+                <h4>
+                  <a href="{{ post.url }}">{{ post.title }}</a>
+                </h4>
+                <p>
+                  Por: <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>
+                </p>
+              </article>
+            </div>
+          {% endif %}
         {% endif %}
       {% endfor %}
+      </div>
     </div>
   </div>
 </div>

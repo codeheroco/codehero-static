@@ -7,19 +7,21 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2221
-wordpress_url: http://codehero.co/?p=2221
 date: 2013-09-12 00:02:25.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Aprendiz
+duracion: 10
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 13 de Git desde Cero, serie en la cual aprenderemos a utilizar git reset y git cherry-pick dentro de nuestros proyectos!
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Reset
+- Cherry-pick
+- Cambios
+- Deshacer
 ---
 <p>Bienvenidos a un nuevo capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como regresar los cambios a un determinado <em>"commit"</em> utilizando <code>git reset</code> y como de como pasar un <em>"commit"</em> específico de una rama a otra utilizando <code>git cherry-pick</code>. Los comandos a utilizar esta semana serán los siguientes:</p>
 
@@ -68,6 +70,8 @@ $ git status
 ```
 
 <p>Podemos observar que toda la información que se encontraba en los "commits" de hash "4f34bfe", "08bddd4" y "926a59c" ahora están en el stage nuevamente. Si llegáramos a realizar otro "commit" en este punto cambiaremos el árbol de nuestro proyecto. Ahora probemos con "mixed".</p>
+
+
 
 ```sh
 $ git reset --mixed 2614422d18

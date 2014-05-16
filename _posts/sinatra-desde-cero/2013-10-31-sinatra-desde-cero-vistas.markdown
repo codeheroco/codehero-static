@@ -7,18 +7,17 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2498
-wordpress_url: http://codehero.co/?p=2498
 date: 2013-10-31 02:53:03.000000000 -04:30
 serie: Sinatra desde Cero
-thumbnail: http://i.imgur.com/UXeX0sa.png
+dificultad: Novato
+duracion: 30
 description: Cuarto capítulo de la serie Sinatra desde Cero. En este capítulo hablamos de los tipos de vistas que existen en este maravilloso DSL y aprendemos a usarlos.
 categories:
 - Sinatra
 tags:
-- Cursos
-- curso
 - Sinatra
+- Vistas
+- Views
 ---
 <p>La serie de Sinatra desde Cero, buscará otorgarte el conocimiento necesario para que puedas desarrollar tus propias aplicaciones Web haciendo uso de esta magnifica herramienta.</p>
 
@@ -105,6 +104,8 @@ __END__
 </html>
 {% endraw %}
 ```
+
+
 
 <p>Lo primero que debemos observar es que la ruta tiene un tipo de "template" llamado <code>erb</code>. Lo segundo es que el nombre de la vista es de tipo "symbol" (<code>:índex</code>). Lo tercero es que se está delimitando el código de la ruta y la vista con <code>__END__</code> y la cuarta anotación es que la vista se llama con <code>@@index</code>.</p>
 

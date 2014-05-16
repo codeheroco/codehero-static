@@ -7,10 +7,9 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1165
-wordpress_url: http://codehero.co/?p=1165
 date: 2013-06-27 04:00:28.000000000 -04:30
 thumbnail: http://i.imgur.com/Ekomvu2.jpg
+description: La historia del hombre que filtró el iPhone 4 nos cuenta lo que realmente fue y no lo que todo el mundo pensaba.
 categories:
 - Artículos
 - Notícias

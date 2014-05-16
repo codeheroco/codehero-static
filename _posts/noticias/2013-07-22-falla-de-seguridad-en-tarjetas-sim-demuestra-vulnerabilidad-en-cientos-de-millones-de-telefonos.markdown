@@ -2,16 +2,14 @@
 layout: post
 status: publish
 published: true
-title: Falla de seguridad en tarjetas SIM demuestra vulnerabilidad en cientos de millones
-  de teléfonos
+title: Falla de seguridad en tarjetas SIM demuestra vulnerabilidad en cientos de millones de teléfonos
 author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1586
-wordpress_url: http://codehero.co/?p=1586
 date: 2013-07-22 01:00:32.000000000 -04:30
 thumbnail: http://i.imgur.com/EEWd6Vd.png
+description: Karsten Nohl, fundador de los Laboratorios de Investigación en Seguridad de Berlín, ha descubierto la manera de hackear remotamente las tarjetas SIM.
 categories:
 - Artículos
 - Notícias

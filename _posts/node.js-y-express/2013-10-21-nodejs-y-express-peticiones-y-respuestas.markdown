@@ -10,6 +10,10 @@ author_url: http://www.oscarvgg.com
 wordpress_id: 2425
 wordpress_url: http://codehero.co/?p=2425
 date: 2013-10-21 01:58:47.000000000 -04:30
+serie: Node.js y Express
+dificultad: Novato
+duracion: 10
+description: En este capítulo voy a profundizar en las peticiones y respuestas mostrarte lo importantes o útiles que pueden ser para el desarrollo de nuestras apps.
 categories:
 - Cursos
 - Node.js
@@ -29,33 +33,33 @@ tags: []
 
 <p>Si queremos saber información sobre la petición podemos obtener los headers utilizando el método "get":</p>
 
-<pre>
+```javascript
 app.get("/", function(request, response) {
 
     response.send(request.get('user-agent'));
-    
+
 });
-</pre>
+```
 
 <p>Si visitamos esta ruta obtendremos un mensaje similar al siguiente:</p>
 
-<pre>
+```javascript
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36
-</pre>
+```
 
 <p>Si queremos una lista de los "content types" aceptados podemos invocar la propiedad accepted:</p>
 
-<pre>
+```javascript
 app.get("/", function(request, response) {
 
     response.send(request.accepted);
-    
+
 });
-</pre>
+```
 
 <p>Esto retornará una lista de los contenidos aceptados similar a la siguiente:</p>
 
-<pre>
+```javascript
 [
   {
     "value": "text/html",
@@ -90,51 +94,51 @@ app.get("/", function(request, response) {
     "subtype": "*"
   }
 ]
-</pre>
+```
 
 <p>También podemos verificar "character sets" utilizando acceptedCharsets:</p>
 
-<pre>
+```javascript
 app.get("/", function(request, response) {
 
     response.send(request.acceptedCharsets);
-    
+
 });
-</pre>
+```
 
 <p>Y esto retornara una lista con los character sets aceptados. También podemos preguntar por uno en especifico:</p>
 
-<pre>
+```javascript
 app.get("/", function(request, response) {
 
   response.send(request.acceptsCharset('utf-8') ? 'yes' : 'no');
-  
+
 });
-</pre>
+```
 
 <p>Y aquí le pongo <code>? 'yes' : 'no'</code> porque esta función retorna un valor booleano.</p>
 
 <p>Podemos preguntar por el idioma aceptado en este request:</p>
 
-<pre>
+```javascript
 app.get("/", function(request, response) {
 
   response.send(request.acceptedLanguages);
-  
+
 });
-</pre>
+```
 
 <p>Esto retornará una lista de con los idiomas aceptados.</p>
 
 <p>Igualmente que con los character sets, podemos pedir uno en especifico:</p>
 
-<pre>
+```javascript
 app.get("/a", function(request, response) {
 
   response.send(request.acceptsLanguage('es') ? 'yes' : 'no');
-  
+
 });
-</pre>
+```
 
 <h3>Parámetros</h3>
 
@@ -142,33 +146,33 @@ app.get("/a", function(request, response) {
 
 <p>Como bien sabemos podemos solicitar el parámetro enviado en el url de la siguiente manera:</p>
 
-<pre>
+```javascript
 app.get("/name/:name", function(request, response) {
 
   response.send("Hola, " + request.params.name);
-  
+
 });
-</pre>
+```
 
 <p>Lo nuevo que voy a introducir es la posibilidad de hacer un parámetro opcional. Esto se logra agregando un <code>?</code> al final del url:</p>
 
-<pre>
+```javascript
 app.get("/name/:name?", function(request, response) {
 
   response.send("Hola, " + request.params.name);
-  
+
 });
-</pre>
+```
 
 <p>También podemos agregar un valor por defecto al parámetro usando el método <code>param</code> en vez de la propiedad <code>params</code>:</p>
 
-<pre>
+```javascript
 app.get("/name/:name?", function(request, response) {
 
   response.send(request.param('name', 'valor default'));
-  
+
 });
-</pre>
+```
 
 <h3>Otras propiedades</h3>
 
@@ -198,13 +202,13 @@ app.get("/name/:name?", function(request, response) {
 
 <p>El método <code>send</code> lo hemos venido usando para enviar el body de nuestra respuesta, pero también podemos enviar un código de estatus con un mensaje custom:</p>
 
-<pre>
+```javascript
 app.get("/a", function(request, response) {
 
   response.send(403, 'prohibido el acceso :P');
-  
+
 });
-</pre>
+```
 
 <p>Si enviamos el código solo obtendremos el mensaje estándar para este código.</p>
 
@@ -214,13 +218,13 @@ app.get("/a", function(request, response) {
 
 <p>Para enviar json solo hay que usar el método <code>json</code>:</p>
 
-<pre>
+```javascript
 app.get("/", function(request, response) {
 
   response.json({ message: '¡hola!'});
-  
+
 });
-</pre>
+```
 
 <p>Aqui estamos enviando un objeto de javascript, el método <code>json</code> se encarga de hacerle "stringify" y mandarlo con "content type" = "application/json".</p>
 
@@ -228,19 +232,19 @@ app.get("/", function(request, response) {
 
 <p>Normalmente el content type se asigna automaticamente, pero podemos asignarlo manualmente si queremos:</p>
 
-<pre>
+```javascript
 app.get("/", function(request, response) {
 
   response.type('image/png').send('esto es una imagen');
-  
+
 });
-</pre>
+```
 
 <h3>Formato</h3>
 
-<p>El método <code>formar</code> retorna el tipo de respuesta que el cliente pueda aceptar:</p>
+<p>El método <code>format</code> retorna el tipo de respuesta que el cliente pueda aceptar:</p>
 
-<pre>
+```javascript
 app.get("/", function(request, response) {
 
   response.format({
@@ -248,13 +252,13 @@ app.get("/", function(request, response) {
     json: function() { response.json({ message: "Hola" }) },
     text: function() { response.send("hola") },
   });
-  
+
 });
-</pre>
+```
 
 <p>Si pedimos esta ruta en el browser vamos a obtener la respuesta "Hola" en un "H1", pero si vamos a la consola podemos obtener las otras respuestas:</p>
 
-<pre>
+```javascript
 $ curl localhost:3000 -H "accept: application/json"
 {
   "message": "Hola"
@@ -262,19 +266,19 @@ $ curl localhost:3000 -H "accept: application/json"
 
 $ curl localhost:3000 -H "accept: text/plain"
 hola
-</pre>
+```
 
 <h3>redireccionando</h3>
 
 <p>Redireccionar es tan simple como llamar al método:</p>
 
-<pre>
+```javascript
 app.get("/", function(request, response) {
 
   response.redirect('/name');
-  
+
 });
-</pre>
+```
 
 <h2>Otros métodos</h2>
 

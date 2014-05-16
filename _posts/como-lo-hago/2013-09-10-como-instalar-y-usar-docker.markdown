@@ -7,14 +7,16 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2189
-wordpress_url: http://codehero.co/?p=2189
 date: 2013-09-10 00:00:53.000000000 -04:30
-thumbnail: http://i.imgur.com/aFoOgeD.png
+thumbnail: http://i.imgur.com/lWvUxzn.png
+description: Docker nos permite crear contenedores o aplicaciones empacadas auto-suficientes y livianas que son capaces de funcionar en prácticamente cualquier ambiente
+dificultad: Intermedio
+duracion: 20
 categories:
 - Cómo lo hago
 - Docker
 tags:
+- howto
 - como lo hago
 - vagrant
 - docker
@@ -109,6 +111,9 @@ vagrant@precise64:~$ docker -v
 Docker version 0.6.1, build 5105263
 ```
 ***
+
+
+
 ##¿Cómo lo uso?
 Antes que nada, se recomienda *demonizar* Docker, para esto solo debemos ejecutar:
 

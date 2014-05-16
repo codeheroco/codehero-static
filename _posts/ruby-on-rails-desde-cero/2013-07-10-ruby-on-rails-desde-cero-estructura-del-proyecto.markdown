@@ -7,18 +7,16 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 1348
-wordpress_url: http://codehero.co/?p=1348
 date: 2013-07-10 00:01:25.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+dificultad: Novato
+duracion: 20
 description: Curso Ruby on Rails desde cero Estructura de proyecto y configuración de la base de datos en MySQL.
 categories:
 - Cursos
 - Ruby on Rails
 tags:
 - Ruby
-- Cursos
 - Ruby on Rails
 - desde cero
 - estructura
@@ -37,30 +35,21 @@ tags:
 <p>Esta estructura consta de una serie de carpetas y archivos que nos hacen trabajar de forma ordenada y eficiente. La estructura es la siguiente:</p>
 
 ```sh
-tree .
+tree -L 2
 .
 ├── Gemfile
 ├── Gemfile.lock
+├── README.md
 ├── README.rdoc
 ├── Rakefile
 ├── app
 │   ├── assets
-│   │   ├── images
-│   │   ├── javascripts
-│   │   │   └── application.js
-│   │   └── stylesheets
-│   │       └── application.css
 │   ├── controllers
-│   │   ├── application_controller.rb
-│   │   └── concerns
 │   ├── helpers
-│   │   └── application_helper.rb
 │   ├── mailers
 │   ├── models
-│   │   └── concerns
+│   ├── serializers
 │   └── views
-│       └── layouts
-│           └── application.html.erb
 ├── bin
 │   ├── bundle
 │   ├── rails
@@ -71,31 +60,24 @@ tree .
 │   ├── database.yml
 │   ├── environment.rb
 │   ├── environments
-│   │   ├── development.rb
-│   │   ├── production.rb
-│   │   └── test.rb
 │   ├── initializers
-│   │   ├── backtrace_silencers.rb
-│   │   ├── filter_parameter_logging.rb
-│   │   ├── inflections.rb
-│   │   ├── mime_types.rb
-│   │   ├── secret_token.rb
-│   │   ├── session_store.rb
-│   │   └── wrap_parameters.rb
 │   ├── locales
-│   │   └── en.yml
 │   └── routes.rb
 ├── config.ru
 ├── db
+│   ├── migrate
+│   ├── schema.rb
 │   └── seeds.rb
 ├── lib
 │   ├── assets
 │   └── tasks
 ├── log
+│   └── development.log
 ├── public
 │   ├── 404.html
 │   ├── 422.html
 │   ├── 500.html
+│   ├── codehero.png
 │   ├── favicon.ico
 │   └── robots.txt
 ├── test
@@ -106,15 +88,10 @@ tree .
 │   ├── mailers
 │   ├── models
 │   └── test_helper.rb
-├── tmp
-│   └── cache
-│       └── assets
 └── vendor
     └── assets
-        ├── javascripts
-        └── stylesheets
 
-38 directories, 36 files
+29 directories, 24 files
 ```
 
 <p>Esta estructura la iremos conociendo más a detalle a lo largo del curso, pero me gustaría destacar algunos archivos importantes:</p>
@@ -128,7 +105,7 @@ tree .
 
 <h2>Base de datos.</h2>
 
-<p>Como todo en Ruby on Rails la configuración de la base de datos es bastante simple sólo tenemos que adaptar el archivo 'database.yml' para que este se conecte al manejador de base de datos que estemos usando.</p>
+Como todo en Ruby on Rails la configuración de la base de datos es bastante simple sólo tenemos que adaptar el archivo `database.yml` para que este se conecte al manejador de base de datos que estemos usando.
 
 <blockquote>
   <p>La base de datos que vamos a estar usando en nuestro proyecto va a ser <strong>MySQL</strong>, pero Rails soporta varios tipos como por ejemplo <strong>Postgres</strong>, <strong>SqlLite3</strong>, <strong>MongoDB</strong>, entre otras.</p>
@@ -152,7 +129,7 @@ $ gem 'mysql2'
 $ bundle install
 ```
 
-<p>Por último creamos las bases de datos a utilizar y modificamos el archivo '<em>database.yml</em>' de la siguiente manera:</p>
+Por último creamos las bases de datos a utilizar y modificamos el archivo `database.yml` de la siguiente manera:
 
 ```yaml
 development:
@@ -191,6 +168,8 @@ production:
 
 <p>Los Controladores en Rails tienen como propósito mantener separada la lógica de negocios de la aplicación (modelos) de las vistas. Los controladores son los que reciben peticiones, las procesan y muestran la información en un formato legible para los usuarios en las vistas.</p>
 
+
+
 <p>En Rails crear un Controlador es bastante fácil, lo podemos hacer con una simple línea de comando que crea los archivos dentro de la estructura antes mencionada. Para demostrarlo crearemos un controlador sencillo, con la siguiente línea de comando en el directorio de la aplicación:</p>
 
 ```sh
@@ -218,7 +197,7 @@ create  app/controllers/bienvenida_controller.rb
       create      app/assets/stylesheets/bienvenida.css.scss
 ```
 
-<p>Lo más importante de todo lo que crea esta línea de comando en el terminal es sin duda el archivo '<em>app/controllers/bienvenida_controller.rb</em>' que es el controlador en sí y las vistas asociadas a éste, en este caso es una sola '<em>app/views/bienvenida/index.html.erb</em>'. Si todo les funcionó correctamente pueden revisar su obra en <a href="http://127.0.0.1:3000/bienvenida/index">http://localhost:3000/bienvenida/index</a></p>
+Lo más importante de todo lo que crea esta línea de comando en el terminal es sin duda el archivo `app/controllers/bienvenida_controller.rb` que es el controlador en sí y las vistas asociadas a éste, en este caso es una sola `app/views/bienvenida/index.html.erb`. Si todo les funcionó correctamente pueden revisar su obra en [http://127.0.0.1:3000/bienvenida/index](http://localhost:3000/bienvenida/index)
 
 ```sh
 $ curl --request GET http://localhost:3000/bienvenida/index
@@ -266,7 +245,7 @@ invoke  active_record
 
 <p>Al ejecutar la línea de comando le estamos pidiendo a Rails que genere el modelo necesario para manejar una tabla en base de datos llamada '<em>usuario</em>' con tres campos (nombre, apellido y fecha_nacimiento). Estos atributos se agregan automáticamente a la tabla de usuario en la base de datos y se asigna al modelo correspondiente.</p>
 
-<p>Como pueden observar se crea un archivo dentro del directorio '<em>db/migrate/</em> ', en capítulos posteriores hablaremos más de la base de datos pero a grandes rasgos este archivo es la declaración de la tabla de donde se basa Rails para mapearla.</p>
+Como pueden observar se crea un archivo dentro del directorio `db/migrate/`, en capítulos posteriores hablaremos más de la base de datos pero a grandes rasgos este archivo es la declaración de la tabla de donde se basa Rails para mapearla.
 
 <hr />
 

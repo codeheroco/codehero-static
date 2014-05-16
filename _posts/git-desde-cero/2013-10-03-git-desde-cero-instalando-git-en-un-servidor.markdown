@@ -7,19 +7,21 @@ author: Alberto Grespan
 author_login: albertogg
 author_email: albertogrespan@gmail.com
 author_url: http://albertogrespan.com
-wordpress_id: 2341
-wordpress_url: http://codehero.co/?p=2341
 date: 2013-10-03 00:05:15.000000000 -04:30
 serie: Git desde Cero
-thumbnail: http://i.imgur.com/IzAdb3d.png
+dificultad: Heroe
+duracion: 20
+github: https://github.com/codeheroco/tutorial-git
 description: Capítulo 16 de la serie Git desde Cero, aprenderemos a instalar git en un servidor privado utilizando ssh como protocolo de comunicación.
 categories:
 - Cursos
 - Git
 tags:
-- Cursos
 - Git
-- curso
+- Instacion
+- Instalando
+- Servidor
+- Personalizar
 ---
 <p>Bienvenidos a un nuevo y último capítulo de <strong><em>Git desde cero</em></strong> en este <em>curso</em> hablaremos sobre como utilizar git dentro de nuestro servidor privado. Explicaremos los protocolos que existen para realizar esta tarea, crearemos y alojaremos un proyecto en el servidor privado utilizando el protocolo ssh.</p>
 
@@ -83,6 +85,8 @@ tags:
 <h2>¿Cómo se instala?</h2>
 
 <p>Para realizar toda la instalación vamos a utilizar un Sistema Operativo Ubuntu 13.04 de 64 bits. Aparte debemos tener instalado el <a href="http://codehero.co/git-desde-cero-instalacion-configuracion-y-comandos-basicos/">paquete git-core</a> y además debemos tener creado o saber crear el par de <a href="https://help.github.com/articles/generating-ssh-keys">llaves de ssh</a>. De ser posible para facilitar un poco la cosa instalar <code>ssh-copy-id</code> en la máquina personal.</p>
+
+
 
 <p>Lo primero es tener acceso al servidor. Una vez dentro de servidor vamos a crear un usuario llamado <code>git</code>. Luego copiar la llave ssh del usuario, crear un repositorio y por último subirle contenido al mismo.</p>
 

@@ -7,17 +7,16 @@ author: Ricardo Sampayo
 author_login: ricardo
 author_email: ricardo9588@gmail.com
 author_url: http://www.ricardosampayo.com
-wordpress_id: 2347
-wordpress_url: http://codehero.co/?p=2347
 date: 2013-10-04 00:01:34.000000000 -04:30
 serie: Ruby on Rails desde Cero
-thumbnail: http://i.imgur.com/ZPAm5Mn.png?1
+dificultad: Intermedio
+duracion: 30
+github: https://github.com/codeheroco/ruby_on_rails_activerecord
 description: Curso Ruby on Rails desde cero curso ActiveModel modelos sin acceso a base de datos. Mostrando módulos de Validación y Serialización.
 categories:
 - Cursos
 - Ruby on Rails
 tags:
-- Cursos
 - Ruby on Rails
 - Validaciones
 - Serialización
@@ -65,6 +64,8 @@ end
 ```
 
 <p>Como ven en el ejemplo es una clase normal pero en ésta incluimos <code>ActiveModel::Validations</code> para utilizar el módulo de validaciones de ActiveRecord que estudiamos en el <a href="http://codehero.co/activerecord-validaciones/">capítulo anterior</a>.</p>
+
+
 
 <hr />
 
@@ -141,7 +142,7 @@ end
 
 <p>Por último creamos nuestra vista de igual manera que en el capítulo anterior, agregando los bloques que detectan los errores del modelo:</p>
 
-```html
+```erb
 <%= form_for @mensaje do |f| %>
   <% if @mensaje.errors.any? %>
     <div id="error_explanation">

@@ -7,14 +7,17 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 1851
-wordpress_url: http://codehero.co/?p=1851
 date: 2013-08-06 00:00:18.000000000 -04:30
-thumbnail: http://i.imgur.com/4gIHp9Q.jpg
+thumbnail: http://i.imgur.com/ON3OmoB.jpg
+description: Nginx es un servidor HTTP, proxy en reversa y balanceador de carga reconocido por su alto desempeño, bajo consumo de recursos, estabilidad y escalabilidad.
+dificultad: Novato
+duracion: 10
 categories:
 - Cómo lo hago
 - Nginx
 tags:
+- howto
+- como lo hago
 - nginx
 - apache
 - fastcgi
@@ -133,6 +136,8 @@ Bien, ahora que sabemos que nuestro servidor funciona hagamos algunas modificaci
 ```sh
 /etc/nginx/sites-available/default
 ```
+
+
 
 ###Windows
 ```sh

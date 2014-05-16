@@ -18,10 +18,34 @@
 
       {% for count in (2..paginator.total_pages) %}
         <li>
-          {% if count == paginator.page %}
-            <li class="active"><a href="#">{{ count }} <span class="sr-only">(current)</span></a></li>
+          {% assign lowerLimit = paginator.page | minus:2 %}
+          {% assign upperLimit = paginator.page | plus:2 %}
+          {% assign endingLimit = paginator.total_pages | minus:2 %}
+          {% assign endingLimit2 = paginator.total_pages | minus:3 %}
+          {% if paginator.page <= 2 %}
+            {% if count <= 5 %}
+              {% if count == paginator.page %}
+                <li class="active"><a href="#">{{ count }} <span class="sr-only">(current)</span></a></li>
+              {% else %}
+                <a href="/page{{ count }}">{{ count }}</a>
+              {% endif %}
+            {% endif %}
+          {% elsif endingLimit <= paginator.page %}
+            {% if count >= endingLimit2 %}
+              {% if count == paginator.page %}
+                <li class="active"><a href="#">{{ count }} <span class="sr-only">(current)</span></a></li>
+              {% else %}
+                <a href="/page{{ count }}">{{ count }}</a>
+              {% endif %}
+            {% endif %}
           {% else %}
-            <a href="/page{{ count }}">{{ count }}</a>
+            {% if count > lowerLimit and count <= upperLimit %}
+              {% if count == paginator.page %}
+                <li class="active"><a href="#">{{ count }} <span class="sr-only">(current)</span></a></li>
+              {% else %}
+                <a href="/page{{ count }}">{{ count }}</a>
+              {% endif %}
+            {% endif %}
           {% endif %}
         </li>
       {% endfor %}

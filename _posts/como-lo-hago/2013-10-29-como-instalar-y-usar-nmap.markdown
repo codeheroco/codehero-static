@@ -7,14 +7,17 @@ author: Jonathan Wiesel
 author_login: jonathan
 author_email: jonathan@codehero.co
 author_url: http://jonathanwiesel.com/
-wordpress_id: 2481
-wordpress_url: http://codehero.co/?p=2481
 date: 2013-10-29 00:05:13.000000000 -04:30
 thumbnail: http://i.imgur.com/g7bY7xW.png
+description: La seguridad de una red se basa en el nivel de exposición de los servicios que esta ofrece. Para esto hablaremos del conocido escáner de redes, nmap.
+dificultad: Aprendiz
+duracion: 10
 categories:
 - Cómo lo hago
 - nmap
 tags:
+- howto
+- como lo hago
 - seguridad
 - nmap
 - hosts
@@ -108,6 +111,8 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 16.16 seconds
 Podemos apreciar que **nmap** ha encontrado 4 hosts activos, el router y 3 más, evidentemente una de ellas es el computador donde estoy escribiendo, pero los otros 2 los descubriremos pronto.
 
 > Notemos que hemos puesto un `/24` luego de la IP inicial que define mi red, esto indica que los primeros 24 bits de la IP definen la subred y los 8 bits restantes definen el espacio reservado para los *hosts*, es posible también indicarlo de las siguiente manera: `192.168.0.1-255` ó `192.168.0.*` lo cual de igualmente significa que se debe tomar la subred de *hosts* que van desde el 192.168.0.`1`, 192.168.0.`2` ... al 192.168.0.`255`. Este tipo de subred es la más común para redes locales domésticas.
+
+
 
 ### Escaneo TCP Connect
 
@@ -207,4 +212,3 @@ Esta herramienta es sumamente poderosa, aquí solo hemos tocado la superficie so
  [1]: http://codehero.co/como-lo-hago-instalar-homebrew/
  [2]: http://nmap.org/download.html
  [3]: http://nmap.org/man/es/
-
