@@ -49,7 +49,16 @@ objecto_archivo = open(file_name [, access_mode][, buffering])
 
 <p>Aquí está una lista con los diferentes modos de apertura de un archivo:</p>
 
-<p><img src="http://i.imgur.com/sbFA1c9.png" alt="modos-apertura-archivos-python" /></p>
+Modos | Descripción
+------------ | -------------
+r | Abre un archivo de sólo lectura. El puntero del archivo se coloca en el principio del archivo. Este es el modo predeterminado.
+rb | Abre un archivo de sólo lectura en formato binario.
+r+ | Abre un archivo para lectura y escritura. El puntero del archivo estará en el principio del archivo.
+rb+ | Abre un archivo para la lectura y la escritura en formato binario. El puntero del archivo estará en el principio del archivo.
+w | Abre un archivo para escribir solamente. Sobrescribe el archivo si el archivo existe. Si el archivo no existe, se crea un nuevo archivo para escritura.
+wb | Abre un archivo para escribir sólo en formato binario. Sobrescribe el archivo si el archivo existe. Si el archivo no existe, se crea un nuevo archivo para escritura.
+w+ | Abre un fichero para escritura y lectura. Sobrescribe el archivo existente si existe el archivo. Si el archivo no existe, se crea un nuevo archivo para la lectura y la escritura.
+wb+ | Abre un archivo, tanto para la escritura y la lectura en formato binario. Sobrescribe el archivo existente si existe el archivo. Si el archivo no existe, se crea un nuevo archivo para la lectura y la escritura.
 
 <hr />
 
@@ -57,7 +66,11 @@ objecto_archivo = open(file_name [, access_mode][, buffering])
 
 <p>Una vez que hemos abierto el archivo, podemos obtener la información relacionada a el mismo. Veamos una lista con todos los atributos más importantes relacionados al tipo de objeto:</p>
 
-<p><img src="http://i.imgur.com/mm0WPEw.png" alt="atributos-archivos-python" /></p>
+Atributo | Descripción
+------------ | -------------
+objeto_archivo.closed | Devuelve true si el archivo está cerrado, false en caso contrario.
+objeto_archivo.mode | Devuelve el modo de acceso con el que se abrió el archivo.
+objeto_archivo.name | Devuelve el nombre del archivo.
 
 <p>Veamos un ejemplo sobre como utilizar todo lo que hemos visto hasta ahora:</p>
 
