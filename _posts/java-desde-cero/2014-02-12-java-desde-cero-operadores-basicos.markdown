@@ -42,7 +42,15 @@ tags:
 
 <p>Los operadores aritméticos se utilizan en expresiones matemáticas de la misma manera que se utilizan en el álgebra. En la siguiente tabla se muestran los operadores aritméticos:</p>
 
-<p><img src="http://i.imgur.com/mq98l96.png" alt="aritmeticos" /></p>
+Operador | Descripción
+------------ | -------------
++ | Adición - Suma los valores de los operadores
+- | Resta - Resta el operando de la derecha del operador del lado izquierdo
+* | Multiplicación - Multiplica los valores de ambos lados del operador
+/ | División - Divide el operador del lado izquierdo por el operando de la derecha
+% | Módulo - Divide el operando de la izquierda por el operador del lado derecho y devuelve el resto
+++ | Incremento - Aumenta el valor del operando en 1
+-- | Decremento - Disminuye el valor del operando por 1
 
 <p>Veamos un ejemplo:</p>
 
@@ -90,7 +98,14 @@ d++   = 25
 
 <p>En Java existen las siguientes operadores relacionales:</p>
 
-<p><img src="http://i.imgur.com/RrfSePS.png" alt="relacionales" /></p>
+Operador | Descripción
+------------ | -------------
+== | Comprueba si los valores de dos operandos son iguales o no, si sí, entonces condición sea verdadera.
+!= | Comprueba si los valores de dos operandos son iguales o no, si los valores no son iguales, entonces la condición se convierte en realidad.
+> | Comprueba si el valor del operando de la izquierda es mayor que el valor del operando derecho, si sí, entonces condición sea verdadera.
+< | Comprueba si el valor del operando de la izquierda es menor que el valor del operando derecho, si es así, entonces la condición sea verdadera.
+>= | Comprueba si el valor del operando de la izquierda es mayor o igual que el valor del operando derecho, si sí, entonces condición sea verdadera.
+<= | Comprueba si el valor del operando de la izquierda es menor o igual que el valor del operando derecho, si es así, entonces la condición sea verdadera.
 
 <p>Veamos un ejemplo:</p>
 
@@ -127,7 +142,11 @@ b <= a = false
 
 <p>En la siguiente tabla se muestran los operadores lógicos:</p>
 
-<p><img src="http://i.imgur.com/iC44VCq.png" alt="logicos" /></p>
+Operador | Descripción
+------------ | -------------
+&& | Llamado lógico AND. Si ambos operandos son distintos a cero, entonces la condición sea verdadera.
+&#124;&#124; | Llamado operador lógico OR. Si alguno de los dos operados son no cero, entonces la condición sea verdadera.
+! | LLamado operador lógico NOT. Utilizado para invertir el estado lógico de su operando. Si una condición es verdadera, entonces el operador NOT será falso.
 
 <p>Veamos un ejemplo:</p>
 
@@ -161,7 +180,14 @@ a || b = true
 
 <p>En Java existen las siguientes operadores de asignación:</p>
 
-<p><img src="http://i.imgur.com/mDuf4qU.png" alt="asignacion" /></p>
+Operador | Descripción
+------------ | -------------
+= | Operador de asignación simple. Asigna valores de operados del lado derecho al operando del lado izquierdo.
++= | Añadir y operador de asignación, Añade operando derecho al operando izquierdo y asigna el resultado al operando de la izquierda.
+-= | Restar y operador de asignación, se resta el operando derecho del operando de la izquierda y asigna el resultado al operando de la izquierda.
+*= | Multiplicar y operador de asignación, se multiplica el operando derecho al operando de la izquierda y asignar el resultado a la izquierda del operando.
+/= | Divide y operador de aignación, se divide el operando izquierdo con el operando derecho y asigna el resultado a la izquierda del operando.
+%= | Módulo y operado de asignación, se saca el módulo el operando izquierdo con el operando derecho y asignan el resultado al operando de la izquierda.
 
 <p>Veamos un ejemplo:</p>
 
