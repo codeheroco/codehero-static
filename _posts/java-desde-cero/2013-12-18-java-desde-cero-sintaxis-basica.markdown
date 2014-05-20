@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2870
 wordpress_url: http://codehero.co/?p=2870
 date: 2013-12-18 01:20:10.000000000 -04:30
+serie: Java desde Cero
+dificultad: Novato
+duracion: 15
+description: Curso en el cual aprenderemos Java desde Cero. Estudiaremos todo lo relacionado a la sintaxis básica que posee Java a la hora de desarrollar una aplicación.
 categories:
 - Cursos
 - Java
@@ -33,13 +37,17 @@ tags:
 <li><p><strong>Nombres de las clases</strong> - Para todos los nombres de clases la primera letra debe estar en mayúsculas. Si quieres usar varias palabras para formar un nombre, la primera letra de cada palabra interior debe estar en mayúsculas.</p></li>
 </ul>
 
-<pre lang="java">class miPrimeraClase</pre>
+```java
+class miPrimeraClase
+```
 
 <ul>
 <li><strong>Nombres de los métodos</strong> - Todos los nombres de los métodos deben comenzar con una letra minúscula. Si se quieres usar varias palabras para formar el nombre de un método, la primera letra de cada palabra interior debe estar en mayúsculas .</li>
 </ul>
 
-<pre lang="java">public void miPrimerMetodo()</pre>
+```java
+public void miPrimerMetodo()
+```
 
 <ul>
 <li><strong>Nombre de archivo del programa</strong> - El nombre del archivo de programa debe coincidir exactamente con el nombre de la clase.</li>
@@ -118,7 +126,7 @@ tags:
 
 <p>Por ejemplo, si tenemos queremos hacer una aplicación en donde podamos ordenar tipos de jugos frescos, sería posible limitar el tamaño del jugo en pequeño, mediano y grande con la ayuda de los enum.</p>
 
-<pre lang="java">
+```java
 class Jugo {
 
    enum JugoTamano { PEQUENO, MEDIANO, GRANDE }
@@ -133,17 +141,17 @@ public class JugoPrueba {
       System.out.println("Tamaño del jugo: " + jugo.tamano);
    }
 }
-</pre>
+```
 
 <p>Si compilamos y ejecutamos el programa anterior debería devolvernos:</p>
 
-<pre>
+```java
 Tamaño del jugo: MEDIANO
-</pre>
+```
 
 <blockquote>
   <p>Los enum se pueden declarar dentro o fuera de una clase.</p>
-  
+
   <p>Tranquilo si estas un poco perdido mas adelante vamos a ver estos puntos a mayor detalle.</p>
 </blockquote>
 
@@ -212,7 +220,7 @@ Tamaño del jugo: MEDIANO
 
 <p>Java soporta una o varias líneas de comentarios. Es muy similar a los comentarios que podemos encontrar en C y C++. Todos los caracteres disponibles dentro de cualquier comentario son ignorados por el compilador.</p>
 
-<pre lang="java">
+```java
 public class MiPrimerPrograma{
 
    /* Este es mi primer programa
@@ -223,10 +231,10 @@ public class MiPrimerPrograma{
     public static void main(String []args){
        // Un ejemplo de un comentario de una linea
        /* Este también es un ejemplo de un comentario de una linea */
-       System.out.println("Hola Mundo"); 
+       System.out.println("Hola Mundo");
     }
-} 
-</pre>
+}
+```
 
 <hr />
 

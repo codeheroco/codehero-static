@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 3125
 wordpress_url: http://codehero.co/?p=3125
 date: 2014-03-19 00:45:35.000000000 -04:30
+serie: Java desde Cero
+dificultad: Novato
+duracion: 15
+description: Curso en el cual aprenderemos Java desde Cero. Estudiaremos como escribir y leer (I/O) información de un archivo con la ayuda de Java.
 categories:
 - Cursos
 - Java
@@ -37,7 +41,7 @@ tags:
 
 <p>Echemos un ojo al siguiente código:</p>
 
-<pre lang=“java”>
+```java
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -73,7 +77,7 @@ public class ArchivoMuestra {
     return texto;
   }
 }
-</pre>
+```
 
 <p>Podemos observar que en el código declaramos una clase ejemplo llamada <strong>ArchivoMuestra</strong> y un método <strong>leerTextoArchivo</strong> el cual nos va ayudar a extraer el texto del archivo. El método se ayuda de la clase <strong>FileReader</strong> de Java para acceder a el archivo y de un buffer de lectura (<strong>BufferedReader</strong>) para poder extraer los datos del texto.</p>
 
@@ -87,7 +91,7 @@ public class ArchivoMuestra {
 
 <p>Echemos un ojo al siguiente código:</p>
 
-<pre lang=“java”>
+```java
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -116,8 +120,8 @@ public void escribirTextoArchivo(String nombreArchivo, String texto) {
     }
 
   }
-} 
-</pre>
+}
+```
 
 <p>Podemos observar que en el código declaramos una clase ejemplo llamada <strong>ArchivoMuestra</strong> y un método <strong>escribirTextoArchivo</strong> el cual nos va ayudar a guardar el texto del archivo. El método se ayuda de la clase ** FileWriter** de Java para acceder a el archivo y de un buffer de escritura (** BufferedWriter**) para poder guardar los datos del texto.</p>
 
@@ -135,7 +139,7 @@ public void escribirTextoArchivo(String nombreArchivo, String texto) {
   <p>El archivo <code>Prueba.txt</code> puede contener el texto que quieras, en mi caso posee <code>Gracias por aprender con Codehero</code>.</p>
 </blockquote>
 
-<pre lang=“java”>
+```java
 public class Main {
   public static void main(String[] args) {
     ArchivoMuestra archivo = new ArchivoMuestra();
@@ -143,8 +147,8 @@ public class Main {
     System.out.println(entrada);
     archivo.escribirTextoArchivo("PruebaCopia.txt", entrada);
   }
-} 
-</pre>
+}
+```
 
 <p>Observemos que este código lo único que va a ser es instanciar la clase <strong>ArchivoMuestra</strong> para poder hacer uso de los métodos de escritura y de lectura. A su vez, va a leer el texto contenido en el archivo <em><code>Prueba.txt</code></em>, lo va a imprimir en la consola y por ultimo va a crear un archivo llamado <em><code>PruebaCopia.txt</code></em> con el texto extraído del archivo anterior.</p>
 
@@ -152,9 +156,9 @@ public class Main {
 
 <h4>Por consola:</h4>
 
-<pre>
+```java
 Gracias por aprender con Codehero
-</pre>
+```
 
 <h4>En archivo</h4>
 

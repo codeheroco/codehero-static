@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2801
 wordpress_url: http://codehero.co/?p=2801
 date: 2013-12-04 04:33:06.000000000 -04:30
+serie: Java desde Cero
+dificultad: Novato
+duracion: 15
+description: Curso en el cual aprenderemos Java desde Cero. Estudiaremos todo lo relacionado con la instalación y configuración que necesitamos para desarrollar una app.
 categories:
 - Cursos
 - Java
@@ -104,17 +108,18 @@ tags:
 
 <p>Una vez que lo hayamos creado agregamos el siguiente código:</p>
 
-<pre>public class HolaMundo {
+```java
+public class HolaMundo {
 
-   /* This is my first java program.  
+   /* This is my first java program.
     * This will print 'Hello World' as the output
     */
 
     public static void main(String []args) {
        System.out.println(“Hola Mundo"); // imprime Hola Mundo
     }
-} 
-</pre>
+}
+```
 
 <blockquote>
   <p>No te preocupes si no entiendes muy bien como funciona en los próximos capítulos cubriremos todos los aspectos del lenguaje.</p>
@@ -130,8 +135,9 @@ tags:
 <li>Tipeamos lo siguiente para compilar:</li>
 </ul>
 
-<pre>javac HolaMundo.java
-</pre>
+```bash
+$ javac HolaMundo.java
+```
 
 <h2>¿Cómo ejecutar?</h2>
 
@@ -139,8 +145,9 @@ tags:
 
 <p>Abre una consola y tipea:</p>
 
-<pre>java HolaMundo
-</pre>
+```bash
+$ java HolaMundo
+```
 
 <p>Debería aparecerte <strong>”Hola Mundo”</strong> en la pantalla.</p>
 
