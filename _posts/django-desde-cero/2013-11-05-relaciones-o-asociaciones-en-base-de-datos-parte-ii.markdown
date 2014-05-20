@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2551
 wordpress_url: http://codehero.co/?p=2551
 date: 2013-11-05 22:52:07.000000000 -04:30
+serie: Django desde Cero
+dificultad: Aprendiz
+duracion: 10
+description: Curso en el cual aprenderemos Django desde Cero. En esta clase, estudiaremos como crear asociaciones en las bases de datos con la ayuda de Django.
 categories:
 - Cursos
 - Django
@@ -38,7 +42,16 @@ tags:
 
 <p>Generemos el archivo <code>agregar_comentario.html</code> dentro de la carpeta de <code>templates</code> (la carpeta <em>templates</em> esta ubicada dentro de la app <strong>blog</strong> que creamos anteriormente) y agreguemos el siguiente código:</p>
 
-<pre></pre>
+```python
+{% raw %}
+<form action="/articulos/agregar_comentario/{{ articulo.id }}/" method="post">{% csrf_token %}
+<ul>
+{{ form.as_ul }}
+</ul>
+{% endraw %}
+<input type="submit" name="submit" value="Agregar">
+</form>
+```
 
 <blockquote>
   <p>Observemos los siguiente:</p>
@@ -60,19 +73,16 @@ tags:
 
 <p>Debemos agregar el siguiente código al archivo <code>agregar_comentario.html</code>:</p>
 
-<pre><h2>
+```python
+<h2>
   Comentarios Disponibles
 </h2>
 {% raw %}
 {% for c in articulo.comentario_set.all %}
-
-
-<p>
   {{ c.nombre}}: {{c.cuerpo}}
-</p>
 {% endfor %}
-{% raw %}
-</pre>
+{% endraw %}
+```
 
 <blockquote>
   <p>Observemos que con <code>{% raw %}{% for c in articulo.comentario_set.all %}{% endraw %}</code> estamos creando un bucle el cual va a recorrer todos los comentarios dentro del articulo. Con <code>{% raw %}<p>{{ c.nombre}}: {{c.cuerpo}}</p>{% endraw %}</code> imprimimos el nombre y el cuerpo del comentario.</p>
@@ -82,10 +92,11 @@ tags:
 
 <p>Debemos agregar el siguiente código al archivo <code>agregar_comentario.html</code>:</p>
 
-<pre><p>
+```python
+{% raw %}
   <a href="/articulos/agregar_comentario/{{ articulo.id }}">Agregar Comentario</a>
-</p>
-</pre>
+{% endraw %}
+```
 
 <blockquote>
   <p>Observemos que en la dirección de la pagina que el navegador debe buscar le estamos pasando el id del <strong>articulo</strong> para que la vista sepa o reconozca de que articulo en particular estamos hablando. El id se lo pasamos con <code>{% raw %}{{ articulo.id }}{% endraw %}</code>.</p>
