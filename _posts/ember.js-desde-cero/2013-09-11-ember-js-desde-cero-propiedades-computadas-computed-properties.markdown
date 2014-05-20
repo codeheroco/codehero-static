@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2218
 wordpress_url: http://codehero.co/?p=2218
 date: 2013-09-11 00:53:57.000000000 -04:30
+serie: Ember.js desde Cero
+dificultad: Aprendiz
+duracion: 15
+description: Bienvenidos Ember.js desde Cero. Hoy, vamos a aprender todo lo relacionado con las propiedades computadas dentro de Ember.js.
 categories:
 - Cursos
 - Ember.js
@@ -49,10 +53,11 @@ tags:
 
 <p>Antes que nada debemos agregamos la siguiente definición dentro de la clase <code>Marcapagina</code>:</p>
 
-<pre>,link: function() {
+```javascript
+,link: function() {
   return this.convertir_en_link();
 }.property("nombre", "url")
-</pre>
+```
 
 <blockquote>
   <p>Observemos que una vez que declaramos una propiedad dentro de una clase, esta va a estar disponible para todas sus instancias.</p>
@@ -60,14 +65,51 @@ tags:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/yQMsh1W.png" alt="ember-js-html" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            var Marcapagina = Ember.Object.extend({
+
+                convertir_en_link: function() {
+                    return "<a href='" + this.get("url") + "'>"
+                            + this.get("nombre")
+                            + "</a>";
+                }
+                ,link: function() {
+                	return this.convertir_en_link();
+                }.property("nombre", "url")
+
+            });
+
+
+            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+
+        </script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <p>Ahora probemos esta nueva propiedad que hemos creado, para eso debemos abrir el explorador de nuestra preferencia y navegar hasta el archivo <code>index.html</code>.</p>
 
 <p>Una vez que haya cargado la pagina iniciamos la consola y tipeamos lo siguiente:</p>
 
-<pre>marcapagina.get("link")
-</pre>
+```javascript
+marcapagina.get("link")
+```
 
 <p>Obtendríamos lo siguiente:</p>
 
@@ -75,7 +117,7 @@ tags:
 
 <blockquote>
   <p>Observemos que nos devuelve la propiedad computada con los valores adecuados al <strong>nombre</strong> y <strong>url</strong> de la instancia <code>marcapagina</code>.</p>
-  
+
   <p>Recuerda que para obtener el valor de una propiedad en Ember.js debemos usar el método <strong>get()</strong>.</p>
 </blockquote>
 
@@ -91,8 +133,9 @@ tags:
 
 <p>Tipear en la consola del explorador:</p>
 
-<pre>marcapagina.nombre
-</pre>
+```javascript
+marcapagina.nombre
+```
 
 <p>Obtendríamos lo siguiente:</p>
 
@@ -106,8 +149,9 @@ tags:
 
 <p>Si tipeamos en la consola del explorador:</p>
 
-<pre>marcapagina.link
-</pre>
+```javascript
+marcapagina.link
+```
 
 <p>Obtendríamos lo siguiente:</p>
 
@@ -129,8 +173,9 @@ tags:
 
 <p>Primero verifiquemos que nos devuelve la propiedad <code>link</code> cuando accedemos a ella. En el explorador tipea lo siguiente:</p>
 
-<pre>marcapagina.get("link")
-</pre>
+```javascript
+marcapagina.get("link")
+```
 
 <p>Deberíamos obtener lo siguiente:</p>
 
@@ -138,8 +183,9 @@ tags:
 
 <p>Ahora cambiemos el <code>nombre</code> de la instancia <code>marcapagina</code> por <strong>Carlos</strong>. Para eso solo basta con tipear lo siguiente:</p>
 
-<pre>marcapagina.set("nombre", "Carlos")
-</pre>
+```javascript
+marcapagina.set("nombre", "Carlos")
+```
 
 <p>Obtendríamos:</p>
 
@@ -151,8 +197,9 @@ tags:
 
 <p>Ahora si volvemos a consultar la propiedad <code>link</code>:</p>
 
-<pre>marcapagina.get("link")
-</pre>
+```javascript
+marcapagina.get("link")
+```
 
 <p>Obtendríamos:</p>
 
@@ -172,10 +219,11 @@ tags:
 
 <p>Lo primero que tenemos que hacer es agregar a la definición de la clase <code>Marcapagina</code> la siguiente propiedad computada:</p>
 
-<pre>,detalle: function() {
+```javascript
+,detalle: function() {
   return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
 }.property('link', 'nombre', 'url')
-</pre>
+```
 
 <blockquote>
   <p>Observemos que <code>this.get('link')</code> realiza un llamado a la propiedad computada <code>link</code>, para así poder mostrar el link en html completo.</p>
@@ -183,12 +231,53 @@ tags:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/45JPg0I.png" alt="ember-js-html-II" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            var Marcapagina = Ember.Object.extend({
+
+                convertir_en_link: function() {
+                    return "<a href='" + this.get("url") + "'>"
+                            + this.get("nombre")
+                            + "</a>";
+                }
+                ,link: function() {
+                	return this.convertir_en_link();
+                }.property("nombre", "url")
+
+                ,detalle: function() {
+    				return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
+ 				}.property('link', 'nombre', 'url')
+
+            });
+
+
+            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+
+        </script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <p>Si lo probamos en el explorador y tipeamos lo siguiente:</p>
 
-<pre>marcapagina.get("detalle")
-</pre>
+```javascript
+marcapagina.get("detalle")
+```
 
 <p>Obtendríamos:</p>
 

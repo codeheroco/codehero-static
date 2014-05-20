@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2839
 wordpress_url: http://codehero.co/?p=2839
 date: 2013-12-11 07:02:48.000000000 -04:30
+serie: Ember.js desde Cero
+dificultad: Aprendiz
+duracion: 15
+description: Curso en el cual aprenderemos Ember.js desde Cero. Estudiaremos como crear nuestro primer controlador en Ember.js
 categories:
 - Cursos
 - Ember.js
@@ -42,11 +46,13 @@ tags:
 
 <p>Una vez que hayamos creado el archivo agregamos el siguiente código:</p>
 
-<pre lang=“js”> App.MarcapaginasController = Ember.ArrayController.extend(); </pre>
+```javascript
+ App.MarcapaginasController = Ember.ArrayController.extend();
+ ```
 
 <blockquote>
   <p>Observemos que lo que estamos haciendo es declarar dentro de nuestro app un controlador denominado <code>Marcapaginas</code>, el cual extiende de <code>Ember.ArrayController</code>, y nos va renderizar todos los objetos tipos marcapagina que tengamos disponibles dentro de nuestro modelo en una vista (No te preocupes, las vistas las vamos a ver mas adelante y así podrás entender los controladores en su totalidad).</p>
-  
+
   <p>Cabe destacar que dentro del <code>extend()</code> podemos declara propiedades, métodos y aciones que nos ayuden a controlar nuestras vistas (Indagaremos mas adelante sobre los tipos de acciones que podemos usar en Ember.js).</p>
 </blockquote>
 
@@ -54,7 +60,9 @@ tags:
 
 <p>En el archivo <code>router.js</code> agregamos la siguiente linea:</p>
 
-<pre lang=“js”> this.resource(“marcapaginas”); </pre>
+```javascript
+this.resource(“marcapaginas”);
+```
 
 <blockquote>
   <p>Si no sabes como o manejar recursos te recomiendo que le eches un vistazo a <a href="http://codehero.co/ember-js-desde-cero-rutas-router/">Router</a>.</p>
@@ -62,10 +70,11 @@ tags:
 
 <p>Por último, debemos incluir la referencia de nuestro controlador en el archivo <code>index.html</code>.</p>
 
-<p>Agreguemos lo siguiente dentro de los <code>&lt;head&gt;</code> tags:</p>
+Agreguemos lo siguiente dentro de los `{% raw %} <head> {% endraw %}` tags:
 
-<pre lang="js"><script src=“js/app/controllers/marcapaginas_controller.js”></script>
-</pre>
+```html
+<script src=“js/app/controllers/marcapaginas_controller.js”></script>
+```
 
 <h3>Representar un solo objeto</h3>
 
@@ -75,11 +84,13 @@ tags:
 
 <p>Una vez que hayamos creado el archivo agregamos el siguiente código:</p>
 
-<pre lang=“js”> App.MarcapaginaController = Ember.ObjectController.extend(); </pre>
+```javascript
+App.MarcapaginaController = Ember.ObjectController.extend();
+```
 
 <blockquote>
   <p>Observemos que lo que estamos haciendo es declarar dentro de nuestro app un controlador denominado <code>Marcapagina</code>, el cual extiende de <code>Ember.ObjectController</code>, y nos va renderizar el objeto de tipo marcapagina (No te preocupes, las vistas las vamos a ver mas adelante y así podrás entender los controladores en su totalidad).</p>
-  
+
   <p>Cabe destacar que dentro del <code>extend()</code> podemos declara propiedades, métodos y aciones que nos ayuden a controlar nuestras vistas (Indagaremos mas adelante sobre los tipos de acciones que podemos usar en Ember.js).</p>
 </blockquote>
 
@@ -87,24 +98,27 @@ tags:
 
 <p>En el archivo <code>router.js</code> agregamos la siguiente linea:</p>
 
-<pre lang=“js”> this.resource(“marcapagina”, {path: “/marcapaginas/:marcapagina_id”}); </pre>
+```javascript
+this.resource(“marcapagina”, {path: “/marcapaginas/:marcapagina_id”});
+```
 
 <blockquote>
   <p>Observemos que hemos añadido la propiedad <code>path</code>, esta es usada para que cada vez que llamemos al recurso <strong>marcapagina</strong> nos redireccione a la url que nosotros queramos, en este caso necesitamos que <strong>“/marcapaginas/:marcapagina_id”</strong>. El porque de hacer esto, es para mantener lo mayor posible el estilo REST dentro de nuestra app.</p>
-  
+
   <p>Si no sabes como o manejar recursos te recomiendo que le eches un vistazo a <a href="http://codehero.co/ember-js-desde-cero-rutas-router/">Router</a>.</p>
 </blockquote>
 
 <p>Por último, debemos incluir la referencia de nuestro controlador en el archivo <code>index.html</code>.</p>
 
-<p>Agreguemos lo siguiente dentro de los <code>&lt;head&gt;</code> tags:</p>
+Agreguemos lo siguiente dentro de los`{% raw %} <head> {% endraw %}` tags:
 
-<pre lang="js"><script src=“js/app/controllers/marcapagina_controller.js”></script>
-</pre>
+```html
+<script src=“js/app/controllers/marcapagina_controller.js”></script>
+```
 
 <blockquote>
   <p>¡Hasta que nos veamos las vistas no vamos a poder probar la app en su totalidad por lo que los invito a esperar la salida de los siguientes tutoriales!</p>
-  
+
   <p>El código de estos ejemplos estada disponible en el repositorio una vez terminado esta parte (controlador/vista/modelo/templates) de la series.</p>
 </blockquote>
 

@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2308
 wordpress_url: http://codehero.co/?p=2308
 date: 2013-09-25 05:28:04.000000000 -04:30
+serie: Ember.js desde Cero
+dificultad: Novato
+duracion: 20
+description: Bienvenidos Ember.js desde Cero. Hoy, vamos a aprender todo lo relacionado con los observadores dentro de Ember.js.
 categories:
 - Cursos
 - Ember.js
@@ -45,11 +49,12 @@ tags:
 
 <p>En la declaración agregamos las siguientes lineas:</p>
 
-<pre>,modificarCuenta: function() {
+```javascript
+,modificarCuenta: function() {
    cuentaGlobal += 1;
    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
 }
-</pre>
+```
 
 <blockquote>
   <p>Lo que hace esta función en particular, es sumarle 1 a una variable global llamada <code>cuentaGlobal</code> y luego loggearla en la consola con la siguiente instrucción <code>console.log("El valor global de cuentaGlobal es " + cuentaGlobal)</code>.</p>
@@ -59,8 +64,9 @@ tags:
 
 <p>Antes de la declaración de la clase <strong>Marcapagina</strong> agregamos la siguiente linea:</p>
 
-<pre>var cuentaGlobal = 0;
-</pre>
+```javascript
+var cuentaGlobal = 0;
+```
 
 <blockquote>
   <p>Observemos que de esta manera es como se declaran las variables locales en Ember.js.</p>
@@ -68,7 +74,54 @@ tags:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/YPJFmAe.png" alt="ember-js-html-I" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            var cuentaGlobal = 0;
+
+            var Marcapagina = Ember.Object.extend({
+
+                convertir_en_link: function() {
+                    return "<a href='" + this.get("url") + "'>"
+                            + this.get("nombre")
+                            + "</a>";
+                }
+                ,link: function() {
+                	return this.convertir_en_link();
+                }.property("nombre", "url")
+
+                ,detalle: function() {
+    				return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
+ 				}.property('link', 'nombre', 'url')
+
+                ,modificarCuenta: function() {
+                    cuentaGlobal += 1;
+                    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
+                }
+
+            });
+
+
+            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+
+        </script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <p>Una vez que tengamos definido el método que queramos llamar cada vez que se dispare el observador pasamos a declarar el observador como tal. Podemos hacerlo de dos maneras diferentes:</p>
 
@@ -82,16 +135,18 @@ tags:
 
 <p>En la declaración del método agregamos:</p>
 
-<pre>.observes("nombre")
-</pre>
+```javascript
+.observes("nombre")
+```
 
 <p>El método debería lucir así:</p>
 
-<pre>,modificarCuenta: function() {
+```javascript
+,modificarCuenta: function() {
    cuentaGlobal += 1;
    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
 }.observes("nombre")
-</pre>
+```
 
 <blockquote>
   <p>Observemos que con <code>observes("nombre")</code> avisamos a Ember.js que la propiedad <code>nombre</code> ahora posee un observador que disparará el método <code>modificarCuenta</code>.</p>
@@ -99,7 +154,54 @@ tags:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/3DRQInc.png" alt="ember-js-html-II" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            var cuentaGlobal = 0;
+
+            var Marcapagina = Ember.Object.extend({
+
+                convertir_en_link: function() {
+                    return "<a href='" + this.get("url") + "'>"
+                            + this.get("nombre")
+                            + "</a>";
+                }
+                ,link: function() {
+                	return this.convertir_en_link();
+                }.property("nombre", "url")
+
+                ,detalle: function() {
+    				return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
+ 				}.property('link', 'nombre', 'url')
+
+                ,modificarCuenta: function() {
+                    cuentaGlobal += 1;
+                    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
+                }.observes("nombre")
+
+            });
+
+
+            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+
+        </script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <hr />
 
@@ -111,11 +213,12 @@ tags:
 
 <p>La declaración del método ahora debería lucir así:</p>
 
-<pre>,modificarCuenta: Ember.observer(function() {
+```javascript
+,modificarCuenta: Ember.observer(function() {
    cuentaGlobal += 1;
    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
 }, "nombre")
-</pre>
+```
 
 <blockquote>
   <p>Observemos que <strong>Ember.observer</strong> toma dos atributos el primero debe ser la función que queremos disparar y el segundo la variable que queremos observar.</p>
@@ -123,7 +226,54 @@ tags:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/Mr0Pnkr.png" alt="ember-js-html-II" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            var cuentaGlobal = 0;
+
+            var Marcapagina = Ember.Object.extend({
+
+                convertir_en_link: function() {
+                    return "<a href='" + this.get("url") + "'>"
+                            + this.get("nombre")
+                            + "</a>";
+                }
+                ,link: function() {
+                	return this.convertir_en_link();
+                }.property("nombre", "url")
+
+                ,detalle: function() {
+    				return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
+ 				}.property('link', 'nombre', 'url')
+
+                ,modificarCuenta: Ember.observer(function() {
+                    cuentaGlobal += 1;
+                    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
+                }, "nombre")
+
+            });
+
+
+            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+
+        </script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <hr />
 
@@ -135,8 +285,9 @@ tags:
 
 <p>Tipeamos:</p>
 
-<pre>cuentaGlobal
-</pre>
+```javascript
+cuentaGlobal
+```
 
 <p><img src="http://i.imgur.com/Bu0sSH8.png" alt="cuentaGlobal-observador-emberjs" /></p>
 
@@ -146,8 +297,9 @@ tags:
 
 <p>Ahora vamos a modificar la variable <code>nombre</code> para así probar el observador. Hagamos lo siguiente:</p>
 
-<pre>marcapagina.set("nombre", "prueba")
-</pre>
+```javascript
+marcapagina.set("nombre", "prueba")
+```
 
 <p>Deberíamos obtener:</p>
 
