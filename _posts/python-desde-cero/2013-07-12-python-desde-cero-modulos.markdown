@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 1394
 wordpress_url: http://codehero.co/?p=1394
 date: 2013-07-12 07:14:59.000000000 -04:30
+serie: Python desde Cero
+dificultad: Novato
+duracion: 25
+description: Curso en el cual aprenderemos Python desde Cero. En esta clase, estudiaremos como crear módulos y como importarlos en tus aplicaciones.
 categories:
 - Cursos
 - Python
@@ -37,10 +41,11 @@ tags:
   <p>Vamos a necesitar abrir un nuevo archivo en un editor de texto o en un IDE de tu preferencia. Para que el curso tenga sentido, voy a continuar con el ejemplo que utilizamos en el ultimo <a href="http://codehero.co/python-desde-cero-funciones/">capítulo</a>, crear un carrito de compra (ecommerce). Solo que esta vez vamos a calcular el impuesto de un articulo en especifico dado su precio.</p>
 </blockquote>
 
-<pre>def calcularImpuesto(precio, impuesto):
+```python
+def calcularImpuesto(precio, impuesto):
    precioNuevo = precio / 100 * (100 + impuesto)
    return precioNuevo
-</pre>
+```
 
 <p>Observemos que fue sencillo de realizar, lo que hicimos fue definir una función llamada <code>calcularImpuesto</code> la cual toma dos argumentos <code>precio</code> y <code>impuesto</code>, para luego calcular y retornar el valor total del articulo.</p>
 
@@ -52,8 +57,9 @@ tags:
 
 <p>Para usar los módulos existen dos posibilidades, podemos usar la palabra clave <code>import</code> o la palabra clave <code>from</code>. <code>import</code> es la manera más simple y más coman de usar, ya que que importa todas las funcionalidades existentes dentro del archivo <code>.py</code> en donde este alojado ese módulo. Veamos como importar el ejemplo anterior en donde teníamos el módulo de finanzas (<code>finanzas.py</code>):</p>
 
-<pre>import finanzas
-</pre>
+```python
+import finanzas
+```
 
 <p>Observemos que para importar el módulo no hizo falta escribir la extensión del archivo. Una vez que Python interprete esta linea de código podemos tener a nuestra disposición la función <code>calcularImpuesto</code> que definimos anteriormente.</p>
 
@@ -61,26 +67,30 @@ tags:
 
 <p>Veamos como importar una funcionalidad del módulo de finanzas:</p>
 
-<pre>from finanzas import calcularImpuesto
-</pre>
+```python
+from finanzas import calcularImpuesto
+```
 
 <p>Observemos que necesitamos especificar de que módulo queremos obtener nuestra función con <code>from + MÓDULO</code> y luego la función que queremos importar <code>import + FUNCIÓN</code>. En nuestro caso, del módulo de <strong>finanzas</strong> importa la función <strong>calcularImpuesto</strong>.</p>
 
 <p>También puedes importar varias funciones a la vez, solo necesitas separarlas por comas.</p>
 
-<pre>from finanzas import calcularImpuesto, calcularDescuento
-</pre>
+```python
+from finanzas import calcularImpuesto, calcularDescuento
+```
 
 <p>Incluso puedes importar todas las funciones usando un <strong>wildcard</strong></p>
 
-<pre>from finanzas import *
-</pre>
+```python
+from finanzas import *
+```
 
 <p>Después de importar los módulos, la manera de usar las funciones es la siguiente: el nombre del módulo, seguido de un punto, seguido del nombre de la función a usar. Veamos un ejemplo:</p>
 
-<pre>import finanzas
+```python
+import finanzas
 print finanzas.calcularImpuesto(100, 5)
-</pre>
+```
 
 <p>Si corremos el script, debería imprimir 105. Una prueba sencilla, pero significa que nuestro módulo funcionó a la perfección!</p>
 
@@ -101,7 +111,8 @@ print finanzas.calcularImpuesto(100, 5)
 
 <p>El módulo de <strong>math</strong> nos provee el acceso a funciones y constantes matemáticas. Veamos unos ejemplos:</p>
 
-<pre>import math
+```python
+import math
  
 math.pi #Pi, 3.14...
 math.e  #Número de Euler, 2.71...
@@ -115,7 +126,7 @@ math.tan(0.23) #Tangente de 0.23 radianes
  
 math.factorial(5) #1 * 2 * 3 * 4 * 5 = 120
 math.sqrt(49)   #Raíz cuadrada de 49 = 7
-</pre>
+```
 
 <p>Existe miles de funciones dentro de este módulo te invito a que las revises todas <a href="http://docs.python.org/library/math.html">aquí</a>.</p>
 
@@ -123,7 +134,8 @@ math.sqrt(49)   #Raíz cuadrada de 49 = 7
 
 <p>Si necesitas trabajar con fechas y tiempos, entonces el módulo <strong>datetime</strong> es el indicado para ti. Veamos un ejemplo con los usos más comunes:</p>
 
-<pre>import datetime
+```python
+import datetime
 from datetime import date
 import time
 
@@ -136,7 +148,7 @@ currentDate = date.fromtimestamp(time.time()) #Creamos una variable con la repre
 currentDate.strftime("%d/%m/%y") #Le coloca el siguiente formato a la fecha DD/MM/YY
  
 currentDate.isoformat() #Le coloca el formato estándar ISO a esa fecha
-</pre>
+```
 
 <p>Existe miles de funciones dentro de este módulo te invito a que las revises todas <a href="http://docs.python.org/2/library/datetime.html">aquí</a>.</p>
 
@@ -144,7 +156,8 @@ currentDate.isoformat() #Le coloca el formato estándar ISO a esa fecha
 
 <p>Este módulo te permite trabajar con el sistema operativo en el cual Python este ejecutándose, ya sea Windows, Mac o Linux. Nos enfocaremos en la funcionalidad <strong>path</strong> ya que es la más común. <strong>Path</strong> nos permite manipular y encontrar propiedades de los archivos y carpetas que existen en el sistema. Vemos unos ejemplos:</p>
 
-<pre>from os import path
+```python
+from os import path
  
 path.exists("/Users/Picca") #Cheque si un directorio existe
 
@@ -154,7 +167,7 @@ path.getmtime("/Users") #Retorna la fecha en la cual ese directorio fue modifica
 path.getsize("/Users/Picca/Desktop/boot") #Retorna el tamaño en bytes de ese archivo
 
 path.join("C:", "Users") #Retorna la siguiente dirección "C:/Users"
-</pre>
+```
 
 <p>Existe miles de funciones dentro de este módulo te invito a que las revises todas <a href="http://docs.python.org/2/library/os.html">aquí</a>.</p>
 
@@ -162,15 +175,17 @@ path.join("C:", "Users") #Retorna la siguiente dirección "C:/Users"
 
 <p>Este módulo permite interactuar con la web. La función más común es la <strong>urlopen</strong> la cual nos permite descargar una página o un archivo que exista en la web. Veamos unos ejemplos:</p>
 
-<pre>import urllib2
+```python
+import urllib2
 urllib2.urlopen("http://codehero.co")
-</pre>
+```
 
 <p>Este scritp descargará el HTML de la pagina web <strong>codehero.co</strong>.</p>
 
-<pre>import urllib2
+```python
+import urllib2
 urllib2.urlopen("http://codehero.co").read(100)
-</pre>
+```
 
 <p>Al igual que en el ejemplo anterior, se descargará el HTML de <strong>codehero.co</strong> pero ahora solo nos devolverá los primeros 100 caracteres. Para así después poder extraer los trozos que nos sean necesarios.</p>
 

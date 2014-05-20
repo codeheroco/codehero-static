@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 3040
 wordpress_url: http://codehero.co/?p=3040
 date: 2014-02-19 12:24:09.000000000 -04:30
+serie: Java desde Cero
+dificultad: Novato
+duracion: 15
+description: Curso en el cual aprenderemos Java desde Cero. Estudiaremos que existen dos tipos de sentencias de decisiones en Java (If y Switch).
 categories:
 - Cursos
 - Java
@@ -37,12 +41,12 @@ tags:
 
 <p>Una sentencia if consiste en una expresión booleana seguida de una o más sentencias. Veamos la sintaxis:</p>
 
-<pre lang=“java”>
+```java
 if(expresion_Booleana)
 {
-   //Sentencias se ejecutan si la expresión booleana es verdadera 
+   //Sentencias se ejecutan si la expresión booleana es verdadera
 }
-</pre>
+```
 
 <blockquote>
   <p>Si la expresión booleana es verdadera, entonces el bloque de código dentro del if se ejecuta. Si no se ejecutará el primer grupo de código después del final de la instrucción if.</p>
@@ -50,7 +54,7 @@ if(expresion_Booleana)
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang=“java”>
+```java
 public class Curso {
 
    public static void main(String args[]){
@@ -61,13 +65,13 @@ public class Curso {
       }
    }
 }
-</pre>
+```
 
 <p>Si ejecutamos el código anterior obtendremos lo siguiente:</p>
 
-<pre>
+```java
 Esto es una sentencia if
-</pre>
+```
 
 <hr />
 
@@ -77,17 +81,17 @@ Esto es una sentencia if
 
 <p>Veamos la sintaxis:</p>
 
-<pre lang=“java”>
+```java
 if(expresion_Booleana)
-    / / Se ejecuta cuando la expresión booleana es verdadera 
+    / / Se ejecuta cuando la expresión booleana es verdadera
 } else {
-    / / Se ejecuta cuando la expresión booleana es falsa 
+    / / Se ejecuta cuando la expresión booleana es falsa
 }
-</pre>
+```
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang=“java”>
+```java
 public class Curso {
 
    public static void main(String args[]){
@@ -100,13 +104,13 @@ public class Curso {
       }
    }
 }
-</pre>
+```
 
 <p>Si ejecutamos el código anterior obtendremos lo siguiente:</p>
 
-<pre>
+```java
 Esto es una sentencia else
-</pre>
+```
 
 <hr />
 
@@ -116,21 +120,21 @@ Esto es una sentencia else
 
 <p>Veamos la sintaxis:</p>
 
-<pre lang=“java”>
+```java
 if(expresion_Booleana_1)
-    / / Se ejecuta cuando la expresión booleana 1 es verdadera 
+    / / Se ejecuta cuando la expresión booleana 1 es verdadera
 } else if (expresion_Booleana_2) {
-    / / Se ejecuta cuando la expresión booleana 2 es verdadera 
+    / / Se ejecuta cuando la expresión booleana 2 es verdadera
 } else if (expresion_Booleana_3) {
-    / / Se ejecuta cuando la expresión booleana 3 es cierto 
+    / / Se ejecuta cuando la expresión booleana 3 es cierto
 } else {
-    / / Se ejecuta cuando ninguna condición anterior es verdadera. 
+    / / Se ejecuta cuando ninguna condición anterior es verdadera.
 }
-</pre>
+```
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang=“java”>
+```java
 public class Curso {
 
    public static void main(String args[]){
@@ -147,13 +151,13 @@ public class Curso {
       }
    }
 }
-</pre>
+```
 
 <p>Si ejecutamos el código anterior obtendremos lo siguiente:</p>
 
-<pre>
+```java
 El valor de X es 45
-</pre>
+```
 
 <hr />
 
@@ -161,18 +165,18 @@ El valor de X es 45
 
 <p>También es posible usar una sentencia <strong>if</strong> o <strong>if…else</strong> dentro de otro <strong>if</strong> o <strong>if..else</strong>. Veamos la sintaxis:</p>
 
-<pre lang=“java”>
+```java
 if(expresion_Booleana_1)
-    / / Se ejecuta cuando la expresión booleana 1 es verdadera 
+    / / Se ejecuta cuando la expresión booleana 1 es verdadera
     if (expresion_Booleana_2) {
-       / / Se ejecuta cuando la expresión booleana 2 es verdadera 
-    } 
+       / / Se ejecuta cuando la expresión booleana 2 es verdadera
+    }
 }
-</pre>
+```
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang=“java”>
+```java
 public class Curso {
 
    public static void main(String args[]){
@@ -186,13 +190,13 @@ public class Curso {
        }
     }
 }
-</pre>
+```
 
 <p>Si ejecutamos el código anterior obtendremos lo siguiente:</p>
 
-<pre>
+```java
 X = 40 y Y = 5
-</pre>
+```
 
 <hr />
 
@@ -200,19 +204,19 @@ X = 40 y Y = 5
 
 <p>Una sentencia <strong>switch</strong> permite a una variable ser probada por una lista de condiciones. Cada condición se llama <strong>case</strong>.Veamos la sintaxis:</p>
 
-<pre lang=“java”>
+```java
 switch (expresion) {
-     case valor1: 
-        / / Declaraciones 
-        break; / / opcional 
-     case valor2: 
-        / / Declaraciones 
-        break; / / opcional 
-     / / Usted puede tener cualquier número de sentencias case. 
-     default: / / Opcional 
+     case valor1:
+        / / Declaraciones
+        break; / / opcional
+     case valor2:
+        / / Declaraciones
+        break; / / opcional
+     / / Usted puede tener cualquier número de sentencias case.
+     default: / / Opcional
         / / Declaraciones que cumplirá si la variable no entra en ningún caso.
 }
-</pre>
+```
 
 <p>Las siguientes reglas se aplican a una sentencia switch :</p>
 
@@ -228,7 +232,7 @@ switch (expresion) {
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang=“java”>
+```java
 public class Curso {
 
    public static void main(String args[]){
@@ -237,10 +241,10 @@ public class Curso {
       switch(departamento)
       {
          case 'A' :
-            System.out.println("Desarrollo"); 
+            System.out.println("Desarrollo");
             break;
          case 'B' :
-    System.out.println(“Recursos Humanos"); 
+    System.out.println(“Recursos Humanos");
             break;
          case 'C' :
             System.out.println("Finanzas");
@@ -253,14 +257,14 @@ public class Curso {
       System.out.println(“Código para el departamento es " + departamento);
    }
 }
-</pre>
+```
 
 <p>Si ejecutamos el código anterior obtendremos lo siguiente:</p>
 
-<pre>
+```java
 Recursos Humanos
 Código para el departamento es B
-</pre>
+```
 
 <blockquote>
   <p>Si por casualidad no sabes como compilar y probar los ejemplos de este curso con Java te recomiendo que le eches un vistazo a <a href="http://codehero.co/java-desde-cero-instalacion-configuracion/">Como compilar y ejecutar un código en Java</a></p>

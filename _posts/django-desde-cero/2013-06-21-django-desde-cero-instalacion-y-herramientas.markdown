@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 1076
 wordpress_url: http://codehero.co/?p=1076
 date: 2013-06-21 08:33:27.000000000 -04:30
+serie: Django desde Cero
+dificultad: Novato
+duracion: 30
+description: Curso en el cual aprenderemos Django desde Cero. En esta clase, estudiaremos como instalar las herramientas que nos facilitarán la instalación de Django.
 categories:
 - Cursos
 - Django
@@ -57,15 +61,17 @@ tags:
 
 <p>La herramienta que descargamos anteriormente nos facilitará el proceso de instalación. Solo debemos tipear la siguiente línea:</p>
 
-<pre>$ easy_install pip
-</pre>
+```bash
+$ easy_install pip
+```
 
 <h5>Windows</h5>
 
 <p>La herramienta que descargamos anteriormente nos facilitará el proceso de instalación. Solo debemos tipear la siguiente línea:</p>
 
-<pre>c:\Python27\Scripts\easy_install.exe pip
-</pre>
+```bash
+c:\Python27\Scripts\easy_install.exe pip
+```
 
 <h3>Virtualenv</h3>
 
@@ -77,13 +83,15 @@ tags:
 
 <h5>Mac y Linux</h5>
 
-<pre>$ pip install virtualenv
-</pre>
+```bash
+$ pip install virtualenv
+```
 
 <h5>Windows</h5>
 
-<pre>c:\Python27\Scripts\pip.exe install virtualenv
-</pre>
+```bash
+c:\Python27\Scripts\pip.exe install virtualenv
+```
 
 <hr />
 
@@ -95,8 +103,9 @@ tags:
   <p>De ahora en adelante, todas las instrucciones del curso estarán basadas en formatos <strong>Mac</strong> y <strong>Linux</strong>. De estar usando <strong>Windows</strong> les recomiendo restructurar las líneas de comando ya que existen algunas diferencias para ese sistema operativo en particular.</p>
 </blockquote>
 
-<pre>$ virtualenv --no-site-packages AMBIENTE-CODEHERO
-</pre>
+```bash
+$ virtualenv --no-site-packages AMBIENTE-CODEHERO
+```
 
 <p>Desglosemos las sintaxis de la instrucción. <code>virtualenv</code> lo usamos para invocar al módulo que nos genera el ambiente virtual. <code>--no-site-packages</code> es una opción de virtualenv, la cual nos permite crear un ambiente de desarrollo virtual sin ningún paquete instalado y por último encontramos <code>AMBIENTE-CODEHERO</code>, nombre que va a tener la capeta del ambiente virtual (puede ser cualquier nombre que ustedes deseen, con la excepción que no sea la palabra <strong>python</strong>).</p>
 
@@ -104,24 +113,27 @@ tags:
   <p>Virtualenv instala por nosotros las herramientas que instalamos con anterioridad (easy_install y pip).</p>
 </blockquote>
 
-<pre>New python executable in AMBIENTE-CODEHERO/bin/python
+```bash
+New python executable in AMBIENTE-CODEHERO/bin/python
 Installing setuptools............done.
 Installing pip...............done.
-</pre>
+```
 
 <p>Es acá donde observamos la funcionalidad principal de virtualenv ya que si listamos el contenido de la carpeta que contiene el ambiente virtual podemos observar que se instaló un nuevo Shell, el cual podemos hacer uso de él para así no dañar el de nuestro propio sistema.</p>
 
-<pre>$ ls -l
+```bash
+$ ls -l
 total 0
 drwxr-xr-x  13 root  staff  442 Jun 21 02:52 bin
 drwxr-xr-x   3 root  staff  102 Jun 21 02:52 include
 drwxr-xr-x   3 root  staff  102 Jun 21 02:52 lib
-</pre>
+```
 
 <p>Lo segundo que debemos hacer, es activar nuestro nuevo ambiente de desarrollo virtual. Veamos como lo podemos hacer:</p>
 
-<pre>$ source AMBIENTE-CODEHERO/bin/activate 
-</pre>
+```bash
+$ source AMBIENTE-CODEHERO/bin/activate
+```
 
 <p>La función de este comando es decirle a nuestro Shell actual que estamos cambiando de contexto hacia nuestro ambiente virtual.</p>
 
@@ -129,19 +141,22 @@ drwxr-xr-x   3 root  staff  102 Jun 21 02:52 lib
   <p>Importante destacar que todos los paquetes que instalemos de ahora en adelante se instalarán sobre este Shell o contexto virtual y no afectará nuestro sistema base (<em>siempre y cuando el ambiente virtual este activo</em>).</p>
 </blockquote>
 
-<pre>$ (AMBIENTE-CODEHERO) ...
-</pre>
+```bash
+$ (AMBIENTE-CODEHERO) ...
+```
 
 <p>Si observamos <code>(AMBIENTE-CODEHERO)</code>, nos encontramos dentro del ambiente virtual.</p>
 
 <p>Tercero, una vez que tengamos listo nuestro ambiente virtual, podemos proceder e instalar Django de la siguiente manera:</p>
 
-<pre>$ pip install django
-</pre>
+```bash
+$ pip install django
+```
 
 <p>Podemos observar que la ultima versión disponible hasta el momento de este curso es la <code>1.5.1</code>.</p>
 
-<pre>Searching for django
+```bash
+Searching for django
 Reading http://pypi.python.org/simple/django/
 Best match: Django 1.5.1
 Downloading http://pypi.python.org/packages/source/D/Django/Django-1.5.1.tar.gz#md5=7465f6383264ba167a9a031d6b058bff
@@ -149,16 +164,17 @@ Processing Django-1.5.1.tar.gz
 .
 .
 .
-</pre>
+```
 
 <p>Para saber si instalamos correctamente Django tipeamos lo siguiente:</p>
 
-<pre>$ python
+```bash
+$ python
 >>> from django import get_version
 >>>  get_version()
 '1.5.1'
 >>>
-</pre>
+```
 
 <p>Si les devuelve el número de la versión quiere decir que el paquete fue instalado satisfactoriamente.</p>
 
@@ -168,44 +184,49 @@ Processing Django-1.5.1.tar.gz
 
 <p>Lo primero que necesitamos hacer es crear un nuevo proyecto, para ello vamos a usar la siguiente línea de comando:</p>
 
-<pre>django-admin.py startproject codehero_web
-</pre>
+```bash
+django-admin.py startproject codehero_web
+```
 
 <p>Desglosemos el comando: <code>django-admin.py</code> es un script que nos permite gestionar todas las funcionalidades que ofrece Django (Se encuentra dentro de la carpeta <code>bin/</code>). <code>startproject</code> es la opción necesaria para iniciar un proyecto. Y por último, <code>codehero_web</code> es el nombre que le asignamos a este proyecto en particular (ustedes pueden elegir el que ustedes deseen).</p>
 
 <p>Si listamos la carpeta en donde estamos trabajando con <code>ls -l</code> podemos observar que ahora encontramos una carpeta con el nombre dl proyecto.</p>
 
-<pre>$ ls -l
+```bash
+$ ls -l
 total 0
 drwxr-xr-x  14 root  staff  476 Jun 21 02:57 bin
 drwxr-xr-x   4 root  staff  136 Jun 21 03:02 codehero_web
 drwxr-xr-x   3 root  staff  102 Jun 21 02:52 include
 drwxr-xr-x   3 root  staff  102 Jun 21 02:52 lib
-</pre>
+```
 
 <p>Naveguemos dentro de <code>codehero_web</code> y listemos su contenido de la siguiente forma:</p>
 
-<pre>cd codehero_web/ && ls -l
+```bash
+cd codehero_web/ && ls -l
 total 8
 drwxr-xr-x  6 root  staff  204 Jun 21 03:02 codehero_web
 -rw-r--r--  1 root  staff  255 Jun 21 03:02 manage.py
-</pre>
+```
 
 <p>Podemos observar que ahora tenemos un script llamado <code>manage.py</code>. Este en particular es muy importante ya que nos permite realizar toda la gestión del proyecto. Por los momentos, en esta lección nos enfocaremos en una de sus funcionalidades, más adelante en los siguientes capítulos cubriremos muchas más.</p>
 
 <p>Ahora necesitamos correr el servidor para comprobar que nuestro proyecto se pueda navegar en un explorador. Lo hacemos con el siguiente comando 'runserver':</p>
 
-<pre>$ python manage.py runserver
-</pre>
+```bash
+$ python manage.py runserver
+```
 
-<pre>Validating models...
+```bash
+Validating models...
 
 0 errors found
 June 21, 2013 - 02:37:44
 Django version 1.5.1, using settings 'codehero_web.settings'
 Development server is running at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
-</pre>
+```
 
 <p>Si te aparece este mensaje hemos levantado el servidor exitosamente!. Ahora veamos el proyecto desde el explorador. Naveguemos a la siguiente dirección: <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> nos debería aparecer lo siguiente:</p>
 
@@ -217,8 +238,9 @@ Quit the server with CONTROL-C.
 
 <p>Por último, veamos como desactivar el ambiente virtual de desarrollo. Para detener o desactivar el ambiente lo único que tenemos que hacer es tipear el siguiente comando:</p>
 
-<pre>$ deactivate
-</pre>
+```bash
+$ deactivate
+```
 
 <hr />
 

@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2496
 wordpress_url: http://codehero.co/?p=2496
 date: 2013-10-31 01:18:35.000000000 -04:30
+serie: Django desde Cero
+dificultad: Aprendiz
+duracion: 30
+description: Curso en el cual aprenderemos Django desde Cero. En esta clase, estudiaremos como crear asociaciones en las bases de datos con la ayuda de Django.
 categories:
 - Cursos
 - Django
@@ -44,17 +48,17 @@ tags:
 
 <p>Agreguemos al archivo <code>models.py</code> que se encuentra en la app <code>blog</code> el siguiente código:</p>
 
-<pre>
+```python
 class Comentario(models.Model):
    nombre = models.CharField(max_length = 200)
    cuerpo = models.TextField()
    fecha_pub = models.DateTimeField('fecha publicacion')
    articulo = models.ForeignKey(Articulo)
-</pre>
+```
 
 <blockquote>
   <p>Observemos lo siguiente:</p>
-  
+
   <ul>
   <li>Creamos un modelo llamado <strong>Comentario</strong>, el cual va a guardar todos los comentarios realizados a un artículo.</li>
   <li>Con <code>nombre = models.CharField(max_length = 200)</code> guardamos el nombre de la persona que realizo el comentario.</li>
@@ -83,13 +87,13 @@ class Comentario(models.Model):
 
 <p>Lo primero que tenemos que hacer es crear un <strong>form</strong> para dicho modelo, para realizar esto vamos a agregar el siguiente código al archivo <code>forms.py</code> dentro de nuestra app:</p>
 
-<pre>
+```python
 class ComentarioForm(forms.ModelForm):
 
    class Meta:
       model = Comentario
       fields = ('nombre', ‘cuerpo')
-</pre>
+```
 
 <blockquote>
   <p>Observemos que creamos un form para el modelo <strong>Comentario</strong> con la ayuda de Django. Con <code>model = Comentario</code> asignamos el modelo correspondiente al form que queremos desplegar y con <code>fields = ( ‘nombre’, ‘cuerpo’ )</code> le indicamos a Django que solo puede mostrar estos campos en vez de todos los que restan en el modelo.</p>
@@ -99,15 +103,15 @@ class ComentarioForm(forms.ModelForm):
 
 <p>Ahora lo que tenemos que hacer es agregar un <strong>url</strong> para que podamos acceder a la vista de crear los comentarios. Para esto necesitamos agregar lo siguiente al archivo <code>urls.py</code> dentro de la app <code>blog</code>:</p>
 
-<pre>
+```python
     url(r'^agregar_comentario/(?P<articulo_id>\d+)/$', 'blog.views.agregar_comentario'),
-</pre>
+```
 
 <p>Si no sabes como crear urls en Django te recomiendo que le eches un ojo a <a href="http://codehero.co/django-desde-cero-urls-avanzadas/">Urls en Django</a>.</p>
 
 <p>Seguido a esto debemos crear la vista a la cual va a acceder el la url que creamos anteriormente para eso agregamos el siguiente código al archivo <code>views.py</code> en la app <code>blog</code>:</p>
 
-<pre>
+```python
 def agregar_comentario(request, articulo_id):
     articulo = Articulo.objects.get(id=articulo_id)
 
@@ -124,19 +128,19 @@ def agregar_comentario(request, articulo_id):
         return HttpResponseRedirect('/articulos/obtener/%s' % articulo_id)
     else:
         form = ComentarioForm()
-     
+
     args = {}
     args.update(csrf(request))
-    
+
     args['articulo'] = articulo
     args['form'] = form
 
     return render_to_response('agregar_comentario.html', args)
-</pre>
+```
 
 <blockquote>
   <p>Observemos lo siguiente:</p>
-  
+
   <ul>
   <li>Con <code>articulo = Articulo.objects.get(id=articulo_id)</code> estamos obteniendo el articulo con el id que provee la url, es decir, el artículo al cual debemos agregar el comentario.</li>
   <li>Con <code>comentario = form.save(commit=False)</code> guardamos la instancia del comentario una vez que sea valida pero no le hacemos commit, es decir, no la guardamos en la base de datos.</li>

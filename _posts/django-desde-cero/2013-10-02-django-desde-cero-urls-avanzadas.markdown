@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2338
 wordpress_url: http://codehero.co/?p=2338
 date: 2013-10-02 06:27:03.000000000 -04:30
+serie: Django desde Cero
+dificultad: Novato
+duracion: 20
+description: Curso en el cual aprenderemos Django desde Cero. En esta clase, estudiaremos como crear urls avanzadas las cuales nos servirán para manejar información.
 categories:
 - Cursos
 - Django
@@ -42,19 +46,20 @@ tags:
 
 <p>Una vez que creemos ese archivo debemos agregarle lo siguiente:</p>
 
-<pre>from django.conf.urls import patterns, include, url
+```python
+from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'^todos/$', 'blog.views.articulos'),
-    url(r'^obtener/(?P&lt;articulo_id>\d+)/$', 'blog.views.articulo'),
+    url(r'^obtener/(?P<articulo_id>\d+)/$', 'blog.views.articulo'),
 )
-</pre>
+```
 
 <blockquote>
   <p>Observemos que prácticamente estamos recreando el archivo <code>urls.py</code> general de nuestro sitio web, pero ahora lo vamos a adaptar para que solo maneje lo que tiene que ver con nuestra app <strong>blog</strong>, para que así si tenemos muchas aplicaciones no nos confundamos a la hora de generar el contenido.</p>
-  
-  <p>Como se puede ver hemos definido dos direcciones la primera <code>url(r'^todos/$', 'blog.views.articulos')</code> la cual nos va a llevar a la vista donde despleguemos todos los artículos y la segunda <code>url(r'^obtener/(?P&lt;articulo_id&gt;\d+)/$', 'blog.views.articulo')</code> donde mostramos un solo articulo dependiendo del id que le pasemos en el <em>url</em>. Con <code>(?P&lt;articulo_id&gt;\d+)</code> estamos permitiendo a Django obtener el id del articulo que esta escrito en la dirección como tal.</p>
-  
+
+  <p>Como se puede ver hemos definido dos direcciones la primera <code>url(r'^todos/$', 'blog.views.articulos')</code> la cual nos va a llevar a la vista donde despleguemos todos los artículos y la segunda <code>url(r'^obtener/(?P<articulo_id>\d+)/$', 'blog.views.articulo')</code> donde mostramos un solo articulo dependiendo del id que le pasemos en el <em>url</em>. Con <code>(?P<articulo_id>\d+)</code> estamos permitiendo a Django obtener el id del articulo que esta escrito en la dirección como tal.</p>
+
   <p>Cabe destacar que puedes generar direcciones con el nombre que tu desees y redireccionarlas a la vista que tu prefieras. Todo depende de lo que tu sitio web necesite.</p>
 </blockquote>
 
@@ -62,12 +67,14 @@ urlpatterns = patterns('',
 
 <p>En el archivo <code>urls.py</code> de nuestro sitio, en nuestro caso <strong>PrimerBlog</strong> agregamos lo siguiente:</p>
 
-<pre>(r'^articulos/', include('blog.urls')),
-</pre>
+```python
+(r'^articulos/', include('blog.urls')),
+```
 
 <p>Al archivo debería lucir así:</p>
 
-<pre>from django.conf.urls import patterns, include, url
+```python
+from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -89,7 +96,7 @@ urlpatterns = patterns('',
 
     url(r'^crear/', 'blog.views.crear', name='crear'),
 )
-</pre>
+```
 
 <blockquote>
   <p>Observemos que lo que estamos haciendo acá es mapear todo el contenido que venga por <code>articulos/</code> dentro de la url hacia el archivo <code>urls.py</code> que creamos anteriormente el cual maneja <strong>obtener</strong> y <strong>todos</strong>.</p>
@@ -97,12 +104,13 @@ urlpatterns = patterns('',
 
 <p>Lo tercero y último que tenemos que hacer es crear las vistas que nos permitan manejar estas direcciones que creamos anteriormente. Para esto nos vamos al archivo <code>views.py</code> dentro de nuestra app <strong>blog</strong> y agregamos el siguiente código:</p>
 
-<pre>def articulos(request):
+```python
+def articulos(request):
   return render_to_response('index.html', {'articulos' : Articulo.objects.all() })
 
 def articulo(request, articulo_id=1):
   return render_to_response('articulo.html', {'articulo' : Articulo.objects.get(id=articulo_id) })
-</pre>
+```
 
 <blockquote>
   <p>Observemos que creamos una vista llamada <code>articulos</code> la cual va a obtener todos los artículos disponibles en la base de datos y desplegarla en el template <code>index.html</code> una vez que accedamos a la dirección <strong>todos</strong> que creamos anteriormente, y segundo creamos una vista denominada<code>articulo</code> la cual va a obtener solo el artículo con el id que le pasemos en <code>articulo_id</code> una vez accedamos a la dirección <strong>obtener/</strong>.</p>
@@ -110,7 +118,8 @@ def articulo(request, articulo_id=1):
 
 <p>El archivo <code>views.py</code> debería lucir así:</p>
 
-<pre>from django.shortcuts import render_to_response
+```python
+from django.shortcuts import render_to_response
 from blog.models import Articulo
 from forms import ArticuloForm
 from django.http import HttpResponseRedirect
@@ -130,10 +139,10 @@ def crear(request):
             return HttpResponseRedirect('/')
     else:
         form = ArticuloForm()
-     
+
     args = {}
     args.update(csrf(request))
-    
+
     args['form'] = form
 
     return render_to_response('crear_articulo.html', args)
@@ -143,7 +152,7 @@ def articulos(request):
 
 def articulo(request, articulo_id=1):
   return render_to_response('articulo.html', {'articulo' : Articulo.objects.get(id=articulo_id) })
-</pre>
+```
 
 <hr />
 

@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 3092
 wordpress_url: http://codehero.co/?p=3092
 date: 2014-03-05 00:25:37.000000000 -04:30
+serie: Java desde Cero
+dificultad: Novato
+duracion: 15
+description: Curso en el cual aprenderemos Java desde Cero. Estudiaremos todo lo relacionado al manejo de la clase String dentro de Java.
 categories:
 - Cursos
 - Java
@@ -35,9 +39,9 @@ tags:
 
 <p>La forma más fácil para crear un <strong>String</strong> es la siguiente:</p>
 
-<pre lang=‘java’>
+```java
 String nombre = “¡Codehero!";
-</pre>
+```
 
 <blockquote>
   <p>Cada vez que se encuentra con una cadena de caracteres en el código, el compilador crea un objeto <code>String</code> con su valor, en este caso, “¡Codehero!'.</p>
@@ -45,7 +49,7 @@ String nombre = “¡Codehero!";
 
 <p>Al igual que con cualquier otro objeto en Java, podemos crear objetos <code>String</code> mediante la palabra clave <code>new</code> y un constructor de nuestra preferencia. La clase <code>String</code> tiene once constructores que nos pueden ayudar a proporcionar el valor inicial de la cadena de caracteres usando diferentes fuentes. Veamos un ejemplo del uso apropiado de uno de esos constructores. En el siguiente caso vamos a construir un <strong>String</strong> a partir de una array con caracteres.</p>
 
-<pre lang=‘java’>
+```java
 public class Ejemplo{
 
    public static void main(String args[]){
@@ -54,17 +58,17 @@ public class Ejemplo{
       System.out.println(nombre);
    }
 }
-</pre>
+```
 
 <p>Si ejecutamos el código anterior deberíamos obtener lo siguiente:</p>
 
-<pre>
+```java
 carlos
-</pre>
+```
 
 <blockquote>
   <p>La clase String es inmutable, por lo que una vez que se crea un objeto String no se puede cambiar. Si hay una necesidad de hacer una gran cantidad de modificaciones a las cadenas de caracteres, entonces debes usar las siguientes clases <strong>String Buffer</strong> y <strong>String Builder</strong>.</p>
-  
+
   <p>No te preocupes si no manejas bien los constructores. Estos los vamos a estar explicando mas adelante en la serie.</p>
 </blockquote>
 
@@ -82,7 +86,7 @@ carlos
 
 <p>Veamos un ejemplo de como usar este método:</p>
 
-<pre lang=‘java’>
+```java
 public class Ejemplo{
 
    public static void main(String args[]) {
@@ -91,13 +95,13 @@ public class Ejemplo{
       System.out.println( “La longitud de la frase es: " + longitud );
    }
 }
-</pre>
+```
 
 <p>Si ejecutamos el código anterior deberíamos obtener lo siguiente:</p>
 
-<pre>
+```java
 La longitud de la frase es: 10
-</pre>
+```
 
 <hr />
 
@@ -105,25 +109,25 @@ La longitud de la frase es: 10
 
 <p>La clase String incluye un método para la concatenación de dos cadenas de caracteres. Ese método se llama <code>concat()</code>. Veamos la sintaxis:</p>
 
-<pre lang=‘java’>
+```java
 cadena_caracteres_1.concat(cadena_caracteres_2);
-</pre>
+```
 
 <p>Esto devolvería una nueva cadena de caracteres la cual tendría <code>cadena_caracteres_1</code> mas <code>cadena_caracteres_2</code>. Veamos un ejemplo:</p>
 
-<pre lang=‘java’>
+```java
 "Hola “.concat("Mundo");
-</pre>
+```
 
 <p>Si ejecutamos el código anterior deberíamos obtener lo siguiente:</p>
 
-<pre>
+```java
 Hola Mundo
-</pre>
+```
 
 <p>La manera mas común de usar este método es con el operador <code>+</code>. Veamos un ejemplo:</p>
 
-<pre lang=‘java’>
+```java
 public class Ejemplo {
 
    public static void main(String args[]) {
@@ -131,13 +135,13 @@ public class Ejemplo {
       System.out.println(frase + “a Codehero”);
    }
 }
-</pre>
+```
 
 <p>Si ejecutamos el código anterior deberíamos obtener lo siguiente:</p>
 
-<pre>
+```java
 Bienvenido a Codehero
-</pre>
+```
 
 <hr />
 
@@ -145,11 +149,11 @@ Bienvenido a Codehero
 
 <p>Printf es un método que nos ayuda a imprimir cadenas de caracteres. Veamos un ejemplo:</p>
 
-<pre lang=‘java’>
+```java
 public class Ejemplo {
 
    public static void main(String args[]) {
-    
+
     float variableFloat = 12.2;
     int variableInt = 2;
     String variableString = “Frase”
@@ -158,25 +162,25 @@ public class Ejemplo {
                         "%f, el valor de la variable de tipo integer es " +
                          "%d, y el valor del string es " +
                          "%s", variableFloat, variableInt, variableString);
-</pre>
+```
 
 <p>Si ejecutamos el código anterior deberíamos obtener lo siguiente:</p>
 
-<pre>
+```java
 El valor de la variable tipo float es 12.2, el valor de la variable de tipo integer es 2, y el valor del string es frase
-</pre>
+```
 
 <blockquote>
   <p>Cabe destacar que:</p>
-  
+
   <ul>
   <li><code>%f</code> es el contenedor para la variable <code>variableFloat</code> dentro del string, la <code>f</code> es por el tipo de variable que en este caso es porque usamos una tipo <code>float</code>. </li>
   <li><code>%d</code> es el contenedor para la variable <code>variableInt</code> dentro del string, la <code>d</code> es por el tipo de variable que en este caso es porque usamos una tipo <code>int</code>. </li>
   <li><code>%s</code> es el contenedor para la variable <code>variableString</code> dentro del string, la <code>s</code> es por el tipo de variable que en este caso es porque usamos una tipo <code>String</code>. </li>
   </ul>
-  
+
   <p>Para consultar todos los formatos de string existentes en Java te invito a visitar <a href="http://docs.oracle.com/javase/tutorial/java/data/numberformat.html">Formatos de variables</a>.</p>
-  
+
   <p>Para consultar todos los métodos y constructores dentro de la clase String de Java te recomiendo que le eches un vistazo a <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html">Clase String</a>.</p>
 </blockquote>
 

@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 1221
 wordpress_url: http://codehero.co/?p=1221
 date: 2013-06-28 08:44:18.000000000 -04:30
+serie: Python desde Cero
+dificultad: Novato
+duracion: 25
+description: Hoy, aprenderemos todo lo que tiene que ver con las funciones dentro de Python, desde los tipos hasta los estándares necesarios para desarrollar una función
 categories:
 - Cursos
 - Python
@@ -34,7 +38,8 @@ tags:
 
 <p>Vamos a escribir una función que nos permita agarrar dos precios de artículos de compra, sumarlos y después imprimir ese valor. Veamos como hacerlo:</p>
 
-<pre>#nuestros dos precios de los artículos
+```python
+#nuestros dos precios de los artículos
 articulo1 = 10  #articulo 1 posee un precio de 10
 articulo2 = 25  #articulo 2 posee un precio de 25
  
@@ -43,7 +48,7 @@ def totalizarCompra():
    print costoTotal
  
 totalizarCompra()
-</pre>
+```
 
 <p>Para definir una función en Python lo único que debemos usar es la palabra clave <code>def</code> y luego colocar el nombre que le queremos dar a la función, en este caso <strong>totalizarCompra</strong>. Luego, tipeamos dos paréntesis (<em>más adelante veremos que se puede hacer con esos paréntesis pero por los momentos vamos a mantenerlo simple</em>), y finalmente agregamos dos puntos.</p>
 
@@ -51,9 +56,10 @@ totalizarCompra()
 
 <p>Si ejecutamos el script podemos observar que nos retorna <strong>35</strong>, lo que es correcto.</p>
 
-<pre>$ python2.7 carritoCompra.py
+```python
+$ python2.7 carritoCompra.py
 $ 35
-</pre>
+```
 
 <h3>Argumentos</h3>
 
@@ -67,7 +73,8 @@ $ 35
 
 <p>¿Confundido?, veamos el ejemplo anterior y salgamos de las dudas. Ya sabemos que necesitamos agregarle argumentos a la función. Veamos como:</p>
 
-<pre>articulo1 = 10  #articulo 1 posee un precio de 10
+```python
+articulo1 = 10  #articulo 1 posee un precio de 10
 articulo2 = 40  #articulo 2 posee un precio de 40
 articulo3 = 5  #articulo 3 posee un precio de 5
 articulo4 = 25  #articulo 4 posee un precio de 25
@@ -77,7 +84,7 @@ def totalizarCompra(item1, item2):
    print costoTotal
  
 totalizarCompra(articulo1, articulo2)
-</pre>
+```
 
 <blockquote>
   <p>Los <strong>argumentos</strong> van definidos dentro de los paréntesis de la función. Cada argumento que deseamos generar debe tener tu propio nombre y deben estar separado por comas. Este actúa como una referencia temporal hacia la información que le pasamos a la función mientras que esta ejecuta el bloque del código.</p>
@@ -91,13 +98,15 @@ totalizarCompra(articulo1, articulo2)
 
 <p>Suficiente explicaciones, ahora ejecutemos el script y veamos que nos devuelve:</p>
 
-<pre>$ python2.7 carritoCompra.py
+```python
+$ python2.7 carritoCompra.py
 $ 50
-</pre>
+```
 
 <p>Como podemos ver, nos devolvió la suma del <code>articulo1</code> y <code>articulo2</code>. Ahora veamos que pasa si en vez de pasarle <code>articulo1</code> y <code>articulo2</code> como argumentos, le pasamos <code>articulo3</code> y <code>articulo4</code>. Cambiemos solo la última línea del script por <code>totalizarCompra(articulo3, articulo4)</code></p>
 
-<pre>articulo1 = 10  #articulo 1 posee un precio de 10
+```python
+articulo1 = 10  #articulo 1 posee un precio de 10
 articulo2 = 40  #articulo 2 posee un precio de 40
 articulo3 = 5  #articulo 3 posee un precio de 5
 articulo4 = 25  #articulo 4 posee un precio de 25
@@ -107,13 +116,14 @@ def totalizarCompra(item1, item2):
    print costoTotal
  
 totalizarCompra(articulo3, articulo4)
-</pre>
+```
 
 <p>Si ejecutamos el script podemos observar que exitosamente imprime <strong>30</strong>, la suma del <code>articulos3</code> y del <code>articulo4</code>, ya que esos fueron los argumentos que les pasamos.</p>
 
-<pre>$ python2.7 carritoCompra.py
+```python
+$ python2.7 carritoCompra.py
 $ 30
-</pre>
+```
 
 <h3>¿Cómo retornar valores dentro de una función?</h3>
 
@@ -123,7 +133,8 @@ $ 30
 
 <p>La respuesta es sencilla, lo único que debemos hacer es asignar en la función que variable va a hacer el valor de retorno. La manera de asignar o decirle a la función que retorne una variable es con la palabra clave <code>return</code>.Veamos el ejemplo anterior, vamos a remplazar la palabra <code>print</code> de la función <code>totalizarCompra()</code> por la palabra <code>return</code>. Así la función sabrá que deberá retornar el valor de <code>costoTotal</code> y no imprimirlo.</p>
 
-<pre>articulo1 = 10  #articulo 1 posee un precio de 10
+```python
+articulo1 = 10  #articulo 1 posee un precio de 10
 articulo2 = 40  #articulo 2 posee un precio de 40
 articulo3 = 5  #articulo 3 posee un precio de 5
 articulo4 = 25  #articulo 4 posee un precio de 25
@@ -137,16 +148,17 @@ total2 = totalizarCompra(articulo3, articulo4)
 
 print total1
 print total2
-</pre>
+```
 
 <p>Obviamente, la función no va imprimir la respuesta sino que va a devolver a las variables <code>toatl1</code> y <code>total2</code>, los valores correspondientes a la suma de sus artículos, es decir, <code>total1</code> va a recibir la suma de <code>articulo1</code> y <code>articulo2</code>, y <code>total2</code> va a recibir la suma de <code>articulo3</code> y `articulo4’.</p>
 
 <p>Si ejecutamos el script observamos:</p>
 
-<pre>$ python2.7 carritoCompra.py
+```python
+$ python2.7 carritoCompra.py
 $ 50
 $ 30
-</pre>
+```
 
 <hr />
 
@@ -162,39 +174,45 @@ $ 30
 
 <p>Primero, veamos una de las funciones más usadas en Python: el convertidor a <strong>string</strong>. Muchas de las veces que uno desarrolla aplicaciones se encuentra con la necesidad de convertir una variable que contiene un número en una cadena de caracteres. Como por ejemplo:</p>
 
-<pre>numero = 10
+```python
+numero = 10
 print 'El número es ' + numero
-</pre>
+```
 
 <p>Si ejecutamos ese script nos encontraremos con un error ya que le estamos pidiendo a Python que añada un número a una cadena de caracteres. Es en este caso donde <strong>srt()</strong> sale al rescate!, ya que esta toma el valor del número y lo retorna como un string(cadena de caracteres). De esta manera Python entenderá que <code>+</code> no significará sumar los dos elementos sino concatenar o juntar dos cadenas de caracteres. Veamos como:</p>
 
-<pre>numero = 10
+```python
+numero = 10
 print 'El número es ' + str(numero)
-</pre>
+```
 
 <p>Ahora si ejecutamos este trozo de código, observamos que nos imprime la cadena de caracteres sin ningún problema:</p>
 
-<pre>$ El número es 10
-</pre>
+```python
+$ El número es 10
+```
 
 <p><strong>str()</strong> no solo acepta valores tipo integer, también puede aceptar diferente tipos de dato como por ejemplo Booleans.</p>
 
-<pre>bool = True
+```python
+bool = True
 print 'El valor de la variable es ' + str(bool)
-</pre>
+```
 
 <h3>len()</h3>
 
 <p>Otra tarea muy común es saber cual es el tamaño de una cadena de caracteres, es ahí donde Python nos cubre las espaldas y nos proporciona **len(), función que toma una cadena de caracteres y nos retorna el tamaño de la misma en forma de número. Veamos como usarla:</p>
 
-<pre>cadena = 'Hola Codehero!'
+```python
+cadena = 'Hola Codehero!'
 print len(string)
-</pre>
+```
 
 <p>Si ejecutamos el código vemos que imprime 14, que es el número de caracteres que posee ese <code>Hola Codehero!</code>.</p>
 
-<pre>$ 14
-</pre>
+```python
+$ 14
+```
 
 <h3>range()</h3>
 
@@ -202,9 +220,10 @@ print len(string)
 
 <p>Veamos como usarla:</p>
 
-<pre>numeros = range(11)
+```python
+numeros = range(11)
 print(numeros)
-</pre>
+```
 
 <p>Lo único que necesitamos para usar la función es pasarle como argumento el número que deseamos alcanzar <code>range(numero)</code>.</p>
 
@@ -214,17 +233,19 @@ print(numeros)
 
 <p>Ahora veamos como hacer si quiero solo los número del 5 al 10:</p>
 
-<pre>numeros = range(5, 11)
+```python
+numeros = range(5, 11)
 print(numeros)
-</pre>
+```
 
 <p>Podemos observar que range también puede tomar dos argumentos, siendo el primero el número inicial y el segundo el número final de la serie.</p>
 
 <p>Ya para finalizar veamos como hacer si solo quiero los números impares del 1 al 10:</p>
 
-<pre>numeros = range(5, 11, 2)
+```python
+numeros = range(5, 11, 2)
 print(numeros)
-</pre>
+```
 
 <p>Observemos que range también puede tomar 3 argumentos, siendo el primero el número inicial y el segundo el número final de la serie y el tercero la cantidad de números que debe sumar entre cada iteración.</p>
 
