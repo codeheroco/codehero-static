@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 918
 wordpress_url: http://codehero.co/?p=918
 date: 2013-06-09 22:12:07.000000000 -04:30
+serie: Python desde Cero
+dificultad: Novato
+duracion: 20
+description: Python desde Cero, serie en la cual aprenderemos Python desde Cero. En esta sesión, estudiaremos como instalar y configurar Python en nuestros computadores.
 categories:
 - Cursos
 - Python
@@ -59,13 +63,15 @@ tags:
 
 <p>Para poder instalar la última versión de Python (2.7.5) en el sistema operativo debemos tener previamente instalado <a href="http://mxcl.github.io/homebrew/">Homebrew</a>. Utilizaremos el siguiente comando para iniciar la instalación:</p>
 
-<pre>$ brew install python --framework
-</pre>
+```bash
+$ brew install python --framework
+```
 
 <p>Este paso instalará todos los componentes necesarios y tardará unos minutos, una vez que culmine debemos exportar está ruta al <em>PATH</em> del usuario.</p>
 
-<pre>export PATH=/usr/local/share/python:$PATH
-</pre>
+```bash
+$ export PATH=/usr/local/share/python:$PATH
+```
 
 <p>La bandera <strong><em>--framework</em></strong> le indica a Homebrew que debe compilar Python en estilo Framework. Esto se realiza porque la versión de Python que venía con <em>Snow Leopard</em> se encontraba compilada de esta manera, y se sigue utilizando solo por prevención de errors en instalaciones futuras.</p>
 
@@ -73,8 +79,9 @@ tags:
 
 <p><strong><em>Nota:</em></strong> Si por el contrario desean instalar la versión 3 de Python lo pueden hacer de la misma manera utilizando el siguiente comando:</p>
 
-<pre>$ brew install python3 --framework
-</pre>
+```bash
+$ brew install python3 --framework
+```
 
 <h3>Windows</h3>
 
@@ -84,10 +91,11 @@ tags:
 
 <p>Si se encuentran en una distribución basada en Debian y quieren instalar una versión de Python distinta a la que viene con el Sistema Operativo. Existe un PPA (Paquete Personal de Archivo) que nos facilita la tarea de instalación.</p>
 
-<pre>$ sudo add-apt-repository ppa:fkrull/deadsnakes
+```bash
+$ sudo add-apt-repository ppa:fkrull/deadsnakes
 $ sudo apt-get update
 $ sudo apt-get install python2.7
-</pre>
+```
 
 <p>Si todo funcionó exitosamente deberíamos tener la ultima versión de Python 2.7 corriendo en el sistema.</p>
 
@@ -117,11 +125,12 @@ $ sudo apt-get install python2.7
 
 <p>Si nos aparece lo siguiente, accedimos satisfactoriamente al Shell de Python:</p>
 
-<pre>Python 2.7.5 (v2.7.3:70274d53c1dd, Apr  9 2012, 20:52:43) 
+```bash
+Python 2.7.5 (v2.7.3:70274d53c1dd, Apr  9 2012, 20:52:43)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
->>> 
-</pre>
+>>>
+```
 
 <h3>IDLE</h3>
 
@@ -141,7 +150,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <p>Guardamos el documento (<em>en mi caso</em> <code>Ctrl + S</code>) y lo vamos a llamar <strong>tutorial.py</strong>. Ahora para correrlo desde el <strong>IDLE</strong> lo único que tenemos que hacer es presionar la tecla <code>F5</code> y el programa automáticamente se ejecutará.</p>
 
-<pre>Python 2.7.5 (v3.3.0:bd8afb90ebf2, Apr  9 2012, 21:52:43) 
+```bash
+Python 2.7.5 (v3.3.0:bd8afb90ebf2, Apr  9 2012, 21:52:43)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
 Type "copyright", "credits" or "license()" for more information.
 >>>
@@ -149,7 +159,7 @@ Type "copyright", "credits" or "license()" for more information.
 >>>
 Hola Mundo!
 >>>
-</pre>
+```
 
 <blockquote>
   <p>Personalmente pienso que el IDLE de Python no es la mejor manera ni de aprender ni de desarrollar programas en Python, ya que es muy lento y le faltan muchas de las características importantes que ofrecen los editores de código de hoy en día.</p>
@@ -177,10 +187,11 @@ Hola Mundo!
 
 <p>Navegamos hasta el directorio donde se encuentra ubicado <strong>tutorial.py</strong> (<em>En mi caso esta en la carpeta ~/Documents/Tutoriales/Python/capitulo1/</em>) y luego usamos el comando <strong><em>“python + el nombre del archivo”</em></strong> para ejecutarlo, veamos como sería ese código:</p>
 
-<pre>cd ~/Documents/Tutoriales/Python/capitulo1/
-python tutorial.py
-Hola Mundo!
-</pre>
+```bash
+$ cd ~/Documents/Tutoriales/Python/capitulo1/
+$ python tutorial.py
+$ Hola Mundo!
+```
 
 <p>Una vez ejecutado el script nos imprime el <code>Hola mundo!</code> al igual como lo hizo cuando lo corrimos desde IDLE de Python.</p>
 
@@ -188,29 +199,34 @@ Hola Mundo!
 
 <p>Lo primero que hay que hacer es abrir el <strong>tutorial.py</strong> con el IDE o editor de texto de nuestra preferencia y agregarle la siguiente línea para indicarle al terminal que lenguaje o motor de interpretación va a usar</p>
 
-<pre>#!/usr/local/bin/python
-</pre>
+```python
+#!/usr/local/bin/python
+```
 
 <p>Nos quedaría lo siguiente:</p>
 
-<pre>#!/usr/local/bin/python
+```python
+#!/usr/local/bin/python
 print “Hola Mundo!”
-</pre>
+```
 
 <p>Lo segundo, tendríamos que darle permisología de ejecución a <strong>tutorial.py</strong> con la siguiente instrucción en el terminal</p>
 
-<pre>chmod 755 tutorial.py
-</pre>
+```bash
+$ chmod 755 tutorial.py
+```
 
 <p>Por último ejecutaríamos el archivo desde el terminal de la siguiente manera</p>
 
-<pre>./tutorial.py
-</pre>
+```bash
+$ ./tutorial.py
+```
 
 <p>Si todo esta correcto debería imprimir lo siguiente:</p>
 
-<pre>Hola Mundo!
-</pre>
+```bash
+Hola Mundo!
+```
 
 <hr />
 

@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 3005
 wordpress_url: http://codehero.co/?p=3005
 date: 2014-02-12 11:22:21.000000000 -04:30
+serie: Java desde Cero
+dificultad: Novato
+duracion: 15
+description: Curso en el cual aprenderemos Java desde Cero. Estudiaremos el conjunto más importante de operadores para manipular variables en Java.
 categories:
 - Cursos
 - Java
@@ -42,7 +46,7 @@ tags:
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang='java'>
+```java
 public class Curso {
 
   public static void main(String args[]) {
@@ -62,12 +66,12 @@ public class Curso {
      System.out.println("d++   = " +  (d++) );
      System.out.println("++d   = " +  (++d) );
   }
-} 
-</pre>
+}
+```
 
 <p>Se ejecutamos este codigo deberá producir:</p>
 
-<pre>
+```java
 a + b = 30
 a - b = -10
 a * b = 200
@@ -78,7 +82,7 @@ a++   = 10
 b--   = 11
 d++   = 25
 ++d   = 27
-</pre>
+```
 
 <hr />
 
@@ -90,7 +94,7 @@ d++   = 25
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang='java'>
+```java
 public class Curso {
 
   public static void main(String args[]) {
@@ -103,19 +107,19 @@ public class Curso {
      System.out.println("b >= a = " + (b >= a) );
      System.out.println("b <= a = " + (b <= a) );
   }
-} 
-</pre>
+}
+```
 
 <p>Se ejecutamos este codigo deberá producir:</p>
 
-<pre>
+```java
 a == b = false
 a != b = true
 a > b = false
 a < b = true
 b >= a = true
 b <= a = false
-</pre>
+```
 
 <hr />
 
@@ -127,12 +131,12 @@ b <= a = false
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang='java'>
+```java
 public class Curso {
 
   public static void main(String args[]) {
      boolean a = true;  
-     boolean b = false; 
+     boolean b = false;
 
      System.out.println("a && b = " + (a&&b));
 
@@ -140,16 +144,16 @@ public class Curso {
 
      System.out.println("!(a && b) = " + !(a && b));
   }
-} 
-</pre>
+}
+```
 
 <p>Se ejecutamos este codigo deberá producir:</p>
 
-<pre>
+```java
 a && b = false
 a || b = true
 !(a && b) = true
-</pre>
+```
 
 <hr />
 
@@ -161,11 +165,11 @@ a || b = true
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang='java'>
+```java
 public class Curso {
 
   public static void main(String args[]) {
-     int a = 10;    
+     int a = 10;
      int b = 20;
      int c = 0;
 
@@ -191,19 +195,19 @@ public class Curso {
      c %= a;
      System.out.println("c %= a  = " + c );
   }
-} 
-</pre>
+}
+```
 
 <p>Se ejecutamos este codigo deberá producir:</p>
 
-<pre>
+```java
 c = a + b = 30
 c += a  = 40
 c -= a = 30
 c *= a = 300
 c /= a = 1
 c %= a  = 5
-</pre>
+```
 
 <hr />
 

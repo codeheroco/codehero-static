@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 1819
 wordpress_url: http://codehero.co/?p=1819
 date: 2013-07-31 02:58:51.000000000 -04:30
+serie: Python desde Cero
+dificultad: Novato
+duracion: 20
+description: Curso en el cual aprenderemos Python desde Cero. En esta clase, aprenderemos a conectarnos a una base de datos MySql, a crear tablas, y a realizar un CRUD.
 categories:
 - Cursos
 - Python
@@ -47,7 +51,7 @@ tags:
 
 <blockquote>
   <p>Si quieres saber más información sobre la listas de base de datos compatible con Python te recomiendo que visites <a href="http://wiki.python.org/moin/DatabaseInterfaces">Interfaces y API’s de bases de datos para Python</a>.</p>
-  
+
   <p>Es importante resaltar que si quieres hacer uso de una base de datos digamos Oracle (por poner un ejemplo) vas a tener que descargar el módulo respectivo para este tipo de base de datos.</p>
 </blockquote>
 
@@ -61,32 +65,36 @@ tags:
 
 <p>Antes de continuar, vamos a asegurarnos de que no tengamos instalado MySQLdb en nuestras máquinas. Creemos un script con lo siguiente y ejecutemoslo:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 import MySQLdb
-</pre>
+```
 
 <p>Si se produce el siguiente error entonces significa que el módulo de <strong>MySQLdb</strong> no está instalado en nuestra máquina:</p>
 
-<pre>Traceback (most recent call last):
-  File "prueba.py", line 3, in &lt;module>
+```python
+Traceback (most recent call last):
+  File "prueba.py", line 3, in <module>
     import MySQLdb
 ImportError: No module named MySQLdb
-</pre>
+```
 
 <p>Existen dos formas para instalar el módulo de <strong>MySQLdb</strong>, la manera sencilla, ejecutando el siguiente comando:</p>
 
-<pre>pip install MySQL-python
-</pre>
+```bash
+$ pip install MySQL-python
+```
 
 <p>y la manera engorrosa, donde debemos descargar de <a href="http://sourceforge.net/projects/mysql-python/">Descargas MySQLdb</a> el módulo, y una vez descargado ejecutamos los siguientes comandos:</p>
 
-<pre>$ gunzip MySQL-python-1.2.2.tar.gz
+```bash
+$ gunzip MySQL-python-1.2.2.tar.gz
 $ tar -xvf MySQL-python-1.2.2.tar
 $ cd MySQL-python-1.2.2
 $ python setup.py build
 $ python setup.py install
-</pre>
+```
 
 <blockquote>
   <p>Asegúrate de tener los privilegios de root para realizar la instalación.</p>
@@ -105,7 +113,8 @@ $ python setup.py install
 
 <p>La mejor manera de ver y entender como conectarnos a una base de datos en Python es a través de un ejemplo:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 import MySQLdb
 
@@ -125,12 +134,13 @@ print "Versión Base de Datos : %s " % data
 
 # Nos desconectamos de la base de datos
 bd.close()
-</pre>
+```
 
 <p>Si ejecutamos el script anterior nos debería aparecer lo siguiente:</p>
 
-<pre>Versión Base de Datos : 5.0.45
-</pre>
+```python
+Versión Base de Datos : 5.0.45
+```
 
 <blockquote>
   <p>Observemos que un objeto de conexión fue retornado una vez que se estableció una conexión exitosa con la base de datos, este objeto se asignó a la variable <code>bd</code>. Luego, esta variable <code>bd</code> es usada para crear un cursor, el cual es el medio por donde podemos ejecutar queries SQL. En nuestro caso ejecutamos <code>SELECT VERSION()</code>, dicho query retorna la versión de la base de datos. Por último, cerramos la sesión establecida con la base de datos para así no gastar recursos.</p>
@@ -142,7 +152,8 @@ bd.close()
 
 <p>Una vez que sabemos como establecer una conexión con la base de datos, estamos listos para crear tablas en la base de datos utilizando el método <code>execute</code> del cursor que creamos anteriormente. Veamos como crear una tabla denominada <strong>empleado</strong> dentro de nuestra base de datos:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 import MySQLdb
 
@@ -156,15 +167,15 @@ cursor = bd.cursor()
 sql = "CREATE TABLE EMPLEADO (
          NOMBRE  CHAR(20) NOT NULL,
          APELLIDO  CHAR(20),
-         EDAD INT,  
+         EDAD INT,
          SEXO CHAR(1),
          SALARIO FLOAT )"
 
 cursor.execute(sql)
 
-# Nos desconectamos de la base de datos 
+# Nos desconectamos de la base de datos
 bd.close()
-</pre>
+```
 
 <blockquote>
   <p>Observemos que a través del método <code>execute</code> del <code>cursor</code> podemos ejecutar cualquier tipo de query que deseemos, en este caso un <code>CREATE</code>.</p>
@@ -176,7 +187,8 @@ bd.close()
 
 <p>La operación <strong>insertar</strong> es necesario si deseas crear registros en una tabla de base de datos. Veamos como insertar un empleado dentro de la tabla <strong>EMPLEADO</strong> que creamos anteriormente.</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 import MySQLdb
 
@@ -199,9 +211,9 @@ except:
    # Si se genero algún error revertamos la operación
    bd.rollback()
 
-# Nos desconectamos de la base de datos 
+# Nos desconectamos de la base de datos
 bd.close()
-</pre>
+```
 
 <blockquote>
   <p>Observemos que para que los cambios sean efectuados en la base de datos es necesario usar <code>bd.commit()</code>. Si queremos reversar los cambios efectuados podemos usar <code>bd.rollback()</code>.</p>
@@ -223,7 +235,8 @@ bd.close()
 
 <p>Veamos como obtener todos los registros de la tabla <strong>EMPLEADO</strong>:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 import MySQLdb
 
@@ -233,7 +246,7 @@ bd = MySQLdb.connect("localhost","usuarioprueba","prueba123","prueba_db" )
 # Preparamos el cursor que nos va a ayudar a realizar las operaciones con la base de datos
 cursor = bd.cursor()
 
-# Preparamos el query SQL para obtener todos los empleados de la BD 
+# Preparamos el query SQL para obtener todos los empleados de la BD
 sql = "SELECT * FROM EMPLEADO"
 try:
    # Ejecutamos el comando
@@ -251,14 +264,15 @@ try:
 except:
    print "Error: No se pudo obtener la data"
 
-# Nos desconectamos de la base de datos 
+# Nos desconectamos de la base de datos
 bd.close()
-</pre>
+```
 
 <p>Si has seguido los ejemplos anteriores y ejecutas el script, deberás obtener un solo empleado ya que solo habíamos insertado un solo registro:</p>
 
-<pre>nombre=Carlos, apellido=Picca, edad=24, sexo=M, salario=2000
-</pre>
+```python
+nombre=Carlos, apellido=Picca, edad=24, sexo=M, salario=2000
+```
 
 <hr />
 
@@ -266,7 +280,8 @@ bd.close()
 
 <p>La operación <strong>actualización</strong> significa actualizar uno o más registros que ya están disponibles en la base de datos. Veamos como modificar la edad de un empleado cuyo salario sea igual a <code>2000</code>:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 import MySQLdb
 
@@ -287,9 +302,9 @@ except:
    # Si se genero algún error revertamos la operación
    bd.rollback()
 
-# Nos desconectamos de la base de datos 
+# Nos desconectamos de la base de datos
 bd.close()
-</pre>
+```
 
 <hr />
 
@@ -297,7 +312,8 @@ bd.close()
 
 <p>La operación <strong>eliminar</strong> es necesario si desea eliminar uno o varios registros de la base de datos. Veamos como eliminar a un empleado cuyo apellido sea igual a <code>Picca</code>:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 import MySQLdb
 
@@ -307,7 +323,7 @@ bd = MySQLdb.connect("localhost","usuarioprueba","prueba123","prueba_db" )
 # Preparamos el cursor que nos va a ayudar a realizar las operaciones con la base de datos
 cursor = bd.cursor()
 
-# Preparamos el query SQL para eliminar al empleado 
+# Preparamos el query SQL para eliminar al empleado
 sql = "DELETE FROM EMPLEADO WHERE APELLIDO=‘Picca’"
 try:
    # Ejecutamos el comando
@@ -318,9 +334,9 @@ except:
    # Si se genero algún error revertamos la operación
    bd.rollback()
 
-# Nos desconectamos de la base de datos 
+# Nos desconectamos de la base de datos
 bd.close()
-</pre>
+```
 
 <hr />
 
