@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 1014
 wordpress_url: http://codehero.co/?p=1014
 date: 2013-06-14 08:27:34.000000000 -04:30
+serie: Python desde Cero
+dificultad: Novato
+duracion: 25
+description: Vamos a aprender las variables y sus tipos de datos, los operadores que podemos usar y las estructuras de control que podemos usar en Python.
 categories:
 - Cursos
 - Python
@@ -34,11 +38,12 @@ tags:
 
 <p>Si les aparece el siguiente mensaje quiere decir que ya estamos dentro del Shell</p>
 
-<pre>Python 2.7.5 (default, Oct 11 2012, 20:14:37) 
+```python
+Python 2.7.5 (default, Oct 11 2012, 20:14:37)
 [GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
->>> 
-</pre>
+>>>
+```
 
 <blockquote>
   <p>Observamos que estamos usando Python 2, configuración que dejamos en el capítulo anterior (<code>Python 2.7.5</code>). Si por alguna razón decidieron instalar Python 3, estén atentos porque pueden existir algunas diferencias en los comandos de código que vamos a usar.</p>
@@ -62,28 +67,32 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <p>Veamos un ejemplo:</p>
 
-<pre>>>> estados = 12
-</pre>
+```python
+>>> estados = 12
+```
 
 <p>Estaríamos asignando <code>12</code> a la variable <code>estados</code>.</p>
 
 <p>Si tipeamos el nombre de la variable en el Shell, este nos devolvería el valor. Veamos:</p>
 
-<pre>>>> estados
+```python
+>>> estados
 12
-</pre>
+```
 
 <p>Python soporta diferente tipos de números por ejemplo:</p>
 
 <h6>Enteros (int)</h6>
 
-<pre>>>> entero = 10
-</pre>
+```python
+>>> entero = 10
+```
 
 <h6>Decimales (Float)</h6>
 
-<pre>>>> decimal = 10.5
-</pre>
+```python
+>>> decimal = 10.5
+```
 
 <blockquote>
   <p>Como puedes observar no es necesario declarar el tipo de variable como en otros lenguajes, Python lo descifra por ti.</p>
@@ -93,36 +102,41 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <p>Podemos almacenar un texto dentro de una variable siempre y cuando este dentro de comillas simples o dobles. Veamos un ejemplo:</p>
 
-<pre>>>> saludo = “Bienvenido a Codehero.co”
-</pre>
+```python
+>>> saludo = “Bienvenido a Codehero.co”
+```
 
 <p>Si tipeamos el nombre de la variable en el Shell, este nos devolvería el valor. Veamos:</p>
 
-<pre>>>> saludo
+```python
+>>> saludo
 'Bienvenido a Codehero.co'
-</pre>
+```
 
 <blockquote>
   <p>Si queremos usar comillas simples dentro de una declaración o viceversa lo podemos hacer haciendo uso de <code>\</code> delante de las comillas que deseemos que pertenezcan al texto. Veamos un ejemplo:</p>
 </blockquote>
 
-<pre>>>> mensaje = "Dicen que \'Codehero.co\' es el mejor sitio para aprender a programar"
+```python
+>>> mensaje = "Dicen que \'Codehero.co\' es el mejor sitio para aprender a programar"
 >>> mensaje
 "Dicen que 'Codehero.co' es el mejor sitio para aprender a programar"
-</pre>
+```
 
 <h3>Booleans</h3>
 
 <p>Representación de Verdadero(<strong>True</strong>) o Falso(<strong>False</strong>) dentro de una variable. Veamos un ejemplo:</p>
 
-<pre>>>> esHombre = True
-</pre>
+```python
+>>> esHombre = True
+```
 
 <p>Asignamos a la variable <code>esHombre</code> el valor de True (Verdadero). Si tipeamos el nombre de la variable en el Shell, este nos devolvería el valor. Veamos:</p>
 
-<pre>>>> esHombre
+```python
+>>> esHombre
 True
-</pre>
+```
 
 <blockquote>
   <p>En Python es importante que la primera letra de <code>True</code> o <code>False</code> este en mayúscula.</p>
@@ -132,8 +146,9 @@ True
 
 <p>Es un conjunto de objetos encapsulados dentro de una sola variable. En Python se denominan listas. Veamos un ejemplo de cómo crear una lista:</p>
 
-<pre>>>> miLista = [1, 2, 3]
-</pre>
+```python
+>>> miLista = [1, 2, 3]
+```
 
 <blockquote>
   <p>Observemos que todos los objeto que queramos encapsular deben estar entre corchetes <code>[ ]</code>.</p>
@@ -141,19 +156,22 @@ True
 
 <p>En el ejemplo anterior asignamos a <code>miLista</code> los objetos 1, 2 y 3. Si tipeamos el nombre de la variable en el Shell, este nos devolvería el valor. Veamos:</p>
 
-<pre>>>> miLista
+```python
+>>> miLista
 [1, 2, 3]
-</pre>
+```
 
 <p>Las listas pueden contener objetos diferentes, por ejemplo:</p>
 
-<pre>>>> miLista = [1, 'codehero', False]
-</pre>
+```python
+>>> miLista = [1, 'codehero', False]
+```
 
 <p>Además, pueden encapsular listas dentro de la misma lista, ejemplo:</p>
 
-<pre>>>> miLista = [1, [4, ‘codehero’, 9], True]
-</pre>
+```python
+>>> miLista = [1, [4, ‘codehero’, 9], True]
+```
 
 <p>Ahora si queremos saber o retornar un valor en específico dentro de una lista lo hacemos de la siguiente manera:</p>
 
@@ -163,12 +181,13 @@ True
 
 <p>Veamos un ejemplo:</p>
 
-<pre>>>> miLista = [1, [4, 'codehero', 9], True]
+```python
+>>> miLista = [1, [4, 'codehero', 9], True]
 >>> miLista[0]
 1
 >>> miLista[2]
 True
-</pre>
+```
 
 <blockquote>
   <p>Debemos observar que en Python los objetos dentro de una lista se indexan a partir del 0, eso quiere decir que mi primer objeto va estar en la posición 0 y el segundo en la posición 1 y así sucesivamente.</p>
@@ -176,15 +195,17 @@ True
 
 <p>Otra característica de porque Python es un lenguaje sencillo de utilizar, es que podemos crear variables en línea y asignarles su valor respectivamente, veamos como se hace:</p>
 
-<pre>>>> a,b,c = 1,2,3
-</pre>
+```python
+>>> a,b,c = 1,2,3
+```
 
 <p>Observemos que creamos una variable <code>a</code>, una <code>b</code> y una <code>c</code> y le asignamos 1, 2, 3 respectivamente.</p>
 
 <p>Así mismo podemos asignarle el mismo valor a múltiples variables veamos como:</p>
 
-<pre>>>> a = b = c = 1
-</pre>
+```python
+>>> a = b = c = 1
+```
 
 <p>Asignamos 1 a la variable <code>a</code>, <code>b</code> y <code>c</code>.</p>
 
@@ -198,9 +219,10 @@ True
 
 <p>Veamos la manera de como comentar el código en Python. Uno crea comentarios principalmente para recordar que tipo de funcionalidad tiene ese código en particular. Para comentar usamos <code>#</code>, todo lo que este escrito después del numeral no será tomado en cuenta. Veamos unos ejemplos:</p>
 
-<pre>>>> #Esto es un comentario
+```python
+>>> #Esto es un comentario
 >>> nombre = ‘codehero’ #Asignamos el nombre del sitio a la variable nombre
-</pre>
+```
 
 <hr />
 
@@ -208,28 +230,31 @@ True
 
 <p>Son elementos que nos permiten manipular las variables. Veamos unos ejemplos:</p>
 
-<pre>2 + 3 #Adición, retorna 5  
+```python
+2 + 3 #Adición, retorna 5  
 8 - 5 #Sustracción, retorna 3  
 2 * 6 #Multiplicación, retorna 12  
 12 / 3 #Division, retorna 4  
 7 % 3 #Modulo, retorna el residuo de la division, 1 en este caso.  
 3**2 #Potencias, retorna 9 
-</pre>
+```
 
 <p>Nosotros también podemos asignar a la misma variable el resultado de una operación. Veamos el siguiente código:</p>
 
-<pre>x = 2
+```python
+x = 2
 x += 4 #Agrega 4 a x, ahora x es igual a 6  
 x /= 2 #Divide x por 2, ahora x es igual 3  
-</pre>
+```
 
 <p>Los operadores no solo funcionan con números, también los podemos usar en cadenas de caracteres. Por ejemplo, si tenemos las siguientes variables <code>a = ‘Codehero’</code> y <code>b = ‘es el mejor’</code> las podemos concatenar de la siguiente forma:</p>
 
-<pre>>>> a = 'Codehero '
+```python
+>>> a = 'Codehero '
 >>> b = 'es el mejor'
 >>> a + b
 'Codehero es el mejor'
-</pre>
+```
 
 <hr />
 
@@ -245,10 +270,11 @@ x /= 2 #Divide x por 2, ahora x es igual 3  
   <p>Para esta parte del tutorial vamos a usar scripts ya que vamos a necesitar ejecutar más de una línea de código a la vez. Para saber como ejecutar un script desde la consola te recomiendo que revises el capítulo anterior).</p>
 </blockquote>
 
-<pre>esActivo = True
+```python
+esActivo = True
 if esActivo:
    print ‘Codehero esta activo’
-</pre>
+```
 
 <p>Lo que hace el código anterior es chequear si la variable <code>esActivo</code> es igual a <code>True</code>, como la variable la declaramos <code>esActivo = True</code>, al ejecutar el script nos va a retornar <code>Codehero esta activo</code>.</p>
 
@@ -258,69 +284,77 @@ if esActivo:
 
 <p>Valida si una variable es menor a otra.</p>
 
-<pre>if 2 &lt; 3:
+```python
+if 2 < 3:
    print ‘Dos es menor que tres’
-</pre>
+```
 
 <h5>Mayor</h5>
 
 <p>Valida si una variable es mayor a otra.</p>
 
-<pre>if 2 > 3:
+```python
+if 2 > 3:
    print ‘Dos es mayor que tres’
-</pre>
+```
 
 <h5>Igual</h5>
 
 <p>Valida si una variable es igual a otra.</p>
 
-<pre>if 2 == 3:
+```python
+if 2 == 3:
    print ‘Dos es igual que tres’
-</pre>
+```
 
 <h5>Diferente</h5>
 
 <p>Valida si una variable es diferente a otra.</p>
 
-<pre>if 2 != 3:
+```python
+if 2 != 3:
    print ‘Dos es diferente que tres’
-</pre>
+```
 
 <h5>Mayor Igual</h5>
 
 <p>Valida si una variable es diferente a otra.</p>
 
-<pre>if 2 >= 3:
+```python
+if 2 >= 3:
    print ‘Dos es mayor o igual que tres’
-</pre>
+```
 
 <h5>Menor Igual</h5>
 
 <p>Valida si una variable es diferente a otra.</p>
 
-<pre>if 2 &lt;= 3:
+```python
+if 2 <= 3:
    print ‘Dos es menor o igual que tres’
-</pre>
+```
 
 <p>Hasta ahora vimos la manera de ejecutar un solo bloque de código pero que pasa cuando quiero ejecutar diferentes bloques, sencillo, usamos el comando <code>else</code>. Veamos un ejemplo:</p>
 
-<pre>esActivo = False
+```python
+esActivo = False
 if esActivo:
    print ‘Es activo’
 else:
    print ‘No esta activo’
-</pre>
+```
 
 <p>Si queremos ejecutar más de dos bloques con varias condiciones usamos el comando <code>elif</code>. Veamos como:</p>
 
-<pre>a = 15
-if a &lt; 3:
+```python
+a = 15
+if a < 3:
    print ‘Es menor que tres’
 elif a == 5:
    print ‘Es igual a cinco’
 else:
    print ‘Es mayor que quince’
-</pre>
+```
 
 <h3>Bucles</h3>
 
@@ -330,31 +364,34 @@ else:
 
 <p>Es un bucle en la que se puede indicar el número mínimo de iteraciones. Veamos un ejemplo:</p>
 
-<pre>miLista = [1,2,3,4,5]
+```python
+miLista = [1,2,3,4,5]
 
 for a in miLista:
-   print a  
-</pre>
+   print a 
+```
 
 <p>Si lo ejecutamos obtenemos:</p>
 
-<pre>1
+```python
+1
 2
 3
 4
 5
-</pre>
+```
 
 <h4>Bucle While</h4>
 
 <p>Su propósito es repetir un bloque de código mientras una condición se mantenga verdadera.</p>
 
-<pre>a,b = 0,5
+```python
+a,b = 0,5
 
-while a &lt; b:
+while a < b:
    print a
    a += 1 
-</pre>
+```
 
 <blockquote>
   <p>Observemos que en este caso para detener el ciclo necesitamos aumentar el valor de la variable <code>a</code> con la siguiente instrucción <code>a += 1</code></p>
@@ -362,12 +399,13 @@ while a &lt; b:
 
 <p>Si lo ejecutamos obtenemos:</p>
 
-<pre>0
+```python
+0
 1
 2
 3
 4
-</pre>
+```
 
 <hr />
 
