@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2977
 wordpress_url: http://codehero.co/?p=2977
 date: 2014-02-05 00:05:40.000000000 -04:30
+serie: Java desde Cero
+dificultad: Novato
+duracion: 10
+description: Curso en el cual aprenderemos Java desde Cero. Estudiaremos todo lo relacionado con las variables dentro del mundo de Java.
 categories:
 - Cursos
 - Java
@@ -26,8 +30,9 @@ tags:
 
 <p>En Java, todas las variables deben ser declaradas antes de que puedan ser utilizados. La forma básica de una declaración de variable es la siguiente:</p>
 
-<pre lang='java'>type identificador [ = valor][, identificador [= valor] ...] ;
-</pre>
+```java
+type identificador [ = valor][, identificador [= valor] ...] ;
+```
 
 <blockquote>
   <ul>
@@ -39,11 +44,12 @@ tags:
 
 <p>Veamos unos ejemplos de como declarar variables en Java:</p>
 
-<pre lang='java'>int a, b, c;         // declaramos tres variables de tipos int a, b, c.
-int d = 3, e, f = 5; // declaramos dos variables de tipos int d y f, pero esta vez la instanciamos. A 'd' le asignamos 3 y a 'f' le asignamos 5. 
-double pi = 3.14159; // declaramos un double denominado pi. 
+```java
+int a, b, c;         // declaramos tres variables de tipos int a, b, c.
+int d = 3, e, f = 5; // declaramos dos variables de tipos int d y f, pero esta vez la instanciamos. A 'd' le asignamos 3 y a 'f' le asignamos 5.
+double pi = 3.14159; // declaramos un double denominado pi.
 char x = 'x';        // la variable x posee un caracter 'x'.
-</pre>
+```
 
 <hr />
 
@@ -58,20 +64,21 @@ char x = 'x';        // la variable x posee un caracter 'x'.
 
 <p>Veamos un ejemplo:</p>
 
-<pre lang='java'>public class Curso{ 
+```java
+public class Curso{
 
    public void kilometrajeCarro(){
       int kilometraje = 0;
       kilometraje = kilometraje + 7;
       System.out.println("El kilometraje del carro es: " + kilometraje);
    }
-   
+
    public static void main(String args[]){
       Curso curso = new Curso();
       curso.kilometrajeCarro();
    }
 }
-</pre>
+```
 
 <blockquote>
   <ul>
@@ -82,8 +89,9 @@ char x = 'x';        // la variable x posee un caracter 'x'.
 
 <p>Si ejecutamos ese codigo deberia aparecernos lo siguiente:</p>
 
-<pre>El kilometraje del carro es: 7
-</pre>
+```java
+El kilometraje del carro es: 7
+```
 
 <hr />
 
@@ -98,15 +106,16 @@ char x = 'x';        // la variable x posee un caracter 'x'.
 <li><p>Se puede acceder directamente mediante una llamada al nombre de la variable dentro de la clase. Sin embargo dentro de los métodos estáticos debe ser llamado con el nombre completo. <code>Objeto.NombreVariable</code>.</p></li>
 </ul>
 
-<pre lang='java'>import java.io.*;
+```java
+import java.io.*;
 
 public class Persona{
    // la variable de instancia nombre puede ser vista por todos los hijos de la clase
    public String nombre;
-   
+
    // peso es una variable solo visible por la clase Persona
    private double peso;
-   
+
    // La variable nombre es asignada en el constructor
    public Persona (String nombre){
       this.nombre = nombre;
@@ -116,7 +125,7 @@ public class Persona{
    public void setPeso(double peso){
       this.peso = peso;
    }
-   
+
    // Este metodo imprime los datos de la persona
    public void imprimirPersona(){
       System.out.println("Nombre  : " + this.nombre );
@@ -129,13 +138,14 @@ public class Persona{
       alguien.imprimirPersona();
    }
 }
-</pre>
+```
 
 <p>Si ejecutamos ese codigo deberia aparecernos lo siguiente:</p>
 
-<pre>Nombre  : Carlos
+```java
+Nombre  : Carlos
 Peso :80.0
-</pre>
+```
 
 <hr />
 
@@ -151,7 +161,8 @@ Peso :80.0
 <li><p>Las variables estáticas se puede acceder llamando con el nombre de la clase. <code>NombreClase.NombreVariable</code>.</p></li>
 </ul>
 
-<pre lang='java'>import java.io.*;
+```java
+import java.io.*;
 
 public class Empleado{
    // salario  es una variable estatica privada de la clase empleado
@@ -165,12 +176,13 @@ public class Empleado{
       System.out.println(DEPARTAMENTO + " posee un salario promedio de: " + salary);
    }
 }
-</pre>
+```
 
 <p>Si ejecutamos ese codigo deberia aparecernos lo siguiente:</p>
 
-<pre>Desarrollo posee un salario promedio de: 2000
-</pre>
+```java
+Desarrollo posee un salario promedio de: 2000
+```
 
 <hr />
 

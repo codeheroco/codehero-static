@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 1982
 wordpress_url: http://codehero.co/?p=1982
 date: 2013-08-14 00:28:41.000000000 -04:30
+serie: Python desde Cero
+dificultad: Novato
+duracion: 20
+description: Curso en el cual aprenderemos Python desde Cero. En esta clase, aprenderemos todo lo relacionado con el manejo de archivos en Python.
 categories:
 - Cursos
 - Python
@@ -31,8 +35,9 @@ tags:
 
 <p>Antes de que podamos leer o escribir un archivo, hay que abrirlo con la función de Python <code>open()</code>. Esta función crea un objeto <strong>archivo</strong> que se utiliza para llamar a otros métodos de apoyo asociados. Veamos cual es la sintaxis:</p>
 
-<pre>objecto_archivo = open(file_name [, access_mode][, buffering])
-</pre>
+```python
+objecto_archivo = open(file_name [, access_mode][, buffering])
+```
 
 <p>Describamos un poco los argumentos de la función:</p>
 
@@ -56,21 +61,23 @@ tags:
 
 <p>Veamos un ejemplo sobre como utilizar todo lo que hemos visto hasta ahora:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 # Abrimos el archivo codehero.txt
 fo = open("codehero.txt", "wb")
 print "Nombre del archivo : ", fo.name
 print "Cerrado o no : ", fo.closed
 print "Modo de apertura : ", fo.mode
-</pre>
+```
 
 <p>Si ejecutamos el script anterior debemos obtener el siguiente resultado:</p>
 
-<pre>Nombre del archivo:  codehero.txt
+```python
+Nombre del archivo:  codehero.txt
 Cerrado o no :  False
 Modo de apertura :  wb
-</pre>
+```
 
 <hr />
 
@@ -86,12 +93,14 @@ Modo de apertura :  wb
 
 <p>Veamos la sintaxis que debemos usar:</p>
 
-<pre>objecto_archivo.close();
-</pre>
+```python
+objecto_archivo.close();
+```
 
 <p>Veamos como usar <code>close()</code> con un ejemplo:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
 # Abrimos el archivo codehero.txt
 fo = open("codehero.txt", "wb")
@@ -99,12 +108,13 @@ print "Nombre del archivo: ", fo.name
 
 # Cerramos el archivo codehero.txt
 fo.close()
-</pre>
+```
 
 <p>Si ejecutamos el script anterior obtenemos:</p>
 
-<pre>Nombre del archivo:  codehero.txt
-</pre>
+```python
+Nombre del archivo:  codehero.txt
+```
 
 <hr />
 
@@ -114,14 +124,15 @@ fo.close()
 
 <blockquote>
   <p>Es importante tener en cuenta que las cadenas de caracteres(strings) de Python pueden tener datos binarios y no sólo de texto.</p>
-  
+
   <p>El método <code>write()</code> no añade un carácter de nueva línea ('\ n') al final de la cadena.</p>
 </blockquote>
 
 <p>Veamos la sintaxis para poder escribir en un archivo:</p>
 
-<pre>objecto_archivo.write(string);
-</pre>
+```python
+objecto_archivo.write(string);
+```
 
 <blockquote>
   <p>Observemos que <code>string</code> es el texto que queremos escribir en el archivo.</p>
@@ -129,21 +140,23 @@ fo.close()
 
 <p>Veamos como usar <code>write()</code> con un ejemplo:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
-# Abrimos el archivo codehero.txt 
+# Abrimos el archivo codehero.txt
 fo = open("/tmp/codehero.txt", "wb")
 fo.write( "Codehero es una gran pagina para aprender a programar Python.\nSíguenos en @codeheroblog!!\n");
 
 # Cerramos el archivo codehero.txt
 fo.close()
-</pre>
+```
 
 <p>Si ejecutamos el script anterior obtenemos:</p>
 
-<pre>Codehero es una gran pagina para aprender a programar Python.
+```python
+Codehero es una gran pagina para aprender a programar Python.
 Síguenos en @codeheroblog!!
-</pre>
+```
 
 <hr />
 
@@ -157,8 +170,9 @@ Síguenos en @codeheroblog!!
 
 <p>Veamos la sintaxis para poder leer un archivo:</p>
 
-<pre>objecto_archivo.read([count]);
-</pre>
+```python
+objecto_archivo.read([count]);
+```
 
 <blockquote>
   <p>Observemos que <code>count</code> es el numero de bytes a leer del archivo.</p>
@@ -166,21 +180,23 @@ Síguenos en @codeheroblog!!
 
 <p>Veamos como usar <code>read()</code> con un ejemplo:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 
-# Abrimos el archivo codehero.txt 
+# Abrimos el archivo codehero.txt
 fo = open("/tmp/codehero.txt", "r+")
 str = fo.read(10);
 print "La lectura es : ", str
 
 # Cerramos el archivo codehero.txt
 fo.close()
-</pre>
+```
 
 <p>Si ejecutamos el script anterior obtenemos:</p>
 
-<pre>La lectura es : Codehero es
-</pre>
+```python
+La lectura es : Codehero es
+```
 
 <hr />
 
@@ -190,8 +206,9 @@ fo.close()
 
 <p>Veamos la sintaxis para poder renombrar un archivo:</p>
 
-<pre>os.rename(current_file_name, new_file_name)
-</pre>
+```python
+os.rename(current_file_name, new_file_name)
+```
 
 <blockquote>
   <p>Observemos que <code>current_file_name</code> es el nombre del archivo que queremos renombrar y <code>new_file_name</code> es el nuevo nombre que le queremos dar.</p>
@@ -199,12 +216,13 @@ fo.close()
 
 <p>Veamos como usar <code>rename()</code> con un ejemplo:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 import os
 
 # Renombramos codehero.txt por codehero2.txt
 os.rename( "codehero.txt", "codehero2.txt" )
-</pre>
+```
 
 <hr />
 
@@ -214,8 +232,9 @@ os.rename( "codehero.txt", "codehero2.txt" )
 
 <p>Veamos la sintaxis para poder leer un archivo:</p>
 
-<pre>os.remove(file_name)
-</pre>
+```python
+os.remove(file_name)
+```
 
 <blockquote>
   <p>Observemos que <code>file_name</code> es el nombre del archivo que queremos remover.</p>
@@ -223,12 +242,13 @@ os.rename( "codehero.txt", "codehero2.txt" )
 
 <p>Veamos como usar <code>remove()</code> con un ejemplo:</p>
 
-<pre>#!/usr/bin/python
+```python
+#!/usr/bin/python
 import os
 
 # Eliminamos el archivo codehero.txt
 os.remove("codehero.txt")
-</pre>
+```
 
 <hr />
 

@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2266
 wordpress_url: http://codehero.co/?p=2266
 date: 2013-09-18 02:19:14.000000000 -04:30
+serie: Django desde Cero
+dificultad: Novato
+duracion: 20
+description: Curso en el cual aprenderemos Django desde Cero. En esta clase, estudiaremos como crear forms o formularios con la ayuda de la librería que trae django.
 categories:
 - Cursos
 - Django
@@ -56,9 +60,10 @@ tags:
 
 <p>Dentro de este archivo vamos a declarar todos los forms o formularios que va a usar nuestro aplicativo. Empezamos por agregar las siguientes dependencias:</p>
 
-<pre>from django import forms
+```python
+from django import forms
 from models import Articulo
-</pre>
+```
 
 <blockquote>
   <p>Observemos que para que las forms o formularios funcionen necesitamos importar todas la funcionalidades del modulo <strong>forms</strong> propio de Django. Por otro lado, necesitamos importar el modulo <strong>Articulo</strong> de nuestros modelos para que así Django pueda saber que meta-data usar a la hora de renderizar el form en nuestro sitio web.</p>
@@ -66,11 +71,12 @@ from models import Articulo
 
 <p>Lo siguiente es crear un clase que contenga y maneje el form que queremos hacer. Veamos como:</p>
 
-<pre>class ArticuloForm(forms.ModelForm):
+```python
+class ArticuloForm(forms.ModelForm):
 
    class Meta:
       model = Articulo
-</pre>
+```
 
 <blockquote>
   <p>Dos cosas que debemos observar, la primera, todos los forms o formularios que queramos crear debemos extenderlos de la clase <code>forms.ModelForm</code>, y segundo, debemos crear una clase <code>Meta</code> dentro de nuestro form para que así Django realice el link entre los datos que contiene el modelo <strong>Artículo</strong> y los campos html del form.</p>
@@ -78,14 +84,15 @@ from models import Articulo
 
 <p>El archivo <code>forms.py</code> debería lucir así:</p>
 
-<pre>from django import forms
+```python
+from django import forms
 from models import Articulo
 
 class ArticuloForm(forms.ModelForm):
 
    class Meta:
       model = Articulo
-</pre>
+```
 
 <hr />
 
@@ -95,8 +102,9 @@ class ArticuloForm(forms.ModelForm):
 
 <p>En el archivo <code>urls.py</code> agregamos la siguiente linea:</p>
 
-<pre>url(r'^crear/', 'blog.views.crear', name='crear'),
-</pre>
+```python
+url(r'^crear/', 'blog.views.crear', name='crear'),
+```
 
 <blockquote>
   <p>Observemos que nuestra nueva ruta la denominamos <strong>crear</strong> pero puedes darle el nombre que tu necesites.</p>
@@ -104,7 +112,8 @@ class ArticuloForm(forms.ModelForm):
 
 <p>El archivo <code>urls.py</code> debería lucir así:</p>
 
-<pre>from django.conf.urls import patterns, include, url
+```python
+from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -124,7 +133,7 @@ urlpatterns = patterns('',
 
     url(r'^crear/', 'blog.views.crear', name='crear'),
 )
-</pre>
+```
 
 <p>Si necesitas ayuda para entender como funcionan las rutas dentro de Django, te recomiendo el siguiente capitulo del curso <a href="http://codehero.co/django-desde-cero-vistas-dinamicas/">Capítulo 3 - Vistas Dinámicas</a></p>
 
@@ -136,10 +145,11 @@ urlpatterns = patterns('',
 
 <p>Lo primero que tenemos que hacer es ir al archivo <code>views.py</code> dentro de nutra app <strong>blog</strong>. Una vez ahí vamos a agregar las siguientes dependencias:</p>
 
-<pre>from forms import ArticuloForm
+```python
+from forms import ArticuloForm
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
-</pre>
+```
 
 <blockquote>
   <p>Observemos que necesitamos importar la clase <code>ArticuloForm</code> que creamos anteriormente para así poder manejarla desde acá, y aparte importamos <code>HttpResponseRedirect</code> para poder redirigir a la vista de todos los <strong>artículos</strong> una ves que el proceso haya concluido.</p>
@@ -147,7 +157,8 @@ from django.core.context_processors import csrf
 
 <p>Debemos definir la vista como tal. Veamos como:</p>
 
-<pre>def crear(request):
+```python
+def crear(request):
     if request.POST:
         form = ArticuloForm(request.POST)
         if form.is_valid():
@@ -156,24 +167,25 @@ from django.core.context_processors import csrf
             return HttpResponseRedirect('/')
     else:
         form = ArticuloForm()
-     
+
     args = {}
     args.update(csrf(request))
-    
+
     args['form'] = form
 
     return render_to_response('crear_articulo.html', args)
-</pre>
+```
 
 <blockquote>
   <p>Básicamente lo que hace este método es validar que el request sea de tipo <code>request.POST</code>, de serlo, se valida la información del form con el método <code>form.is_valid()</code> y de esta información estar correcta se procede a guardarla en la base de datos con <code>form.save()</code>.</p>
-  
+
   <p>Si por el contrario el request no fuese de tipo <strong>POST</strong> se procede a renderizar el template <code>crear_articulo.html</code> con el form que creamos anteriormente <code>form = ArticuloForm()</code></p>
 </blockquote>
 
 <p>El archivo <code>views.py</code> debería lucir así:</p>
 
-<pre>from django.shortcuts import render_to_response
+```python
+from django.shortcuts import render_to_response
 from blog.models import Articulo
 from forms import ArticuloForm
 from django.http import HttpResponseRedirect
@@ -194,14 +206,14 @@ def crear(request):
             return HttpResponseRedirect('/')
     else:
         form = ArticuloForm()
-     
+
     args = {}
     args.update(csrf(request))
-    
+
     args['form'] = form
 
     return render_to_response('crear_articulo.html', args)
-</pre>
+```
 
 <p>Si quieres saber más sobre el funcionamiento de templates o plantillas dentro de Django te recomiendo que le eches un vistazo al <a href="http://codehero.co/django-desde-cero-vistas-dinamicas/">Capítulo 3 - Vistas Dinámicas</a></p>
 
@@ -227,8 +239,9 @@ def crear(request):
 
 <p>Primero que nada es encender el servidor:</p>
 
-<pre>$ python manage.py runserver
-</pre>
+```python
+$ python manage.py runserver
+```
 
 <p>Una vez que encienda navegamos hacia la ruta que creamos <code>http://127.0.0.1:8000/crear</code>:</p>
 

@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2438
 wordpress_url: http://codehero.co/?p=2438
 date: 2013-10-23 06:29:55.000000000 -04:30
+serie: Ember.js desde Cero
+dificultad: Aprendiz
+duracion: 20
+description: Curso en el cual aprenderemos Ember.js desde Cero. Estudiaremos todo lo relacionado con las rutas y router dentro de Ember.js (Simples y Anidadas).
 categories:
 - Cursos
 - Ember.js
@@ -40,15 +44,16 @@ tags:
 
 <p>Agreguemos al archivo <code>index.html</code> las siguientes lineas:</p>
 
-<pre>App.Router.map(function() {
+```javascript
+App.Router.map(function() {
                 this.route("nosotros");
                 this.route("contacto");
             });
-</pre>
+```
 
 <blockquote>
   <p>Observemos lo siguiente:</p>
-  
+
   <ul>
   <li>Dentro de <code>App.Router.map</code> definimos todas las rutas que nuestra app necesite. </li>
   <li>Para definir una ruta solo debemos utilizar la siguiente linea de comando <code>this.route(“nombre_de_la_ruta”)</code>. Lo único que tenemos que hacer es suplantar “nombre_de_la_ruta” con el nombre de la ruta que deseemos crear.</li>
@@ -60,23 +65,19 @@ tags:
 
 <p>Para esto vamos a agregar al archivo <code>index.html</code> lo siguiente:</p>
 
-<pre><script type="text/x-handlebars" data-template-name="nosotros">
-        <h1>
-  La pagina de nosotros!
-  
-</h1>
-    </script>
-    
-
-
+```html
+<script type="text/x-handlebars" data-template-name="nosotros">
+  <h1>
+    La pagina de nosotros!
+  </h1>
+</script>
 
 <script type="text/x-handlebars" data-template-name="contacto">
-        <h1>
-  La pagina de contacto!
-  
-</h1>
-    </script>
-</pre>
+  <h1>
+    La pagina de contacto!
+  </h1>
+</script>
+```
 
 <blockquote>
   <p>Observemos que los templates que creamos son súper sencillos como el que creamos para renderizar la pagina del index. Contienen un titulo y los headers necesarios para poder probar las rutas en el explorador.</p>
@@ -84,7 +85,65 @@ tags:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/Zaxvnyf.png" alt="ember-js-html-rutas" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            App.Router.map(function() {
+                this.route("nosotros");
+                this.route("contacto");
+            });
+
+            var cuentaGlobal = 0;
+
+            var Marcapagina = Ember.Object.extend({
+
+                convertir_en_link: function() {
+                    return "<a href='" + this.get("url") + "'>"
+                            + this.get("nombre")
+                            + "</a>";
+                }
+                ,link: function() {
+                	return this.convertir_en_link();
+                }.property("nombre", "url")
+
+                ,detalle: function() {
+    				return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
+ 				}.property('link', 'nombre', 'url')
+
+                ,modificarCuenta: Ember.observer(function() {
+                    cuentaGlobal += 1;
+                    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
+                }, "nombre")
+
+            });
+
+
+            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+
+        </script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+    <script type="text/x-handlebars" data-template-name="nosotros">
+        <h1>La pagina de nosotros!</h1>
+    </script>
+    <script type="text/x-handlebars" data-template-name="contacto">
+        <h1>La pagina de contacto!</h1>
+    </script>
+</body>
+</html>
+```
 
 <hr />
 
@@ -106,17 +165,18 @@ tags:
 
 <p>Cambiemos las rutas que definimos anteriormente con los siguiente:</p>
 
-<pre>App.Router.map(function() {
+```javascript
+App.Router.map(function() {
                 this.resource("nosotros", function() {
                     this.route("equipo");
                 });
                 this.route("contacto");
             });
-</pre>
+```
 
 <blockquote>
   <p>Observemos lo siguiente:</p>
-  
+
   <ul>
   <li>Para definir rutas anidadas dentro de Ember.js usamos <code>this.resource</code>.</li>
   <li>Para definir rutas sencillas dentro de Ember.js usamos <code>this.route</code>.</li>
@@ -126,28 +186,92 @@ tags:
 
 <p>Lo siguiente que tenemos que hacer es crear el template para la ruta <strong>”equipo”</strong>:</p>
 
-<pre><script type="text/x-handlebars" data-template-name="nosotros/equipo">
-        <h2>
-  Unete al equipo!
-  
-</h2>
-    </script>
-</pre>
+```javascript
+<script type="text/x-handlebars" data-template-name="nosotros/equipo">
+  <h2>
+    Unete al equipo!
+  </h2>
+</script>
+```
 
 <p>Para que el template o plantilla se muestre en el explorador debemos crear un <strong>outlet</strong> dentro del template de <strong>”nosotros”</strong> (no te preocupes si no entiendes que es un outlet, lo vamos a estar cubriendo en los próximos capítulos de la serie, por los momentos imagina que es un contenedor para el contenido de rutas anidadas). Para esto debemos modificar el template de de <strong>”nosotros”</strong> veamos como:</p>
 
-<pre><script type="text/x-handlebars" data-template-name="nosotros">
-        <h1>
-  La pagina de nosotros!
-  
-</h1>
-        {{outlet}}
-    </script>
-</pre>
+```html
+<script type="text/x-handlebars" data-template-name="nosotros">
+  <h1>
+    La pagina de nosotros!
+  </h1>
+  {% raw %}{{outlet}}{% endraw %}
+</script>
+```
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/6ENGKFv.png" alt="ember-js-rutas-anidadas" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            App.Router.map(function() {
+                this.resource("nosotros", function() {
+                    this.route("equipo");
+                });
+                this.route("contacto");
+            });
+
+            var cuentaGlobal = 0;
+
+            var Marcapagina = Ember.Object.extend({
+
+                convertir_en_link: function() {
+                    return "<a href='" + this.get("url") + "'>"
+                            + this.get("nombre")
+                            + "</a>";
+                }
+                ,link: function() {
+                	return this.convertir_en_link();
+                }.property("nombre", "url")
+
+                ,detalle: function() {
+    				return 'Link: ' + this.get('link') + '; Nombre: ' + this.get('nombre') + '; Url: ' + this.get('url');
+ 				}.property('link', 'nombre', 'url')
+
+                ,modificarCuenta: Ember.observer(function() {
+                    cuentaGlobal += 1;
+                    console.log("El valor global de cuentaGlobal es " + cuentaGlobal);
+                }, "nombre")
+
+            });
+
+
+            var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+
+        </script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+    <script type="text/x-handlebars" data-template-name="nosotros">
+        <h1>La pagina de nosotros!</h1>
+        {% raw %}{{outlet}}{% endraw %}
+    </script>
+    <script type="text/x-handlebars" data-template-name="contacto">
+        <h1>La pagina de contacto!</h1>
+    </script>
+    <script type="text/x-handlebars" data-template-name="nosotros/equipo">
+        <h2>Unete al equipo!</h2>
+    </script>
+</body>
+</html>
+```
 
 <hr />
 

@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2113
 wordpress_url: http://codehero.co/?p=2113
 date: 2013-08-28 01:35:26.000000000 -04:30
+serie: Ember.js desde Cero
+dificultad: Aprendiz
+duracion: 15
+description: Bienvenidos a Ember.js desde Cero. Hoy, vamos a aprender todo lo relacionado con clases y objetos dentro de Ember.js. Como instanciarlos y manejarlos.
 categories:
 - Cursos
 - Ember.js
@@ -46,12 +50,13 @@ tags:
 
 <p>En el archivo <code>index.html</code> agregaríamos el siguiente código justo abajo de <code>window.App = Ember.Application.create()</code>:</p>
 
-<pre>var Marcapagina = Ember.Object.extend();
-</pre>
+```javascript
+var Marcapagina = Ember.Object.extend();
+```
 
 <blockquote>
   <p>Observemos lo siguiente:</p>
-  
+
   <ul>
   <li><p><em>Marcapagina</em> esta capitalizada para denotar que es una clase.</p></li>
   <li><p>Si queremos que la variable <em>Marcapagina</em> sea una clase en Ember.js debemos igualarla a <code>Ember.Object.extend()</code>.</p></li>
@@ -60,7 +65,28 @@ tags:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/8LrDEBb.png" alt="ember-js-html" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            		var Marcapagina = Ember.Object.extend();
+		</script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <p>Si probamos la clase en el consola del explorador deberíamos encontrar lo siguiente:</p>
 
@@ -78,12 +104,35 @@ tags:
 
 <p>Ahora que <em>Marcapagina</em> ya es una clase definida veamos como instanciar un objeto. Para instanciar un objeto en Ember.js solo debemos igualarla a una variable y invocar el método <code>create()</code> de la misma. En nuestro caso la clase que queremos instanciar es <em>Marcapagina</em>. Veamos como:</p>
 
-<pre>var marcapagina = Marcapagina.create();
-</pre>
+```javascript
+var marcapagina = Marcapagina.create();
+```
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/hw3h4zm.png" alt="ember-js-html-II" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            		var Marcapagina = Ember.Object.extend();
+			var marcapagina = Marcapagina.create();
+		</script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <p>Si probamos la instancia en el consola del explorador deberíamos encontrar lo siguiente:</p>
 
@@ -103,16 +152,44 @@ tags:
 
 <p>La primera es definir los atributos dentro de la declaración de la misma clase, de esta manera todos los atributos serian iguales para todas las instancias. Veamos como:</p>
 
-<pre>var Marcapagina = Ember.Object.extend({
+```javascript
+var Marcapagina = Ember.Object.extend({
 
     nombre: "Codehero",
     url: “http://codehero.co”
 });
-</pre>
+```
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/IVrJWs8.png" alt="ember-js-html-III" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            		var Marcapagina = Ember.Object.extend({
+
+                			nombre: "Codehero",
+	     			url: “http://codehero.co”
+            			});
+
+			var marcapagina = Marcapagina.create();
+		</script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <p>Probemos en la consola del explorador. Deberíamos obtener lo siguiente:</p>
 
@@ -126,12 +203,36 @@ tags:
 
 <p>La otra manera es agregarlos en la misma instancia de la clase, es decir, cuando estemos instanciando la clase podemos agregarle atributos. De esta manera los atributos serían solos de ese instancia. Veamos como:</p>
 
-<pre>var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
-</pre>
+```javascript
+var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+```
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/nFnaDjO.png" alt="ember-js-html-iv" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            		var Marcapagina = Ember.Object.extend();
+
+			var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+		</script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <p>Si probamos en en la consola del explorador vamos a observar que los atributos existen (<strong>nombre</strong> y <strong>url</strong>):</p>
 
@@ -151,8 +252,9 @@ tags:
 
 <p>En la consola del explorador tipeamos:</p>
 
-<pre>marcapagina.get("nombre")
-</pre>
+```javascript
+marcapagina.get("nombre")
+```
 
 <p>Nos retornaría el valor que esta alojado en ese atributo, en nuestro caso <code>Codehero</code>.</p>
 
@@ -172,8 +274,9 @@ tags:
 
 <p>En la consola del explorador tipeamos:</p>
 
-<pre>marcapagina.set("url", "http://www.codehero.co")
-</pre>
+```javascript
+marcapagina.set("url", "http://www.codehero.co")
+```
 
 <p>Si luego accediéramos a ese valor, nos retornaría el nuevo valor que alojamos en ese atributo, en nuestro caso <code>http://www.codehero.co</code>.</p>
 
@@ -189,20 +292,51 @@ tags:
 
 <p>Para solucionar esto, dentro del método <code>extend()</code> agregamos las siguientes lineas:</p>
 
-<pre>var Marcapagina = Ember.Object.extend({
+```javascript
+var Marcapagina = Ember.Object.extend({
 
     convertir_en_link: function() {
-        
+
         return "<a href='" + this.get("url") + "'>"
         + this.get("nombre")
         + "</a>";
     }
 });
-</pre>
+```
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/U9HDWLG.png" alt="ember-js-html-V" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+
+            		var Marcapagina = Ember.Object.extend({
+
+           			convertir_en_link: function() {
+           			return "<a href='" + this.get("url") + "'>"
+           			+ this.get("nombre")
+           			+ "</a>";
+           			}
+			});
+
+			var marcapagina = Marcapagina.create({ nombre: "Codehero", url: "http://codehero.co"});
+		</script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <p>Si lo probáramos en la consola del explorador. Tipeamos <code>marcapagina.convertir_en_link()</code>:</p>
 

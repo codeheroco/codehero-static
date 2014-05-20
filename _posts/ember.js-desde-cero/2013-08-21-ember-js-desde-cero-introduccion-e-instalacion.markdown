@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2059
 wordpress_url: http://codehero.co/?p=2059
 date: 2013-08-21 01:35:52.000000000 -04:30
+serie: Ember.js desde Cero
+dificultad: Aprendiz
+duracion: 15
+description: Bienvenidos Ember.js desde Cero. Hoy, vamos a ver una introducción a Ember.js, sus beneficios y vamos a crear nuestra primera app con el framework.
 categories:
 - Cursos
 - Ember.js
@@ -94,14 +98,25 @@ tags:
 
 <p>Agreguemos el siguiente código:</p>
 
-<p><img src="http://i.imgur.com/uvBSzV1.png" alt="ember-js-html" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+	</head>
+  <body>
+  </body>
+</html>
+```
 
 <p>Ahora a este código debemos agregarle las dependencias que descargamos anteriormente. Veamos cómo:</p>
 
-<pre><script src="jquery.min.js"></script>
+```html
+<script src="jquery.min.js"></script>
 <script src="handlebars.js"></script>
 <script src="ember.js"></script>
-</pre>
+```
 
 <blockquote>
   <p>Es importante que los archivos de las dependencias estén en el mismo nivel de la app para no tener ningún tipo de problema al ejecutar este código. En el caso que las dependencias se encuentren en otra dirección solo basta con colocar la dirección donde se encuentran más el nombre del archivo.</p>
@@ -109,7 +124,20 @@ tags:
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/hcg3aZE.png" alt="ember-js-archivo-index-html" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+	</head>
+  <body>
+  </body>
+</html>
+```
 
 <p>Probemos el archivo <code>index.html</code> en el explorador solo para comprobar que no exista ningún error con las dependencias (Hasta los momentos no hemos configurado nuestra app con el framework).</p>
 
@@ -127,16 +155,31 @@ tags:
 
 <p>Con esa nueva línea hemos creado nuestra aplicación:</p>
 
-<pre><script>
+```html
+<script>
     window.App = Ember.Application.create();
 </script>
-</pre>
+```
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/Rg6DlWk.png" alt="ember-js-html-archivo-II" /></p>
-
-<p> </p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+		</script>
+	</head>
+  <body>
+  </body>
+</html>
+```
 
 <p>Probemos la app un vez más en el explorador, tranquilos si no aparece nada, acuérdense que todavía no hemos creado ninguna plantilla la cual queramos renderizar.</p>
 
@@ -156,25 +199,42 @@ tags:
 
 <p>Agreguemos al archivo <code>index.html</code> el siguiente código entre los tags <em>body</em>:</p>
 
-<pre><script type="text/x-handlebars" data-template-name="index">
-    <h1>
-  Bienvenido a Ember.js!
-      
-    
-  
-</h1>
+```html
+<script type="text/x-handlebars" data-template-name="index">
+  <h1>
+    Bienvenido a Ember.js!
+  </h1>
 </script>
-</pre>
+```
 
 <blockquote>
   <p>Observemos que el <strong>type</strong> del script es <code>text/x-handlebars</code> ya que este tag permitirá a Ember.js determinar que este es una plantilla y que debe ser tratada como tal. Aparte, debemos asignarle un nombre a la plantilla <em>(data-template-name)</em>, en este caso vamos a usar <code>index</code>. </p>
-  
+
   <p>Cabe destacar que Ember.js busca de manera automática los nombre de las plantilla, y el primero que trata de encontrar es el index.</p>
 </blockquote>
 
 <p>El archivo <code>index.html</code> debería lucir así:</p>
 
-<p><img src="http://i.imgur.com/DnEymbl.png" alt="ember-js-archivo-html-III" /></p>
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Aprendamos Ember.js en Codehero!</title>
+		<script src="jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="ember.js"></script>
+		<script>
+			window.App = Ember.Application.create();
+		</script>
+	</head>
+<body>
+	<script type="text/x-handlebars" data-template-name="index">
+		<h1>Bienvenido a Ember.js!</h1>
+	</script>
+</body>
+</html>
+```
 
 <p>Si corremos en el explorador el archivo debemos observamos los siguiente:</p>
 

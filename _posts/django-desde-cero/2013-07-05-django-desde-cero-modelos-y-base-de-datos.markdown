@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 1315
 wordpress_url: http://codehero.co/?p=1315
 date: 2013-07-05 03:49:30.000000000 -04:30
+serie: Django desde Cero
+dificultad: Novato
+duracion: 25
+description: Curso en el cual aprenderemos Django desde Cero. En esta clase, estudiaremos como crear proyectos, apps, modelos y como conectarnos a la base de datos.
 categories:
 - Cursos
 - Django
@@ -31,8 +35,9 @@ tags:
 
 <p>Lo primero que necesitamos hacer es decirle a nuestro <code>django-admin.py</code> que nos cree un proyecto en Django. Veamos como:</p>
 
-<pre>django-admin.py startproject PrimerBlog
-</pre>
+```python
+django-admin.py startproject PrimerBlog
+```
 
 <p>Observemos que el único parámetro que necesitamos pasarle es el nombre del proyecto, en este caso <code>PrimerBlog</code>. Ese comando creará una serie de archivos que nos ayudarán a manejar nuestro sitio. Veamos los más importantes:</p>
 
@@ -60,8 +65,9 @@ tags:
 
 <p>Veamos como creamos una app en la que podamos empezar a escribir las funcionalidades que va a contener nuestro blog:</p>
 
-<pre>python2.7 mangage.py startapp blog
-</pre>
+```python
+python2.7 mangage.py startapp blog
+```
 
 <p>Como podemos observar, se ha creado una carpeta con el nombre de <strong>blog</strong> en la cual vamos a generar la funcionalidades del blog. Lo primero que necesitamos es entender como registrar y obtener la información con la cual nuestro sitio se va a nutrir, para eso es necesario echarle un ojo a los modelos.</p>
 
@@ -79,14 +85,15 @@ tags:
 
 <p>Dentro de <code>models.py</code>:</p>
 
-<pre>from django.db import models
+```python
+from django.db import models
  
 class Articulos(models.Model):
     autor = models.CharField(max_length = 30)
     titulo = models.CharField(max_length = 100)
     texto = models.TextField()
     fecha = models.DateTimeField()
-</pre>
+```
 
 <p>Revisemos el código para saber que significa cada instrucción. Lo primero que encontramos es <code>from django.db import models</code>, lo que hace es importar desde las librerías de Django la clase modelo para que así podamos heredar de ella nuestras estructuras de datos. Segundo, <code>class Articulos(models.Model):</code>, genera una clase la cual va actuar como una tabla de base de datos dentro del proyecto. Tercero, tenemos que especificar que atributos son los que queremos guardar, en este caso, tenemos <strong>autor</strong> el cual va a ser un varchar de 30 caracteres, titulo un varchar de 100 caracteres, texto va a ser un campo de texto y fecha va a ser un campo tipo datetime dentro del la base de datos.</p>
 
@@ -96,7 +103,8 @@ class Articulos(models.Model):
   <p>La base de datos que vamos a estar usando en nuestro proyecto va a ser <strong>MySQL</strong>, pero Django soporta varios tipos como por ejemplo <strong>Postgres</strong>, <strong>SqlLite3</strong> y <strong>Oracle</strong>.</p>
 </blockquote>
 
-<pre>DATABASES = {
+```python
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'primer_blog',                      # Or path to database file if using sqlite3.
@@ -106,19 +114,21 @@ class Articulos(models.Model):
         'PORT': '8889',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
-</pre>
+```
 
 <p>Podemos observar que el engine o motor de base de datos que estoy usando es <code>django.db.backends.mysql</code> ya que como mencioné anteriormente vamos a usar <strong>MySql</strong>. El nombre de la base de datos va a ser <code>primer_blog</code>, el usuario y la clave de la base de datos va a ser <code>root</code>, respectivamente. El host es la dirección en donde esta ubicada la BD, en este caso, <code>127.0.0.1</code> y el puerto va a ser <code>8889</code>. Cabe destacar que esta configuración se adapta a mis credenciales para acceder a la base de datos que tengo configurada en mi máquina, las tuyas deberían coincidir con tu propia configuración.</p>
 
 <p>Una vez que terminemos de modificar el archivo <code>settings.py</code>, debemos instalar el conector <strong>MySQLdb</strong>, el cual permitirá que Django (Python) se comunique con MySql sin ningún problema. Veamos como hacerlo:</p>
 
-<pre>pip install MySQL-python
-</pre>
+```python
+pip install MySQL-python
+```
 
 <p>Lo último que nos queda por hacer, es sincronizar dicha base de datos para que Django generé las tablas por nosotros. Veamos como hacerlo:</p>
 
-<pre>python2.7 manage.py syncdb
-</pre>
+```python
+python2.7 manage.py syncdb
+```
 
 <blockquote>
   <p>Cada vez que cambies tus modelos, deberás correr este comando para modificar la base de datos. Como es primera vez que ejecutas este comando, Django te preguntará si quieres crear un super-usuario, solo tipea <code>yes</code> y se configurará todo por ti.</p>

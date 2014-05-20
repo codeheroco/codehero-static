@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2407
 wordpress_url: http://codehero.co/?p=2407
 date: 2013-10-16 01:35:18.000000000 -04:30
+serie: Django desde Cero
+dificultad: Aprendiz
+duracion: 20
+description: Curso en el cual aprenderemos Django desde Cero. En esta clase, estudiaremos como crear validación de formularios. Los validadores previenen data errónea.
 categories:
 - Cursos
 - Django
@@ -44,16 +48,17 @@ tags:
 
 <p>Lo primero que tenemos que hacer es declarar un método dentro de la misma clase (<em>ArticuloForm</em>), en donde definiremos toda nuestra lógica de validación para un campo del formulario en especifico. Vamos a empezar por validar el campo del autor. Para eso vamos a agregar la siguiente función al archivo <code>forms.py</code> dentro de nuestra app <em>blog</em>.</p>
 
-<pre>def clean_autor(self):
+```python
+def clean_autor(self):
       diccionario_limpio = self.cleaned_data
-      
+
       autor = diccionario_limpio.get('autor')
 
       if len(autor) &lt; 3:
          raise forms.ValidationError("El autor debe contener mas de tres caracteres")
 
       return autor  
-</pre>
+```
 
 <p>Observemos lo siguiente:</p>
 
@@ -67,10 +72,11 @@ tags:
 
 <p>Este mismo procedimiento debemos usarlo con todos los campos que queramos validar. Para no extender el tutorial y dejarlo lo mas simple posible les voy a dejar el archivo completo con todas las validaciones necesarias para verificar todos los campos que venimos usando.</p>
 
-<pre>from django import forms
+```python
+from django import forms
 from models import Articulo
 
-from django.utils import timezone   
+from django.utils import timezone
 
 
 class ArticuloForm(forms.ModelForm):
@@ -81,40 +87,40 @@ class ArticuloForm(forms.ModelForm):
    #Validamos que el autor no sea menor a 3 caracteres
    def clean_autor(self):
       diccionario_limpio = self.cleaned_data
-      
+
       autor = diccionario_limpio.get('autor')
 
       if len(autor) &lt; 3:
          raise forms.ValidationError("El autor debe contener mas de tres caracteres")
 
-      return autor   
+      return autor
 
    #Validamos que el titulo no sea mayor a 50 caracteres
    def clean_titulo(self):
       diccionario_limpio = self.cleaned_data
-      
+
       titulo = diccionario_limpio.get('titulo')
 
       if len(titulo) > 50:
          raise forms.ValidationError("El titulo debe ser menor a 50 caracteres")
 
-      return titulo 
+      return titulo
 
    #Validamos que el texto no sea mayor a 400 caracteres
    def clean_texto(self):
       diccionario_limpio = self.cleaned_data
-      
+
       texto = diccionario_limpio.get('texto')
 
       if len(texto) > 400:
          raise forms.ValidationError("El texto no debe estar vacio")
 
-      return texto   
+      return texto
 
    #Validamos que la fecha no sea mayor a la fecha actual
    def clean_fecha(self):
       diccionario_limpio = self.cleaned_data
-      
+
       fecha_articulo = diccionario_limpio.get('fecha')
 
       #Obtenemos la fecha actual
@@ -124,7 +130,7 @@ class ArticuloForm(forms.ModelForm):
          raise forms.ValidationError("El fecha no debe ser mayor al dia de hoy")
 
       return fecha_articulo  
-</pre>
+```
 
 <hr />
 

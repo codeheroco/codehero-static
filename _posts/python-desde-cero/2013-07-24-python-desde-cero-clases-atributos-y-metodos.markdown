@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 1647
 wordpress_url: http://codehero.co/?p=1647
 date: 2013-07-24 00:00:02.000000000 -04:30
+serie: Python desde Cero
+dificultad: Novato
+duracion: 20
+description: Curso en el cual aprenderemos Python desde Cero. En esta clase, aprenderemos a programar orientado a objetos, es decir, vamos a aprender a definir una clase
 categories:
 - Cursos
 - Python
@@ -32,8 +36,9 @@ tags:
 
 <p>Para definir una clase en Python, solo tenemos que hacer uso de la palabra clave <strong>‘class’</strong>, seguida del nombre que le quieras asignar, seguido de un doble punto. Veamos un ejemplo:</p>
 
-<pre>class mascota:
-</pre>
+```python
+class mascota:
+```
 
 <blockquote>
   <p>Si observamos el ejemplo, podemos apreciar que creamos una clase llamada mascota.</p>
@@ -52,10 +57,11 @@ tags:
 
 <p>De nada nos sirve una clase sin atributos que la definan, es por eso que debemos asignarle a la <strong>clase mascota</strong> algunas propiedades. Veamos como:</p>
 
-<pre>class mascota:
+```python
+class mascota:
    numero_de_patas = 0
    color = “marrón”
-</pre>
+```
 
 <blockquote>
   <p>Observemos que para definir los atributos, lo único que tenemos que hacer es declarar algunas variables dentro de la clase. En el ejemplo, declaramos <code>numero_de_patas</code> y <code>color</code>, dos características de la mascota que quisiéramos guardar en el objeto. En cuanto a los atributos de una clase no existen limites, puedes usar cuantos tu quieras para cumplir con la definición de ese objeto.</p>
@@ -74,12 +80,13 @@ tags:
 
 <p>Una declaración de una clase no es algo que uno pueda manipular directamente, es por eso que tenemos que instanciar un objeto de esa clase para así modificar los atributos que esta posea. Para instanciar una clase en Python, lo único que tenemos que hacer, es asignar a una variable el nombre de la clase seguida de paréntesis. Veamos como, siguiendo el ejemplo anterior:</p>
 
-<pre>class mascota:
+```python
+class mascota:
    numero_de_patas = 0
    color = “marrón”
 
 perro = mascota()
-</pre>
+```
 
 <hr />
 
@@ -87,8 +94,9 @@ perro = mascota()
 
 <p>Para referenciar una propiedad o atributo de un objeto en Python, lo único que tenemos que hacer es seguir la siguiente estructura <code>nombre_variable + . + nombre_atributo</code>. Veamos como, dado el ejemplo anterior:</p>
 
-<pre>perro.numero_de_patas
-</pre>
+```python
+perro.numero_de_patas
+```
 
 <blockquote>
   <p>Observemos que lo que estamos haciendo, es referenciar el valor contenido en el atributo <code>numero_de_patas</code>, es decir, estamos obteniendo el valor de la propiedad <code>numero_de_patas</code> del objeto <code>perro</code>.</p>
@@ -96,7 +104,8 @@ perro = mascota()
 
 <p>Nosotros podemos tratar es propiedad como si fuera una variable cualquiera, es por eso que podemos modificar el valor de ese atributo. Veamos como:</p>
 
-<pre>class mascota:
+```python
+class mascota:
    numero_de_patas = 0
    color = “marrón”
 
@@ -104,12 +113,13 @@ perro = mascota()
 perro.numero_de_patas = 4
 perro.color = “negro”
 print "El perro tiene “ + perro.numero_de_patas + “ patas y es de color “ + perro.color
-</pre>
+```
 
 <p>Si ejecutamos el código anterior podemos observar que nos imprime lo siguiente:</p>
 
-<pre>El perro tiene 4 patas y es de color negro
-</pre>
+```python
+El perro tiene 4 patas y es de color negro
+```
 
 <p>Esto se debe a que modificamos las propiedades del objeto <em>perro</em>, ya que es un <em>“perro”</em> lo que estábamos definiendo, decidí asignarle 4 al número de patas con la siguiente expresión <code>perro.numero_de_patas = 4</code> y negro al color de la mascota con la siguiente expresión <code>perro.color = “negro”</code>.</p>
 
@@ -123,7 +133,8 @@ print "El perro tiene “ + perro.numero_de_patas + “ patas y es de color �
 
 <p>Para definir un método debemos usar la palabra clave <strong>def</strong>, luego, el nombre que le queramos dar al método, seguido de <code>(self):</code>. Veamos como definir un método siguiendo los ejemplos anteriores:</p>
 
-<pre>class mascota:
+```python
+class mascota:
    numero_de_patas = 0
    color = “marrón”
 
@@ -131,7 +142,7 @@ print "El perro tiene “ + perro.numero_de_patas + “ patas y es de color �
         print "zzz"  
 
 perro = mascota()
-</pre>
+```
 
 <blockquote>
   <p>Observemos que definimos un método dentro de la clase mascota llamado <code>dormir</code>. La función de este método es imprimir <strong>”zzz”</strong> cada vez que lo invoquemos.</p>
@@ -148,7 +159,8 @@ perro = mascota()
 
 <p>Ahora, ¿Cómo usamos ese método que acabamos de crear?. Sencillo, lo único que tenemos que hacer es instanciar una clase <strong>mascota</strong> y luego, a través de ella, invocar al método <strong>dormir</strong>. Veamos como:</p>
 
-<pre>class mascota:
+```python
+class mascota:
    numero_de_patas = 0
    color = “marrón”
 
@@ -157,7 +169,7 @@ perro = mascota()
 
 perro = mascota()
 perro.dormir()
-</pre>
+```
 
 <blockquote>
   <p>Observemos que al final del script invocamos al método dormir cuando ejecutamos esta instrucción <code>perro.dormir()</code>. Siempre para referenciar las funciones debemos usar el siguiente esquema <code>nombre_variable + . + nombre_método + ()</code>. Es importante destacar que no debemos pasarle ningún atributo al método ya que Python lo hace por nosotros para satisfacer el argumento <strong>self</strong>, es decir, Python automáticamente le pasa como argumento la instancia de ese objeto al método que estemos invocando.</p>
@@ -165,8 +177,9 @@ perro.dormir()
 
 <p>Si ejecutamos el código anterior, debemos observar que imprime el mensaje que escribimos en el método.</p>
 
-<pre>zzz
-</pre>
+```python
+zzz
+```
 
 <hr />
 

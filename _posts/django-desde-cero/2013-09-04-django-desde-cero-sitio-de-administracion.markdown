@@ -9,6 +9,10 @@ author_email: carlospicca@gmail.com
 wordpress_id: 2169
 wordpress_url: http://codehero.co/?p=2169
 date: 2013-09-04 01:15:55.000000000 -04:30
+serie: Django desde Cero
+dificultad: Novato
+duracion: 15
+description: Curso en el cual aprenderemos Django desde Cero. En esta clase, estudiaremos como configurar, acceder y manejar el módulo de administrador de django.
 categories:
 - Cursos
 - Django
@@ -35,14 +39,15 @@ tags:
 
 <p>Muy sencillo. Lo primero que tenemos que hacer es ir al archivo <code>urls.py</code> dentro de la carpeta <strong>PrimerBlog</strong>, y descomentar las siguientes líneas:</p>
 
-<pre>from django.contrib import admin
+```python
+from django.contrib import admin
 admin.autodiscover()
 
 ...
 
 url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 url(r'^admin/', include(admin.site.urls)),
-</pre>
+```
 
 <blockquote>
   <p>Al descomentar estas líneas estamos permitiendo el acceso al sitio de administrador cuando navegamos a la siguiente dirección <a href="http://127.0.0.1:8000/admin">http://127.0.0.1:8000/admin</a>.</p>
@@ -50,7 +55,8 @@ url(r'^admin/', include(admin.site.urls)),
 
 <p>El archivo <code>urls.py</code> debería lucir así:</p>
 
-<pre>from django.conf.urls import patterns, include, url
+```python
+from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -69,7 +75,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
-</pre>
+```
 
 <blockquote>
   <p>Al descomentar estas líneas estamos agregando las apps de administrador de Django a nuestro proyecto.</p>
@@ -79,13 +85,15 @@ urlpatterns = patterns('',
 
 <p>Para sincronizar la base de datos hacemos uso de <code>syncdb</code>:</p>
 
-<pre>python2.7 manage.py syncdb
-</pre>
+```python
+python2.7 manage.py syncdb
+```
 
 <p>Una vez que el proceso haya terminado encendemos el servidor:</p>
 
-<pre>python2.7 manage.py runserver
-</pre>
+```python
+python2.7 manage.py runserver
+```
 
 <p>Una vez que hayamos completado estos pasos ya deberíamos tener activo el módulo de administrador en nuestra aplicación.</p>
 
@@ -115,15 +123,16 @@ urlpatterns = patterns('',
 
 <p>Crear un archivo llamado <code>admin.py</code> dentro de la carpeta de la aplicación <strong>blog</strong> (<em>En nuestro caso la dirección seria <code>/PrimerBlog/blog</code></em>). Dentro del archivo agregamos las siguientes líneas de código:</p>
 
-<pre>from django.contrib import admin
+```python
+from django.contrib import admin
 from models import Articulo
 
 admin.site.register(Articulo)
-</pre>
+```
 
 <blockquote>
   <p>Observemos lo siguiente <em>(línea por línea)</em>:</p>
-  
+
   <ol>
   <li><p>Con <code>from django.contrib import admin</code> estamos importando el módulo de administrador.</p></li>
   <li><p>Con <code>from models import Articulo</code> estamos importando nuestro módulo <strong>Articulo</strong>, el cual maneja todos los artículos dentro de nuestro blog.</p></li>
@@ -135,13 +144,15 @@ admin.site.register(Articulo)
 
 <p>Lo apagamos:</p>
 
-<pre>CONTROL-C
-</pre>
+```python
+CONTROL-C
+```
 
 <p>Lo volvemos a encender:</p>
 
-<pre>python2.7 manage.py runserver
-</pre>
+```python
+python2.7 manage.py runserver
+```
 
 <p>Ahora podemos observar que dentro del módulo de administrador podemos manejar nuestro propio modelo.</p>
 
