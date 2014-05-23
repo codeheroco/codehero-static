@@ -1,3 +1,4 @@
+.ruby-version
 .bundle/
 .env
 _site
