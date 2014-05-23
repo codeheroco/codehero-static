@@ -31,7 +31,6 @@ layout: nil
     </content>
     <author>
       <name>{{ post.author }}</name>
-      <email>{{ post.author_email }}</email>
     </author>
   </entry>
   {% endfor %}
