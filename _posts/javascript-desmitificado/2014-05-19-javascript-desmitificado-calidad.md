@@ -13,6 +13,10 @@ categories:
 - JavaScript Desmitificado
 tags:
 - JavaScript Desmitificado
+- pruebas
+- jslint
+- jshint
+- mocha
 ---
 
 Ya hablamos de lo básico: objetos, funciones, clausuras; pasamos por temas más complicados como la coerción y concurrencia. Ahora ha llegado el momento de terminar esta serie. Hoy hablaré de como escribir código JavaScript de buena calidad y cuales son los mecanismos mediante los cuales ésta puede ser medida.
@@ -53,22 +57,22 @@ Esta es una aplicación de linea de comando que analiza archivos de javacript y 
 Podemos instalarla con "npm":
 
 ```bash
-	$ npm install -g complexity-report
+$ npm install -g complexity-report
 ```
 
 y luego para generar un reporte:
 
 ```bash
-	$ cr {dirección de archivo}
+$ cr {dirección de archivo}
 ```
 
 Esta útil herramienta no solo nos permite ver la cantidad de lineas de código, argumentos por función o indice de mantenibilidad, entre otras cosas, si no que también puede configurarse para evitar hacer deploy de una aplicación si el código no alcanza un requerimiento mínimo de calidad.
 
 ### Plato
 
-Plato es genial. No hace mucho que lo descubrí y ya no puedo dejar de usarlo. Esta herramienta de análisis de calidad que permite generar reportes con gráficas basandose en los resultados de JSLint y Complexity-Report. 
+Plato es genial. No hace mucho que lo descubrí y ya no puedo dejar de usarlo. Esta herramienta de análisis de calidad que permite generar reportes con gráficas basandose en los resultados de JSLint y Complexity-Report.
 
-Puedes visitar [la página de la librería en Github](https://github.com/es-analysis/plato) y ver algunos ejemplos de los reportes que es capaz de generar sobre librerías o aplicaciones famosas como jQuery y Grunt. 
+Puedes visitar [la página de la librería en Github](https://github.com/es-analysis/plato) y ver algunos ejemplos de los reportes que es capaz de generar sobre librerías o aplicaciones famosas como jQuery y Grunt.
 
 ***
 
@@ -84,32 +88,24 @@ Mi herramienta favorita para hacer pruebas en Javascript es Mocha. Esta fue desa
 
 Se puede instalar facilite con npm:
 
-```bach
-	$ npm install -g mocha
+```bash
+$ npm install -g mocha
 ```
 
 Luego podemos escribir una prueba.
 
 ```javascript
-
-	describe('User tests', function() {
-	
-	  describe('Save to database', function() {
-	  
-	    it('Should save without error', function(done){
-	    
-	      var user = new User('Oscar');
-	      
-	      user.save(function(err){
-	        
-	        if (err) throw err;
-	        
-	        done();
-	      });
-	    });
-	  });
-	});
-
+describe('User tests', function() {
+  describe('Save to database', function() {
+    it('Should save without error', function(done){
+      var user = new User('Oscar');
+      user.save(function(err){
+        if (err) throw err;
+        done();
+      });
+    });
+  });
+});
 ```
 
 ***
