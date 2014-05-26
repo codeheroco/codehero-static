@@ -33,7 +33,7 @@
       <div class="row">
       {% assign counter = -1 %}
       {% for post in sorted_pages %}
-        {% if post.categories contains page.post_cat %}
+        {% if post.serie contains page.series_header %}
           {% assign counter = counter | plus:1 %}
           {% assign num_post = counter | modulo:4 %}
           {% if num_post == 0 %}
