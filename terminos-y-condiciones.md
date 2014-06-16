@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Términos y Condiciones - Codehero
+title: Términos y Condiciones
 permalink: terminos-y-condiciones.html
 description: Página de términos y condiciones del blog de Codehero.
 ---

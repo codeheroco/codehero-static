@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Sobre Nosotros - Codehero
+title: Sobre Nosotros
 permalink: sobre-nosotros.html
 description: Página que habla un poco de la historia de cómo nace Codehero.
 ---

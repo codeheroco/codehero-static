@@ -1,7 +1,7 @@
 ---
 layout: default
 permalink: esenciales.html
-title: Codehero - Esenciales
+title: Codehero
 description: Página de esenciales de Codehero, encuentra aquí la información sobre nosotros, nuestros términos y condiciones y nuestra política de privacidad.
 ---
 Tómate unos minutos y conoce todo lo que debes saber sobre Codehero:
