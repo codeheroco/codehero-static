@@ -1,0 +1,16 @@
+---
+layout: default
+title: Contribuidores
+permalink: contributors.html
+description: Ficha personal de todos los contribuidores a Codehero.co
+---
+
+<div class="contenido-fondo-blanco col-xs-12 col-sm-9 col-md-9">
+  <ul class="author-list horizontal-list-oscuras">
+    {% for autor in site.data.contribuidores %}
+      <div class="row">
+        {% include templates/autor-description.html %}
+      </div>
+    {% endfor %}
+  </ul>
+</div>
