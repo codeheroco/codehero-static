@@ -22,7 +22,11 @@
     </h1>
     {% unless page.author_name %}
       <p class="author">
-        Publicado por: <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>,
+        {% if post.categories contains 'comunidad' %}
+          Publicado por: <a href="/contributor/{{ post.author_login }}.html">{{ post.author }}</a>,
+        {% else %}
+          Publicado por: <a href="/author/{{ post.author_login }}.html">{{ post.author }}</a>,
+        {% endif %}
         El {{ post.date | date_to_string }}, Tiene <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}/"><!-- comments --></a>
         comentarios.
       </p>

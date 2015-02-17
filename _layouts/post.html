@@ -24,7 +24,11 @@ layout: default
           {% else %}
             <h1>{{ page.title }}</h1>
           {% endif %}
-          <p class="author">Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date_to_string }}</p>
+          {% if post.categories contains 'comunidad' %}
+            <p class="author">Publicado Por: <a href="/contributor/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date_to_string }}</p>
+          {% else %}
+            <p class="author">Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date_to_string }}</p>
+          {% endif %}
           {% unless page.dificultad or page.duracion %}
             {% include share-buttons.html %}
           {% endunless %}
