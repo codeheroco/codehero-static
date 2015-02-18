@@ -123,6 +123,11 @@ layout: default
                 <img class="post-author-thumb" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
               {% endif %}
             {% endfor %}
+            {% for autor in site.data.contribuidores %}
+              {% if autor.name == page.author %}
+                <img class="post-author-thumb" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+              {% endif %}
+            {% endfor %}
           </div>
           <div class="col-xs-12 col-sm-8 col-md-9">
             <h4>Por {{ page.author }}</h4>
