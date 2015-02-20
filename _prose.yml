@@ -1,0 +1,107 @@
+prose:
+  rooturl: '_posts/comunidad'
+  siteurl: 'http://codehero.co'
+  metadata:
+    _posts/comunidad:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "status"
+        field:
+          element: "hidden"
+          value: "publish"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Título"
+          value: ""
+      - name: "author"
+        field:
+          element: "text"
+          label: "Nombre del autor"
+          value: ""
+      - name: "author_login"
+        field:
+          element: "text"
+          label: "Nombre de usuario en el blog"
+          value: ""
+      - name: "description"
+        field:
+          element: "textarea"
+          label: "Descripción"
+          placeholder: "Escribir aquí una descripción menor a 155 caracteres"
+      - name: "dificultad"
+        field:
+          element: "select"
+          label: "Dificultad"
+          placeholder: "Escoger dificultad"
+          value: ""
+          options:
+            - name: "Novato"
+              value: "Novato"
+            - name: "Aprendiz"
+              value: "Aprendiz"
+            - name: "Intermedio"
+              value: "Intermedio"
+            - name: "Avanzado"
+              value: "Avanzado"
+            - name: "Heroe"
+              value: "Heroe"
+      - name: "duracion"
+        field:
+          element: "select"
+          label: "Duración"
+          help: "Cantidad de minutos que le puede tomar a alguien leer y realizar lo que se expone en la entrada"
+          options:
+            - name: "5 min"
+              value: 5
+            - name: "10 min"
+              value: 10
+            - name: "15 min"
+              value: 15
+            - name: "20 min"
+              value: 20
+            - name: "25 min"
+              value: 25
+            - name: "30 min"
+              value: 30
+            - name: "35 min"
+              value: 35
+            - name: "40 min"
+              value: 40
+            - name: "45 min"
+              value: 45
+            - name: "50 min"
+              value: 50
+            - name: "55 min"
+              value: 55
+            - name: "60 min"
+              value: 60
+      - name: "github"
+        field:
+          element: "text"
+          label: "URL de repositorio Github"
+          help: "En caso de que tu entrada tenga relacionada un proyecto de Github, coloca aquí el URL del repositorio"
+          value: ""
+      - name: "thumbnail"
+        field:
+          element: "text"
+          label: "Imagen de entrada"
+          help: "Procura que la imagen sea de 200x200"
+          value: ""
+      - name: "categories"
+        field:
+          element: "hidden"
+          value: "comunidad"
+      - name: "tags"
+        field:
+          element: "multiselect"
+          label: "Agregar etiquetas"
+          placeholder: "Escoger etiquetas"
+          alterable: true
+          value: ""
+      - name: "published"
+        field:
+          element: "hidden"
+          value: true

@@ -1,0 +1,15 @@
+---
+layout: post
+status: publish
+title: Test
+author: Mr. Test
+author_login: mrtest
+thumbnail: http://i.imgur.com/ERooO8q.jpg
+description: Test test.
+dificultad: Novato
+duracion: 5
+categories:
+- comunidad
+tags:
+---
+Testinnnnng
