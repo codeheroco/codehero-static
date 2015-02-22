@@ -24,7 +24,11 @@ layout: default
           {% else %}
             <h1>{{ page.title }}</h1>
           {% endif %}
-          <p class="author">Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date_to_string }}</p>
+          {% if post.categories contains 'comunidad' %}
+            <p class="author">Publicado Por: <a href="/contributor/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date_to_string }}</p>
+          {% else %}
+            <p class="author">Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date_to_string }}</p>
+          {% endif %}
           {% unless page.dificultad or page.duracion %}
             {% include share-buttons.html %}
           {% endunless %}
@@ -119,10 +123,19 @@ layout: default
                 <img class="post-author-thumb" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
               {% endif %}
             {% endfor %}
+            {% for autor in site.data.contribuidores %}
+              {% if autor.name == page.author %}
+                <img class="post-author-thumb" src="http://www.gravatar.com/avatar/{{ autor.thumb }}" alt="gravatar">
+              {% endif %}
+            {% endfor %}
           </div>
           <div class="col-xs-12 col-sm-8 col-md-9">
             <h4>Por {{ page.author }}</h4>
-            <p>Conoce más sobre este autor <a href="/author/{{ page.author_login }}.html">aquí</a></p>
+            {% if post.categories contains 'comunidad' %}
+              <p>Conoce más sobre este autor <a href="/contributor/{{ page.author_login }}.html">aquí</a></p>
+            {% else %}
+              <p>Conoce más sobre este autor <a href="/author/{{ page.author_login }}.html">aquí</a></p>
+            {% endif %}
           </div>
         </div>
       </div>

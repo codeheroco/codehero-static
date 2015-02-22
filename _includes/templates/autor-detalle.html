@@ -7,6 +7,11 @@
             {% include templates/autor-description.html %}
           {% endif %}
         {% endfor %}
+        {% for autor in site.data.contribuidores %}
+          {% if autor.name == page.author_name %}
+            {% include templates/autor-description.html %}
+          {% endif %}
+        {% endfor %}
       </div>
     </ul>
     <h2>Publicaciones</h2>
