@@ -25,9 +25,9 @@ layout: default
             <h1>{{ page.title }}</h1>
           {% endif %}
           {% if post.categories contains 'comunidad' %}
-            <p class="author">Publicado Por: <a href="/contributor/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date_to_string }}</p>
+            <p class="author">Publicado Por: <a href="/contributor/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date: "%d/%m/%Y" }}</p>
           {% else %}
-            <p class="author">Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date_to_string }}</p>
+            <p class="author">Publicado Por: <a href="/author/{{ page.author_login }}.html">{{ page.author }}</a>, El {{ page.date | date: "%d/%m/%Y" }}</p>
           {% endif %}
           {% unless page.dificultad or page.duracion %}
             {% include share-buttons.html %}

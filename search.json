@@ -14,7 +14,7 @@
                 "{{tag}}" {% if forloop.last %}{% else %},{% endif %}
             {% endfor%}
             ],
-            "date"     : "{{ post.date | date_to_string }}",
+            "date"     : "{{ post.date | date: "%d/%m/%Y" }}",
             "author":   "{{ post.author }}",
             "author_login": "{{ post.author_login }}",
             {% if post.serie %}
