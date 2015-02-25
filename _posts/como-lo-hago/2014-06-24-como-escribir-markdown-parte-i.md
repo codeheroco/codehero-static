@@ -162,7 +162,7 @@ Se vería algo así:
 
 *texto italico.* __texto negrita.__
 
-### Tachado*
+## Tachado*
 
 Este permite colocar texto como si lo estuviésemos tachando, utilizado mucho noticias que fueron corregidas o actualizadas.
 
@@ -174,7 +174,7 @@ Basta con rodear el texto entre doble virgulillas o tildes de eñe:
 ~~texto tachado.~~
 ```
 
-> Esta opción no está disponible para todos los parsers de Markdown, ya que no es parte del estándar unificado.
+> * Esta opción no está disponible para todos los parsers de Markdown, ya que no es parte del estándar unificado.
 
 ***
 
