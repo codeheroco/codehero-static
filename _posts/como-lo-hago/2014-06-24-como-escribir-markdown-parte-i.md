@@ -174,7 +174,7 @@ Basta con rodear el texto entre doble virgulillas o tildes de eñe:
 ~~texto tachado.~~
 ```
 
-> * Esta opción no está disponible para todos los parsers de Markdown, ya que no es parte del estándar unificado.
+> (*) Esta opción no está disponible para todos los parsers de Markdown, ya que no es parte del estándar unificado.
 
 ***
 
