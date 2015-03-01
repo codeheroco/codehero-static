@@ -32,5 +32,8 @@ Limitamos los posts para que Jekyll no demore tanto en regenerar el blog.
 - Efectuar cambios en repositorio clonado
 - Hacer pull-request a master
 
+Para contribución de entradas dirigete al [wiki de contribución de entradas][wiki-contrib].
+
 [wiki]: https://github.com/albertogg/codehero-jekyll/wiki
 [wiki-inst]: https://github.com/albertogg/codehero-jekyll/wiki/detalles-de-instalacion.md
+[wiki-contrib]: https://github.com/codeheroco/codehero-static/wiki/Contribuci%C3%B3n-de-entradas
