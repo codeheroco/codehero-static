@@ -37,6 +37,8 @@ Esto no significa que la manera de escribir de estos usuarios no se pueda estand
 sin importar el portar o el manejador de contenido que se utilice, por ello esta semana presentamos una pequeña entrada del uso
 de Markdown.
 
+> **Actualización**: La segunda parte de esta entrada [ya se encuentra disponible](http://codehero.co/como-escribir-markdown-parte-ii/).
+
 ***
 
 ## Qué es Markdown
