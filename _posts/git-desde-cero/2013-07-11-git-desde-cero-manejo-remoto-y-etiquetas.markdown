@@ -183,7 +183,7 @@ index 0000000..876f92f
 \ No newline at end of file
 ```
 
-<p>Una vez que hayamos creado nuevos tags y queramos compartirlos con el repositorio remoto sólo debemos emplear el comando <em>pull</em> con la bandera <em>--tags</em> de la siguiente manera:</p>
+<p>Una vez que hayamos creado nuevos tags y queramos compartirlos con el repositorio remoto sólo debemos emplear el comando <em>push</em> con la bandera <em>--tags</em> de la siguiente manera:</p>
 
 ```sh
 $ git push origin master --tags
