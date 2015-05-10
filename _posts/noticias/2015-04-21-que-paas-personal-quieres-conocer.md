@@ -21,6 +21,10 @@ dependencias y servicios es tan fácil como crear un único archivo.
 
 Hace un tiempo hablamos de [Dokku](http://codehero.co/como-instalar-y-utilizar-dokku), lo cual categorizamos como un pequeño Heroku peronsal para encapsular nuestras aplicaciones, un PaaS personal si se quiere. Hoy en día han surgido varias alternativas a este proyecto y, al igual que ustedes, nos encantaría conocer sobre ellas.
 
-En la encuesta que sigue expresa tu opinión y si la opción en la que piensas no se encuentra listada dejanos saber en los comentarios. 
+En la encuesta que sigue expresa tu opinión y si la opción en la que piensas no se encuentra listada dejanos saber en los comentarios.
 
-<iframe src="http://files.quizsnack.com/iframe/embed.html?hash=qhc843lj&width=250&height=370&wmode=transparent&t=1429642544&width=250&height=370" width="250" height="370" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+**Actualización:** La encuesta ha terminado. La votación ha estado muy reñida. El ganador ha sido **[Deis](http://deis.io/)**:
+
+![Resultados encuesta](http://i.imgur.com/whTUbzp.png).
+
+Muchas gracias a todos por su participación. Proximamente estaremos publicando la entrada para conocer más sobre el PaaS personal más votado.
